@@ -1,4 +1,4 @@
- #### Brief Description of ODEPACK - A Systematized Collection of ODE Solvers (Double Precision Version)
+ ### Brief Description of ODEPACK - A Systematized Collection of ODE Solvers (Double Precision Version)
 
  Alan C. Hindmarsh
  Center for Applied Scientific Computing, L-561
@@ -72,17 +72,17 @@ operations described above.)
 
 References:
 
-1.  A. C. Hindmarsh, "ODEPACK, A Systematized Collection of ODE Solvers,"
+1.  A. C. Hindmarsh, "[ODEPACK, A Systematized Collection of ODE Solvers](https://computation.llnl.gov/casc/nsde/pubs/u88007.pdf),"
      in Scientific Computing, R. S. Stepleman et al. (eds.), North-Holland,
      Amsterdam, 1983 (vol. 1 of IMACS Transactions on Scientific Computation),
      pp. 55-64.
 
-2.  K. Radhakrishnan and A. C. Hindmarsh, "Description and Use of LSODE,
-     the Livermore Solver for Ordinary Differential Equations," LLNL
+2.  K. Radhakrishnan and A. C. Hindmarsh, "[Description and Use of LSODE,
+     the Livermore Solver for Ordinary Differential Equations](https://computation.llnl.gov/casc/nsde/pubs/u113855.pdf)," LLNL
      report UCRL-ID-113855, December 1993.
 
-3.  P. N. Brown and A. C. Hindmarsh, "Reduced Storage Matrix Methods
-     in Stiff ODE Systems," J. Appl. Math. & Comp., 31 (1989), pp.40-91.
+3.  P. N. Brown and A. C. Hindmarsh, "[Reduced Storage Matrix Methods
+     in Stiff ODE Systems](https://computation.llnl.gov/casc/nsde/pubs/u95088.pdf)," J. Appl. Math. & Comp., 31 (1989), pp.40-91.
 
 ---------------------------------------------------------------------------
 
