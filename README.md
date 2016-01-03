@@ -1,11 +1,12 @@
- ### Brief Description of ODEPACK - A Systematized Collection of ODE Solvers (Double Precision Version)
 
- Alan C. Hindmarsh
- Center for Applied Scientific Computing, L-561
- Lawrence Livermore National Laboratory
- Livermore, CA 94551, U.S.A.
+## Brief Description of ODEPACK - A Systematized Collection of ODE Solvers (Double Precision Version)
 
- 20 June 2001
+Alan C. Hindmarsh
+Center for Applied Scientific Computing, L-561
+Lawrence Livermore National Laboratory
+Livermore, CA 94551, U.S.A.
+
+20 June 2001
 
 Work performed under the auspices of the U.S. Department of Energy
 by the Lawrence Livermore National Laboratory under contract
@@ -69,8 +70,7 @@ For additional documentation on ODEPACK, see also the papers [1], [2]
 cited there.  (However, the document [2] does not reflect the upgrade
 operations described above.)
 
-
-References:
+### References:
 
 1.  A. C. Hindmarsh, "[ODEPACK, A Systematized Collection of ODE Solvers](https://computation.llnl.gov/casc/nsde/pubs/u88007.pdf),"
      in Scientific Computing, R. S. Stepleman et al. (eds.), North-Holland,
