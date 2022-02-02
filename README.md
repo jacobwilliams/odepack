@@ -7,6 +7,10 @@ might have test cases:
 
    https://people.sc.fsu.edu/~jburkardt/f77_src/odepack/odepack.html
 -->
+
+![ODEPACK](media/odepack.png)
+============
+
 # module ODEPACK
 
 This is a WIP(Work In Progress) to evaluate the effort required and

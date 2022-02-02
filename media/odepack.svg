@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="121.33593mm"
+   height="30.628176mm"
+   viewBox="0 0 121.33593 30.628176"
+   version="1.1"
+   id="svg943"
+   inkscape:version="1.0.2 (e86c8708, 2021-01-15)"
+   sodipodi:docname="odepack.svg"
+   inkscape:export-filename="odepack.png"
+   inkscape:export-xdpi="188.40256"
+   inkscape:export-ydpi="188.40256">
+  <defs
+     id="defs937">
+    <rect
+       x="-74.083336"
+       y="74.083344"
+       width="105.83333"
+       height="37.041668"
+       id="rect1025" />
+    <rect
+       x="-74.083336"
+       y="74.083344"
+       width="105.83333"
+       height="37.041668"
+       id="rect893" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3512">
+      <rect
+         style="opacity:1;fill:none;fill-opacity:0.91129;stroke:#000000;stroke-width:1.05833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         id="rect3514"
+         width="184.16425"
+         height="51.517639"
+         x="41.072605"
+         y="90.499321"
+         ry="2.9433711" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3488">
+      <rect
+         style="opacity:1;fill:none;fill-opacity:0.91129;stroke:#000000;stroke-width:1.05833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         id="rect3490"
+         width="112.13673"
+         height="51.517639"
+         x="32.627838"
+         y="90.499321"
+         ry="2.9433711" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3507">
+      <rect
+         style="opacity:1;fill:none;fill-opacity:0.91129;stroke:#000000;stroke-width:1.05833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         id="rect3509"
+         width="154.46049"
+         height="40.403023"
+         x="-36.152176"
+         y="95.888954"
+         ry="2.3083565" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath3498">
+      <rect
+         style="opacity:1;fill:none;fill-opacity:0.91129;stroke:#000000;stroke-width:1.05833;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+         id="rect3500"
+         width="280.30975"
+         height="63.575737"
+         x="45.53471"
+         y="84.652184"
+         ry="3.6322894" />
+    </clipPath>
+    <rect
+       x="-74.083336"
+       y="74.083344"
+       width="219.93007"
+       height="21.513708"
+       id="rect1654" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.2949887"
+     inkscape:cx="274.18876"
+     inkscape:cy="76.055563"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="1440"
+     inkscape:window-height="794"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid1674"
+       originx="-4.0161133e-07"
+       originy="3.9687501" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata940">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-48.27663,-117.16185)">
+    <rect
+       style="fill:#4f7496;fill-opacity:0.50806397;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect1672"
+       width="117.36718"
+       height="26.659426"
+       x="52.24538"
+       y="117.16185"
+       ry="2.9621572" />
+    <rect
+       style="fill:#62964f;fill-opacity:0.70161301;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect1670"
+       width="117.36718"
+       height="26.659426"
+       x="50.922462"
+       y="118.48476"
+       ry="2.9621572" />
+    <rect
+       style="fill:#964f5a;fill-opacity:0.69758099;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect1668"
+       width="117.36718"
+       height="26.659426"
+       x="49.599548"
+       y="119.80769"
+       ry="2.9621572" />
+    <rect
+       style="fill:#6c4f96;fill-opacity:1;stroke:none;stroke-width:1.32292;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke fill markers"
+       id="rect1029"
+       width="117.36718"
+       height="26.659426"
+       x="48.27663"
+       y="121.1306"
+       ry="2.9621572" />
+    <text
+       xml:space="preserve"
+       id="text1023"
+       style="font-size:10.58329999999999949px;line-height:1.25;font-family:'Clarendon BT';-inkscape-font-specification:'Clarendon BT';white-space:pre;shape-inside:url(#rect1025);fill:#ffffff;fill-opacity:1;stroke-width:0.50797;"
+       transform="matrix(1.9686218,0,0,1.9686218,198.00615,-25.841807)"><tspan
+         x="-74.083984"
+         y="83.447724"><tspan>ODEPACK</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       id="text1652"
+       style="font-size:10.58329999999999949px;line-height:1.25;font-family:'Clarendon BT';-inkscape-font-specification:'Clarendon BT';white-space:pre;shape-inside:url(#rect1654);fill:#ffffff;fill-opacity:1;stroke-width:2.37679;"
+       transform="matrix(0.42073619,0,0,0.42073619,93.896869,108.81424)"><tspan
+         x="-74.083984"
+         y="83.447724"><tspan
+           style="stroke-width:2.37679">A Systemized Collection of ODE Solvers</tspan></tspan></text>
+  </g>
+</svg>
