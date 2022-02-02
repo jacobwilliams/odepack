@@ -1,0 +1,42 @@
+#!/bin/bash
+#@(#) fpm-coverage Coverage and timing report. See gprof(1) and gcov(1)
+# way to many assumptions to count. Assume have one test in fpm for now
+# and not timing remote dependencies.
+GCOV=gcov
+OPTS='-fprofile-arcs -ftest-coverage -O0 -pg'
+export COMPILER=gfortran
+export WHICH=${*:-test}
+( exec 2>&1
+env COMPILER=gfortran fpm test '*' --flag '-fprofile-arcs -ftest-coverage -O0 -pg' --runner 'gprof --demangle'
+################################################################################
+# NEED: "--rebuild" switch on build, or update needs to be able to clean build/ of a build?
+#rm -rfv build/
+################################################################################
+fpm $WHICH --flag "$OPTS"
+fpm $WHICH --flag "$OPTS" --runner 'gprof --demangle'
+################################################################################
+# NEED:  well, this is awkward
+OBJECT_DIR=$(dirname $(fpm build --flag "$OPTS" --list 2>&1|grep '\.f90\.o$'|head -1))
+echo "OBJECT_DIR $OBJECT_DIR"
+################################################################################
+# NEED: way to list the source files. Assuming in src/ and test/
+find src/ test/ -name '*.f90' |while read SOURCE
+do
+   $GCOV \
+       --human-readable \
+       --demangled-names \
+       --stdout \
+       -o $OBJECT_DIR/*$(basename $SOURCE).o $SOURCE
+       # --no-output 
+       
+   # gcov(1) outputs an optional JSON file that can be used to make a report. 
+   # There are some tools out there that use that or do something like it ...
+   # lcov --gcov-tool "${GCOV}" --capture --directory . --output-file coverage.info
+   # genhtml --output-directory html coverage.info
+   # open html/index.html
+   # rm -rf html/ *.gcda *.gcno coverage.info
+done
+################################################################################
+)|tee coverage.out
+exit
+################################################################################

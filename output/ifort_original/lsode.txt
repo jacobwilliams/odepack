@@ -1,0 +1,371 @@
+
+ Demonstration program for DLSODE package
+
+
+ Problem 1:  Van der Pol oscillator:
+  xdotdot - 3*(1 - x**2)*xdot + x = 0,    x(0) = 2, xdot(0) = 0
+ neq = 2
+ itol =  1   rtol =   0.0D+00   atol =   0.1D-05
+
+
+
+
+
+ Solution with mf = 10
+
+     t               x               xdot       nq      h
+
+
+    0.13928D+01     0.16801D+01    -0.291D+00    3     0.123D+00
+    0.36076D+01    -0.77986D-04    -0.317D+01    5     0.217D-01
+    0.58224D+01    -0.16801D+01     0.291D+00    3     0.475D-01
+    0.80372D+01     0.11669D-03     0.317D+01    5     0.234D-01
+
+
+ Final statistics for this run:
+ rwork size =  52   iwork size =  20
+ number of steps =  297
+ number of f-s   =  352
+ (excluding J-s) =  352
+ number of J-s   =    0
+ error overrun =  0.12D+03
+
+
+
+ Solution with mf = 11
+
+     t               x               xdot       nq      h
+
+
+    0.13928D+01     0.16801D+01    -0.291D+00    5     0.121D+00
+    0.36076D+01    -0.17732D-04    -0.317D+01    5     0.187D-01
+    0.58224D+01    -0.16801D+01     0.291D+00    6     0.963D-01
+    0.80372D+01     0.25894D-04     0.317D+01    5     0.190D-01
+
+
+ Final statistics for this run:
+ rwork size =  58   iwork size =  22
+ number of steps =  203
+ number of f-s   =  281
+ (excluding J-s) =  281
+ number of J-s   =   29
+ error overrun =  0.26D+02
+
+
+
+ Solution with mf = 12
+
+     t               x               xdot       nq      h
+
+
+    0.13928D+01     0.16801D+01    -0.291D+00    5     0.121D+00
+    0.36076D+01    -0.17732D-04    -0.317D+01    5     0.187D-01
+    0.58224D+01    -0.16801D+01     0.291D+00    6     0.963D-01
+    0.80372D+01     0.25894D-04     0.317D+01    5     0.190D-01
+
+
+ Final statistics for this run:
+ rwork size =  58   iwork size =  22
+ number of steps =  203
+ number of f-s   =  339
+ (excluding J-s) =  281
+ number of J-s   =   29
+ error overrun =  0.26D+02
+
+
+
+ Solution with mf = 13
+
+     t               x               xdot       nq      h
+
+
+    0.13928D+01     0.16801D+01    -0.291D+00    5     0.739D-01
+    0.36076D+01     0.34401D-04    -0.317D+01    6     0.260D-01
+    0.58224D+01    -0.16801D+01     0.291D+00    4     0.133D+00
+    0.80372D+01    -0.59067D-04     0.317D+01    5     0.205D-01
+
+
+ Final statistics for this run:
+ rwork size =  56   iwork size =  20
+ number of steps =  198
+ number of f-s   =  315
+ (excluding J-s) =  289
+ number of J-s   =   26
+ error overrun =  0.59D+02
+
+
+
+ Solution with mf = 20
+
+     t               x               xdot       nq      h
+
+
+    0.13928D+01     0.16801D+01    -0.291D+00    5     0.549D-01
+    0.36076D+01    -0.56579D-04    -0.317D+01    5     0.143D-01
+    0.58224D+01    -0.16801D+01     0.291D+00    4     0.583D-01
+    0.80372D+01     0.10387D-03     0.317D+01    5     0.149D-01
+
+
+ Final statistics for this run:
+ rwork size =  38   iwork size =  20
+ number of steps =  289
+ number of f-s   =  321
+ (excluding J-s) =  321
+ number of J-s   =    0
+ error overrun =  0.10D+03
+
+
+
+ Solution with mf = 21
+
+     t               x               xdot       nq      h
+
+
+    0.13928D+01     0.16801D+01    -0.291D+00    5     0.676D-01
+    0.36076D+01    -0.48977D-04    -0.317D+01    5     0.141D-01
+    0.58224D+01    -0.16801D+01     0.291D+00    5     0.126D+00
+    0.80372D+01     0.96867D-04     0.317D+01    5     0.142D-01
+
+
+ Final statistics for this run:
+ rwork size =  44   iwork size =  22
+ number of steps =  262
+ number of f-s   =  345
+ (excluding J-s) =  345
+ number of J-s   =   30
+ error overrun =  0.97D+02
+
+
+
+ Solution with mf = 22
+
+     t               x               xdot       nq      h
+
+
+    0.13928D+01     0.16801D+01    -0.291D+00    5     0.676D-01
+    0.36076D+01    -0.48977D-04    -0.317D+01    5     0.141D-01
+    0.58224D+01    -0.16801D+01     0.291D+00    5     0.126D+00
+    0.80372D+01     0.96867D-04     0.317D+01    5     0.142D-01
+
+
+ Final statistics for this run:
+ rwork size =  44   iwork size =  22
+ number of steps =  262
+ number of f-s   =  405
+ (excluding J-s) =  345
+ number of J-s   =   30
+ error overrun =  0.97D+02
+
+
+
+ Solution with mf = 23
+
+     t               x               xdot       nq      h
+
+
+    0.13928D+01     0.16801D+01    -0.291D+00    5     0.709D-01
+    0.36076D+01    -0.46705D-04    -0.317D+01    5     0.139D-01
+    0.58224D+01    -0.16801D+01     0.291D+00    3     0.719D-01
+    0.80372D+01     0.54700D-04     0.317D+01    5     0.154D-01
+
+
+ Final statistics for this run:
+ rwork size =  42   iwork size =  20
+ number of steps =  271
+ number of f-s   =  414
+ (excluding J-s) =  383
+ number of J-s   =   31
+ error overrun =  0.55D+02
+
+
+
+----------------------------------------------------------------------
+
+
+ Problem 2: ydot = A * y , where  A is a banded lower triangular matrix
+            derived from 2-D advection PDE
+ neq = 25   ml = 5   mu = 0
+ itol =  1   rtol =   0.0D+00   atol =   0.1D-05
+
+
+
+
+
+ Solution with mf = 10
+
+     t             max.err.     nq      h
+
+
+    0.10000D-01     0.556D-06    2     0.766D-02
+    0.10000D+00     0.655D-05    3     0.249D-01
+    0.10000D+01     0.274D-05    4     0.520D-01
+    0.10000D+02     0.114D-05    3     0.117D+00
+    0.10000D+03     0.221D-05    2     0.262D+00
+
+
+ Final statistics for this run:
+ rwork size = 420   iwork size =  20
+ number of steps =  524
+ number of f-s   =  552
+ (excluding J-s) =  552
+ number of J-s   =    0
+ error overrun =  0.65D+01
+
+
+
+ Solution with mf = 13
+
+     t             max.err.     nq      h
+
+
+    0.10000D-01     0.839D-06    2     0.949D-02
+    0.10000D+00     0.208D-05    3     0.250D-01
+    0.10000D+01     0.127D-03    3     0.168D-01
+    0.10000D+02     0.204D-05    3     0.101D+00
+    0.10000D+03     0.666D-09    1     0.605D+02
+
+
+ Final statistics for this run:
+ rwork size = 447   iwork size =  20
+ number of steps =  133
+ number of f-s   =  247
+ (excluding J-s) =  210
+ number of J-s   =   37
+ error overrun =  0.13D+03
+
+
+
+ Solution with mf = 14
+
+     t             max.err.     nq      h
+
+
+    0.10000D-01     0.877D-06    2     0.965D-02
+    0.10000D+00     0.206D-05    3     0.250D-01
+    0.10000D+01     0.126D-05    5     0.935D-01
+    0.10000D+02     0.311D-06    6     0.442D+00
+    0.10000D+03     0.159D-07    2     0.291D+02
+
+
+ Final statistics for this run:
+ rwork size = 697   iwork size =  45
+ number of steps =   92
+ number of f-s   =  113
+ (excluding J-s) =  113
+ number of J-s   =   18
+ error overrun =  0.21D+01
+
+
+
+ Solution with mf = 15
+
+     t             max.err.     nq      h
+
+
+    0.10000D-01     0.877D-06    2     0.965D-02
+    0.10000D+00     0.206D-05    3     0.250D-01
+    0.10000D+01     0.126D-05    5     0.935D-01
+    0.10000D+02     0.311D-06    6     0.442D+00
+    0.10000D+03     0.160D-07    2     0.291D+02
+
+
+ Final statistics for this run:
+ rwork size = 697   iwork size =  45
+ number of steps =   92
+ number of f-s   =  221
+ (excluding J-s) =  113
+ number of J-s   =   18
+ error overrun =  0.21D+01
+
+
+
+ Solution with mf = 20
+
+     t             max.err.     nq      h
+
+
+    0.10000D-01     0.465D-06    2     0.483D-02
+    0.10000D+00     0.131D-05    3     0.148D-01
+    0.10000D+01     0.427D-05    5     0.635D-01
+    0.10000D+02     0.192D-05    4     0.351D+00
+    0.10000D+03     0.100D-06    1     0.307D+00
+
+
+ Final statistics for this run:
+ rwork size = 245   iwork size =  20
+ number of steps =  330
+ number of f-s   =  529
+ (excluding J-s) =  529
+ number of J-s   =    0
+ error overrun =  0.43D+01
+
+
+
+ Solution with mf = 23
+
+     t             max.err.     nq      h
+
+
+    0.10000D-01     0.101D-05    2     0.598D-02
+    0.10000D+00     0.446D-06    3     0.146D-01
+    0.10000D+01     0.153D-05    5     0.738D-01
+    0.10000D+02     0.627D-06    4     0.296D+00
+    0.10000D+03     0.755D-10    1     0.700D+02
+
+
+ Final statistics for this run:
+ rwork size = 272   iwork size =  20
+ number of steps =  179
+ number of f-s   =  313
+ (excluding J-s) =  267
+ number of J-s   =   46
+ error overrun =  0.15D+01
+
+
+
+ Solution with mf = 24
+
+     t             max.err.     nq      h
+
+
+    0.10000D-01     0.104D-05    2     0.608D-02
+    0.10000D+00     0.463D-06    3     0.146D-01
+    0.10000D+01     0.247D-05    5     0.666D-01
+    0.10000D+02     0.828D-06    5     0.391D+00
+    0.10000D+03     0.384D-09    1     0.108D+03
+
+
+ Final statistics for this run:
+ rwork size = 522   iwork size =  45
+ number of steps =  118
+ number of f-s   =  136
+ (excluding J-s) =  136
+ number of J-s   =   18
+ error overrun =  0.25D+01
+
+
+
+ Solution with mf = 25
+
+     t             max.err.     nq      h
+
+
+    0.10000D-01     0.104D-05    2     0.608D-02
+    0.10000D+00     0.463D-06    3     0.146D-01
+    0.10000D+01     0.247D-05    5     0.666D-01
+    0.10000D+02     0.828D-06    5     0.391D+00
+    0.10000D+03     0.384D-09    1     0.108D+03
+
+
+ Final statistics for this run:
+ rwork size = 522   iwork size =  45
+ number of steps =  118
+ number of f-s   =  244
+ (excluding J-s) =  136
+ number of J-s   =   18
+ error overrun =  0.25D+01
+
+
+
+
+ Number of errors encountered =  0

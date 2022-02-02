@@ -1,0 +1,109 @@
+
+Demonstration program for DLSODA package
+
+
+
+ Problem 1:   Van der Pol oscillator:
+              xdotdot - 20*(1 - x**2)*xdot + x = 0,    x(0) = 2, xdot(0) = 0
+ neq = 2
+ itol =  1   rtol =   0.0D+00   atol =   0.1D-07
+
+
+
+
+ Solution with jt =  1
+
+  t               x               xdot       meth   nq     h           tsw
+
+
+ 0.84609D+01     0.16731D+01    -0.464D-01     2     4    0.209D+00    0.311D+00
+ 0.16922D+02    -0.11574D-03    -0.141D+02     1     7    0.206D-02    0.158D+02
+ 0.25592D+02    -0.16828D+01     0.459D-01     2     4    0.240D+00    0.174D+02
+ 0.34263D+02     0.21448D-03     0.141D+02     1     8    0.293D-02    0.332D+02
+
+
+ Final statistics for this run:
+ rwork size =  52   iwork size =  22
+ number of steps =  695
+ number of f-s   = 1305
+ (excluding J-s) = 1305
+ number of J-s   =   30
+ max. error at root =  0.21D-03
+
+
+ Solution with jt =  2
+
+  t               x               xdot       meth   nq     h           tsw
+
+
+ 0.84609D+01     0.16731D+01    -0.464D-01     2     4    0.209D+00    0.311D+00
+ 0.16922D+02    -0.11574D-03    -0.141D+02     1     7    0.206D-02    0.158D+02
+ 0.25592D+02    -0.16828D+01     0.459D-01     2     4    0.240D+00    0.174D+02
+ 0.34263D+02     0.21448D-03     0.141D+02     1     8    0.293D-02    0.332D+02
+
+
+ Final statistics for this run:
+ rwork size =  52   iwork size =  22
+ number of steps =  695
+ number of f-s   = 1365
+ (excluding J-s) = 1305
+ number of J-s   =   30
+ max. error at root =  0.21D-03
+
+
+
+--------------------------------------------------------------------------------
+
+
+ Problem 2: ydot = A * y , where  A is a banded lower triangular matrix
+            derived from 2-D advection PDE
+ neq = 25   ml = 5   mu = 0
+ itol =  1   rtol =   0.0D+00   atol =   0.1D-05
+
+
+
+
+ Solution with jt =  4
+
+     t             max.err.     meth   nq      h            tsw
+
+
+    0.10000D-01     0.476D-06     1     2     0.714D-02     0.000D+00
+    0.10000D+00     0.988D-06     1     4     0.343D-01     0.000D+00
+    0.10000D+01     0.431D-06     1     5     0.724D-01     0.000D+00
+    0.10000D+02     0.558D-07     1     3     0.323D+00     0.000D+00
+    0.10000D+03     0.127D-11     2     1     0.239D+03     0.170D+02
+
+
+ Final statistics for this run:
+ rwork size = 522   iwork size =  45
+ number of steps =  105
+ number of f-s   =  207
+ (excluding J-s) =  207
+ number of J-s   =    3
+ error overrun =  0.99D+00
+
+
+ Solution with jt =  5
+
+     t             max.err.     meth   nq      h            tsw
+
+
+    0.10000D-01     0.476D-06     1     2     0.714D-02     0.000D+00
+    0.10000D+00     0.988D-06     1     4     0.343D-01     0.000D+00
+    0.10000D+01     0.431D-06     1     5     0.724D-01     0.000D+00
+    0.10000D+02     0.558D-07     1     3     0.323D+00     0.000D+00
+    0.10000D+03     0.127D-11     2     1     0.239D+03     0.170D+02
+
+
+ Final statistics for this run:
+ rwork size = 522   iwork size =  45
+ number of steps =  105
+ number of f-s   =  225
+ (excluding J-s) =  207
+ number of J-s   =    3
+ error overrun =  0.99D+00
+
+
+
+ Number of errors encountered =  0

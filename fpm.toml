@@ -1,0 +1,17 @@
+# TOML file for fpm as described at https://github.com/fortran-lang/fpm/blob/master/manifest-reference.md
+name = "M_odepack"
+version = "0.1.0"
+license = "Public Domain"
+author = "Jane Doe"
+maintainer = [ "jacobwilliams@example.com", "urbanjost@comcast.net" ]
+copyright = "Copyright 2022, Jane Doe"
+homepage = "https://github.com/jacobwilliams/odepack"
+description = "differential equation solver"
+categories = ["ODE", "fortran"]
+[build]
+#auto-executables = true
+#auto-tests = true
+#auto-examples = true
+auto-executables = false
+[install]
+#library = false

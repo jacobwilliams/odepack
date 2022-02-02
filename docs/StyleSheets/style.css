@@ -1,0 +1,119 @@
+*{
+        color:black;
+        color:blue;
+}
+/* ======================================================== */
+/* Start new page on printing */
+BR.newpage{
+   page-break-before:always
+}
+/* ======================================================== */
+
+img.centered {
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   position: relative;
+   background-color: #ffffff;
+   /*border: 1px solid #a9a9a9;*/
+   border: 0px solid #a9a9a9;
+   padding: 4px;
+}
+
+body {
+   mso-style-name:HTML_BODY;
+        margin-top:0in;
+        margin-right:.4in;
+        margin-bottom:14.0pt;
+        margin-left:.25in;
+        line-height:14.0pt;
+	/*
+        text-justify-trim:punctuation
+	*/
+        font-size:11.0pt;
+        font-family:"Arial","sans-serif";
+        color:black;
+}
+h1{
+        mso-style-name:HTML_H1;
+        font-size:18.0pt;
+        line-height:18.0pt;
+}
+h2{
+        mso-style-name:HTML_H2;
+        font-size:16.0pt;
+        line-height:16.0pt;
+}
+h3{
+        mso-style-name:HTML_H3;
+        font-size:14.0pt;
+        line-height:14.0pt;
+}
+h4{
+        mso-style-name:HTML_H4;
+        font-size:12.0pt;
+        line-height:12.0pt;
+}
+b{
+        mso-style-name:HTML_B;
+        color:blue;
+}
+p, li, div {
+        mso-style-name:HTML_P;
+        margin-top:0in;
+        margin-right:0in;
+        margin-bottom:14.0pt;
+        margin-left:.05in;
+        line-height:14.0pt;
+        font-size:11.0pt;
+        font-family:"Arial","sans-serif";
+        color:black;
+}
+p{
+        text-align:justify;
+}
+li{
+        mso-style-name:HTML_LI;
+        margin-bottom:4.0pt;
+}
+li.none{
+        list-style:none;
+}
+/* List Definitions */
+ol {
+   mso-style-name:HTML_OL;
+   margin-top:8.0pt;
+   margin-bottom:0in;
+}
+ul {
+   mso-style-name:HTML_UL;
+   margin-top:4.0pt;
+   margin-bottom:0in;
+}
+/* Page Definitions */
+ @page WordSection1{
+	size:8.5in 11.0in;
+        margin:0.75in 35.0pt .75in 55.0pt;
+}
+/*
+   border-bottom:solid black 1.5pt;
+   border-left: none;
+   border-right:solid black 1.5pt;
+   border-top:none;
+   color:blue;
+   color:teal;
+   font-family:"Times New Roman","serif";
+   font-style:italic;
+   height:15.0pt
+   letter-spacing:0pt;
+   padding:4.0pt 5.0pt 2.0pt 5.0pt;
+   text-autospace:none;
+   text-decoration:line-through;
+   text-decoration:none;
+   text-decoration:underline;
+   vertical-align:baseline;
+   width:246.0pt;
+span.Subscript {mso-style-name:Subscript; vertical-align:sub; }
+span.Superscript {mso-style-name:Superscript; vertical-align:super; }
+span.Symbol {mso-style-name:Symbol; font-family:Symbol; letter-spacing:0pt; }
+*/
