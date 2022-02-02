@@ -140,53 +140,77 @@
 !! At the end of the run, statistical quantities of interest are
 !! printed (see optional outputs in the full description below).
 !!
-!!     EXTERNAL FEX
-!!     DOUBLE PRECISION ATOL, RTOL, RWORK, T, TOUT, Y
-!!     DIMENSION Y(3), ATOL(3), RWORK(70), IWORK(23)
-!!     NEQ = 3
-!!     Y(1) = 1.
-!!     Y(2) = 0.
-!!     Y(3) = 0.
-!!     T = 0.
-!!     TOUT = .4
-!!     ITOL = 2
-!!     RTOL = 1.D-4
-!!     ATOL(1) = 1.D-6
-!!     ATOL(2) = 1.D-10
-!!     ATOL(3) = 1.D-6
-!!     ITASK = 1
-!!     ISTATE = 1
-!!     IOPT = 0
-!!     LRW = 70
-!!     LIW = 23
-!!     JT = 2
-!!     DO IOUT = 1,12
-!!       CALL DLSODA(FEX,NEQ,Y,T,TOUT,ITOL,RTOL,ATOL,ITASK,ISTATE,
-!!    &     IOPT,RWORK,LRW,IWORK,LIW,JDUM,JT)
-!!       WRITE(6,20)T,Y(1),Y(2),Y(3)
-!! 20    FORMAT(' At t =',D12.4,'   Y =',3D14.6)
-!!       IF (ISTATE .LT. 0) GOTO 80
-!!       TOUT = TOUT*10.
-!!     ENDDO
-!!     WRITE(6,60)IWORK(11),IWORK(12),IWORK(13),IWORK(19),RWORK(15)
-!! 60  FORMAT(/' No. steps =',I4,'  No. f-s =',I4,'  No. J-s =',I4/
-!!    &   ' Method last used =',I2,'   Last switch was at t =',D12.4)
-!!     STOP
-!! 80  continue
-!!     WRITE(6,90)ISTATE
-!! 90  FORMAT(///' Error halt.. ISTATE =',I3)
-!!     STOP
-!!     END
-!!
-!!     SUBROUTINE FEX (NEQ, T, Y, YDOT)
-!!     DOUBLE PRECISION T, Y, YDOT
-!!     DIMENSION Y(3), YDOT(3)
-!!     YDOT(1) = -.04*Y(1) + 1.D4*Y(2)*Y(3)
-!!     YDOT(3) = 3.D7*Y(2)*Y(2)
-!!     YDOT(2) = -YDOT(1) - YDOT(3)
-!!     RETURN
-!!     END
-!!
+!!```fortran
+!! program dlsoda_ex
+!! use m_odepack
+!! implicit none
+!! external fex
+!! external jdum
+!! integer,parameter            ::  dp=kind(0.0d0)
+!! real(kind=dp),dimension(3)   ::  atol,y
+!! integer                      ::  iopt,iout,istate,itask
+!! integer                      ::  itol,jt,liw,lrw,neq
+!! integer,dimension(23)        ::  iwork
+!! real(kind=dp)                ::  rtol,t,tout
+!! real(kind=dp),dimension(70)  ::  rwork
+!! 
+!!    neq = 3
+!!    y(1) = 1.
+!!    y(2) = 0.
+!!    y(3) = 0.
+!!    t = 0.
+!!    tout = .4
+!!    itol = 2
+!!    rtol = 1.D-4
+!!    atol(1) = 1.D-6
+!!    atol(2) = 1.D-10
+!!    atol(3) = 1.D-6
+!!    itask = 1
+!!    istate = 1
+!!    iopt = 0
+!!    lrw = 70
+!!    liw = 23
+!!    jt = 2
+!!    do iout = 1,12
+!!       call dlsoda(fex,[neq],y,t,tout,itol,[rtol],atol,itask,istate,iopt,&
+!!                 & rwork,lrw,iwork,liw,jdum,jt)
+!!       write (6,99010) t,y(1),y(2),y(3)
+!!       99010 format (' At t =',d12.4,'   Y =',3D14.6)
+!!       if ( istate<0 ) then
+!!          write (6,99020) istate
+!!          99020 format (///' Error halt.. ISTATE =',i3)
+!!          stop 1
+!!       else
+!!          tout = tout*10.
+!!       endif
+!!    enddo
+!!    write (6,99030) iwork(11),iwork(12),iwork(13),iwork(19),        &
+!!                  & rwork(15)
+!!    99030 format (/' No. steps =',i4,'  No. f-s =',i4,'  No. J-s =',      &
+!!                 &i4/' Method last used =',i2,'   Last switch was at t =',&
+!!                & d12.4)
+!! 
+!! end program dlsoda_ex
+!! 
+!! subroutine jdum()
+!! implicit none
+!! end subroutine jdum
+!!  
+!! subroutine fex(Neq,T,Y,Ydot)
+!! implicit none
+!! integer,parameter :: dp=kind(0.0d0)
+!!  
+!! integer                                   ::  Neq
+!! real(kind=dp)                             ::  T
+!! real(kind=dp),intent(in),dimension(3)     ::  Y
+!! real(kind=dp),intent(inout),dimension(3)  ::  Ydot
+!!  
+!!    Ydot(1) = -.04*Y(1) + 1.D4*Y(2)*Y(3)
+!!    Ydot(3) = 3.D7*Y(2)*Y(2)
+!!    Ydot(2) = -Ydot(1) - Ydot(3)
+!! end subroutine fex
+!!```
+!! 
 !! The output of this program (on a CDC-7600 in single precision)
 !! is as follows:
 !!

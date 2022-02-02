@@ -2,7 +2,6 @@
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !==================================================================================================================================!
 !>
-!! *DECK DLSOIBT
 !!-----------------------------------------------------------------------
 !! This is the 18 November 2003 version of
 !! DLSOIBT: Livermore Solver for Ordinary differential equations given
@@ -250,96 +249,145 @@
 !! of solution statistics at t = .1, .2, .3, and .4, and of the
 !! solution vector at t = .4.  Here the block size is just MB = 1.
 !!
-!!     EXTERNAL RESID, ADDABT, JACBT
-!!     DOUBLE PRECISION ATOL, RTOL, RWORK, T, TOUT, Y, YDOTI
-!!     DIMENSION Y(41), YDOTI(41), RWORK(514), IWORK(61)
-!!     NEQ = 41
-!!     DO I = 1,NEQ
-!!       Y(I) = 0.0
-!!     ENDDO
-!!     Y(11) = 0.5
-!!     DO I = 12,30
-!!       Y(I) = 1.0
-!!     ENDDO
-!!     Y(31) = 0.5
-!!     T = 0.0
-!!     TOUT = 0.1
-!!     ITOL = 1
-!!     RTOL = 1.0D-4
-!!     ATOL = 1.0D-5
-!!     ITASK = 1
-!!     ISTATE = 0
-!!     IOPT = 0
-!!     LRW = 514
-!!     LIW = 61
-!!     IWORK(1) = 1
-!!     IWORK(2) = NEQ
-!!     MF = 21
-!!     DO IO = 1,4
-!!       CALL DLSOIBT (RESID, ADDABT, JACBT, NEQ, Y, YDOTI, T, TOUT,
-!!    1     ITOL,RTOL,ATOL, ITASK, ISTATE, IOPT, RWORK,LRW,IWORK,LIW, MF)
-!!       WRITE (6,30) T, IWORK(11), IWORK(12), IWORK(13)
-!!  30   FORMAT(' At t =',F5.2,'   No. steps =',I4,'  No. r-s =',I4,
-!!    1         '  No. J-s =',I3)
-!!       IF (ISTATE .NE. 2)  GO TO 90
-!!       TOUT = TOUT + 0.1
-!!     ENDDO
-!!     WRITE(6,50) (Y(I),I=1,NEQ)
-!!  50 FORMAT(/' Final solution values..'/9(5D12.4/))
-!!     STOP
-!!  90 WRITE(6,95) ISTATE
-!!  95 FORMAT(///' Error halt.. ISTATE =',I3)
-!!     STOP
-!!     END
+!!```fortran
+!!program dlsoibt_ex
+!!use m_odepack
+!!implicit none
+!!external addabt
+!!external jacbt
+!!external resid
+!! 
+!!integer,parameter :: dp=kind(0.0d0)
+!!real(kind=dp) :: atol,rtol,t,tout
+!!integer :: i,io,iopt,istate,itask,itol,liw,lrw,mf,neq
+!!integer,dimension(61) :: iwork
+!!real(kind=dp),dimension(514) :: rwork
+!!real(kind=dp),dimension(41) :: y,ydoti
 !!
-!!     SUBROUTINE RESID (N, T, Y, S, R, IRES)
-!!     DOUBLE PRECISION T, Y, S, R, ETA, DELX, EODSQ
-!!     DIMENSION Y(N), S(N), R(N)
-!!     DATA ETA/0.05/, DELX/0.05/
-!!     EODSQ = ETA/DELX**2
-!!     R(1) = EODSQ*(Y(3) - 2.0*Y(2) + Y(1)) - S(1)
-!!     NM1 = N - 1
-!!     DO I = 2,NM1
-!!       R(I) = (Y(I-1)**2 - Y(I+1)**2)/(4.0*DELX)
-!!    1        + EODSQ*(Y(I+1) - 2.0*Y(I) + Y(I-1))
-!!    2        - (S(I-1) + 4.0*S(I) + S(I+1))/6.0
-!!     ENDDO
-!!     R(N) = EODSQ*(Y(N-2) - 2.0*Y(NM1) + Y(N)) - S(N)
-!!     RETURN
-!!     END
+!!   neq = 41
+!!   do i = 1,neq
+!!      y(i) = 0.0
+!!   enddo
+!!   y(11) = 0.5
+!!   do i = 12,30
+!!      y(i) = 1.0
+!!   enddo
+!!   y(31) = 0.5
+!!   t = 0.0
+!!   tout = 0.1
+!!   itol = 1
+!!   rtol = 1.0D-4
+!!   atol = 1.0D-5
+!!   itask = 1
+!!   istate = 0
+!!   iopt = 0
+!!   lrw = 514
+!!   liw = 61
+!!   iwork(1) = 1
+!!   iwork(2) = neq
+!!   mf = 21
+!!   do io = 1,4
+!!      call dlsoibt(resid,addabt,jacbt,[neq],y,ydoti,t,tout,itol,[rtol],    &
+!!                 & [atol],itask,istate,iopt,rwork,lrw,iwork,liw,mf)
+!!      write (6,99010) t,iwork(11),iwork(12),iwork(13)
+!!   99010 format (' At t =',f5.2,'   No. steps =',i4,'  No. r-s =',i4,      &
+!!                &'  No. J-s =',i3)
+!!      if ( istate/=2 ) then
+!!         write (6,99020) istate
+!!   99020 format (///' Error halt.. ISTATE =',i3)
+!!         stop 1
+!!      else
+!!         tout = tout + 0.1
+!!      endif
+!!   enddo
+!!   write (6,99030) (y(i),i=1,neq)
+!!   99030 format (/' Final solution values..'/9(5D12.4/))
 !!
-!!     SUBROUTINE ADDABT (N, T, Y, MB, NB, PA, PB, PC)
-!!     DOUBLE PRECISION T, Y, PA, PB, PC
-!!     DIMENSION Y(N), PA(MB,MB,NB), PB(MB,MB,NB), PC(MB,MB,NB)
-!!     PA(1,1,1) = PA(1,1,1) + 1.0
-!!     NM1 = N - 1
-!!     DO K = 2,NM1
-!!       PA(1,1,K) = PA(1,1,K) + (4.0/6.0)
-!!       PB(1,1,K) = PB(1,1,K) + (1.0/6.0)
-!!       PC(1,1,K) = PC(1,1,K) + (1.0/6.0)
-!!     ENDDO
-!!     PA(1,1,N) = PA(1,1,N) + 1.0
-!!     RETURN
-!!     END
-!!
-!!     SUBROUTINE JACBT (N, T, Y, S, MB, NB, PA, PB, PC)
-!!     DOUBLE PRECISION T, Y, S, PA, PB, PC, ETA, DELX, EODSQ
-!!     DIMENSION Y(N), S(N), PA(MB,MB,NB),PB(MB,MB,NB),PC(MB,MB,NB)
-!!     DATA ETA/0.05/, DELX/0.05/
-!!     EODSQ = ETA/DELX**2
-!!     PA(1,1,1) = EODSQ
-!!     PB(1,1,1) = -2.0*EODSQ
-!!     PC(1,1,1) = EODSQ
-!!     DO K = 2,N
-!!       PA(1,1,K) = -2.0*EODSQ
-!!       PB(1,1,K) = -Y(K+1)*(0.5/DELX) + EODSQ
-!!       PC(1,1,K) = Y(K-1)*(0.5/DELX) + EODSQ
-!!     ENDDO
-!!     PB(1,1,N) = EODSQ
-!!     PC(1,1,N) = -2.0*EODSQ
-!!     PA(1,1,N) = EODSQ
-!!     RETURN
-!!     END
+!!end program dlsoibt_ex
+!! 
+!!subroutine resid(N,T,Y,S,R,Ires)
+!!implicit none
+!!integer,parameter                       ::  dp=kind(0.0d0)
+!! 
+!!integer,intent(in)                      ::  N
+!!real(kind=dp)                           ::  T
+!!real(kind=dp),intent(in),dimension(N)   ::  Y
+!!real(kind=dp),intent(in),dimension(N)   ::  S
+!!real(kind=dp),intent(out),dimension(N)  ::  R
+!!integer                                 ::  Ires
+!! 
+!!real(kind=dp),save                      ::  delx,eta
+!!real(kind=dp)                           ::  eodsq
+!!integer                                 ::  i,nm1
+!! 
+!!data eta/0.05/,delx/0.05/
+!!   eodsq = eta/delx**2
+!!   R(1) = eodsq*(Y(3)-2.0*Y(2)+Y(1)) - S(1)
+!!   nm1 = N - 1
+!!   do i = 2,nm1
+!!      R(i) = (Y(i-1)**2-Y(i+1)**2)/(4.0*delx)                              &
+!!           & + eodsq*(Y(i+1)-2.0*Y(i)+Y(i-1)) - (S(i-1)+4.0*S(i)+S(i+1))   &
+!!           & /6.0
+!!   enddo
+!!   R(N) = eodsq*(Y(N-2)-2.0*Y(nm1)+Y(N)) - S(N)
+!!end subroutine resid
+!! 
+!!subroutine addabt(N,T,Y,Mb,Nb,Pa,Pb,Pc)
+!!implicit                                         none
+!!integer,parameter                                ::    dp=kind(0.0d0)
+!! 
+!!integer,intent(in)                               ::    N
+!!real(kind=dp)                                    ::    T
+!!real(kind=dp),dimension(N)                       ::    Y
+!!integer,intent(in)                               ::    Mb
+!!integer,intent(in)                               ::    Nb
+!!real(kind=dp),intent(inout),dimension(Mb,Mb,Nb)  ::    Pa
+!!real(kind=dp),intent(inout),dimension(Mb,Mb,Nb)  ::    Pb
+!!real(kind=dp),intent(inout),dimension(Mb,Mb,Nb)  ::    Pc
+!! 
+!!integer                                          ::    k,nm1
+!! 
+!!   Pa(1,1,1) = Pa(1,1,1) + 1.0
+!!   nm1 = N - 1
+!!   do k = 2,nm1
+!!      Pa(1,1,k) = Pa(1,1,k) + (4.0/6.0)
+!!      Pb(1,1,k) = Pb(1,1,k) + (1.0/6.0)
+!!      Pc(1,1,k) = Pc(1,1,k) + (1.0/6.0)
+!!   enddo
+!!   Pa(1,1,N) = Pa(1,1,N) + 1.0
+!!end subroutine addabt
+!! 
+!!subroutine jacbt(N,T,Y,S,Mb,Nb,Pa,Pb,Pc)
+!!implicit none
+!!integer,parameter                              ::    dp=kind(0.0d0)
+!!integer,intent(in)                             ::    N
+!!real(kind=dp)                                  ::    T
+!!real(kind=dp),intent(in),dimension(N)          ::    Y
+!!real(kind=dp),dimension(N)                     ::    S
+!!integer,intent(in)                             ::    Mb
+!!integer,intent(in)                             ::    Nb
+!!real(kind=dp),intent(out),dimension(Mb,Mb,Nb)  ::    Pa
+!!real(kind=dp),intent(out),dimension(Mb,Mb,Nb)  ::    Pb
+!!real(kind=dp),intent(out),dimension(Mb,Mb,Nb)  ::    Pc
+!!real(kind=dp),save                             ::    delx,eta
+!!real(kind=dp)                                  ::    eodsq
+!!integer                                        ::    k
+!! 
+!!data eta/0.05/,delx/0.05/
+!!   eodsq = eta/delx**2
+!!   Pa(1,1,1) = eodsq
+!!   Pb(1,1,1) = -2.0*eodsq
+!!   Pc(1,1,1) = eodsq
+!!   do k = 2,N
+!!      Pa(1,1,k) = -2.0*eodsq
+!!      Pb(1,1,k) = -Y(k+1)*(0.5/delx) + eodsq
+!!      Pc(1,1,k) = Y(k-1)*(0.5/delx) + eodsq
+!!   enddo
+!!   Pb(1,1,N) = eodsq
+!!   Pc(1,1,N) = -2.0*eodsq
+!!   Pa(1,1,N) = eodsq
+!!end subroutine jacbt
+!!```
 !!
 !! The output of this program (on a CDC-7600 in single precision)
 !! is as follows:

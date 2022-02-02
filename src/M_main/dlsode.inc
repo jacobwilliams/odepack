@@ -286,64 +286,90 @@
 !!     has much smaller values.  At the end of the run, statistical
 !!     quantities of interest are printed.
 !!
-!!        EXTERNAL  FEX, JEX
-!!        INTEGER  IOPT, IOUT, ISTATE, ITASK, ITOL, IWORK(23), LIW, LRW,
-!!       *         MF, NEQ
-!!        DOUBLE PRECISION  ATOL(3), RTOL, RWORK(58), T, TOUT, Y(3)
-!!        NEQ = 3
-!!        Y(1) = 1.D0
-!!        Y(2) = 0.D0
-!!        Y(3) = 0.D0
-!!        T = 0.D0
-!!        TOUT = .4D0
-!!        ITOL = 2
-!!        RTOL = 1.D-4
-!!        ATOL(1) = 1.D-6
-!!        ATOL(2) = 1.D-10
-!!        ATOL(3) = 1.D-6
-!!        ITASK = 1
-!!        ISTATE = 1
-!!        IOPT = 0
-!!        LRW = 58
-!!        LIW = 23
-!!        MF = 21
-!!        DO IOUT = 1,12
-!!          CALL DLSODE (FEX, NEQ, Y, T, TOUT, ITOL, RTOL, ATOL, ITASK,
-!!       *               ISTATE, IOPT, RWORK, LRW, IWORK, LIW, JEX, MF)
-!!          WRITE(6,20)  T, Y(1), Y(2), Y(3)
-!!    20    FORMAT(' At t =',D12.4,'   y =',3D14.6)
-!!          IF (ISTATE .LT. 0)  GO TO 80
-!!          TOUT = TOUT*10.D0
-!!        ENDDO
-!!        WRITE(6,60)  IWORK(11), IWORK(12), IWORK(13)
-!!    60  FORMAT(/' No. steps =',i4,',  No. f-s =',i4,',  No. J-s =',i4)
-!!        STOP
-!!    80  WRITE(6,90)  ISTATE
-!!    90  FORMAT(///' Error halt.. ISTATE =',I3)
-!!        STOP
-!!        END
+!!```fortran
+!!program dlsode_ex
+!!use m_odepack
+!!implicit none
+!!external fex
+!!external jex
+!! 
+!!integer,parameter            ::  dp=kind(0.0d0)
+!!real(kind=dp),dimension(3)   ::  atol,y
+!!integer                      ::  iopt,iout,istate,itask,itol,liw,lrw,mf,neq
+!!integer,dimension(23)        ::  iwork
+!!real(kind=dp)                ::  rtol,t,tout
+!!real(kind=dp),dimension(58)  ::  rwork
 !!
-!!        SUBROUTINE  FEX (NEQ, T, Y, YDOT)
-!!        INTEGER  NEQ
-!!        DOUBLE PRECISION  T, Y(3), YDOT(3)
-!!        YDOT(1) = -.04D0*Y(1) + 1.D4*Y(2)*Y(3)
-!!        YDOT(3) = 3.D7*Y(2)*Y(2)
-!!        YDOT(2) = -YDOT(1) - YDOT(3)
-!!        RETURN
-!!        END
+!!   neq = 3
+!!   y(1) = 1.D0
+!!   y(2) = 0.D0
+!!   y(3) = 0.D0
+!!   t = 0.D0
+!!   tout = .4D0
+!!   itol = 2
+!!   rtol = 1.D-4
+!!   atol(1) = 1.D-6
+!!   atol(2) = 1.D-10
+!!   atol(3) = 1.D-6
+!!   itask = 1
+!!   istate = 1
+!!   iopt = 0
+!!   lrw = 58
+!!   liw = 23
+!!   mf = 21
+!!   do iout = 1,12
+!!      call dlsode(fex,[neq],y,t,tout,itol,[rtol],atol,itask,istate,iopt,   &
+!!                & rwork,lrw,iwork,liw,jex,mf)
+!!      write (6,99010) t,y(1),y(2),y(3)
+!!   99010 format (' At t =',d12.4,'   y =',3D14.6)
+!!      if ( istate<0 ) then
+!!         write (6,99020) istate
+!!   99020 format (///' Error halt.. ISTATE =',i3)
+!!         stop 1
+!!      else
+!!         tout = tout*10.D0
+!!      endif
+!!   enddo
+!!   write (6,99030) iwork(11),iwork(12),iwork(13)
+!!   99030 format (/' No. steps =',i4,',  No. f-s =',i4,',  No. J-s =',i4)
 !!
-!!        SUBROUTINE  JEX (NEQ, T, Y, ML, MU, PD, NRPD)
-!!        INTEGER  NEQ, ML, MU, NRPD
-!!        DOUBLE PRECISION  T, Y(3), PD(NRPD,3)
-!!        PD(1,1) = -.04D0
-!!        PD(1,2) = 1.D4*Y(3)
-!!        PD(1,3) = 1.D4*Y(2)
-!!        PD(2,1) = .04D0
-!!        PD(2,3) = -PD(1,3)
-!!        PD(3,2) = 6.D7*Y(2)
-!!        PD(2,2) = -PD(1,2) - PD(3,2)
-!!        RETURN
-!!        END
+!!end program dlsode_ex
+!! 
+!!subroutine fex(Neq,T,Y,Ydot)
+!!implicit none
+!!integer,parameter                         ::  dp=kind(0.0d0)
+!! 
+!!integer                                   ::  Neq
+!!real(kind=dp)                             ::  T
+!!real(kind=dp),intent(in),dimension(3)     ::  Y
+!!real(kind=dp),intent(inout),dimension(3)  ::  Ydot
+!! 
+!!   Ydot(1) = -.04D0*Y(1) + 1.D4*Y(2)*Y(3)
+!!   Ydot(3) = 3.D7*Y(2)*Y(2)
+!!   Ydot(2) = -Ydot(1) - Ydot(3)
+!!end subroutine fex
+!! 
+!!subroutine jex(Neq,T,Y,Ml,Mu,Pd,Nrpd)
+!!implicit none
+!! 
+!!integer,parameter                              ::  dp=kind(0.0d0)
+!!integer                                        ::  Neq
+!!real(kind=dp)                                  ::  T
+!!real(kind=dp),intent(in),dimension(3)          ::  Y
+!!integer                                        ::  Ml
+!!integer                                        ::  Mu
+!!real(kind=dp),intent(inout),dimension(Nrpd,3)  ::  Pd
+!!integer,intent(in)                             ::  Nrpd
+!! 
+!!   Pd(1,1) = -.04D0
+!!   Pd(1,2) = 1.D4*Y(3)
+!!   Pd(1,3) = 1.D4*Y(2)
+!!   Pd(2,1) = .04D0
+!!   Pd(2,3) = -Pd(1,3)
+!!   Pd(3,2) = 6.D7*Y(2)
+!!   Pd(2,2) = -Pd(1,2) - Pd(3,2)
+!!end subroutine jex
+!!```
 !!
 !!     The output from this program (on a Cray-1 in single precision)
 !!     is as follows.

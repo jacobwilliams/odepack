@@ -1,3 +1,5 @@
+# fpm build objects
+build/
 # Compiled Object files
 *.slo
 *.lo

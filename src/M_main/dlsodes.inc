@@ -196,147 +196,186 @@
 !! During the run and at the end, statistical quantities of interest
 !! are printed (see optional outputs in the full description below).
 !!
-!!     EXTERNAL FEX, JEX
-!!     DOUBLE PRECISION ATOL, RTOL, RWORK, T, TOUT, Y
-!!     DIMENSION Y(12), RWORK(500), IWORK(30)
-!!     DATA LRW/500/, LIW/30/
-!!     NEQ = 12
-!!     DO I = 1,NEQ
-!!       Y(I) = 0.0D0
-!!     ENDDO
-!!     Y(1) = 1.0D0
-!!     T = 0.0D0
-!!     TOUT = 0.1D0
-!!     ITOL = 1
-!!     RTOL = 1.0D-4
-!!     ATOL = 1.0D-6
-!!     ITASK = 1
-!!     ISTATE = 1
-!!     IOPT = 0
-!!     MF = 121
-!!     DO IOUT = 1,5
-!!       CALL DLSODES (FEX, NEQ, Y, T, TOUT, ITOL, RTOL, ATOL,
-!!    1     ITASK, ISTATE, IOPT, RWORK, LRW, IWORK, LIW, JEX, MF)
-!!       WRITE(6,30)T,IWORK(11),RWORK(11),(Y(I),I=1,NEQ)
-!! 30    FORMAT(//' At t =',D11.3,4X,
-!!    1    ' No. steps =',I5,4X,' Last step =',D11.3/
-!!    2    '  Y array =  ',4D14.5/13X,4D14.5/13X,4D14.5)
-!!       IF (ISTATE .LT. 0) GO TO 80
-!!       TOUT = TOUT*10.0D0
-!!     ENDDO
-!!     LENRW = IWORK(17)
-!!     LENIW = IWORK(18)
-!!     NST = IWORK(11)
-!!     NFE = IWORK(12)
-!!     NJE = IWORK(13)
-!!     NLU = IWORK(21)
-!!     NNZ = IWORK(19)
-!!     NNZLU = IWORK(25) + IWORK(26) + NEQ
-!!     WRITE (6,70) LENRW,LENIW,NST,NFE,NJE,NLU,NNZ,NNZLU
-!! 70  FORMAT(//' Required RWORK size =',I4,'   IWORK size =',I4/
-!!    1   ' No. steps =',I4,'   No. f-s =',I4,'   No. J-s =',I4,
-!!    2   '   No. LU-s =',I4/' No. of nonzeros in J =',I5,
-!!    3   '   No. of nonzeros in LU =',I5)
-!!     STOP
-!! 80  WRITE(6,90)ISTATE
-!! 90  FORMAT(///' Error halt.. ISTATE =',I3)
-!!     STOP
-!!     END
+!!```fortran
+!!program dlsodes_ex
+!!use m_odepack
+!!implicit none
+!!external fex
+!!external jex
+!! 
+!!integer,parameter  ::  dp=kind(0.0d0)
+!!real(kind=dp)      ::  atol,rtol,t,tout
+!!integer            ::  i,iopt,iout,istate,itask,itol,leniw,lenrw,  &
+!!                       & mf,neq,nfe,nje,nlu,nnz,nnzlu,nst
+!!integer,dimension(30)         ::  iwork
+!!integer,save                  ::  liw,lrw
+!!real(kind=dp),dimension(500)  ::  rwork
+!!real(kind=dp),dimension(12)   ::  y
+!! 
+!!data lrw/500/,liw/30/
 !!
-!!     SUBROUTINE FEX (NEQ, T, Y, YDOT)
-!!     DOUBLE PRECISION T, Y, YDOT
-!!     DOUBLE PRECISION RK1, RK2, RK3, RK4, RK5, RK6, RK7, RK8, RK9,
-!!    1   RK10, RK11, RK12, RK13, RK14, RK15, RK16, RK17
-!!     DIMENSION Y(12), YDOT(12)
-!!     DATA RK1/0.1D0/, RK2/10.0D0/, RK3/50.0D0/, RK4/2.5D0/, RK5/0.1D0/,
-!!    1   RK6/10.0D0/, RK7/50.0D0/, RK8/2.5D0/, RK9/50.0D0/, RK10/5.0D0/,
-!!    2   RK11/50.0D0/, RK12/50.0D0/, RK13/50.0D0/, RK14/30.0D0/,
-!!    3   RK15/100.0D0/, RK16/2.5D0/, RK17/100.0D0/, RK18/2.5D0/,
-!!    4   RK19/50.0D0/, RK20/50.0D0/
-!!     YDOT(1)  = -RK1*Y(1)
-!!     YDOT(2)  = RK1*Y(1) + RK11*RK14*Y(4) + RK19*RK14*Y(5)
-!!    1           - RK3*Y(2)*Y(3) - RK15*Y(2)*Y(12) - RK2*Y(2)
-!!     YDOT(3)  = RK2*Y(2) - RK5*Y(3) - RK3*Y(2)*Y(3) - RK7*Y(10)*Y(3)
-!!    1           + RK11*RK14*Y(4) + RK12*RK14*Y(6)
-!!     YDOT(4)  = RK3*Y(2)*Y(3) - RK11*RK14*Y(4) - RK4*Y(4)
-!!     YDOT(5)  = RK15*Y(2)*Y(12) - RK19*RK14*Y(5) - RK16*Y(5)
-!!     YDOT(6)  = RK7*Y(10)*Y(3) - RK12*RK14*Y(6) - RK8*Y(6)
-!!     YDOT(7)  = RK17*Y(10)*Y(12) - RK20*RK14*Y(7) - RK18*Y(7)
-!!     YDOT(8)  = RK9*Y(10) - RK13*RK14*Y(8) - RK10*Y(8)
-!!     YDOT(9)  = RK4*Y(4) + RK16*Y(5) + RK8*Y(6) + RK18*Y(7)
-!!     YDOT(10) = RK5*Y(3) + RK12*RK14*Y(6) + RK20*RK14*Y(7)
-!!    1           + RK13*RK14*Y(8) - RK7*Y(10)*Y(3) - RK17*Y(10)*Y(12)
-!!    2           - RK6*Y(10) - RK9*Y(10)
-!!     YDOT(11) = RK10*Y(8)
-!!     YDOT(12) = RK6*Y(10) + RK19*RK14*Y(5) + RK20*RK14*Y(7)
-!!    1           - RK15*Y(2)*Y(12) - RK17*Y(10)*Y(12)
-!!     RETURN
-!!     END
-!!
-!!     SUBROUTINE JEX (NEQ, T, Y, J, IA, JA, PDJ)
-!!     DOUBLE PRECISION T, Y, PDJ
-!!     DOUBLE PRECISION RK1, RK2, RK3, RK4, RK5, RK6, RK7, RK8, RK9,
-!!    1   RK10, RK11, RK12, RK13, RK14, RK15, RK16, RK17
-!!     DIMENSION Y(12), IA(*), JA(*), PDJ(12)
-!!     DATA RK1/0.1D0/, RK2/10.0D0/, RK3/50.0D0/, RK4/2.5D0/, RK5/0.1D0/,
-!!    1   RK6/10.0D0/, RK7/50.0D0/, RK8/2.5D0/, RK9/50.0D0/, RK10/5.0D0/,
-!!    2   RK11/50.0D0/, RK12/50.0D0/, RK13/50.0D0/, RK14/30.0D0/,
-!!    3   RK15/100.0D0/, RK16/2.5D0/, RK17/100.0D0/, RK18/2.5D0/,
-!!    4   RK19/50.0D0/, RK20/50.0D0/
-!!     GO TO (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12), J
-!! 1   PDJ(1) = -RK1
-!!     PDJ(2) = RK1
-!!     RETURN
-!! 2   PDJ(2) = -RK3*Y(3) - RK15*Y(12) - RK2
-!!     PDJ(3) = RK2 - RK3*Y(3)
-!!     PDJ(4) = RK3*Y(3)
-!!     PDJ(5) = RK15*Y(12)
-!!     PDJ(12) = -RK15*Y(12)
-!!     RETURN
-!! 3   PDJ(2) = -RK3*Y(2)
-!!     PDJ(3) = -RK5 - RK3*Y(2) - RK7*Y(10)
-!!     PDJ(4) = RK3*Y(2)
-!!     PDJ(6) = RK7*Y(10)
-!!     PDJ(10) = RK5 - RK7*Y(10)
-!!     RETURN
-!! 4   PDJ(2) = RK11*RK14
-!!     PDJ(3) = RK11*RK14
-!!     PDJ(4) = -RK11*RK14 - RK4
-!!     PDJ(9) = RK4
-!!     RETURN
-!! 5   PDJ(2) = RK19*RK14
-!!     PDJ(5) = -RK19*RK14 - RK16
-!!     PDJ(9) = RK16
-!!     PDJ(12) = RK19*RK14
-!!     RETURN
-!! 6   PDJ(3) = RK12*RK14
-!!     PDJ(6) = -RK12*RK14 - RK8
-!!     PDJ(9) = RK8
-!!     PDJ(10) = RK12*RK14
-!!     RETURN
-!! 7   PDJ(7) = -RK20*RK14 - RK18
-!!     PDJ(9) = RK18
-!!     PDJ(10) = RK20*RK14
-!!     PDJ(12) = RK20*RK14
-!!     RETURN
-!! 8   PDJ(8) = -RK13*RK14 - RK10
-!!     PDJ(10) = RK13*RK14
-!!     PDJ(11) = RK10
-!! 9   RETURN
-!! 10  PDJ(3) = -RK7*Y(3)
-!!     PDJ(6) = RK7*Y(3)
-!!     PDJ(7) = RK17*Y(12)
-!!     PDJ(8) = RK9
-!!     PDJ(10) = -RK7*Y(3) - RK17*Y(12) - RK6 - RK9
-!!     PDJ(12) = RK6 - RK17*Y(12)
-!! 11  RETURN
-!! 12  PDJ(2) = -RK15*Y(2)
-!!     PDJ(5) = RK15*Y(2)
-!!     PDJ(7) = RK17*Y(10)
-!!     PDJ(10) = -RK17*Y(10)
-!!     PDJ(12) = -RK15*Y(2) - RK17*Y(10)
-!!     RETURN
-!!     END
+!!   neq = 12
+!!   do i = 1,neq
+!!      y(i) = 0.0D0
+!!   enddo
+!!   y(1) = 1.0D0
+!!   t = 0.0D0
+!!   tout = 0.1D0
+!!   itol = 1
+!!   rtol = 1.0D-4
+!!   atol = 1.0D-6
+!!   itask = 1
+!!   istate = 1
+!!   iopt = 0
+!!   mf = 121
+!!   do iout = 1,5
+!!      call dlsodes(fex,[neq],y,t,tout,itol,[rtol],[atol],itask,istate,iopt,&
+!!                 & rwork,lrw,iwork,liw,jex,mf)
+!!      write (6,99010) t,iwork(11),rwork(11),(y(i),i=1,neq)
+!!   99010 format (//' At t =',d11.3,4x,' No. steps =',i5,4x,' Last step =', &
+!!               & d11.3/'  Y array =  ',4D14.5/13x,4D14.5/13x,4D14.5)
+!!      if ( istate<0 ) then
+!!         write (6,99020) istate
+!!   99020 format (///' Error halt.. ISTATE =',i3)
+!!         stop 1
+!!      else
+!!         tout = tout*10.0D0
+!!      endif
+!!   enddo
+!!   lenrw = iwork(17)
+!!   leniw = iwork(18)
+!!   nst = iwork(11)
+!!   nfe = iwork(12)
+!!   nje = iwork(13)
+!!   nlu = iwork(21)
+!!   nnz = iwork(19)
+!!   nnzlu = iwork(25) + iwork(26) + neq
+!!   write (6,99030) lenrw,leniw,nst,nfe,nje,nlu,nnz,nnzlu
+!!   99030 format (//' Required RWORK size =',i4,'   IWORK size =',          &
+!!                &i4/' No. steps =',i4,'   No. f-s =',i4,'   No. J-s =',i4, &
+!!                &'   No. LU-s =',i4/' No. of nonzeros in J =',i5,          &
+!!                &'   No. of nonzeros in LU =',i5)
+!!         
+!!end program dlsodes_ex
+!! 
+!!subroutine fex(Neq,T,Y,Ydot)
+!!implicit none
+!! 
+!!integer,parameter :: dp=kind(0.0d0)
+!!integer                                  ::  Neq
+!!real(kind=dp)                            ::  T
+!!real(kind=dp),intent(in),dimension(12)   ::  Y
+!!real(kind=dp),intent(out),dimension(12)  ::  Ydot
+!! 
+!!real(kind=dp),save :: rk1,rk10,rk11,rk12,rk13,rk14,rk15, &
+!!                     & rk16,rk17,rk2,rk3,rk4,rk5,rk6,rk7 ,&
+!!                     & rk8,rk9
+!!real,save          :: rk18,rk19,rk20
+!! 
+!!data rk1/0.1D0/,rk2/10.0D0/,rk3/50.0D0/,rk4/2.5D0/,rk5/0.1D0/,&
+!!   & rk6/10.0D0/,rk7/50.0D0/,rk8/2.5D0/,rk9/50.0D0/,            &
+!!   & rk10/5.0D0/,rk11/50.0D0/,rk12/50.0D0/,rk13/50.0D0/,        &
+!!   & rk14/30.0D0/,rk15/100.0D0/,rk16/2.5D0/,rk17/100.0D0/,      &
+!!   & rk18/2.5D0/,rk19/50.0D0/,rk20/50.0D0/
+!!   Ydot(1) = -rk1*Y(1)
+!!   Ydot(2) = rk1*Y(1) + rk11*rk14*Y(4) + rk19*rk14*Y(5) - rk3*Y(2)*Y(3)    &
+!!           & - rk15*Y(2)*Y(12) - rk2*Y(2)
+!!   Ydot(3) = rk2*Y(2) - rk5*Y(3) - rk3*Y(2)*Y(3) - rk7*Y(10)*Y(3)          &
+!!           & + rk11*rk14*Y(4) + rk12*rk14*Y(6)
+!!   Ydot(4) = rk3*Y(2)*Y(3) - rk11*rk14*Y(4) - rk4*Y(4)
+!!   Ydot(5) = rk15*Y(2)*Y(12) - rk19*rk14*Y(5) - rk16*Y(5)
+!!   Ydot(6) = rk7*Y(10)*Y(3) - rk12*rk14*Y(6) - rk8*Y(6)
+!!   Ydot(7) = rk17*Y(10)*Y(12) - rk20*rk14*Y(7) - rk18*Y(7)
+!!   Ydot(8) = rk9*Y(10) - rk13*rk14*Y(8) - rk10*Y(8)
+!!   Ydot(9) = rk4*Y(4) + rk16*Y(5) + rk8*Y(6) + rk18*Y(7)
+!!   Ydot(10) = rk5*Y(3) + rk12*rk14*Y(6) + rk20*rk14*Y(7) + rk13*rk14*Y(8)  &
+!!            & - rk7*Y(10)*Y(3) - rk17*Y(10)*Y(12) - rk6*Y(10) - rk9*Y(10)
+!!   Ydot(11) = rk10*Y(8)
+!!   Ydot(12) = rk6*Y(10) + rk19*rk14*Y(5) + rk20*rk14*Y(7) - rk15*Y(2)*Y(12)&
+!!            & - rk17*Y(10)*Y(12)
+!!end subroutine fex
+!! 
+!!subroutine jex(Neq,T,Y,J,Ia,Ja,Pdj)
+!!implicit none
+!!!
+!!integer,parameter                        ::  dp=kind(0.0d0)
+!!integer                                  ::  Neq
+!!real(kind=dp)                            ::  T
+!!real(kind=dp),intent(in),dimension(12)   ::  Y
+!!integer,intent(in)                       ::  J
+!!integer,dimension(*)                     ::  Ia
+!!integer,dimension(*)                     ::  Ja
+!!real(kind=dp),intent(out),dimension(12)  ::  Pdj
+!!!
+!!real(kind=dp),save :: rk1,rk10,rk11,rk12,rk13,rk14,rk15, &
+!!                     & rk16,rk17,rk2,rk3,rk4,rk5,rk6,rk7 ,&
+!!                     & rk8,rk9
+!!real,save :: rk18,rk19,rk20
+!!!
+!!data rk1/0.1D0/,rk2/10.0D0/,rk3/50.0D0/,rk4/2.5D0/,rk5/0.1D0/,&
+!!   & rk6/10.0D0/,rk7/50.0D0/,rk8/2.5D0/,rk9/50.0D0/,            &
+!!   & rk10/5.0D0/,rk11/50.0D0/,rk12/50.0D0/,rk13/50.0D0/,        &
+!!   & rk14/30.0D0/,rk15/100.0D0/,rk16/2.5D0/,rk17/100.0D0/,      &
+!!   & rk18/2.5D0/,rk19/50.0D0/,rk20/50.0D0/
+!!   select case (J)
+!!   case (2)
+!!      Pdj(2) = -rk3*Y(3) - rk15*Y(12) - rk2
+!!      Pdj(3) = rk2 - rk3*Y(3)
+!!      Pdj(4) = rk3*Y(3)
+!!      Pdj(5) = rk15*Y(12)
+!!      Pdj(12) = -rk15*Y(12)
+!!   case (3)
+!!      Pdj(2) = -rk3*Y(2)
+!!      Pdj(3) = -rk5 - rk3*Y(2) - rk7*Y(10)
+!!      Pdj(4) = rk3*Y(2)
+!!      Pdj(6) = rk7*Y(10)
+!!      Pdj(10) = rk5 - rk7*Y(10)
+!!   case (4)
+!!      Pdj(2) = rk11*rk14
+!!      Pdj(3) = rk11*rk14
+!!      Pdj(4) = -rk11*rk14 - rk4
+!!      Pdj(9) = rk4
+!!   case (5)
+!!      Pdj(2) = rk19*rk14
+!!      Pdj(5) = -rk19*rk14 - rk16
+!!      Pdj(9) = rk16
+!!      Pdj(12) = rk19*rk14
+!!   case (6)
+!!      Pdj(3) = rk12*rk14
+!!      Pdj(6) = -rk12*rk14 - rk8
+!!      Pdj(9) = rk8
+!!      Pdj(10) = rk12*rk14
+!!   case (7)
+!!      Pdj(7) = -rk20*rk14 - rk18
+!!      Pdj(9) = rk18
+!!      Pdj(10) = rk20*rk14
+!!      Pdj(12) = rk20*rk14
+!!   case (8)
+!!      Pdj(8) = -rk13*rk14 - rk10
+!!      Pdj(10) = rk13*rk14
+!!      Pdj(11) = rk10
+!!   case (9)
+!!   case (10)
+!!      Pdj(3) = -rk7*Y(3)
+!!      Pdj(6) = rk7*Y(3)
+!!      Pdj(7) = rk17*Y(12)
+!!      Pdj(8) = rk9
+!!      Pdj(10) = -rk7*Y(3) - rk17*Y(12) - rk6 - rk9
+!!      Pdj(12) = rk6 - rk17*Y(12)
+!!   case (11)
+!!   case (12)
+!!      Pdj(2) = -rk15*Y(2)
+!!      Pdj(5) = rk15*Y(2)
+!!      Pdj(7) = rk17*Y(10)
+!!      Pdj(10) = -rk17*Y(10)
+!!      Pdj(12) = -rk15*Y(2) - rk17*Y(10)
+!!   case default
+!!      Pdj(1) = -rk1
+!!      Pdj(2) = rk1
+!!   endselect
+!!   
+!!end subroutine jex
+!!```
 !!
 !! The output of this program (on a Cray-1 in single precision)
 !! is as follows:

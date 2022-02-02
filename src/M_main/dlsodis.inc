@@ -252,104 +252,160 @@
 !! solution vector at t = .4.  Optional outputs (run statistics) are
 !! also printed.
 !!
-!!     EXTERNAL RESID, ADDASP, JACSP
-!!     DOUBLE PRECISION ATOL, RTOL, RW, T, TOUT, Y, YDOTI, R4D, EODSQ, DELX
-!!     DIMENSION Y(40), YDOTI(40), RW(1409), IW(30)
-!!     COMMON /TEST1/ R4D, EODSQ, NM1
-!!     DATA ITOL/1/, RTOL/1.0D-3/, ATOL/1.0D-3/, ITASK/1/, IOPT/0/
-!!     DATA NEQ/40/, LRW/1409/, LIW/30/, MF/121/
+!!```fortran
+!!module c_test1
+!!implicit none
+!!integer,parameter,private :: dp=kind(0.0d0)
+!!real(kind=dp),public      :: EODsq, R4D
+!!integer,public            :: NM1
+!!end module c_test1
 !!
-!!     DELX = 2.0/NEQ
-!!     R4D = 0.25/DELX
-!!     EODSQ = 0.05/DELX**2
-!!     NM1 = NEQ - 1
-!!     DO I = 1,NEQ
-!!       Y(I) = 0.0
-!!     ENDDO
-!!     Y(11) = 0.5
-!!     DO I = 12,30
-!!       Y(I) = 1.0
-!!     ENDDO
-!!     Y(31) = 0.5
-!!     T = 0.0
-!!     TOUT = 0.1
-!!     ISTATE = 0
-!!     DO IO = 1,4
-!!       CALL DLSODIS (RESID, ADDASP, JACSP, NEQ, Y, YDOTI, T, TOUT,
-!!    1    ITOL, RTOL, ATOL, ITASK, ISTATE, IOPT, RW, LRW, IW, LIW, MF)
-!!       WRITE(6,20) T,IW(11),RW(11)
-!! 20    FORMAT(' At t =',F5.2,'   No. steps =',I4,
-!!    1    '    Last step =',D12.4)
-!!       IF (ISTATE .NE. 2) GO TO 90
-!!       TOUT = TOUT + 0.1
-!!     ENDDO
-!!     WRITE (6,40) (Y(I),I=1,NEQ)
-!! 40  FORMAT(/' Final solution values..'/8(5D12.4/))
-!!     WRITE(6,50) IW(17),IW(18),IW(11),IW(12),IW(13)
-!!     NNZLU = IW(25) + IW(26) + NEQ
-!!     WRITE(6,60) IW(19),NNZLU
-!! 50  FORMAT(/' Required RW size =',I5,'   IW size =',I4/
-!!    1  ' No. steps =',I4,'   No. r-s =',I4,'   No. J-s =',i4)
-!! 60  FORMAT(' No. of nonzeros in P matrix =',I4,
-!!    1  '   No. of nonzeros in LU =',I4)
-!!     STOP
-!! 90  WRITE (6,95) ISTATE
-!! 95  FORMAT(///' Error halt.. ISTATE =',I3)
-!!     STOP
-!!     END
+!!program dlsodis_ex
+!!use m_odepack
+!!use c_test1
+!!implicit none
+!!integer,parameter              ::  dp=kind(0.0d0)
+!!external                       ::  addasp
+!!external                       ::  jacsp
+!!external                       ::  resid
+!!real(kind=dp),save             ::  atol,rtol
+!!real(kind=dp)                  ::  delx,t,tout
+!!integer                        ::  i,io,istate,nnzlu
+!!integer,save                   ::  iopt,itask,itol,liw,lrw,mf,neq
+!!integer,dimension(30)          ::  iw
+!!real(kind=dp),dimension(1409)  ::  rw
+!!real(kind=dp),dimension(40)    ::  y,ydoti
 !!
-!!     SUBROUTINE GFUN (N, T, Y, G)
-!!     DOUBLE PRECISION T, Y, G, R4D, EODSQ
-!!     DIMENSION G(N), Y(N)
-!!     COMMON /TEST1/ R4D, EODSQ, NM1
-!!     G(1) = R4D*(Y(N)**2-Y(2)**2) + EODSQ*(Y(2)-2.0*Y(1)+Y(N))
-!!     DO I = 2,NM1
-!!       G(I) = R4D*(Y(I-1)**2 - Y(I+1)**2)
-!!    1        + EODSQ*(Y(I+1) - 2.0*Y(I) + Y(I-1))
-!!     ENDDO
-!!     G(N) = R4D*(Y(NM1)**2-Y(1)**2) + EODSQ*(Y(1)-2.0*Y(N)+Y(NM1))
-!!     RETURN
-!!     END
+!!data itol/1/,rtol/1.0D-3/,atol/1.0D-3/,itask/1/,iopt/0/
+!!data neq/40/,lrw/1409/,liw/30/,mf/121/
 !!
-!!     SUBROUTINE RESID (N, T, Y, S, R, IRES)
-!!     DOUBLE PRECISION T, Y, S, R, R4D, EODSQ
-!!     DIMENSION Y(N), S(N), R(N)
-!!     COMMON /TEST1/ R4D, EODSQ, NM1
-!!     CALL GFUN (N, T, Y, R)
-!!     R(1) = R(1) - (S(N) + 4.0*S(1) + S(2))/6.0
-!!     DO I = 2,NM1
-!!       R(I) = R(I) - (S(I-1) + 4.0*S(I) + S(I+1))/6.0
-!!     ENDDO
-!!     R(N) = R(N) - (S(NM1) + 4.0*S(N) + S(1))/6.0
-!!     RETURN
-!!     END
+!!   delx = 2.0/neq
+!!   R4D = 0.25/delx
+!!   EODsq = 0.05/delx**2
+!!   NM1 = neq - 1
+!!   do i = 1,neq
+!!      y(i) = 0.0
+!!   enddo
+!!   y(11) = 0.5
+!!   do i = 12,30
+!!      y(i) = 1.0
+!!   enddo
+!!   y(31) = 0.5
+!!   t = 0.0
+!!   tout = 0.1
+!!   istate = 0
+!!   do io = 1,4
+!!      call dlsodis(resid,addasp,jacsp,[neq],y,ydoti,t,tout,itol,[rtol],    &
+!!                 & [atol],itask,istate,iopt,rw,lrw,iw,liw,mf)
+!!      write (6,99010) t,iw(11),rw(11)
+!!   99010 format (' At t =',f5.2,'   No. steps =',i4,'    Last step =',     &
+!!               & d12.4)
+!!      if ( istate/=2 ) then
+!!         write (6,99020) istate
+!!   99020 format (///' Error halt.. ISTATE =',i3)
+!!         stop 1
+!!      else
+!!         tout = tout + 0.1
+!!      endif
+!!   enddo
+!!   write (6,99030) (y(i),i=1,neq)
+!!   99030 format (/' Final solution values..'/8(5D12.4/))
+!!   write (6,99040) iw(17),iw(18),iw(11),iw(12),iw(13)
+!!   99040 format (/' Required RW size =',i5,'   IW size =',                 &
+!!               & i4/' No. steps =',i4,'   No. r-s =',i4,'   No. J-s =',i4)
+!!   nnzlu = iw(25) + iw(26) + neq
+!!   write (6,99050) iw(19),nnzlu
+!!   99050 format (' No. of nonzeros in P matrix =',i4,                      &
+!!                &'   No. of nonzeros in LU =',i4)
 !!
-!!     SUBROUTINE ADDASP (N, T, Y, J, IP, JP, P)
-!!     DOUBLE PRECISION T, Y, P
-!!     DIMENSION Y(N), IP(*), JP(*), P(N)
-!!     JM1 = J - 1
-!!     JP1 = J + 1
-!!     IF (J .EQ. N) JP1 = 1
-!!     IF (J .EQ. 1) JM1 = N
-!!     P(J) = P(J) + (2.0/3.0)
-!!     P(JP1) = P(JP1) + (1.0/6.0)
-!!     P(JM1) = P(JM1) + (1.0/6.0)
-!!     RETURN
-!!     END
+!!end program dlsodis_ex
 !!
-!!     SUBROUTINE JACSP (N, T, Y, S, J, IP, JP, PDJ)
-!!     DOUBLE PRECISION T, Y, S, PDJ, R4D, EODSQ
-!!     DIMENSION Y(N), S(N), IP(*), JP(*), PDJ(N)
-!!     COMMON /TEST1/ R4D, EODSQ, NM1
-!!     JM1 = J - 1
-!!     JP1 = J + 1
-!!     IF (J .EQ. 1) JM1 = N
-!!     IF (J .EQ. N) JP1 = 1
-!!     PDJ(JM1) = -2.0*R4D*Y(J) + EODSQ
-!!     PDJ(J) = -2.0*EODSQ
-!!     PDJ(JP1) = 2.0*R4D*Y(J) + EODSQ
-!!     RETURN
-!!     END
+!!subroutine gfun(N,T,Y,G)
+!!use c_test1
+!!implicit none
+!!integer,parameter                       ::  dp=kind(0.0d0)
+!!integer,intent(in)                      ::  N
+!!real(kind=dp)                           ::  T
+!!real(kind=dp),intent(in),dimension(N)   ::  Y
+!!real(kind=dp),intent(out),dimension(N)  ::  G
+!!integer                                 ::  i
+!! 
+!!   G(1) = R4D*(Y(N)**2-Y(2)**2) + EODsq*(Y(2)-2.0*Y(1)+Y(N))
+!!   do i = 2,NM1
+!!      G(i) = R4D*(Y(i-1)**2-Y(i+1)**2) + EODsq*(Y(i+1)-2.0*Y(i)+Y(i-1))
+!!   enddo
+!!   G(N) = R4D*(Y(NM1)**2-Y(1)**2) + EODsq*(Y(1)-2.0*Y(N)+Y(NM1))
+!!end subroutine gfun
+!!
+!!subroutine resid(N,T,Y,S,R,Ires)
+!!use c_test1
+!!implicit none
+!!integer,parameter                         :: dp=kind(0.0d0)
+!!external                                  :: gfun
+!! 
+!!integer                                   :: N
+!!real(kind=dp)                             :: T
+!!real(kind=dp),dimension(N)                :: Y
+!!real(kind=dp),intent(in),dimension(N)     :: S
+!!real(kind=dp),intent(inout),dimension(N)  :: R
+!!integer                                   :: Ires
+!! 
+!!integer                                   :: i
+!! 
+!!   call gfun(N,T,Y,R)
+!!   R(1) = R(1) - (S(N)+4.0*S(1)+S(2))/6.0
+!!   do i = 2,NM1
+!!      R(i) = R(i) - (S(i-1)+4.0*S(i)+S(i+1))/6.0
+!!   enddo
+!!   R(N) = R(N) - (S(NM1)+4.0*S(N)+S(1))/6.0
+!!end subroutine resid
+!!
+!!subroutine addasp(N,T,Y,J,Ip,Jp,P)
+!!implicit none
+!!integer,parameter                         ::  dp=kind(0.0d0)
+!!integer,intent(in)                        ::  N
+!!real(kind=dp)                             ::  T
+!!real(kind=dp),dimension(N)                ::  Y
+!!integer,intent(in)                        ::  J
+!!integer,dimension(*)                      ::  Ip
+!!integer,dimension(*)                      ::  Jp
+!!real(kind=dp),intent(inout),dimension(N)  ::  P
+!!integer                                   ::  jm1,jp1
+!! 
+!!   jm1 = J - 1
+!!   jp1 = J + 1
+!!   if ( J==N ) jp1 = 1
+!!   if ( J==1 ) jm1 = N
+!!   P(J) = P(J) + (2.0/3.0)
+!!   P(jp1) = P(jp1) + (1.0/6.0)
+!!   P(jm1) = P(jm1) + (1.0/6.0)
+!!end subroutine addasp
+!!
+!!subroutine jacsp(N,T,Y,S,J,Ip,Jp,Pdj)
+!!use c_test1
+!!implicit none
+!!integer,parameter                       ::  dp=kind(0.0d0)
+!! 
+!!integer,intent(in)                      ::  N
+!!real(kind=dp)                           ::  T
+!!real(kind=dp),intent(in),dimension(N)   ::  Y
+!!real(kind=dp),dimension(N)              ::  S
+!!integer,intent(in)                      ::  J
+!!integer,dimension(*)                    ::  Ip
+!!integer,dimension(*)                    ::  Jp
+!!real(kind=dp),intent(out),dimension(N)  ::  Pdj
+!! 
+!!integer                                 ::  jm1,jp1
+!! 
+!!   jm1 = J - 1
+!!   jp1 = J + 1
+!!   if ( J==1 ) jm1 = N
+!!   if ( J==N ) jp1 = 1
+!!   Pdj(jm1) = -2.0*R4D*Y(J) + EODsq
+!!   Pdj(J) = -2.0*EODsq
+!!   Pdj(jp1) = 2.0*R4D*Y(J) + EODsq
+!!end subroutine jacsp
+!!```
 !!
 !! The output of this program (on a CDC-7600 in single precision)
 !! is as follows:

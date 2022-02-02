@@ -284,7 +284,6 @@
 !! In either case, no other parameters need be reset.
 !!
 !!-----------------------------------------------------------------------
-!!-----------------------------------------------------------------------
 !! Full Description of User Interface to DLSODKR.
 !!
 !! The user interface to DLSODKR consists of the following parts.

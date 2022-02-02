@@ -179,67 +179,99 @@
 !! At the end of the run, statistical quantities of interest are
 !! printed (see optional outputs in the full description below).
 !!
-!!     EXTERNAL FEX, GEX
-!!     DOUBLE PRECISION ATOL, RTOL, RWORK, T, TOUT, Y
-!!     DIMENSION Y(3), ATOL(3), RWORK(76), IWORK(23), JROOT(2)
-!!     NEQ = 3
-!!     Y(1) = 1.
-!!     Y(2) = 0.
-!!     Y(3) = 0.
-!!     T = 0.
-!!     TOUT = .4
-!!     ITOL = 2
-!!     RTOL = 1.D-4
-!!     ATOL(1) = 1.D-6
-!!     ATOL(2) = 1.D-10
-!!     ATOL(3) = 1.D-6
-!!     ITASK = 1
-!!     ISTATE = 1
-!!     IOPT = 0
-!!     LRW = 76
-!!     LIW = 23
-!!     JT = 2
-!!     NG = 2
-!!     DO IOUT = 1,12
-!! 10    CALL DLSODAR(FEX,NEQ,Y,T,TOUT,ITOL,RTOL,ATOL,ITASK,ISTATE,
-!!    1     IOPT,RWORK,LRW,IWORK,LIW,JDUM,JT,GEX,NG,JROOT)
-!!       WRITE(6,20)T,Y(1),Y(2),Y(3)
-!! 20    FORMAT(' At t =',D12.4,'   Y =',3D14.6)
-!!       IF (ISTATE .LT. 0) GO TO 80
-!!       IF (ISTATE .EQ. 2) GO TO 40
-!!       WRITE(6,30)JROOT(1),JROOT(2)
-!! 30    FORMAT(5X,' The above line is a root,  JROOT =',2I5)
-!!       ISTATE = 2
-!!       GO TO 10
-!!       TOUT = TOUT*10.
-!!     ENDDO
-!!     WRITE(6,60)IWORK(11),IWORK(12),IWORK(13),IWORK(10),
-!!    1   IWORK(19),RWORK(15)
-!! 60  FORMAT(/' No. steps =',I4,'  No. f-s =',I4,'  No. J-s =',I4,
-!!    1   '  No. g-s =',I4/
-!!    2   ' Method last used =',I2,'   Last switch was at t =',D12.4)
-!!     STOP
-!! 80  WRITE(6,90)ISTATE
-!! 90  FORMAT(///' Error halt.. ISTATE =',I3)
-!!     STOP
-!!     END
+!!```fortran
+!!program dlsodar_ex
+!!use m_odepack
+!!implicit none
+!!external fex
+!!external gex
+!!external jdum
+!!integer,parameter :: dp=kind(0.0d0)
+!! 
+!!real(kind=dp),dimension(3)   ::  atol,y
+!!integer                      ::  iopt,iout,istate,itask,itol,jt,liw,lrw,neq,ng
+!!integer,dimension(23)        ::  iwork
+!!integer,dimension(2)         ::  jroot
+!!real(kind=dp)                ::  rtol,t,tout
+!!real(kind=dp),dimension(76)  ::  rwork
 !!
-!!     SUBROUTINE FEX (NEQ, T, Y, YDOT)
-!!     DOUBLE PRECISION T, Y, YDOT
-!!     DIMENSION Y(3), YDOT(3)
-!!     YDOT(1) = -.04*Y(1) + 1.D4*Y(2)*Y(3)
-!!     YDOT(3) = 3.D7*Y(2)*Y(2)
-!!     YDOT(2) = -YDOT(1) - YDOT(3)
-!!     RETURN
-!!     END
+!!   neq = 3
+!!   y(1) = 1.
+!!   y(2) = 0.
+!!   y(3) = 0.
+!!   t = 0.
+!!   tout = .4
+!!   itol = 2
+!!   rtol = 1.D-4
+!!   atol(1) = 1.D-6
+!!   atol(2) = 1.D-10
+!!   atol(3) = 1.D-6
+!!   itask = 1
+!!   istate = 1
+!!   iopt = 0
+!!   lrw = 76
+!!   liw = 23
+!!   jt = 2
+!!   ng = 2
+!!   do iout = 1,12
+!!      do
+!!         call dlsodar(fex,[neq],y,t,tout,itol,[rtol],atol,itask,istate,    &
+!!                    & iopt,rwork,lrw,iwork,liw,jdum,jt,gex,ng,jroot)
+!!         write (6,99010) t,y(1),y(2),y(3)
+!!   99010 format (' At t =',d12.4,'   Y =',3D14.6)
+!!         if ( istate<0 ) then
+!!            write (6,99020) istate
+!!   99020    format (///' Error halt.. ISTATE =',i3)
+!!            stop 1
+!!         elseif ( istate==2 ) then
+!!            tout = tout*10.
+!!            exit
+!!         else
+!!            write (6,99030) jroot(1),jroot(2)
+!!   99030    format (5x,' The above line is a root,  JROOT =',2I5)
+!!            istate = 2
+!!         endif
+!!      enddo
+!!   enddo
+!!   write (6,99040) iwork(11),iwork(12),iwork(13),iwork(10),        &
+!!                 & iwork(19),rwork(15)
+!!   99040 format (/' No. steps =',i4,'  No. f-s =',i4,'  No. J-s =',i4,     &
+!!                &'  No. g-s =',i4/' Method last used =',i2,                &
+!!                &'   Last switch was at t =',d12.4)
 !!
-!!     SUBROUTINE GEX (NEQ, T, Y, NG, GOUT)
-!!     DOUBLE PRECISION T, Y, GOUT
-!!     DIMENSION Y(3), GOUT(2)
-!!     GOUT(1) = Y(1) - 1.D-4
-!!     GOUT(2) = Y(3) - 1.D-2
-!!     RETURN
-!!     END
+!!end program dlsodar_ex
+!!
+!!subroutine jdum()
+!!implicit none
+!!end subroutine jdum
+!! 
+!!subroutine fex(Neq,T,Y,Ydot)
+!!implicit none
+!!integer,parameter                         ::  dp=kind(0.0d0)
+!!integer                                   ::  Neq
+!!real(kind=dp)                             ::  T
+!!real(kind=dp),intent(in),dimension(3)     ::  Y
+!!real(kind=dp),intent(inout),dimension(3)  ::  Ydot
+!! 
+!!   Ydot(1) = -.04*Y(1) + 1.D4*Y(2)*Y(3)
+!!   Ydot(3) = 3.D7*Y(2)*Y(2)
+!!   Ydot(2) = -Ydot(1) - Ydot(3)
+!!end subroutine fex
+!! 
+!!subroutine gex(Neq,T,Y,Ng,Gout)
+!!implicit none
+!! 
+!!integer                                 ::  Neq
+!!integer,parameter                       ::  dp=kind(0.0d0)
+!!real(kind=dp)                           ::  T
+!!real(kind=dp),intent(in),dimension(3)   ::  Y
+!!integer                                 ::  Ng
+!!real(kind=dp),intent(out),dimension(2)  ::  Gout
+!! 
+!!   Gout(1) = Y(1) - 1.D-4
+!!   Gout(2) = Y(3) - 1.D-2
+!!end subroutine gex
+!!```
 !!
 !! The output of this program (on a CDC-7600 in single precision)
 !! is as follows:
