@@ -1,12 +1,113 @@
+<!--
+see more recent: 
 
+   https://computing.llnl.gov/projects/odepack
+
+might have test cases:
+
+   https://people.sc.fsu.edu/~jburkardt/f77_src/odepack/odepack.html
+-->
+# module ODEPACK
+
+This is a WIP(Work In Progress) to evaluate the effort required and
+feasibility of updating older Fortran code from the netlib repository
+using a combination of the commercial plusFORT/spag software and GNU
+utilities.
+
+Many thanks to plusFORT for making an evaluation copy available for
+several months to the Fortran Community. The plusFORT tools were crucial
+to this study and unmatched in my experience for removing deprecated
+syntax from pre-f2003 code.
+
+This began with [ODEPACK](https://github.com/jacobwilliams/odepack)
+
+the ODEPACK package has been selected as a significant code that is well
+documented and structured for its vintage, and available on the netlib
+site and covered by a public domain license.
+
+```text
+     ODEPACK:
+     About 28 000, lines of core source files 
+     (About 11 000, lines of core code excluding comments)
+     An additional 3700 lines of test cases.
+```text
+
+
+ preliminary targets
+
+ + remove obsolescent syntax (trying plusFORT and spag)
+ + should be able to build using fpm(1)  (the Fortran Package Manager) 
+   - in debug mode 
+   - with ifort, gfortran, nvfortran
+ + text viewable in ford(1) and extractable as markup that can run through pandoc(1) 
+ + available on github (or equivalent)
+ + no common blocks
+ + no equivalences
+ + build as a (single?) module M_odepack
+ + complete set of unit tests
+
+In this case the originally bundled subset of BLAS/LAPACK routines are being included in the module.
+In production, this might not be done in order to be able to easily call external optimized versions.
+
+The biggest hinderance is some storage used for both INTEGER and DOUBLE PRECISION values.
+ 
+ One take-away is how critical unit tests are to enable rapid development (which so far this
+ package does not have)
+
+The initial pass was done just using the original sample programs as unit tests. This may have
+allowed for introduction of errors but the original samples run with the same output as the 
+original.
+
+As a proof of concept I have gleaned what I wanted from this effort. plusFORT was invaluable and 
+reduced the effort by an estimated 85 percent. To do this successfully either highly reliable
+automated tools and/or a complete unit test suite is required. Non-standard but (at the time)
+de-facto fortran standards such as equivalencing different types, creating scratch space that is
+used as different numeric types, and treating scalars as arrays and vice-versa as well as passing
+the same arrays or values multiple times are the most time-consuming usages to correct to being
+standard-conforming, particularly since spag(1) does an excellent job with pre-f2003 code. It
+(currently?) has issues with code that has been partially migrated to use f2003+ features and
+syntax.
+
+It is not complete. 
+
+The type-mismatch issues have not been eliminated enough to include
+the routines in the files "M_da1/dprep.inc" "M_da1/dainvgs.inc"
+"M_da1/dprepi.inc" "M_da1/dstodi.inc" and "M_da1_/dstode.inc",
+and a few places in the example programs.
+
+It builds as an fpm(1) package with the current options:
+```bash
+ fpm run                     --compiler nvfortran --example '*'
+ fpm run --profile release   --compiler ifort     --example '*'
+ fpm run --flag -std=legacy  --compiler gfortran  --example '*'
+```
+
+A second pass needs made to restructure the code in some places manually, but
+the code is far more readable after having been refactored by spag(1) from the
+plusFORT package. 
+
+There are a few notes in src/M_odepack.f90 concerning continuing issues.
+
+If there is interest in completing this transformation it can continue on this
+site or the parent on jacobwilliams site as a group project or via a clone or
+fork. If anyone spawns a project from this one let me know so I can remove this
+one.
+
+I do not plan on continuing this any further with additional interest, but leave
+it here in case anyone else wants to see this brought to a product-quality product,
+as I have learned what I wanted from it in this state.
+
+--------------------------------------------------------------------------------
 ## Brief Description of ODEPACK - A Systematized Collection of ODE Solvers (Double Precision Version)
 
+```text
 Alan C. Hindmarsh
 Center for Applied Scientific Computing, L-561
 Lawrence Livermore National Laboratory
 Livermore, CA 94551, U.S.A.
 
 20 June 2001
+```
 
 Work performed under the auspices of the U.S. Department of Energy
 by the Lawrence Livermore National Laboratory under contract
@@ -61,7 +162,7 @@ however, and do not affect performance.
    Documentation on the usage of each solver is provided in the
 initial block of comment lines in the source file, which (in most
 cases) includes a simple example.  A demonstration program (in
-seperate double/single precision versions) is also available.
+separate double/single precision versions) is also available.
 
    What follows is a summary of the capabilities of ODEPACK, comments
 about usage documentation, and notes about installing the collection.
@@ -267,10 +368,13 @@ then R(I) has the same address as M((I-1)*L+1).  This ratio L is
 usually 2 for double precision, and this is the value used in the
 double precision version supplied.  If this value is incorrect, it
 needs to be changed in two places:
+
   (a) The integer LENRAT is DATA-loaded in Subroutines DLSODES and
       DLSODIS to this ratio, shortly below the prologue.
+
   (b) The integer LRATIO is DATA-loaded in Subroutine CDRV to this
       ratio, shortly below the prologue of that routine.
+
 (See comments in both places.)  If the ratio is not an integer, use
 the greatest integer not exceeding the ratio.
 
@@ -282,7 +386,7 @@ directives are (or should be) treated as comments by any other compiler.
 
 7. On first obtaining ODEPACK, the demonstration programs should be
 compiled and executed prior to any other use of the solvers.  In most
-cases, these excercise all of the major method options in each solver,
+cases, these exercise all of the major method options in each solver,
 and are self-checking.  (In the case of LSODPK and LSODKR, the
 demonstration programs are not self-checking, and for LSODKR only one
 major method option is used.)  In any case, the output can be compared

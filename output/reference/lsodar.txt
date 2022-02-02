@@ -1,0 +1,146 @@
+
+
+ Demonstration program for DLSODAR package
+
+
+
+ First problem
+
+
+ Problem is  dy/dt = ((2*log(y)+8)/t - 5)*y,  y(1) = 1
+
+ Solution is  y(t) = exp(-t**2 + 5*t - 4)
+
+ Root functions are:
+           g1 = dy/dt  (root at t = 2.5)
+           g2 = log(y) - 2.2491  (roots at t = 2.47 and t = 2.53)
+
+ itol =  1   rtol =   0.1E-05   atol =   0.1E-05
+
+ jt =  2
+
+
+
+ At t =  0.2000000E+01     y =  0.7389071E+01     error =  0.1534E-04
+ At t =  0.2469971E+01     y =  0.9479201E+01     error =  0.1631E-04
+
+ Root found at t =  0.2469971E+01     jroot =    0    1
+ Error in t location of root is -0.2865E-04
+
+ At t =  0.2500001E+01     y =  0.9487752E+01     error =  0.1613E-04
+
+ Root found at t =  0.2500001E+01     jroot =    1    0
+ Error in t location of root is  0.6800E-06
+
+ At t =  0.2530028E+01     y =  0.9479201E+01     error =  0.1601E-04
+
+ Root found at t =  0.2530028E+01     jroot =    0    1
+ Error in t location of root is  0.2813E-04
+
+ At t =  0.3000000E+01     y =  0.7389083E+01     error =  0.2667E-04
+ At t =  0.4000000E+01     y =  0.1000007E+01     error =  0.6703E-05
+ At t =  0.5000000E+01     y =  0.1831582E-01     error =  0.1814E-06
+ At t =  0.6000000E+01     y =  0.4536004E-04     error = -0.3989E-07
+
+
+ Final statistics for this run:
+ rwork size =  42   iwork size =  21
+ number of steps =   71
+ number of f-s   =  147
+ (excluding j-s) =  147
+ number of j-s   =    0
+ number of g-s   =  114
+ error overrun =  0.34E+01
+
+
+
+
+********************************************************************************
+
+ Second problem (Van der Pol oscillator)
+
+ Problem is dy1/dt = y2,  dy2/dt = 100*(1-y1**2)*y2 - y1
+            y1(0) = 2,  y2(0) = 0
+
+ Root function is  g = y1
+
+ itol =  2   rtol =   0.1E-05   atol =   0.1E-05   0.1E-03
+
+
+
+ Solution with jt = 1
+
+
+ At t =  0.2000000E+02     y1 =  0.1858228E+01     y2 = -0.7575094E-02
+ At t =  0.4000000E+02     y1 =  0.1693230E+01     y2 = -0.9068584E-02
+ At t =  0.6000000E+02     y1 =  0.1484608E+01     y2 = -0.1232742E-01
+ At t =  0.8000000E+02     y1 =  0.1086291E+01     y2 = -0.5840716E-01
+ At t =  0.8116520E+02     y1 = -0.1308482E-12     y2 = -0.6713980E+02
+
+ Root found at t =  0.8116520E+02
+ Error in t location of root is -0.7180E-02
+
+
+ At t =  0.1000000E+03     y1 = -0.1868862E+01     y2 =  0.7497304E-02
+ At t =  0.1200000E+03     y1 = -0.1705927E+01     y2 =  0.8930077E-02
+ At t =  0.1400000E+03     y1 = -0.1501740E+01     y2 =  0.1196163E-01
+ At t =  0.1600000E+03     y1 = -0.1148800E+01     y2 =  0.3568399E-01
+ At t =  0.1625761E+03     y1 =  0.1153602E-11     y2 =  0.6713972E+02
+
+ Root found at t =  0.1625761E+03
+ Error in t location of root is -0.1485E-01
+
+
+ At t =  0.1800000E+03     y1 =  0.1879384E+01     y2 = -0.7422067E-02
+ At t =  0.2000000E+03     y1 =  0.1718431E+01     y2 = -0.8798201E-02
+
+
+ Final statistics for this run:
+  rwork size =  55   iwork size =  22
+  number of steps =  478
+  number of f-s   =  931
+  (excluding j-s) =  931
+  number of j-s   =   42
+  number of g-s   =  513
+
+
+
+ Solution with jt = 2
+
+
+ At t =  0.2000000E+02     y1 =  0.1858228E+01     y2 = -0.7575094E-02
+ At t =  0.4000000E+02     y1 =  0.1693230E+01     y2 = -0.9068584E-02
+ At t =  0.6000000E+02     y1 =  0.1484608E+01     y2 = -0.1232742E-01
+ At t =  0.8000000E+02     y1 =  0.1086291E+01     y2 = -0.5840716E-01
+ At t =  0.8116520E+02     y1 = -0.8500767E-12     y2 = -0.6713980E+02
+
+ Root found at t =  0.8116520E+02
+ Error in t location of root is -0.7180E-02
+
+
+ At t =  0.1000000E+03     y1 = -0.1868862E+01     y2 =  0.7497304E-02
+ At t =  0.1200000E+03     y1 = -0.1705927E+01     y2 =  0.8930077E-02
+ At t =  0.1400000E+03     y1 = -0.1501740E+01     y2 =  0.1196163E-01
+ At t =  0.1600000E+03     y1 = -0.1148800E+01     y2 =  0.3568399E-01
+ At t =  0.1625761E+03     y1 =  0.1057454E-11     y2 =  0.6713972E+02
+
+ Root found at t =  0.1625761E+03
+ Error in t location of root is -0.1485E-01
+
+
+ At t =  0.1800000E+03     y1 =  0.1879384E+01     y2 = -0.7422067E-02
+ At t =  0.2000000E+03     y1 =  0.1718431E+01     y2 = -0.8798201E-02
+
+
+ Final statistics for this run:
+  rwork size =  55   iwork size =  22
+  number of steps =  478
+  number of f-s   = 1015
+  (excluding j-s) =  931
+  number of j-s   =   42
+  number of g-s   =  516
+
+
+
+ Total number of errors encountered =  0
+

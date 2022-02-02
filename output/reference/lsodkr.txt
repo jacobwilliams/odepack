@@ -1,0 +1,112 @@
+
+Demonstration program for DLSODKR package
+
+2D diurnal kinetics-transport PDE system with 2 species
+Spatial mesh is 10 by 10
+Method flag is mf = 22   Tolerances are rtol = 0.1E-04   atol = 0.1E-02
+Left preconditioner uses block-diagonal part of Jacobian
+Root function finds stationary points of total ozone,
+  i.e. roots of (d/dt)(sum of c2 over all mesh points)
+
+
+ t = 0.000E+00    no. steps =    0   order = 0   stepsize = 0.000E+00
+   c1 (bot.left/middle/top rt.) =   0.250E+06   0.976E+06   0.250E+06
+   c2 (bot.left/middle/top rt.) =   0.250E+12   0.976E+12   0.250E+12
+   total c2 =   0.547546E+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.184E+03    no. steps =  132   order = 2   stepsize = 0.138E+03
+   c1 (bot.left/middle/top rt.) =   0.438E-07   0.171E-06   0.440E-07
+   c2 (bot.left/middle/top rt.) =   0.250E+12   0.979E+12   0.251E+12
+   total c2 =   0.547575E+14   jroot = 1 (1 = root found, 0 = no root)
+
+ t = 0.720E+04    no. steps =  192   order = 5   stepsize = 0.158E+03
+   c1 (bot.left/middle/top rt.) =   0.105E+05   0.296E+05   0.112E+05
+   c2 (bot.left/middle/top rt.) =   0.253E+12   0.715E+12   0.270E+12
+   total c2 =   0.503689E+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.144E+05    no. steps =  222   order = 5   stepsize = 0.352E+03
+   c1 (bot.left/middle/top rt.) =   0.666E+07   0.532E+07   0.730E+07
+   c2 (bot.left/middle/top rt.) =   0.258E+12   0.206E+12   0.283E+12
+   total c2 =   0.405024E+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.183E+05    no. steps =  255   order = 5   stepsize = 0.270E+03
+   c1 (bot.left/middle/top rt.) =   0.187E+08   0.551E+07   0.206E+08
+   c2 (bot.left/middle/top rt.) =   0.269E+12   0.694E+11   0.297E+12
+   total c2 =   0.379640E+14   jroot = 1 (1 = root found, 0 = no root)
+
+ t = 0.216E+05    no. steps =  265   order = 5   stepsize = 0.409E+03
+   c1 (bot.left/middle/top rt.) =   0.266E+08   0.104E+08   0.293E+08
+   c2 (bot.left/middle/top rt.) =   0.299E+12   0.103E+12   0.331E+12
+   total c2 =   0.397443E+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.252E+05    no. steps =  274   order = 5   stepsize = 0.409E+03
+   c1 (bot.left/middle/top rt.) =   0.218E+08   0.189E+08   0.241E+08
+   c2 (bot.left/middle/top rt.) =   0.331E+12   0.284E+12   0.366E+12
+   total c2 =   0.417179E+14   jroot = 1 (1 = root found, 0 = no root)
+
+ t = 0.288E+05    no. steps =  295   order = 5   stepsize = 0.142E+03
+   c1 (bot.left/middle/top rt.) =   0.870E+07   0.129E+08   0.965E+07
+   c2 (bot.left/middle/top rt.) =   0.338E+12   0.503E+12   0.375E+12
+   total c2 =   0.395883E+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.360E+05    no. steps =  325   order = 5   stepsize = 0.119E+03
+   c1 (bot.left/middle/top rt.) =   0.140E+05   0.203E+05   0.156E+05
+   c2 (bot.left/middle/top rt.) =   0.339E+12   0.489E+12   0.377E+12
+   total c2 =   0.303138E+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.405E+05    no. steps =  371   order = 5   stepsize = 0.123E+03
+   c1 (bot.left/middle/top rt.) =   0.116E-05   0.750E-06   0.130E-05
+   c2 (bot.left/middle/top rt.) =   0.339E+12   0.218E+12   0.378E+12
+   total c2 =   0.278867E+14   jroot = 1 (1 = root found, 0 = no root)
+
+ t = 0.432E+05    no. steps =  379   order = 5   stepsize = 0.499E+03
+   c1 (bot.left/middle/top rt.) =   0.181E-07   0.331E-06   0.211E-07
+   c2 (bot.left/middle/top rt.) =   0.338E+12   0.136E+12   0.380E+12
+   total c2 =   0.287486E+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.504E+05    no. steps =  401   order = 5   stepsize = 0.483E+03
+   c1 (bot.left/middle/top rt.) =   0.643E-08   0.423E-06   0.198E-07
+   c2 (bot.left/middle/top rt.) =   0.336E+12   0.493E+12   0.386E+12
+   total c2 =   0.361416E+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.576E+05    no. steps =  414   order = 5   stepsize = 0.334E+03
+   c1 (bot.left/middle/top rt.) =  -0.972E-11  -0.176E-09   0.200E-12
+   c2 (bot.left/middle/top rt.) =   0.332E+12   0.965E+12   0.391E+12
+   total c2 =   0.446354E+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.648E+05    no. steps =  427   order = 5   stepsize = 0.789E+03
+   c1 (bot.left/middle/top rt.) =  -0.987E-10   0.244E-08  -0.985E-10
+   c2 (bot.left/middle/top rt.) =   0.331E+12   0.892E+12   0.396E+12
+   total c2 =   0.492882E+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.720E+05    no. steps =  436   order = 5   stepsize = 0.789E+03
+   c1 (bot.left/middle/top rt.) =   0.187E-11   0.395E-10  -0.109E-12
+   c2 (bot.left/middle/top rt.) =   0.333E+12   0.619E+12   0.404E+12
+   total c2 =   0.529683E+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.792E+05    no. steps =  445   order = 5   stepsize = 0.789E+03
+   c1 (bot.left/middle/top rt.) =   0.794E-12  -0.147E-10   0.680E-12
+   c2 (bot.left/middle/top rt.) =   0.333E+12   0.667E+12   0.412E+12
+   total c2 =   0.605274E+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.824E+05    no. steps =  449   order = 5   stepsize = 0.789E+03
+   c1 (bot.left/middle/top rt.) =  -0.178E-12   0.308E-11  -0.148E-12
+   c2 (bot.left/middle/top rt.) =   0.334E+12   0.804E+12   0.415E+12
+   total c2 =   0.619212E+14   jroot = 1 (1 = root found, 0 = no root)
+
+ t = 0.864E+05    no. steps =  454   order = 5   stepsize = 0.789E+03
+   c1 (bot.left/middle/top rt.) =   0.157E-14  -0.419E-12   0.104E-13
+   c2 (bot.left/middle/top rt.) =   0.335E+12   0.911E+12   0.416E+12
+   total c2 =   0.597970E+14   jroot = 0 (1 = root found, 0 = no root)
+
+
+ Final statistics:
+ rwork size = 4264      iwork size = 230
+ number of steps        =  454     no. fnal. iter. steps  =  112
+ number of f evals.     = 1547     number of g evals.     =  504
+ number of prec. evals. =   52     number of Jac. evals.  =   11
+ number of prec. solves = 1231
+ number of nonl. iters. =  461     number of lin. iters.  =  847
+ average Krylov subspace dimension (nli/nni)  =  1.8373
+ number of conv. failures:  nonlinear =  0  linear =  0
+

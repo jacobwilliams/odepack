@@ -1,0 +1,152 @@
+ <INFO> BUILD_NAME: build/gfortran
+ <INFO> COMPILER:  gfortran
+ <INFO> C COMPILER:  gcc
+ <INFO> COMPILER OPTIONS:   -g -std=legacy
+ <INFO> C COMPILER OPTIONS:  
+ <INFO> LINKER OPTIONS:  
+ <INFO> INCLUDE DIRECTORIES:  []
+ + build/gfortran_62DBE5382F66686F/example/lsodar 
+
+ Demonstration program for DLSODAR package
+
+
+
+ First problem
+
+
+ Problem is  dy/dt = ((2*log(y)+8)/t - 5)*y,  y(1) = 1
+
+ Solution is  y(t) = exp(-t**2 + 5*t - 4)
+
+ Root functions are:
+           g1 = dy/dt  (root at t = 2.5)
+           g2 = log(y) - 2.2491  (roots at t = 2.47 and t = 2.53)
+
+ itol =  1   rtol =   0.1D-05   atol =   0.1D-05
+
+ jt =  2
+
+
+
+ At t =  0.2000000D+01     y =  0.7389071D+01     error =  0.1534D-04
+ At t =  0.2469971D+01     y =  0.9479201D+01     error =  0.1631D-04
+
+ Root found at t =  0.2469971D+01     jroot =    0    1
+ Error in t location of root is -0.2865D-04
+
+ At t =  0.2500001D+01     y =  0.9487752D+01     error =  0.1613D-04
+
+ Root found at t =  0.2500001D+01     jroot =    1    0
+ Error in t location of root is  0.6800D-06
+
+ At t =  0.2530028D+01     y =  0.9479201D+01     error =  0.1601D-04
+
+ Root found at t =  0.2530028D+01     jroot =    0    1
+ Error in t location of root is  0.2813D-04
+
+ At t =  0.3000000D+01     y =  0.7389083D+01     error =  0.2667D-04
+ At t =  0.4000000D+01     y =  0.1000007D+01     error =  0.6703D-05
+ At t =  0.5000000D+01     y =  0.1831582D-01     error =  0.1814D-06
+ At t =  0.6000000D+01     y =  0.4536004D-04     error = -0.3989D-07
+
+
+ Final statistics for this run:
+ rwork size =  42   iwork size =  21
+ number of steps =   71
+ number of f-s   =  147
+ (excluding j-s) =  147
+ number of j-s   =    0
+ number of g-s   =  108
+ error overrun =  0.34D+01
+
+
+
+
+********************************************************************************
+
+ Second problem (Van der Pol oscillator)
+
+ Problem is dy1/dt = y2,  dy2/dt = 100*(1-y1**2)*y2 - y1
+            y1(0) = 2,  y2(0) = 0
+
+ Root function is  g = y1
+
+ itol =  2   rtol =   0.1D-05   atol =   0.1D-05   0.1D-03
+
+
+
+ Solution with jt = 1
+
+
+ At t =  0.2000000D+02     y1 =  0.1858228D+01     y2 = -0.7575094D-02
+ At t =  0.4000000D+02     y1 =  0.1693230D+01     y2 = -0.9068584D-02
+ At t =  0.6000000D+02     y1 =  0.1484608D+01     y2 = -0.1232742D-01
+ At t =  0.8000000D+02     y1 =  0.1086291D+01     y2 = -0.5840716D-01
+ At t =  0.8116520D+02     y1 = -0.1160447D-09     y2 = -0.6713980D+02
+
+ Root found at t =  0.8116520D+02
+ Error in t location of root is -0.7180D-02
+
+
+ At t =  0.1000000D+03     y1 = -0.1868862D+01     y2 =  0.7497304D-02
+ At t =  0.1200000D+03     y1 = -0.1705927D+01     y2 =  0.8930077D-02
+ At t =  0.1400000D+03     y1 = -0.1501740D+01     y2 =  0.1196163D-01
+ At t =  0.1600000D+03     y1 = -0.1148800D+01     y2 =  0.3568399D-01
+ At t =  0.1625761D+03     y1 =  0.3074721D-10     y2 =  0.6713972D+02
+
+ Root found at t =  0.1625761D+03
+ Error in t location of root is -0.1485D-01
+
+
+ At t =  0.1800000D+03     y1 =  0.1879384D+01     y2 = -0.7422067D-02
+ At t =  0.2000000D+03     y1 =  0.1718431D+01     y2 = -0.8798201D-02
+
+
+ Final statistics for this run:
+  rwork size =  55   iwork size =  22
+  number of steps =  478
+  number of f-s   =  931
+  (excluding j-s) =  931
+  number of j-s   =   42
+  number of g-s   =  511
+
+
+
+ Solution with jt = 2
+
+
+ At t =  0.2000000D+02     y1 =  0.1858228D+01     y2 = -0.7575094D-02
+ At t =  0.4000000D+02     y1 =  0.1693230D+01     y2 = -0.9068584D-02
+ At t =  0.6000000D+02     y1 =  0.1484608D+01     y2 = -0.1232742D-01
+ At t =  0.8000000D+02     y1 =  0.1086291D+01     y2 = -0.5840716D-01
+ At t =  0.8116520D+02     y1 = -0.4336115D-12     y2 = -0.6713980D+02
+
+ Root found at t =  0.8116520D+02
+ Error in t location of root is -0.7180D-02
+
+
+ At t =  0.1000000D+03     y1 = -0.1868862D+01     y2 =  0.7497304D-02
+ At t =  0.1200000D+03     y1 = -0.1705927D+01     y2 =  0.8930077D-02
+ At t =  0.1400000D+03     y1 = -0.1501740D+01     y2 =  0.1196163D-01
+ At t =  0.1600000D+03     y1 = -0.1148800D+01     y2 =  0.3568399D-01
+ At t =  0.1625761D+03     y1 =  0.3082636D-10     y2 =  0.6713972D+02
+
+ Root found at t =  0.1625761D+03
+ Error in t location of root is -0.1485D-01
+
+
+ At t =  0.1800000D+03     y1 =  0.1879384D+01     y2 = -0.7422067D-02
+ At t =  0.2000000D+03     y1 =  0.1718431D+01     y2 = -0.8798201D-02
+
+
+ Final statistics for this run:
+  rwork size =  55   iwork size =  22
+  number of steps =  478
+  number of f-s   = 1015
+  (excluding j-s) =  931
+  number of j-s   =   42
+  number of g-s   =  506
+
+
+
+ Total number of errors encountered =  0

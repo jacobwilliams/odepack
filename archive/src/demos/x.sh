@@ -1,0 +1,9 @@
+./LSODA   > ifort_lsoda_original.txt
+./LSODAR  > ifort_lsodar_original.txt
+./LSODE   > ifort_lsode_original.txt
+./LSODES  > ifort_lsodes_original.txt
+./LSODI   > ifort_lsodi_original.txt
+./LSODIS  > ifort_lsodis_original.txt
+./LSODKR  > ifort_lsodkr_original.txt
+./LSODPK  > ifort_lsodpk_original.txt
+./LSOIBT  > ifort_lsoibt_original.txt

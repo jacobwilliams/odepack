@@ -1,0 +1,1277 @@
+                     Demonstration Program for DLSODIS
+
+
+          -- Simplified Galerkin solution of Burgers equation --
+
+
+             Diffusion coefficient is eta =  0.50D-01
+             Uniform mesh on interval  -0.100D+01 to    0.100D+01
+             Periodic boundary conditions
+             Initial data are as follows:
+
+                    t0 =  0.00000D+00
+                    tlast =  0.40000D+00
+                    n  =  12
+
+
+
+Initial profile:
+  0.0000D+00  0.0000D+00  0.0000D+00  0.5000D+00  0.1000D+01  0.1000D+01
+  0.1000D+01  0.1000D+01  0.1000D+01  0.5000D+00  0.0000D+00  0.0000D+00
+
+Initial sparse data structures
+
+ ia     1   4   7  10  13  16  19  22  25  28  31  34  37
+ ja    12   1   2   1   2   3   2   3   4   3   4   5   4   5   6
+        5   6   7   6   7   8   7   8   9   8   9  10   9  10  11
+       10  11  12  11  12   1
+ ic     1   4   7  10  13  16  19  22  25  28  31  34  37
+ jc    12   1   2   1   2   3   2   3   4   3   4   5   4   5   6
+        5   6   7   6   7   8   7   8   9   8   9  10   9  10  11
+       10  11  12  11  12   1
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf =  11
+
+
+ Output for time t = 0.10000D+00  current h = 0.49176D-01  current order = 2
+ -0.1463D-02 -0.3833D-02  0.7844D-01  0.3812D+00  0.7671D+00  0.9728D+00
+  0.1005D+01  0.1001D+01  0.9973D+00  0.6591D+00  0.1534D+00 -0.9859D-02
+
+ Output for time t = 0.20000D+00  current h = 0.49176D-01  current order = 2
+ -0.8416D-02  0.1100D-01  0.1057D+00  0.3273D+00  0.6182D+00  0.8599D+00
+  0.9783D+00  0.1002D+01  0.1002D+01  0.7756D+00  0.3045D+00  0.2427D-01
+
+ Output for time t = 0.30000D+00  current h = 0.82814D-01  current order = 2
+ -0.3693D-02  0.2323D-01  0.1173D+00  0.2941D+00  0.5236D+00  0.7478D+00
+  0.9094D+00  0.9830D+00  0.1004D+01  0.8622D+00  0.4498D+00  0.8959D-01
+
+ Output for time t = 0.40000D+00  current h = 0.82814D-01  current order = 2
+  0.1620D-01  0.3267D-01  0.1222D+00  0.2704D+00  0.4595D+00  0.6569D+00
+  0.8269D+00  0.9378D+00  0.9903D+00  0.9215D+00  0.5849D+00  0.1806D+00
+
+
+Final statistics for mf =  11:    10 steps,    14 res,     4 Jacobians,
+                     rw size =   421,    iw size =   128
+                       0 extra res for each jac,   4 decomps
+Final output is correct to within  0.60D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf =  12
+
+
+ Output for time t = 0.10000D+00  current h = 0.49176D-01  current order = 2
+ -0.1463D-02 -0.3833D-02  0.7844D-01  0.3812D+00  0.7671D+00  0.9728D+00
+  0.1005D+01  0.1001D+01  0.9973D+00  0.6591D+00  0.1534D+00 -0.9859D-02
+
+ Output for time t = 0.20000D+00  current h = 0.49176D-01  current order = 2
+ -0.8416D-02  0.1100D-01  0.1057D+00  0.3273D+00  0.6182D+00  0.8599D+00
+  0.9783D+00  0.1002D+01  0.1002D+01  0.7756D+00  0.3045D+00  0.2427D-01
+
+ Output for time t = 0.30000D+00  current h = 0.82814D-01  current order = 2
+ -0.3693D-02  0.2323D-01  0.1173D+00  0.2941D+00  0.5236D+00  0.7478D+00
+  0.9094D+00  0.9830D+00  0.1004D+01  0.8622D+00  0.4498D+00  0.8959D-01
+
+ Output for time t = 0.40000D+00  current h = 0.82814D-01  current order = 2
+  0.1620D-01  0.3267D-01  0.1222D+00  0.2704D+00  0.4595D+00  0.6569D+00
+  0.8269D+00  0.9378D+00  0.9903D+00  0.9215D+00  0.5849D+00  0.1806D+00
+
+
+Final statistics for mf =  12:    10 steps,    30 res,     4 Jacobians,
+                     rw size =   429,    iw size =   128
+                       3 extra res for each jac,   4 decomps
+Final output is correct to within  0.60D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf =  21
+
+
+ Output for time t = 0.10000D+00  current h = 0.41065D-01  current order = 3
+ -0.1679D-02 -0.3550D-02  0.7815D-01  0.3816D+00  0.7669D+00  0.9726D+00
+  0.1006D+01  0.1000D+01  0.9974D+00  0.6590D+00  0.1534D+00 -0.9738D-02
+
+ Output for time t = 0.20000D+00  current h = 0.41065D-01  current order = 3
+ -0.9106D-02  0.1195D-01  0.1044D+00  0.3292D+00  0.6187D+00  0.8565D+00
+  0.9795D+00  0.1002D+01  0.1002D+01  0.7752D+00  0.3044D+00  0.2472D-01
+
+ Output for time t = 0.30000D+00  current h = 0.41065D-01  current order = 3
+ -0.3840D-02  0.2325D-01  0.1168D+00  0.2953D+00  0.5256D+00  0.7457D+00
+  0.9071D+00  0.9838D+00  0.1004D+01  0.8621D+00  0.4499D+00  0.8988D-01
+
+ Output for time t = 0.40000D+00  current h = 0.67572D-01  current order = 3
+  0.1612D-01  0.3233D-01  0.1218D+00  0.2713D+00  0.4617D+00  0.6568D+00
+  0.8235D+00  0.9363D+00  0.9915D+00  0.9222D+00  0.5853D+00  0.1811D+00
+
+
+Final statistics for mf =  21:    13 steps,    18 res,     4 Jacobians,
+                     rw size =   337,    iw size =   128
+                       0 extra res for each jac,   4 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf =  22
+
+
+ Output for time t = 0.10000D+00  current h = 0.41065D-01  current order = 3
+ -0.1679D-02 -0.3550D-02  0.7815D-01  0.3816D+00  0.7669D+00  0.9726D+00
+  0.1006D+01  0.1000D+01  0.9974D+00  0.6590D+00  0.1534D+00 -0.9738D-02
+
+ Output for time t = 0.20000D+00  current h = 0.41065D-01  current order = 3
+ -0.9106D-02  0.1195D-01  0.1044D+00  0.3292D+00  0.6187D+00  0.8565D+00
+  0.9795D+00  0.1002D+01  0.1002D+01  0.7752D+00  0.3044D+00  0.2472D-01
+
+ Output for time t = 0.30000D+00  current h = 0.41065D-01  current order = 3
+ -0.3840D-02  0.2325D-01  0.1168D+00  0.2953D+00  0.5256D+00  0.7457D+00
+  0.9071D+00  0.9838D+00  0.1004D+01  0.8621D+00  0.4499D+00  0.8988D-01
+
+ Output for time t = 0.40000D+00  current h = 0.67572D-01  current order = 3
+  0.1612D-01  0.3233D-01  0.1218D+00  0.2713D+00  0.4617D+00  0.6568D+00
+  0.8235D+00  0.9363D+00  0.9915D+00  0.9222D+00  0.5853D+00  0.1811D+00
+
+
+Final statistics for mf =  22:    13 steps,    34 res,     4 Jacobians,
+                     rw size =   345,    iw size =   128
+                       3 extra res for each jac,   4 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 111
+
+
+ Output for time t = 0.10000D+00  current h = 0.49176D-01  current order = 2
+ -0.1463D-02 -0.3833D-02  0.7844D-01  0.3812D+00  0.7671D+00  0.9728D+00
+  0.1005D+01  0.1001D+01  0.9973D+00  0.6591D+00  0.1534D+00 -0.9859D-02
+
+ Output for time t = 0.20000D+00  current h = 0.49176D-01  current order = 2
+ -0.8416D-02  0.1100D-01  0.1057D+00  0.3273D+00  0.6182D+00  0.8599D+00
+  0.9783D+00  0.1002D+01  0.1002D+01  0.7756D+00  0.3045D+00  0.2427D-01
+
+ Output for time t = 0.30000D+00  current h = 0.82814D-01  current order = 2
+ -0.3693D-02  0.2323D-01  0.1173D+00  0.2941D+00  0.5236D+00  0.7478D+00
+  0.9094D+00  0.9830D+00  0.1004D+01  0.8622D+00  0.4498D+00  0.8959D-01
+
+ Output for time t = 0.40000D+00  current h = 0.82814D-01  current order = 2
+  0.1620D-01  0.3267D-01  0.1222D+00  0.2704D+00  0.4595D+00  0.6569D+00
+  0.8269D+00  0.9378D+00  0.9903D+00  0.9215D+00  0.5849D+00  0.1806D+00
+
+
+Final statistics for mf = 111:    10 steps,    14 res,     4 Jacobians,
+                     rw size =   421,    iw size =    30
+                       0 extra res for each jac,   4 decomps
+Final output is correct to within  0.60D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 112
+
+
+ Output for time t = 0.10000D+00  current h = 0.49176D-01  current order = 2
+ -0.1463D-02 -0.3833D-02  0.7844D-01  0.3812D+00  0.7671D+00  0.9728D+00
+  0.1005D+01  0.1001D+01  0.9973D+00  0.6591D+00  0.1534D+00 -0.9859D-02
+
+ Output for time t = 0.20000D+00  current h = 0.49176D-01  current order = 2
+ -0.8416D-02  0.1100D-01  0.1057D+00  0.3273D+00  0.6182D+00  0.8599D+00
+  0.9783D+00  0.1002D+01  0.1002D+01  0.7756D+00  0.3045D+00  0.2427D-01
+
+ Output for time t = 0.30000D+00  current h = 0.82814D-01  current order = 2
+ -0.3693D-02  0.2323D-01  0.1173D+00  0.2941D+00  0.5236D+00  0.7478D+00
+  0.9094D+00  0.9830D+00  0.1004D+01  0.8622D+00  0.4498D+00  0.8959D-01
+
+ Output for time t = 0.40000D+00  current h = 0.82814D-01  current order = 2
+  0.1620D-01  0.3267D-01  0.1222D+00  0.2704D+00  0.4595D+00  0.6569D+00
+  0.8269D+00  0.9378D+00  0.9903D+00  0.9215D+00  0.5849D+00  0.1806D+00
+
+
+Final statistics for mf = 112:    10 steps,    30 res,     4 Jacobians,
+                     rw size =   429,    iw size =    30
+                       3 extra res for each jac,   4 decomps
+Final output is correct to within  0.60D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 121
+
+
+ Output for time t = 0.10000D+00  current h = 0.41065D-01  current order = 3
+ -0.1679D-02 -0.3550D-02  0.7815D-01  0.3816D+00  0.7669D+00  0.9726D+00
+  0.1006D+01  0.1000D+01  0.9974D+00  0.6590D+00  0.1534D+00 -0.9738D-02
+
+ Output for time t = 0.20000D+00  current h = 0.41065D-01  current order = 3
+ -0.9106D-02  0.1195D-01  0.1044D+00  0.3292D+00  0.6187D+00  0.8565D+00
+  0.9795D+00  0.1002D+01  0.1002D+01  0.7752D+00  0.3044D+00  0.2472D-01
+
+ Output for time t = 0.30000D+00  current h = 0.41065D-01  current order = 3
+ -0.3840D-02  0.2325D-01  0.1168D+00  0.2953D+00  0.5256D+00  0.7457D+00
+  0.9071D+00  0.9838D+00  0.1004D+01  0.8621D+00  0.4499D+00  0.8988D-01
+
+ Output for time t = 0.40000D+00  current h = 0.67572D-01  current order = 3
+  0.1612D-01  0.3233D-01  0.1218D+00  0.2713D+00  0.4617D+00  0.6568D+00
+  0.8235D+00  0.9363D+00  0.9915D+00  0.9222D+00  0.5853D+00  0.1811D+00
+
+
+Final statistics for mf = 121:    13 steps,    18 res,     4 Jacobians,
+                     rw size =   337,    iw size =    30
+                       0 extra res for each jac,   4 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 122
+
+
+ Output for time t = 0.10000D+00  current h = 0.41065D-01  current order = 3
+ -0.1679D-02 -0.3550D-02  0.7815D-01  0.3816D+00  0.7669D+00  0.9726D+00
+  0.1006D+01  0.1000D+01  0.9974D+00  0.6590D+00  0.1534D+00 -0.9738D-02
+
+ Output for time t = 0.20000D+00  current h = 0.41065D-01  current order = 3
+ -0.9106D-02  0.1195D-01  0.1044D+00  0.3292D+00  0.6187D+00  0.8565D+00
+  0.9795D+00  0.1002D+01  0.1002D+01  0.7752D+00  0.3044D+00  0.2472D-01
+
+ Output for time t = 0.30000D+00  current h = 0.41065D-01  current order = 3
+ -0.3840D-02  0.2325D-01  0.1168D+00  0.2953D+00  0.5256D+00  0.7457D+00
+  0.9071D+00  0.9838D+00  0.1004D+01  0.8621D+00  0.4499D+00  0.8988D-01
+
+ Output for time t = 0.40000D+00  current h = 0.67572D-01  current order = 3
+  0.1612D-01  0.3233D-01  0.1218D+00  0.2713D+00  0.4617D+00  0.6568D+00
+  0.8235D+00  0.9363D+00  0.9915D+00  0.9222D+00  0.5853D+00  0.1811D+00
+
+
+Final statistics for mf = 122:    13 steps,    34 res,     4 Jacobians,
+                     rw size =   345,    iw size =    30
+                       3 extra res for each jac,   4 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 211
+
+
+ Output for time t = 0.10000D+00  current h = 0.49176D-01  current order = 2
+ -0.1463D-02 -0.3833D-02  0.7844D-01  0.3812D+00  0.7671D+00  0.9728D+00
+  0.1005D+01  0.1001D+01  0.9973D+00  0.6591D+00  0.1534D+00 -0.9859D-02
+
+ Output for time t = 0.20000D+00  current h = 0.49176D-01  current order = 2
+ -0.8416D-02  0.1100D-01  0.1057D+00  0.3273D+00  0.6182D+00  0.8599D+00
+  0.9783D+00  0.1002D+01  0.1002D+01  0.7756D+00  0.3045D+00  0.2427D-01
+
+ Output for time t = 0.30000D+00  current h = 0.82814D-01  current order = 2
+ -0.3693D-02  0.2323D-01  0.1173D+00  0.2941D+00  0.5236D+00  0.7478D+00
+  0.9094D+00  0.9830D+00  0.1004D+01  0.8622D+00  0.4498D+00  0.8959D-01
+
+ Output for time t = 0.40000D+00  current h = 0.82814D-01  current order = 2
+  0.1620D-01  0.3267D-01  0.1222D+00  0.2704D+00  0.4595D+00  0.6569D+00
+  0.8269D+00  0.9378D+00  0.9903D+00  0.9215D+00  0.5849D+00  0.1806D+00
+
+
+Final statistics for mf = 211:    10 steps,    14 res,     4 Jacobians,
+                     rw size =   421,    iw size =    30
+                       0 extra res for each jac,   4 decomps
+Final output is correct to within  0.60D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 212
+
+
+ Output for time t = 0.10000D+00  current h = 0.49176D-01  current order = 2
+ -0.1463D-02 -0.3833D-02  0.7844D-01  0.3812D+00  0.7671D+00  0.9728D+00
+  0.1005D+01  0.1001D+01  0.9973D+00  0.6591D+00  0.1534D+00 -0.9859D-02
+
+ Output for time t = 0.20000D+00  current h = 0.49176D-01  current order = 2
+ -0.8416D-02  0.1100D-01  0.1057D+00  0.3273D+00  0.6182D+00  0.8599D+00
+  0.9783D+00  0.1002D+01  0.1002D+01  0.7756D+00  0.3045D+00  0.2427D-01
+
+ Output for time t = 0.30000D+00  current h = 0.82814D-01  current order = 2
+ -0.3693D-02  0.2323D-01  0.1173D+00  0.2941D+00  0.5236D+00  0.7478D+00
+  0.9094D+00  0.9830D+00  0.1004D+01  0.8622D+00  0.4498D+00  0.8959D-01
+
+ Output for time t = 0.40000D+00  current h = 0.82814D-01  current order = 2
+  0.1620D-01  0.3267D-01  0.1222D+00  0.2704D+00  0.4595D+00  0.6569D+00
+  0.8269D+00  0.9378D+00  0.9903D+00  0.9215D+00  0.5849D+00  0.1806D+00
+
+
+Final statistics for mf = 212:    10 steps,    30 res,     4 Jacobians,
+                     rw size =   429,    iw size =    30
+                       3 extra res for each jac,   4 decomps
+Final output is correct to within  0.60D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 221
+
+
+ Output for time t = 0.10000D+00  current h = 0.41065D-01  current order = 3
+ -0.1679D-02 -0.3550D-02  0.7815D-01  0.3816D+00  0.7669D+00  0.9726D+00
+  0.1006D+01  0.1000D+01  0.9974D+00  0.6590D+00  0.1534D+00 -0.9738D-02
+
+ Output for time t = 0.20000D+00  current h = 0.41065D-01  current order = 3
+ -0.9106D-02  0.1195D-01  0.1044D+00  0.3292D+00  0.6187D+00  0.8565D+00
+  0.9795D+00  0.1002D+01  0.1002D+01  0.7752D+00  0.3044D+00  0.2472D-01
+
+ Output for time t = 0.30000D+00  current h = 0.41065D-01  current order = 3
+ -0.3840D-02  0.2325D-01  0.1168D+00  0.2953D+00  0.5256D+00  0.7457D+00
+  0.9071D+00  0.9838D+00  0.1004D+01  0.8621D+00  0.4499D+00  0.8988D-01
+
+ Output for time t = 0.40000D+00  current h = 0.67572D-01  current order = 3
+  0.1612D-01  0.3233D-01  0.1218D+00  0.2713D+00  0.4617D+00  0.6568D+00
+  0.8235D+00  0.9363D+00  0.9915D+00  0.9222D+00  0.5853D+00  0.1811D+00
+
+
+Final statistics for mf = 221:    13 steps,    18 res,     4 Jacobians,
+                     rw size =   337,    iw size =    30
+                       0 extra res for each jac,   4 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 222
+
+
+ Output for time t = 0.10000D+00  current h = 0.41065D-01  current order = 3
+ -0.1679D-02 -0.3550D-02  0.7815D-01  0.3816D+00  0.7669D+00  0.9726D+00
+  0.1006D+01  0.1000D+01  0.9974D+00  0.6590D+00  0.1534D+00 -0.9738D-02
+
+ Output for time t = 0.20000D+00  current h = 0.41065D-01  current order = 3
+ -0.9106D-02  0.1195D-01  0.1044D+00  0.3292D+00  0.6187D+00  0.8565D+00
+  0.9795D+00  0.1002D+01  0.1002D+01  0.7752D+00  0.3044D+00  0.2472D-01
+
+ Output for time t = 0.30000D+00  current h = 0.41065D-01  current order = 3
+ -0.3840D-02  0.2325D-01  0.1168D+00  0.2953D+00  0.5256D+00  0.7457D+00
+  0.9071D+00  0.9838D+00  0.1004D+01  0.8621D+00  0.4499D+00  0.8988D-01
+
+ Output for time t = 0.40000D+00  current h = 0.67572D-01  current order = 3
+  0.1612D-01  0.3233D-01  0.1218D+00  0.2713D+00  0.4617D+00  0.6568D+00
+  0.8235D+00  0.9363D+00  0.9915D+00  0.9222D+00  0.5853D+00  0.1811D+00
+
+
+Final statistics for mf = 222:    13 steps,    34 res,     4 Jacobians,
+                     rw size =   345,    iw size =    30
+                       3 extra res for each jac,   4 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 311
+
+
+ Output for time t = 0.10000D+00  current h = 0.49176D-01  current order = 2
+ -0.1463D-02 -0.3833D-02  0.7844D-01  0.3812D+00  0.7671D+00  0.9728D+00
+  0.1005D+01  0.1001D+01  0.9973D+00  0.6591D+00  0.1534D+00 -0.9859D-02
+
+ Output for time t = 0.20000D+00  current h = 0.49176D-01  current order = 2
+ -0.8416D-02  0.1100D-01  0.1057D+00  0.3273D+00  0.6182D+00  0.8599D+00
+  0.9783D+00  0.1002D+01  0.1002D+01  0.7756D+00  0.3045D+00  0.2427D-01
+
+ Output for time t = 0.30000D+00  current h = 0.82814D-01  current order = 2
+ -0.3693D-02  0.2323D-01  0.1173D+00  0.2941D+00  0.5236D+00  0.7478D+00
+  0.9094D+00  0.9830D+00  0.1004D+01  0.8622D+00  0.4498D+00  0.8959D-01
+
+ Output for time t = 0.40000D+00  current h = 0.82814D-01  current order = 2
+  0.1620D-01  0.3267D-01  0.1222D+00  0.2704D+00  0.4595D+00  0.6569D+00
+  0.8269D+00  0.9378D+00  0.9903D+00  0.9215D+00  0.5849D+00  0.1806D+00
+
+
+Final statistics for mf = 311:    10 steps,    14 res,     4 Jacobians,
+                     rw size =   421,    iw size =    79
+                       0 extra res for each jac,   4 decomps
+Final output is correct to within  0.60D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 312
+
+
+ Output for time t = 0.10000D+00  current h = 0.49176D-01  current order = 2
+ -0.1463D-02 -0.3833D-02  0.7844D-01  0.3812D+00  0.7671D+00  0.9728D+00
+  0.1005D+01  0.1001D+01  0.9973D+00  0.6591D+00  0.1534D+00 -0.9859D-02
+
+ Output for time t = 0.20000D+00  current h = 0.49176D-01  current order = 2
+ -0.8416D-02  0.1100D-01  0.1057D+00  0.3273D+00  0.6182D+00  0.8599D+00
+  0.9783D+00  0.1002D+01  0.1002D+01  0.7756D+00  0.3045D+00  0.2427D-01
+
+ Output for time t = 0.30000D+00  current h = 0.82814D-01  current order = 2
+ -0.3693D-02  0.2323D-01  0.1173D+00  0.2941D+00  0.5236D+00  0.7478D+00
+  0.9094D+00  0.9830D+00  0.1004D+01  0.8622D+00  0.4498D+00  0.8959D-01
+
+ Output for time t = 0.40000D+00  current h = 0.82814D-01  current order = 2
+  0.1620D-01  0.3267D-01  0.1222D+00  0.2704D+00  0.4595D+00  0.6569D+00
+  0.8269D+00  0.9378D+00  0.9903D+00  0.9215D+00  0.5849D+00  0.1806D+00
+
+
+Final statistics for mf = 312:    10 steps,    30 res,     4 Jacobians,
+                     rw size =   429,    iw size =    79
+                       3 extra res for each jac,   4 decomps
+Final output is correct to within  0.60D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 321
+
+
+ Output for time t = 0.10000D+00  current h = 0.41065D-01  current order = 3
+ -0.1679D-02 -0.3550D-02  0.7815D-01  0.3816D+00  0.7669D+00  0.9726D+00
+  0.1006D+01  0.1000D+01  0.9974D+00  0.6590D+00  0.1534D+00 -0.9738D-02
+
+ Output for time t = 0.20000D+00  current h = 0.41065D-01  current order = 3
+ -0.9106D-02  0.1195D-01  0.1044D+00  0.3292D+00  0.6187D+00  0.8565D+00
+  0.9795D+00  0.1002D+01  0.1002D+01  0.7752D+00  0.3044D+00  0.2472D-01
+
+ Output for time t = 0.30000D+00  current h = 0.41065D-01  current order = 3
+ -0.3840D-02  0.2325D-01  0.1168D+00  0.2953D+00  0.5256D+00  0.7457D+00
+  0.9071D+00  0.9838D+00  0.1004D+01  0.8621D+00  0.4499D+00  0.8988D-01
+
+ Output for time t = 0.40000D+00  current h = 0.67572D-01  current order = 3
+  0.1612D-01  0.3233D-01  0.1218D+00  0.2713D+00  0.4617D+00  0.6568D+00
+  0.8235D+00  0.9363D+00  0.9915D+00  0.9222D+00  0.5853D+00  0.1811D+00
+
+
+Final statistics for mf = 321:    13 steps,    18 res,     4 Jacobians,
+                     rw size =   337,    iw size =    79
+                       0 extra res for each jac,   4 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 322
+
+
+ Output for time t = 0.10000D+00  current h = 0.41065D-01  current order = 3
+ -0.1679D-02 -0.3550D-02  0.7815D-01  0.3816D+00  0.7669D+00  0.9726D+00
+  0.1006D+01  0.1000D+01  0.9974D+00  0.6590D+00  0.1534D+00 -0.9738D-02
+
+ Output for time t = 0.20000D+00  current h = 0.41065D-01  current order = 3
+ -0.9106D-02  0.1195D-01  0.1044D+00  0.3292D+00  0.6187D+00  0.8565D+00
+  0.9795D+00  0.1002D+01  0.1002D+01  0.7752D+00  0.3044D+00  0.2472D-01
+
+ Output for time t = 0.30000D+00  current h = 0.41065D-01  current order = 3
+ -0.3840D-02  0.2325D-01  0.1168D+00  0.2953D+00  0.5256D+00  0.7457D+00
+  0.9071D+00  0.9838D+00  0.1004D+01  0.8621D+00  0.4499D+00  0.8988D-01
+
+ Output for time t = 0.40000D+00  current h = 0.67572D-01  current order = 3
+  0.1612D-01  0.3233D-01  0.1218D+00  0.2713D+00  0.4617D+00  0.6568D+00
+  0.8235D+00  0.9363D+00  0.9915D+00  0.9222D+00  0.5853D+00  0.1811D+00
+
+
+Final statistics for mf = 322:    13 steps,    34 res,     4 Jacobians,
+                     rw size =   345,    iw size =    79
+                       3 extra res for each jac,   4 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 411
+
+
+ Output for time t = 0.10000D+00  current h = 0.49176D-01  current order = 2
+ -0.1463D-02 -0.3833D-02  0.7844D-01  0.3812D+00  0.7671D+00  0.9728D+00
+  0.1005D+01  0.1001D+01  0.9973D+00  0.6591D+00  0.1534D+00 -0.9859D-02
+
+ Output for time t = 0.20000D+00  current h = 0.49176D-01  current order = 2
+ -0.8416D-02  0.1100D-01  0.1057D+00  0.3273D+00  0.6182D+00  0.8599D+00
+  0.9783D+00  0.1002D+01  0.1002D+01  0.7756D+00  0.3045D+00  0.2427D-01
+
+ Output for time t = 0.30000D+00  current h = 0.82814D-01  current order = 2
+ -0.3693D-02  0.2323D-01  0.1173D+00  0.2941D+00  0.5236D+00  0.7478D+00
+  0.9094D+00  0.9830D+00  0.1004D+01  0.8622D+00  0.4498D+00  0.8959D-01
+
+ Output for time t = 0.40000D+00  current h = 0.82814D-01  current order = 2
+  0.1620D-01  0.3267D-01  0.1222D+00  0.2704D+00  0.4595D+00  0.6569D+00
+  0.8269D+00  0.9378D+00  0.9903D+00  0.9215D+00  0.5849D+00  0.1806D+00
+
+
+Final statistics for mf = 411:    10 steps,    14 res,     4 Jacobians,
+                     rw size =   421,    iw size =    79
+                       0 extra res for each jac,   4 decomps
+Final output is correct to within  0.60D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 412
+
+
+ Output for time t = 0.10000D+00  current h = 0.49176D-01  current order = 2
+ -0.1463D-02 -0.3833D-02  0.7844D-01  0.3812D+00  0.7671D+00  0.9728D+00
+  0.1005D+01  0.1001D+01  0.9973D+00  0.6591D+00  0.1534D+00 -0.9859D-02
+
+ Output for time t = 0.20000D+00  current h = 0.49176D-01  current order = 2
+ -0.8416D-02  0.1100D-01  0.1057D+00  0.3273D+00  0.6182D+00  0.8599D+00
+  0.9783D+00  0.1002D+01  0.1002D+01  0.7756D+00  0.3045D+00  0.2427D-01
+
+ Output for time t = 0.30000D+00  current h = 0.82814D-01  current order = 2
+ -0.3693D-02  0.2323D-01  0.1173D+00  0.2941D+00  0.5236D+00  0.7478D+00
+  0.9094D+00  0.9830D+00  0.1004D+01  0.8622D+00  0.4498D+00  0.8959D-01
+
+ Output for time t = 0.40000D+00  current h = 0.82814D-01  current order = 2
+  0.1620D-01  0.3267D-01  0.1222D+00  0.2704D+00  0.4595D+00  0.6569D+00
+  0.8269D+00  0.9378D+00  0.9903D+00  0.9215D+00  0.5849D+00  0.1806D+00
+
+
+Final statistics for mf = 412:    10 steps,    30 res,     4 Jacobians,
+                     rw size =   429,    iw size =    79
+                       3 extra res for each jac,   4 decomps
+Final output is correct to within  0.60D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 421
+
+
+ Output for time t = 0.10000D+00  current h = 0.41065D-01  current order = 3
+ -0.1679D-02 -0.3550D-02  0.7815D-01  0.3816D+00  0.7669D+00  0.9726D+00
+  0.1006D+01  0.1000D+01  0.9974D+00  0.6590D+00  0.1534D+00 -0.9738D-02
+
+ Output for time t = 0.20000D+00  current h = 0.41065D-01  current order = 3
+ -0.9106D-02  0.1195D-01  0.1044D+00  0.3292D+00  0.6187D+00  0.8565D+00
+  0.9795D+00  0.1002D+01  0.1002D+01  0.7752D+00  0.3044D+00  0.2472D-01
+
+ Output for time t = 0.30000D+00  current h = 0.41065D-01  current order = 3
+ -0.3840D-02  0.2325D-01  0.1168D+00  0.2953D+00  0.5256D+00  0.7457D+00
+  0.9071D+00  0.9838D+00  0.1004D+01  0.8621D+00  0.4499D+00  0.8988D-01
+
+ Output for time t = 0.40000D+00  current h = 0.67572D-01  current order = 3
+  0.1612D-01  0.3233D-01  0.1218D+00  0.2713D+00  0.4617D+00  0.6568D+00
+  0.8235D+00  0.9363D+00  0.9915D+00  0.9222D+00  0.5853D+00  0.1811D+00
+
+
+Final statistics for mf = 421:    13 steps,    18 res,     4 Jacobians,
+                     rw size =   337,    iw size =    79
+                       0 extra res for each jac,   4 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-02  atol =    0.10D-02   mf = 422
+
+
+ Output for time t = 0.10000D+00  current h = 0.41065D-01  current order = 3
+ -0.1679D-02 -0.3550D-02  0.7815D-01  0.3816D+00  0.7669D+00  0.9726D+00
+  0.1006D+01  0.1000D+01  0.9974D+00  0.6590D+00  0.1534D+00 -0.9738D-02
+
+ Output for time t = 0.20000D+00  current h = 0.41065D-01  current order = 3
+ -0.9106D-02  0.1195D-01  0.1044D+00  0.3292D+00  0.6187D+00  0.8565D+00
+  0.9795D+00  0.1002D+01  0.1002D+01  0.7752D+00  0.3044D+00  0.2472D-01
+
+ Output for time t = 0.30000D+00  current h = 0.41065D-01  current order = 3
+ -0.3840D-02  0.2325D-01  0.1168D+00  0.2953D+00  0.5256D+00  0.7457D+00
+  0.9071D+00  0.9838D+00  0.1004D+01  0.8621D+00  0.4499D+00  0.8988D-01
+
+ Output for time t = 0.40000D+00  current h = 0.67572D-01  current order = 3
+  0.1612D-01  0.3233D-01  0.1218D+00  0.2713D+00  0.4617D+00  0.6568D+00
+  0.8235D+00  0.9363D+00  0.9915D+00  0.9222D+00  0.5853D+00  0.1811D+00
+
+
+Final statistics for mf = 422:    13 steps,    34 res,     4 Jacobians,
+                     rw size =   345,    iw size =    79
+                       3 extra res for each jac,   4 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf =  11
+
+
+ Output for time t = 0.10000D+00  current h = 0.17717D-01  current order = 5
+ -0.1666D-02 -0.3562D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.17717D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.24980D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.34040D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf =  11:    28 steps,    38 res,     7 Jacobians,
+                     rw size =   421,    iw size =   128
+                       0 extra res for each jac,   7 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf =  12
+
+
+ Output for time t = 0.10000D+00  current h = 0.17717D-01  current order = 5
+ -0.1666D-02 -0.3562D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.17717D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.24980D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.34040D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf =  12:    28 steps,    66 res,     7 Jacobians,
+                     rw size =   429,    iw size =   128
+                       3 extra res for each jac,   7 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf =  21
+
+
+ Output for time t = 0.10000D+00  current h = 0.91135D-02  current order = 4
+ -0.1666D-02 -0.3563D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.18660D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.18660D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.22945D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf =  21:    40 steps,    49 res,     7 Jacobians,
+                     rw size =   337,    iw size =   128
+                       0 extra res for each jac,   7 decomps
+Final output is correct to within  0.10D+01  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf =  22
+
+
+ Output for time t = 0.10000D+00  current h = 0.91135D-02  current order = 4
+ -0.1666D-02 -0.3563D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.18660D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.18660D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.22945D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf =  22:    40 steps,    77 res,     7 Jacobians,
+                     rw size =   345,    iw size =   128
+                       3 extra res for each jac,   7 decomps
+Final output is correct to within  0.10D+01  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 111
+
+
+ Output for time t = 0.10000D+00  current h = 0.17717D-01  current order = 5
+ -0.1666D-02 -0.3562D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.17717D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.24980D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.34040D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 111:    28 steps,    38 res,     7 Jacobians,
+                     rw size =   421,    iw size =    30
+                       0 extra res for each jac,   7 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 112
+
+
+ Output for time t = 0.10000D+00  current h = 0.17717D-01  current order = 5
+ -0.1666D-02 -0.3562D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.17717D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.24980D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.34040D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 112:    28 steps,    66 res,     7 Jacobians,
+                     rw size =   429,    iw size =    30
+                       3 extra res for each jac,   7 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 121
+
+
+ Output for time t = 0.10000D+00  current h = 0.91135D-02  current order = 4
+ -0.1666D-02 -0.3563D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.18660D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.18660D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.22945D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 121:    40 steps,    49 res,     7 Jacobians,
+                     rw size =   337,    iw size =    30
+                       0 extra res for each jac,   7 decomps
+Final output is correct to within  0.10D+01  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 122
+
+
+ Output for time t = 0.10000D+00  current h = 0.91135D-02  current order = 4
+ -0.1666D-02 -0.3563D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.18660D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.18660D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.22945D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 122:    40 steps,    77 res,     7 Jacobians,
+                     rw size =   345,    iw size =    30
+                       3 extra res for each jac,   7 decomps
+Final output is correct to within  0.10D+01  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 211
+
+
+ Output for time t = 0.10000D+00  current h = 0.17717D-01  current order = 5
+ -0.1666D-02 -0.3562D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.17717D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.24980D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.34040D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 211:    28 steps,    38 res,     7 Jacobians,
+                     rw size =   421,    iw size =    30
+                       0 extra res for each jac,   7 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 212
+
+
+ Output for time t = 0.10000D+00  current h = 0.17717D-01  current order = 5
+ -0.1666D-02 -0.3562D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.17717D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.24980D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.34040D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 212:    28 steps,    66 res,     7 Jacobians,
+                     rw size =   429,    iw size =    30
+                       3 extra res for each jac,   7 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 221
+
+
+ Output for time t = 0.10000D+00  current h = 0.91135D-02  current order = 4
+ -0.1666D-02 -0.3563D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.18660D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.18660D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.22945D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 221:    40 steps,    49 res,     7 Jacobians,
+                     rw size =   337,    iw size =    30
+                       0 extra res for each jac,   7 decomps
+Final output is correct to within  0.10D+01  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 222
+
+
+ Output for time t = 0.10000D+00  current h = 0.91135D-02  current order = 4
+ -0.1666D-02 -0.3563D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.18660D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.18660D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.22945D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 222:    40 steps,    77 res,     7 Jacobians,
+                     rw size =   345,    iw size =    30
+                       3 extra res for each jac,   7 decomps
+Final output is correct to within  0.10D+01  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 311
+
+
+ Output for time t = 0.10000D+00  current h = 0.17717D-01  current order = 5
+ -0.1666D-02 -0.3562D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.17717D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.24980D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.34040D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 311:    28 steps,    38 res,     7 Jacobians,
+                     rw size =   421,    iw size =    79
+                       0 extra res for each jac,   7 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 312
+
+
+ Output for time t = 0.10000D+00  current h = 0.17717D-01  current order = 5
+ -0.1666D-02 -0.3562D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.17717D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.24980D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.34040D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 312:    28 steps,    66 res,     7 Jacobians,
+                     rw size =   429,    iw size =    79
+                       3 extra res for each jac,   7 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 321
+
+
+ Output for time t = 0.10000D+00  current h = 0.91135D-02  current order = 4
+ -0.1666D-02 -0.3563D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.18660D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.18660D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.22945D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 321:    40 steps,    49 res,     7 Jacobians,
+                     rw size =   337,    iw size =    79
+                       0 extra res for each jac,   7 decomps
+Final output is correct to within  0.10D+01  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 322
+
+
+ Output for time t = 0.10000D+00  current h = 0.91135D-02  current order = 4
+ -0.1666D-02 -0.3563D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.18660D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.18660D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.22945D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 322:    40 steps,    77 res,     7 Jacobians,
+                     rw size =   345,    iw size =    79
+                       3 extra res for each jac,   7 decomps
+Final output is correct to within  0.10D+01  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 411
+
+
+ Output for time t = 0.10000D+00  current h = 0.17717D-01  current order = 5
+ -0.1666D-02 -0.3562D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.17717D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.24980D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.34040D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 411:    28 steps,    38 res,     7 Jacobians,
+                     rw size =   421,    iw size =    79
+                       0 extra res for each jac,   7 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 412
+
+
+ Output for time t = 0.10000D+00  current h = 0.17717D-01  current order = 5
+ -0.1666D-02 -0.3562D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.17717D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.24980D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.34040D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 412:    28 steps,    66 res,     7 Jacobians,
+                     rw size =   429,    iw size =    79
+                       3 extra res for each jac,   7 decomps
+Final output is correct to within  0.41D+00  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 421
+
+
+ Output for time t = 0.10000D+00  current h = 0.91135D-02  current order = 4
+ -0.1666D-02 -0.3563D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.18660D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.18660D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.22945D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 421:    40 steps,    49 res,     7 Jacobians,
+                     rw size =   337,    iw size =    79
+                       0 extra res for each jac,   7 decomps
+Final output is correct to within  0.10D+01  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+
+Run with itol = 1  rtol =    0.10D-05  atol =    0.10D-05   mf = 422
+
+
+ Output for time t = 0.10000D+00  current h = 0.91135D-02  current order = 4
+ -0.1666D-02 -0.3563D-02  0.7808D-01  0.3817D+00  0.7672D+00  0.9718D+00
+  0.1006D+01  0.1001D+01  0.9973D+00  0.6590D+00  0.1534D+00 -0.9756D-02
+
+ Output for time t = 0.20000D+00  current h = 0.18660D-01  current order = 5
+ -0.8514D-02  0.1107D-01  0.1054D+00  0.3279D+00  0.6190D+00  0.8586D+00
+  0.9773D+00  0.1003D+01  0.1002D+01  0.7754D+00  0.3045D+00  0.2439D-01
+
+ Output for time t = 0.30000D+00  current h = 0.18660D-01  current order = 5
+ -0.3772D-02  0.2305D-01  0.1171D+00  0.2947D+00  0.5251D+00  0.7475D+00
+  0.9073D+00  0.9823D+00  0.1004D+01  0.8626D+00  0.4499D+00  0.8982D-01
+
+ Output for time t = 0.40000D+00  current h = 0.22945D-01  current order = 5
+  0.1606D-01  0.3231D-01  0.1219D+00  0.2709D+00  0.4610D+00  0.6576D+00
+  0.8252D+00  0.9356D+00  0.9902D+00  0.9224D+00  0.5858D+00  0.1811D+00
+
+
+Final statistics for mf = 422:    40 steps,    77 res,     7 Jacobians,
+                     rw size =   345,    iw size =    79
+                       3 extra res for each jac,   7 decomps
+Final output is correct to within  0.10D+01  times local error tolerance.
+
+
+
+
+*************************************************************************************
+
+Run completed: number of errors encountered =  0

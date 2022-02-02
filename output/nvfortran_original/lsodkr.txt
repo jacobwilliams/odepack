@@ -1,0 +1,118 @@
+ <INFO> BUILD_NAME: build/nvfortran
+ <INFO> COMPILER:  nvfortran
+ <INFO> C COMPILER:  nvfortran
+ <INFO> COMPILER OPTIONS:   -g -Mbackslash
+ <INFO> C COMPILER OPTIONS:  
+ <INFO> LINKER OPTIONS:  
+ <INFO> INCLUDE DIRECTORIES:  []
+ + build/nvfortran_BE4B9AB3BDAA5B75/example/lsodkr 
+Demonstration program for DLSODKR package
+
+2D diurnal kinetics-transport PDE system with 2 species
+Spatial mesh is 10 by 10
+Method flag is mf = 22   Tolerances are rtol = 0.1D-04   atol = 0.1D-02
+Left preconditioner uses block-diagonal part of Jacobian
+Root function finds stationary points of total ozone,
+  i.e. roots of (d/dt)(sum of c2 over all mesh points)
+
+
+ t = 0.000D+00    no. steps =    0   order = 0   stepsize = 0.000D+00
+   c1 (bot.left/middle/top rt.) =   0.250D+06   0.976D+06   0.250D+06
+   c2 (bot.left/middle/top rt.) =   0.250D+12   0.976D+12   0.250D+12
+   total c2 =   0.547546D+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.184D+03    no. steps =  132   order = 2   stepsize = 0.138D+03
+   c1 (bot.left/middle/top rt.) =   0.438D-07   0.171D-06   0.440D-07
+   c2 (bot.left/middle/top rt.) =   0.250D+12   0.979D+12   0.251D+12
+   total c2 =   0.547575D+14   jroot = 1 (1 = root found, 0 = no root)
+
+ t = 0.720D+04    no. steps =  192   order = 5   stepsize = 0.158D+03
+   c1 (bot.left/middle/top rt.) =   0.105D+05   0.296D+05   0.112D+05
+   c2 (bot.left/middle/top rt.) =   0.253D+12   0.715D+12   0.270D+12
+   total c2 =   0.503689D+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.144D+05    no. steps =  222   order = 5   stepsize = 0.352D+03
+   c1 (bot.left/middle/top rt.) =   0.666D+07   0.532D+07   0.730D+07
+   c2 (bot.left/middle/top rt.) =   0.258D+12   0.206D+12   0.283D+12
+   total c2 =   0.405024D+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.183D+05    no. steps =  255   order = 5   stepsize = 0.270D+03
+   c1 (bot.left/middle/top rt.) =   0.187D+08   0.551D+07   0.206D+08
+   c2 (bot.left/middle/top rt.) =   0.269D+12   0.694D+11   0.297D+12
+   total c2 =   0.379640D+14   jroot = 1 (1 = root found, 0 = no root)
+
+ t = 0.216D+05    no. steps =  265   order = 5   stepsize = 0.409D+03
+   c1 (bot.left/middle/top rt.) =   0.266D+08   0.104D+08   0.293D+08
+   c2 (bot.left/middle/top rt.) =   0.299D+12   0.103D+12   0.331D+12
+   total c2 =   0.397443D+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.252D+05    no. steps =  274   order = 5   stepsize = 0.409D+03
+   c1 (bot.left/middle/top rt.) =   0.218D+08   0.189D+08   0.241D+08
+   c2 (bot.left/middle/top rt.) =   0.331D+12   0.284D+12   0.366D+12
+   total c2 =   0.417179D+14   jroot = 1 (1 = root found, 0 = no root)
+
+ t = 0.288D+05    no. steps =  295   order = 5   stepsize = 0.143D+03
+   c1 (bot.left/middle/top rt.) =   0.870D+07   0.129D+08   0.965D+07
+   c2 (bot.left/middle/top rt.) =   0.338D+12   0.503D+12   0.375D+12
+   total c2 =   0.395883D+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.360D+05    no. steps =  325   order = 5   stepsize = 0.118D+03
+   c1 (bot.left/middle/top rt.) =   0.140D+05   0.203D+05   0.156D+05
+   c2 (bot.left/middle/top rt.) =   0.339D+12   0.489D+12   0.377D+12
+   total c2 =   0.303138D+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.405D+05    no. steps =  371   order = 5   stepsize = 0.123D+03
+   c1 (bot.left/middle/top rt.) =   0.124D-05   0.811D-06   0.138D-05
+   c2 (bot.left/middle/top rt.) =   0.339D+12   0.218D+12   0.378D+12
+   total c2 =   0.278867D+14   jroot = 1 (1 = root found, 0 = no root)
+
+ t = 0.432D+05    no. steps =  379   order = 5   stepsize = 0.498D+03
+   c1 (bot.left/middle/top rt.) =   0.180D-07   0.303D-06   0.210D-07
+   c2 (bot.left/middle/top rt.) =   0.338D+12   0.136D+12   0.380D+12
+   total c2 =   0.287486D+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.504D+05    no. steps =  401   order = 5   stepsize = 0.452D+03
+   c1 (bot.left/middle/top rt.) =   0.140D-08  -0.129D-05   0.215D-07
+   c2 (bot.left/middle/top rt.) =   0.336D+12   0.493D+12   0.386D+12
+   total c2 =   0.361416D+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.576D+05    no. steps =  419   order = 4   stepsize = 0.159D+03
+   c1 (bot.left/middle/top rt.) =   0.479D-09  -0.256D-07   0.937D-09
+   c2 (bot.left/middle/top rt.) =   0.332D+12   0.965D+12   0.391D+12
+   total c2 =   0.446354D+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.648D+05    no. steps =  434   order = 5   stepsize = 0.880D+03
+   c1 (bot.left/middle/top rt.) =   0.332D-10  -0.177D-08   0.648D-10
+   c2 (bot.left/middle/top rt.) =   0.331D+12   0.892D+12   0.396D+12
+   total c2 =   0.492883D+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.720D+05    no. steps =  445   order = 5   stepsize = 0.681D+03
+   c1 (bot.left/middle/top rt.) =   0.585D-12  -0.311D-10   0.114D-11
+   c2 (bot.left/middle/top rt.) =   0.333D+12   0.619D+12   0.404D+12
+   total c2 =   0.529682D+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.792D+05    no. steps =  455   order = 5   stepsize = 0.755D+03
+   c1 (bot.left/middle/top rt.) =  -0.124D-12   0.662D-11  -0.243D-12
+   c2 (bot.left/middle/top rt.) =   0.333D+12   0.667D+12   0.412D+12
+   total c2 =   0.605274D+14   jroot = 0 (1 = root found, 0 = no root)
+
+ t = 0.824D+05    no. steps =  459   order = 5   stepsize = 0.755D+03
+   c1 (bot.left/middle/top rt.) =   0.852D-13  -0.453D-11   0.166D-12
+   c2 (bot.left/middle/top rt.) =   0.334D+12   0.804D+12   0.415D+12
+   total c2 =   0.619216D+14   jroot = 1 (1 = root found, 0 = no root)
+
+ t = 0.864D+05    no. steps =  464   order = 5   stepsize = 0.755D+03
+   c1 (bot.left/middle/top rt.) =  -0.190D-13   0.102D-11  -0.372D-13
+   c2 (bot.left/middle/top rt.) =   0.335D+12   0.911D+12   0.416D+12
+   total c2 =   0.597973D+14   jroot = 0 (1 = root found, 0 = no root)
+
+
+ Final statistics:
+ rwork size = 4264      iwork size = 230
+ number of steps        =  464     no. fnal. iter. steps  =  112
+ number of f evals.     = 1581     number of g evals.     =  533
+ number of prec. evals. =   54     number of Jac. evals.  =   11
+ number of prec. solves = 1264
+ number of nonl. iters. =  471     number of lin. iters.  =  870
+ average Krylov subspace dimension (nli/nni)  =  1.8471
+ number of conv. failures:  nonlinear =  0  linear =  0

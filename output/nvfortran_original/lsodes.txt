@@ -1,0 +1,661 @@
+ <INFO> BUILD_NAME: build/nvfortran
+ <INFO> COMPILER:  nvfortran
+ <INFO> C COMPILER:  nvfortran
+ <INFO> COMPILER OPTIONS:   -g -Mbackslash
+ <INFO> C COMPILER OPTIONS:  
+ <INFO> LINKER OPTIONS:  
+ <INFO> INCLUDE DIRECTORIES:  []
+ + build/nvfortran_BE4B9AB3BDAA5B75/example/lsodes 
+
+Demonstration problem for the DLSODES package
+
+
+ neq =   9     t0 = 0.0     rtol =   0.000D+00     atol =   0.100D-04
+
+ Initial y vector =    1.0  2.0  3.0  4.0  5.0  6.0  7.0  8.0  9.0
+
+
+********************************************************************************
+
+
+Run with mf =  10.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  42   hu =   0.241D-01   nqu =  4    max. err. =  0.394D-05
+  y array =       0.668730D+00   0.990188D+00   0.760308D+00   0.807799D+00
+   0.117023D+01   0.881061D+00   0.501332D+00   0.720142D+00   0.537962D+00
+At t =  2.0   nst =  71   hu =   0.680D-01   nqu =  3    max. err. =  0.273D-04
+  y array =       0.134047D+00   0.191717D+00   0.137407D+00   0.100802D+00
+   0.143808D+00   0.102820D+00   0.384623D-01   0.548033D-01   0.391361D-01
+At t =  3.0   nst =  90   hu =   0.455D-01   nqu =  3    max. err. =  0.121D-04
+  y array =       0.193008D-01   0.273568D-01   0.194059D-01   0.105663D-01
+   0.149796D-01   0.106158D-01   0.291803D-02   0.413489D-02   0.293048D-02
+
+Final statistics for this run:
+ rwork size = 164   iwork size =  30
+ number of steps =   90
+ number of f-s   =   98
+ (excluding J-s) =   98
+ number of J-s   =    0
+ error overrun =  0.27D+01
+
+
+Run with mf =  10.     Input work lengths lrw, liw =   164    30
+
+At t =  1.0   nst =  42   hu =   0.241D-01   nqu =  4    max. err. =  0.394D-05
+  y array =       0.668730D+00   0.990188D+00   0.760308D+00   0.807799D+00
+   0.117023D+01   0.881061D+00   0.501332D+00   0.720142D+00   0.537962D+00
+
+
+********************************************************************************
+
+
+Run with mf =  11.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  27   hu =   0.862D-01   nqu =  5    max. err. =  0.988D-05
+  y array =       0.668727D+00   0.990190D+00   0.760307D+00   0.807796D+00
+   0.117022D+01   0.881060D+00   0.501339D+00   0.720139D+00   0.537974D+00
+At t =  2.0   nst =  37   hu =   0.115D+00   nqu =  5    max. err. =  0.593D-05
+  y array =       0.134047D+00   0.191713D+00   0.137403D+00   0.100789D+00
+   0.143787D+00   0.102803D+00   0.384477D-01   0.547819D-01   0.391199D-01
+At t =  3.0   nst =  44   hu =   0.155D+00   nqu =  5    max. err. =  0.386D-05
+  y array =       0.192920D-01   0.273552D-01   0.193970D-01   0.105624D-01
+   0.149714D-01   0.106120D-01   0.291609D-02   0.413247D-02   0.292857D-02
+
+Final statistics for this run:
+ rwork size = 308   iwork size =  67
+ number of steps =   44
+ number of f-s   =   56
+ (excluding J-s) =   56
+ number of J-s   =    1
+ error overrun =  0.99D+00
+ number of nonzeros in J =    27
+ number of J index groups =    0
+ number of LU decomp-s    =    9
+ nonzeros in strict lower factor =    8
+ nonzeros in strict upper factor =   14
+
+ structure descriptor array ian =
+   1   3   6   8  11  15  18  21  25  28
+
+ structure descriptor array jan =
+   1   2   3   1   2   3   2   1   5   4   2   6   5   4   3   6   5   7   4   8
+   9   7   5   8   9   6   8
+
+
+Run with mf =  11.     Input work lengths lrw, liw =   308    67
+
+At t =  1.0   nst =  27   hu =   0.862D-01   nqu =  5    max. err. =  0.988D-05
+  y array =       0.668727D+00   0.990190D+00   0.760307D+00   0.807796D+00
+   0.117022D+01   0.881060D+00   0.501339D+00   0.720139D+00   0.537974D+00
+
+
+********************************************************************************
+
+
+Run with mf =  12.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  27   hu =   0.862D-01   nqu =  5    max. err. =  0.988D-05
+  y array =       0.668727D+00   0.990190D+00   0.760307D+00   0.807796D+00
+   0.117022D+01   0.881060D+00   0.501339D+00   0.720139D+00   0.537974D+00
+At t =  2.0   nst =  37   hu =   0.115D+00   nqu =  5    max. err. =  0.593D-05
+  y array =       0.134047D+00   0.191713D+00   0.137403D+00   0.100789D+00
+   0.143787D+00   0.102803D+00   0.384477D-01   0.547819D-01   0.391199D-01
+At t =  3.0   nst =  44   hu =   0.155D+00   nqu =  5    max. err. =  0.386D-05
+  y array =       0.192920D-01   0.273552D-01   0.193970D-01   0.105624D-01
+   0.149714D-01   0.106120D-01   0.291609D-02   0.413247D-02   0.292857D-02
+
+Final statistics for this run:
+ rwork size = 315   iwork size =  67
+ number of steps =   44
+ number of f-s   =   60
+ (excluding J-s) =   56
+ number of J-s   =    1
+ error overrun =  0.99D+00
+ number of nonzeros in J =    27
+ number of J index groups =    4
+ number of LU decomp-s    =    9
+ nonzeros in strict lower factor =    8
+ nonzeros in strict upper factor =   14
+
+ structure descriptor array ian =
+   1   3   6   8  11  15  18  21  25  28
+
+ structure descriptor array jan =
+   1   2   3   1   2   3   2   1   5   4   2   6   5   4   3   6   5   7   4   8
+   9   7   5   8   9   6   8
+
+
+Run with mf =  12.     Input work lengths lrw, liw =   315    67
+
+At t =  1.0   nst =  27   hu =   0.862D-01   nqu =  5    max. err. =  0.988D-05
+  y array =       0.668727D+00   0.990190D+00   0.760307D+00   0.807796D+00
+   0.117022D+01   0.881060D+00   0.501339D+00   0.720139D+00   0.537974D+00
+
+
+********************************************************************************
+
+
+Run with mf =  13.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  28   hu =   0.825D-01   nqu =  5    max. err. =  0.591D-05
+  y array =       0.668729D+00   0.990192D+00   0.760304D+00   0.807797D+00
+   0.117022D+01   0.881060D+00   0.501334D+00   0.720136D+00   0.537970D+00
+At t =  2.0   nst =  41   hu =   0.825D-01   nqu =  5    max. err. =  0.468D-05
+  y array =       0.134048D+00   0.191713D+00   0.137405D+00   0.100784D+00
+   0.143782D+00   0.102798D+00   0.384467D-01   0.547752D-01   0.391129D-01
+At t =  3.0   nst =  58   hu =   0.536D-01   nqu =  4    max. err. =  0.801D-04
+  y array =       0.193021D-01   0.273573D-01   0.194762D-01   0.105617D-01
+   0.149669D-01   0.106567D-01   0.291302D-02   0.412818D-02   0.292528D-02
+
+Final statistics for this run:
+ rwork size = 175   iwork size =  30
+ number of steps =   58
+ number of f-s   =   90
+ (excluding J-s) =   80
+ number of J-s   =   10
+ error overrun =  0.80D+01
+
+
+Run with mf =  13.     Input work lengths lrw, liw =   175    30
+
+At t =  1.0   nst =  28   hu =   0.825D-01   nqu =  5    max. err. =  0.591D-05
+  y array =       0.668729D+00   0.990192D+00   0.760304D+00   0.807797D+00
+   0.117022D+01   0.881060D+00   0.501334D+00   0.720136D+00   0.537970D+00
+
+
+********************************************************************************
+
+
+Run with mf =  20.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  39   hu =   0.549D-01   nqu =  5    max. err. =  0.378D-04
+  y array =       0.668726D+00   0.990193D+00   0.760309D+00   0.807791D+00
+   0.117020D+01   0.881056D+00   0.501356D+00   0.720124D+00   0.538002D+00
+At t =  2.0   nst =  53   hu =   0.677D-01   nqu =  5    max. err. =  0.113D-04
+  y array =       0.134039D+00   0.191719D+00   0.137397D+00   0.100792D+00
+   0.143779D+00   0.102808D+00   0.384485D-01   0.547872D-01   0.391222D-01
+At t =  3.0   nst =  64   hu =   0.123D+00   nqu =  5    max. err. =  0.869D-05
+  y array =       0.192944D-01   0.273518D-01   0.193999D-01   0.105634D-01
+   0.149762D-01   0.106132D-01   0.291807D-02   0.413507D-02   0.293054D-02
+
+Final statistics for this run:
+ rwork size = 101   iwork size =  30
+ number of steps =   64
+ number of f-s   =   77
+ (excluding J-s) =   77
+ number of J-s   =    0
+ error overrun =  0.38D+01
+
+
+Run with mf =  20.     Input work lengths lrw, liw =   101    30
+
+At t =  1.0   nst =  39   hu =   0.549D-01   nqu =  5    max. err. =  0.378D-04
+  y array =       0.668726D+00   0.990193D+00   0.760309D+00   0.807791D+00
+   0.117020D+01   0.881056D+00   0.501356D+00   0.720124D+00   0.538002D+00
+
+
+********************************************************************************
+
+
+Run with mf =  21.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  38   hu =   0.573D-01   nqu =  5    max. err. =  0.254D-04
+  y array =       0.668726D+00   0.990191D+00   0.760308D+00   0.807793D+00
+   0.117021D+01   0.881059D+00   0.501348D+00   0.720133D+00   0.537990D+00
+At t =  2.0   nst =  52   hu =   0.105D+00   nqu =  5    max. err. =  0.132D-04
+  y array =       0.134044D+00   0.191709D+00   0.137402D+00   0.100788D+00
+   0.143786D+00   0.102805D+00   0.384531D-01   0.547890D-01   0.391276D-01
+At t =  3.0   nst =  61   hu =   0.132D+00   nqu =  5    max. err. =  0.134D-04
+  y array =       0.192907D-01   0.273543D-01   0.193977D-01   0.105672D-01
+   0.149788D-01   0.106186D-01   0.292280D-02   0.414233D-02   0.293619D-02
+
+Final statistics for this run:
+ rwork size = 245   iwork size =  67
+ number of steps =   61
+ number of f-s   =   71
+ (excluding J-s) =   71
+ number of J-s   =    2
+ error overrun =  0.25D+01
+ number of nonzeros in J =    27
+ number of J index groups =    0
+ number of LU decomp-s    =    8
+ nonzeros in strict lower factor =    8
+ nonzeros in strict upper factor =   14
+
+ structure descriptor array ian =
+   1   3   6   8  11  15  18  21  25  28
+
+ structure descriptor array jan =
+   1   2   3   1   2   3   2   1   5   4   2   6   5   4   3   6   5   7   4   8
+   9   7   5   8   9   6   8
+
+
+Run with mf =  21.     Input work lengths lrw, liw =   245    67
+
+At t =  1.0   nst =  38   hu =   0.573D-01   nqu =  5    max. err. =  0.254D-04
+  y array =       0.668726D+00   0.990191D+00   0.760308D+00   0.807793D+00
+   0.117021D+01   0.881059D+00   0.501348D+00   0.720133D+00   0.537990D+00
+
+
+********************************************************************************
+
+
+Run with mf =  22.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  38   hu =   0.573D-01   nqu =  5    max. err. =  0.254D-04
+  y array =       0.668726D+00   0.990191D+00   0.760308D+00   0.807793D+00
+   0.117021D+01   0.881059D+00   0.501348D+00   0.720133D+00   0.537990D+00
+At t =  2.0   nst =  52   hu =   0.105D+00   nqu =  5    max. err. =  0.132D-04
+  y array =       0.134044D+00   0.191709D+00   0.137402D+00   0.100788D+00
+   0.143786D+00   0.102805D+00   0.384531D-01   0.547890D-01   0.391276D-01
+At t =  3.0   nst =  61   hu =   0.132D+00   nqu =  5    max. err. =  0.134D-04
+  y array =       0.192907D-01   0.273543D-01   0.193977D-01   0.105672D-01
+   0.149788D-01   0.106186D-01   0.292280D-02   0.414233D-02   0.293619D-02
+
+Final statistics for this run:
+ rwork size = 252   iwork size =  67
+ number of steps =   61
+ number of f-s   =   79
+ (excluding J-s) =   71
+ number of J-s   =    2
+ error overrun =  0.25D+01
+ number of nonzeros in J =    27
+ number of J index groups =    4
+ number of LU decomp-s    =    8
+ nonzeros in strict lower factor =    8
+ nonzeros in strict upper factor =   14
+
+ structure descriptor array ian =
+   1   3   6   8  11  15  18  21  25  28
+
+ structure descriptor array jan =
+   1   2   3   1   2   3   2   1   5   4   2   6   5   4   3   6   5   7   4   8
+   9   7   5   8   9   6   8
+
+
+Run with mf =  22.     Input work lengths lrw, liw =   252    67
+
+At t =  1.0   nst =  38   hu =   0.573D-01   nqu =  5    max. err. =  0.254D-04
+  y array =       0.668726D+00   0.990191D+00   0.760308D+00   0.807793D+00
+   0.117021D+01   0.881059D+00   0.501348D+00   0.720133D+00   0.537990D+00
+
+
+********************************************************************************
+
+
+Run with mf =  23.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  39   hu =   0.564D-01   nqu =  5    max. err. =  0.334D-04
+  y array =       0.668727D+00   0.990191D+00   0.760307D+00   0.807793D+00
+   0.117019D+01   0.881055D+00   0.501339D+00   0.720129D+00   0.537977D+00
+At t =  2.0   nst =  53   hu =   0.720D-01   nqu =  5    max. err. =  0.268D-04
+  y array =       0.134056D+00   0.191713D+00   0.137402D+00   0.100785D+00
+   0.143781D+00   0.102798D+00   0.384437D-01   0.548027D-01   0.391161D-01
+At t =  3.0   nst =  80   hu =   0.200D-01   nqu =  4    max. err. =  0.489D-04
+  y array =       0.192918D-01   0.273431D-01   0.194010D-01   0.105628D-01
+   0.149652D-01   0.106029D-01   0.290678D-02   0.412271D-02   0.297492D-02
+
+Final statistics for this run:
+ rwork size = 112   iwork size =  30
+ number of steps =   80
+ number of f-s   =  137
+ (excluding J-s) =  122
+ number of J-s   =   15
+ error overrun =  0.49D+01
+
+
+Run with mf =  23.     Input work lengths lrw, liw =   112    30
+
+At t =  1.0   nst =  39   hu =   0.564D-01   nqu =  5    max. err. =  0.334D-04
+  y array =       0.668727D+00   0.990191D+00   0.760307D+00   0.807793D+00
+   0.117019D+01   0.881055D+00   0.501339D+00   0.720129D+00   0.537977D+00
+
+
+********************************************************************************
+
+
+Run with mf = 111.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  27   hu =   0.862D-01   nqu =  5    max. err. =  0.988D-05
+  y array =       0.668727D+00   0.990190D+00   0.760307D+00   0.807796D+00
+   0.117022D+01   0.881060D+00   0.501339D+00   0.720139D+00   0.537974D+00
+At t =  2.0   nst =  37   hu =   0.115D+00   nqu =  5    max. err. =  0.593D-05
+  y array =       0.134047D+00   0.191713D+00   0.137403D+00   0.100789D+00
+   0.143787D+00   0.102803D+00   0.384477D-01   0.547819D-01   0.391199D-01
+At t =  3.0   nst =  44   hu =   0.155D+00   nqu =  5    max. err. =  0.386D-05
+  y array =       0.192920D-01   0.273552D-01   0.193970D-01   0.105624D-01
+   0.149714D-01   0.106120D-01   0.291609D-02   0.413247D-02   0.292857D-02
+
+Final statistics for this run:
+ rwork size = 308   iwork size =  30
+ number of steps =   44
+ number of f-s   =   56
+ (excluding J-s) =   56
+ number of J-s   =    1
+ error overrun =  0.99D+00
+ number of nonzeros in J =    27
+ number of J index groups =    0
+ number of LU decomp-s    =    9
+ nonzeros in strict lower factor =    8
+ nonzeros in strict upper factor =   14
+
+ structure descriptor array ian =
+   1   3   6   8  11  15  18  21  25  28
+
+ structure descriptor array jan =
+   1   2   3   1   2   3   2   1   5   4   2   6   5   4   3   6   5   7   4   8
+   9   7   5   8   9   6   8
+
+
+Run with mf = 111.     Input work lengths lrw, liw =   308    30
+
+At t =  1.0   nst =  27   hu =   0.862D-01   nqu =  5    max. err. =  0.988D-05
+  y array =       0.668727D+00   0.990190D+00   0.760307D+00   0.807796D+00
+   0.117022D+01   0.881060D+00   0.501339D+00   0.720139D+00   0.537974D+00
+
+
+********************************************************************************
+
+
+Run with mf = 112.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  27   hu =   0.862D-01   nqu =  5    max. err. =  0.988D-05
+  y array =       0.668727D+00   0.990190D+00   0.760307D+00   0.807796D+00
+   0.117022D+01   0.881060D+00   0.501339D+00   0.720139D+00   0.537974D+00
+At t =  2.0   nst =  37   hu =   0.115D+00   nqu =  5    max. err. =  0.593D-05
+  y array =       0.134047D+00   0.191713D+00   0.137403D+00   0.100789D+00
+   0.143787D+00   0.102803D+00   0.384477D-01   0.547819D-01   0.391199D-01
+At t =  3.0   nst =  44   hu =   0.155D+00   nqu =  5    max. err. =  0.386D-05
+  y array =       0.192920D-01   0.273552D-01   0.193970D-01   0.105624D-01
+   0.149714D-01   0.106120D-01   0.291609D-02   0.413247D-02   0.292857D-02
+
+Final statistics for this run:
+ rwork size = 315   iwork size =  30
+ number of steps =   44
+ number of f-s   =   60
+ (excluding J-s) =   56
+ number of J-s   =    1
+ error overrun =  0.99D+00
+ number of nonzeros in J =    27
+ number of J index groups =    4
+ number of LU decomp-s    =    9
+ nonzeros in strict lower factor =    8
+ nonzeros in strict upper factor =   14
+
+ structure descriptor array ian =
+   1   3   6   8  11  15  18  21  25  28
+
+ structure descriptor array jan =
+   1   2   3   1   2   3   2   1   5   4   2   6   5   4   3   6   5   7   4   8
+   9   7   5   8   9   6   8
+
+
+Run with mf = 112.     Input work lengths lrw, liw =   315    30
+
+At t =  1.0   nst =  27   hu =   0.862D-01   nqu =  5    max. err. =  0.988D-05
+  y array =       0.668727D+00   0.990190D+00   0.760307D+00   0.807796D+00
+   0.117022D+01   0.881060D+00   0.501339D+00   0.720139D+00   0.537974D+00
+
+
+********************************************************************************
+
+
+Run with mf = 121.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  38   hu =   0.573D-01   nqu =  5    max. err. =  0.254D-04
+  y array =       0.668726D+00   0.990191D+00   0.760308D+00   0.807793D+00
+   0.117021D+01   0.881059D+00   0.501348D+00   0.720133D+00   0.537990D+00
+At t =  2.0   nst =  52   hu =   0.105D+00   nqu =  5    max. err. =  0.132D-04
+  y array =       0.134044D+00   0.191709D+00   0.137402D+00   0.100788D+00
+   0.143786D+00   0.102805D+00   0.384531D-01   0.547890D-01   0.391276D-01
+At t =  3.0   nst =  61   hu =   0.132D+00   nqu =  5    max. err. =  0.134D-04
+  y array =       0.192907D-01   0.273543D-01   0.193977D-01   0.105672D-01
+   0.149788D-01   0.106186D-01   0.292280D-02   0.414233D-02   0.293619D-02
+
+Final statistics for this run:
+ rwork size = 245   iwork size =  30
+ number of steps =   61
+ number of f-s   =   71
+ (excluding J-s) =   71
+ number of J-s   =    2
+ error overrun =  0.25D+01
+ number of nonzeros in J =    27
+ number of J index groups =    0
+ number of LU decomp-s    =    8
+ nonzeros in strict lower factor =    8
+ nonzeros in strict upper factor =   14
+
+ structure descriptor array ian =
+   1   3   6   8  11  15  18  21  25  28
+
+ structure descriptor array jan =
+   1   2   3   1   2   3   2   1   5   4   2   6   5   4   3   6   5   7   4   8
+   9   7   5   8   9   6   8
+
+
+Run with mf = 121.     Input work lengths lrw, liw =   245    30
+
+At t =  1.0   nst =  38   hu =   0.573D-01   nqu =  5    max. err. =  0.254D-04
+  y array =       0.668726D+00   0.990191D+00   0.760308D+00   0.807793D+00
+   0.117021D+01   0.881059D+00   0.501348D+00   0.720133D+00   0.537990D+00
+
+
+********************************************************************************
+
+
+Run with mf = 122.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  38   hu =   0.573D-01   nqu =  5    max. err. =  0.254D-04
+  y array =       0.668726D+00   0.990191D+00   0.760308D+00   0.807793D+00
+   0.117021D+01   0.881059D+00   0.501348D+00   0.720133D+00   0.537990D+00
+At t =  2.0   nst =  52   hu =   0.105D+00   nqu =  5    max. err. =  0.132D-04
+  y array =       0.134044D+00   0.191709D+00   0.137402D+00   0.100788D+00
+   0.143786D+00   0.102805D+00   0.384531D-01   0.547890D-01   0.391276D-01
+At t =  3.0   nst =  61   hu =   0.132D+00   nqu =  5    max. err. =  0.134D-04
+  y array =       0.192907D-01   0.273543D-01   0.193977D-01   0.105672D-01
+   0.149788D-01   0.106186D-01   0.292280D-02   0.414233D-02   0.293619D-02
+
+Final statistics for this run:
+ rwork size = 252   iwork size =  30
+ number of steps =   61
+ number of f-s   =   79
+ (excluding J-s) =   71
+ number of J-s   =    2
+ error overrun =  0.25D+01
+ number of nonzeros in J =    27
+ number of J index groups =    4
+ number of LU decomp-s    =    8
+ nonzeros in strict lower factor =    8
+ nonzeros in strict upper factor =   14
+
+ structure descriptor array ian =
+   1   3   6   8  11  15  18  21  25  28
+
+ structure descriptor array jan =
+   1   2   3   1   2   3   2   1   5   4   2   6   5   4   3   6   5   7   4   8
+   9   7   5   8   9   6   8
+
+
+Run with mf = 122.     Input work lengths lrw, liw =   252    30
+
+At t =  1.0   nst =  38   hu =   0.573D-01   nqu =  5    max. err. =  0.254D-04
+  y array =       0.668726D+00   0.990191D+00   0.760308D+00   0.807793D+00
+   0.117021D+01   0.881059D+00   0.501348D+00   0.720133D+00   0.537990D+00
+
+
+********************************************************************************
+
+
+Run with mf = 211.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  27   hu =   0.862D-01   nqu =  5    max. err. =  0.988D-05
+  y array =       0.668727D+00   0.990190D+00   0.760307D+00   0.807796D+00
+   0.117022D+01   0.881060D+00   0.501339D+00   0.720139D+00   0.537974D+00
+At t =  2.0   nst =  37   hu =   0.115D+00   nqu =  5    max. err. =  0.593D-05
+  y array =       0.134047D+00   0.191713D+00   0.137403D+00   0.100789D+00
+   0.143787D+00   0.102803D+00   0.384477D-01   0.547819D-01   0.391199D-01
+At t =  3.0   nst =  44   hu =   0.155D+00   nqu =  5    max. err. =  0.386D-05
+  y array =       0.192920D-01   0.273552D-01   0.193970D-01   0.105624D-01
+   0.149714D-01   0.106120D-01   0.291609D-02   0.413247D-02   0.292857D-02
+
+Final statistics for this run:
+ rwork size = 308   iwork size =  30
+ number of steps =   44
+ number of f-s   =   56
+ (excluding J-s) =   56
+ number of J-s   =    1
+ error overrun =  0.99D+00
+ number of nonzeros in J =    27
+ number of J index groups =    0
+ number of LU decomp-s    =    9
+ nonzeros in strict lower factor =    8
+ nonzeros in strict upper factor =   14
+
+ structure descriptor array ian =
+   1   3   6   8  11  15  18  21  25  28
+
+ structure descriptor array jan =
+   1   2   3   1   2   3   2   1   5   4   2   6   5   4   3   6   5   7   4   8
+   9   7   5   8   9   6   8
+
+
+Run with mf = 211.     Input work lengths lrw, liw =   308    30
+
+At t =  1.0   nst =  27   hu =   0.862D-01   nqu =  5    max. err. =  0.988D-05
+  y array =       0.668727D+00   0.990190D+00   0.760307D+00   0.807796D+00
+   0.117022D+01   0.881060D+00   0.501339D+00   0.720139D+00   0.537974D+00
+
+
+********************************************************************************
+
+
+Run with mf = 212.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  27   hu =   0.862D-01   nqu =  5    max. err. =  0.988D-05
+  y array =       0.668727D+00   0.990190D+00   0.760307D+00   0.807796D+00
+   0.117022D+01   0.881060D+00   0.501339D+00   0.720139D+00   0.537974D+00
+At t =  2.0   nst =  37   hu =   0.115D+00   nqu =  5    max. err. =  0.593D-05
+  y array =       0.134047D+00   0.191713D+00   0.137403D+00   0.100789D+00
+   0.143787D+00   0.102803D+00   0.384477D-01   0.547819D-01   0.391199D-01
+At t =  3.0   nst =  44   hu =   0.155D+00   nqu =  5    max. err. =  0.386D-05
+  y array =       0.192920D-01   0.273552D-01   0.193970D-01   0.105624D-01
+   0.149714D-01   0.106120D-01   0.291609D-02   0.413247D-02   0.292857D-02
+
+Final statistics for this run:
+ rwork size = 315   iwork size =  30
+ number of steps =   44
+ number of f-s   =   60
+ (excluding J-s) =   56
+ number of J-s   =    1
+ error overrun =  0.99D+00
+ number of nonzeros in J =    27
+ number of J index groups =    4
+ number of LU decomp-s    =    9
+ nonzeros in strict lower factor =    8
+ nonzeros in strict upper factor =   14
+
+ structure descriptor array ian =
+   1   3   6   8  11  15  18  21  25  28
+
+ structure descriptor array jan =
+   1   2   3   1   2   3   2   1   5   4   2   6   5   4   3   6   5   7   4   8
+   9   7   5   8   9   6   8
+
+
+Run with mf = 212.     Input work lengths lrw, liw =   315    30
+
+At t =  1.0   nst =  27   hu =   0.862D-01   nqu =  5    max. err. =  0.988D-05
+  y array =       0.668727D+00   0.990190D+00   0.760307D+00   0.807796D+00
+   0.117022D+01   0.881060D+00   0.501339D+00   0.720139D+00   0.537974D+00
+
+
+********************************************************************************
+
+
+Run with mf = 221.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  38   hu =   0.573D-01   nqu =  5    max. err. =  0.254D-04
+  y array =       0.668726D+00   0.990191D+00   0.760308D+00   0.807793D+00
+   0.117021D+01   0.881059D+00   0.501348D+00   0.720133D+00   0.537990D+00
+At t =  2.0   nst =  52   hu =   0.105D+00   nqu =  5    max. err. =  0.132D-04
+  y array =       0.134044D+00   0.191709D+00   0.137402D+00   0.100788D+00
+   0.143786D+00   0.102805D+00   0.384531D-01   0.547890D-01   0.391276D-01
+At t =  3.0   nst =  61   hu =   0.132D+00   nqu =  5    max. err. =  0.134D-04
+  y array =       0.192907D-01   0.273543D-01   0.193977D-01   0.105672D-01
+   0.149788D-01   0.106186D-01   0.292280D-02   0.414233D-02   0.293619D-02
+
+Final statistics for this run:
+ rwork size = 245   iwork size =  30
+ number of steps =   61
+ number of f-s   =   71
+ (excluding J-s) =   71
+ number of J-s   =    2
+ error overrun =  0.25D+01
+ number of nonzeros in J =    27
+ number of J index groups =    0
+ number of LU decomp-s    =    8
+ nonzeros in strict lower factor =    8
+ nonzeros in strict upper factor =   14
+
+ structure descriptor array ian =
+   1   3   6   8  11  15  18  21  25  28
+
+ structure descriptor array jan =
+   1   2   3   1   2   3   2   1   5   4   2   6   5   4   3   6   5   7   4   8
+   9   7   5   8   9   6   8
+
+
+Run with mf = 221.     Input work lengths lrw, liw =   245    30
+
+At t =  1.0   nst =  38   hu =   0.573D-01   nqu =  5    max. err. =  0.254D-04
+  y array =       0.668726D+00   0.990191D+00   0.760308D+00   0.807793D+00
+   0.117021D+01   0.881059D+00   0.501348D+00   0.720133D+00   0.537990D+00
+
+
+********************************************************************************
+
+
+Run with mf = 222.     Input work lengths lrw, liw =  1000    90
+
+At t =  1.0   nst =  38   hu =   0.573D-01   nqu =  5    max. err. =  0.254D-04
+  y array =       0.668726D+00   0.990191D+00   0.760308D+00   0.807793D+00
+   0.117021D+01   0.881059D+00   0.501348D+00   0.720133D+00   0.537990D+00
+At t =  2.0   nst =  52   hu =   0.105D+00   nqu =  5    max. err. =  0.132D-04
+  y array =       0.134044D+00   0.191709D+00   0.137402D+00   0.100788D+00
+   0.143786D+00   0.102805D+00   0.384531D-01   0.547890D-01   0.391276D-01
+At t =  3.0   nst =  61   hu =   0.132D+00   nqu =  5    max. err. =  0.134D-04
+  y array =       0.192907D-01   0.273543D-01   0.193977D-01   0.105672D-01
+   0.149788D-01   0.106186D-01   0.292280D-02   0.414233D-02   0.293619D-02
+
+Final statistics for this run:
+ rwork size = 252   iwork size =  30
+ number of steps =   61
+ number of f-s   =   79
+ (excluding J-s) =   71
+ number of J-s   =    2
+ error overrun =  0.25D+01
+ number of nonzeros in J =    27
+ number of J index groups =    4
+ number of LU decomp-s    =    8
+ nonzeros in strict lower factor =    8
+ nonzeros in strict upper factor =   14
+
+ structure descriptor array ian =
+   1   3   6   8  11  15  18  21  25  28
+
+ structure descriptor array jan =
+   1   2   3   1   2   3   2   1   5   4   2   6   5   4   3   6   5   7   4   8
+   9   7   5   8   9   6   8
+
+
+Run with mf = 222.     Input work lengths lrw, liw =   252    30
+
+At t =  1.0   nst =  38   hu =   0.573D-01   nqu =  5    max. err. =  0.254D-04
+  y array =       0.668726D+00   0.990191D+00   0.760308D+00   0.807793D+00
+   0.117021D+01   0.881059D+00   0.501348D+00   0.720133D+00   0.537990D+00
+
+
+********************************************************************************
+
+
+Number of errors encountered =  0
