@@ -2,22 +2,23 @@
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !----------------------------------------------------------------------------------------------------------------------------------!
 !>
-!!### NAME
+!!### Name
 !!   xsetun(3f) - [M_odepack::matrix] Reset the logical unit number for error messages.
 !!
-!!### SYNOPSIS
+!!### Synopsis
 !!    subroutine xsetun (lun)
-!!    integer :: lun
+!!    integer,intent(in) :: lun
 !!
-!!### DESCRIPTION
+!!### Description
 !!   XSETUN sets the logical unit number for error messages to LUN.
 !!
-!!### OPTIONS
+!!### Options
 !!
 !!   LUN
 !!
 !!   :   logical unit number used for error messages
 !!
+!-------------------------------------------------------------------------
 ! ### CATEGORY  R3B
 ! ### TYPE      ALL (XSETUN-A)
 ! ### KEYWORDS  ERROR CONTROL
@@ -31,15 +32,17 @@
 !     19930329  Added SLATEC format prologue. (FNF)
 !     19930407  Corrected SEE ALSO section. (FNF)
 !     19930922  Made user-callable, and other cosmetic changes. (FNF)
-! 
+!-------------------------------------------------------------------------
 !  Subroutines called by XSETUN.. None
 !  Function routine called by XSETUN ... IXSAV
+!-------------------------------------------------------------------------
 
 subroutine xsetun (lun)
-integer :: lun
+
+integer,intent(in) :: lun
 
 integer :: junk
 
-   if (lun .gt. 0) junk = ixsav ( 1, lun, .true. )
+   if (lun > 0) junk = ixsav ( 1, lun, .true. )
 
 end subroutine xsetun
