@@ -57,7 +57,7 @@ jobs:
       run: fpm test --compiler gfortran --profile release -flag -std=legacy
 
     - name: Build documentation
-      run: ford ./odepack.md
+      run: ford ./ford.md
 
     - name: Deploy Documentation
       if: github.ref == 'refs/heads/master'
