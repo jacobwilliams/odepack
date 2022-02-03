@@ -84,7 +84,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title="100.0% of total for modules and submodules.">11737 statements</a>
+    title="100.0% of total for modules and submodules.">11746 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/M_odepack.f90"> Source File</a></li>
   </ul>
@@ -219,18 +219,18 @@
 <polygon fill="none" stroke="black" points="73,-108 0,-108 0,-84 73,-84 73,-108"/>
 <text text-anchor="middle" x="36.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50">M_odepack</text>
 </g>
-<!-- proc~dainvgs -->
+<!-- proc~dstode -->
 <g id="module~~m_odepack~~UsedByGraph_node2" class="node">
-<title>proc~dainvgs</title>
-<g id="a_module~~m_odepack~~UsedByGraph_node2"><a xlink:href=".././proc/dainvgs.html" xlink:title="dainvgs">
+<title>proc~dstode</title>
+<g id="a_module~~m_odepack~~UsedByGraph_node2"><a xlink:href=".././proc/dstode.html" xlink:title="dstode">
 <polygon fill="#d9534f" stroke="#d9534f" points="163,-192 109,-192 109,-168 163,-168 163,-192"/>
-<text text-anchor="middle" x="136" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dainvgs</text>
+<text text-anchor="middle" x="136" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstode</text>
 </a>
 </g>
 </g>
-<!-- proc~dainvgs&#45;&gt;module~m_odepack -->
+<!-- proc~dstode&#45;&gt;module~m_odepack -->
 <g id="module~~m_odepack~~UsedByGraph_edge1" class="edge">
-<title>proc~dainvgs&#45;&gt;module~m_odepack</title>
+<title>proc~dstode&#45;&gt;module~m_odepack</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M119.79,-167.89C116.22,-165.01 112.46,-161.92 109,-159 91.77,-144.46 72.63,-127.55 58.49,-114.91"/>
 <polygon fill="#000000" stroke="#000000" points="60.57,-112.09 50.79,-108.02 55.9,-117.3 60.57,-112.09"/>
 </g>
@@ -279,18 +279,18 @@
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M108.87,-65.26C98.38,-69.77 86.1,-75.06 74.71,-79.97"/>
 <polygon fill="#000000" stroke="#000000" points="73.21,-76.81 65.41,-83.98 75.98,-83.24 73.21,-76.81"/>
 </g>
-<!-- proc~dstode -->
+<!-- proc~dainvgs -->
 <g id="module~~m_odepack~~UsedByGraph_node6" class="node">
-<title>proc~dstode</title>
-<g id="a_module~~m_odepack~~UsedByGraph_node6"><a xlink:href=".././proc/dstode.html" xlink:title="dstode">
+<title>proc~dainvgs</title>
+<g id="a_module~~m_odepack~~UsedByGraph_node6"><a xlink:href=".././proc/dainvgs.html" xlink:title="dainvgs">
 <polygon fill="#d9534f" stroke="#d9534f" points="163,-24 109,-24 109,0 163,0 163,-24"/>
-<text text-anchor="middle" x="136" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstode</text>
+<text text-anchor="middle" x="136" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dainvgs</text>
 </a>
 </g>
 </g>
-<!-- proc~dstode&#45;&gt;module~m_odepack -->
+<!-- proc~dainvgs&#45;&gt;module~m_odepack -->
 <g id="module~~m_odepack~~UsedByGraph_edge5" class="edge">
-<title>proc~dstode&#45;&gt;module~m_odepack</title>
+<title>proc~dainvgs&#45;&gt;module~m_odepack</title>
 <path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M119.79,-24.11C116.22,-26.99 112.46,-30.08 109,-33 91.77,-47.54 72.63,-64.45 58.49,-77.09"/>
 <polygon fill="#000000" stroke="#000000" points="55.9,-74.7 50.79,-83.98 60.57,-79.91 55.9,-74.7"/>
 </g>
@@ -1580,8 +1580,7 @@ if there was trouble in Subroutine DPREPI.</p>
   <div class="panel-heading codesum"><span class="anchor" id="proc-dlsoda"></span><h3>public subroutine <a href='../proc/dlsoda.html'>dlsoda</a>(f, Neq, Y, T, Tout, Itol, Rtol, Atol, Itask, Istate, Iopt, Rwork, Lrw, Iwork, Liw, jac, Jt)</h3></div>
   <div class="panel-body">
        
-<p>This is the 12 November 2003 version of
- DLSODA: Livermore Solver for Ordinary Differential Equations, with
+<p><em>DLSODA</em>: Livermore Solver for Ordinary Differential Equations, with
          Automatic method switching for stiff and nonstiff problems.</p><a href="../proc/dlsoda.html" class="pull-right"><emph>Read more&hellip;</emph></a>
     
 <h4>Arguments</h4>      <table class="table table-striped varlist">
@@ -1594,16 +1593,16 @@ if there was trouble in Subroutine DPREPI.</p>
   <td><strong>f</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" ></span>integer,</td>
+  <td><span class="anchor" ></span>integer</td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Neq</strong></td><td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Neq</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td><span class="anchor" ></span>real(kind=dp)</td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Y</strong></td><td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Y</strong>(*)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" ></span>real(kind=dp),</td>
@@ -1624,16 +1623,16 @@ if there was trouble in Subroutine DPREPI.</p>
   <td><strong>Itol</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td><span class="anchor" ></span>real(kind=dp)</td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Rtol</strong></td><td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Rtol</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" ></span>real(kind=dp),</td>
+  <td><span class="anchor" ></span>real(kind=dp)</td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Atol</strong></td><td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Atol</strong>(*)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" ></span>integer</td>
@@ -1655,9 +1654,9 @@ if there was trouble in Subroutine DPREPI.</p>
 </tr>
 <tr>
   <td><span class="anchor" ></span>real(kind=dp),</td>
-<td>intent(inout),</td>
-  <td></td>  <td>dimension(Lrw)</td><td>::</td>
-  <td><strong>Rwork</strong></td><td></td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Rwork</strong>(Lrw)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" ></span>integer</td>
@@ -1667,9 +1666,9 @@ if there was trouble in Subroutine DPREPI.</p>
 </tr>
 <tr>
   <td><span class="anchor" ></span>integer,</td>
-<td>intent(inout),</td>
-  <td></td>  <td>dimension(Liw)</td><td>::</td>
-  <td><strong>Iwork</strong></td><td></td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Iwork</strong>(Liw)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" ></span>integer</td>
@@ -4424,7 +4423,7 @@ Jacobian by finite differences.</p><a href="../proc/jgroup.html" class="pull-rig
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-03 03:45            </p>
+ on 2022-02-03 13:33            </p>
         </div>
       </div>
       <br>

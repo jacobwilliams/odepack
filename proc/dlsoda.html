@@ -84,7 +84,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 6.0% of total for procedures.">622 statements</a>
+    title=" 6.1% of total for procedures.">631 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/M_odepack.f90"> Source File</a></li>
   </ul>
@@ -119,106 +119,209 @@
     <h2>public subroutine dlsoda(f, Neq, Y, T, Tout, Itol, Rtol, Atol, Itask, Istate, Iopt, Rwork, Lrw, Iwork, Liw, jac, Jt)</h2>
     
 
-    <p>This is the 12 November 2003 version of
- DLSODA: Livermore Solver for Ordinary Differential Equations, with
+    <h3 id="synopsis">Synopsis</h3>
+<p><em>DLSODA</em>: Livermore Solver for Ordinary Differential Equations, with
          Automatic method switching for stiff and nonstiff problems.</p>
-<p>This version is in double precision.</p>
-<p>DLSODA solves the initial value problem for stiff or nonstiff
- systems of first order ODEs,
-     dy/dt = f(t,y),  or, in component form,
-     dy(i)/dt = f(i) = f(i,t,y(1),y(2),&hellip;,y(NEQ)) (i = 1,&hellip;,NEQ).</p>
-<p>This a variant version of the DLSODE package.
+<p>based on the 12 November 2003 version in double precision.</p>
+<p><em>DLSODA</em> solves the initial value problem for stiff or nonstiff
+ systems of first order ODEs,</p>
+<div class="codehilite"><pre><span></span><code>     dy/dt = f(t,y),  or, in component form,
+     dy(i)/dt = f(i) = f(i,t,y(1),y(2),...,y(NEQ)) (i = 1,...,NEQ).
+</code></pre></div>
+
+<p>This a variant version of the <em>DLSODE</em> package.
  It switches automatically between stiff and nonstiff methods.
  This means that the user does not have to determine whether the
  problem is stiff or not, and the solver will automatically choose the
  appropriate method.  It always starts with the nonstiff method.</p>
-<p>Authors:       Alan C. Hindmarsh
-                Center for Applied Scientific Computing, L-561
-                Lawrence Livermore National Laboratory
-                Livermore, CA 94551
- and
-                Linda R. Petzold
-                Univ. of California at Santa Barbara
-                Dept. of Computer Science
-                Santa Barbara, CA 93106</p>
-<p>References:
- 1.  Alan C. Hindmarsh,  ODEPACK, A Systematized Collection of ODE
-     Solvers, in Scientific Computing, R. S. Stepleman et al. (Eds.),
-     North-Holland, Amsterdam, 1983, pp. 55-64.
- 2.  Linda R. Petzold, Automatic Selection of Methods for Solving
-     Stiff and Nonstiff Systems of Ordinary Differential Equations,
-     Siam J. Sci. Stat. Comput. 4 (1983), pp. 136-148.</p>
 <hr>
-<p>Summary of Usage.</p>
-<p>Communication between the user and the DLSODA package, for normal
+<h3 id="summary-of-usage">Summary of Usage</h3>
+<p>Communication between the user and the <em>DLSODA</em> package, for normal
  situations, is summarized here.  This summary describes only a subset
  of the full set of options available.  See the full description for
  details, including alternative treatment of the Jacobian matrix,
  optional inputs and outputs, nonstandard options, and
  instructions for special situations.  See also the example
  problem (with program and output) following this summary.</p>
-<p>A. First provide a subroutine of the form:
-               SUBROUTINE F (NEQ, T, Y, YDOT)
-               DOUBLE PRECISION T, Y(<em>), YDOT(</em>)
- which supplies the vector function f by loading YDOT(i) with f(i).</p>
-<p>B. Write a main program which calls Subroutine DLSODA once for
+<h4 id="section-a">Section A.</h4>
+<p>First provide a subroutine of the form:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">               </span><span class="k">SUBROUTINE </span><span class="n">F</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">YDOT</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="kt">DOUBLE PRECISION </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">YDOT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>which supplies the vector function <em>f</em> by loading YDOT(i) with f(i).</p>
+<h4 id="section-b">Section B.</h4>
+<p>Write a main program which calls Subroutine <em>DLSODA</em> once for
  each point at which answers are desired.  This should also provide
  for possible use of logical unit 6 for output of error messages
- by DLSODA.  On the first call to DLSODA, supply arguments as follows:
- F      = name of subroutine for right-hand side vector f.
-          This name must be declared External in calling program.
- NEQ    = number of first order ODEs.
- Y      = array of initial values, of length NEQ.
- T      = the initial value of the independent variable.
- TOUT   = first point where output is desired (.ne. T).
- ITOL   = 1 or 2 according as ATOL (below) is a scalar or array.
- RTOL   = relative tolerance parameter (scalar).
- ATOL   = absolute tolerance parameter (scalar or array).
-          the estimated local error in y(i) will be controlled so as
-          to be less than
-             EWT(i) = RTOL<em>ABS(Y(i)) + ATOL     if ITOL = 1, or
-             EWT(i) = RTOL</em>ABS(Y(i)) + ATOL(i)  if ITOL = 2.
-          Thus the local error test passes if, in each component,
-          either the absolute error is less than ATOL (or ATOL(i)),
-          or the relative error is less than RTOL.
-          Use RTOL = 0.0 for pure absolute error control, and
-          use ATOL = 0.0 (or ATOL(i) = 0.0) for pure relative error
-          control.  Caution: actual (global) errors may exceed these
-          local tolerances, so choose them conservatively.
- ITASK  = 1 for normal computation of output values of y at t = TOUT.
- ISTATE = integer flag (input and output).  Set ISTATE = 1.
- IOPT   = 0 to indicate no optional inputs used.
- RWORK  = real work array of length at least:
-             22 + NEQ * MAX(16, NEQ + 9).
-          See also Paragraph E below.
- LRW    = declared length of RWORK (in user&rsquo;s dimension).
- IWORK  = integer work array of length at least  20 + NEQ.
- LIW    = declared length of IWORK (in user&rsquo;s dimension).
- JAC    = name of subroutine for Jacobian matrix.
-          Use a dummy name.  See also Paragraph E below.
- JT     = Jacobian type indicator.  Set JT = 2.
-          See also Paragraph E below.
- Note that the main program must declare arrays Y, RWORK, IWORK,
- and possibly ATOL.</p>
-<p>C. The output from the first call (or any call) is:
-      Y = array of computed values of y(t) vector.
-      T = corresponding value of independent variable (normally TOUT).
- ISTATE = 2  if DLSODA was successful, negative otherwise.
-          -1 means excess work done on this call (perhaps wrong JT).
-          -2 means excess accuracy requested (tolerances too small).
-          -3 means illegal input detected (see printed message).
-          -4 means repeated error test failures (check all inputs).
-          -5 means repeated convergence failures (perhaps bad Jacobian
-             supplied or wrong choice of JT or tolerances).
-          -6 means error weight became zero during problem. (Solution
-             component i vanished, and ATOL or ATOL(i) = 0.)
-          -7 means work space insufficient to finish (see messages).</p>
-<p>D. To continue the integration after a successful return, simply
- reset TOUT and call DLSODA again.  No other parameters need be reset.</p>
-<p>E. Note: If and when DLSODA regards the problem as stiff, and
+ by <em>DLSODA</em>.  On the first call to <em>DLSODA</em>, supply arguments as follows:</p>
+<dl>
+<dt>F</dt>
+<dd>
+<p>name of subroutine for right-hand side vector f.
+   This name must be declared External in calling program.</p>
+</dd>
+<dt>NEQ</dt>
+<dd>
+<p>number of first order ODEs.</p>
+</dd>
+<dt>Y</dt>
+<dd>
+<p>array of initial values, of length NEQ.</p>
+</dd>
+<dt>T</dt>
+<dd>
+<p>the initial value of the independent variable.</p>
+</dd>
+<dt>TOUT</dt>
+<dd>
+<p>first point where output is desired (.ne. T).</p>
+</dd>
+<dt>ITOL</dt>
+<dd>
+<p>1 or 2 according as ATOL (below) is a scalar or array.</p>
+</dd>
+<dt>RTOL</dt>
+<dd>
+<p>relative tolerance parameter (scalar).</p>
+</dd>
+<dt>ATOL</dt>
+<dd>
+<p>absolute tolerance parameter (scalar or array).
+   the estimated local error in y(i) will be controlled so as
+   to be less than</p>
+<div class="codehilite"><pre><span></span><code><span class="nv">EWT</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">RTOL</span><span class="o">*</span><span class="nv">ABS</span><span class="ss">(</span><span class="nv">Y</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="o">+</span> <span class="nv">ATOL</span>     <span class="k">if</span> <span class="nv">ITOL</span> <span class="o">=</span> <span class="mi">1</span>, <span class="nv">or</span>
+<span class="nv">EWT</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">RTOL</span><span class="o">*</span><span class="nv">ABS</span><span class="ss">(</span><span class="nv">Y</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="o">+</span> <span class="nv">ATOL</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>  <span class="k">if</span> <span class="nv">ITOL</span> <span class="o">=</span> <span class="mi">2</span>.
+</code></pre></div>
+
+</dd>
+</dl>
+<p>Thus the local error test passes if, in each component,
+   either the absolute error is less than ATOL (or ATOL(i)),
+   or the relative error is less than RTOL.</p>
+<p>Use RTOL = 0.0 for pure absolute error control, and
+   use ATOL = 0.0 (or ATOL(i) = 0.0) for pure relative error
+   control.  Caution: actual (global) errors may exceed these
+   local tolerances, so choose them conservatively.</p>
+<dl>
+<dt>ITASK</dt>
+<dd>
+<p>1 for normal computation of output values of y at t = TOUT.</p>
+</dd>
+<dt>ISTATE</dt>
+<dd>
+<p>integer flag (input and output).  Set ISTATE = 1.</p>
+</dd>
+<dt>IOPT</dt>
+<dd>
+<p>0 to indicate no optional inputs used.</p>
+</dd>
+<dt>RWORK</dt>
+<dd>
+<p>real work array of length at least:
+         22 + NEQ * MAX(16, NEQ + 9).</p>
+</dd>
+</dl>
+<p>See also <em>Section E</em> below.</p>
+<dl>
+<dt>LRW</dt>
+<dd>
+<p>declared length of RWORK (in user&rsquo;s dimension).</p>
+</dd>
+<dt>IWORK</dt>
+<dd>
+<p>integer work array of length at least  20 + NEQ.</p>
+</dd>
+<dt>LIW</dt>
+<dd>
+<p>declared length of IWORK (in user&rsquo;s dimension).</p>
+</dd>
+<dt>JAC</dt>
+<dd>
+<p>name of subroutine for Jacobian matrix.
+   Use a dummy name.  See also <em>Section E</em> below.</p>
+</dd>
+<dt>JT</dt>
+<dd>
+<p>Jacobian type indicator.  Set JT = 2.
+   See also <em>Section E</em> below.
+   Note that the main program must declare arrays Y, RWORK, IWORK,
+   and possibly ATOL.</p>
+</dd>
+</dl>
+<hr>
+<h4 id="section-c">Section C.</h4>
+<p>The output from the first call (or any call) is:</p>
+<dl>
+<dt>Y</dt>
+<dd>
+<p>array of computed values of y(t) vector.</p>
+</dd>
+<dt>T</dt>
+<dd>
+<p>corresponding value of independent variable (normally TOUT).</p>
+</dd>
+<dt>ISTATE</dt>
+<dd>Status values are returned in ISTATE:</dd>
+</dl>
+<table>
+<thead>
+<tr>
+<th>values</th>
+<th>descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>if <em>DLSODA</em> was successful, negative otherwise.</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>means excess work done on this call (perhaps wrong JT).</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>means excess accuracy requested (tolerances too small).</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>means illegal input detected (see printed message).</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>means repeated error test failures (check all inputs).</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>means repeated convergence failures (perhaps bad Jacobian</td>
+</tr>
+<tr>
+<td></td>
+<td>supplied or wrong choice of JT or tolerances).</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>means error weight became zero during problem. (Solution</td>
+</tr>
+<tr>
+<td></td>
+<td>component i vanished, and ATOL or ATOL(i) = 0.)</td>
+</tr>
+<tr>
+<td>-7</td>
+<td>means work space insufficient to finish (see messages).</td>
+</tr>
+</tbody>
+</table>
+<h4 id="section-d">Section D.</h4>
+<p>To continue the integration after a successful return, simply
+ reset TOUT and call <em>DLSODA</em> again.  No other parameters need be reset.</p>
+<h4 id="section-e">Section E.</h4>
+<p><em>Note</em>: If and when <em>DLSODA</em> regards the problem as stiff, and
  switches methods accordingly, it must make use of the NEQ by NEQ
  Jacobian matrix, J = df/dy.  For the sake of simplicity, the
- inputs to DLSODA recommended in Paragraph B above cause DLSODA to
+ inputs to <em>DLSODA</em> recommended in <em>Section B</em> above cause <em>DLSODA</em> to
  treat J as a full matrix, and to approximate it internally by
  difference quotients.  Alternatively, J can be treated as a band
  matrix (with great potential reduction in the size of the RWORK
@@ -229,16 +332,20 @@
 <hr>
 <p>Example Problem.</p>
 <p>The following is a simple example problem, with the coding
- needed for its solution by DLSODA.  The problem is from chemical
- kinetics, and consists of the following three rate equations:
-     dy1/dt = -.04<em>y1 + 1.e4</em>y2<em>y3
-     dy2/dt = .04</em>y1 - 1.e4<em>y2</em>y3 - 3.e7<em>y2</em><em>2
-     dy3/dt = 3.e7</em>y2**2
- on the interval from t = 0.0 to t = 4.e10, with initial conditions
- y1 = 1.0, y2 = y3 = 0.  The problem is stiff.</p>
-<p>The following coding solves this problem with DLSODA,
+ needed for its solution by <em>DLSODA</em>.  The problem is from chemical
+ kinetics, and consists of the following three rate equations:</p>
+<div class="codehilite"><pre><span></span><code>     dy1/dt = -.04*y1 + 1.e4*y2*y3
+     dy2/dt = .04*y1 - 1.e4*y2*y3 - 3.e7*y2**2
+     dy3/dt = 3.e7*y2**2
+</code></pre></div>
+
+<p>on the interval from t = 0.0 to t = 4.e10, with initial conditions</p>
+<div class="codehilite"><pre><span></span><code>     y1 = 1.0, y2 = y3 = 0.  The problem is stiff.
+</code></pre></div>
+
+<p>The following coding solves this problem with <em>DLSODA</em>,
  printing results at t = .4, 4., &hellip;, 4.e10.  It uses
- ITOL = 2 and ATOL much smaller for y2 than y1 or y3 because
+ ITOL = 2, and ATOL much smaller for y2 than y1 or y3 because
  y2 has much smaller values.
  At the end of the run, statistical quantities of interest are
  printed (see optional outputs in the full description below).</p>
@@ -314,7 +421,7 @@
 
 <p>The output of this program (on a CDC-7600 in single precision)
  is as follows:</p>
-<p>At t =  4.0000e-01   y =  9.851712e-01  3.386380e-05  1.479493e-02
+<div class="codehilite"><pre><span></span><code>   At t =  4.0000e-01   y =  9.851712e-01  3.386380e-05  1.479493e-02
    At t =  4.0000e+00   Y =  9.055333e-01  2.240655e-05  9.444430e-02
    At t =  4.0000e+01   Y =  7.158403e-01  9.186334e-06  2.841505e-01
    At t =  4.0000e+02   Y =  4.505250e-01  3.222964e-06  5.494717e-01
@@ -325,15 +432,18 @@
    At t =  4.0000e+07   Y =  5.179817e-05  2.072032e-10  9.999482e-01
    At t =  4.0000e+08   Y =  5.283401e-06  2.113371e-11  9.999947e-01
    At t =  4.0000e+09   Y =  4.659031e-07  1.863613e-12  9.999995e-01
-   At t =  4.0000e+10   Y =  1.404280e-08  5.617126e-14  1.000000e+00</p>
-<p>No. steps = 361  No. f-s = 693  No. J-s =  64
-   Method last used = 2   Last switch was at t =  6.0092e-03</p>
+   At t =  4.0000e+10   Y =  1.404280e-08  5.617126e-14  1.000000e+00
+
+   No. steps = 361  No. f-s = 693  No. J-s =  64
+   Method last used = 2   Last switch was at t =  6.0092e-03
+</code></pre></div>
+
 <hr>
-<p>Full description of user interface to DLSODA.</p>
-<p>The user interface to DLSODA consists of the following parts.</p>
+<h4 id="full-description-of-user-interface-to-dlsoda">Full description of user interface to <em>DLSODA</em>.</h4>
+<p>The user interface to <em>DLSODA</em> consists of the following parts.</p>
 <ol>
 <li>
-<p>The call sequence to Subroutine DLSODA, which is a driver
+<p>The call sequence to Subroutine <em>DLSODA</em>, which is a driver
       routine for the solver.  This includes descriptions of both
       the call sequence arguments and of user-supplied routines.
       following these descriptions is a description of
@@ -341,7 +451,7 @@
       a description of optional outputs (in the work arrays).</p>
 </li>
 <li>
-<p>Descriptions of other routines in the DLSODA package that may be
+<p>Descriptions of other routines in the <em>DLSODA</em> package that may be
       (optionally) called by the user.  These provide the ability to
       alter error message handling, save and restore the internal
       Common, and obtain specified derivatives of the solution y(t).</p>
@@ -352,396 +462,759 @@
       of the problem and continued solution later.</p>
 </li>
 <li>
-<p>Description of a subroutine in the DLSODA package,
+<p>Description of a subroutine in the <em>DLSODA</em> package,
       which the user may replace with his/her own version, if desired.
       this relates to the measurement of errors.</p>
 </li>
 </ol>
 <hr>
-<p>Part 1.  Call Sequence.</p>
-<p>The call sequence parameters used for input only are
-     F, NEQ, TOUT, ITOL, RTOL, ATOL, ITASK, IOPT, LRW, LIW, JAC, JT,
- and those used for both input and output are
-     Y, T, ISTATE.
- The work arrays RWORK and IWORK are also used for conditional and
+<h5 id="part-1-call-sequence">Part 1.  Call Sequence.</h5>
+<p>The call sequence parameters used for input only are</p>
+<div class="codehilite"><pre><span></span><code> F, NEQ, TOUT, ITOL, RTOL, ATOL, ITASK, IOPT, LRW, LIW, JAC, JT,
+</code></pre></div>
+
+<p>and those used for both input and output are</p>
+<div class="codehilite"><pre><span></span><code> Y, T, ISTATE.
+</code></pre></div>
+
+<p>The work arrays RWORK and IWORK are also used for conditional and
  optional inputs and optional outputs.  (The term output here refers
- to the return from Subroutine DLSODA to the user&rsquo;s calling program.)</p>
+ to the return from Subroutine <em>DLSODA</em> to the user&rsquo;s calling program.)</p>
 <p>The legality of input parameters will be thoroughly checked on the
  initial call for the problem, but not checked thereafter unless a
  change in input parameters is flagged by ISTATE = 3 on input.</p>
 <p>The descriptions of the call arguments are as follows.</p>
-<p>F      = the name of the user-supplied subroutine defining the
-          ODE system.  The system must be put in the first-order
-          form dy/dt = f(t,y), where f is a vector-valued function
-          of the scalar t and the vector y.  Subroutine F is to
-          compute the function f.  It is to have the form
-               SUBROUTINE F (NEQ, T, Y, YDOT)
-               DOUBLE PRECISION T, Y(<em>), YDOT(</em>)
-          where NEQ, T, and Y are input, and the array YDOT = f(t,y)
-          is output.  Y and YDOT are arrays of length NEQ.
-          Subroutine F should not alter Y(1),&hellip;,Y(NEQ).
-          F must be declared External in the calling program.</p>
-<div class="codehilite"><pre><span></span><code>      <span class="nv">Subroutine</span> <span class="nv">F</span> <span class="nv">may</span> <span class="nv">access</span> <span class="nv">user</span><span class="o">-</span><span class="nv">defined</span> <span class="nv">quantities</span> <span class="nv">in</span>
-      <span class="nv">NEQ</span><span class="ss">(</span><span class="mi">2</span><span class="ss">)</span>,... <span class="nv">and</span><span class="o">/</span><span class="nv">or</span> <span class="nv">in</span> <span class="nv">Y</span><span class="ss">(</span><span class="nv">NEQ</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span><span class="o">+</span><span class="mi">1</span><span class="ss">)</span>,... <span class="k">if</span> <span class="nv">NEQ</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">array</span>
-      <span class="ss">(</span><span class="nv">dimensioned</span> <span class="nv">in</span> <span class="nv">F</span><span class="ss">)</span> <span class="nv">and</span><span class="o">/</span><span class="nv">or</span> <span class="nv">Y</span> <span class="nv">has</span> <span class="nv">length</span> <span class="nv">exceeding</span> <span class="nv">NEQ</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span>.
-      <span class="nv">See</span> <span class="nv">the</span> <span class="nv">descriptions</span> <span class="nv">of</span> <span class="nv">NEQ</span> <span class="nv">and</span> <span class="nv">Y</span> <span class="nv">below</span>.
-
-      <span class="k">If</span> <span class="nv">quantities</span> <span class="nv">computed</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">F</span> <span class="nv">routine</span> <span class="nv">are</span> <span class="nv">needed</span>
-      <span class="nv">externally</span> <span class="nv">to</span> <span class="nv">DLSODA</span>, <span class="nv">an</span> <span class="nv">extra</span> <span class="k">call</span> <span class="nl">to</span> <span class="nv">F</span> <span class="nv">should</span> <span class="nv">be</span> <span class="nv">made</span>
-      <span class="k">for</span> <span class="nv">this</span> <span class="nv">purpose</span>, <span class="k">for</span> <span class="nv">consistent</span> <span class="nv">and</span> <span class="nv">accurate</span> <span class="nv">results</span>.
-      <span class="k">If</span> <span class="nv">only</span> <span class="nv">the</span> <span class="nv">derivative</span> <span class="nv">dy</span><span class="o">/</span><span class="nv">dt</span> <span class="nv">is</span> <span class="nv">needed</span>, <span class="nv">use</span> <span class="nv">DINTDY</span> <span class="nv">instead</span>.
+<dl>
+<dt>F</dt>
+<dd>
+<p>the name of the user-supplied subroutine defining the
+ ODE system.  The system must be put in the first-order
+ form dy/dt = f(t,y), where f is a vector-valued function
+ of the scalar t and the vector y.  Subroutine F is to
+ compute the function f.  It is to have the form</p>
+</dd>
+</dl>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="k">SUBROUTINE </span><span class="n">F</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">YDOT</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">YDOT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
 
-<p>NEQ    = the size of the ODE system (number of first order
-          ordinary differential equations).  Used only for input.
-          NEQ may be decreased, but not increased, during the problem.
-          If NEQ is decreased (with ISTATE = 3 on input), the
-          remaining components of Y should be left undisturbed, if
-          these are to be accessed in F and/or JAC.</p>
-<div class="codehilite"><pre><span></span><code>      <span class="nv">Normally</span>, <span class="nv">NEQ</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">scalar</span>, <span class="nv">and</span> <span class="nv">it</span> <span class="nv">is</span> <span class="nv">generally</span> <span class="nv">referred</span> <span class="nv">to</span>
-      <span class="nv">as</span> <span class="nv">a</span> <span class="nv">scalar</span> <span class="nv">in</span> <span class="nv">this</span> <span class="nv">user</span> <span class="nv">interface</span> <span class="nv">description</span>.  <span class="nv">However</span>,
-      <span class="nv">NEQ</span> <span class="nv">may</span> <span class="nv">be</span> <span class="nv">an</span> <span class="nv">array</span>, <span class="nv">with</span> <span class="nv">NEQ</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span> <span class="nv">set</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">system</span> <span class="nv">size</span>.
-      <span class="ss">(</span><span class="nv">The</span> <span class="nv">DLSODA</span> <span class="nv">package</span> <span class="nv">accesses</span> <span class="nv">only</span> <span class="nv">NEQ</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span>.<span class="ss">)</span>  <span class="nv">In</span> <span class="nv">either</span> <span class="nv">case</span>,
-      <span class="nv">this</span> <span class="nv">parameter</span> <span class="nv">is</span> <span class="nv">passed</span> <span class="nv">as</span> <span class="nv">the</span> <span class="nv">NEQ</span> <span class="nv">argument</span> <span class="nv">in</span> <span class="nv">all</span> <span class="nv">calls</span>
-      <span class="nv">to</span> <span class="nv">F</span> <span class="nv">and</span> <span class="nv">JAC</span>.  <span class="nv">Hence</span>, <span class="k">if</span> <span class="nv">it</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">array</span>, <span class="nv">locations</span>
-      <span class="nv">NEQ</span><span class="ss">(</span><span class="mi">2</span><span class="ss">)</span>,... <span class="nv">may</span> <span class="nv">be</span> <span class="nv">used</span> <span class="nv">to</span> <span class="nv">store</span> <span class="nv">other</span> <span class="nv">integer</span> <span class="nv">data</span> <span class="nv">and</span> <span class="nv">pass</span>
-      <span class="nv">it</span> <span class="nv">to</span> <span class="nv">F</span> <span class="nv">and</span><span class="o">/</span><span class="nv">or</span> <span class="nv">JAC</span>.  <span class="nv">Subroutines</span> <span class="nv">F</span> <span class="nv">and</span><span class="o">/</span><span class="nv">or</span> <span class="nv">JAC</span> <span class="nv">must</span> <span class="k">include</span>
-      <span class="nv">NEQ</span> <span class="nv">in</span> <span class="nv">a</span> <span class="nv">Dimension</span> <span class="nv">statement</span> <span class="nv">in</span> <span class="nv">that</span> <span class="nv">case</span>.
+<p>where NEQ, T, and Y are input, and the array YDOT = f(t,y)
+ is output.  Y and YDOT are arrays of length NEQ.
+ Subroutine F should not alter Y(1),&hellip;,Y(NEQ).
+ F must be declared External in the calling program.</p>
+<p>Subroutine F may access user-defined quantities in
+ NEQ(2),&hellip; and/or in Y(NEQ(1)+1),&hellip; if NEQ is an array
+ (dimensioned in F) and/or Y has length exceeding NEQ(1).
+ See the descriptions of NEQ and Y below.</p>
+<p>If quantities computed in the F routine are needed
+ externally to <em>DLSODA</em>, an extra call to F should be made
+ for this purpose, for consistent and accurate results.
+ If only the derivative dy/dt is needed, use DINTDY instead.</p>
+<dl>
+<dt>NEQ</dt>
+<dd>
+<p>the size of the ODE system (number of first order
+ ordinary differential equations).  Used only for input.
+ NEQ may be decreased, but not increased, during the problem.
+ If NEQ is decreased (with ISTATE = 3 on input), the
+ remaining components of Y should be left undisturbed, if
+ these are to be accessed in F and/or JAC.</p>
+</dd>
+</dl>
+<p>Normally, NEQ is a scalar, and it is generally referred to
+ as a scalar in this user interface description.  However,
+ NEQ may be an array, with NEQ(1) set to the system size.
+ (The <em>DLSODA</em> package accesses only NEQ(1).)  In either case,
+ this parameter is passed as the NEQ argument in all calls
+ to F and JAC.  Hence, if it is an array, locations
+ NEQ(2),&hellip; may be used to store other integer data and pass
+ it to F and/or JAC.  Subroutines F and/or JAC must include
+ NEQ in a Dimension statement in that case.</p>
+<dl>
+<dt>Y</dt>
+<dd>
+<p>a real array for the vector of dependent variables, of
+ length NEQ or more.  Used for both input and output on the
+ first call (ISTATE = 1), and only for output on other calls.
+ On the first call, Y must contain the vector of initial
+ values.  On output, Y contains the computed solution vector,
+ evaluated at T.  If desired, the Y array may be used
+ for other purposes between calls to the solver.</p>
+</dd>
+</dl>
+<p>This array is passed as the Y argument in all calls to
+ F and JAC.  Hence its length may exceed NEQ, and locations
+ Y(NEQ+1),&hellip; may be used to store other real data and
+ pass it to F and/or JAC.  (The <em>DLSODA</em> package accesses only
+ Y(1),&hellip;,Y(NEQ).)</p>
+<dl>
+<dt>T</dt>
+<dd>
+<p>the independent variable.  On input, T is used only on the
+ first call, as the initial point of the integration.
+ on output, after each call, T is the value at which a
+ computed solution Y is evaluated (usually the same as TOUT).
+ on an error return, T is the farthest point reached.</p>
+</dd>
+<dt>TOUT</dt>
+<dd>
+<p>the next value of t at which a computed solution is desired.
+ Used only for input.</p>
+</dd>
+</dl>
+<p>When starting the problem (ISTATE = 1), TOUT may be equal
+ to T for one call, then should .ne. T for the next call.
+ For the initial t, an input value of TOUT .ne. T is used
+ in order to determine the direction of the integration
+ (i.e. the algebraic sign of the step sizes) and the rough
+ scale of the problem.  Integration in either direction
+ (forward or backward in t) is permitted.</p>
+<p>If ITASK = 2 or 5 (one-step modes), TOUT is ignored after
+ the first call (i.e. the first call with TOUT .ne. T).
+ Otherwise, TOUT is required on every call.</p>
+<p>If ITASK = 1, 3, or 4, the values of TOUT need not be
+ monotone, but a value of TOUT which backs up is limited
+ to the current internal T interval, whose endpoints are
+ TCUR - HU and TCUR (see optional outputs, below, for
+ TCUR and HU).</p>
+<dl>
+<dt>ITOL</dt>
+<dd>
+<p>an indicator for the type of error control.  See
+ description below under ATOL.  Used only for input.</p>
+</dd>
+<dt>RTOL</dt>
+<dd>
+<p>a relative error tolerance parameter, either a scalar or
+ an array of length NEQ.  See description below under ATOL.
+ Input only.</p>
+</dd>
+<dt>ATOL</dt>
+<dd>
+<p>an absolute error tolerance parameter, either a scalar or
+ an array of length NEQ.  Input only.</p>
+</dd>
+</dl>
+<p>The input parameters ITOL, RTOL, and ATOL determine
+ the error control performed by the solver.  The solver will
+ control the vector E = (E(i)) of estimated local errors
+ in y, according to an inequality of the form</p>
+<div class="codehilite"><pre><span></span><code>  max-norm of ( E(i)/EWT(i) )   .le.   1,
 </code></pre></div>
 
-<p>Y      = a real array for the vector of dependent variables, of
-          length NEQ or more.  Used for both input and output on the
-          first call (ISTATE = 1), and only for output on other calls.
-          On the first call, Y must contain the vector of initial
-          values.  On output, Y contains the computed solution vector,
-          evaluated at T.  If desired, the Y array may be used
-          for other purposes between calls to the solver.</p>
-<div class="codehilite"><pre><span></span><code>      This array is passed as the Y argument in all calls to
-      F and JAC.  Hence its length may exceed NEQ, and locations
-      Y(NEQ+1),... may be used to store other real data and
-      pass it to F and/or JAC.  (The DLSODA package accesses only
-      Y(1),...,Y(NEQ).)
-</code></pre></div>
-
-<p>T      = the independent variable.  On input, T is used only on the
-          first call, as the initial point of the integration.
-          on output, after each call, T is the value at which a
-          computed solution Y is evaluated (usually the same as TOUT).
-          on an error return, T is the farthest point reached.</p>
-<p>TOUT   = the next value of t at which a computed solution is desired.
-          Used only for input.</p>
-<div class="codehilite"><pre><span></span><code>      <span class="nv">When</span> <span class="nv">starting</span> <span class="nv">the</span> <span class="nv">problem</span> <span class="ss">(</span><span class="nv">ISTATE</span> <span class="o">=</span> <span class="mi">1</span><span class="ss">)</span>, <span class="nv">TOUT</span> <span class="nv">may</span> <span class="nv">be</span> <span class="nv">equal</span>
-      <span class="nv">to</span> <span class="nv">T</span> <span class="k">for</span> <span class="nv">one</span> <span class="nv">call</span>, <span class="k">then</span> <span class="nv">should</span> .<span class="nv">ne</span>. <span class="nv">T</span> <span class="k">for</span> <span class="nv">the</span> <span class="k">next</span> <span class="nv">call</span>.
-      <span class="k">For</span> <span class="nv">the</span> <span class="nv">initial</span> <span class="nv">t</span>, <span class="nv">an</span> <span class="nv">input</span> <span class="nv">value</span> <span class="nv">of</span> <span class="nv">TOUT</span> .<span class="nv">ne</span>. <span class="nv">T</span> <span class="nv">is</span> <span class="nv">used</span>
-      <span class="nv">in</span> <span class="nv">order</span> <span class="nv">to</span> <span class="nv">determine</span> <span class="nv">the</span> <span class="nv">direction</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">integration</span>
-      <span class="ss">(</span><span class="nv">i</span>.<span class="nv">e</span>. <span class="nv">the</span> <span class="nv">algebraic</span> <span class="nv">sign</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">step</span> <span class="nv">sizes</span><span class="ss">)</span> <span class="nv">and</span> <span class="nv">the</span> <span class="nv">rough</span>
-      <span class="nv">scale</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">problem</span>.  <span class="nv">Integration</span> <span class="nv">in</span> <span class="nv">either</span> <span class="nv">direction</span>
-      <span class="ss">(</span><span class="nv">forward</span> <span class="nv">or</span> <span class="nv">backward</span> <span class="nv">in</span> <span class="nv">t</span><span class="ss">)</span> <span class="nv">is</span> <span class="nv">permitted</span>.
-
-      <span class="k">If</span> <span class="nv">ITASK</span> <span class="o">=</span> <span class="mi">2</span> <span class="nv">or</span> <span class="mi">5</span> <span class="ss">(</span><span class="nv">one</span><span class="o">-</span><span class="nv">step</span> <span class="nv">modes</span><span class="ss">)</span>, <span class="nv">TOUT</span> <span class="nv">is</span> <span class="nv">ignored</span> <span class="nv">after</span>
-      <span class="nv">the</span> <span class="nv">first</span> <span class="nv">call</span> <span class="ss">(</span><span class="nv">i</span>.<span class="nv">e</span>. <span class="nv">the</span> <span class="nv">first</span> <span class="k">call</span> <span class="nl">with</span> <span class="nv">TOUT</span> .<span class="nv">ne</span>. <span class="nv">T</span><span class="ss">)</span>.
-      <span class="nv">Otherwise</span>, <span class="nv">TOUT</span> <span class="nv">is</span> <span class="nv">required</span> <span class="nv">on</span> <span class="nv">every</span> <span class="nv">call</span>.
-
-      <span class="k">If</span> <span class="nv">ITASK</span> <span class="o">=</span> <span class="mi">1</span>, <span class="mi">3</span>, <span class="nv">or</span> <span class="mi">4</span>, <span class="nv">the</span> <span class="nv">values</span> <span class="nv">of</span> <span class="nv">TOUT</span> <span class="nv">need</span> <span class="nv">not</span> <span class="nv">be</span>
-      <span class="nv">monotone</span>, <span class="nv">but</span> <span class="nv">a</span> <span class="nv">value</span> <span class="nv">of</span> <span class="nv">TOUT</span> <span class="nv">which</span> <span class="nv">backs</span> <span class="nv">up</span> <span class="nv">is</span> <span class="nv">limited</span>
-      <span class="nv">to</span> <span class="nv">the</span> <span class="nv">current</span> <span class="nv">internal</span> <span class="nv">T</span> <span class="nv">interval</span>, <span class="nv">whose</span> <span class="nv">endpoints</span> <span class="nv">are</span>
-      <span class="nv">TCUR</span> <span class="o">-</span> <span class="nv">HU</span> <span class="nv">and</span> <span class="nv">TCUR</span> <span class="ss">(</span><span class="nv">see</span> <span class="nv">optional</span> <span class="nv">outputs</span>, <span class="nv">below</span>, <span class="k">for</span>
-      <span class="nv">TCUR</span> <span class="nv">and</span> <span class="nv">HU</span><span class="ss">)</span>.
-</code></pre></div>
-
-<p>ITOL   = an indicator for the type of error control.  See
-          description below under ATOL.  Used only for input.</p>
-<p>RTOL   = a relative error tolerance parameter, either a scalar or
-          an array of length NEQ.  See description below under ATOL.
-          Input only.</p>
-<p>ATOL   = an absolute error tolerance parameter, either a scalar or
-          an array of length NEQ.  Input only.</p>
-<div class="codehilite"><pre><span></span><code>         <span class="nv">The</span> <span class="nv">input</span> <span class="nv">parameters</span> <span class="nv">ITOL</span>, <span class="nv">RTOL</span>, <span class="nv">and</span> <span class="nv">ATOL</span> <span class="nv">determine</span>
-      <span class="nv">the</span> <span class="nv">error</span> <span class="nv">control</span> <span class="nv">performed</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">solver</span>.  <span class="nv">The</span> <span class="nv">solver</span> <span class="nv">will</span>
-      <span class="nv">control</span> <span class="nv">the</span> <span class="nv">vector</span> <span class="nv">E</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">E</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="nv">of</span> <span class="nv">estimated</span> <span class="nv">local</span> <span class="nv">errors</span>
-      <span class="nv">in</span> <span class="nv">y</span>, <span class="nv">according</span> <span class="nv">to</span> <span class="nv">an</span> <span class="nv">inequality</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">form</span>
-                  <span class="nv">max</span><span class="o">-</span><span class="nv">norm</span> <span class="nv">of</span> <span class="ss">(</span> <span class="nv">E</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span><span class="o">/</span><span class="nv">EWT</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span> <span class="ss">)</span>   .<span class="nv">le</span>.   <span class="mi">1</span>,
-      <span class="nv">where</span> <span class="nv">EWT</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">EWT</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">vector</span> <span class="nv">of</span> <span class="nv">positive</span> <span class="nv">error</span> <span class="nv">weights</span>.
-      <span class="nv">The</span> <span class="nv">values</span> <span class="nv">of</span> <span class="nv">RTOL</span> <span class="nv">and</span> <span class="nv">ATOL</span> <span class="nv">should</span> <span class="nv">all</span> <span class="nv">be</span> <span class="nv">non</span><span class="o">-</span><span class="nv">negative</span>.
-      <span class="nv">The</span> <span class="nv">following</span> <span class="nv">table</span> <span class="nv">gives</span> <span class="nv">the</span> <span class="nv">types</span> <span class="ss">(</span><span class="nv">scalar</span><span class="o">/</span><span class="nv">array</span><span class="ss">)</span> <span class="nv">of</span>
-      <span class="nv">RTOL</span> <span class="nv">and</span> <span class="nv">ATOL</span>, <span class="nv">and</span> <span class="nv">the</span> <span class="nv">corresponding</span> <span class="nv">form</span> <span class="nv">of</span> <span class="nv">EWT</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>.
-
-         <span class="nv">ITOL</span>    <span class="nv">RTOL</span>       <span class="nv">ATOL</span>          <span class="nv">EWT</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>
-          <span class="mi">1</span>     <span class="nv">scalar</span>     <span class="nv">scalar</span>     <span class="nv">RTOL</span><span class="o">*</span><span class="nv">ABS</span><span class="ss">(</span><span class="nv">Y</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="o">+</span> <span class="nv">ATOL</span>
-          <span class="mi">2</span>     <span class="nv">scalar</span>     <span class="nv">array</span>      <span class="nv">RTOL</span><span class="o">*</span><span class="nv">ABS</span><span class="ss">(</span><span class="nv">Y</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="o">+</span> <span class="nv">ATOL</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>
-          <span class="mi">3</span>     <span class="nv">array</span>      <span class="nv">scalar</span>     <span class="nv">RTOL</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span><span class="o">*</span><span class="nv">ABS</span><span class="ss">(</span><span class="nv">Y</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="o">+</span> <span class="nv">ATOL</span>
-          <span class="mi">4</span>     <span class="nv">array</span>      <span class="nv">array</span>      <span class="nv">RTOL</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span><span class="o">*</span><span class="nv">ABS</span><span class="ss">(</span><span class="nv">Y</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="o">+</span> <span class="nv">ATOL</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>
-
-      <span class="nv">When</span> <span class="nv">either</span> <span class="nv">of</span> <span class="nv">these</span> <span class="nv">parameters</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">scalar</span>, <span class="nv">it</span> <span class="nv">need</span> <span class="nv">not</span>
-      <span class="nv">be</span> <span class="nv">dimensioned</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">user</span><span class="s1">&#39;</span><span class="s">s calling program.</span>
-
-      <span class="k">If</span> <span class="nv">none</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">above</span> <span class="nv">choices</span> <span class="ss">(</span><span class="nv">with</span> <span class="nv">ITOL</span>, <span class="nv">RTOL</span>, <span class="nv">and</span> <span class="nv">ATOL</span>
-      <span class="nv">fixed</span> <span class="nv">throughout</span> <span class="nv">the</span> <span class="nv">problem</span><span class="ss">)</span> <span class="nv">is</span> <span class="nv">suitable</span>, <span class="nv">more</span> <span class="nv">general</span>
-      <span class="nv">error</span> <span class="nv">controls</span> <span class="nv">can</span> <span class="nv">be</span> <span class="nv">obtained</span> <span class="nv">by</span> <span class="nv">substituting</span> <span class="nv">a</span>
-      <span class="nv">user</span><span class="o">-</span><span class="nv">supplied</span> <span class="nv">routine</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">setting</span> <span class="nv">of</span> <span class="nv">EWT</span>.
-      <span class="nv">See</span> <span class="nv">Part</span> <span class="mi">4</span> <span class="nv">below</span>.
-
-      <span class="k">If</span> <span class="nv">global</span> <span class="nv">errors</span> <span class="nv">are</span> <span class="nv">to</span> <span class="nv">be</span> <span class="nv">estimated</span> <span class="nv">by</span> <span class="nv">making</span> <span class="nv">a</span> <span class="nv">repeated</span>
-      <span class="nv">run</span> <span class="nv">on</span> <span class="nv">the</span> <span class="nv">same</span> <span class="nv">problem</span> <span class="nv">with</span> <span class="nv">smaller</span> <span class="nv">tolerances</span>, <span class="k">then</span> <span class="nv">all</span>
-      <span class="nv">components</span> <span class="nv">of</span> <span class="nv">RTOL</span> <span class="nv">and</span> <span class="nv">ATOL</span> <span class="ss">(</span><span class="nv">i</span>.<span class="nv">e</span>. <span class="nv">of</span> <span class="nv">EWT</span><span class="ss">)</span> <span class="nv">should</span> <span class="nv">be</span> <span class="nv">scaled</span>
-      <span class="nv">down</span> <span class="nv">uniformly</span>.
-</code></pre></div>
-
-<p>ITASK  = an index specifying the task to be performed.
-          Input only.  ITASK has the following values and meanings.
-          1  means normal computation of output values of y(t) at
-             t = TOUT (by overshooting and interpolating).
-          2  means take one step only and return.
-          3  means stop at the first internal mesh point at or
-             beyond t = TOUT and return.
-          4  means normal computation of output values of y(t) at
-             t = TOUT but without overshooting t = TCRIT.
-             TCRIT must be input as RWORK(1).  TCRIT may be equal to
-             or beyond TOUT, but not behind it in the direction of
-             integration.  This option is useful if the problem
-             has a singularity at or beyond t = TCRIT.
-          5  means take one step, without passing TCRIT, and return.
-             TCRIT must be input as RWORK(1).</p>
-<div class="codehilite"><pre><span></span><code>      <span class="nv">Note</span>:  <span class="k">If</span> <span class="nv">ITASK</span> <span class="o">=</span> <span class="mi">4</span> <span class="nv">or</span> <span class="mi">5</span> <span class="nv">and</span> <span class="nv">the</span> <span class="nv">solver</span> <span class="nv">reaches</span> <span class="nv">TCRIT</span>
-      <span class="ss">(</span><span class="nv">within</span> <span class="nv">roundoff</span><span class="ss">)</span>, <span class="nv">it</span> <span class="nv">will</span> <span class="k">return</span> <span class="nv">T</span> <span class="o">=</span> <span class="nv">TCRIT</span> <span class="ss">(</span><span class="nv">exactly</span><span class="ss">)</span> <span class="nv">to</span>
-      <span class="nv">indicate</span> <span class="nv">this</span> <span class="ss">(</span><span class="nv">unless</span> <span class="nv">ITASK</span> <span class="o">=</span> <span class="mi">4</span> <span class="nv">and</span> <span class="nv">TOUT</span> <span class="nv">comes</span> <span class="nv">before</span> <span class="nv">TCRIT</span>,
-      <span class="nv">in</span> <span class="nv">which</span> <span class="nv">case</span> <span class="nv">answers</span> <span class="nv">at</span> <span class="nv">t</span> <span class="o">=</span> <span class="nv">TOUT</span> <span class="nv">are</span> <span class="nv">returned</span> <span class="nv">first</span><span class="ss">)</span>.
-</code></pre></div>
-
-<p>ISTATE = an index used for input and output to specify the
-          the state of the calculation.</p>
-<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="n">On</span><span class="w"> </span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">follows</span><span class="o">.</span><span class="w"></span>
-<span class="w">      </span><span class="mi">1</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">problem</span><span class="w"></span>
-<span class="w">         </span><span class="p">(</span><span class="n">initializations</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">done</span><span class="p">)</span><span class="o">.</span><span class="w">  </span><span class="n">See</span><span class="w"> </span><span class="n">note</span><span class="w"> </span><span class="n">below</span><span class="o">.</span><span class="w"></span>
-<span class="w">      </span><span class="mi">2</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">call</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">calculation</span><span class="w"></span>
-<span class="w">         </span><span class="k">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k">continue</span><span class="w"> </span><span class="n">normally</span><span class="p">,</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">input</span><span class="w"></span>
-<span class="w">         </span><span class="n">parameters</span><span class="w"> </span><span class="n">except</span><span class="w"> </span><span class="n">possibly</span><span class="w"> </span><span class="n">TOUT</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">ITASK</span><span class="o">.</span><span class="w"></span>
-<span class="w">         </span><span class="p">(</span><span class="n">If</span><span class="w"> </span><span class="n">ITOL</span><span class="p">,</span><span class="w"> </span><span class="n">RTOL</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="n">ATOL</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">calls</span><span class="w"></span>
-<span class="w">         </span><span class="n">with</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"></span>
-<span class="w">         </span><span class="n">tested</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">legality</span><span class="o">.</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="mi">3</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">call</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
-<span class="w">         </span><span class="n">calculation</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k">continue</span><span class="w"> </span><span class="n">normally</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">with</span><span class="w"></span>
-<span class="w">         </span><span class="n">a</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">than</span><span class="w"></span>
-<span class="w">         </span><span class="n">TOUT</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">ITASK</span><span class="o">.</span><span class="w">  </span><span class="n">Changes</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="ow">in</span><span class="w"></span>
-<span class="w">         </span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">ITOL</span><span class="p">,</span><span class="w"> </span><span class="n">RTOL</span><span class="p">,</span><span class="w"> </span><span class="n">ATOL</span><span class="p">,</span><span class="w"> </span><span class="n">IOPT</span><span class="p">,</span><span class="w"> </span><span class="n">LRW</span><span class="p">,</span><span class="w"> </span><span class="n">LIW</span><span class="p">,</span><span class="w"> </span><span class="n">JT</span><span class="p">,</span><span class="w"> </span><span class="n">ML</span><span class="p">,</span><span class="w"> </span><span class="n">MU</span><span class="p">,</span><span class="w"></span>
-<span class="w">         </span><span class="ow">and</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">inputs</span><span class="w"> </span><span class="n">except</span><span class="w"> </span><span class="n">H0</span><span class="p">,</span><span class="w"> </span><span class="n">MXORDN</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">MXORDS</span><span class="o">.</span><span class="w"></span>
-<span class="w">         </span><span class="p">(</span><span class="n">See</span><span class="w"> </span><span class="n">IWORK</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">ML</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">MU</span><span class="o">.</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">Note</span><span class="p">:</span><span class="w">  </span><span class="n">A</span><span class="w"> </span><span class="n">preliminary</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">TOUT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">counted</span><span class="w"></span>
-<span class="w">      </span><span class="k">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">here</span><span class="p">,</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">initialization</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">checking</span><span class="w"> </span><span class="n">of</span><span class="w"></span>
-<span class="w">      </span><span class="n">input</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">done</span><span class="o">.</span><span class="w">  </span><span class="p">(</span><span class="n">Such</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">sometimes</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
-<span class="w">      </span><span class="n">purpose</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">outputting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initial</span><span class="w"> </span><span class="n">conditions</span><span class="o">.</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">Thus</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">TOUT</span><span class="w"> </span><span class="o">.</span><span class="n">ne</span><span class="o">.</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">requires</span><span class="w"></span>
-<span class="w">      </span><span class="n">ISTATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">input</span><span class="o">.</span><span class="w"></span>
-
-<span class="w">      </span><span class="n">On</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">meanings</span><span class="o">.</span><span class="w"></span>
-<span class="w">       </span><span class="mi">1</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">nothing</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">done</span><span class="p">;</span><span class="w"> </span><span class="n">TOUT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">input</span><span class="o">.</span><span class="w"></span>
-<span class="w">       </span><span class="mi">2</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">integration</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">performed</span><span class="w"> </span><span class="n">successfully</span><span class="o">.</span><span class="w"></span>
-<span class="w">      </span><span class="o">-</span><span class="mi">1</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">excessive</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="p">(</span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">MXSTEP</span><span class="w"></span>
-<span class="w">          </span><span class="n">steps</span><span class="p">)</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">done</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">call</span><span class="p">,</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">completing</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
-<span class="w">          </span><span class="n">requested</span><span class="w"> </span><span class="n">task</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">integration</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">otherwise</span><span class="w"></span>
-<span class="w">          </span><span class="n">successful</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">far</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span><span class="o">.</span><span class="w">  </span><span class="p">(</span><span class="n">MXSTEP</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">input</span><span class="w"></span>
-<span class="w">          </span><span class="ow">and</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">normally</span><span class="w"> </span><span class="mf">500.</span><span class="p">)</span><span class="w">  </span><span class="n">To</span><span class="w"> </span><span class="k">continue</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">may</span><span class="w"></span>
-<span class="w">          </span><span class="n">simply</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">.</span><span class="n">gt</span><span class="o">.</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">again</span><span class="w"></span>
-<span class="w">          </span><span class="p">(</span><span class="n">the</span><span class="w"> </span><span class="n">excess</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="w"></span>
-<span class="w">          </span><span class="n">In</span><span class="w"> </span><span class="n">addition</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">increase</span><span class="w"> </span><span class="n">MXSTEP</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">avoid</span><span class="w"></span>
-<span class="w">          </span><span class="n">this</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">see</span><span class="w"> </span><span class="n">below</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">inputs</span><span class="p">)</span><span class="o">.</span><span class="w"></span>
-<span class="w">      </span><span class="o">-</span><span class="mi">2</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">much</span><span class="w"> </span><span class="n">accuracy</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">requested</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">precision</span><span class="w"></span>
-<span class="w">          </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">  </span><span class="n">This</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">detected</span><span class="w"> </span><span class="n">before</span><span class="w"></span>
-<span class="w">          </span><span class="n">completing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">requested</span><span class="w"> </span><span class="n">task</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">integration</span><span class="w"></span>
-<span class="w">          </span><span class="n">was</span><span class="w"> </span><span class="n">successful</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">far</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span><span class="o">.</span><span class="w">  </span><span class="n">To</span><span class="w"> </span><span class="k">continue</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">tolerance</span><span class="w"></span>
-<span class="w">          </span><span class="n">parameters</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reset</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"></span>
-<span class="w">          </span><span class="n">to</span><span class="w"> </span><span class="mf">3.</span><span class="w">  </span><span class="n">The</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">TOLSF</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"></span>
-<span class="w">          </span><span class="n">purpose</span><span class="o">.</span><span class="w">  </span><span class="p">(</span><span class="n">Note</span><span class="p">:</span><span class="w"> </span><span class="n">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">detected</span><span class="w"> </span><span class="n">before</span><span class="w"></span>
-<span class="w">          </span><span class="n">taking</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">steps</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">illegal</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="k">return</span><span class="w"></span>
-<span class="w">          </span><span class="p">(</span><span class="n">ISTATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="n">occurs</span><span class="w"> </span><span class="n">instead</span><span class="o">.</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="o">-</span><span class="mi">3</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">illegal</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">detected</span><span class="p">,</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">taking</span><span class="w"> </span><span class="n">any</span><span class="w"></span>
-<span class="w">          </span><span class="n">integration</span><span class="w"> </span><span class="n">steps</span><span class="o">.</span><span class="w">  </span><span class="n">See</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">details</span><span class="o">.</span><span class="w"></span>
-<span class="w">          </span><span class="n">Note</span><span class="p">:</span><span class="w">  </span><span class="n">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">solver</span><span class="w"> </span><span class="n">detects</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">infinite</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">calls</span><span class="w"></span>
-<span class="w">          </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">solver</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">illegal</span><span class="w"> </span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">cause</span><span class="w"></span>
-<span class="w">          </span><span class="n">the</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">stop</span><span class="o">.</span><span class="w"></span>
-<span class="w">      </span><span class="o">-</span><span class="mi">4</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">repeated</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">failures</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
-<span class="w">          </span><span class="n">one</span><span class="w"> </span><span class="n">attempted</span><span class="w"> </span><span class="n">step</span><span class="p">,</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">completing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">requested</span><span class="w"></span>
-<span class="w">          </span><span class="n">task</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">integration</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">successful</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">far</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span><span class="o">.</span><span class="w"></span>
-<span class="w">          </span><span class="n">The</span><span class="w"> </span><span class="n">problem</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">singularity</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">input</span><span class="w"></span>
-<span class="w">          </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">inappropriate</span><span class="o">.</span><span class="w"></span>
-<span class="w">      </span><span class="o">-</span><span class="mi">5</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">repeated</span><span class="w"> </span><span class="n">convergence</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">failures</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
-<span class="w">          </span><span class="n">one</span><span class="w"> </span><span class="n">attempted</span><span class="w"> </span><span class="n">step</span><span class="p">,</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">completing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">requested</span><span class="w"></span>
-<span class="w">          </span><span class="n">task</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">integration</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">successful</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">far</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span><span class="o">.</span><span class="w"></span>
-<span class="w">          </span><span class="n">This</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">caused</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">inaccurate</span><span class="w"> </span><span class="n">Jacobian</span><span class="w"> </span><span class="n">matrix</span><span class="p">,</span><span class="w"></span>
-<span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w"></span>
-<span class="w">      </span><span class="o">-</span><span class="mi">6</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">EWT</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">became</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
-<span class="w">          </span><span class="n">integration</span><span class="o">.</span><span class="w">  </span><span class="n">Pure</span><span class="w"> </span><span class="n">relative</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="p">(</span><span class="n">ATOL</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span><span class="w"></span>
-<span class="w">          </span><span class="n">was</span><span class="w"> </span><span class="n">requested</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="n">vanished</span><span class="o">.</span><span class="w"></span>
-<span class="w">          </span><span class="n">The</span><span class="w"> </span><span class="n">integration</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">successful</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">far</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span><span class="o">.</span><span class="w"></span>
-<span class="w">      </span><span class="o">-</span><span class="mi">7</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">RWORK</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="n">IWORK</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">small</span><span class="w"> </span><span class="n">to</span><span class="w"></span>
-<span class="w">          </span><span class="n">proceed</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">integration</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">successful</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">far</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span><span class="o">.</span><span class="w"></span>
-<span class="w">          </span><span class="n">This</span><span class="w"> </span><span class="n">happens</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">DLSODA</span><span class="w"> </span><span class="n">chooses</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">switch</span><span class="w"> </span><span class="n">methods</span><span class="w"></span>
-<span class="w">          </span><span class="n">but</span><span class="w"> </span><span class="n">LRW</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="n">LIW</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">small</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">method</span><span class="o">.</span><span class="w"></span>
-
-<span class="w">      </span><span class="n">Note</span><span class="p">:</span><span class="w">  </span><span class="n">Since</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">normal</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="n">it</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">normal</span><span class="w"> </span><span class="n">continuation</span><span class="o">.</span><span class="w"></span>
-<span class="w">      </span><span class="n">Also</span><span class="p">,</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">negative</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"></span>
-<span class="w">      </span><span class="n">regarded</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">illegal</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">negative</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">requires</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
-<span class="w">      </span><span class="n">user</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">possibly</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">inputs</span><span class="p">,</span><span class="w"> </span><span class="n">before</span><span class="w"></span>
-<span class="w">      </span><span class="n">calling</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">solver</span><span class="w"> </span><span class="n">again</span><span class="o">.</span><span class="w"></span>
-</code></pre></div>
-
-<p>IOPT   = an integer flag to specify whether or not any optional
-          inputs are being used on this call.  Input only.
-          The optional inputs are listed separately below.
+<p>where EWT = (EWT(i)) is a vector of positive error weights.
+ The values of RTOL and ATOL should all be non-negative.
+ The following table gives the types (scalar/array) of
+ RTOL and ATOL, and the corresponding form of EWT(i).</p>
+<table>
+<thead>
+<tr>
+<th>ITOL</th>
+<th>RTOL</th>
+<th>ATOL</th>
+<th>EWT(i)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>scalar</td>
+<td>scalar</td>
+<td>RTOL*ABS(Y(i)) + ATOL</td>
+</tr>
+<tr>
+<td>2</td>
+<td>scalar</td>
+<td>array</td>
+<td>RTOL*ABS(Y(i)) + ATOL(i)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>array</td>
+<td>scalar</td>
+<td>RTOL(i)*ABS(Y(i)) + ATOL</td>
+</tr>
+<tr>
+<td>4</td>
+<td>array</td>
+<td>array</td>
+<td>RTOL(i)*ABS(Y(i)) + ATOL(i)</td>
+</tr>
+</tbody>
+</table>
+<p>When either of these parameters is a scalar, it need not
+ be dimensioned in the user&rsquo;s calling program.</p>
+<p>If none of the above choices (with ITOL, RTOL, and ATOL
+ fixed throughout the problem) is suitable, more general
+ error controls can be obtained by substituting a
+ user-supplied routine for the setting of EWT.
+ See Part 4 below.</p>
+<p>If global errors are to be estimated by making a repeated
+ run on the same problem with smaller tolerances, then all
+ components of RTOL and ATOL (i.e. of EWT) should be scaled
+ down uniformly.</p>
+<dl>
+<dt>ITASK</dt>
+<dd>
+<p>an index specifying the task to be performed.
+ Input only.  ITASK has the following values and meanings.</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>means normal computation of output values of y(t) at</td>
+</tr>
+<tr>
+<td></td>
+<td>t = TOUT (by overshooting and interpolating).</td>
+</tr>
+<tr>
+<td>2</td>
+<td>means take one step only and return.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>means stop at the first internal mesh point at or</td>
+</tr>
+<tr>
+<td></td>
+<td>beyond t = TOUT and return.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>means normal computation of output values of y(t) at</td>
+</tr>
+<tr>
+<td></td>
+<td>t = TOUT but without overshooting t = TCRIT.</td>
+</tr>
+<tr>
+<td></td>
+<td>TCRIT must be input as RWORK(1).  TCRIT may be equal to</td>
+</tr>
+<tr>
+<td></td>
+<td>or beyond TOUT, but not behind it in the direction of</td>
+</tr>
+<tr>
+<td></td>
+<td>integration.  This option is useful if the problem</td>
+</tr>
+<tr>
+<td></td>
+<td>has a singularity at or beyond t = TCRIT.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>means take one step, without passing TCRIT, and return.</td>
+</tr>
+<tr>
+<td></td>
+<td>TCRIT must be input as RWORK(1).</td>
+</tr>
+</tbody>
+</table>
+<p>Note:  If ITASK = 4 or 5 and the solver reaches TCRIT
+ (within roundoff), it will return T = TCRIT (exactly) to
+ indicate this (unless ITASK = 4 and TOUT comes before TCRIT,
+ in which case answers at t = TOUT are returned first).</p>
+<dl>
+<dt>ISTATE</dt>
+<dd>
+<p>an index used for input and output to specify the
+ the state of the calculation.</p>
+</dd>
+</dl>
+<p>On input, the values of ISTATE are as follows.</p>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>means this is the first call for the problem</td>
+</tr>
+<tr>
+<td></td>
+<td>(initializations will be done).  See note below.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>means this is not the first call, and the calculation</td>
+</tr>
+<tr>
+<td></td>
+<td>is to continue normally, with no change in any input</td>
+</tr>
+<tr>
+<td></td>
+<td>parameters except possibly TOUT and ITASK.</td>
+</tr>
+<tr>
+<td></td>
+<td>(If ITOL, RTOL, and/or ATOL are changed between calls</td>
+</tr>
+<tr>
+<td></td>
+<td>with ISTATE = 2, the new values will be used but not</td>
+</tr>
+<tr>
+<td></td>
+<td>tested for legality.)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>means this is not the first call, and the</td>
+</tr>
+<tr>
+<td></td>
+<td>calculation is to continue normally, but with</td>
+</tr>
+<tr>
+<td></td>
+<td>a change in input parameters other than</td>
+</tr>
+<tr>
+<td></td>
+<td>TOUT and ITASK.  Changes are allowed in</td>
+</tr>
+<tr>
+<td></td>
+<td>NEQ, ITOL, RTOL, ATOL, IOPT, LRW, LIW, JT, ML, MU,</td>
+</tr>
+<tr>
+<td></td>
+<td>and any optional inputs except H0, MXORDN, and MXORDS.</td>
+</tr>
+<tr>
+<td></td>
+<td>(See IWORK description for ML and MU.)</td>
+</tr>
+</tbody>
+</table>
+<p>Note:  A preliminary call with TOUT = T is not counted
+ as a first call here, as no initialization or checking of
+ input is done.  (Such a call is sometimes useful for the
+ purpose of outputting the initial conditions.)
+ Thus the first call for which TOUT .ne. T requires
+ ISTATE = 1 on input.</p>
+<p>On output, ISTATE has the following values and meanings.</p>
+<table>
+<thead>
+<tr>
+<th>value.</th>
+<th>descriptions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>means nothing was done; TOUT = T and ISTATE = 1 on input.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>means the integration was performed successfully.</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>means an excessive amount of work (more than MXSTEP</td>
+</tr>
+<tr>
+<td></td>
+<td>steps) was done on this call, before completing the</td>
+</tr>
+<tr>
+<td></td>
+<td>requested task, but the integration was otherwise</td>
+</tr>
+<tr>
+<td></td>
+<td>successful as far as T.  (MXSTEP is an optional input</td>
+</tr>
+<tr>
+<td></td>
+<td>and is normally 500.)  To continue, the user may</td>
+</tr>
+<tr>
+<td></td>
+<td>simply reset ISTATE to a value .gt. 1 and call again</td>
+</tr>
+<tr>
+<td></td>
+<td>(the excess work step counter will be reset to 0).</td>
+</tr>
+<tr>
+<td></td>
+<td>In addition, the user may increase MXSTEP to avoid</td>
+</tr>
+<tr>
+<td></td>
+<td>this error return (see below on optional inputs).</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>means too much accuracy was requested for the precision</td>
+</tr>
+<tr>
+<td></td>
+<td>of the machine being used.  This was detected before</td>
+</tr>
+<tr>
+<td></td>
+<td>completing the requested task, but the integration</td>
+</tr>
+<tr>
+<td></td>
+<td>was successful as far as T.  To continue, the tolerance</td>
+</tr>
+<tr>
+<td></td>
+<td>parameters must be reset, and ISTATE must be set</td>
+</tr>
+<tr>
+<td></td>
+<td>to 3.  The optional output TOLSF may be used for this</td>
+</tr>
+<tr>
+<td></td>
+<td>purpose.  (Note: If this condition is detected before</td>
+</tr>
+<tr>
+<td></td>
+<td>taking any steps, then an illegal input return</td>
+</tr>
+<tr>
+<td></td>
+<td>(ISTATE = -3) occurs instead.)</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>means illegal input was detected, before taking any</td>
+</tr>
+<tr>
+<td></td>
+<td>integration steps.  See written message for details.</td>
+</tr>
+<tr>
+<td></td>
+<td>Note:  If the solver detects an infinite loop of calls</td>
+</tr>
+<tr>
+<td></td>
+<td>to the solver with illegal input, it will cause</td>
+</tr>
+<tr>
+<td></td>
+<td>the run to stop.</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>means there were repeated error test failures on</td>
+</tr>
+<tr>
+<td></td>
+<td>one attempted step, before completing the requested</td>
+</tr>
+<tr>
+<td></td>
+<td>task, but the integration was successful as far as T.</td>
+</tr>
+<tr>
+<td></td>
+<td>The problem may have a singularity, or the input</td>
+</tr>
+<tr>
+<td></td>
+<td>may be inappropriate.</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>means there were repeated convergence test failures on</td>
+</tr>
+<tr>
+<td></td>
+<td>one attempted step, before completing the requested</td>
+</tr>
+<tr>
+<td></td>
+<td>task, but the integration was successful as far as T.</td>
+</tr>
+<tr>
+<td></td>
+<td>This may be caused by an inaccurate Jacobian matrix,</td>
+</tr>
+<tr>
+<td></td>
+<td>if one is being used.</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>means EWT(i) became zero for some i during the</td>
+</tr>
+<tr>
+<td></td>
+<td>integration.  Pure relative error control (ATOL(i)=0.0)</td>
+</tr>
+<tr>
+<td></td>
+<td>was requested on a variable which has now vanished.</td>
+</tr>
+<tr>
+<td></td>
+<td>The integration was successful as far as T.</td>
+</tr>
+<tr>
+<td>-7</td>
+<td>means the length of RWORK and/or IWORK was too small to</td>
+</tr>
+<tr>
+<td></td>
+<td>proceed, but the integration was successful as far as T.</td>
+</tr>
+<tr>
+<td></td>
+<td>This happens when <em>DLSODA</em> chooses to switch methods</td>
+</tr>
+<tr>
+<td></td>
+<td>but LRW and/or LIW is too small for the new method.</td>
+</tr>
+</tbody>
+</table>
+<p>Note:  Since the normal output value of ISTATE is 2,
+ it does not need to be reset for normal continuation.
+ Also, since a negative input value of ISTATE will be
+ regarded as illegal, a negative output value requires the
+ user to change it, and possibly other inputs, before
+ calling the solver again.</p>
+<dl>
+<dt>IOPT</dt>
+<dd>
+<p>an integer flag to specify whether or not any optional
+ inputs are being used on this call.  Input only.
+ The optional inputs are listed separately below.
           IOPT = 0 means no optional inputs are being used.
                    default values will be used in all cases.
           IOPT = 1 means one or more optional inputs are being used.</p>
-<p>RWORK  = a real array (double precision) for work space, and (in the
-          first 20 words) for conditional and optional inputs and
-          optional outputs.
-          As DLSODA switches automatically between stiff and nonstiff
-          methods, the required length of RWORK can change during the
-          problem.  Thus the RWORK array passed to DLSODA can either
-          have a static (fixed) length large enough for both methods,
-          or have a dynamic (changing) length altered by the calling
-          program in response to output from DLSODA.</p>
-<div class="codehilite"><pre><span></span><code><span class="w">                   </span><span class="o">---</span><span class="w"> </span><span class="n">Fixed</span><span class="w"> </span><span class="n">Length</span><span class="w"> </span><span class="n">Case</span><span class="w"> </span><span class="o">---</span><span class="w"></span>
-<span class="w">      </span><span class="n">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">RWORK</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">fixed</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">least</span><span class="w"></span>
-<span class="w">           </span><span class="n">MAX</span><span class="w"> </span><span class="p">(</span><span class="n">LRN</span><span class="p">,</span><span class="w"> </span><span class="n">LRS</span><span class="p">),</span><span class="w"></span>
-<span class="w">      </span><span class="n">where</span><span class="w"> </span><span class="n">LRN</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">LRS</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">RWORK</span><span class="w"> </span><span class="n">lengths</span><span class="w"> </span><span class="n">required</span><span class="w"> </span><span class="n">when</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
-<span class="w">      </span><span class="n">current</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">nonstiff</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">stiff</span><span class="p">,</span><span class="w"> </span><span class="n">respectively</span><span class="o">.</span><span class="w"></span>
+</dd>
+<dt>RWORK</dt>
+<dd>
+<p>a real array (double precision) for work space, and (in the
+ first 20 words) for conditional and optional inputs and
+ optional outputs.</p>
+</dd>
+</dl>
+<p>As <em>DLSODA</em> switches automatically between stiff and nonstiff
+ methods, the required length of RWORK can change during the
+ problem.  Thus the RWORK array passed to <em>DLSODA</em> can either
+ have a static (fixed) length large enough for both methods,
+ or have a dynamic (changing) length altered by the calling
+ program in response to output from <em>DLSODA</em>.</p>
+<div class="codehilite"><pre><span></span><code>                --- Fixed Length Case ---
+   If the RWORK length is to be fixed, it should be at least
+        MAX (LRN, LRS),
+   where LRN and LRS are the RWORK lengths required when the
+   current method is nonstiff or stiff, respectively.
 
-<span class="w">      </span><span class="n">The</span><span class="w"> </span><span class="n">separate</span><span class="w"> </span><span class="n">RWORK</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">requirements</span><span class="w"> </span><span class="n">LRN</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">LRS</span><span class="w"> </span><span class="n">are</span><span class="w"></span>
-<span class="w">      </span><span class="k">as</span><span class="w"> </span><span class="n">follows</span><span class="p">:</span><span class="w"></span>
-<span class="w">      </span><span class="n">IF</span><span class="w"> </span><span class="n">NEQ</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">constant</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">maximum</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="n">have</span><span class="w"></span>
-<span class="w">      </span><span class="n">their</span><span class="w"> </span><span class="n">default</span><span class="w"> </span><span class="n">values</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"></span>
-<span class="w">         </span><span class="n">LRN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">16</span><span class="o">*</span><span class="n">NEQ</span><span class="p">,</span><span class="w"></span>
-<span class="w">         </span><span class="n">LRS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">9</span><span class="o">*</span><span class="n">NEQ</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">NEQ</span><span class="o">**</span><span class="mi">2</span><span class="w">           </span><span class="k">if</span><span class="w"> </span><span class="n">JT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
-<span class="w">         </span><span class="n">LRS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="o">*</span><span class="n">NEQ</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">ML</span><span class="o">+</span><span class="n">MU</span><span class="p">)</span><span class="o">*</span><span class="n">NEQ</span><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="n">JT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mf">5.</span><span class="w"></span>
-<span class="w">      </span><span class="n">Under</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">conditions</span><span class="p">,</span><span class="w"> </span><span class="n">LRN</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">LRS</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="n">by</span><span class="p">:</span><span class="w"></span>
-<span class="w">         </span><span class="n">LRN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">NYH</span><span class="o">*</span><span class="p">(</span><span class="n">MXORDN</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">NEQ</span><span class="p">,</span><span class="w"></span>
-<span class="w">         </span><span class="n">LRS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">NYH</span><span class="o">*</span><span class="p">(</span><span class="n">MXORDS</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">NEQ</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">LMAT</span><span class="p">,</span><span class="w"></span>
-<span class="w">      </span><span class="n">where</span><span class="w"></span>
-<span class="w">         </span><span class="n">NYH</span><span class="w">    </span><span class="o">=</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initial</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">NEQ</span><span class="p">,</span><span class="w"></span>
-<span class="w">         </span><span class="n">MXORDN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="n">unless</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">smaller</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">an</span><span class="w"></span>
-<span class="w">                  </span><span class="n">optional</span><span class="w"> </span><span class="n">input</span><span class="p">,</span><span class="w"></span>
-<span class="w">         </span><span class="n">MXORDS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="n">unless</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">smaller</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">given</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">an</span><span class="w"></span>
-<span class="w">                  </span><span class="n">optional</span><span class="w"> </span><span class="n">input</span><span class="p">,</span><span class="w"></span>
-<span class="w">         </span><span class="n">LMAT</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">space</span><span class="p">:</span><span class="w"></span>
-<span class="w">         </span><span class="n">LMAT</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="n">NEQ</span><span class="o">**</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w">              </span><span class="k">if</span><span class="w"> </span><span class="n">JT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
-<span class="w">         </span><span class="n">LMAT</span><span class="w">   </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">ML</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">MU</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">NEQ</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">JT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="mf">5.</span><span class="w"></span>
-
-<span class="w">                   </span><span class="o">---</span><span class="w"> </span><span class="n">Dynamic</span><span class="w"> </span><span class="n">Length</span><span class="w"> </span><span class="n">Case</span><span class="w"> </span><span class="o">---</span><span class="w"></span>
-<span class="w">      </span><span class="n">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">RWORK</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">dynamic</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">should</span><span class="w"></span>
-<span class="w">      </span><span class="n">be</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">least</span><span class="w"> </span><span class="n">LRN</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">LRS</span><span class="p">,</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">defined</span><span class="w"> </span><span class="n">above</span><span class="p">,</span><span class="w"> </span><span class="n">depending</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
-<span class="w">      </span><span class="n">current</span><span class="w"> </span><span class="n">method</span><span class="o">.</span><span class="w">  </span><span class="n">Initially</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">least</span><span class="w"> </span><span class="n">LRN</span><span class="w"> </span><span class="p">(</span><span class="n">since</span><span class="w"></span>
-<span class="w">      </span><span class="n">DLSODA</span><span class="w"> </span><span class="n">starts</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">nonstiff</span><span class="w"> </span><span class="n">method</span><span class="p">)</span><span class="o">.</span><span class="w">  </span><span class="n">On</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="k">return</span><span class="w"></span>
-<span class="w">      </span><span class="n">from</span><span class="w"> </span><span class="n">DLSODA</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">MCUR</span><span class="w"> </span><span class="n">indicates</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">current</span><span class="w"></span>
-<span class="w">      </span><span class="n">method</span><span class="o">.</span><span class="w">  </span><span class="n">If</span><span class="w"> </span><span class="n">MCUR</span><span class="w"> </span><span class="n">differs</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">had</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
-<span class="w">      </span><span class="n">previous</span><span class="w"> </span><span class="k">return</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">only</span><span class="w"> </span><span class="n">been</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">to</span><span class="w"></span>
-<span class="w">      </span><span class="n">DLSODA</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">MCUR</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">DLSODA</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">switched</span><span class="w"></span>
-<span class="w">      </span><span class="n">methods</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">last</span><span class="w"> </span><span class="n">call</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">RWORK</span><span class="w"></span>
-<span class="w">      </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="p">(</span><span class="n">to</span><span class="w"> </span><span class="n">LRN</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">MCUR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">LRS</span><span class="w"> </span><span class="k">if</span><span class="w"></span>
-<span class="w">      </span><span class="n">MCUR</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="w">  </span><span class="p">(</span><span class="n">An</span><span class="w"> </span><span class="n">increase</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">RWORK</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">required</span><span class="w"></span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="n">DLSODA</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">otherwise</span><span class="o">.</span><span class="p">)</span><span class="w"></span>
-<span class="w">      </span><span class="n">After</span><span class="w"> </span><span class="n">resetting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">length</span><span class="p">,</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">DLSODA</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
-<span class="w">      </span><span class="n">to</span><span class="w"> </span><span class="k">signal</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">change</span><span class="o">.</span><span class="w"></span>
+   The separate RWORK length requirements LRN and LRS are
+   as follows:
+   IF NEQ is constant and the maximum method orders have
+   their default values, then
+      LRN = 20 + 16*NEQ,
+      LRS = 22 + 9*NEQ + NEQ**2           if JT = 1 or 2,
+      LRS = 22 + 10*NEQ + (2*ML+MU)*NEQ   if JT = 4 or 5.
+   Under any other conditions, LRN and LRS are given by:
+      LRN = 20 + NYH*(MXORDN+1) + 3*NEQ,
+      LRS = 20 + NYH*(MXORDS+1) + 3*NEQ + LMAT,
+   where
+      NYH    = the initial value of NEQ,
+      MXORDN = 12, unless a smaller value is given as an
+               optional input,
+      MXORDS = 5, unless a smaller value is given as an
+               optional input,
+      LMAT   = length of matrix work space:
+      LMAT   = NEQ**2 + 2              if JT = 1 or 2,
+      LMAT   = (2*ML + MU + 1)*NEQ + 2 if JT = 4 or 5.
 </code></pre></div>
 
-<p>LRW    = the length of the array RWORK, as declared by the user.
-          (This will be checked by the solver.)</p>
-<p>IWORK  = an integer array for work space.
-          As DLSODA switches automatically between stiff and nonstiff
-          methods, the required length of IWORK can change during
-          problem, between
+<div class="codehilite"><pre><span></span><code>            --- Dynamic Length Case ---
+ If the length of RWORK is to be dynamic, then it should
+ be at least LRN or LRS, as defined above, depending on the
+ current method.  Initially, it must be at least LRN (since
+ _DLSODA_ starts with the nonstiff method).  On any return
+ from _DLSODA_, the optional output MCUR indicates the current
+ method.  If MCUR differs from the value it had on the
+ previous return, or if there has only been one call to
+ _DLSODA_ and MCUR is now 2, then _DLSODA_ has switched
+ methods during the last call, and the length of RWORK
+ should be reset (to LRN if MCUR = 1, or to LRS if
+ MCUR = 2).  (An increase in the RWORK length is required
+ if _DLSODA_ returned ISTATE = -7, but not otherwise.)
+ After resetting the length, call _DLSODA_ with ISTATE = 3
+ to signal that change.
+
+ LRW
+
+ : the length of the array RWORK, as declared by the user.
+ (This will be checked by the solver.)
+
+ IWORK
+
+ : an integer array for work space.
+ As _DLSODA_ switches automatically between stiff and nonstiff
+ methods, the required length of IWORK can change during
+ problem, between
              LIS = 20 + NEQ   and   LIN = 20,
-          respectively.  Thus the IWORK array passed to DLSODA can
-          either have a fixed length of at least 20 + NEQ, or have a
-          dynamic length of at least LIN or LIS, depending on the
-          current method.  The comments on dynamic length under
-          RWORK above apply here.  Initially, this length need
-          only be at least LIN = 20.</p>
-<div class="codehilite"><pre><span></span><code>      <span class="nv">The</span> <span class="nv">first</span> <span class="nv">few</span> <span class="nv">words</span> <span class="nv">of</span> <span class="nv">IWORK</span> <span class="nv">are</span> <span class="nv">used</span> <span class="k">for</span> <span class="nv">conditional</span> <span class="nv">and</span>
-      <span class="nv">optional</span> <span class="nv">inputs</span> <span class="nv">and</span> <span class="nv">optional</span> <span class="nv">outputs</span>.
+ respectively.  Thus the IWORK array passed to _DLSODA_ can
+ either have a fixed length of at least 20 + NEQ, or have a
+ dynamic length of at least LIN or LIS, depending on the
+ current method.  The comments on dynamic length under
+ RWORK above apply here.  Initially, this length need
+ only be at least LIN = 20.
 
-      <span class="nv">The</span> <span class="nv">following</span> <span class="mi">2</span> <span class="nv">words</span> <span class="nv">in</span> <span class="nv">IWORK</span> <span class="nv">are</span> <span class="nv">conditional</span> <span class="nv">inputs</span>:
-        <span class="nv">IWORK</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">ML</span>     <span class="nv">these</span> <span class="nv">are</span> <span class="nv">the</span> <span class="nv">lower</span> <span class="nv">and</span> <span class="nv">upper</span>
-        <span class="nv">IWORK</span><span class="ss">(</span><span class="mi">2</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">MU</span>     <span class="nv">half</span><span class="o">-</span><span class="nv">bandwidths</span>, <span class="nv">respectively</span>, <span class="nv">of</span> <span class="nv">the</span>
-                   <span class="nv">banded</span> <span class="nv">Jacobian</span>, <span class="nv">excluding</span> <span class="nv">the</span> <span class="nv">main</span> <span class="nv">diagonal</span>.
-                   <span class="nv">The</span> <span class="nv">band</span> <span class="nv">is</span> <span class="nv">defined</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">matrix</span> <span class="nv">locations</span>
-                   <span class="ss">(</span><span class="nv">i</span>,<span class="nv">j</span><span class="ss">)</span> <span class="nv">with</span> <span class="nv">i</span><span class="o">-</span><span class="nv">ML</span> .<span class="nv">le</span>. <span class="nv">j</span> .<span class="nv">le</span>. <span class="nv">i</span><span class="o">+</span><span class="nv">MU</span>.  <span class="nv">ML</span> <span class="nv">and</span> <span class="nv">MU</span>
-                   <span class="nv">must</span> <span class="nv">satisfy</span>  <span class="mi">0</span> .<span class="nv">le</span>.  <span class="nv">ML</span>,<span class="nv">MU</span>  .<span class="nv">le</span>. <span class="nv">NEQ</span><span class="o">-</span><span class="mi">1</span>.
-                   <span class="nv">These</span> <span class="nv">are</span> <span class="nv">required</span> <span class="k">if</span> <span class="nv">JT</span> <span class="nv">is</span> <span class="mi">4</span> <span class="nv">or</span> <span class="mi">5</span>, <span class="nv">and</span>
-                   <span class="nv">ignored</span> <span class="nv">otherwise</span>.  <span class="nv">ML</span> <span class="nv">and</span> <span class="nv">MU</span> <span class="nv">may</span> <span class="nv">in</span> <span class="nv">fact</span> <span class="nv">be</span>
-                   <span class="nv">the</span> <span class="nv">band</span> <span class="nv">parameters</span> <span class="k">for</span> <span class="nv">a</span> <span class="nv">matrix</span> <span class="nv">to</span> <span class="nv">which</span>
-                   <span class="nv">df</span><span class="o">/</span><span class="nv">dy</span> <span class="nv">is</span> <span class="nv">only</span> <span class="nv">approximately</span> <span class="nv">equal</span>.
+ The first few words of IWORK are used for conditional and
+ optional inputs and optional outputs.
+
+ The following 2 words in IWORK are conditional inputs:
+```text
+   IWORK(1) = ML     these are the lower and upper
+   IWORK(2) = MU     half-bandwidths, respectively, of the
+              banded Jacobian, excluding the main diagonal.
+              The band is defined by the matrix locations
+              (i,j) with i-ML .le. j .le. i+MU.  ML and MU
+              must satisfy  0 .le.  ML,MU  .le. NEQ-1.
+              These are required if JT is 4 or 5, and
+              ignored otherwise.  ML and MU may in fact be
+              the band parameters for a matrix to which
+              df/dy is only approximately equal.
 </code></pre></div>
 
-<p>LIW    = the length of the array IWORK, as declared by the user.
-          (This will be checked by the solver.)</p>
+<dl>
+<dt>LIW</dt>
+<dd>
+<p>the length of the array IWORK, as declared by the user.
+ (This will be checked by the solver.)</p>
+</dd>
+</dl>
 <p>Note: The base addresses of the work arrays must not be
- altered between calls to DLSODA for the same problem.
+ altered between calls to <em>DLSODA</em> for the same problem.
  The contents of the work arrays must not be altered
  between calls, except possibly for the conditional and
  optional inputs, and except for the last 3*NEQ words of RWORK.
  The latter space is used for internal scratch space, and so is
- available for use by the user outside DLSODA between calls, if
+ available for use by the user outside <em>DLSODA</em> between calls, if
  desired (but not for use by F or JAC).</p>
-<p>JAC    = the name of the user-supplied routine to compute the
-          Jacobian matrix, df/dy, if JT = 1 or 4.  The JAC routine
-          is optional, but if the problem is expected to be stiff much
-          of the time, you are encouraged to supply JAC, for the sake
-          of efficiency.  (Alternatively, set JT = 2 or 5 to have
-          DLSODA compute df/dy internally by difference quotients.)
-          If and when DLSODA uses df/dy, it treats this NEQ by NEQ
-          matrix either as full (JT = 1 or 2), or as banded (JT =
-          4 or 5) with half-bandwidths ML and MU (discussed under
-          IWORK above).  In either case, if JT = 1 or 4, the JAC
-          routine must compute df/dy as a function of the scalar t
-          and the vector y.  It is to have the form
-               SUBROUTINE JAC (NEQ, T, Y, ML, MU, PD, NROWPD)
-               DOUBLE PRECISION T, Y(<em>), PD(NROWPD,</em>)
-          where NEQ, T, Y, ML, MU, and NROWPD are input and the array
-          PD is to be loaded with partial derivatives (elements of
-          the Jacobian matrix) on output.  PD must be given a first
-          dimension of NROWPD.  T and Y have the same meaning as in
-          Subroutine F.
-               In the full matrix case (JT = 1), ML and MU are
-          ignored, and the Jacobian is to be loaded into PD in
-          columnwise manner, with df(i)/dy(j) loaded into PD(i,j).
-               In the band matrix case (JT = 4), the elements
-          within the band are to be loaded into PD in columnwise
-          manner, with diagonal lines of df/dy loaded into the rows
-          of PD.  Thus df(i)/dy(j) is to be loaded into PD(i-j+MU+1,j).
-          ML and MU are the half-bandwidth parameters (see IWORK).
-          The locations in PD in the two triangular areas which
-          correspond to nonexistent matrix elements can be ignored
-          or loaded arbitrarily, as they are overwritten by DLSODA.
-               JAC need not provide df/dy exactly.  A crude
-          approximation (possibly with a smaller bandwidth) will do.
-               In either case, PD is preset to zero by the solver,
-          so that only the nonzero elements need be loaded by JAC.
-          Each call to JAC is preceded by a call to F with the same
-          arguments NEQ, T, and Y.  Thus to gain some efficiency,
-          intermediate quantities shared by both calculations may be
-          saved in a user Common block by F and not recomputed by JAC,
-          if desired.  Also, JAC may alter the Y array, if desired.
-          JAC must be declared External in the calling program.
-               Subroutine JAC may access user-defined quantities in
-          NEQ(2),&hellip; and/or in Y(NEQ(1)+1),&hellip; if NEQ is an array
-          (dimensioned in JAC) and/or Y has length exceeding NEQ(1).
-          See the descriptions of NEQ and Y above.</p>
-<p>JT     = Jacobian type indicator.  Used only for input.
-          JT specifies how the Jacobian matrix df/dy will be
-          treated, if and when DLSODA requires this matrix.
-          JT has the following values and meanings:
-           1 means a user-supplied full (NEQ by NEQ) Jacobian.
-           2 means an internally generated (difference quotient) full
-             Jacobian (using NEQ extra calls to F per df/dy value).
-           4 means a user-supplied banded Jacobian.
-           5 means an internally generated banded Jacobian (using
-             ML+MU+1 extra calls to F per df/dy evaluation).
-          If JT = 1 or 4, the user must supply a Subroutine JAC
-          (the name is arbitrary) as described above under JAC.
-          If JT = 2 or 5, a dummy argument can be used.</p>
+<dl>
+<dt>JAC</dt>
+<dd>
+<p>the name of the user-supplied routine to compute the
+ Jacobian matrix, df/dy, if JT = 1 or 4.  The JAC routine
+ is optional, but if the problem is expected to be stiff much
+ of the time, you are encouraged to supply JAC, for the sake
+ of efficiency.  (Alternatively, set JT = 2 or 5 to have
+ <em>DLSODA</em> compute df/dy internally by difference quotients.)
+ If and when <em>DLSODA</em> uses df/dy, it treats this NEQ by NEQ
+ matrix either as full (JT = 1 or 2), or as banded (JT =
+ 4 or 5) with half-bandwidths ML and MU (discussed under
+ IWORK above).  In either case, if JT = 1 or 4, the JAC
+ routine must compute df/dy as a function of the scalar t
+ and the vector y.  It is to have the form</p>
+</dd>
+</dl>
+<div class="codehilite"><pre><span></span><code><span class="w">     </span><span class="k">SUBROUTINE </span><span class="n">JAC</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">ML</span><span class="p">,</span><span class="w"> </span><span class="n">MU</span><span class="p">,</span><span class="w"> </span><span class="n">PD</span><span class="p">,</span><span class="w"> </span><span class="n">NROWPD</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="kt">DOUBLE PRECISION </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">PD</span><span class="p">(</span><span class="n">NROWPD</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>where NEQ, T, Y, ML, MU, and NROWPD are input and the array
+ PD is to be loaded with partial derivatives (elements of
+ the Jacobian matrix) on output.  PD must be given a first
+ dimension of NROWPD.  T and Y have the same meaning as in
+ Subroutine F.</p>
+<p>In the full matrix case (JT = 1), ML and MU are
+ ignored, and the Jacobian is to be loaded into PD in
+ columnwise manner, with df(i)/dy(j) loaded into PD(i,j).</p>
+<p>In the band matrix case (JT = 4), the elements
+ within the band are to be loaded into PD in columnwise
+ manner, with diagonal lines of df/dy loaded into the rows
+ of PD.  Thus df(i)/dy(j) is to be loaded into PD(i-j+MU+1,j).
+ ML and MU are the half-bandwidth parameters (see IWORK).
+ The locations in PD in the two triangular areas which
+ correspond to nonexistent matrix elements can be ignored
+ or loaded arbitrarily, as they are overwritten by <em>DLSODA</em>.</p>
+<p>JAC need not provide df/dy exactly.  A crude
+ approximation (possibly with a smaller bandwidth) will do.</p>
+<p>In either case, PD is preset to zero by the solver,
+ so that only the nonzero elements need be loaded by JAC.
+ Each call to JAC is preceded by a call to F with the same
+ arguments NEQ, T, and Y.  Thus to gain some efficiency,
+ intermediate quantities shared by both calculations may be
+ saved in a user Common block by F and not recomputed by JAC,
+ if desired.  Also, JAC may alter the Y array, if desired.
+ JAC must be declared External in the calling program.</p>
+<p>Subroutine JAC may access user-defined quantities in
+ NEQ(2),&hellip; and/or in Y(NEQ(1)+1),&hellip; if NEQ is an array
+ (dimensioned in JAC) and/or Y has length exceeding NEQ(1).
+ See the descriptions of NEQ and Y above.</p>
+<dl>
+<dt>JT</dt>
+<dd>
+<p>Jacobian type indicator.  Used only for input.
+ JT specifies how the Jacobian matrix df/dy will be
+ treated, if and when <em>DLSODA</em> requires this matrix.
+ JT has the following values and meanings:</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>means a user-supplied full (NEQ by NEQ) Jacobian.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>means an internally generated (difference quotient) full</td>
+</tr>
+<tr>
+<td></td>
+<td>Jacobian (using NEQ extra calls to F per df/dy value).</td>
+</tr>
+<tr>
+<td>4</td>
+<td>means a user-supplied banded Jacobian.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>means an internally generated banded Jacobian (using</td>
+</tr>
+<tr>
+<td></td>
+<td>ML+MU+1 extra calls to F per df/dy evaluation).</td>
+</tr>
+</tbody>
+</table>
+<p>If JT = 1 or 4, the user must supply a Subroutine JAC
+ (the name is arbitrary) as described above under JAC.
+ If JT = 2 or 5, a dummy argument can be used.</p>
 <hr>
-<p>Optional Inputs.</p>
+<h5 id="optional-inputs">Optional Inputs.</h5>
 <p>The following is a list of the optional inputs provided for in the
  call sequence.  (See also Part 2.)  For each such input variable,
  this table lists its name as used in this documentation, its
@@ -752,143 +1225,650 @@
  Thus to use a subset of the optional inputs, simply preload
  locations 5 to 10 in RWORK and IWORK to 0.0 and 0 respectively, and
  then set those of interest to nonzero values.</p>
-<p>Name    Location      Meaning and Default Value</p>
-<p>H0      RWORK(5)  the step size to be attempted on the first step.
-                   The default value is determined by the solver.</p>
-<p>HMAX    RWORK(6)  the maximum absolute step size allowed.
-                   The default value is infinite.</p>
-<p>HMIN    RWORK(7)  the minimum absolute step size allowed.
-                   The default value is 0.  (This lower bound is not
-                   enforced on the final step before reaching TCRIT
-                   when ITASK = 4 or 5.)</p>
-<p>IXPR    IWORK(5)  flag to generate extra printing at method switches.
-                   IXPR = 0 means no extra printing (the default).
-                   IXPR = 1 means print data on each switch.
-                   T, H, and NST will be printed on the same logical
-                   unit as used for error messages.</p>
-<p>MXSTEP  IWORK(6)  maximum number of (internally defined) steps
-                   allowed during one call to the solver.
-                   The default value is 500.</p>
-<p>MXHNIL  IWORK(7)  maximum number of messages printed (per problem)
-                   warning that T + H = T on a step (H = step size).
-                   This must be positive to result in a non-default
-                   value.  The default value is 10.</p>
-<p>MXORDN  IWORK(8)  the maximum order to be allowed for the nonstiff
-                   (Adams) method.  the default value is 12.
-                   if MXORDN exceeds the default value, it will
-                   be reduced to the default value.
-                   MXORDN is held constant during the problem.</p>
-<p>MXORDS  IWORK(9)  the maximum order to be allowed for the stiff
-                   (BDF) method.  The default value is 5.
-                   If MXORDS exceeds the default value, it will
-                   be reduced to the default value.
-                   MXORDS is held constant during the problem.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Location</th>
+<th>Meaning and Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H0</td>
+<td>RWORK(5)</td>
+<td>the step size to be attempted on the first step.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The default value is determined by the solver.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HMAX</td>
+<td>RWORK(6)</td>
+<td>the maximum absolute step size allowed.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The default value is infinite.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HMIN</td>
+<td>RWORK(7)</td>
+<td>the minimum absolute step size allowed.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The default value is 0.  (This lower bound is not</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>enforced on the final step before reaching TCRIT</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>when ITASK = 4 or 5.)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IXPR</td>
+<td>IWORK(5)</td>
+<td>flag to generate extra printing at method switches.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>IXPR = 0 means no extra printing (the default).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>IXPR = 1 means print data on each switch.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>T, H, and NST will be printed on the same logical</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>unit as used for error messages.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MXSTEP</td>
+<td>IWORK(6)</td>
+<td>maximum number of (internally defined) steps</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>allowed during one call to the solver.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The default value is 500.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MXHNIL</td>
+<td>IWORK(7)</td>
+<td>maximum number of messages printed (per problem)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>warning that T + H = T on a step (H = step size).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>This must be positive to result in a non-default</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>value.  The default value is 10.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MXORDN</td>
+<td>IWORK(8)</td>
+<td>the maximum order to be allowed for the nonstiff</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>(Adams) method.  the default value is 12.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>if MXORDN exceeds the default value, it will</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>be reduced to the default value.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>MXORDN is held constant during the problem.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MXORDS</td>
+<td>IWORK(9)</td>
+<td>the maximum order to be allowed for the stiff</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>(BDF) method.  The default value is 5.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>If MXORDS exceeds the default value, it will</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>be reduced to the default value.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>MXORDS is held constant during the problem.</td>
+</tr>
+</tbody>
+</table>
 <hr>
-<p>Optional Outputs.</p>
-<p>As optional additional output from DLSODA, the variables listed
- below are quantities related to the performance of DLSODA
+<h5 id="optional-outputs">Optional Outputs.</h5>
+<p>As optional additional output from <em>DLSODA</em>, the variables listed
+ below are quantities related to the performance of <em>DLSODA</em>
  which are available to the user.  These are communicated by way of
  the work arrays, but also have internal mnemonic names as shown.
  except where stated otherwise, all of these outputs are defined
- on any successful return from DLSODA, and on any return with
+ on any successful return from <em>DLSODA</em>, and on any return with
  ISTATE = -1, -2, -4, -5, or -6.  On an illegal input return
  (ISTATE = -3), they will be unchanged from their existing values
  (if any), except possibly for TOLSF, LENRW, and LENIW.
  On any error return, outputs relevant to the error will be defined,
  as noted below.</p>
-<p>Name    Location      Meaning</p>
-<p>HU      RWORK(11) the step size in t last used (successfully).</p>
-<p>HCUR    RWORK(12) the step size to be attempted on the next step.</p>
-<p>TCUR    RWORK(13) the current value of the independent variable
-                   which the solver has actually reached, i.e. the
-                   current internal mesh point in t.  On output, TCUR
-                   will always be at least as far as the argument
-                   T, but may be farther (if interpolation was done).</p>
-<p>TOLSF   RWORK(14) a tolerance scale factor, greater than 1.0,
-                   computed when a request for too much accuracy was
-                   detected (ISTATE = -3 if detected at the start of
-                   the problem, ISTATE = -2 otherwise).  If ITOL is
-                   left unaltered but RTOL and ATOL are uniformly
-                   scaled up by a factor of TOLSF for the next call,
-                   then the solver is deemed likely to succeed.
-                   (The user may also ignore TOLSF and alter the
-                   tolerance parameters in any other way appropriate.)</p>
-<p>TSW     RWORK(15) the value of t at the time of the last method
-                   switch, if any.</p>
-<p>NST     IWORK(11) the number of steps taken for the problem so far.</p>
-<p>NFE     IWORK(12) the number of f evaluations for the problem so far.</p>
-<p>NJE     IWORK(13) the number of Jacobian evaluations (and of matrix
-                   LU decompositions) for the problem so far.</p>
-<p>NQU     IWORK(14) the method order last used (successfully).</p>
-<p>NQCUR   IWORK(15) the order to be attempted on the next step.</p>
-<p>IMXER   IWORK(16) the index of the component of largest magnitude in
-                   the weighted local error vector ( E(i)/EWT(i) ),
-                   on an error return with ISTATE = -4 or -5.</p>
-<p>LENRW   IWORK(17) the length of RWORK actually required, assuming
-                   that the length of RWORK is to be fixed for the
-                   rest of the problem, and that switching may occur.
-                   This is defined on normal returns and on an illegal
-                   input return for insufficient storage.</p>
-<p>LENIW   IWORK(18) the length of IWORK actually required, assuming
-                   that the length of IWORK is to be fixed for the
-                   rest of the problem, and that switching may occur.
-                   This is defined on normal returns and on an illegal
-                   input return for insufficient storage.</p>
-<p>MUSED   IWORK(19) the method indicator for the last successful step:
-                   1 means Adams (nonstiff), 2 means BDF (stiff).</p>
-<p>MCUR    IWORK(20) the current method indicator:
-                   1 means Adams (nonstiff), 2 means BDF (stiff).
-                   This is the method to be attempted
-                   on the next step.  Thus it differs from MUSED
-                   only if a method switch has just been made.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Location</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HU</td>
+<td>RWORK(11)</td>
+<td>the step size in t last used (successfully).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HCUR</td>
+<td>RWORK(12)</td>
+<td>the step size to be attempted on the next step.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TCUR</td>
+<td>RWORK(13)</td>
+<td>the current value of the independent variable</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>which the solver has actually reached, i.e. the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>current internal mesh point in t.  On output, TCUR</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>will always be at least as far as the argument</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>T, but may be farther (if interpolation was done).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TOLSF</td>
+<td>RWORK(14)</td>
+<td>a tolerance scale factor, greater than 1.0,</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>computed when a request for too much accuracy was</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>detected (ISTATE = -3 if detected at the start of</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>the problem, ISTATE = -2 otherwise).  If ITOL is</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>left unaltered but RTOL and ATOL are uniformly</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>scaled up by a factor of TOLSF for the next call,</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>then the solver is deemed likely to succeed.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>(The user may also ignore TOLSF and alter the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>tolerance parameters in any other way appropriate.)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TSW</td>
+<td>RWORK(15)</td>
+<td>the value of t at the time of the last method</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>switch, if any.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NST</td>
+<td>IWORK(11)</td>
+<td>the number of steps taken for the problem so far.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NFE</td>
+<td>IWORK(12)</td>
+<td>the number of f evaluations for the problem so far.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NJE</td>
+<td>IWORK(13)</td>
+<td>the number of Jacobian evaluations (and of matrix</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>LU decompositions) for the problem so far.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NQU</td>
+<td>IWORK(14)</td>
+<td>the method order last used (successfully).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NQCUR</td>
+<td>IWORK(15)</td>
+<td>the order to be attempted on the next step.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IMXER</td>
+<td>IWORK(16)</td>
+<td>the index of the component of largest magnitude in</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>the weighted local error vector ( E(i)/EWT(i) ),</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>on an error return with ISTATE = -4 or -5.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LENRW</td>
+<td>IWORK(17)</td>
+<td>the length of RWORK actually required, assuming</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>that the length of RWORK is to be fixed for the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>rest of the problem, and that switching may occur.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>This is defined on normal returns and on an illegal</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>input return for insufficient storage.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LENIW</td>
+<td>IWORK(18)</td>
+<td>the length of IWORK actually required, assuming</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>that the length of IWORK is to be fixed for the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>rest of the problem, and that switching may occur.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>This is defined on normal returns and on an illegal</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>input return for insufficient storage.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MUSED</td>
+<td>IWORK(19)</td>
+<td>the method indicator for the last successful step:</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>1 means Adams (nonstiff), 2 means BDF (stiff).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MCUR</td>
+<td>IWORK(20)</td>
+<td>the current method indicator:</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>1 means Adams (nonstiff), 2 means BDF (stiff).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>This is the method to be attempted</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>on the next step.  Thus it differs from MUSED</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>only if a method switch has just been made.</td>
+</tr>
+</tbody>
+</table>
 <p>The following two arrays are segments of the RWORK array which
  may also be of interest to the user as optional outputs.
  For each array, the table below gives its internal name,
  its base address in RWORK, and its description.</p>
-<p>Name    Base Address      Description</p>
-<p>YH      21             the Nordsieck history array, of size NYH by
-                        (NQCUR + 1), where NYH is the initial value
-                        of NEQ.  For j = 0,1,&hellip;,NQCUR, column j+1
-                        of YH contains HCUR**j/factorial(j) times
-                        the j-th derivative of the interpolating
-                        polynomial currently representing the solution,
-                        evaluated at T = TCUR.</p>
-<p>ACOR     LACOR         array of size NEQ used for the accumulated
-         (from Common   corrections on each step, scaled on output
-           as noted)    to represent the estimated local error in y
-                        on the last step.  This is the vector E in
-                        the description of the error control.  It is
-                        defined only on a successful return from
-                        DLSODA.  The base address LACOR is obtained by
-                        including in the user&rsquo;s program the
-                        following 2 lines:
-                           COMMON /DLS001/ RLS(218), ILS(37)
-                           LACOR = ILS(22)</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Base Address</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YH</td>
+<td>21</td>
+<td>the Nordsieck history array, of size NYH by</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>(NQCUR + 1), where NYH is the initial value</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>of NEQ.  For j = 0,1,&hellip;,NQCUR, column j+1</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>of YH contains HCUR**j/factorial(j) times</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>the j-th derivative of the interpolating</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>polynomial currently representing the solution,</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>evaluated at T = TCUR.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ACOR</td>
+<td>LACOR</td>
+<td>array of size NEQ used for the accumulated</td>
+</tr>
+<tr>
+<td></td>
+<td>(from Common</td>
+<td>corrections on each step, scaled on output</td>
+</tr>
+<tr>
+<td></td>
+<td>as noted)</td>
+<td>to represent the estimated local error in y</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>on the last step.  This is the vector E in</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>the description of the error control.  It is</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>defined only on a successful return from</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><em>DLSODA</em>.  The base address LACOR is obtained by</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>including in the user&rsquo;s program the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>following 2 lines:</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>COMMON /DLS001/ RLS(218), ILS(37)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>LACOR = ILS(22)</td>
+</tr>
+</tbody>
+</table>
 <hr>
-<p>Part 2.  Other Routines Callable.</p>
+<h4 id="part-2-other-routines-callable">Part 2.  Other Routines Callable.</h4>
 <p>The following are optional calls which the user may make to
- gain additional capabilities in conjunction with DLSODA.
+ gain additional capabilities in conjunction with <em>DLSODA</em>.
  (The routines XSETUN and XSETF are designed to conform to the
  SLATEC error handling package.)</p>
-<div class="codehilite"><pre><span></span><code> Form of Call                  Function
-</code></pre></div>
-
-<p>CALL XSETUN(LUN)          set the logical unit number, LUN, for
-                             output of messages from DLSODA, if
+<div class="codehilite"><pre><span></span><code>     Form of Call                  Function
+   CALL XSETUN(LUN)          set the logical unit number, LUN, for
+                             output of messages from _DLSODA_, if
                              the default is not desired.
-                             The default value of LUN is 6.</p>
-<p>CALL XSETF(MFLAG)         set a flag to control the printing of
-                             messages by DLSODA.
+                             The default value of LUN is 6.
+
+   CALL XSETF(MFLAG)         set a flag to control the printing of
+                             messages by _DLSODA_.
                              MFLAG = 0 means do not print. (Danger:
                              This risks losing valuable information.)
-                             MFLAG = 1 means print (the default).</p>
-<div class="codehilite"><pre><span></span><code>                         Either of the above calls may be made at
-                         any time and will take effect immediately.
-</code></pre></div>
+                             MFLAG = 1 means print (the default).
 
-<p>CALL DSRCMA(RSAV,ISAV,JOB) saves and restores the contents of
+                             Either of the above calls may be made at
+                             any time and will take effect immediately.
+
+   CALL DSRCMA(RSAV,ISAV,JOB) saves and restores the contents of
                              the internal Common blocks used by
-                             DLSODA (see Part 3 below).
+                             _DLSODA_ (see Part 3 below).
                              RSAV must be a real array of length 240
                              or more, and ISAV must be an integer
                              array of length 46 or more.
@@ -897,76 +1877,87 @@
                                 DSRCMA is useful if one is
                              interrupting a run and restarting
                              later, or alternating between two or
-                             more problems solved with DLSODA.</p>
-<p>CALL DINTDY(,,,,,)        provide derivatives of y, of various
+                             more problems solved with _DLSODA_.
+
+   CALL DINTDY(,,,,,)        provide derivatives of y, of various
         (see below)          orders, at a specified point t, if
                              desired.  It may be called only after
-                             a successful return from DLSODA.</p>
-<p>The detailed instructions for using DINTDY are as follows.
- The form of the call is:</p>
-<p>CALL DINTDY (T, K, RWORK(21), NYH, DKY, IFLAG)</p>
+                             a successful return from _DLSODA_.
+</code></pre></div>
+
+<p>The detailed instructions for using DINTDY are as follows.</p>
+<p>The form of the call is:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">   </span><span class="k">CALL </span><span class="n">DINTDY</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="p">,</span><span class="w"> </span><span class="n">RWORK</span><span class="p">(</span><span class="mi">21</span><span class="p">),</span><span class="w"> </span><span class="n">NYH</span><span class="p">,</span><span class="w"> </span><span class="n">DKY</span><span class="p">,</span><span class="w"> </span><span class="n">IFLAG</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
 <p>The input parameters are:</p>
-<p>T         = value of independent variable where answers are desired
-             (normally the same as the T last returned by DLSODA).
-             For valid results, T must lie between TCUR - HU and TCUR.
-             (See optional outputs for TCUR and HU.)
- K         = integer order of the derivative desired.  K must satisfy
-             0 .le. K .le. NQCUR, where NQCUR is the current order
-             (see optional outputs).  The capability corresponding
-             to K = 0, i.e. computing y(T), is already provided
-             by DLSODA directly.  Since NQCUR .ge. 1, the first
-             derivative dy/dt is always available with DINTDY.
- RWORK(21) = the base address of the history array YH.
- NYH       = column length of YH, equal to the initial value of NEQ.</p>
+<dl>
+<dt>T</dt>
+<dd>
+<p>value of independent variable where answers are desired
+ (normally the same as the T last returned by <em>DLSODA</em>).
+ For valid results, T must lie between TCUR - HU and TCUR.
+ (See optional outputs for TCUR and HU.)</p>
+</dd>
+<dt>K</dt>
+<dd>
+<p>integer order of the derivative desired.  K must satisfy
+ 0 .le. K .le. NQCUR, where NQCUR is the current order
+ (see optional outputs).  The capability corresponding
+ to K = 0, i.e. computing y(T), is already provided
+ by <em>DLSODA</em> directly.  Since NQCUR .ge. 1, the first
+ derivative dy/dt is always available with DINTDY.</p>
+</dd>
+<dt>RWORK(21)</dt>
+<dd>
+<p>the base address of the history array YH.</p>
+</dd>
+<dt>NYH</dt>
+<dd>column length of YH, equal to the initial value of NEQ.</dd>
+</dl>
 <p>The output parameters are:</p>
-<p>DKY       = a real array of length NEQ containing the computed value
-             of the K-th derivative of y(t).
- IFLAG     = integer flag, returned as 0 if K and T were legal,
-             -1 if K was illegal, and -2 if T was illegal.
-             On an error return, a message is also written.</p>
+<dl>
+<dt>DKY</dt>
+<dd>a real array of length NEQ containing the computed value
+ of the K-th derivative of y(t).</dd>
+<dt>IFLAG</dt>
+<dd>integer flag, returned as 0 if K and T were legal,
+ -1 if K was illegal, and -2 if T was illegal.
+ On an error return, a message is also written.</dd>
+</dl>
 <hr>
-<p>Part 3.  Common Blocks.</p>
-<p>If DLSODA is to be used in an overlay situation, the user
- must declare, in the primary overlay, the variables in:
-   (1) the call sequence to DLSODA, and
-   (2) the two internal Common blocks
-         /DLS001/  of length  255  (218 double precision words
-                      followed by 37 integer words),
-         type(DLSA01)::DLSA of length 31 (22 double precision words
-                      followed by 9 integer words).</p>
-<p>If DLSODA is used on a system in which the contents of internal
- Common blocks are not preserved between calls, the user should
- declare the above Common blocks in the calling program to insure
- that their contents are preserved.</p>
-<p>If the solution of a given problem by DLSODA is to be interrupted
+<h4 id="part-3-interrupting-and-continuing">Part 3.  Interrupting and Continuing</h4>
+<p>If the solution of a given problem by <em>DLSODA</em> is to be interrupted
  and then later continued, such as when restarting an interrupted run
  or alternating between two or more problems, the user should save,
- following the return from the last DLSODA call prior to the
- interruption, the contents of the call sequence variables and the
- internal Common blocks, and later restore these values before the
- next DLSODA call for that problem.  To save and restore the Common
- blocks, use Subroutine DSRCMA (see Part 2 above).</p>
+ following the return from the last <em>DLSODA</em> call prior to the
+ interruption, the contents of the call sequence variables and state
+ and later restore these values before the
+ next <em>DLSODA</em> call for that problem.  To save and restore the current
+ state, use Subroutine DSRCMA (see Part 2 above).</p>
 <hr>
-<p>Part 4.  Optionally Replaceable Solver Routines.</p>
-<p>Below is a description of a routine in the DLSODA package which
+<h4 id="part-4-optionally-replaceable-solver-routines">Part 4.  Optionally Replaceable Solver Routines.</h4>
+<p>Below is a description of a routine in the <em>DLSODA</em> package which
  relates to the measurement of errors, and can be
  replaced by a user-supplied version, if desired.  However, since such
  a replacement may have a major impact on performance, it should be
  done only when absolutely necessary, and only with great caution.
  (Note: The means by which the package version of a routine is
  superseded by the user&rsquo;s version may be system-dependent.)</p>
-<p>(a) DEWSET.
- The following subroutine is called just before each internal
+<h5 id="dewset">DEWSET</h5>
+<p>The following subroutine is called just before each internal
  integration step, and sets the array of error weights, EWT, as
- described under ITOL/RTOL/ATOL above:
-     Subroutine DEWSET (NEQ, ITOL, RTOL, ATOL, YCUR, EWT)
- where NEQ, ITOL, RTOL, and ATOL are as in the DLSODA call sequence,
+ described under ITOL/RTOL/ATOL above:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">     </span><span class="k">Subroutine </span><span class="n">DEWSET</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">ITOL</span><span class="p">,</span><span class="w"> </span><span class="n">RTOL</span><span class="p">,</span><span class="w"> </span><span class="n">ATOL</span><span class="p">,</span><span class="w"> </span><span class="n">YCUR</span><span class="p">,</span><span class="w"> </span><span class="n">EWT</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>where NEQ, ITOL, RTOL, and ATOL are as in the <em>DLSODA</em> call sequence,
  YCUR contains the current dependent variable vector, and
  EWT is the array of weights set by DEWSET.</p>
 <p>If the user supplies this subroutine, it must return in EWT(i)
  (i = 1,&hellip;,NEQ) a positive quantity suitable for comparing errors
  in y(i) to.  The EWT array returned by DEWSET is passed to the
- DMNORM routine, and also used by DLSODA in the computation
+ DMNORM routine, and also used by <em>DLSODA</em> in the computation
  of the optional output IMXER, and the increments for difference
  quotient Jacobians.</p>
 <p>In the user-supplied version of DEWSET, it may be desirable to use
@@ -977,72 +1968,111 @@
  factors of H**j/factorial(j).  On the first call for the problem,
  given by NST = 0, NQ is 1 and H is temporarily set to 1.0.
  NYH is the initial value of NEQ.  The quantities NQ, H, and NST
- can be obtained by including in DEWSET the statements:
-     DOUBLE PRECISION RLS
-     COMMON /DLS001/ RLS(218),ILS(37)
-     NQ = ILS(33)
-     NST = ILS(34)
-     H = RLS(212)
- Thus, for example, the current value of dy/dt can be obtained as
+ can be obtained by including in DEWSET the statements:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">     </span><span class="kt">DOUBLE PRECISION </span><span class="n">RLS</span><span class="w"></span>
+<span class="w">     </span><span class="k">COMMON</span><span class="w"> </span><span class="o">/</span><span class="n">DLS001</span><span class="o">/</span><span class="w"> </span><span class="n">RLS</span><span class="p">(</span><span class="mi">218</span><span class="p">),</span><span class="n">ILS</span><span class="p">(</span><span class="mi">37</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="n">NQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ILS</span><span class="p">(</span><span class="mi">33</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="n">NST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ILS</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="n">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RLS</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>Thus, for example, the current value of dy/dt can be obtained as
  YCUR(NYH+i)/H  (i=1,&hellip;,NEQ)  (and the division by H is
  unnecessary when NST = 0).</p>
 <hr>
-<h3 id="revision-history-yyyymmdd">REVISION HISTORY  (YYYYMMDD)</h3>
-<p>19811102  DATE WRITTEN
- 19820126  Fixed bug in tests of work space lengths;
-           minor corrections in main prologue and comments.
- 19870330  Major update: corrected comments throughout;
-           removed TRET from Common; rewrote EWSET with 4 loops;
-           fixed t test in INTDY; added Cray directives in STODA;
-           in STODA, fixed DELP init. and logic around PJAC call;
-           combined routines to save/restore Common;
-           passed LEVEL = 0 in error message calls (except run abort).
- 19970225  Fixed lines setting JSTART = -2 in Subroutine LSODA.
- 20010425  Major update: convert source lines to upper case;
-           added *DECK lines; changed from 1 to * in dummy dimensions;
-           changed names R1MACH/D1MACH to RUMACH/DUMACH;
-           renamed routines for uniqueness across single/double prec.;
-           converted intrinsic names to generic form;
-           removed ILLIN and NTREP (data loaded) from Common;
-           removed all &lsquo;own&rsquo; variables from Common;
-           changed error messages to quoted strings;
-           replaced XERRWV/XERRWD with 1993 revised version;
-           converted prologues, comments, error messages to mixed case;
-           numerous corrections to prologues and internal comments.
- 20010507  Converted single precision source to double precision.
- 20010613  Revised excess accuracy test (to match rest of ODEPACK).
- 20010808  Fixed bug in DPRJA (matrix in DBNORM call).
- 20020502  Corrected declarations in descriptions of user routines.
- 20031105  Restored &lsquo;own&rsquo; variables to Common blocks, to enable
-           interrupt/restart feature.
- 20031112  Added SAVE statements for data-loaded constants.</p>
-<hr>
-<p>Other routines in the DLSODA package.</p>
-<p>In addition to Subroutine DLSODA, the DLSODA package includes the
- following subroutines and function routines:
-  DINTDY   computes an interpolated value of the y vector at t = TOUT.
-  DSTODA   is the core integrator, which does one step of the
-           integration and the associated error control.
-  DCFODE   sets all method coefficients and test constants.
-  DPRJA    computes and preprocesses the Jacobian matrix J = df/dy
-           and the Newton iteration matrix P = I - h<em>l0</em>J.
-  DSOLSY   manages solution of linear system in chord iteration.
-  DEWSET   sets the error weight vector EWT before each step.
-  DMNORM   computes the weighted max-norm of a vector.
-  DFNORM   computes the norm of a full matrix consistent with the
-           weighted max-norm on vectors.
-  DBNORM   computes the norm of a band matrix consistent with the
-           weighted max-norm on vectors.
-  DSRCMA   is a user-callable routine to save and restore
-           the contents of the internal Common blocks.
-  DGEFA and DGESL   are routines from LINPACK for solving full
-           systems of linear algebraic equations.
-  DGBFA and DGBSL   are routines from LINPACK for solving banded
-           linear systems.
-  DUMACH   computes the unit roundoff in a machine-independent manner.
-  XERRWD, XSETUN, XSETF, and IXSAV  handle the printing of all
-           error messages and warnings.  XERRWD is machine-dependent.
- Note:  DMNORM, DFNORM, DBNORM, DUMACH, and IXSAV are
+<h3 id="authors">Authors:</h3>
+<div class="codehilite"><pre><span></span><code>    Alan C. Hindmarsh
+    Center for Applied Scientific Computing, L-561
+    Lawrence Livermore National Laboratory
+    Livermore, CA 94551
+</code></pre></div>
+
+<p>and</p>
+<div class="codehilite"><pre><span></span><code>    Linda R. Petzold
+    Univ. of California at Santa Barbara
+    Dept. of Computer Science
+    Santa Barbara, CA 93106
+</code></pre></div>
+
+<h3 id="references">References:</h3>
+<ol>
+<li>Alan C. Hindmarsh,  ODEPACK, A Systematized Collection of ODE
+     Solvers, in Scientific Computing, R. S. Stepleman et al. (Eds.),
+     North-Holland, Amsterdam, 1983, pp. 55-64.</li>
+<li>Linda R. Petzold, Automatic Selection of Methods for Solving
+     Stiff and Nonstiff Systems of Ordinary Differential Equations,
+     Siam J. Sci. Stat. Comput. 4 (1983), pp. 136-148.</li>
+</ol>
+<h4 id="other-routines-in-the-dlsoda-package">Other routines in the <em>DLSODA</em> package.</h4>
+<p>In addition to Subroutine <em>DLSODA</em>, the <em>DLSODA</em> package includes the
+ following subroutines and function routines:</p>
+<dl>
+<dt>DINTDY</dt>
+<dd>
+<p>computes an interpolated value of the y vector at t = TOUT.</p>
+</dd>
+<dt>DSTODA</dt>
+<dd>
+<p>is the core integrator, which does one step of the
+  integration and the associated error control.</p>
+</dd>
+<dt>DCFODE</dt>
+<dd>
+<p>sets all method coefficients and test constants.</p>
+</dd>
+<dt>DPRJA</dt>
+<dd>
+<p>computes and preprocesses the Jacobian matrix J = df/dy
+  and the Newton iteration matrix P = I - h<em>l0</em>J.</p>
+</dd>
+<dt>DSOLSY</dt>
+<dd>
+<p>manages solution of linear system in chord iteration.</p>
+</dd>
+<dt>DEWSET</dt>
+<dd>
+<p>sets the error weight vector EWT before each step.</p>
+</dd>
+<dt>DMNORM</dt>
+<dd>
+<p>computes the weighted max-norm of a vector.</p>
+</dd>
+<dt>DFNORM</dt>
+<dd>
+<p>computes the norm of a full matrix consistent with the
+  weighted max-norm on vectors.</p>
+</dd>
+<dt>DBNORM</dt>
+<dd>
+<p>computes the norm of a band matrix consistent with the
+  weighted max-norm on vectors.</p>
+</dd>
+<dt>DSRCMA</dt>
+<dd>
+<p>is a user-callable routine to save and restore
+  the contents of the internal Common blocks.</p>
+</dd>
+<dt>DGEFA and DGESL</dt>
+<dd>
+<p>are routines from LINPACK for solving full
+  systems of linear algebraic equations.</p>
+</dd>
+<dt>DGBFA and DGBSL</dt>
+<dd>
+<p>are routines from LINPACK for solving banded
+  linear systems.</p>
+</dd>
+<dt>DUMACH</dt>
+<dd>
+<p>computes the unit roundoff in a machine-independent manner.</p>
+</dd>
+<dt>XERRWD, XSETUN, XSETF, and IXSAV</dt>
+<dd>
+<p>handle the printing of all
+   error messages and warnings.  XERRWD is machine-dependent.</p>
+</dd>
+</dl>
+<p><em>Note</em>:  <em>DMNORM</em>, <em>DFNORM</em>, <em>DBNORM</em>, <em>DUMACH</em>, and <em>IXSAV</em> are
  function routines.  All the others are subroutines.</p>
 <hr>
 
@@ -1057,16 +2087,16 @@
   <td><strong>f</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-neq~11"></span>integer,</td>
+  <td><span class="anchor" id="variable-neq~11"></span>integer</td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Neq</strong></td><td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Neq</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-y~11"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-y~11"></span>real(kind=dp)</td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Y</strong></td><td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Y</strong>(*)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-t~5"></span>real(kind=dp),</td>
@@ -1087,16 +2117,16 @@
   <td><strong>Itol</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-rtol~2"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-rtol~2"></span>real(kind=dp)</td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Rtol</strong></td><td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Rtol</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-atol~3"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-atol~3"></span>real(kind=dp)</td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Atol</strong></td><td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Atol</strong>(*)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-itask"></span>integer</td>
@@ -1118,9 +2148,9 @@
 </tr>
 <tr>
   <td><span class="anchor" id="variable-rwork~3"></span>real(kind=dp),</td>
-<td>intent(inout),</td>
-  <td></td>  <td>dimension(Lrw)</td><td>::</td>
-  <td><strong>Rwork</strong></td><td></td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Rwork</strong>(Lrw)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-lrw"></span>integer</td>
@@ -1130,9 +2160,9 @@
 </tr>
 <tr>
   <td><span class="anchor" id="variable-iwork"></span>integer,</td>
-<td>intent(inout),</td>
-  <td></td>  <td>dimension(Liw)</td><td>::</td>
-  <td><strong>Iwork</strong></td><td></td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Iwork</strong>(Liw)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-liw"></span>integer</td>
@@ -1167,133 +2197,133 @@
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~dlsoda~~CallsGraph Pages: 1 -->
-<svg id="procdlsodaCallsGraph" width="248pt" height="234pt"
- viewBox="0.00 0.00 248.00 234.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~dlsoda~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 230)">
+<svg id="procdlsodaCallsGraph" width="248pt" height="216pt"
+ viewBox="0.00 0.00 248.00 216.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dlsoda~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 212)">
 <title>proc~~dlsoda~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-230 244,-230 244,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-212 244,-212 244,4 -4,4"/>
 <!-- proc~dlsoda -->
 <g id="proc~~dlsoda~~CallsGraph_node1" class="node">
 <title>proc~dlsoda</title>
-<polygon fill="none" stroke="black" points="54,-124 0,-124 0,-100 54,-100 54,-124"/>
-<text text-anchor="middle" x="27" y="-109.6" font-family="Helvetica,sans-Serif" font-size="10.50">dlsoda</text>
-</g>
-<!-- proc~dstoda -->
-<g id="proc~~dlsoda~~CallsGraph_node2" class="node">
-<title>proc~dstoda</title>
-<g id="a_proc~~dlsoda~~CallsGraph_node2"><a xlink:href=".././proc/dstoda.html" xlink:title="dstoda">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-226 91,-226 91,-202 145,-202 145,-226"/>
-<text text-anchor="middle" x="118" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstoda</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsoda&#45;&gt;proc~dstoda -->
-<g id="proc~~dlsoda~~CallsGraph_edge1" class="edge">
-<title>proc~dlsoda&#45;&gt;proc~dstoda</title>
-<path fill="none" stroke="#000000" d="M35.76,-124.02C46.73,-140.55 67.92,-170.75 90,-193 90.77,-193.78 91.58,-194.56 92.4,-195.33"/>
-<polygon fill="#000000" stroke="#000000" points="90.29,-198.13 100.16,-201.98 94.85,-192.81 90.29,-198.13"/>
-</g>
-<!-- proc~dumach -->
-<g id="proc~~dlsoda~~CallsGraph_node3" class="node">
-<title>proc~dumach</title>
-<g id="a_proc~~dlsoda~~CallsGraph_node3"><a xlink:href=".././proc/dumach.html" xlink:title="dumach">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-184 90,-184 90,-160 146,-160 146,-184"/>
-<text text-anchor="middle" x="118" y="-169.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsoda&#45;&gt;proc~dumach -->
-<g id="proc~~dlsoda~~CallsGraph_edge2" class="edge">
-<title>proc~dlsoda&#45;&gt;proc~dumach</title>
-<path fill="none" stroke="#000000" d="M46.01,-124.14C58.8,-132.76 76.17,-144.48 90.53,-154.16"/>
-<polygon fill="#000000" stroke="#000000" points="88.77,-157.19 99.02,-159.88 92.68,-151.38 88.77,-157.19"/>
-</g>
-<!-- proc~dintdy -->
-<g id="proc~~dlsoda~~CallsGraph_node4" class="node">
-<title>proc~dintdy</title>
-<g id="a_proc~~dlsoda~~CallsGraph_node4"><a xlink:href=".././proc/dintdy.html" xlink:title="dintdy">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-104 91,-104 91,-80 145,-80 145,-104"/>
-<text text-anchor="middle" x="118" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsoda&#45;&gt;proc~dintdy -->
-<g id="proc~~dlsoda~~CallsGraph_edge3" class="edge">
-<title>proc~dlsoda&#45;&gt;proc~dintdy</title>
-<path fill="none" stroke="#000000" d="M54.22,-106.11C62.64,-104.22 72.12,-102.09 81.11,-100.07"/>
-<polygon fill="#000000" stroke="#000000" points="81.98,-103.46 90.97,-97.85 80.44,-96.63 81.98,-103.46"/>
-</g>
-<!-- proc~xerrwd -->
-<g id="proc~~dlsoda~~CallsGraph_node5" class="node">
-<title>proc~xerrwd</title>
-<g id="a_proc~~dlsoda~~CallsGraph_node5"><a xlink:href=".././proc/xerrwd.html" xlink:title="xerrwd">
-<polygon fill="#d9534f" stroke="#d9534f" points="238,-84 184,-84 184,-60 238,-60 238,-84"/>
-<text text-anchor="middle" x="211" y="-69.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsoda&#45;&gt;proc~xerrwd -->
-<g id="proc~~dlsoda~~CallsGraph_edge4" class="edge">
-<title>proc~dlsoda&#45;&gt;proc~xerrwd</title>
-<path fill="none" stroke="#000000" d="M41.08,-100C52.88,-90.04 71.22,-76.65 90,-71 117.11,-62.85 149.25,-63.63 173.45,-66.16"/>
-<polygon fill="#000000" stroke="#000000" points="173.28,-69.67 183.62,-67.38 174.11,-62.72 173.28,-69.67"/>
+<polygon fill="none" stroke="black" points="54,-126 0,-126 0,-102 54,-102 54,-126"/>
+<text text-anchor="middle" x="27" y="-111.6" font-family="Helvetica,sans-Serif" font-size="10.50">dlsoda</text>
 </g>
 <!-- proc~dmnorm -->
-<g id="proc~~dlsoda~~CallsGraph_node6" class="node">
+<g id="proc~~dlsoda~~CallsGraph_node2" class="node">
 <title>proc~dmnorm</title>
-<g id="a_proc~~dlsoda~~CallsGraph_node6"><a xlink:href=".././proc/dmnorm.html" xlink:title="dmnorm">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="240,-164 182,-164 182,-140 240,-140 240,-164"/>
-<text text-anchor="middle" x="211" y="-149.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dmnorm</text>
+<g id="a_proc~~dlsoda~~CallsGraph_node2"><a xlink:href=".././proc/dmnorm.html" xlink:title="dmnorm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="240,-106 182,-106 182,-82 240,-82 240,-106"/>
+<text text-anchor="middle" x="211" y="-91.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dmnorm</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsoda&#45;&gt;proc~dmnorm -->
-<g id="proc~~dlsoda~~CallsGraph_edge5" class="edge">
+<g id="proc~~dlsoda~~CallsGraph_edge1" class="edge">
 <title>proc~dlsoda&#45;&gt;proc~dmnorm</title>
-<path fill="none" stroke="#000000" d="M54.08,-117.73C84.94,-124.51 136.59,-135.87 171.93,-143.63"/>
-<polygon fill="#000000" stroke="#000000" points="171.36,-147.09 181.88,-145.82 172.86,-140.25 171.36,-147.09"/>
+<path fill="none" stroke="#000000" d="M54.08,-111.13C84.94,-107.74 136.59,-102.07 171.93,-98.18"/>
+<polygon fill="#000000" stroke="#000000" points="172.32,-101.66 181.88,-97.09 171.56,-94.7 172.32,-101.66"/>
+</g>
+<!-- proc~xerrwd -->
+<g id="proc~~dlsoda~~CallsGraph_node3" class="node">
+<title>proc~xerrwd</title>
+<g id="a_proc~~dlsoda~~CallsGraph_node3"><a xlink:href=".././proc/xerrwd.html" xlink:title="xerrwd">
+<polygon fill="#d9534f" stroke="#d9534f" points="238,-208 184,-208 184,-184 238,-184 238,-208"/>
+<text text-anchor="middle" x="211" y="-193.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoda&#45;&gt;proc~xerrwd -->
+<g id="proc~~dlsoda~~CallsGraph_edge2" class="edge">
+<title>proc~dlsoda&#45;&gt;proc~xerrwd</title>
+<path fill="none" stroke="#000000" d="M32.8,-126.17C41.12,-145.38 60.25,-182.09 90,-197 115.75,-209.91 148.68,-208.58 173.53,-204.63"/>
+<polygon fill="#000000" stroke="#000000" points="174.42,-208.03 183.65,-202.81 173.18,-201.14 174.42,-208.03"/>
 </g>
 <!-- proc~dewset -->
-<g id="proc~~dlsoda~~CallsGraph_node7" class="node">
+<g id="proc~~dlsoda~~CallsGraph_node4" class="node">
 <title>proc~dewset</title>
-<g id="a_proc~~dlsoda~~CallsGraph_node7"><a xlink:href=".././proc/dewset.html" xlink:title="dewset">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-24 91,-24 91,0 145,0 145,-24"/>
-<text text-anchor="middle" x="118" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
+<g id="a_proc~~dlsoda~~CallsGraph_node4"><a xlink:href=".././proc/dewset.html" xlink:title="dewset">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-146 91,-146 91,-122 145,-122 145,-146"/>
+<text text-anchor="middle" x="118" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsoda&#45;&gt;proc~dewset -->
-<g id="proc~~dlsoda~~CallsGraph_edge6" class="edge">
+<g id="proc~~dlsoda~~CallsGraph_edge3" class="edge">
 <title>proc~dlsoda&#45;&gt;proc~dewset</title>
-<path fill="none" stroke="#000000" d="M37.5,-99.87C49.35,-84.93 70.45,-58.95 90,-38 92.04,-35.81 94.22,-33.58 96.42,-31.37"/>
-<polygon fill="#000000" stroke="#000000" points="99.1,-33.65 103.81,-24.16 94.21,-28.64 99.1,-33.65"/>
+<path fill="none" stroke="#000000" d="M54.22,-119.89C62.64,-121.78 72.12,-123.91 81.11,-125.93"/>
+<polygon fill="#000000" stroke="#000000" points="80.44,-129.37 90.97,-128.15 81.98,-122.54 80.44,-129.37"/>
+</g>
+<!-- proc~dintdy -->
+<g id="proc~~dlsoda~~CallsGraph_node5" class="node">
+<title>proc~dintdy</title>
+<g id="a_proc~~dlsoda~~CallsGraph_node5"><a xlink:href=".././proc/dintdy.html" xlink:title="dintdy">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-188 91,-188 91,-164 145,-164 145,-188"/>
+<text text-anchor="middle" x="118" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoda&#45;&gt;proc~dintdy -->
+<g id="proc~~dlsoda~~CallsGraph_edge4" class="edge">
+<title>proc~dlsoda&#45;&gt;proc~dintdy</title>
+<path fill="none" stroke="#000000" d="M45.58,-126.25C58.59,-135.31 76.51,-147.79 91.14,-157.99"/>
+<polygon fill="#000000" stroke="#000000" points="89.55,-161.14 99.76,-163.99 93.55,-155.4 89.55,-161.14"/>
+</g>
+<!-- proc~dstoda -->
+<g id="proc~~dlsoda~~CallsGraph_node6" class="node">
+<title>proc~dstoda</title>
+<g id="a_proc~~dlsoda~~CallsGraph_node6"><a xlink:href=".././proc/dstoda.html" xlink:title="dstoda">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-66 91,-66 91,-42 145,-42 145,-66"/>
+<text text-anchor="middle" x="118" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstoda</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoda&#45;&gt;proc~dstoda -->
+<g id="proc~~dlsoda~~CallsGraph_edge5" class="edge">
+<title>proc~dlsoda&#45;&gt;proc~dstoda</title>
+<path fill="none" stroke="#000000" d="M46.01,-101.86C58.8,-93.24 76.17,-81.52 90.53,-71.84"/>
+<polygon fill="#000000" stroke="#000000" points="92.68,-74.62 99.02,-66.12 88.77,-68.81 92.68,-74.62"/>
+</g>
+<!-- proc~dumach -->
+<g id="proc~~dlsoda~~CallsGraph_node7" class="node">
+<title>proc~dumach</title>
+<g id="a_proc~~dlsoda~~CallsGraph_node7"><a xlink:href=".././proc/dumach.html" xlink:title="dumach">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 90,-24 90,0 146,0 146,-24"/>
+<text text-anchor="middle" x="118" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoda&#45;&gt;proc~dumach -->
+<g id="proc~~dlsoda~~CallsGraph_edge6" class="edge">
+<title>proc~dlsoda&#45;&gt;proc~dumach</title>
+<path fill="none" stroke="#000000" d="M35.76,-101.98C46.73,-85.45 67.92,-55.25 90,-33 90.77,-32.22 91.58,-31.44 92.4,-30.67"/>
+<polygon fill="#000000" stroke="#000000" points="94.85,-33.19 100.16,-24.02 90.29,-27.87 94.85,-33.19"/>
+</g>
+<!-- proc~dintdy&#45;&gt;proc~xerrwd -->
+<g id="proc~~dlsoda~~CallsGraph_edge7" class="edge">
+<title>proc~dintdy&#45;&gt;proc~xerrwd</title>
+<path fill="none" stroke="#000000" d="M145.32,-181.78C154.19,-183.73 164.24,-185.94 173.74,-188.03"/>
+<polygon fill="#000000" stroke="#000000" points="173.22,-191.5 183.74,-190.23 174.72,-184.66 173.22,-191.5"/>
 </g>
 <!-- proc~dstoda&#45;&gt;proc~dmnorm -->
 <g id="proc~~dlsoda~~CallsGraph_edge8" class="edge">
 <title>proc~dstoda&#45;&gt;proc~dmnorm</title>
-<path fill="none" stroke="#000000" d="M136.98,-201.75C150.4,-192.61 168.94,-179.97 183.98,-169.73"/>
-<polygon fill="#000000" stroke="#000000" points="186.07,-172.54 192.37,-164.01 182.13,-166.75 186.07,-172.54"/>
+<path fill="none" stroke="#000000" d="M145.32,-65.57C153.97,-69.37 163.75,-73.67 173.04,-77.75"/>
+<polygon fill="#000000" stroke="#000000" points="171.91,-81.08 182.47,-81.9 174.73,-74.67 171.91,-81.08"/>
 </g>
 <!-- proc~dcfode -->
 <g id="proc~~dlsoda~~CallsGraph_node8" class="node">
 <title>proc~dcfode</title>
 <g id="a_proc~~dlsoda~~CallsGraph_node8"><a xlink:href=".././proc/dcfode.html" xlink:title="dcfode">
-<polygon fill="#d9534f" stroke="#d9534f" points="238,-226 184,-226 184,-202 238,-202 238,-226"/>
-<text text-anchor="middle" x="211" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="238,-64 184,-64 184,-40 238,-40 238,-64"/>
+<text text-anchor="middle" x="211" y="-49.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
 </a>
 </g>
 </g>
 <!-- proc~dstoda&#45;&gt;proc~dcfode -->
-<g id="proc~~dlsoda~~CallsGraph_edge7" class="edge">
-<title>proc~dstoda&#45;&gt;proc~dcfode</title>
-<path fill="none" stroke="#000000" d="M145.32,-214C154.19,-214 164.24,-214 173.74,-214"/>
-<polygon fill="#000000" stroke="#000000" points="173.74,-217.5 183.74,-214 173.74,-210.5 173.74,-217.5"/>
-</g>
-<!-- proc~dintdy&#45;&gt;proc~xerrwd -->
 <g id="proc~~dlsoda~~CallsGraph_edge9" class="edge">
-<title>proc~dintdy&#45;&gt;proc~xerrwd</title>
-<path fill="none" stroke="#000000" d="M145.32,-86.22C154.19,-84.27 164.24,-82.06 173.74,-79.97"/>
-<polygon fill="#000000" stroke="#000000" points="174.72,-83.34 183.74,-77.77 173.22,-76.5 174.72,-83.34"/>
+<title>proc~dstoda&#45;&gt;proc~dcfode</title>
+<path fill="none" stroke="#000000" d="M145.32,-53.42C154.19,-53.23 164.24,-53.01 173.74,-52.8"/>
+<polygon fill="#000000" stroke="#000000" points="173.82,-56.3 183.74,-52.58 173.66,-49.3 173.82,-56.3"/>
 </g>
 </g>
 </svg>
@@ -1393,7 +2423,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-03 03:45            </p>
+ on 2022-02-03 13:33            </p>
         </div>
       </div>
       <br>
