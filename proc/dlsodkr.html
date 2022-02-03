@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content="ODE solvers">
+    <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>dlsodkr &ndash; odepack</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">odepack </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+     aria-expanded="false">Contents <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="../sourcefile/m_odepack.f90.html">Source File</a></li>
+            <li><a href="../lists/modules.html">Modules</a></li>
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+              
+            </ul>
+        
+            </li>
+<li class="visible-xs hidden-sm visible-lg"><a href="../sourcefile/m_odepack.f90.html">Source File</a></li>
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+                                       </ul>
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+  <div class="row">
+    <h1>dlsodkr
+      <small>Subroutine</small>
+    </h1>
+    <div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+    data-placement="bottom" data-html="true"
+    title=" 6.2% of total for procedures.">640 statements</a>
+     </li> 
+    <li><i class="fa fa-code"></i><a href="../src/M_odepack.f90"> Source File</a></li>
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+     <li><a href='../sourcefile/m_odepack.f90.html'>M_odepack.f90</a></li>
+     <li><a href='../module/m_odepack.html'>M_odepack</a></li>
+     <li class="active">dlsodkr</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    <div id="sidebar">
+  <h3>Contents</h3>
+ 
+<em>None</em>
+
+</div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>public subroutine dlsodkr(f, Neq, Y, T, Tout, Itol, Rtol, Atol, Itask, Istate, Iopt, Rwork, Lrw, Iwork, Liw, jac, psol, Mf, g, Ng, Jroot)</h2>
+    
+
+    <h2 id="deck-dlsodkr">*DECK DLSODKR</h2>
+<p>This is the 18 November 2003 version of
+ DLSODKR: Livermore Solver for Ordinary Differential equations,
+          with preconditioned Krylov iteration methods for the
+          Newton correction linear systems, and with Rootfinding.</p>
+<p>This version is in double precision.</p>
+<p>DLSODKR solves the initial value problem for stiff or nonstiff
+ systems of first order ODEs,
+     dy/dt = f(t,y),  or, in component form,
+     dy(i)/dt = f(i) = f(i,t,y(1),y(2),&hellip;,y(NEQ)) (i = 1,&hellip;,NEQ).
+ At the same time, it locates the roots of any of a set of functions
+     g(i) = g(i,t,y(1),&hellip;,y(NEQ))  (i = 1,&hellip;,ng).</p>
+<hr>
+<p>Introduction.</p>
+<p>This is a modification of the DLSODE package, and differs from it
+ in five ways:
+ (a) It uses various preconditioned Krylov subspace iteration methods
+ for the linear algebraic systems that arise in the case of stiff
+ systems.  See the introductory notes below.
+ (b) It does automatic switching between functional (fixpoint)
+ iteration and Newton iteration in the corrector iteration.
+ (c) It finds the root of at least one of a set of constraint
+ functions g(i) of the independent and dependent variables.
+ It finds only those roots for which some g(i), as a function
+ of t, changes sign in the interval of integration.
+ It then returns the solution at the root, if that occurs
+ sooner than the specified stop condition, and otherwise returns
+ the solution according the specified stop condition.
+ (d) It supplies to JAC an input flag, JOK, which indicates whether
+ JAC may (optionally) bypass the evaluation of Jacobian matrix data
+ and instead process saved data (with the current value of scalar hl0).
+ (e) It contains a new subroutine that calculates the initial step
+ size to be attempted.</p>
+<p>Introduction to the Krylov methods in DLSODKR:</p>
+<p>The linear systems that must be solved have the form
+   A * x  = b,  where  A = identity - hl0 * (df/dy) .
+ Here hl0 is a scalar, and df/dy is the Jacobian matrix of partial
+ derivatives of f (NEQ by NEQ).</p>
+<p>The particular Krylov method is chosen by setting the second digit,
+ MITER, in the method flag MF.
+ Currently, the values of MITER have the following meanings:</p>
+<p>MITER = 1 means the Scaled Preconditioned Incomplete
+            Orthogonalization Method (SPIOM).</p>
+<div class="codehilite"><pre><span></span><code>      <span class="mi">2</span> <span class="nv">means</span> <span class="nv">an</span> <span class="nv">incomplete</span> <span class="nv">version</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">preconditioned</span> <span class="nv">scaled</span>
+        <span class="nv">Generalized</span> <span class="nv">Minimal</span> <span class="nv">Residual</span> <span class="nv">method</span> <span class="ss">(</span><span class="nv">SPIGMR</span><span class="ss">)</span>.
+        <span class="nv">This</span> <span class="nv">is</span> <span class="nv">the</span> <span class="nv">best</span> <span class="nv">choice</span> <span class="nv">in</span> <span class="nv">general</span>.
+
+      <span class="mi">3</span> <span class="nv">means</span> <span class="nv">the</span> <span class="nv">Preconditioned</span> <span class="nv">Conjugate</span> <span class="nv">Gradient</span> <span class="nv">method</span> <span class="ss">(</span><span class="nv">PCG</span><span class="ss">)</span>.
+        <span class="nv">Recommended</span> <span class="nv">only</span> <span class="nv">when</span> <span class="nv">df</span><span class="o">/</span><span class="nv">dy</span> <span class="nv">is</span> <span class="nv">symmetric</span> <span class="nv">or</span> <span class="nv">nearly</span> <span class="nv">so</span>.
+
+      <span class="mi">4</span> <span class="nv">means</span> <span class="nv">the</span> <span class="nv">scaled</span> <span class="nv">Preconditioned</span> <span class="nv">Conjugate</span> <span class="nv">Gradient</span> <span class="nv">method</span>
+        <span class="ss">(</span><span class="nv">PCGS</span><span class="ss">)</span>.  <span class="nv">Recommended</span> <span class="nv">only</span> <span class="nv">when</span> <span class="nv">D</span><span class="o">-</span><span class="nv">inverse</span> <span class="o">*</span> <span class="nv">df</span><span class="o">/</span><span class="nv">dy</span> <span class="o">*</span> <span class="nv">D</span> <span class="nv">is</span>
+        <span class="nv">symmetric</span> <span class="nv">or</span> <span class="nv">nearly</span> <span class="nv">so</span>, <span class="nv">where</span> <span class="nv">D</span> <span class="nv">is</span> <span class="nv">the</span> <span class="nv">diagonal</span> <span class="nv">scaling</span>
+        <span class="nv">matrix</span> <span class="nv">with</span> <span class="nv">elements</span> <span class="mi">1</span><span class="o">/</span><span class="nv">EWT</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span> <span class="ss">(</span><span class="nv">see</span> <span class="nv">RTOL</span><span class="o">/</span><span class="nv">ATOL</span> <span class="nv">description</span><span class="ss">)</span>.
+
+      <span class="mi">9</span> <span class="nv">means</span> <span class="nv">that</span> <span class="nv">only</span> <span class="nv">a</span> <span class="nv">user</span><span class="o">-</span><span class="nv">supplied</span> <span class="nv">matrix</span> <span class="nv">P</span> <span class="ss">(</span><span class="nv">approximating</span> <span class="nv">A</span><span class="ss">)</span>
+        <span class="nv">will</span> <span class="nv">be</span> <span class="nv">used</span>, <span class="nv">with</span> <span class="nv">no</span> <span class="nv">Krylov</span> <span class="nv">iteration</span> <span class="nv">done</span>.  <span class="nv">This</span> <span class="nv">option</span>
+        <span class="nv">allows</span> <span class="nv">the</span> <span class="nv">user</span> <span class="nv">to</span> <span class="nv">provide</span> <span class="nv">the</span> <span class="nv">complete</span> <span class="nv">linear</span> <span class="nv">system</span>
+        <span class="nv">solution</span> <span class="nv">algorithm</span>, <span class="k">if</span> <span class="nv">desired</span>.
+</code></pre></div>
+
+<p>The user can apply preconditioning to the linear system A<em>x = b,
+ by means of arbitrary matrices (the preconditioners).
+     In the case of SPIOM and SPIGMR, one can apply left and right
+ preconditioners P1 and P2, and the basic iterative method is then
+ applied to the matrix (P1-inverse)</em>A<em>(P2-inverse) instead of to the
+ matrix A.  The product P1</em>P2 should be an approximation to matrix A
+ such that linear systems with P1 or P2 are easier to solve than with
+ A.  Preconditioning from the left only or right only means using
+ P2 = identity or P1 = identity, respectively.
+     In the case of the PCG and PCGS methods, there is only one
+ preconditioner matrix P (but it can be the product of more than one).
+ It should approximate the matrix A but allow for relatively
+ easy solution of linear systems with coefficient matrix P.
+ For PCG, P should be positive definite symmetric, or nearly so,
+ and for PCGS, the scaled preconditioner D-inverse * P * D
+ should be symmetric or nearly so.
+     If the Jacobian J = df/dy splits in a natural way into a sum
+ J = J1 + J2, then one possible choice of preconditioners is
+     P1 = identity - hl0 * J1  and  P2 = identity - hl0 * J2
+ provided each of these is easy to solve (or approximately solve).</p>
+<hr>
+<p>References:
+ 1.  Peter N. Brown and Alan C. Hindmarsh, Reduced Storage Matrix
+     Methods in Stiff ODE Systems, J. Appl. Math. &amp; Comp., 31 (1989),
+     pp. 40-91; also  L.L.N.L. Report UCRL-95088, Rev. 1, June 1987.
+ 2.  Alan C. Hindmarsh,  ODEPACK, A Systematized Collection of ODE
+     Solvers, in Scientific Computing, R. S. Stepleman et al. (Eds.),
+     North-Holland, Amsterdam, 1983, pp. 55-64.</p>
+<hr>
+<p>Authors:       Alan C. Hindmarsh and Peter N. Brown
+                Center for Applied Scientific Computing, L-561
+                Lawrence Livermore National Laboratory
+                Livermore, CA 94551</p>
+<hr>
+<p>Summary of Usage.</p>
+<p>Communication between the user and the DLSODKR package, for normal
+ situations, is summarized here.  This summary describes only a subset
+ of the full set of options available.  See the full description for
+ details, including optional communication, nonstandard options,
+ and instructions for special situations.  See also the demonstration
+ program distributed with this solver.</p>
+<p>A. First provide a subroutine of the form:
+               SUBROUTINE F (NEQ, T, Y, YDOT)
+               DOUBLE PRECISION T, Y(<em>), YDOT(</em>)
+ which supplies the vector function f by loading YDOT(i) with f(i).</p>
+<p>B. Provide a subroutine of the form:
+               SUBROUTINE G (NEQ, T, Y, NG, GOUT)
+               DOUBLE PRECISION T, Y(*), GOUT(NG)
+ which supplies the vector function g by loading GOUT(i) with
+ g(i), the i-th constraint function whose root is sought.</p>
+<p>C. Next determine (or guess) whether or not the problem is stiff.
+ Stiffness occurs when the Jacobian matrix df/dy has an eigenvalue
+ whose real part is negative and large in magnitude, compared to the
+ reciprocal of the t span of interest.  If the problem is nonstiff,
+ use a method flag MF = 10.  If it is stiff, MF should be between 21
+ and 24, or possibly 29.  MF = 22 is generally the best choice.
+ Use 23 or 24 only if symmetry is present.  Use MF = 29 if the
+ complete linear system solution is to be provided by the user.
+ The following four parameters must also be set.
+  IWORK(1) = LWP  = length of real array WP for preconditioning.
+  IWORK(2) = LIWP = length of integer array IWP for preconditioning.
+  IWORK(3) = JPRE = preconditioner type flag:
+                  = 0 for no preconditioning (P1 = P2 = P = identity)
+                  = 1 for left-only preconditioning (P2 = identity)
+                  = 2 for right-only preconditioning (P1 = identity)
+                  = 3 for two-sided preconditioning (and PCG or PCGS)
+  IWORK(4) = JACFLG = flag for whether JAC is called.
+                    = 0 if JAC is not to be called,
+                    = 1 if JAC is to be called.
+  Use JACFLG = 1 if JAC computes any nonconstant data for use in
+  preconditioning, such as Jacobian elements.
+  The arrays WP and IWP are work arrays under the user&rsquo;s control,
+  for use in the routines that perform preconditioning operations.</p>
+<p>D. If the problem is stiff, you must supply two routines that deal
+ with the preconditioning of the linear systems to be solved.
+ These are as follows:</p>
+<div class="codehilite"><pre><span></span><code> <span class="nv">SUBROUTINE</span> <span class="nv">JAC</span> <span class="ss">(</span><span class="nv">F</span>, <span class="nv">NEQ</span>, <span class="nv">T</span>, <span class="nv">Y</span>, <span class="nv">YSV</span>, <span class="nv">REWT</span>, <span class="nv">FTY</span>,<span class="nv">V</span>,<span class="nv">HL0</span>,<span class="nv">JOK</span>,<span class="nv">WP</span>,<span class="nv">IWP</span>,<span class="nv">IER</span><span class="ss">)</span>
+ <span class="nv">DOUBLE</span> <span class="nv">PRECISION</span> <span class="nv">T</span>, <span class="nv">Y</span><span class="ss">(</span><span class="o">*</span><span class="ss">)</span>, <span class="nv">YSV</span><span class="ss">(</span><span class="o">*</span><span class="ss">)</span>, <span class="nv">REWT</span><span class="ss">(</span><span class="o">*</span><span class="ss">)</span>, <span class="nv">FTY</span><span class="ss">(</span><span class="o">*</span><span class="ss">)</span>, <span class="nv">V</span><span class="ss">(</span><span class="o">*</span><span class="ss">)</span>, <span class="nv">HL0</span>,<span class="nv">WP</span><span class="ss">(</span><span class="o">*</span><span class="ss">)</span>
+ <span class="nv">INTEGER</span> <span class="nv">IWP</span><span class="ss">(</span><span class="o">*</span><span class="ss">)</span>
+    <span class="nv">This</span> <span class="nv">routine</span> <span class="nv">must</span> <span class="nv">evaluate</span> <span class="nv">and</span> <span class="nv">preprocess</span> <span class="nv">any</span> <span class="nv">parts</span> <span class="nv">of</span> <span class="nv">the</span>
+ <span class="nv">Jacobian</span> <span class="nv">matrix</span> <span class="nv">df</span><span class="o">/</span><span class="nv">dy</span> <span class="nv">involved</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">preconditioners</span> <span class="nv">P1</span>, <span class="nv">P2</span>, <span class="nv">P</span>.
+ <span class="nv">The</span> <span class="nv">Y</span> <span class="nv">and</span> <span class="nv">FTY</span> <span class="nv">arrays</span> <span class="nv">contain</span> <span class="nv">the</span> <span class="nv">current</span> <span class="nv">values</span> <span class="nv">of</span> <span class="nv">y</span> <span class="nv">and</span> <span class="nv">f</span><span class="ss">(</span><span class="nv">t</span>,<span class="nv">y</span><span class="ss">)</span>,
+ <span class="nv">respectively</span>, <span class="nv">and</span> <span class="nv">YSV</span> <span class="nv">also</span> <span class="nv">contains</span> <span class="nv">the</span> <span class="nv">current</span> <span class="nv">value</span> <span class="nv">of</span> <span class="nv">y</span>.
+ <span class="nv">The</span> <span class="nv">array</span> <span class="nv">V</span> <span class="nv">is</span> <span class="nv">work</span> <span class="nv">space</span> <span class="nv">of</span> <span class="nv">length</span> <span class="nv">NEQ</span>.
+ <span class="nv">JAC</span> <span class="nv">must</span> <span class="nv">multiply</span> <span class="nv">all</span> <span class="nv">computed</span> <span class="nv">Jacobian</span> <span class="nv">elements</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">scalar</span>
+ <span class="o">-</span><span class="nv">HL0</span>, <span class="nv">add</span> <span class="nv">the</span> <span class="nv">identity</span> <span class="nv">matrix</span>, <span class="nv">and</span> <span class="k">do</span> <span class="nv">any</span> <span class="nv">factorization</span>
+ <span class="nv">operations</span> <span class="nv">called</span> <span class="k">for</span>, <span class="nv">in</span> <span class="nv">preparation</span> <span class="k">for</span> <span class="nv">solving</span> <span class="nv">linear</span> <span class="nv">systems</span>
+ <span class="nv">with</span> <span class="nv">a</span> <span class="nv">coefficient</span> <span class="nv">matrix</span> <span class="nv">of</span> <span class="nv">P1</span>, <span class="nv">P2</span>, <span class="nv">or</span> <span class="nv">P</span>.  <span class="nv">The</span> <span class="nv">matrix</span> <span class="nv">P1</span><span class="o">*</span><span class="nv">P2</span> <span class="nv">or</span> <span class="nv">P</span>
+ <span class="nv">should</span> <span class="nv">be</span> <span class="nv">an</span> <span class="nv">approximation</span> <span class="nv">to</span>  <span class="nv">identity</span> <span class="o">-</span> <span class="nv">hl0</span> <span class="o">*</span> <span class="ss">(</span><span class="nv">df</span><span class="o">/</span><span class="nv">dy</span><span class="ss">)</span>.
+ <span class="nv">JAC</span> <span class="nv">should</span> <span class="k">return</span> <span class="nv">IER</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="nv">successful</span>, <span class="nv">and</span> <span class="nv">IER</span> .<span class="nv">ne</span>. <span class="mi">0</span> <span class="k">if</span> <span class="nv">not</span>.
+ <span class="ss">(</span><span class="k">If</span> <span class="nv">IER</span> .<span class="nv">ne</span>. <span class="mi">0</span>, <span class="nv">a</span> <span class="nv">smaller</span> <span class="nv">time</span> <span class="nv">step</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">tried</span>.<span class="ss">)</span>
+ <span class="nv">JAC</span> <span class="nv">may</span> <span class="nv">alter</span> <span class="nv">Y</span> <span class="nv">and</span> <span class="nv">V</span>, <span class="nv">but</span> <span class="nv">not</span> <span class="nv">YSV</span>, <span class="nv">REWT</span>, <span class="nv">FTY</span>, <span class="nv">or</span> <span class="nv">HL0</span>.
+ <span class="nv">The</span> <span class="nv">JOK</span> <span class="nv">argument</span> <span class="nv">can</span> <span class="nv">be</span> <span class="nv">ignored</span> <span class="ss">(</span><span class="nv">or</span> <span class="nv">see</span> <span class="nv">full</span> <span class="nv">description</span> <span class="nv">below</span><span class="ss">)</span>.
+
+ <span class="nv">SUBROUTINE</span> <span class="nv">PSOL</span> <span class="ss">(</span><span class="nv">NEQ</span>, <span class="nv">T</span>, <span class="nv">Y</span>, <span class="nv">FTY</span>, <span class="nv">WK</span>, <span class="nv">HL0</span>, <span class="nv">WP</span>, <span class="nv">IWP</span>, <span class="nv">B</span>, <span class="nv">LR</span>, <span class="nv">IER</span><span class="ss">)</span>
+ <span class="nv">DOUBLE</span> <span class="nv">PRECISION</span> <span class="nv">T</span>, <span class="nv">Y</span><span class="ss">(</span><span class="o">*</span><span class="ss">)</span>, <span class="nv">FTY</span><span class="ss">(</span><span class="o">*</span><span class="ss">)</span>, <span class="nv">WK</span><span class="ss">(</span><span class="o">*</span><span class="ss">)</span>, <span class="nv">HL0</span>, <span class="nv">WP</span><span class="ss">(</span><span class="o">*</span><span class="ss">)</span>, <span class="nv">B</span><span class="ss">(</span><span class="o">*</span><span class="ss">)</span>
+ <span class="nv">INTEGER</span> <span class="nv">IWP</span><span class="ss">(</span><span class="o">*</span><span class="ss">)</span>
+    <span class="nv">This</span> <span class="nv">routine</span> <span class="nv">must</span> <span class="nv">solve</span> <span class="nv">a</span> <span class="nv">linear</span> <span class="nv">system</span> <span class="nv">with</span> <span class="nv">B</span> <span class="nv">as</span> <span class="nv">right</span><span class="o">-</span><span class="nv">hand</span>
+ <span class="nv">side</span> <span class="nv">and</span> <span class="nv">one</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">preconditioning</span> <span class="nv">matrices</span>, <span class="nv">P1</span>, <span class="nv">P2</span>, <span class="nv">or</span> <span class="nv">P</span>, <span class="nv">as</span>
+ <span class="nv">coefficient</span> <span class="nv">matrix</span>, <span class="nv">and</span> <span class="k">return</span> <span class="nv">the</span> <span class="nv">solution</span> <span class="nv">vector</span> <span class="nv">in</span> <span class="nv">B</span>.
+ <span class="nv">LR</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">flag</span> <span class="nv">concerning</span> <span class="nv">left</span> <span class="nv">vs</span> <span class="nv">right</span> <span class="nv">preconditioning</span>, <span class="nv">input</span>
+ <span class="nv">to</span> <span class="nv">PSOL</span>.  <span class="nv">PSOL</span> <span class="nv">is</span> <span class="nv">to</span> <span class="nv">use</span> <span class="nv">P1</span> <span class="k">if</span> <span class="nv">LR</span> <span class="o">=</span> <span class="mi">1</span> <span class="nv">and</span> <span class="nv">P2</span> <span class="k">if</span> <span class="nv">LR</span> <span class="o">=</span> <span class="mi">2</span>.
+ <span class="nv">In</span> <span class="nv">the</span> <span class="nv">case</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">PCG</span> <span class="nv">or</span> <span class="nv">PCGS</span> <span class="nv">method</span>, <span class="nv">LR</span> <span class="nv">will</span> <span class="nv">be</span> <span class="mi">3</span>, <span class="nv">and</span> <span class="nv">PSOL</span>
+ <span class="nv">should</span> <span class="nv">solve</span> <span class="nv">the</span> <span class="nv">system</span> <span class="nv">P</span><span class="o">*</span><span class="nv">x</span> <span class="o">=</span> <span class="nv">B</span> <span class="nv">with</span> <span class="nv">the</span> <span class="nv">preconditioner</span> <span class="nv">matrix</span> <span class="nv">P</span>.
+ <span class="nv">In</span> <span class="nv">the</span> <span class="nv">case</span> <span class="nv">MF</span> <span class="o">=</span> <span class="mi">29</span> <span class="ss">(</span><span class="nv">no</span> <span class="nv">Krylov</span> <span class="nv">iteration</span><span class="ss">)</span>, <span class="nv">LR</span> <span class="nv">will</span> <span class="nv">be</span> <span class="mi">0</span>,
+ <span class="nv">and</span> <span class="nv">PSOL</span> <span class="nv">is</span> <span class="nv">to</span> <span class="k">return</span> <span class="nv">in</span> <span class="nv">B</span> <span class="nv">the</span> <span class="nv">desired</span> <span class="nv">approximate</span> <span class="nv">solution</span>
+ <span class="nv">to</span> <span class="nv">A</span> <span class="o">*</span> <span class="nv">x</span> <span class="o">=</span> <span class="nv">B</span>, <span class="nv">where</span> <span class="nv">A</span> <span class="o">=</span> <span class="nv">identity</span> <span class="o">-</span> <span class="nv">hl0</span> <span class="o">*</span> <span class="ss">(</span><span class="nv">df</span><span class="o">/</span><span class="nv">dy</span><span class="ss">)</span>.
+ <span class="nv">PSOL</span> <span class="nv">can</span> <span class="nv">use</span> <span class="nv">data</span> <span class="nv">generated</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">JAC</span> <span class="nv">routine</span> <span class="nv">and</span> <span class="nv">stored</span> <span class="nv">in</span>
+ <span class="nv">WP</span> <span class="nv">and</span> <span class="nv">IWP</span>.  <span class="nv">WK</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">work</span> <span class="nv">array</span> <span class="nv">of</span> <span class="nv">length</span> <span class="nv">NEQ</span>.
+ <span class="nv">The</span> <span class="nv">argument</span> <span class="nv">HL0</span> <span class="nv">is</span> <span class="nv">the</span> <span class="nv">current</span> <span class="nv">value</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">scalar</span> <span class="nv">appearing</span>
+ <span class="nv">in</span> <span class="nv">the</span> <span class="nv">linear</span> <span class="nv">system</span>.  <span class="k">If</span> <span class="nv">the</span> <span class="nv">old</span> <span class="nv">value</span>, <span class="nv">at</span> <span class="nv">the</span> <span class="nv">time</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">last</span>
+ <span class="nv">JAC</span> <span class="nv">call</span>, <span class="nv">is</span> <span class="nv">needed</span>, <span class="nv">it</span> <span class="nv">must</span> <span class="nv">have</span> <span class="nv">been</span> <span class="nv">saved</span> <span class="nv">by</span> <span class="nv">JAC</span> <span class="nv">in</span> <span class="nv">WP</span>.
+ <span class="nv">on</span> <span class="k">return</span>, <span class="nv">PSOL</span> <span class="nv">should</span> <span class="nv">set</span> <span class="nv">the</span> <span class="nv">error</span> <span class="nv">flag</span> <span class="nv">IER</span> <span class="nv">as</span> <span class="nv">follows</span>:
+   <span class="nv">IER</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="nv">PSOL</span> <span class="nv">was</span> <span class="nv">successful</span>,
+   <span class="nv">IER</span> .<span class="nv">gt</span>. <span class="mi">0</span> <span class="k">if</span> <span class="nv">a</span> <span class="nv">recoverable</span> <span class="nv">error</span> <span class="nv">occurred</span>, <span class="nv">meaning</span> <span class="nv">that</span> <span class="nv">the</span>
+          <span class="nv">time</span> <span class="nv">step</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">retried</span>,
+   <span class="nv">IER</span> .<span class="nv">lt</span>. <span class="mi">0</span> <span class="k">if</span> <span class="nv">an</span> <span class="nv">unrecoverable</span> <span class="nv">error</span> <span class="nv">occurred</span>, <span class="nv">meaning</span> <span class="nv">that</span> <span class="nv">the</span>
+          <span class="nv">solver</span> <span class="nv">is</span> <span class="nv">to</span> <span class="nv">stop</span> <span class="nv">immediately</span>.
+</code></pre></div>
+
+<p>E. Write a main program which calls Subroutine DLSODKR once for
+ each point at which answers are desired.  This should also provide
+ for possible use of logical unit 6 for output of error messages
+ by DLSODKR.  On the first call to DLSODKR, supply arguments as
+ follows:
+ F      = name of subroutine for right-hand side vector f.
+          This name must be declared External in calling program.
+ NEQ    = number of first order ODEs.
+ Y      = array of initial values, of length NEQ.
+ T      = the initial value of the independent variable.
+ TOUT   = first point where output is desired (.ne. T).
+ ITOL   = 1 or 2 according as ATOL (below) is a scalar or array.
+ RTOL   = relative tolerance parameter (scalar).
+ ATOL   = absolute tolerance parameter (scalar or array).
+          The estimated local error in y(i) will be controlled so as
+          to be roughly less (in magnitude) than
+             EWT(i) = RTOL<em>ABS(Y(i)) + ATOL     if ITOL = 1, or
+             EWT(i) = RTOL</em>ABS(Y(i)) + ATOL(i)  if ITOL = 2.
+          Thus the local error test passes if, in each component,
+          either the absolute error is less than ATOL (or ATOL(i)),
+          or the relative error is less than RTOL.
+          Use RTOL = 0.0 for pure absolute error control, and
+          use ATOL = 0.0 (or ATOL(i) = 0.0) for pure relative error
+          control.  Caution: Actual (global) errors may exceed these
+          local tolerances, so choose them conservatively.
+ ITASK  = 1 for normal computation of output values of y at t = TOUT.
+ ISTATE = integer flag (input and output).  Set ISTATE = 1.
+ IOPT   = 0 to indicate no optional inputs used.
+ RWORK  = real work array of length at least:
+             20 + 16<em>NEQ + 3</em>NG           for MF = 10,
+             45 + 17<em>NEQ + 3</em>NG + LWP     for MF = 21,
+             61 + 17<em>NEQ + 3</em>NG + LWP     for MF = 22,
+             20 + 15<em>NEQ + 3</em>NG + LWP     for MF = 23 or 24,
+             20 + 12<em>NEQ + 3</em>NG + LWP     for MF = 29.
+ LRW    = declared length of RWORK (in user&rsquo;s dimension).
+ IWORK  = integer work array of length at least:
+             30            for MF = 10,
+             35 + LIWP     for MF = 21,
+             30 + LIWP     for MF = 22, 23, 24, or 29.
+ LIW    = declared length of IWORK (in user&rsquo;s dimension).
+ JAC,PSOL = names of subroutines for preconditioning.
+          These names must be declared External in the calling program.
+ MF     = method flag.  Standard values are:
+          10 for nonstiff (Adams) method.
+          21 for stiff (BDF) method, with preconditioned SIOM.
+          22 for stiff method, with preconditioned GMRES method.
+          23 for stiff method, with preconditioned CG method.
+          24 for stiff method, with scaled preconditioned CG method.
+          29 for stiff method, with user&rsquo;s PSOL routine only.
+ G      = name of subroutine for constraint functions, whose
+          roots are desired during the integration.
+          This name must be declared External in calling program.
+ NG     = number of constraint functions g(i).  If there are none,
+          set NG = 0, and pass a dummy name for G.
+ JROOT  = integer array of length NG for output of root information.
+          See next paragraph.
+ Note that the main program must declare arrays Y, RWORK, IWORK,
+ JROOT, and possibly ATOL.</p>
+<p>F. The output from the first call (or any call) is:
+      Y = array of computed values of y(t) vector.
+      T = corresponding value of independent variable (normally TOUT).
+ ISTATE = 2 or 3  if DLSODKR was successful, negative otherwise.
+           2 means no root was found, and TOUT was reached as desired.
+           3 means a root was found prior to reaching TOUT.
+          -1 means excess work done on this call (perhaps wrong MF).
+          -2 means excess accuracy requested (tolerances too small).
+          -3 means illegal input detected (see printed message).
+          -4 means repeated error test failures (check all inputs).
+          -5 means repeated convergence failures (perhaps bad JAC
+             or PSOL routine supplied or wrong choice of MF or
+             tolerances, or this solver is inappropriate).
+          -6 means error weight became zero during problem. (Solution
+             component i vanished, and ATOL or ATOL(i) = 0.)
+          -7 means an unrecoverable error occurred in PSOL.
+ JROOT  = array showing roots found if ISTATE = 3 on return.
+          JROOT(i) = 1 if g(i) has a root at T, or 0 otherwise.</p>
+<p>G. To continue the integration after a successful return, proceed
+ as follows:
+ (a) If ISTATE = 2 on return, reset TOUT and call DLSODKR again.
+ (b) If ISTATE = 3 on return, reset ISTATE to 2 and call DLSODKR again.
+ In either case, no other parameters need be reset.</p>
+<hr>
+<p>Full Description of User Interface to DLSODKR.</p>
+<p>The user interface to DLSODKR consists of the following parts.</p>
+<ol>
+<li>
+<p>The call sequence to Subroutine DLSODKR, which is a driver
+      routine for the solver.  This includes descriptions of both
+      the call sequence arguments and of user-supplied routines.
+      Following these descriptions is a description of
+      optional inputs available through the call sequence, and then
+      a description of optional outputs (in the work arrays).</p>
+</li>
+<li>
+<p>Descriptions of other routines in the DLSODKR package that may be
+      (optionally) called by the user.  These provide the ability to
+      alter error message handling, save and restore the internal
+      Common, and obtain specified derivatives of the solution y(t).</p>
+</li>
+<li>
+<p>Descriptions of Common blocks to be declared in overlay
+      or similar environments, or to be saved when doing an interrupt
+      of the problem and continued solution later.</p>
+</li>
+<li>
+<p>Description of two routines in the DLSODKR package, either of
+      which the user may replace with his/her own version, if desired.
+      These relate to the measurement of errors.</p>
+</li>
+</ol>
+<hr>
+<p>Part 1.  Call Sequence.</p>
+<p>The call sequence parameters used for input only are
+  F, NEQ, TOUT, ITOL, RTOL, ATOL, ITASK, IOPT, LRW, LIW, JAC, PSOL, MF,
+  G, and NG,
+ that used only for output is  JROOT,
+ and those used for both input and output are
+  Y, T, ISTATE.
+ The work arrays RWORK and IWORK are also used for conditional and
+ optional inputs and optional outputs.  (The term output here refers
+ to the return from Subroutine DLSODKR to the user&rsquo;s calling program.)</p>
+<p>The legality of input parameters will be thoroughly checked on the
+ initial call for the problem, but not checked thereafter unless a
+ change in input parameters is flagged by ISTATE = 3 on input.</p>
+<p>The descriptions of the call arguments are as follows.</p>
+<p>F      = the name of the user-supplied subroutine defining the
+          ODE system.  The system must be put in the first-order
+          form dy/dt = f(t,y), where f is a vector-valued function
+          of the scalar t and the vector y.  Subroutine F is to
+          compute the function f.  It is to have the form
+               SUBROUTINE F (NEQ, T, Y, YDOT)
+               DOUBLE PRECISION T, Y(<em>), YDOT(</em>)
+          where NEQ, T, and Y are input, and the array YDOT = f(t,y)
+          is output.  Y and YDOT are arrays of length NEQ.
+          Subroutine F should not alter Y(1),&hellip;,Y(NEQ).
+          F must be declared External in the calling program.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">Subroutine</span> <span class="nv">F</span> <span class="nv">may</span> <span class="nv">access</span> <span class="nv">user</span><span class="o">-</span><span class="nv">defined</span> <span class="nv">quantities</span> <span class="nv">in</span>
+      <span class="nv">NEQ</span><span class="ss">(</span><span class="mi">2</span><span class="ss">)</span>,... <span class="nv">and</span><span class="o">/</span><span class="nv">or</span> <span class="nv">in</span> <span class="nv">Y</span><span class="ss">(</span><span class="nv">NEQ</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span><span class="o">+</span><span class="mi">1</span><span class="ss">)</span>,... <span class="k">if</span> <span class="nv">NEQ</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">array</span>
+      <span class="ss">(</span><span class="nv">dimensioned</span> <span class="nv">in</span> <span class="nv">F</span><span class="ss">)</span> <span class="nv">and</span><span class="o">/</span><span class="nv">or</span> <span class="nv">Y</span> <span class="nv">has</span> <span class="nv">length</span> <span class="nv">exceeding</span> <span class="nv">NEQ</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span>.
+      <span class="nv">See</span> <span class="nv">the</span> <span class="nv">descriptions</span> <span class="nv">of</span> <span class="nv">NEQ</span> <span class="nv">and</span> <span class="nv">Y</span> <span class="nv">below</span>.
+
+      <span class="k">If</span> <span class="nv">quantities</span> <span class="nv">computed</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">F</span> <span class="nv">routine</span> <span class="nv">are</span> <span class="nv">needed</span>
+      <span class="nv">externally</span> <span class="nv">to</span> <span class="nv">DLSODKR</span>, <span class="nv">an</span> <span class="nv">extra</span> <span class="k">call</span> <span class="nl">to</span> <span class="nv">F</span> <span class="nv">should</span> <span class="nv">be</span> <span class="nv">made</span>
+      <span class="k">for</span> <span class="nv">this</span> <span class="nv">purpose</span>, <span class="k">for</span> <span class="nv">consistent</span> <span class="nv">and</span> <span class="nv">accurate</span> <span class="nv">results</span>.
+      <span class="k">If</span> <span class="nv">only</span> <span class="nv">the</span> <span class="nv">derivative</span> <span class="nv">dy</span><span class="o">/</span><span class="nv">dt</span> <span class="nv">is</span> <span class="nv">needed</span>, <span class="nv">use</span> <span class="nv">DINTDY</span> <span class="nv">instead</span>.
+</code></pre></div>
+
+<p>NEQ    = the size of the ODE system (number of first order
+          ordinary differential equations).  Used only for input.
+          NEQ may be decreased, but not increased, during the problem.
+          If NEQ is decreased (with ISTATE = 3 on input), the
+          remaining components of Y should be left undisturbed, if
+          these are to be accessed in the user-supplied routines.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">Normally</span>, <span class="nv">NEQ</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">scalar</span>, <span class="nv">and</span> <span class="nv">it</span> <span class="nv">is</span> <span class="nv">generally</span> <span class="nv">referred</span> <span class="nv">to</span>
+      <span class="nv">as</span> <span class="nv">a</span> <span class="nv">scalar</span> <span class="nv">in</span> <span class="nv">this</span> <span class="nv">user</span> <span class="nv">interface</span> <span class="nv">description</span>.  <span class="nv">However</span>,
+      <span class="nv">NEQ</span> <span class="nv">may</span> <span class="nv">be</span> <span class="nv">an</span> <span class="nv">array</span>, <span class="nv">with</span> <span class="nv">NEQ</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span> <span class="nv">set</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">system</span> <span class="nv">size</span>.
+      <span class="ss">(</span><span class="nv">The</span> <span class="nv">DLSODKR</span> <span class="nv">package</span> <span class="nv">accesses</span> <span class="nv">only</span> <span class="nv">NEQ</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span>.<span class="ss">)</span>  <span class="nv">In</span> <span class="nv">either</span> <span class="nv">case</span>,
+      <span class="nv">this</span> <span class="nv">parameter</span> <span class="nv">is</span> <span class="nv">passed</span> <span class="nv">as</span> <span class="nv">the</span> <span class="nv">NEQ</span> <span class="nv">argument</span> <span class="nv">in</span> <span class="nv">all</span> <span class="nv">calls</span>
+      <span class="nv">to</span> <span class="nv">the</span> <span class="nv">user</span><span class="o">-</span><span class="nv">supplied</span> <span class="nv">routines</span>.  <span class="nv">Hence</span>, <span class="k">if</span> <span class="nv">it</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">array</span>,
+      <span class="nv">locations</span> <span class="nv">NEQ</span><span class="ss">(</span><span class="mi">2</span><span class="ss">)</span>,... <span class="nv">may</span> <span class="nv">be</span> <span class="nv">used</span> <span class="nv">to</span> <span class="nv">store</span> <span class="nv">other</span> <span class="nv">integer</span> <span class="nv">data</span>
+      <span class="nv">and</span> <span class="nv">pass</span> <span class="nv">it</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">user</span><span class="o">-</span><span class="nv">supplied</span> <span class="nv">routines</span>. <span class="nv">Each</span> <span class="nv">such</span> <span class="nv">routine</span>
+      <span class="nv">must</span> <span class="k">include</span> <span class="nv">NEQ</span> <span class="nv">in</span> <span class="nv">a</span> <span class="nv">Dimension</span> <span class="nv">statement</span> <span class="nv">in</span> <span class="nv">that</span> <span class="nv">case</span>.
+</code></pre></div>
+
+<p>Y      = a real array for the vector of dependent variables, of
+          length NEQ or more.  Used for both input and output on the
+          first call (ISTATE = 1), and only for output on other calls.
+          On the first call, Y must contain the vector of initial
+          values.  On output, Y contains the computed solution vector,
+          evaluated at T.  If desired, the Y array may be used
+          for other purposes between calls to the solver.</p>
+<div class="codehilite"><pre><span></span><code>      This array is passed as the Y argument in all calls to F, G,
+      JAC, and PSOL.  Hence its length may exceed NEQ, and
+      locations Y(NEQ+1),... may be used to store other real data
+      and pass it to the user-supplied routines.
+      (The DLSODKR package accesses only Y(1),...,Y(NEQ).)
+</code></pre></div>
+
+<p>T      = the independent variable.  On input, T is used only on the
+          first call, as the initial point of the integration.
+          On output, after each call, T is the value at which a
+          computed solution y is evaluated (usually the same as TOUT).
+          If a root was found, T is the computed location of the
+          root reached first, on output.
+          On an error return, T is the farthest point reached.</p>
+<p>TOUT   = the next value of t at which a computed solution is desired.
+          Used only for input.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">When</span> <span class="nv">starting</span> <span class="nv">the</span> <span class="nv">problem</span> <span class="ss">(</span><span class="nv">ISTATE</span> <span class="o">=</span> <span class="mi">1</span><span class="ss">)</span>, <span class="nv">TOUT</span> <span class="nv">may</span> <span class="nv">be</span> <span class="nv">equal</span>
+      <span class="nv">to</span> <span class="nv">T</span> <span class="k">for</span> <span class="nv">one</span> <span class="nv">call</span>, <span class="k">then</span> <span class="nv">should</span> .<span class="nv">ne</span>. <span class="nv">T</span> <span class="k">for</span> <span class="nv">the</span> <span class="k">next</span> <span class="nv">call</span>.
+      <span class="k">For</span> <span class="nv">the</span> <span class="nv">initial</span> <span class="nv">T</span>, <span class="nv">an</span> <span class="nv">input</span> <span class="nv">value</span> <span class="nv">of</span> <span class="nv">TOUT</span> .<span class="nv">ne</span>. <span class="nv">T</span> <span class="nv">is</span> <span class="nv">used</span>
+      <span class="nv">in</span> <span class="nv">order</span> <span class="nv">to</span> <span class="nv">determine</span> <span class="nv">the</span> <span class="nv">direction</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">integration</span>
+      <span class="ss">(</span><span class="nv">i</span>.<span class="nv">e</span>. <span class="nv">the</span> <span class="nv">algebraic</span> <span class="nv">sign</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">step</span> <span class="nv">sizes</span><span class="ss">)</span> <span class="nv">and</span> <span class="nv">the</span> <span class="nv">rough</span>
+      <span class="nv">scale</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">problem</span>.  <span class="nv">Integration</span> <span class="nv">in</span> <span class="nv">either</span> <span class="nv">direction</span>
+      <span class="ss">(</span><span class="nv">forward</span> <span class="nv">or</span> <span class="nv">backward</span> <span class="nv">in</span> <span class="nv">t</span><span class="ss">)</span> <span class="nv">is</span> <span class="nv">permitted</span>.
+
+      <span class="k">If</span> <span class="nv">ITASK</span> <span class="o">=</span> <span class="mi">2</span> <span class="nv">or</span> <span class="mi">5</span> <span class="ss">(</span><span class="nv">one</span><span class="o">-</span><span class="nv">step</span> <span class="nv">modes</span><span class="ss">)</span>, <span class="nv">TOUT</span> <span class="nv">is</span> <span class="nv">ignored</span> <span class="nv">after</span>
+      <span class="nv">the</span> <span class="nv">first</span> <span class="nv">call</span> <span class="ss">(</span><span class="nv">i</span>.<span class="nv">e</span>. <span class="nv">the</span> <span class="nv">first</span> <span class="k">call</span> <span class="nl">with</span> <span class="nv">TOUT</span> .<span class="nv">ne</span>. <span class="nv">T</span><span class="ss">)</span>.
+      <span class="nv">Otherwise</span>, <span class="nv">TOUT</span> <span class="nv">is</span> <span class="nv">required</span> <span class="nv">on</span> <span class="nv">every</span> <span class="nv">call</span>.
+
+      <span class="k">If</span> <span class="nv">ITASK</span> <span class="o">=</span> <span class="mi">1</span>, <span class="mi">3</span>, <span class="nv">or</span> <span class="mi">4</span>, <span class="nv">the</span> <span class="nv">values</span> <span class="nv">of</span> <span class="nv">TOUT</span> <span class="nv">need</span> <span class="nv">not</span> <span class="nv">be</span>
+      <span class="nv">monotone</span>, <span class="nv">but</span> <span class="nv">a</span> <span class="nv">value</span> <span class="nv">of</span> <span class="nv">TOUT</span> <span class="nv">which</span> <span class="nv">backs</span> <span class="nv">up</span> <span class="nv">is</span> <span class="nv">limited</span>
+      <span class="nv">to</span> <span class="nv">the</span> <span class="nv">current</span> <span class="nv">internal</span> <span class="nv">T</span> <span class="nv">interval</span>, <span class="nv">whose</span> <span class="nv">endpoints</span> <span class="nv">are</span>
+      <span class="nv">TCUR</span> <span class="o">-</span> <span class="nv">HU</span> <span class="nv">and</span> <span class="nv">TCUR</span> <span class="ss">(</span><span class="nv">see</span> <span class="nv">optional</span> <span class="nv">outputs</span>, <span class="nv">below</span>, <span class="k">for</span>
+      <span class="nv">TCUR</span> <span class="nv">and</span> <span class="nv">HU</span><span class="ss">)</span>.
+</code></pre></div>
+
+<p>ITOL   = an indicator for the type of error control.  See
+          description below under ATOL.  Used only for input.</p>
+<p>RTOL   = a relative error tolerance parameter, either a scalar or
+          an array of length NEQ.  See description below under ATOL.
+          Input only.</p>
+<p>ATOL   = an absolute error tolerance parameter, either a scalar or
+          an array of length NEQ.  Input only.</p>
+<div class="codehilite"><pre><span></span><code>         <span class="nv">The</span> <span class="nv">input</span> <span class="nv">parameters</span> <span class="nv">ITOL</span>, <span class="nv">RTOL</span>, <span class="nv">and</span> <span class="nv">ATOL</span> <span class="nv">determine</span>
+      <span class="nv">the</span> <span class="nv">error</span> <span class="nv">control</span> <span class="nv">performed</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">solver</span>.  <span class="nv">The</span> <span class="nv">solver</span> <span class="nv">will</span>
+      <span class="nv">control</span> <span class="nv">the</span> <span class="nv">vector</span> <span class="nv">E</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">E</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="nv">of</span> <span class="nv">estimated</span> <span class="nv">local</span> <span class="nv">errors</span>
+      <span class="nv">in</span> <span class="nv">y</span>, <span class="nv">according</span> <span class="nv">to</span> <span class="nv">an</span> <span class="nv">inequality</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">form</span>
+                  <span class="nv">RMS</span><span class="o">-</span><span class="nv">norm</span> <span class="nv">of</span> <span class="ss">(</span> <span class="nv">E</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span><span class="o">/</span><span class="nv">EWT</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span> <span class="ss">)</span>   .<span class="nv">le</span>.   <span class="mi">1</span>,
+      <span class="nv">where</span>       <span class="nv">EWT</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">RTOL</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span><span class="o">*</span><span class="nv">ABS</span><span class="ss">(</span><span class="nv">Y</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="o">+</span> <span class="nv">ATOL</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>,
+      <span class="nv">and</span> <span class="nv">the</span> <span class="nv">RMS</span><span class="o">-</span><span class="nv">norm</span> <span class="ss">(</span><span class="nv">root</span><span class="o">-</span><span class="nv">mean</span><span class="o">-</span><span class="nv">square</span> <span class="nv">norm</span><span class="ss">)</span> <span class="nv">here</span> <span class="nv">is</span>
+      <span class="nv">RMS</span><span class="o">-</span><span class="nv">norm</span><span class="ss">(</span><span class="nv">v</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">SQRT</span><span class="ss">(</span><span class="nv">sum</span> <span class="nv">v</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="nv">NEQ</span><span class="ss">)</span>.  <span class="nv">Here</span> <span class="nv">EWT</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">EWT</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span>
+      <span class="nv">is</span> <span class="nv">a</span> <span class="nv">vector</span> <span class="nv">of</span> <span class="nv">weights</span> <span class="nv">which</span> <span class="nv">must</span> <span class="nv">always</span> <span class="nv">be</span> <span class="nv">positive</span>, <span class="nv">and</span>
+      <span class="nv">the</span> <span class="nv">values</span> <span class="nv">of</span> <span class="nv">RTOL</span> <span class="nv">and</span> <span class="nv">ATOL</span> <span class="nv">should</span> <span class="nv">all</span> <span class="nv">be</span> <span class="nv">non</span><span class="o">-</span><span class="nv">negative</span>.
+      <span class="nv">The</span> <span class="nv">following</span> <span class="nv">table</span> <span class="nv">gives</span> <span class="nv">the</span> <span class="nv">types</span> <span class="ss">(</span><span class="nv">scalar</span><span class="o">/</span><span class="nv">array</span><span class="ss">)</span> <span class="nv">of</span>
+      <span class="nv">RTOL</span> <span class="nv">and</span> <span class="nv">ATOL</span>, <span class="nv">and</span> <span class="nv">the</span> <span class="nv">corresponding</span> <span class="nv">form</span> <span class="nv">of</span> <span class="nv">EWT</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>.
+
+         <span class="nv">ITOL</span>    <span class="nv">RTOL</span>       <span class="nv">ATOL</span>          <span class="nv">EWT</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>
+          <span class="mi">1</span>     <span class="nv">scalar</span>     <span class="nv">scalar</span>     <span class="nv">RTOL</span><span class="o">*</span><span class="nv">ABS</span><span class="ss">(</span><span class="nv">Y</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="o">+</span> <span class="nv">ATOL</span>
+          <span class="mi">2</span>     <span class="nv">scalar</span>     <span class="nv">array</span>      <span class="nv">RTOL</span><span class="o">*</span><span class="nv">ABS</span><span class="ss">(</span><span class="nv">Y</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="o">+</span> <span class="nv">ATOL</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>
+          <span class="mi">3</span>     <span class="nv">array</span>      <span class="nv">scalar</span>     <span class="nv">RTOL</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span><span class="o">*</span><span class="nv">ABS</span><span class="ss">(</span><span class="nv">Y</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="o">+</span> <span class="nv">ATOL</span>
+          <span class="mi">4</span>     <span class="nv">array</span>      <span class="nv">array</span>      <span class="nv">RTOL</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span><span class="o">*</span><span class="nv">ABS</span><span class="ss">(</span><span class="nv">Y</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="o">+</span> <span class="nv">ATOL</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>
+
+      <span class="nv">When</span> <span class="nv">either</span> <span class="nv">of</span> <span class="nv">these</span> <span class="nv">parameters</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">scalar</span>, <span class="nv">it</span> <span class="nv">need</span> <span class="nv">not</span>
+      <span class="nv">be</span> <span class="nv">dimensioned</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">user</span><span class="s1">&#39;</span><span class="s">s calling program.</span>
+
+      <span class="k">If</span> <span class="nv">none</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">above</span> <span class="nv">choices</span> <span class="ss">(</span><span class="nv">with</span> <span class="nv">ITOL</span>, <span class="nv">RTOL</span>, <span class="nv">and</span> <span class="nv">ATOL</span>
+      <span class="nv">fixed</span> <span class="nv">throughout</span> <span class="nv">the</span> <span class="nv">problem</span><span class="ss">)</span> <span class="nv">is</span> <span class="nv">suitable</span>, <span class="nv">more</span> <span class="nv">general</span>
+      <span class="nv">error</span> <span class="nv">controls</span> <span class="nv">can</span> <span class="nv">be</span> <span class="nv">obtained</span> <span class="nv">by</span> <span class="nv">substituting</span>
+      <span class="nv">user</span><span class="o">-</span><span class="nv">supplied</span> <span class="nv">routines</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">setting</span> <span class="nv">of</span> <span class="nv">EWT</span> <span class="nv">and</span><span class="o">/</span><span class="nv">or</span> <span class="k">for</span>
+      <span class="nv">the</span> <span class="nv">norm</span> <span class="nv">calculation</span>.  <span class="nv">See</span> <span class="nv">Part</span> <span class="mi">4</span> <span class="nv">below</span>.
+
+      <span class="k">If</span> <span class="nv">global</span> <span class="nv">errors</span> <span class="nv">are</span> <span class="nv">to</span> <span class="nv">be</span> <span class="nv">estimated</span> <span class="nv">by</span> <span class="nv">making</span> <span class="nv">a</span> <span class="nv">repeated</span>
+      <span class="nv">run</span> <span class="nv">on</span> <span class="nv">the</span> <span class="nv">same</span> <span class="nv">problem</span> <span class="nv">with</span> <span class="nv">smaller</span> <span class="nv">tolerances</span>, <span class="k">then</span> <span class="nv">all</span>
+      <span class="nv">components</span> <span class="nv">of</span> <span class="nv">RTOL</span> <span class="nv">and</span> <span class="nv">ATOL</span> <span class="ss">(</span><span class="nv">i</span>.<span class="nv">e</span>. <span class="nv">of</span> <span class="nv">EWT</span><span class="ss">)</span> <span class="nv">should</span> <span class="nv">be</span> <span class="nv">scaled</span>
+      <span class="nv">down</span> <span class="nv">uniformly</span>.
+</code></pre></div>
+
+<p>ITASK  = an index specifying the task to be performed.
+          Input only.  ITASK has the following values and meanings.
+          1  means normal computation of output values of y(t) at
+             t = TOUT (by overshooting and interpolating).
+          2  means take one step only and return.
+          3  means stop at the first internal mesh point at or
+             beyond t = TOUT and return.
+          4  means normal computation of output values of y(t) at
+             t = TOUT but without overshooting t = TCRIT.
+             TCRIT must be input as RWORK(1).  TCRIT may be equal to
+             or beyond TOUT, but not behind it in the direction of
+             integration.  This option is useful if the problem
+             has a singularity at or beyond t = TCRIT.
+          5  means take one step, without passing TCRIT, and return.
+             TCRIT must be input as RWORK(1).</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">Note</span>:  <span class="k">If</span> <span class="nv">ITASK</span> <span class="o">=</span> <span class="mi">4</span> <span class="nv">or</span> <span class="mi">5</span> <span class="nv">and</span> <span class="nv">the</span> <span class="nv">solver</span> <span class="nv">reaches</span> <span class="nv">TCRIT</span>
+      <span class="ss">(</span><span class="nv">within</span> <span class="nv">roundoff</span><span class="ss">)</span>, <span class="nv">it</span> <span class="nv">will</span> <span class="k">return</span> <span class="nv">T</span> <span class="o">=</span> <span class="nv">TCRIT</span> <span class="ss">(</span><span class="nv">exactly</span><span class="ss">)</span> <span class="nv">to</span>
+      <span class="nv">indicate</span> <span class="nv">this</span> <span class="ss">(</span><span class="nv">unless</span> <span class="nv">ITASK</span> <span class="o">=</span> <span class="mi">4</span> <span class="nv">and</span> <span class="nv">TOUT</span> <span class="nv">comes</span> <span class="nv">before</span> <span class="nv">TCRIT</span>,
+      <span class="nv">in</span> <span class="nv">which</span> <span class="nv">case</span> <span class="nv">answers</span> <span class="nv">at</span> <span class="nv">T</span> <span class="o">=</span> <span class="nv">TOUT</span> <span class="nv">are</span> <span class="nv">returned</span> <span class="nv">first</span><span class="ss">)</span>.
+</code></pre></div>
+
+<p>ISTATE = an index used for input and output to specify the
+          the state of the calculation.</p>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="n">On</span><span class="w"> </span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">follows</span><span class="o">.</span><span class="w"></span>
+<span class="w">      </span><span class="mi">1</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">problem</span><span class="w"></span>
+<span class="w">         </span><span class="p">(</span><span class="n">initializations</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">done</span><span class="p">)</span><span class="o">.</span><span class="w">  </span><span class="n">See</span><span class="w"> </span><span class="n">note</span><span class="w"> </span><span class="n">below</span><span class="o">.</span><span class="w"></span>
+<span class="w">      </span><span class="mi">2</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">call</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">calculation</span><span class="w"></span>
+<span class="w">         </span><span class="k">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k">continue</span><span class="w"> </span><span class="n">normally</span><span class="p">,</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">input</span><span class="w"></span>
+<span class="w">         </span><span class="n">parameters</span><span class="w"> </span><span class="n">except</span><span class="w"> </span><span class="n">possibly</span><span class="w"> </span><span class="n">TOUT</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">ITASK</span><span class="o">.</span><span class="w"></span>
+<span class="w">         </span><span class="p">(</span><span class="n">If</span><span class="w"> </span><span class="n">ITOL</span><span class="p">,</span><span class="w"> </span><span class="n">RTOL</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="o">/</span><span class="ow">or</span><span class="w"> </span><span class="n">ATOL</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="n">between</span><span class="w"> </span><span class="n">calls</span><span class="w"></span>
+<span class="w">         </span><span class="n">with</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">new</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">not</span><span class="w"></span>
+<span class="w">         </span><span class="n">tested</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">legality</span><span class="o">.</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="mi">3</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">call</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="w">         </span><span class="n">calculation</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="k">continue</span><span class="w"> </span><span class="n">normally</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">with</span><span class="w"></span>
+<span class="w">         </span><span class="n">a</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">parameters</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">than</span><span class="w"></span>
+<span class="w">         </span><span class="n">TOUT</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">ITASK</span><span class="o">.</span><span class="w">  </span><span class="n">Changes</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="ow">in</span><span class="w"></span>
+<span class="w">         </span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">ITOL</span><span class="p">,</span><span class="w"> </span><span class="n">RTOL</span><span class="p">,</span><span class="w"> </span><span class="n">ATOL</span><span class="p">,</span><span class="w"> </span><span class="n">IOPT</span><span class="p">,</span><span class="w"> </span><span class="n">LRW</span><span class="p">,</span><span class="w"> </span><span class="n">LIW</span><span class="p">,</span><span class="w"> </span><span class="n">MF</span><span class="p">,</span><span class="w"></span>
+<span class="w">         </span><span class="ow">and</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">inputs</span><span class="w"> </span><span class="n">except</span><span class="w"> </span><span class="n">H0</span><span class="o">.</span><span class="w"></span>
+<span class="w">         </span><span class="n">In</span><span class="w"> </span><span class="n">addition</span><span class="p">,</span><span class="w"> </span><span class="n">immediately</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">with</span><span class="w"></span>
+<span class="w">         </span><span class="n">ISTATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="n">root</span><span class="w"> </span><span class="n">found</span><span class="p">),</span><span class="w"> </span><span class="n">NG</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">G</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">changed</span><span class="o">.</span><span class="w"></span>
+<span class="w">         </span><span class="p">(</span><span class="n">But</span><span class="w"> </span><span class="n">changing</span><span class="w"> </span><span class="n">NG</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="o">.</span><span class="n">gt</span><span class="o">.</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">allowed</span><span class="o">.</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">Note</span><span class="p">:</span><span class="w">  </span><span class="n">A</span><span class="w"> </span><span class="n">preliminary</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">TOUT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">counted</span><span class="w"></span>
+<span class="w">      </span><span class="k">as</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">here</span><span class="p">,</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">initialization</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">checking</span><span class="w"> </span><span class="n">of</span><span class="w"></span>
+<span class="w">      </span><span class="n">input</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">done</span><span class="o">.</span><span class="w">  </span><span class="p">(</span><span class="n">Such</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">sometimes</span><span class="w"> </span><span class="n">useful</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="w">      </span><span class="n">purpose</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">outputting</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">initial</span><span class="w"> </span><span class="n">conditions</span><span class="o">.</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">Thus</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">first</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">TOUT</span><span class="w"> </span><span class="o">.</span><span class="n">ne</span><span class="o">.</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">requires</span><span class="w"></span>
+<span class="w">      </span><span class="n">ISTATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">input</span><span class="o">.</span><span class="w"></span>
+
+<span class="w">      </span><span class="n">On</span><span class="w"> </span><span class="n">output</span><span class="p">,</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">values</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">meanings</span><span class="o">.</span><span class="w"></span>
+<span class="w">       </span><span class="mi">1</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">nothing</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">done</span><span class="p">;</span><span class="w"> </span><span class="n">TOUT</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">input</span><span class="o">.</span><span class="w"></span>
+<span class="w">       </span><span class="mi">2</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">integration</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">performed</span><span class="w"> </span><span class="n">successfully</span><span class="o">.</span><span class="w"></span>
+<span class="w">       </span><span class="mi">3</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">integration</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">successful</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">more</span><span class="w"></span>
+<span class="w">          </span><span class="n">roots</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">satisfying</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">stop</span><span class="w"> </span><span class="n">condition</span><span class="w"></span>
+<span class="w">          </span><span class="n">specified</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">ITASK</span><span class="o">.</span><span class="w">  </span><span class="n">See</span><span class="w"> </span><span class="n">JROOT</span><span class="o">.</span><span class="w"></span>
+<span class="w">      </span><span class="o">-</span><span class="mi">1</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">excessive</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="p">(</span><span class="n">more</span><span class="w"> </span><span class="n">than</span><span class="w"> </span><span class="n">MXSTEP</span><span class="w"></span>
+<span class="w">          </span><span class="n">steps</span><span class="p">)</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">done</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">call</span><span class="p">,</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">completing</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="w">          </span><span class="n">requested</span><span class="w"> </span><span class="n">task</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">integration</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">otherwise</span><span class="w"></span>
+<span class="w">          </span><span class="n">successful</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">far</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span><span class="o">.</span><span class="w">  </span><span class="p">(</span><span class="n">MXSTEP</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">input</span><span class="w"></span>
+<span class="w">          </span><span class="ow">and</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">normally</span><span class="w"> </span><span class="mf">500.</span><span class="p">)</span><span class="w">  </span><span class="n">To</span><span class="w"> </span><span class="k">continue</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">may</span><span class="w"></span>
+<span class="w">          </span><span class="n">simply</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">.</span><span class="n">gt</span><span class="o">.</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">call</span><span class="w"> </span><span class="n">again</span><span class="w"></span>
+<span class="w">          </span><span class="p">(</span><span class="n">the</span><span class="w"> </span><span class="n">excess</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">step</span><span class="w"> </span><span class="n">counter</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="w"></span>
+<span class="w">          </span><span class="n">In</span><span class="w"> </span><span class="n">addition</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">user</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">increase</span><span class="w"> </span><span class="n">MXSTEP</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">avoid</span><span class="w"></span>
+<span class="w">          </span><span class="n">this</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="p">(</span><span class="n">see</span><span class="w"> </span><span class="n">below</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">inputs</span><span class="p">)</span><span class="o">.</span><span class="w"></span>
+<span class="w">      </span><span class="o">-</span><span class="mi">2</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">too</span><span class="w"> </span><span class="n">much</span><span class="w"> </span><span class="n">accuracy</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">requested</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">precision</span><span class="w"></span>
+<span class="w">          </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">machine</span><span class="w"> </span><span class="n">being</span><span class="w"> </span><span class="n">used</span><span class="o">.</span><span class="w">  </span><span class="n">This</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">detected</span><span class="w"> </span><span class="n">before</span><span class="w"></span>
+<span class="w">          </span><span class="n">completing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">requested</span><span class="w"> </span><span class="n">task</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">integration</span><span class="w"></span>
+<span class="w">          </span><span class="n">was</span><span class="w"> </span><span class="n">successful</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">far</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span><span class="o">.</span><span class="w">  </span><span class="n">To</span><span class="w"> </span><span class="k">continue</span><span class="p">,</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">tolerance</span><span class="w"></span>
+<span class="w">          </span><span class="n">parameters</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reset</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="n">must</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">set</span><span class="w"></span>
+<span class="w">          </span><span class="n">to</span><span class="w"> </span><span class="mf">3.</span><span class="w">  </span><span class="n">The</span><span class="w"> </span><span class="n">optional</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">TOLSF</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">this</span><span class="w"></span>
+<span class="w">          </span><span class="n">purpose</span><span class="o">.</span><span class="w">  </span><span class="p">(</span><span class="n">Note</span><span class="p">:</span><span class="w"> </span><span class="n">If</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">detected</span><span class="w"> </span><span class="n">before</span><span class="w"></span>
+<span class="w">          </span><span class="n">taking</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">steps</span><span class="p">,</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">illegal</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="k">return</span><span class="w"></span>
+<span class="w">          </span><span class="p">(</span><span class="n">ISTATE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="n">occurs</span><span class="w"> </span><span class="n">instead</span><span class="o">.</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="o">-</span><span class="mi">3</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">illegal</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">detected</span><span class="p">,</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">taking</span><span class="w"> </span><span class="n">any</span><span class="w"></span>
+<span class="w">          </span><span class="n">integration</span><span class="w"> </span><span class="n">steps</span><span class="o">.</span><span class="w">  </span><span class="n">See</span><span class="w"> </span><span class="n">written</span><span class="w"> </span><span class="n">message</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">details</span><span class="o">.</span><span class="w"></span>
+<span class="w">          </span><span class="n">Note</span><span class="p">:</span><span class="w">  </span><span class="n">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">solver</span><span class="w"> </span><span class="n">detects</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">infinite</span><span class="w"> </span><span class="n">loop</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">calls</span><span class="w"></span>
+<span class="w">          </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">solver</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">illegal</span><span class="w"> </span><span class="n">input</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">cause</span><span class="w"></span>
+<span class="w">          </span><span class="n">the</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">stop</span><span class="o">.</span><span class="w"></span>
+<span class="w">      </span><span class="o">-</span><span class="mi">4</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">repeated</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">failures</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="w">          </span><span class="n">one</span><span class="w"> </span><span class="n">attempted</span><span class="w"> </span><span class="n">step</span><span class="p">,</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">completing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">requested</span><span class="w"></span>
+<span class="w">          </span><span class="n">task</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">integration</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">successful</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">far</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span><span class="o">.</span><span class="w"></span>
+<span class="w">          </span><span class="n">The</span><span class="w"> </span><span class="n">problem</span><span class="w"> </span><span class="n">may</span><span class="w"> </span><span class="n">have</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">singularity</span><span class="p">,</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">input</span><span class="w"></span>
+<span class="w">          </span><span class="n">may</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">inappropriate</span><span class="o">.</span><span class="w"></span>
+<span class="w">      </span><span class="o">-</span><span class="mi">5</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">there</span><span class="w"> </span><span class="n">were</span><span class="w"> </span><span class="n">repeated</span><span class="w"> </span><span class="n">convergence</span><span class="w"> </span><span class="n">test</span><span class="w"> </span><span class="n">failures</span><span class="w"> </span><span class="n">on</span><span class="w"></span>
+<span class="w">          </span><span class="n">one</span><span class="w"> </span><span class="n">attempted</span><span class="w"> </span><span class="n">step</span><span class="p">,</span><span class="w"> </span><span class="n">before</span><span class="w"> </span><span class="n">completing</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">requested</span><span class="w"></span>
+<span class="w">          </span><span class="n">task</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">integration</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">successful</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">far</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span><span class="o">.</span><span class="w"></span>
+<span class="w">      </span><span class="o">-</span><span class="mi">6</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">EWT</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="n">became</span><span class="w"> </span><span class="n">zero</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="n">during</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="w">          </span><span class="n">integration</span><span class="o">.</span><span class="w">  </span><span class="n">Pure</span><span class="w"> </span><span class="n">relative</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">control</span><span class="w"> </span><span class="p">(</span><span class="n">ATOL</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span><span class="w"></span>
+<span class="w">          </span><span class="n">was</span><span class="w"> </span><span class="n">requested</span><span class="w"> </span><span class="n">on</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">which</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">now</span><span class="w"> </span><span class="n">vanished</span><span class="o">.</span><span class="w"></span>
+<span class="w">          </span><span class="n">The</span><span class="w"> </span><span class="n">integration</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">successful</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">far</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span><span class="o">.</span><span class="w"></span>
+<span class="w">      </span><span class="o">-</span><span class="mi">7</span><span class="w">  </span><span class="n">means</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">PSOL</span><span class="w"> </span><span class="n">routine</span><span class="w"> </span><span class="n">returned</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">unrecoverable</span><span class="w"> </span><span class="n">error</span><span class="w"></span>
+<span class="w">          </span><span class="n">flag</span><span class="w"> </span><span class="p">(</span><span class="n">IER</span><span class="w"> </span><span class="o">.</span><span class="n">lt</span><span class="o">.</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="w">  </span><span class="n">The</span><span class="w"> </span><span class="n">integration</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">successful</span><span class="w"> </span><span class="k">as</span><span class="w"></span>
+<span class="w">          </span><span class="n">far</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">T</span><span class="o">.</span><span class="w"></span>
+
+<span class="w">      </span><span class="n">Note</span><span class="p">:</span><span class="w">  </span><span class="n">Since</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">normal</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">it</span><span class="w"> </span><span class="n">does</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">reset</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">normal</span><span class="w"> </span><span class="n">continuation</span><span class="o">.</span><span class="w"></span>
+<span class="w">      </span><span class="n">Also</span><span class="p">,</span><span class="w"> </span><span class="n">since</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">negative</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">ISTATE</span><span class="w"> </span><span class="n">will</span><span class="w"> </span><span class="n">be</span><span class="w"></span>
+<span class="w">      </span><span class="n">regarded</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">illegal</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">negative</span><span class="w"> </span><span class="n">output</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="n">requires</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="w">      </span><span class="n">user</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">change</span><span class="w"> </span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">possibly</span><span class="w"> </span><span class="n">other</span><span class="w"> </span><span class="n">inputs</span><span class="p">,</span><span class="w"> </span><span class="n">before</span><span class="w"></span>
+<span class="w">      </span><span class="n">calling</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">solver</span><span class="w"> </span><span class="n">again</span><span class="o">.</span><span class="w"></span>
+</code></pre></div>
+
+<p>IOPT   = an integer flag to specify whether or not any optional
+          inputs are being used on this call.  Input only.
+          The optional inputs are listed separately below.
+          IOPT = 0 means no optional inputs are being used.
+                   Default values will be used in all cases.
+          IOPT = 1 means one or more optional inputs are being used.</p>
+<p>RWORK  = a real working array (double precision).
+          The length of RWORK must be at least
+             20 + NYH<em>(MAXORD+1) + 3</em>NEQ + 3<em>NG + LENLS + LWP    where
+          NYH    = the initial value of NEQ,
+          MAXORD = 12 (if METH = 1) or 5 (if METH = 2) (unless a
+                   smaller value is given as an optional input),
+          LENLS = length of work space for linear system (Krylov)
+                  method, excluding preconditioning:
+            LENLS = 0                               if MITER = 0,
+            LENLS = NEQ</em>(MAXL+3) + MAXL<em><em>2          if MITER = 1,
+            LENLS = NEQ</em>(MAXL+3+MIN(1,MAXL-KMP))
+                 + (MAXL+3)</em>MAXL + 1                if MITER = 2,
+            LENLS = 6<em>NEQ                           if MITER = 3 or 4,
+            LENLS = 3</em>NEQ                           if MITER = 9.
+          (See the MF description for METH and MITER, and the
+          list of optional inputs for MAXL and KMP.)
+          LWP = length of real user work space for preconditioning
+          (see JAC/PSOL).
+          Thus if default values are used and NEQ is constant,
+          this length is:
+             20 + 16<em>NEQ + 3</em>NG           for MF = 10,
+             45 + 24<em>NEQ + 3</em>NG + LWP     for MF = 11,
+             61 + 24<em>NEQ + 3</em>NG + LWP     for MF = 12,
+             20 + 22<em>NEQ + 3</em>NG + LWP     for MF = 13 or 14,
+             20 + 19<em>NEQ + 3</em>NG + LWP     for MF = 19,
+             20 + 9<em>NEQ + 3</em>NG            for MF = 20,
+             45 + 17<em>NEQ + 3</em>NG + LWP     for MF = 21,
+             61 + 17<em>NEQ + 3</em>NG + LWP     for MF = 22,
+             20 + 15<em>NEQ + 3</em>NG + LWP     for MF = 23 or 24,
+             20 + 12<em>NEQ + 3</em>NG + LWP     for MF = 29.
+          The first 20 words of RWORK are reserved for conditional
+          and optional inputs and optional outputs.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">The</span> <span class="nv">following</span> <span class="nv">word</span> <span class="nv">in</span> <span class="nv">RWORK</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">conditional</span> <span class="nv">input</span>:
+        <span class="nv">RWORK</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">TCRIT</span> <span class="o">=</span> <span class="nv">critical</span> <span class="nv">value</span> <span class="nv">of</span> <span class="nv">t</span> <span class="nv">which</span> <span class="nv">the</span> <span class="nv">solver</span>
+                   <span class="nv">is</span> <span class="nv">not</span> <span class="nv">to</span> <span class="nv">overshoot</span>.  <span class="nv">Required</span> <span class="k">if</span> <span class="nv">ITASK</span> <span class="nv">is</span>
+                   <span class="mi">4</span> <span class="nv">or</span> <span class="mi">5</span>, <span class="nv">and</span> <span class="nv">ignored</span> <span class="nv">otherwise</span>.  <span class="ss">(</span><span class="nv">See</span> <span class="nv">ITASK</span>.<span class="ss">)</span>
+</code></pre></div>
+
+<p>LRW    = the length of the array RWORK, as declared by the user.
+          (This will be checked by the solver.)</p>
+<p>IWORK  = an integer work array.  The length of IWORK must be at least
+             30                 if MITER = 0 (MF = 10 or 20),
+             30 + MAXL + LIWP   if MITER = 1 (MF = 11, 21),
+             30 + LIWP          if MITER = 2, 3, 4, or 9.
+          MAXL = 5 unless a different optional input value is given.
+          LIWP = length of integer user work space for preconditioning
+          (see conditional input list following).
+          The first few words of IWORK are used for conditional and
+          optional inputs and optional outputs.</p>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="n">The</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="n">words</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">IWORK</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">conditional</span><span class="w"> </span><span class="n">inputs</span><span class="p">,</span><span class="w"></span>
+<span class="w">      </span><span class="n">required</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">MITER</span><span class="w"> </span><span class="o">.</span><span class="n">ge</span><span class="o">.</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="n">IWORK</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LWP</span><span class="w">  </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="n">WP</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="ow">in</span><span class="w"></span>
+<span class="w">                 </span><span class="n">preconditioning</span><span class="w"> </span><span class="p">(</span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">RWORK</span><span class="w"> </span><span class="n">array</span><span class="p">)</span><span class="o">.</span><span class="w"></span>
+<span class="w">      </span><span class="n">IWORK</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">LIWP</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">integer</span><span class="w"> </span><span class="n">array</span><span class="w"> </span><span class="n">IWP</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="ow">in</span><span class="w"></span>
+<span class="w">                 </span><span class="n">preconditioning</span><span class="w"> </span><span class="p">(</span><span class="n">part</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">IWORK</span><span class="w"> </span><span class="n">array</span><span class="p">)</span><span class="o">.</span><span class="w"></span>
+<span class="w">                 </span><span class="n">The</span><span class="w"> </span><span class="n">arrays</span><span class="w"> </span><span class="n">WP</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">IWP</span><span class="w"> </span><span class="n">are</span><span class="w"> </span><span class="n">work</span><span class="w"> </span><span class="n">arrays</span><span class="w"> </span><span class="n">under</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
+<span class="w">                 </span><span class="n">user</span><span class="s1">&#39;s control, for use in the routines that</span>
+<span class="w">                 </span><span class="n">perform</span><span class="w"> </span><span class="n">preconditioning</span><span class="w"> </span><span class="n">operations</span><span class="w"> </span><span class="p">(</span><span class="n">JAC</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">PSOL</span><span class="p">)</span><span class="o">.</span><span class="w"></span>
+<span class="w">      </span><span class="n">IWORK</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JPRE</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">preconditioner</span><span class="w"> </span><span class="n">type</span><span class="w"> </span><span class="n">flag</span><span class="p">:</span><span class="w"></span>
+<span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">preconditioning</span><span class="w"> </span><span class="p">(</span><span class="n">P1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">identity</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">left</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="n">preconditioning</span><span class="w"> </span><span class="p">(</span><span class="n">P2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">identity</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">right</span><span class="o">-</span><span class="n">only</span><span class="w"> </span><span class="n">preconditioning</span><span class="w"> </span><span class="p">(</span><span class="n">P1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">identity</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">two</span><span class="o">-</span><span class="n">sided</span><span class="w"> </span><span class="n">preconditioning</span><span class="w"> </span><span class="p">(</span><span class="ow">and</span><span class="w"> </span><span class="n">PCG</span><span class="w"> </span><span class="ow">or</span><span class="w"> </span><span class="n">PCGS</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">IWORK</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">JACFLG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">flag</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">whether</span><span class="w"> </span><span class="n">JAC</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">called</span><span class="o">.</span><span class="w"></span>
+<span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">JAC</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">called</span><span class="p">,</span><span class="w"></span>
+<span class="w">               </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">JAC</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">called</span><span class="o">.</span><span class="w"></span>
+<span class="w">                 </span><span class="n">Use</span><span class="w"> </span><span class="n">JACFLG</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">JAC</span><span class="w"> </span><span class="n">computes</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">nonconstant</span><span class="w"></span>
+<span class="w">                 </span><span class="n">data</span><span class="w"> </span><span class="n">needed</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">preconditioning</span><span class="w"> </span><span class="n">operations</span><span class="p">,</span><span class="w"></span>
+<span class="w">                 </span><span class="n">such</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="n">some</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">Jacobian</span><span class="w"> </span><span class="n">elements</span><span class="o">.</span><span class="w"></span>
+</code></pre></div>
+
+<p>LIW    = the length of the array IWORK, as declared by the user.
+          (This will be checked by the solver.)</p>
+<p>Note:  The work arrays must not be altered between calls to DLSODKR
+ for the same problem, except possibly for the conditional and
+ optional inputs, and except for the last 3*NEQ words of RWORK.
+ The latter space is used for internal scratch space, and so is
+ available for use by the user outside DLSODKR between calls, if
+ desired (but not for use by any of the user-supplied routines).</p>
+<p>JAC    = the name of the user-supplied routine to compute any
+          Jacobian elements (or approximations) involved in the
+          matrix preconditioning operations (MITER .ge. 1).
+          It is to have the form
+            SUBROUTINE JAC (F, NEQ, T, Y, YSV, REWT, FTY, V,
+           1                HL0, JOK, WP, IWP, IER)
+            DOUBLE PRECISION T, Y(<em>), YSV(</em>), REWT(<em>), FTY(</em>), V(<em>),
+           1                 HL0, WP(</em>)
+            INTEGER IWP(<em>)
+          This routine must evaluate and preprocess any parts of the
+          Jacobian matrix df/dy used in the preconditioners P1, P2, P.
+          The Y and FTY arrays contain the current values of y and
+          f(t,y), respectively, and the YSV array also contains
+          the current y vector.  The array V is work space of length
+          NEQ for use by JAC.  REWT is the array of reciprocal error
+          weights (1/EWT).  JAC must multiply all computed Jacobian
+          elements by the scalar -HL0, add the identity matrix, and do
+          any factorization operations called for, in preparation
+          for solving linear systems with a coefficient matrix of
+          P1, P2, or P.  The matrix P1</em>P2 or P should be an
+          approximation to  identity - hl0 * (df/dy).  JAC should
+          return IER = 0 if successful, and IER .ne. 0 if not.
+          (If IER .ne. 0, a smaller time step will be tried.)
+          The arrays WP (of length LWP) and IWP (of length LIWP)
+          are for use by JAC and PSOL for work space and for storage
+          of data needed for the solution of the preconditioner
+          linear systems.  Their lengths and contents are under the
+          user&rsquo;s control.
+               The argument JOK is an input flag for optional use
+          by JAC in deciding whether to recompute Jacobian elements
+          or use saved values.  If JOK = -1, then JAC must compute
+          any relevant Jacobian elements (or approximations) used in
+          the preconditioners.  Optionally, JAC may also save these
+          elements for later reuse.  If JOK = 1, the integrator has
+          made a judgement (based on the convergence history and the
+          value of HL0) that JAC need not recompute Jacobian elements,
+          but instead use saved values, and the current value of HL0,
+          to reconstruct the preconditioner matrices, followed by
+          any required factorizations.  This may be cost-effective if
+          Jacobian elements are costly and storage is available.
+               JAC may alter Y and V, but not YSV, REWT, FTY, or HL0.
+          JAC must be declared External in the calling program.
+               Subroutine JAC may access user-defined quantities in
+          NEQ(2),&hellip; and/or in Y(NEQ(1)+1),&hellip; if NEQ is an array
+          (dimensioned in JAC) and/or Y has length exceeding NEQ(1).
+          See the descriptions of NEQ and Y above.</p>
+<p>PSOL   = the name of the user-supplied routine for the
+          solution of preconditioner linear systems.
+          It is to have the form
+            SUBROUTINE PSOL (NEQ, T, Y, FTY, WK,HL0, WP,IWP, B, LR,IER)
+            DOUBLE PRECISION T, Y(<em>), FTY(</em>), WK(<em>), HL0, WP(</em>), B(<em>)
+            INTEGER IWP(</em>)
+          This routine must solve a linear system with B as right-hand
+          side and one of the preconditioning matrices, P1, P2, or P,
+          as coefficient matrix, and return the solution vector in B.
+          LR is a flag concerning left vs right preconditioning, input
+          to PSOL.  PSOL is to use P1 if LR = 1 and P2 if LR = 2.
+          In the case of the PCG or PCGS method, LR will be 3, and PSOL
+          should solve the system P*x = B with the preconditioner P.
+          In the case MITER = 9 (no Krylov iteration), LR will be 0,
+          and PSOL is to return in B the desired approximate solution
+          to A * x = B, where A = identity - hl0 * (df/dy).
+          PSOL can use data generated in the JAC routine and stored in
+          WP and IWP.
+          The Y and FTY arrays contain the current values of y and
+          f(t,y), respectively.  The array WK is work space of length
+          NEQ for use by PSOL.
+          The argument HL0 is the current value of the scalar appearing
+          in the linear system.  If the old value, as of the last
+          JAC call, is needed, it must have been saved by JAC in WP.
+          On return, PSOL should set the error flag IER as follows:
+            IER = 0 if PSOL was successful,
+            IER .gt. 0 on a recoverable error, meaning that the
+                   time step will be retried,
+            IER .lt. 0 on an unrecoverable error, meaning that the
+                   solver is to stop immediately.
+          PSOL may not alter Y, FTY, or HL0.
+          PSOL must be declared External in the calling program.
+               Subroutine PSOL may access user-defined quantities in
+          NEQ(2),&hellip; and Y(NEQ(1)+1),&hellip; if NEQ is an array
+          (dimensioned in PSOL) and/or Y has length exceeding NEQ(1).
+          See the descriptions of NEQ and Y above.</p>
+<p>MF     = the method flag.  Used only for input.  The legal values of
+          MF are 10, 11, 12, 13, 14, 19, 20, 21, 22, 23, 24, and 29.
+          MF has decimal digits METH and MITER: MF = 10*METH + MITER.
+          METH indicates the basic linear multistep method:
+            METH = 1 means the implicit Adams method.
+            METH = 2 means the method based on Backward
+                     Differentiation Formulas (BDFs).
+          MITER indicates the corrector iteration method:
+            MITER = 0 means functional iteration (no linear system
+                      is involved).
+            MITER = 1 means Newton iteration with Scaled Preconditioned
+                      Incomplete Orthogonalization Method (SPIOM)
+                      for the linear systems.
+            MITER = 2 means Newton iteration with Scaled Preconditioned
+                      Incomplete Generalized Minimal Residual method
+                      (SPIGMR) for the linear systems.
+            MITER = 3 means Newton iteration with Preconditioned
+                      Conjugate Gradient method (PCG)
+                      for the linear systems.
+            MITER = 4 means Newton iteration with scaled preconditioned
+                      Conjugate Gradient method (PCGS)
+                      for the linear systems.
+            MITER = 9 means Newton iteration with only the
+                      user-supplied PSOL routine called (no Krylov
+                      iteration) for the linear systems.
+                      JPRE is ignored, and PSOL is called with LR = 0.
+          See comments in the introduction about the choice of MITER.
+          If MITER .ge. 1, the user must supply routines JAC and PSOL
+          (the names are arbitrary) as described above.
+          For MITER = 0, a dummy argument can be used.</p>
+<p>G      = the name of subroutine for constraint functions, whose
+          roots are desired during the integration.  It is to have
+          the form
+               SUBROUTINE G (NEQ, T, Y, NG, GOUT)
+               DOUBLE PRECISION T, Y(*), GOUT(NG)
+          where NEQ, T, Y, and NG are input, and the array GOUT
+          is output.  NEQ, T, and Y have the same meaning as in
+          the F routine, and GOUT is an array of length NG.
+          For i = 1,&hellip;,NG, this routine is to load into GOUT(i)
+          the value at (t,y) of the i-th constraint function g(i).
+          DLSODKR will find roots of the g(i) of odd multiplicity
+          (i.e. sign changes) as they occur during the integration.
+          G must be declared External in the calling program.</p>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">Caution</span>: <span class="nv">Because</span> <span class="nv">of</span> <span class="nv">numerical</span> <span class="nv">errors</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">functions</span>
+      <span class="nv">g</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span> <span class="nv">due</span> <span class="nv">to</span> <span class="nv">roundoff</span> <span class="nv">and</span> <span class="nv">integration</span> <span class="nv">error</span>, <span class="nv">DLSODKR</span> <span class="nv">may</span>
+      <span class="k">return</span> <span class="nv">false</span> <span class="nv">roots</span>, <span class="nv">or</span> <span class="k">return</span> <span class="nv">the</span> <span class="nv">same</span> <span class="nv">root</span> <span class="nv">at</span> <span class="nv">two</span> <span class="nv">or</span> <span class="nv">more</span>
+      <span class="nv">nearly</span> <span class="nv">equal</span> <span class="nv">values</span> <span class="nv">of</span> <span class="nv">t</span>.  <span class="k">If</span> <span class="nv">such</span> <span class="nv">false</span> <span class="nv">roots</span> <span class="nv">are</span>
+      <span class="nv">suspected</span>, <span class="nv">the</span> <span class="nv">user</span> <span class="nv">should</span> <span class="nv">consider</span> <span class="nv">smaller</span> <span class="nv">error</span> <span class="nv">tolerances</span>
+      <span class="nv">and</span><span class="o">/</span><span class="nv">or</span> <span class="nv">higher</span> <span class="nv">precision</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">evaluation</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">g</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>.
+
+      <span class="k">If</span> <span class="nv">a</span> <span class="nv">root</span> <span class="nv">of</span> <span class="nv">some</span> <span class="nv">g</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span> <span class="nv">defines</span> <span class="nv">the</span> <span class="k">end</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">problem</span>,
+      <span class="nv">the</span> <span class="nv">input</span> <span class="nv">to</span> <span class="nv">DLSODKR</span> <span class="nv">should</span> <span class="nv">nevertheless</span> <span class="nv">allow</span> <span class="nv">integration</span>
+      <span class="nv">to</span> <span class="nv">a</span> <span class="nv">point</span> <span class="nv">slightly</span> <span class="nv">past</span> <span class="nv">that</span> <span class="nv">root</span>, <span class="nv">so</span> <span class="nv">that</span> <span class="nv">DLSODKR</span> <span class="nv">can</span>
+      <span class="nv">locate</span> <span class="nv">the</span> <span class="nv">root</span> <span class="nv">by</span> <span class="nv">interpolation</span>.
+
+      <span class="nv">Subroutine</span> <span class="nv">G</span> <span class="nv">may</span> <span class="nv">access</span> <span class="nv">user</span><span class="o">-</span><span class="nv">defined</span> <span class="nv">quantities</span> <span class="nv">in</span>
+      <span class="nv">NEQ</span><span class="ss">(</span><span class="mi">2</span><span class="ss">)</span>,... <span class="nv">and</span> <span class="nv">Y</span><span class="ss">(</span><span class="nv">NEQ</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span><span class="o">+</span><span class="mi">1</span><span class="ss">)</span>,... <span class="k">if</span> <span class="nv">NEQ</span> <span class="nv">is</span> <span class="nv">an</span> <span class="nv">array</span>
+      <span class="ss">(</span><span class="nv">dimensioned</span> <span class="nv">in</span> <span class="nv">G</span><span class="ss">)</span> <span class="nv">and</span><span class="o">/</span><span class="nv">or</span> <span class="nv">Y</span> <span class="nv">has</span> <span class="nv">length</span> <span class="nv">exceeding</span> <span class="nv">NEQ</span><span class="ss">(</span><span class="mi">1</span><span class="ss">)</span>.
+      <span class="nv">See</span> <span class="nv">the</span> <span class="nv">descriptions</span> <span class="nv">of</span> <span class="nv">NEQ</span> <span class="nv">and</span> <span class="nv">Y</span> <span class="nv">above</span>.
+</code></pre></div>
+
+<p>NG     = number of constraint functions g(i).  If there are none,
+          set NG = 0, and pass a dummy name for G.</p>
+<p>JROOT  = integer array of length NG.  Used only for output.
+          On a return with ISTATE = 3 (one or more roots found),
+          JROOT(i) = 1 if g(i) has a root at t, or JROOT(i) = 0 if not.</p>
+<hr>
+<p>Optional Inputs.</p>
+<p>The following is a list of the optional inputs provided for in the
+ call sequence.  (See also Part 2.)  For each such input variable,
+ this table lists its name as used in this documentation, its
+ location in the call sequence, its meaning, and the default value.
+ The use of any of these inputs requires IOPT = 1, and in that
+ case all of these inputs are examined.  A value of zero for any
+ of these optional inputs will cause the default value to be used.
+ Thus to use a subset of the optional inputs, simply preload
+ locations 5 to 10 in RWORK and IWORK to 0.0 and 0 respectively, and
+ then set those of interest to nonzero values.</p>
+<p>Name    Location      Meaning and Default Value</p>
+<p>H0      RWORK(5)  the step size to be attempted on the first step.
+                   The default value is determined by the solver.</p>
+<p>HMAX    RWORK(6)  the maximum absolute step size allowed.
+                   The default value is infinite.</p>
+<p>HMIN    RWORK(7)  the minimum absolute step size allowed.
+                   The default value is 0.  (This lower bound is not
+                   enforced on the final step before reaching TCRIT
+                   when ITASK = 4 or 5.)</p>
+<p>DELT    RWORK(8)  convergence test constant in Krylov iteration
+                   algorithm.  The default is .05.</p>
+<p>MAXORD  IWORK(5)  the maximum order to be allowed.  The default
+                   value is 12 if METH = 1, and 5 if METH = 2.
+                   If MAXORD exceeds the default value, it will
+                   be reduced to the default value.
+                   If MAXORD is changed during the problem, it may
+                   cause the current order to be reduced.</p>
+<p>MXSTEP  IWORK(6)  maximum number of (internally defined) steps
+                   allowed during one call to the solver.
+                   The default value is 500.</p>
+<p>MXHNIL  IWORK(7)  maximum number of messages printed (per problem)
+                   warning that T + H = T on a step (H = step size).
+                   This must be positive to result in a non-default
+                   value.  The default value is 10.</p>
+<p>MAXL    IWORK(8)  maximum number of iterations in the SPIOM, SPIGMR,
+                   PCG, or PCGS algorithm (.le. NEQ).
+                   The default is MAXL = MIN(5,NEQ).</p>
+<p>KMP     IWORK(9)  number of vectors on which orthogonalization
+                   is done in SPIOM or SPIGMR algorithm (.le. MAXL).
+                   The default is KMP = MAXL.
+                   Note:  When KMP .lt. MAXL and MF = 22, the length
+                          of RWORK must be defined accordingly.  See
+                          the definition of RWORK above.</p>
+<hr>
+<p>Optional Outputs.</p>
+<p>As optional additional output from DLSODKR, the variables listed
+ below are quantities related to the performance of DLSODKR
+ which are available to the user.  These are communicated by way of
+ the work arrays, but also have internal mnemonic names as shown.
+ Except where stated otherwise, all of these outputs are defined
+ on any successful return from DLSODKR, and on any return with
+ ISTATE = -1, -2, -4, -5, -6, or -7.  On an illegal input return
+ (ISTATE = -3), they will be unchanged from their existing values
+ (if any), except possibly for TOLSF, LENRW, and LENIW.
+ On any error return, outputs relevant to the error will be defined,
+ as noted below.</p>
+<p>Name    Location      Meaning</p>
+<p>HU      RWORK(11) the step size in t last used (successfully).</p>
+<p>HCUR    RWORK(12) the step size to be attempted on the next step.</p>
+<p>TCUR    RWORK(13) the current value of the independent variable
+                   which the solver has actually reached, i.e. the
+                   current internal mesh point in t.  On output, TCUR
+                   will always be at least as far as the argument
+                   T, but may be farther (if interpolation was done).</p>
+<p>TOLSF   RWORK(14) a tolerance scale factor, greater than 1.0,
+                   computed when a request for too much accuracy was
+                   detected (ISTATE = -3 if detected at the start of
+                   the problem, ISTATE = -2 otherwise).  If ITOL is
+                   left unaltered but RTOL and ATOL are uniformly
+                   scaled up by a factor of TOLSF for the next call,
+                   then the solver is deemed likely to succeed.
+                   (The user may also ignore TOLSF and alter the
+                   tolerance parameters in any other way appropriate.)</p>
+<p>NGE     IWORK(10) the number of g evaluations for the problem so far.</p>
+<p>NST     IWORK(11) the number of steps taken for the problem so far.</p>
+<p>NFE     IWORK(12) the number of f evaluations for the problem so far.</p>
+<p>NPE     IWORK(13) the number of calls to JAC so far (for evaluation
+                   of preconditioners).</p>
+<p>NQU     IWORK(14) the method order last used (successfully).</p>
+<p>NQCUR   IWORK(15) the order to be attempted on the next step.</p>
+<p>IMXER   IWORK(16) the index of the component of largest magnitude in
+                   the weighted local error vector ( E(i)/EWT(i) ),
+                   on an error return with ISTATE = -4 or -5.</p>
+<p>LENRW   IWORK(17) the length of RWORK actually required.
+                   This is defined on normal returns and on an illegal
+                   input return for insufficient storage.</p>
+<p>LENIW   IWORK(18) the length of IWORK actually required.
+                   This is defined on normal returns and on an illegal
+                   input return for insufficient storage.</p>
+<p>NNI     IWORK(19) number of nonlinear iterations so far (each of
+                   which calls an iterative linear solver).</p>
+<p>NLI     IWORK(20) number of linear iterations so far.
+                   Note: A measure of the success of algorithm is
+                   the average number of linear iterations per
+                   nonlinear iteration, given by NLI/NNI.
+                   If this is close to MAXL, MAXL may be too small.</p>
+<p>NPS     IWORK(21) number of preconditioning solve operations
+                   (PSOL calls) so far.</p>
+<p>NCFN    IWORK(22) number of convergence failures of the nonlinear
+                   (Newton) iteration so far.
+                   Note: A measure of success is the overall
+                   rate of nonlinear convergence failures, NCFN/NST.</p>
+<p>NCFL    IWORK(23) number of convergence failures of the linear
+                   iteration so far.
+                   Note: A measure of success is the overall
+                   rate of linear convergence failures, NCFL/NNI.</p>
+<p>NSFI    IWORK(24) number of functional iteration steps so far.
+                   Note: A measure of the extent to which the
+                   problem is nonstiff is the ratio NSFI/NST.</p>
+<p>NJEV    IWORK(25) number of JAC calls with JOK = -1 so far
+                   (number of evaluations of Jacobian data).</p>
+<p>The following two arrays are segments of the RWORK array which
+ may also be of interest to the user as optional outputs.
+ For each array, the table below gives its internal name,
+ its base address in RWORK, and its description.</p>
+<p>Name    Base Address      Description</p>
+<p>YH      21 + 3<em>NG      the Nordsieck history array, of size NYH by
+                        (NQCUR + 1), where NYH is the initial value
+                        of NEQ.  For j = 0,1,&hellip;,NQCUR, column j+1
+                        of YH contains HCUR</em>*j/factorial(j) times
+                        the j-th derivative of the interpolating
+                        polynomial currently representing the solution,
+                        evaluated at t = TCUR.</p>
+<p>ACOR     LENRW-NEQ+1   array of size NEQ used for the accumulated
+                        corrections on each step, scaled on output
+                        to represent the estimated local error in y
+                        on the last step.  This is the vector E in
+                        the description of the error control.  It is
+                        defined only on a successful return from
+                        DLSODKR.</p>
+<hr>
+<p>Part 2.  Other Routines Callable.</p>
+<p>The following are optional calls which the user may make to
+ gain additional capabilities in conjunction with DLSODKR.
+ (The routines XSETUN and XSETF are designed to conform to the
+ SLATEC error handling package.)</p>
+<div class="codehilite"><pre><span></span><code> Form of Call                  Function
+</code></pre></div>
+
+<p>CALL XSETUN(LUN)          Set the logical unit number, LUN, for
+                             output of messages from DLSODKR, if
+                             the default is not desired.
+                             The default value of LUN is 6.</p>
+<p>CALL XSETF(MFLAG)         Set a flag to control the printing of
+                             messages by DLSODKR.
+                             MFLAG = 0 means do not print. (Danger:
+                             This risks losing valuable information.)
+                             MFLAG = 1 means print (the default).</p>
+<div class="codehilite"><pre><span></span><code>                         Either of the above calls may be made at
+                         any time and will take effect immediately.
+</code></pre></div>
+
+<p>CALL DSRCKR(RSAV,ISAV,JOB) saves and restores the contents of
+                             the internal Common blocks used by
+                             DLSODKR (see Part 3 below).
+                             RSAV must be a real array of length 228
+                             or more, and ISAV must be an integer
+                             array of length 63 or more.
+                             JOB=1 means save Common into RSAV/ISAV.
+                             JOB=2 means restore Common from RSAV/ISAV.
+                                DSRCKR is useful if one is
+                             interrupting a run and restarting
+                             later, or alternating between two or
+                             more problems solved with DLSODKR.</p>
+<p>CALL DINTDY(,,,,,)        Provide derivatives of y, of various
+        (see below)          orders, at a specified point t, if
+                             desired.  It may be called only after
+                             a successful return from DLSODKR.</p>
+<p>The detailed instructions for using DINTDY are as follows.
+ The form of the call is:</p>
+<p>LYH = 21 + 3*NG
+   CALL DINTDY (T, K, RWORK(LYH), NYH, DKY, IFLAG)</p>
+<p>The input parameters are:</p>
+<p>T         = value of independent variable where answers are desired
+             (normally the same as the T last returned by DLSODKR).
+             For valid results, T must lie between TCUR - HU and TCUR.
+             (See optional outputs for TCUR and HU.)
+ K         = integer order of the derivative desired.  K must satisfy
+             0 .le. K .le. NQCUR, where NQCUR is the current order
+             (see optional outputs).  The capability corresponding
+             to K = 0, i.e. computing y(T), is already provided
+             by DLSODKR directly.  Since NQCUR .ge. 1, the first
+             derivative dy/dt is always available with DINTDY.
+ LYH       = 21 + 3*NG = base address in RWORK of the history array YH.
+ NYH       = column length of YH, equal to the initial value of NEQ.</p>
+<p>The output parameters are:</p>
+<p>DKY       = a real array of length NEQ containing the computed value
+             of the K-th derivative of y(t).
+ IFLAG     = integer flag, returned as 0 if K and T were legal,
+             -1 if K was illegal, and -2 if T was illegal.
+             On an error return, a message is also written.</p>
+<hr>
+<p>Part 3.  Common Blocks.</p>
+<p>If DLSODKR is to be used in an overlay situation, the user
+ must declare, in the primary overlay, the variables in:
+   (1) the call sequence to DLSODKR, and
+   (2) the four internal Common blocks
+         /DLS001/  of length  255  (218 double precision words
+                      followed by 37 integer words),
+         /DLS002/  of length   5  (1 double precision word
+                      followed by  4 integer words),
+         /DLPK01/  of length  17  (4 double precision words
+                      followed by 13 integer words),
+         /DLSR01/  of length  14     (5 double precision words
+                      followed by  9 integer words).</p>
+<p>If DLSODKR is used on a system in which the contents of internal
+ Common blocks are not preserved between calls, the user should
+ declare the above Common blocks in the calling program to insure
+ that their contents are preserved.</p>
+<p>If the solution of a given problem by DLSODKR is to be interrupted
+ and then later continued, such as when restarting an interrupted run
+ or alternating between two or more problems, the user should save,
+ following the return from the last DLSODKR call prior to the
+ interruption, the contents of the call sequence variables and the
+ internal Common blocks, and later restore these values before the
+ next DLSODKR call for that problem.  To save and restore the Common
+ blocks, use Subroutine DSRCKR (see Part 2 above).</p>
+<hr>
+<p>Part 4.  Optionally Replaceable Solver Routines.</p>
+<p>Below are descriptions of two routines in the DLSODKR package which
+ relate to the measurement of errors.  Either routine can be
+ replaced by a user-supplied version, if desired.  However, since such
+ a replacement may have a major impact on performance, it should be
+ done only when absolutely necessary, and only with great caution.
+ (Note: The means by which the package version of a routine is
+ superseded by the user&rsquo;s version may be system-dependent.)</p>
+<p>(a) DEWSET.
+ The following subroutine is called just before each internal
+ integration step, and sets the array of error weights, EWT, as
+ described under ITOL/RTOL/ATOL above:
+     SUBROUTINE DEWSET (NEQ, ITOL, RTOL, ATOL, YCUR, EWT)
+ where NEQ, ITOL, RTOL, and ATOL are as in the DLSODKR call sequence,
+ YCUR contains the current dependent variable vector, and
+ EWT is the array of weights set by DEWSET.</p>
+<p>If the user supplies this subroutine, it must return in EWT(i)
+ (i = 1,&hellip;,NEQ) a positive quantity suitable for comparing errors
+ in y(i) to.  The EWT array returned by DEWSET is passed to the DVNORM
+ routine (see below), and also used by DLSODKR in the computation
+ of the optional output IMXER, the diagonal Jacobian approximation,
+ and the increments for difference quotient Jacobians.</p>
+<p>In the user-supplied version of DEWSET, it may be desirable to use
+ the current values of derivatives of y.  Derivatives up to order NQ
+ are available from the history array YH, described above under
+ optional outputs.  In DEWSET, YH is identical to the YCUR array,
+ extended to NQ + 1 columns with a column length of NYH and scale
+ factors of H**j/factorial(j).  On the first call for the problem,
+ given by NST = 0, NQ is 1 and H is temporarily set to 1.0.
+ NYH is the initial value of NEQ.  The quantities NQ, H, and NST
+ can be obtained by including in DEWSET the statements:
+     DOUBLE PRECISION RLS
+     COMMON /DLS001/ RLS(218),ILS(37)
+     NQ = ILS(33)
+     NST = ILS(34)
+     H = RLS(212)
+ Thus, for example, the current value of dy/dt can be obtained as
+ YCUR(NYH+i)/H  (i=1,&hellip;,NEQ)  (and the division by H is
+ unnecessary when NST = 0).</p>
+<p>(b) DVNORM.
+ The following is a real function routine which computes the weighted
+ root-mean-square norm of a vector v:
+     D = DVNORM (N, V, W)
+ where:
+   N = the length of the vector,
+   V = real array of length N containing the vector,
+   W = real array of length N containing weights,
+   D = SQRT( (1/N) * sum(V(i)<em>W(i))</em>*2 ).
+ DVNORM is called with N = NEQ and with W(i) = 1.0/EWT(i), where
+ EWT is as set by Subroutine DEWSET.</p>
+<p>If the user supplies this function, it should return a non-negative
+ value of DVNORM suitable for use in the error control in DLSODKR.
+ None of the arguments should be altered by DVNORM.
+ For example, a user-supplied DVNORM routine might:
+   -substitute a max-norm of (V(i)*W(i)) for the RMS-norm, or
+   -ignore some components of V in the norm, with the effect of
+    suppressing the error control on those components of y.</p>
+<hr>
+<h3 id="revision-history-yyyymmdd">REVISION HISTORY  (YYYYMMDD)</h3>
+<p>19900117  DATE WRITTEN
+ 19900503  Added iteration switching (functional/Newton).
+ 19900802  Added flag for Jacobian-saving in user preconditioner.
+ 19900910  Added new initial stepsize routine LHIN.
+ 19901019  Corrected LHIN - y array restored.
+ 19910909  Changed names STOPK to STOKA, PKSET to SETPK;
+           removed unused variables in driver declarations;
+           minor corrections to main prologue.
+ 20010425  Major update: convert source lines to upper case;
+           added *DECK lines; changed from 1 to * in dummy dimensions;
+           changed names R1MACH/D1MACH to RUMACH/DUMACH;
+           renamed routines for uniqueness across single/double prec.;
+           converted intrinsic names to generic form;
+           removed ILLIN and NTREP (data loaded) from Common;
+           removed all &lsquo;own&rsquo; variables from Common;
+           changed error messages to quoted strings;
+           replaced XERRWV/XERRWD with 1993 revised version;
+           converted prologues, comments, error messages to mixed case;
+           numerous corrections to prologues and internal comments.
+ 20010507  Converted single precision source to double precision.
+ 20020502  Corrected declarations in descriptions of user routines.
+ 20030603  Corrected duplicate type declaration for DUMACH.
+ 20031105  Restored &lsquo;own&rsquo; variables to Common blocks, to enable
+           interrupt/restart feature.
+ 20031112  Added SAVE statements for data-loaded constants.
+ 20031117  Changed internal name NPE to NJE.</p>
+<hr>
+<p>Other routines in the DLSODKR package.</p>
+<p>In addition to Subroutine DLSODKR, the DLSODKR package includes the
+ following subroutines and function routines:
+  DLHIN    calculates a step size to be attempted initially.
+  DRCHEK   does preliminary checking for roots, and serves as an
+           interface between Subroutine DLSODKR and Subroutine DROOTS.
+  DROOTS   finds the leftmost root of a set of functions.
+  DINTDY   computes an interpolated value of the y vector at t = TOUT.
+  DEWSET   sets the error weight vector EWT before each step.
+  DVNORM   computes the weighted RMS-norm of a vector.
+  DSTOKA   is the core integrator, which does one step of the
+           integration and the associated error control.
+  DCFODE   sets all method coefficients and test constants.
+  DSETPK   interfaces between DSTOKA and the JAC routine.
+  DSOLPK   manages solution of linear system in Newton iteration.
+  DSPIOM   performs the SPIOM algorithm.
+  DATV     computes a scaled, preconditioned product (I-hl0<em>J)</em>v.
+  DORTHOG  orthogonalizes a vector against previous basis vectors.
+  DHEFA    generates an LU factorization of a Hessenberg matrix.
+  DHESL    solves a Hessenberg square linear system.
+  DSPIGMR  performs the SPIGMR algorithm.
+  DHEQR    generates a QR factorization of a Hessenberg matrix.
+  DHELS    finds the least squares solution of a Hessenberg system.
+  DPCG     performs preconditioned conjugate gradient algorithm (PCG).
+  DPCGS    performs the PCGS algorithm.
+  DATP     computes the product A<em>p, where A = I - hl0</em>df/dy.
+  DUSOL    interfaces to the user&rsquo;s PSOL routine (MITER = 9).
+  DSRCKR   is a user-callable routine to save and restore
+           the contents of the internal Common blocks.
+  DAXPY, DCOPY, DDOT, DNRM2, and DSCAL   are basic linear
+           algebra modules (from the BLAS collection).
+  DUMACH   computes the unit roundoff in a machine-independent manner.
+  XERRWD, XSETUN, XSETF, and IXSAV handle the printing of all
+           error messages and warnings.  XERRWD is machine-dependent.
+ Note:  DVNORM, DDOT, DNRM2, DUMACH, and IXSAV are function
+ routines.  All the others are subroutines.</p>
+<hr>
+
+    <h3>Arguments</h3>
+      <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" id="variable-f~9"></span>real</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>f</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-neq~17"></span>integer,</td>
+<td></td>
+  <td></td>  <td>dimension(*)</td><td>::</td>
+  <td><strong>Neq</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-y~17"></span>real(kind=dp),</td>
+<td></td>
+  <td></td>  <td>dimension(*)</td><td>::</td>
+  <td><strong>Y</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-t~11"></span>real(kind=dp),</td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>T</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tout~8"></span>real(kind=dp),</td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Tout</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-itol~9"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Itol</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-rtol~8"></span>real(kind=dp),</td>
+<td></td>
+  <td></td>  <td>dimension(*)</td><td>::</td>
+  <td><strong>Rtol</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-atol~9"></span>real(kind=dp),</td>
+<td></td>
+  <td></td>  <td>dimension(*)</td><td>::</td>
+  <td><strong>Atol</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-itask~7"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Itask</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-istate~7"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Istate</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-iopt~7"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Iopt</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-rwork~9"></span>real(kind=dp),</td>
+<td>intent(inout),</td>
+  <td></td>  <td>dimension(Lrw)</td><td>::</td>
+  <td><strong>Rwork</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-lrw~7"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Lrw</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-iwork~7"></span>integer,</td>
+<td>intent(inout),</td>
+  <td></td>  <td>dimension(Liw)</td><td>::</td>
+  <td><strong>Iwork</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-liw~7"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Liw</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-jac~13"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>jac</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-psol"></span>real</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>psol</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-mf~5"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Mf</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-g~2"></span>real</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>g</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-ng~2"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Ng</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-jroot~2"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Jroot</strong>(*)</td><td></td>
+</tr>
+</tbody>
+</table>
+
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">Calls</h3>
+      </div>
+      <div class="panel-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dlsodkr~~CallsGraph Pages: 1 -->
+<svg id="procdlsodkrCallsGraph" width="334pt" height="338pt"
+ viewBox="0.00 0.00 334.00 337.77" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dlsodkr~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 333.77)">
+<title>proc~~dlsodkr~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-333.77 330,-333.77 330,4 -4,4"/>
+<!-- proc~dlsodkr -->
+<g id="proc~~dlsodkr~~CallsGraph_node1" class="node">
+<title>proc~dlsodkr</title>
+<polygon fill="none" stroke="black" points="54,-168.77 0,-168.77 0,-144.77 54,-144.77 54,-168.77"/>
+<text text-anchor="middle" x="27" y="-154.37" font-family="Helvetica,sans-Serif" font-size="10.50">dlsodkr</text>
+</g>
+<!-- proc~dvnorm -->
+<g id="proc~~dlsodkr~~CallsGraph_node2" class="node">
+<title>proc~dvnorm</title>
+<g id="a_proc~~dlsodkr~~CallsGraph_node2"><a xlink:href=".././proc/dvnorm.html" xlink:title="dvnorm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="236,-287.77 182,-287.77 182,-263.77 236,-263.77 236,-287.77"/>
+<text text-anchor="middle" x="209" y="-273.37" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr&#45;&gt;proc~dvnorm -->
+<g id="proc~~dlsodkr~~CallsGraph_edge1" class="edge">
+<title>proc~dlsodkr&#45;&gt;proc~dvnorm</title>
+<path fill="none" stroke="#000000" d="M31.63,-168.79C38.86,-190.51 57.25,-236.04 90,-257.77 114.02,-273.71 146.79,-277.64 171.69,-277.9"/>
+<polygon fill="#000000" stroke="#000000" points="171.87,-281.4 181.84,-277.82 171.81,-274.4 171.87,-281.4"/>
+</g>
+<!-- proc~dlhin -->
+<g id="proc~~dlsodkr~~CallsGraph_node3" class="node">
+<title>proc~dlhin</title>
+<g id="a_proc~~dlsodkr~~CallsGraph_node3"><a xlink:href=".././proc/dlhin.html" xlink:title="dlhin">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-248.77 91,-248.77 91,-224.77 145,-224.77 145,-248.77"/>
+<text text-anchor="middle" x="118" y="-234.37" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlhin</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr&#45;&gt;proc~dlhin -->
+<g id="proc~~dlsodkr~~CallsGraph_edge2" class="edge">
+<title>proc~dlsodkr&#45;&gt;proc~dlhin</title>
+<path fill="none" stroke="#000000" d="M41.52,-168.92C55.98,-181.91 79.1,-202.7 95.95,-217.84"/>
+<polygon fill="#000000" stroke="#000000" points="93.87,-220.68 103.65,-224.76 98.55,-215.48 93.87,-220.68"/>
+</g>
+<!-- proc~dcopy -->
+<g id="proc~~dlsodkr~~CallsGraph_node4" class="node">
+<title>proc~dcopy</title>
+<g id="a_proc~~dlsodkr~~CallsGraph_node4"><a xlink:href=".././proc/dcopy.html" xlink:title="dcopy">
+<polygon fill="#d9534f" stroke="#d9534f" points="236,-208.77 182,-208.77 182,-184.77 236,-184.77 236,-208.77"/>
+<text text-anchor="middle" x="209" y="-194.37" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcopy</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr&#45;&gt;proc~dcopy -->
+<g id="proc~~dlsodkr~~CallsGraph_edge3" class="edge">
+<title>proc~dlsodkr&#45;&gt;proc~dcopy</title>
+<path fill="none" stroke="#000000" d="M54.26,-166.75C65.19,-170.61 78.09,-174.81 90,-177.77 117.07,-184.48 148.24,-189.38 171.75,-192.52"/>
+<polygon fill="#000000" stroke="#000000" points="171.6,-196.03 181.97,-193.84 172.5,-189.09 171.6,-196.03"/>
+</g>
+<!-- proc~dintdy -->
+<g id="proc~~dlsodkr~~CallsGraph_node5" class="node">
+<title>proc~dintdy</title>
+<g id="a_proc~~dlsodkr~~CallsGraph_node5"><a xlink:href=".././proc/dintdy.html" xlink:title="dintdy">
+<polygon fill="#d9534f" stroke="#d9534f" points="236,-46.77 182,-46.77 182,-22.77 236,-22.77 236,-46.77"/>
+<text text-anchor="middle" x="209" y="-32.37" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr&#45;&gt;proc~dintdy -->
+<g id="proc~~dlsodkr~~CallsGraph_edge4" class="edge">
+<title>proc~dlsodkr&#45;&gt;proc~dintdy</title>
+<path fill="none" stroke="#000000" d="M31.36,-144.6C38.24,-122.14 56.23,-74.39 90,-51.77 113.92,-35.74 146.69,-32.11 171.63,-32.14"/>
+<polygon fill="#000000" stroke="#000000" points="171.72,-35.64 181.79,-32.35 171.87,-28.64 171.72,-35.64"/>
+</g>
+<!-- proc~dumach -->
+<g id="proc~~dlsodkr~~CallsGraph_node6" class="node">
+<title>proc~dumach</title>
+<g id="a_proc~~dlsodkr~~CallsGraph_node6"><a xlink:href=".././proc/dumach.html" xlink:title="dumach">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-168.77 90,-168.77 90,-144.77 146,-144.77 146,-168.77"/>
+<text text-anchor="middle" x="118" y="-154.37" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr&#45;&gt;proc~dumach -->
+<g id="proc~~dlsodkr~~CallsGraph_edge6" class="edge">
+<title>proc~dlsodkr&#45;&gt;proc~dumach</title>
+<path fill="none" stroke="#000000" d="M54.22,-156.77C62.17,-156.77 71.06,-156.77 79.59,-156.77"/>
+<polygon fill="#000000" stroke="#000000" points="79.73,-160.27 89.73,-156.77 79.73,-153.27 79.73,-160.27"/>
+</g>
+<!-- proc~dewset -->
+<g id="proc~~dlsodkr~~CallsGraph_node7" class="node">
+<title>proc~dewset</title>
+<g id="a_proc~~dlsodkr~~CallsGraph_node7"><a xlink:href=".././proc/dewset.html" xlink:title="dewset">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-126.77 91,-126.77 91,-102.77 145,-102.77 145,-126.77"/>
+<text text-anchor="middle" x="118" y="-112.37" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr&#45;&gt;proc~dewset -->
+<g id="proc~~dlsodkr~~CallsGraph_edge7" class="edge">
+<title>proc~dlsodkr&#45;&gt;proc~dewset</title>
+<path fill="none" stroke="#000000" d="M53.74,-144.62C62.6,-140.44 72.67,-135.69 82.13,-131.22"/>
+<polygon fill="#000000" stroke="#000000" points="83.77,-134.32 91.32,-126.89 80.78,-127.99 83.77,-134.32"/>
+</g>
+<!-- proc~dstoka -->
+<g id="proc~~dlsodkr~~CallsGraph_node8" class="node">
+<title>proc~dstoka</title>
+<g id="a_proc~~dlsodkr~~CallsGraph_node8"><a xlink:href=".././proc/dstoka.html" xlink:title="dstoka">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-328.77 91,-328.77 91,-304.77 145,-304.77 145,-328.77"/>
+<text text-anchor="middle" x="118" y="-314.37" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstoka</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr&#45;&gt;proc~dstoka -->
+<g id="proc~~dlsodkr~~CallsGraph_edge5" class="edge">
+<title>proc~dlsodkr&#45;&gt;proc~dstoka</title>
+<path fill="none" stroke="#000000" d="M31.94,-169.03C40.21,-193.61 61.01,-250.05 90,-290.77 91.55,-292.95 93.3,-295.1 95.15,-297.17"/>
+<polygon fill="#000000" stroke="#000000" points="93.01,-300 102.51,-304.7 98.02,-295.1 93.01,-300"/>
+</g>
+<!-- proc~xerrwd -->
+<g id="proc~~dlsodkr~~CallsGraph_node9" class="node">
+<title>proc~xerrwd</title>
+<g id="a_proc~~dlsodkr~~CallsGraph_node9"><a xlink:href=".././proc/xerrwd.html" xlink:title="xerrwd">
+<polygon fill="#d9534f" stroke="#d9534f" points="326,-26.77 272,-26.77 272,-2.77 326,-2.77 326,-26.77"/>
+<text text-anchor="middle" x="299" y="-12.37" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr&#45;&gt;proc~xerrwd -->
+<g id="proc~~dlsodkr~~CallsGraph_edge8" class="edge">
+<title>proc~dlsodkr&#45;&gt;proc~xerrwd</title>
+<path fill="none" stroke="#000000" d="M30.12,-144.66C35.31,-118.96 51.16,-58.95 90,-29.77 139.95,7.76 217.06,1.51 262.03,-6.55"/>
+<polygon fill="#000000" stroke="#000000" points="261.45,-10 271.93,-8.44 262.76,-3.12 261.45,-10"/>
+</g>
+<!-- proc~drchek -->
+<g id="proc~~dlsodkr~~CallsGraph_node10" class="node">
+<title>proc~drchek</title>
+<g id="a_proc~~dlsodkr~~CallsGraph_node10"><a xlink:href=".././proc/drchek.html" xlink:title="drchek">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-84.77 91,-84.77 91,-60.77 145,-60.77 145,-84.77"/>
+<text text-anchor="middle" x="118" y="-70.37" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">drchek</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr&#45;&gt;proc~drchek -->
+<g id="proc~~dlsodkr~~CallsGraph_edge9" class="edge">
+<title>proc~dlsodkr&#45;&gt;proc~drchek</title>
+<path fill="none" stroke="#000000" d="M38.98,-144.69C51.04,-131.65 71.2,-110.5 90,-93.77 90.95,-92.92 91.93,-92.07 92.92,-91.23"/>
+<polygon fill="#000000" stroke="#000000" points="95.19,-93.9 100.73,-84.86 90.76,-88.47 95.19,-93.9"/>
+</g>
+<!-- proc~dlhin&#45;&gt;proc~dvnorm -->
+<g id="proc~~dlsodkr~~CallsGraph_edge10" class="edge">
+<title>proc~dlhin&#45;&gt;proc~dvnorm</title>
+<path fill="none" stroke="#000000" d="M145.22,-248.26C153.82,-252.03 163.53,-256.28 172.69,-260.29"/>
+<polygon fill="#000000" stroke="#000000" points="171.4,-263.55 181.97,-264.36 174.21,-257.14 171.4,-263.55"/>
+</g>
+<!-- proc~dlhin&#45;&gt;proc~dcopy -->
+<g id="proc~~dlsodkr~~CallsGraph_edge11" class="edge">
+<title>proc~dlhin&#45;&gt;proc~dcopy</title>
+<path fill="none" stroke="#000000" d="M145.22,-224.98C153.82,-221.12 163.53,-216.76 172.69,-212.64"/>
+<polygon fill="#000000" stroke="#000000" points="174.28,-215.76 181.97,-208.47 171.41,-209.38 174.28,-215.76"/>
+</g>
+<!-- proc~dintdy&#45;&gt;proc~xerrwd -->
+<g id="proc~~dlsodkr~~CallsGraph_edge12" class="edge">
+<title>proc~dintdy&#45;&gt;proc~xerrwd</title>
+<path fill="none" stroke="#000000" d="M236.4,-28.77C244.48,-26.93 253.51,-24.88 262.1,-22.93"/>
+<polygon fill="#000000" stroke="#000000" points="262.94,-26.32 271.92,-20.69 261.39,-19.5 262.94,-26.32"/>
+</g>
+<!-- proc~dstoka&#45;&gt;proc~dvnorm -->
+<g id="proc~~dlsodkr~~CallsGraph_edge13" class="edge">
+<title>proc~dstoka&#45;&gt;proc~dvnorm</title>
+<path fill="none" stroke="#000000" d="M145.22,-304.69C153.82,-300.73 163.53,-296.26 172.69,-292.04"/>
+<polygon fill="#000000" stroke="#000000" points="174.35,-295.12 181.97,-287.76 171.42,-288.77 174.35,-295.12"/>
+</g>
+<!-- proc~dcfode -->
+<g id="proc~~dlsodkr~~CallsGraph_node11" class="node">
+<title>proc~dcfode</title>
+<g id="a_proc~~dlsodkr~~CallsGraph_node11"><a xlink:href=".././proc/dcfode.html" xlink:title="dcfode">
+<polygon fill="#d9534f" stroke="#d9534f" points="236,-329.77 182,-329.77 182,-305.77 236,-305.77 236,-329.77"/>
+<text text-anchor="middle" x="209" y="-315.37" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
+</a>
+</g>
+</g>
+<!-- proc~dstoka&#45;&gt;proc~dcfode -->
+<g id="proc~~dlsodkr~~CallsGraph_edge14" class="edge">
+<title>proc~dstoka&#45;&gt;proc~dcfode</title>
+<path fill="none" stroke="#000000" d="M145.22,-317.06C153.55,-317.16 162.91,-317.26 171.82,-317.36"/>
+<polygon fill="#000000" stroke="#000000" points="171.93,-320.86 181.97,-317.47 172.01,-313.86 171.93,-320.86"/>
+</g>
+<!-- proc~drchek&#45;&gt;proc~dcopy -->
+<g id="proc~~dlsodkr~~CallsGraph_edge15" class="edge">
+<title>proc~drchek&#45;&gt;proc~dcopy</title>
+<path fill="none" stroke="#000000" d="M136.68,-84.99C139.97,-87.68 143.24,-90.66 146,-93.77 168.46,-119.08 187.35,-153.66 198.17,-175.6"/>
+<polygon fill="#000000" stroke="#000000" points="195.07,-177.22 202.56,-184.72 201.38,-174.19 195.07,-177.22"/>
+</g>
+<!-- proc~drchek&#45;&gt;proc~dintdy -->
+<g id="proc~~dlsodkr~~CallsGraph_edge16" class="edge">
+<title>proc~drchek&#45;&gt;proc~dintdy</title>
+<path fill="none" stroke="#000000" d="M145.22,-61.57C153.82,-57.9 163.53,-53.76 172.69,-49.85"/>
+<polygon fill="#000000" stroke="#000000" points="174.14,-53.03 181.97,-45.88 171.39,-46.59 174.14,-53.03"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="597pt" height="32pt"
+ viewBox="0.00 0.00 596.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 592.5,-28 592.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node4" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="388.5,-24 243.5,-24 243.5,0 388.5,0 388.5,-24"/>
+<text text-anchor="middle" x="316" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="465,-24 407,-24 407,0 465,0 465,-24"/>
+<text text-anchor="middle" x="436" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="588.5,-24 483.5,-24 483.5,0 588.5,0 588.5,-24"/>
+<text text-anchor="middle" x="536" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a procedure to one which it calls. Dashed 
+    arrows point from an interface to procedures which implement that interface.
+    This could include the module procedures in a generic interface or the
+    implementation in a submodule of an interface in a parent module.
+    </p>
+    </div></div></div></div>
+      </div>
+    </div>
+    <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      <h3>Contents</h3>
+ 
+<em>None</em>
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+
+    
+    
+
+    
+    
+
+
+    
+    
+    </div>
+  </div>
+
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2022 
+</p>
+        </div>
+        <div class="col-xs-6 col-md-6">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2022-02-03 01:57            </p>
+        </div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+  </body>
+</html>
