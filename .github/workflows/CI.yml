@@ -8,7 +8,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest]
-        gcc_v: [9] # Version of GFortran we want to use.
+        gcc_v: [10] # Version of GFortran we want to use.
         python-version: [3.9]
     env:
       FC: gfortran-${{ matrix.gcc_v }}
@@ -54,7 +54,7 @@ jobs:
       run: fpm build
 
     - name: Test
-      run: fpm test
+      run: fpm test --compiler gfortran --profile release -flag -std=legacy
 
     - name: Build documentation
       run: ford ./odepack.md
