@@ -2,7 +2,7 @@
 src_dir: src
 output_dir: docs/fpm-ford
 project: odepack
-summary: ODE solvers
+summary: ODEPACK - A Systematized Collection of ODE Solvers
 project_github: https://github.com/jacobwilliams/odepack
 project_download:
 author: Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams
@@ -26,3 +26,5 @@ creation_date: %Y-%m-%d %H:%M %z
 md_extensions: markdown.extensions.toc
                markdown.extensions.smarty
 ---
+
+{!README.md!}
