@@ -259,6 +259,7 @@ subroutine approximate
 !  Since the vector X was used as work space, and the initial guess
 !  of the Newton correction is zero, X must be reset to zero.
 !-----------------------------------------------------------------------
+   integer :: ll
    ll = Lgmr
    llp1 = ll + 1
    do k = 1 , llp1
