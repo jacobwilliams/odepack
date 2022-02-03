@@ -51,7 +51,7 @@ jobs:
         --slave /usr/bingcov gcov /usr/bin/gcov-${GCC_V}
 
     - name: Compile
-      run: fpm build
+      run: fpm build --compiler gfortran --profile release -flag -std=legacy
 
     - name: Test
       run: fpm test --compiler gfortran --profile release -flag -std=legacy
