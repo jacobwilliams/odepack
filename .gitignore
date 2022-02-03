@@ -1,5 +1,7 @@
 # fpm build objects
 build/
+docs/fpm-ford
+
 # Compiled Object files
 *.slo
 *.lo
