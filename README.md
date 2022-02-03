@@ -8,7 +8,7 @@ might have test cases:
    https://people.sc.fsu.edu/~jburkardt/f77_src/odepack/odepack.html
 -->
 
-![ODEPACK](media/odepack.png)
+![ODEPACK](docs/images/odepack.png)
 ============
 
 # module ODEPACK
