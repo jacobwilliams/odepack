@@ -6,11 +6,16 @@
 !! P = I - H*EL(1)*J, where J is an approximation to the Jacobian.
 !! J is computed by columns, either by the user-supplied routine JAC
 !! if MITER = 1, or by finite differencing if MITER = 2.
-!! if MITER = 3, a diagonal approximation to J is used.
+!!
+!! Alternatively, if MITER = 3, a diagonal approximation to J is used.
+!!
 !! if MITER = 1 or 2, and if the existing value of the Jacobian
 !! (as contained in P) is considered acceptable, then a new value of
-!! P is reconstructed from the old value.  In any case, when MITER
+!! P is reconstructed from the old value. 
+!!
+!! In any case, when MITER
 !! is 1 or 2, the P matrix is subjected to LU decomposition in CDRV.
+!!
 !! P and its LU decomposition are stored (separately) in WK.
 !!
 !! In addition to variables described previously, communication

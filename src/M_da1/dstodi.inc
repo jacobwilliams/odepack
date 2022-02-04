@@ -4,9 +4,11 @@
 !>
 !! DSTODI performs one step of the integration of an initial value
 !! problem for a system of Ordinary Differential Equations.
+!!
 !! Note: DSTODI is independent of the value of the iteration method
 !! indicator MITER, and hence is independent
 !! of the type of chord method used, or the Jacobian structure.
+!!
 !! Communication with DSTODI is done with the following variables:
 !!
 !! NEQ

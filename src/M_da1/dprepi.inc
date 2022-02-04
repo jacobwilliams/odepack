@@ -4,6 +4,7 @@
 !>
 !! This routine performs preprocessing related to the sparse linear
 !! systems that must be solved.
+!!
 !! The operations that are performed here are:
 !!
 !!  * compute sparseness structure of the iteration matrix

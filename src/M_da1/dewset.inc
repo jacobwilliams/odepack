@@ -22,7 +22,6 @@
 !!  with the subscript on RTOL and/or ATOL possibly replaced by 1 above,
 !!  depending on the value of ITOL.
 !!
-! ### BEGIN PROLOGUE  DEWSET
 ! ### SUBSIDIARY
 ! ### PURPOSE  Set error weight vector.
 ! ### TYPE      DOUBLE PRECISION (SEWSET-S, DEWSET-D)
@@ -35,7 +34,6 @@
 !     19890501  Modified prologue to SLATEC/LDOC format.  (FNF)
 !     19890503  Minor cosmetic changes.  (FNF)
 !     19930809  Renamed to allow single/double precision versions. (ACH)
-! ### END PROLOGUE  DEWSET
 !-----------------------------------------------------------------------
 subroutine dewset(N,Itol,Rtol,Atol,Ycur,Ewt)
 !

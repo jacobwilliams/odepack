@@ -7,37 +7,57 @@
 !! orthogonalization procedure with conditional reorthogonalization.
 !! This is the version of 28 may 1986.
 !!
-!!      On entry
+!!### On entry
 !!
-!!         VNEW = the vector of length N containing a scaled product
-!!                of the Jacobian and the vector V(*,LL).
+!! VNEW 
 !!
-!!         V    = the N x l array containing the previous LL
-!!                orthogonal vectors v(*,1) to v(*,LL).
+!! : the vector of length N containing a scaled product
+!! of the Jacobian and the vector V(*,LL).
 !!
-!!         HES  = an LL x LL upper Hessenberg matrix containing,
-!!                in HES(i,k), k.lt.LL, scaled inner products of
-!!                A*V(*,k) and V(*,i).
+!! V    
 !!
-!!        LDHES = the leading dimension of the HES array.
+!! : the N x l array containing the previous LL
+!! orthogonal vectors v(*,1) to v(*,LL).
 !!
-!!         N    = the order of the matrix A, and the length of VNEW.
+!! HES  
 !!
-!!         LL   = the current order of the matrix HES.
+!! : an LL x LL upper Hessenberg matrix containing,
+!! in HES(i,k), k.lt.LL, scaled inner products of
+!! A*V(*,k) and V(*,i).
 !!
-!!          KMP = the number of previous vectors the new vector VNEW
-!!                must be made orthogonal to (KMP .le. MAXL).
+!! LDHES 
+!!
+!! : the leading dimension of the HES array.
+!!
+!! N    
+!!
+!! : the order of the matrix A, and the length of VNEW.
+!!
+!! LL   
+!!
+!! : the current order of the matrix HES.
+!!
+!! KMP 
+!!
+!! : the number of previous vectors the new vector VNEW
+!! must be made orthogonal to (KMP .le. MAXL).
 !!
 !!
-!!      On return
+!!### On return
 !!
-!!         VNEW = the new vector orthogonal to V(*,i0) to V(*,LL),
-!!                where i0 = MAX(1, LL-KMP+1).
+!! VNEW 
 !!
-!!         HES  = upper Hessenberg matrix with column LL filled in with
-!!                scaled inner products of A*V(*,LL) and V(*,i).
+!! : the new vector orthogonal to V(*,i0) to V(*,LL),
+!! where i0 = MAX(1, LL-KMP+1).
 !!
-!!       SNORMW = L-2 norm of VNEW.
+!! HES  
+!!
+!! : upper Hessenberg matrix with column LL filled in with
+!! scaled inner products of A*V(*,LL) and V(*,i).
+!!
+!! SNORMW 
+!!
+!! : L-2 norm of VNEW.
 !!
 !-----------------------------------------------------------------------
 subroutine dorthog(Vnew,V,Hes,N,Ll,Ldhes,Kmp,Snormw)

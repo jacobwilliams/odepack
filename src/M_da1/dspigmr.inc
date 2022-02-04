@@ -6,76 +6,129 @@
 !! preconditioned version of the Generalized Minimal Residual method.
 !! An initial guess of x = 0 is assumed.
 !!
-!!      On entry
+!!### On entry
 !!
-!!          NEQ = problem size, passed to F and PSOL (NEQ(1) = N).
+!! NEQ 
 !!
-!!           TN = current value of t.
+!! : problem size, passed to F and PSOL (NEQ(1) = N).
 !!
-!!            Y = array containing current dependent variable vector.
+!! TN 
 !!
-!!         SAVF = array containing current value of f(t,y).
+!! : current value of t.
 !!
-!!            B = the right hand side of the system A*x = b.
-!!                B is also used as work space when computing
-!!                the final approximation.
-!!                (B is the same as V(*,MAXL+1) in the call to DSPIGMR.)
+!! Y 
 !!
-!!         WGHT = the vector of length N containing the nonzero
-!!                elements of the diagonal scaling matrix.
+!! : array containing current dependent variable vector.
 !!
-!!            N = the order of the matrix A, and the lengths
-!!                of the vectors WGHT, B and X.
+!! SAVF 
 !!
-!!         MAXL = the maximum allowable order of the matrix HES.
+!! : array containing current value of f(t,y).
 !!
-!!       MAXLP1 = MAXL + 1, used for dynamic dimensioning of HES.
+!! B 
 !!
-!!          KMP = the number of previous vectors the new vector VNEW
-!!                must be made orthogonal to.  KMP .le. MAXL.
+!! : the right hand side of the system A*x = b.
 !!
-!!        DELTA = tolerance on residuals b - A*x in weighted RMS-norm.
+!! B is also used as work space when computing
 !!
-!!          HL0 = current value of (step size h) * (coefficient l0).
+!! the final approximation.
+!! (B is the same as V(*,MAXL+1) in the call to DSPIGMR.)
 !!
-!!         JPRE = preconditioner type flag.
+!! WGHT 
 !!
-!!        MNEWT = Newton iteration counter (.ge. 0).
+!! : the vector of length N containing the nonzero
+!! elements of the diagonal scaling matrix.
 !!
-!!           WK = real work array used by routine DATV and PSOL.
+!! N 
 !!
-!!           DL = real work array used for calculation of the residual
-!!                norm RHO when the method is incomplete (KMP .lt. MAXL).
-!!                Not needed or referenced in complete case (KMP = MAXL).
+!! : the order of the matrix A, and the lengths
+!! of the vectors WGHT, B and X.
 !!
-!!           WP = real work array used by preconditioner PSOL.
+!! MAXL 
 !!
-!!          IWP = integer work array used by preconditioner PSOL.
+!! : the maximum allowable order of the matrix HES.
 !!
-!!      On return
+!! MAXLP1
 !!
-!!         X    = the final computed approximation to the solution
-!!                of the system A*x = b.
+!! : MAXLP1 = MAXL + 1, used for dynamic dimensioning of HES.
 !!
-!!         LGMR = the number of iterations performed and
-!!                the current order of the upper Hessenberg
-!!                matrix HES.
+!! KMP 
 !!
-!!         NPSL = the number of calls to PSOL.
+!! : the number of previous vectors the new vector VNEW
+!! must be made orthogonal to.  KMP .le. MAXL.
 !!
-!!         V    = the N by (LGMR+1) array containing the LGMR
-!!                orthogonal vectors V(*,1) to V(*,LGMR).
+!! DELTA 
 !!
-!!         HES  = the upper triangular factor of the QR decomposition
-!!                of the (LGMR+1) by lgmr upper Hessenberg matrix whose
-!!                entries are the scaled inner-products of A*V(*,i)
-!!                and V(*,k).
+!! : tolerance on residuals b - A*x in weighted RMS-norm.
 !!
-!!         Q    = real array of length 2*MAXL containing the components
-!!                of the Givens rotations used in the QR decomposition
-!!                of HES.  It is loaded in DHEQR and used in DHELS.
+!! HL0 
 !!
-!!        IFLAG = integer error flag:
+!! : current value of (step size h) * (coefficient l0).
+!!
+!! JPRE 
+!!
+!! : preconditioner type flag.
+!!
+!! MNEWT 
+!!
+!! : Newton iteration counter (.ge. 0).
+!!
+!! WK 
+!!
+!! : real work array used by routine DATV and PSOL.
+!!
+!! DL 
+!!
+!! : real work array used for calculation of the residual
+!! norm RHO when the method is incomplete (KMP .lt. MAXL).
+!! Not needed or referenced in complete case (KMP = MAXL).
+!!
+!! WP 
+!!
+!! : real work array used by preconditioner PSOL.
+!!
+!! IWP 
+!!
+!! : integer work array used by preconditioner PSOL.
+!!
+!!### On return
+!!
+!! X    
+!!
+!! : the final computed approximation to the solution
+!! of the system A*x = b.
+!!
+!! LGMR 
+!!
+!! : the number of iterations performed and
+!! the current order of the upper Hessenberg
+!! matrix HES.
+!!
+!! NPSL 
+!!
+!! : the number of calls to PSOL.
+!!
+!! V    
+!!
+!! : the N by (LGMR+1) array containing the LGMR
+!! orthogonal vectors V(*,1) to V(*,LGMR).
+!!
+!! HES  
+!!
+!! : the upper triangular factor of the QR decomposition
+!! of the (LGMR+1) by lgmr upper Hessenberg matrix whose
+!! entries are the scaled inner-products of A*V(*,i)
+!! and V(*,k).
+!!
+!! Q    
+!!
+!! : real array of length 2*MAXL containing the components
+!! of the Givens rotations used in the QR decomposition
+!! of HES.  It is loaded in DHEQR and used in DHELS.
+!!
+!! IFLAG 
+!!
+!! : integer error flag:
+!!
 !!                0 means convergence in LGMR iterations, LGMR .le. MAXL.
 !!                1 means the convergence test did not pass in MAXL
 !!                  iterations, but the residual norm is .lt. 1,

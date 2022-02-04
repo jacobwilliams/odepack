@@ -4,7 +4,7 @@
 !>
 !!###  subroutine nnsc
 !!###  numerical solution of sparse nonsymmetric system of linear
-!!      equations given ldu-factorization (compressed pointer storage)
+!!     equations given ldu-factorization (compressed pointer storage)
 !!
 !!
 !!       input variables..  n, r, c, il, jl, ijl, l, d, iu, ju, iju, u, b
@@ -14,7 +14,7 @@
 !! fia   - tmp   - temporary vector which gets result of solving  ly = b.
 !!       -           size = n.
 !!
-!!  internal variables..
+!!### internal variables..
 !!    jmin, jmax - indices of the first and last positions in a row of
 !!      u or l  to be used.
 !!

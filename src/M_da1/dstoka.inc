@@ -12,6 +12,7 @@
 !! Note: DSTOKA is independent of the value of the iteration method
 !! indicator MITER, when this is .ne. 0, and hence is independent
 !! of the type of chord method used, or the Jacobian structure.
+!!
 !! Communication with DSTOKA is done with the following variables:
 !!
 !! NEQ

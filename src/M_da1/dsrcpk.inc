@@ -6,9 +6,18 @@
 !! the Common blocks DLS001, DLPK01, which are used
 !! internally by the DLSODPK solver.
 !!
-!! RSAV = real array of length 222 or more.
-!! ISAV = integer array of length 50 or more.
-!! JOB  = flag indicating to save or restore the Common blocks:
+!! RSAV 
+!!
+!! : real array of length 222 or more.
+!1
+!! ISAV 
+!!
+!! : integer array of length 50 or more.
+!1
+!! JOB  
+!!
+!! : flag indicating to save or restore the Common blocks:
+!!
 !!        JOB  = 1 if Common is to be saved (written to RSAV/ISAV)
 !!        JOB  = 2 if Common is to be restored (read from RSAV/ISAV)
 !!        A call with JOB = 2 presumes a prior call with JOB = 1.

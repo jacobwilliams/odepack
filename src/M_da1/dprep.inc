@@ -4,13 +4,16 @@
 !>
 !! This routine performs preprocessing related to the sparse linear
 !! systems that must be solved if MITER = 1 or 2.
+!!
 !! The operations that are performed here are:
+!!
 !!  * compute sparseness structure of Jacobian according to MOSS,
 !!  * compute grouping of column indices (MITER = 2),
 !!  * compute a new ordering of rows and columns of the matrix,
 !!  * reorder JA corresponding to the new ordering,
 !!  * perform a symbolic LU factorization of the matrix, and
 !!  * set pointers for segments of the IWK/WK array.
+!!
 !! In addition to variables described previously, DPREP uses the
 !! following for communication:
 !!

@@ -19,6 +19,7 @@
 !!                  relevant part of the step dlsr taken.
 !!          JOB = 3 means a successful step was just taken, and DRCHEK
 !!                  is to look for a root in the interval of the step.
+!!
 !! G0
 !!
 !! : array of length NG, containing the value of g at T = T0.

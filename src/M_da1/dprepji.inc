@@ -4,10 +4,16 @@
 !>
 !! DPREPJI is called by DSTODI to compute and process the matrix
 !! P = A - H*EL(1)*J, where J is an approximation to the Jacobian dr/dy,
-!! where r = g(t,y) - A(t,y)*s.  Here J is computed by the user-supplied
+!! where r = g(t,y) - A(t,y)*s.  
+!!
+!! Here J is computed by the user-supplied
 !! routine JAC if MITER = 1 or 4, or by finite differencing if MITER =
-!! 2 or 5.  J is stored in WM, rescaled, and ADDA is called to generate
-!! P. P is then subjected to LU decomposition in preparation
+!! 2 or 5.  
+!!
+!! J is stored in WM, rescaled, and ADDA is called to generate
+!! P. 
+!!
+!! P is then subjected to LU decomposition in preparation
 !! for later solution of linear systems with P as coefficient
 !! matrix.  This is done by DGEFA if MITER = 1 or 2, and by
 !! DGBFA if MITER = 4 or 5.

@@ -8,44 +8,77 @@
 !! the vector X returned is X = b (if MNEWT = 0) or X = 0 otherwise.
 !! PSOL is called with an LR argument of 0.
 !!
-!!      On entry
+!!### On entry
 !!
-!!          NEQ = problem size, passed to F and PSOL (NEQ(1) = N).
+!! NEQ 
 !!
-!!           TN = current value of t.
+!! : problem size, passed to F and PSOL (NEQ(1) = N).
 !!
-!!            Y = array containing current dependent variable vector.
+!! TN 
 !!
-!!         SAVF = array containing current value of f(t,y).
+!! : current value of t.
 !!
-!!            B = the right hand side of the system A*x = b.
+!! Y 
 !!
-!!         WGHT = the vector of length N containing the nonzero
-!!                elements of the diagonal scaling matrix.
+!! : array containing current dependent variable vector.
 !!
-!!            N = the order of the matrix A, and the lengths
-!!                of the vectors WGHT, B and X.
+!! SAVF 
 !!
-!!        DELTA = tolerance on residuals b - A*x in weighted RMS-norm.
+!! : array containing current value of f(t,y).
 !!
-!!          HL0 = current value of (step size h) * (coefficient l0).
+!! B 
 !!
-!!        MNEWT = Newton iteration counter (.ge. 0).
+!! : the right hand side of the system A*x = b.
 !!
-!!           WK = real work array used by PSOL.
+!! WGHT 
 !!
-!!           WP = real work array used by preconditioner PSOL.
+!! : the vector of length N containing the nonzero
+!! elements of the diagonal scaling matrix.
 !!
-!!          IWP = integer work array used by preconditioner PSOL.
+!! N 
 !!
-!!      On return
+!! : the order of the matrix A, and the lengths
+!! of the vectors WGHT, B and X.
 !!
-!!         X    = the final computed approximation to the solution
-!!                of the system A*x = b.
+!! DELTA 
 !!
-!!         NPSL = the number of calls to PSOL.
+!! : tolerance on residuals b - A*x in weighted RMS-norm.
 !!
-!!        IFLAG = integer error flag:
+!! HL0 
+!!
+!! : current value of (step size h) * (coefficient l0).
+!!
+!! MNEWT 
+!!
+!! : Newton iteration counter (.ge. 0).
+!!
+!! WK 
+!!
+!! : real work array used by PSOL.
+!!
+!! WP 
+!!
+!! : real work array used by preconditioner PSOL.
+!!
+!! IWP 
+!!
+!! : integer work array used by preconditioner PSOL.
+!!
+!!### On return
+!!
+!! X    
+!!
+!! : the final computed approximation to the solution
+!! of the system A*x = b.
+!!
+!! NPSL 
+!!
+!! : the number of calls to PSOL.
+!!
+!! IFLAG 
+!!
+!! : integer error flag:
+!!
 !!                0 means no trouble occurred.
 !!                3 means there was a recoverable error in PSOL
 !!                  caused by the preconditioner being out of date.

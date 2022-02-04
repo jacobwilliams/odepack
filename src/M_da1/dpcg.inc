@@ -7,52 +7,91 @@
 !! It is assumed here that the matrix A and the preconditioner
 !! matrix M are symmetric positive definite or nearly so.
 !!
-!!      On entry
+!!### On entry
 !!
-!!          NEQ = problem size, passed to F and PSOL (NEQ(1) = N).
+!! NEQ 
 !!
-!!           TN = current value of t.
+!! : problem size, passed to F and PSOL (NEQ(1) = N).
 !!
-!!            Y = array containing current dependent variable vector.
+!! TN 
 !!
-!!         SAVF = array containing current value of f(t,y).
+!! : current value of t.
 !!
-!!            R = the right hand side of the system A*x = b.
+!! Y 
 !!
-!!         WGHT = array of length N containing scale factors.
-!!                1/WGHT(i) are the diagonal elements of the diagonal
-!!                scaling matrix D.
+!! : array containing current dependent variable vector.
 !!
-!!            N = the order of the matrix A, and the lengths
-!!                of the vectors Y, SAVF, R, WGHT, P, W, Z, WK, and X.
+!! SAVF 
 !!
-!!         MAXL = the maximum allowable number of iterates.
+!! : array containing current value of f(t,y).
 !!
-!!        DELTA = tolerance on residuals b - A*x in weighted RMS-norm.
+!! R 
 !!
-!!          HL0 = current value of (step size h) * (coefficient l0).
+!! : the right hand side of the system A*x = b.
 !!
-!!         JPRE = preconditioner type flag.
+!! WGHT 
 !!
-!!        MNEWT = Newton iteration counter (.ge. 0).
+!! : array of length N containing scale factors.
+!! 1/WGHT(i) are the diagonal elements of the diagonal
+!! scaling matrix D.
 !!
-!!           WK = real work array used by routine DATP.
+!! N 
 !!
-!!           WP = real work array used by preconditioner PSOL.
+!! : the order of the matrix A, and the lengths
+!! of the vectors Y, SAVF, R, WGHT, P, W, Z, WK, and X.
 !!
-!!          IWP = integer work array used by preconditioner PSOL.
+!! MAXL 
 !!
-!!      On return
+!! : the maximum allowable number of iterates.
 !!
-!!         X    = the final computed approximation to the solution
-!!                of the system A*x = b.
+!! DELTA 
 !!
-!!         LPCG = the number of iterations performed, and current
-!!                order of the upper Hessenberg matrix HES.
+!! : tolerance on residuals b - A*x in weighted RMS-norm.
 !!
-!!         NPSL = the number of calls to PSOL.
+!! HL0 
 !!
-!!        IFLAG = integer error flag:
+!! : current value of (step size h) * (coefficient l0).
+!!
+!! JPRE 
+!!
+!! : preconditioner type flag.
+!!
+!! MNEWT 
+!!
+!! : Newton iteration counter (.ge. 0).
+!!
+!! WK 
+!!
+!! : real work array used by routine DATP.
+!!
+!! WP 
+!!
+!! : real work array used by preconditioner PSOL.
+!!
+!! IWP 
+!!
+!! : integer work array used by preconditioner PSOL.
+!!
+!!#### On return
+!!
+!! X    
+!!
+!! : the final computed approximation to the solution
+!! of the system A*x = b.
+!!
+!! LPCG 
+!!
+!! : the number of iterations performed, and current
+!! order of the upper Hessenberg matrix HES.
+!!
+!! NPSL 
+!!
+!! : the number of calls to PSOL.
+!!
+!! IFLAG 
+!!
+!! : integer error flag:
+!!
 !!                0 means convergence in LPCG iterations, LPCG .le. MAXL.
 !!                1 means the convergence test did not pass in MAXL
 !!                  iterations, but the residual norm is .lt. 1,

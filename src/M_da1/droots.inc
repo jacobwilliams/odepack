@@ -11,29 +11,39 @@
 !! are communicated through the call sequence of DROOTS.
 !! The method used is the Illinois algorithm.
 !!
-!! Reference:
+!! #### Reference:
 !! Kathie L. Hiebert and Lawrence F. Shampine, Implicitly Defined
 !! Output Points for Solutions of ODEs, Sandia Report SAND80-0180,
 !! February 1980.
 !!
-!! Description of parameters.
+!!### Description of parameters.
 !!
-!! NG     = number of functions gi, or the number of components of
-!!          the vector valued function g(x).  Input only.
+!! NG     
 !!
-!! HMIN   = resolution parameter in X.  Input only.  When a root is
-!!          found, it is located only to within an error of HMIN in X.
-!!          Typically, HMIN should be set to something on the order of
+!! : number of functions gi, or the number of components of
+!! the vector valued function g(x).  Input only.
+!!
+!! HMIN   
+!!
+!! : resolution parameter in X.  Input only.  When a root is
+!! found, it is located only to within an error of HMIN in X.
+!! Typically, HMIN should be set to something on the order of
 !!               100 * UROUND * MAX(ABS(X0),ABS(X1)),
-!!          where UROUND is the unit roundoff of the machine.
+!! where UROUND is the unit roundoff of the machine.
 !!
-!! JFLAG  = integer flag for input and output communication.
+!! JFLAG  
 !!
-!!          On input, set JFLAG = 0 on the first call for the problem,
-!!          and leave it unchanged until the problem is completed.
-!!          (The problem is completed when JFLAG .ge. 2 on return.)
+!! : integer flag for input and output communication.
 !!
-!!          On output, JFLAG has the following values and meanings:
+!! On input, set JFLAG = 0 on the first call for the problem,
+!! and leave it unchanged until the problem is completed.
+!! (The problem is completed when JFLAG .ge. 2 on return.)
+!!
+!!### On output
+!! JFLAG
+!!
+!! :JFLAG has the following values and meanings:
+!!
 !!          JFLAG = 1 means DROOTS needs a value of g(x).  Set GX = g(X)
 !!                    and call DROOTS again.
 !!          JFLAG = 2 means a root has been found.  The root is
@@ -46,33 +56,45 @@
 !!          JFLAG = 4 means no roots (of odd multiplicity) were
 !!                    found in (X0,X1) (no sign changes).
 !!
-!! X0,X1  = endpoints of the interval where roots are sought.
-!!          X1 and X0 are input when JFLAG = 0 (first call), and
-!!          must be left unchanged between calls until the problem is
-!!          completed.  X0 and X1 must be distinct, but X1 - X0 may be
-!!          of either sign.  However, the notion of -left- and -right-
-!!          will be used to mean nearer to X0 or X1, respectively.
-!!          When JFLAG .ge. 2 on return, X0 and X1 are output, and
-!!          are the endpoints of the relevant interval.
+!! X0,X1  
 !!
-!! G0,G1  = arrays of length NG containing the vectors g(X0) and g(X1),
-!!          respectively.  When JFLAG = 0, G0 and G1 are input and
-!!          none of the G0(i) should be zero.
-!!          When JFLAG .ge. 2 on return, G0 and G1 are output.
+!! : endpoints of the interval where roots are sought.
+!! X1 and X0 are input when JFLAG = 0 (first call), and
+!! must be left unchanged between calls until the problem is
+!! completed.  X0 and X1 must be distinct, but X1 - X0 may be
+!! of either sign.  However, the notion of -left- and -right-
+!! will be used to mean nearer to X0 or X1, respectively.
+!! When JFLAG .ge. 2 on return, X0 and X1 are output, and
+!! are the endpoints of the relevant interval.
 !!
-!! GX     = array of length NG containing g(X).  GX is input
-!!          when JFLAG = 1, and output when JFLAG .ge. 2.
+!! G0,G1  
 !!
-!! X      = independent variable value.  Output only.
-!!          When JFLAG = 1 on output, X is the point at which g(x)
-!!          is to be evaluated and loaded into GX.
+!! : arrays of length NG containing the vectors g(X0) and g(X1),
+!! respectively.  When JFLAG = 0, G0 and G1 are input and
+!! none of the G0(i) should be zero.
+!! When JFLAG .ge. 2 on return, G0 and G1 are output.
+!!
+!! GX     
+!!
+!! : array of length NG containing g(X).  GX is input
+!! when JFLAG = 1, and output when JFLAG .ge. 2.
+!!
+!! X      
+!!
+!! : independent variable value.  Output only.
+!! When JFLAG = 1 on output, X is the point at which g(x)
+!! is to be evaluated and loaded into GX.
+!!
 !!          When JFLAG = 2 or 3, X is the root.
+!!
 !!          When JFLAG = 4, X is the right endpoint of the interval, X1.
 !!
-!! JROOT  = integer array of length NG.  Output only.
-!!          When JFLAG = 2 or 3, JROOT indicates which components
-!!          of g(x) have a root at X.  JROOT(i) is 1 if the i-th
-!!          component has a root, and JROOT(i) = 0 otherwise.
+!! JROOT  
+!!
+!! : integer array of length NG.  Output only.
+!! When JFLAG = 2 or 3, JROOT indicates which components
+!! of g(x) have a root at X.  JROOT(i) is 1 if the i-th
+!! component has a root, and JROOT(i) = 0 otherwise.
 !-----------------------------------------------------------------------
 subroutine droots(Ng,Hmin,Jflag,X0,X1,G0,G1,Gx,X,Jroot)
 !

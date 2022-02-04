@@ -3,9 +3,10 @@
 !----------------------------------------------------------------------------------------------------------------------------------!
 !>
 !!###  subroutine nntc
-!!###  numeric solution of the transpose of a sparse nonsymmetric system
-!!      of linear equations given lu-factorization (compressed pointer
-!!      storage)
+!!### DESCRIPTION
+!!   numeric solution of the transpose of a sparse nonsymmetric system
+!!   of linear equations given lu-factorization (compressed pointer
+!!   storage)
 !!
 !!
 !!       input variables..  n, r, c, il, jl, ijl, l, d, iu, ju, iju, u, b

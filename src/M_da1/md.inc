@@ -4,7 +4,7 @@
 !>
 !!  md -- minimum degree algorithm (based on element model)
 !!
-!!  description
+!!### description
 !!
 !!    md finds a minimum degree ordering of the rows and columns of a
 !!    general sparse matrix m stored in (ia,ja,a) format.
@@ -12,35 +12,52 @@
 !!    obtained for the symmetric matrix  m + m-transpose.
 !!
 !!
-!!  additional parameters
+!!### additional parameters
 !!
-!!    max  - declared dimension of the one-dimensional arrays v and l.
-!!           max must be at least  n+2k,  where k is the number of
-!!           nonzeroes in the strict upper triangle of m + m-transpose
+!!    MAX  
 !!
-!!    v    - integer one-dimensional work array.  dimension = max
+!!    : declared dimension of the one-dimensional arrays v and l.
+!!    max must be at least  n+2k,  where k is the number of
+!!    nonzeroes in the strict upper triangle of m + m-transpose
 !!
-!!    l    - integer one-dimensional work array.  dimension = max
+!!    V    
 !!
-!!    head - integer one-dimensional work array.  dimension = n
+!!    : integer one-dimensional work array.  dimension = max
 !!
-!!    last - integer one-dimensional array used to return the permutation
-!!           of the rows and columns of m corresponding to the minimum
-!!           degree ordering.  dimension = n
+!!    L    
 !!
-!!    next - integer one-dimensional array used to return the inverse of
-!!           the permutation returned in last.  dimension = n
+!!    : integer one-dimensional work array.  dimension = max
 !!
-!!    mark - integer one-dimensional work array (may be the same as v).
-!!           dimension = n
+!!    HEAD 
 !!
-!!    flag - integer error flag.  values and their meanings are -
+!!    : integer one-dimensional work array.  dimension = n
+!!
+!!    LAST 
+!!
+!!    : integer one-dimensional array used to return the permutation
+!!    of the rows and columns of m corresponding to the minimum
+!!    degree ordering.  dimension = n
+!!
+!!    NEXT 
+!!
+!!    : integer one-dimensional array used to return the inverse of
+!!    the permutation returned in last.  dimension = n
+!!
+!!    MARK 
+!!
+!!    : integer one-dimensional work array (may be the same as v).
+!!    dimension = n
+!!
+!!    FLAG 
+!!
+!!    : integer error flag.  values and their meanings are -
+!!
 !!             0     no errors detected
 !!             9n+k  insufficient storage in md
 !!
 !!
-!!  definitions of internal parameters
-!!
+!!### definitions of internal parameters
+!!```text
 !!    ---------+---------------------------------------------------------
 !!    v(s)     - value field of list entry
 !!    ---------+---------------------------------------------------------
@@ -80,6 +97,7 @@
 !!             -       with ek = m           -
 !!             - otherwise nonnegative tag   -
 !!             -       .lt. mark(vk)         -
+!!```
 !!
 !-----------------------------------------------------------------------
 subroutine md(N,Ia,Ja,Max,V,L,Head,Last,Next,Mark,Flag)

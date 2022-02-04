@@ -3,7 +3,8 @@
 !----------------------------------------------------------------------------------------------------------------------------------!
 !>
 !!### NAME
-!! cdrv(3f) - [M_odepack ]
+!! cdrv(3f) - [M_odepack ] driver for solving sparse non-symmetric
+!!            systems of linear equations
 !!
 !!### DESCRIPTION
 !!   driver for subroutines for solving sparse nonsymmetric systems of

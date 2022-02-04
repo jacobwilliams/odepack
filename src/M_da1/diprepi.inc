@@ -4,11 +4,13 @@
 !>
 !! This routine serves as an interface between the driver and
 !! Subroutine DPREPI.  Tasks performed here are:
+!!
 !!  * call DPREPI,
 !!  * reset the required WM segment length LENWK,
 !!  * move YH back to its final location (following WM in RWORK),
 !!  * reset pointers for YH, SAVR, EWT, and ACOR, and
 !!  * move EWT to its new position if ISTATE = 0 or 1.
+!!
 !! IPFLAG is an output error indication flag.  IPFLAG = 0 if there was
 !! no trouble, and IPFLAG is the value of the DPREPI error flag IPPER
 !! if there was trouble in Subroutine DPREPI.

@@ -4,10 +4,11 @@
 !>
 !! This routine computes the product
 !!
-!!     (D-inverse)*(P1-inverse)*(I - hl0*df/dy)*(P2-inverse)*(D*v),
+!!      (D-inverse)*(P1-inverse)*(I - hl0*df/dy)*(P2-inverse)*(D*v)
 !!
 !! where D is a diagonal scaling matrix, and P1 and P2 are the
 !! left and right preconditioning matrices, respectively.
+!!
 !! v is assumed to have WRMS norm equal to 1.
 !! The product is stored in z.  This is computed by a
 !! difference quotient, a call to F, and two calls to PSOL.
@@ -54,7 +55,7 @@
 !!
 !! HL0
 !!
-!! : current value of (step size dls1%h) * (coefficient l0).
+!! : current value of (step size h) * (coefficient l0).
 !!
 !! JPRE
 !!

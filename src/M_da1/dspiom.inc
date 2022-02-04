@@ -6,68 +6,115 @@
 !! preconditioned version of the Incomplete Orthogonalization Method.
 !! An initial guess of x = 0 is assumed.
 !!
-!!      On entry
+!!### On entry
 !!
-!!          NEQ = problem size, passed to F and PSOL (NEQ(1) = N).
+!! NEQ 
 !!
-!!           TN = current value of t.
+!! : problem size, passed to F and PSOL (NEQ(1) = N).
 !!
-!!            Y = array containing current dependent variable vector.
+!! TN 
 !!
-!!         SAVF = array containing current value of f(t,y).
+!! : current value of t.
 !!
-!!         B    = the right hand side of the system A*x = b.
-!!                B is also used as work space when computing the
-!!                final approximation.
-!!                (B is the same as V(*,MAXL+1) in the call to DSPIOM.)
+!! Y 
 !!
-!!         WGHT = array of length N containing scale factors.
-!!                1/WGHT(i) are the diagonal elements of the diagonal
-!!                scaling matrix D.
+!! : array containing current dependent variable vector.
 !!
-!!         N    = the order of the matrix A, and the lengths
-!!                of the vectors Y, SAVF, B, WGHT, and X.
+!! SAVF 
 !!
-!!         MAXL = the maximum allowable order of the matrix HES.
+!! : array containing current value of f(t,y).
 !!
-!!          KMP = the number of previous vectors the new vector VNEW
-!!                must be made orthogonal to.  KMP .le. MAXL.
+!! B    
 !!
-!!        DELTA = tolerance on residuals b - A*x in weighted RMS-norm.
+!! : the right hand side of the system A*x = b.
+!! B is also used as work space when computing the
+!! final approximation.
+!! (B is the same as V(*,MAXL+1) in the call to DSPIOM.)
 !!
-!!          HL0 = current value of (step size h) * (coefficient l0).
+!! WGHT 
 !!
-!!         JPRE = preconditioner type flag.
+!! : array of length N containing scale factors.
+!! 1/WGHT(i) are the diagonal elements of the diagonal
+!! scaling matrix D.
 !!
-!!        MNEWT = Newton iteration counter (.ge. 0).
+!! N    
 !!
-!!           WK = real work array of length N used by DATV and PSOL.
+!! : the order of the matrix A, and the lengths
+!! of the vectors Y, SAVF, B, WGHT, and X.
 !!
-!!           WP = real work array used by preconditioner PSOL.
+!! MAXL 
 !!
-!!          IWP = integer work array used by preconditioner PSOL.
+!! : the maximum allowable order of the matrix HES.
 !!
-!!      On return
+!! KMP 
 !!
-!!         X    = the final computed approximation to the solution
-!!                of the system A*x = b.
+!! : the number of previous vectors the new vector VNEW
+!! must be made orthogonal to.  KMP .le. MAXL.
 !!
-!!         V    = the N by (LIOM+1) array containing the LIOM
-!!                orthogonal vectors V(*,1) to V(*,LIOM).
+!! DELTA 
 !!
-!!         HES  = the LU factorization of the LIOM by LIOM upper
-!!                Hessenberg matrix whose entries are the
-!!                scaled inner products of A*V(*,k) and V(*,i).
+!! : tolerance on residuals b - A*x in weighted RMS-norm.
 !!
-!!         IPVT = an integer array containg pivoting information.
-!!                It is loaded in DHEFA and used in DHESL.
+!! HL0 
 !!
-!!         LIOM = the number of iterations performed, and current
-!!                order of the upper Hessenberg matrix HES.
+!! : current value of (step size h) * (coefficient l0).
 !!
-!!         NPSL = the number of calls to PSOL.
+!! JPRE 
 !!
-!!        IFLAG = integer error flag:
+!! : preconditioner type flag.
+!!
+!! MNEWT 
+!!
+!! : Newton iteration counter (.ge. 0).
+!!
+!! WK 
+!!
+!! : real work array of length N used by DATV and PSOL.
+!!
+!! WP 
+!!
+!! : real work array used by preconditioner PSOL.
+!!
+!! IWP 
+!!
+!! : integer work array used by preconditioner PSOL.
+!!
+!!### On return
+!!
+!! X    
+!!
+!! : the final computed approximation to the solution
+!! of the system A*x = b.
+!!
+!! V    
+!!
+!! : the N by (LIOM+1) array containing the LIOM
+!! orthogonal vectors V(*,1) to V(*,LIOM).
+!!
+!! HES  
+!!
+!! : the LU factorization of the LIOM by LIOM upper
+!! Hessenberg matrix whose entries are the
+!! scaled inner products of A*V(*,k) and V(*,i).
+!!
+!! IPVT 
+!!
+!! : an integer array containg pivoting information.
+!! It is loaded in DHEFA and used in DHESL.
+!!
+!! LIOM 
+!!
+!! : the number of iterations performed, and current
+!! order of the upper Hessenberg matrix HES.
+!!
+!! NPSL 
+!!
+!! : the number of calls to PSOL.
+!!
+!! IFLAG 
+!!
+!! : integer error flag:
+!!
 !!                0 means convergence in LIOM iterations, LIOM.le.MAXL.
 !!                1 means the convergence test did not pass in MAXL
 !!                  iterations, but the residual norm is .lt. 1,

@@ -7,10 +7,13 @@
 !!
 !!### DESCRIPTION
 !!  DPREPJ is called by DSTODE to compute and process the matrix
-!!  P = I - dls1%h*el(1)*J , where J is an approximation to the Jacobian.
+!!  P = I - h*el(1)*J , where J is an approximation to the Jacobian.
+!!
 !!  Here J is computed by the user-supplied routine JAC if
 !!  MITER = 1 or 4, or by finite differencing if MITER = 2, 3, or 5.
+!!
 !!  If MITER = 3, a diagonal approximation to J is used.
+!!
 !!  J is stored in WM and replaced by P.  If MITER .ne. 3, P is then
 !!  subjected to LU decomposition in preparation for later solution
 !!  of linear systems with P as coefficient matrix.  This is done

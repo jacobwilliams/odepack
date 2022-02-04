@@ -15,15 +15,17 @@
 !!  vector-valued polynomial of degree NQCUR or less, and DKY is set
 !!  to the K-th derivative of this polynomial at T.
 !!  The formula for DKY is:
+!!```text
 !!               q
 !!   DKY(i)  =  sum  c(j,K) * (T - tn)**(j-K) * h**(-j) * YH(i,j+1)
 !!              j=K
+!!```
 !!  where  c(j,K) = j*(j-1)*...*(j-K+1), q = NQCUR, tn = TCUR, h = HCUR.
+!!
 !!  The quantities  nq = NQCUR, l = nq+1, N = NEQ, tn, and h are
 !!  communicated by COMMON.  The above sum is done in reverse order.
 !!  IFLAG is returned negative if either K or T is out of bounds.
 !!
-! ### BEGIN PROLOGUE  DINTDY
 ! ### SUBSIDIARY
 ! ### PURPOSE  Interpolate solution derivatives.
 ! ### TYPE      DOUBLE PRECISION (SINTDY-S, DINTDY-D)
@@ -32,16 +34,14 @@
 ! ### ROUTINES CALLED  XERRWD
 ! ### COMMON BLOCKS    DLS001
 ! ### REVISION HISTORY  (YYMMDD)
-!     791129  DATE WRITTEN
-!     890501  Modified prologue to SLATEC/LDOC format.  (FNF)
-!     890503  Minor cosmetic changes.  (FNF)
-!     930809  Renamed to allow single/double precision versions. (ACH)
-!     010418  Reduced size of Common block /DLS001/. (ACH)
-!     031105  Restored 'own' variables to Common block /DLS001/, to
-!             enable interrupt/restart feature. (ACH)
-!     050427  Corrected roundoff decrement in TP. (ACH)
-! ### END PROLOGUE  DINTDY
-! **End
+!     19791129  DATE WRITTEN
+!     19890501  Modified prologue to SLATEC/LDOC format.  (FNF)
+!     19890503  Minor cosmetic changes.  (FNF)
+!     19930809  Renamed to allow single/double precision versions. (ACH)
+!     20010418  Reduced size of Common block /DLS001/. (ACH)
+!     20031105  Restored 'own' variables to Common block /DLS001/, to
+!               enable interrupt/restart feature. (ACH)
+!     20050427  Corrected roundoff decrement in TP. (ACH)
 !-----------------------------------------------------------------------
 subroutine dintdy(T,K,Yh,Nyh,Dky,Iflag)
 !

@@ -4,11 +4,15 @@
 !>
 !! DPRJA is called by DSTODA to compute and process the matrix
 !! P = I - H*EL(1)*J, where J is an approximation to the Jacobian.
+!!
 !! Here J is computed by the user-supplied routine JAC if
 !! MITER = 1 or 4 or by finite differencing if MITER = 2 or 5.
+!!
 !! J, scaled by -H*EL(1), is stored in WM.  Then the norm of J (the
 !! matrix norm consistent with the weighted max-norm on vectors given
-!! by DMNORM) is computed, and J is overwritten by P.  P is then
+!! by DMNORM) is computed, and J is overwritten by P. 
+!!
+!! P is then
 !! subjected to LU decomposition in preparation for later solution
 !! of linear systems with P as coefficient matrix.  This is done
 !! by DGEFA if MITER = 1 or 2, and by DGBFA if MITER = 4 or 5.

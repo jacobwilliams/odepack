@@ -2,17 +2,20 @@
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !----------------------------------------------------------------------------------------------------------------------------------!
 !>
-!!###  subroutine nnfc
-!!###  numerical ldu-factorization of sparse nonsymmetric matrix and
-!!      solution of system of linear equations (compressed pointer
-!!      storage)
-!!
-!!
+!!### NAME
+!! nnfc(3f) - [M_odepack] numerical LDU-factorization of sparse nonsymmetric matrix
+11
+!!### DESCRIPTION
+!!   numerical ldu-factorization of sparse nonsymmetric matrix and
+!!   solution of system of linear equations (compressed pointer
+!!   storage)
+!!```text
 !!       input variables..  n, r, c, ic, ia, ja, a, b,
 !!                          il, jl, ijl, lmax, iu, ju, iju, umax
 !!       output variables.. z, l, d, u, flag
-!!
+!!```
 !!       parameters used internally..
+!!```text
 !! nia   - irl,  - vectors used to find the rows of  l.  at the kth step
 !! nia   - jrl       of the factorization,  jrl(k)  points to the head
 !!       -           of a linked list in  jrl  of column indices j
@@ -26,10 +29,13 @@
 !! fia   - tmp   - holds new right-hand side  b*  for solution of the
 !!       -           equation ux = b*.
 !!       -           size = n.
+!!```
 !!
-!!  internal variables..
+!!### internal variables..
+!!
 !!    jmin, jmax - indices of the first and last positions in a row to
 !!      be examined.
+!!
 !!    sum - used in calculating  tmp.
 !!
 !-----------------------------------------------------------------------

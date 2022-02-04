@@ -5,6 +5,7 @@
 !! This routine counts the number of nonzero elements in the strict
 !! upper triangle of the matrix M + M(transpose), where the sparsity
 !! structure of M is given by pointer arrays IA and JA.
+!!
 !! This is needed to compute the storage requirements for the
 !! sparse matrix reordering operation in ODRV.
  

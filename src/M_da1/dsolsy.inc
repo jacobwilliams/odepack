@@ -6,29 +6,54 @@
 !!
 !!  This routine manages the solution of the linear system arising from
 !!  a chord iteration.  It is called if MITER .ne. 0.
+!!
 !!  If MITER is 1 or 2, it calls DGESL to accomplish this.
+!!
 !!  If MITER = 3 it updates the coefficient h*EL0 in the diagonal
 !!  matrix, and then computes the solution.
+!!
 !!  If MITER is 4 or 5, it calls DGBSL.
+!!
+!!### OPTIONS
+!!
 !!  Communication with DSOLSY uses the following variables:
-!!  WM    = real work space containing the inverse diagonal matrix if
-!!          MITER = 3 and the LU decomposition of the matrix otherwise.
-!!          Storage of matrix elements starts at WM(3).
-!!          WM also contains the following matrix-related data:
+!!
+!!  WM    
+!!
+!!  : real work space containing the inverse diagonal matrix if
+!!  MITER = 3 and the LU decomposition of the matrix otherwise.
+!!  Storage of matrix elements starts at WM(3).
+!!  WM also contains the following matrix-related data:
+!!
 !!          WM(1) = SQRT(UROUND) (not used here),
 !!          WM(2) = HL0, the previous value of h*EL0, used if MITER = 3.
-!!  IWM   = integer work space containing pivot information, starting at
-!!          IWM(21), if MITER is 1, 2, 4, or 5.  IWM also contains band
-!!          parameters ML = IWM(1) and MU = IWM(2) if MITER is 4 or 5.
-!!  X     = the right-hand side vector on input, and the solution vector
-!!          on output, of length N.
-!!  TEM   = vector of work space of length N, not used in this version.
-!!  IERSL = output flag (in COMMON).  IERSL = 0 if no trouble occurred.
-!!          IERSL = 1 if a singular matrix arose with MITER = 3.
-!!  This routine also uses the COMMON variables EL0, H, MITER, and N.
+!!
+!!  IWM   
+!!
+!!  : integer work space containing pivot information, starting at
+!!  IWM(21), if MITER is 1, 2, 4, or 5. 
+!!
+!!  IWM also contains band parameters ML = IWM(1) 
+!!  and MU = IWM(2) if MITER is 4 or 5.
+!!
+!!  X     
+!!
+!!  : the right-hand side vector on input, and the solution vector
+!!  on output, of length N.
+!!
+!!  TEM   
+!!
+!!  : vector of work space of length N, not used in this version.
+!!
+!!  IERSL 
+!!
+!!  : output flag (in COMMON).  IERSL = 0 if no trouble occurred.
+!!
+!!  IERSL 
+!!
+!!  : 1 if a singular matrix arose with MITER = 3.
 !!
 !-----------------------------------------------------------------------
-! ### BEGIN PROLOGUE  DSOLSY
 ! ### SUBSIDIARY
 ! ### PURPOSE  ODEPACK linear system solver.
 ! ### TYPE      DOUBLE PRECISION (SSOLSY-S, DSOLSY-D)
@@ -45,7 +70,8 @@
 !     20031105  Restored 'own' variables to Common block /DLS001/, to
 !             enable interrupt/restart feature. (ACH)
 ! ### END PROLOGUE  DSOLSY
-! **End
+!-----------------------------------------------------------------------
+!  This routine also uses the COMMON variables EL0, H, MITER, and N.
 !-----------------------------------------------------------------------
 subroutine dsolsy(Wm,Iwm,X,Tem)
 

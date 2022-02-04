@@ -4,9 +4,13 @@
 !>
 !! DPJIBT is called by DSTODI to compute and process the matrix
 !! P = A - H*EL(1)*J, where J is an approximation to the Jacobian dr/dy,
-!! and r = g(t,y) - A(t,y)*s.  Here J is computed by the user-supplied
+!! and r = g(t,y) - A(t,y)*s. 
+!!
+!! Here J is computed by the user-supplied
 !! routine JAC if MITER = 1, or by finite differencing if MITER = 2.
+!!
 !! J is stored in WM, rescaled, and ADDA is called to generate P.
+!!
 !! P is then subjected to LU decomposition by DDECBT in preparation
 !! for later solution of linear systems with P as coefficient matrix.
 !!

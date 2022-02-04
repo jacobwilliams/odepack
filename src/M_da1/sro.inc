@@ -2,11 +2,10 @@
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !----------------------------------------------------------------------------------------------------------------------------------!
 !>
-!!### ********************************************************************
+!!### Name
 !!  sro -- symmetric reordering of sparse symmetric matrix
-!!### ********************************************************************
 !!
-!!  description
+!!### Description
 !!
 !!    the nonzero entries of the matrix m are assumed to be stored
 !!    symmetrically in (ia,ja,a) format (i.e., not both m(i,j) and m(j,i)
@@ -20,15 +19,21 @@
 !!    stored in row j (and thus m(i,j) is not stored).
 !!
 !!
-!!  additional parameters
+!!### additional parameters
 !!
-!!    q     - integer one-dimensional work array.  dimension = n
+!!   q     
 !!
-!!    r     - integer one-dimensional work array.  dimension = number of
-!!            nonzero entries in the upper triangle of m
+!!   : integer one-dimensional work array.  dimension = n
 !!
-!!    dflag - logical variable.  if dflag = .true., then store nonzero
-!!            diagonal elements at the beginning of the row
+!!   r     
+!!
+!!   : integer one-dimensional work array.  dimension = number of
+!!   nonzero entries in the upper triangle of m
+!!
+!!   dflag 
+!!
+!!   : logical variable.  if dflag = .true., then store nonzero
+!!   diagonal elements at the beginning of the row
 !!
 !-----------------------------------------------------------------------
 subroutine sro(N,Ip,Ia,Ja,A,Q,R,Dflag)
