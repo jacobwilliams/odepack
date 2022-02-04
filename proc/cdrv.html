@@ -134,10 +134,8 @@
 <span class="w">   </span><span class="n">a</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">array</span><span class="w"></span>
 </code></pre></div>
 
-<p>class - parameter
- ------+----------
-       -
-   the nonzero entries of the coefficient matrix m are stored
+<h3 id="class-parameter">class - parameter</h3>
+<p>the nonzero entries of the coefficient matrix m are stored
    row-by-row in the array a.  to identify the individual nonzero
    entries in each row, we need to know in which column each entry
    lies.  the column indices which correspond to the nonzero entries
@@ -150,34 +148,42 @@
    following the last element in the last row is stored in ia(n+1).
    thus, the number of entries in the i-th row is given by
    ia(i+1) - ia(i),  the nonzero entries of the i-th row are stored
-   consecutively in
-            a(ia(i)),  a(ia(i)+1),  &hellip;, a(ia(i+1)-1),
-   and the corresponding column indices are stored consecutively in
-            ja(ia(i)), ja(ia(i)+1), &hellip;, ja(ia(i+1)-1).
-   for example, the 5 by 5 matrix
-                ( 1. 0. 2. 0. 0.)
+   consecutively in</p>
+<div class="codehilite"><pre><span></span><code>            a(ia(i)),  a(ia(i)+1),  ..., a(ia(i+1)-1),
+</code></pre></div>
+
+<p>and the corresponding column indices are stored consecutively in</p>
+<div class="codehilite"><pre><span></span><code>            ja(ia(i)), ja(ia(i)+1), ..., ja(ia(i+1)-1).
+</code></pre></div>
+
+<p>for example, the 5 by 5 matrix</p>
+<div class="codehilite"><pre><span></span><code>                ( 1. 0. 2. 0. 0.)
                 ( 0. 3. 0. 0. 0.)
             m = ( 0. 4. 5. 6. 0.)
                 ( 0. 0. 0. 7. 0.)
                 ( 0. 0. 0. 8. 9.)
-   would be stored as
-               - 1  2  3  4  5  6  7  8  9
-            &mdash;+--------------------------
+</code></pre></div>
+
+<p>would be stored as</p>
+<div class="codehilite"><pre><span></span><code>               - 1  2  3  4  5  6  7  8  9
+            ---+--------------------------
             ia - 1  3  4  7  8 10
             ja - 1  3  2  2  3  4  4  4  5
-             a - 1. 2. 3. 4. 5. 6. 7. 8. 9.         .</p>
-<div class="codehilite"><pre><span></span><code><span class="w"> </span><span class="n">nv</span><span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">n</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">variables</span><span class="o">/</span><span class="n">equations</span><span class="o">.</span><span class="w"></span>
-<span class="w"> </span><span class="n">fva</span><span class="w">   </span><span class="o">-</span><span class="w"> </span><span class="n">a</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="n">nonzero</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">coefficient</span><span class="w"> </span><span class="n">matrix</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">stored</span><span class="w"></span>
-<span class="w">       </span><span class="o">-</span><span class="w">           </span><span class="n">by</span><span class="w"> </span><span class="n">rows</span><span class="o">.</span><span class="w"></span>
-<span class="w">       </span><span class="o">-</span><span class="w">           </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">nonzero</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">m</span><span class="o">.</span><span class="w"></span>
-<span class="w"> </span><span class="n">nva</span><span class="w">   </span><span class="o">-</span><span class="w"> </span><span class="n">ia</span><span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">pointers</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">delimit</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">rows</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">a</span><span class="o">.</span><span class="w"></span>
-<span class="w">       </span><span class="o">-</span><span class="w">           </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="o">+</span><span class="mf">1.</span><span class="w"></span>
-<span class="w"> </span><span class="n">nva</span><span class="w">   </span><span class="o">-</span><span class="w"> </span><span class="n">ja</span><span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">column</span><span class="w"> </span><span class="n">numbers</span><span class="w"> </span><span class="n">corresponding</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">elements</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="o">.</span><span class="w"></span>
-<span class="w">       </span><span class="o">-</span><span class="w">           </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="o">.</span><span class="w"></span>
-<span class="w"> </span><span class="n">fva</span><span class="w">   </span><span class="o">-</span><span class="w"> </span><span class="n">b</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="n">right</span><span class="o">-</span><span class="n">hand</span><span class="w"> </span><span class="n">side</span><span class="w"> </span><span class="n">b</span><span class="o">.</span><span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">array</span><span class="o">.</span><span class="w"></span>
-<span class="w">       </span><span class="o">-</span><span class="w">           </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="o">.</span><span class="w"></span>
-<span class="w"> </span><span class="n">fra</span><span class="w">   </span><span class="o">-</span><span class="w"> </span><span class="n">z</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="n">solution</span><span class="w"> </span><span class="n">x</span><span class="o">.</span><span class="w">  </span><span class="n">b</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">z</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">array</span><span class="o">.</span><span class="w"></span>
-<span class="w">       </span><span class="o">-</span><span class="w">           </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">n</span><span class="o">.</span><span class="w"></span>
+             a - 1. 2. 3. 4. 5. 6. 7. 8. 9.         .
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code>     nv    - n     - number of variables/equations.
+     fva   - a     - nonzero entries of the coefficient matrix m, stored
+           -           by rows.
+           -           size = number of nonzero entries in m.
+     nva   - ia    - pointers to delimit the rows in a.
+           -           size = n+1.
+     nva   - ja    - column numbers corresponding to the elements of a.
+           -           size = size of a.
+     fva   - b     - right-hand side b.  b and z can the same array.
+           -           size = n.
+     fra   - z     - solution x.  b and z can be the same array.
+           -           size = n.
 </code></pre></div>
 
 <p>the rows and columns of the original matrix m can be
@@ -191,34 +197,36 @@
    placing the elements of each row in increasing order with respect
    to the new ordering.  if  path.ne.1,  then nroc is assumed to have
    been called already.</p>
-<p>nva   - r     - ordering of the rows of m.
+<div class="codehilite"><pre><span></span><code> nva   - r     - ordering of the rows of m.
        -           size = n.
  nva   - c     - ordering of the columns of m.
        -           size = n.
  nva   - ic    - inverse of the ordering of the columns of m.  i.e.,
-       -           ic(c(i)) = i  for i=1,&hellip;,n.
-       -           size = n.</p>
-<p>the solution of the system of linear equations is divided into
-   three stages &ndash;</p>
-<div class="codehilite"><pre><span></span><code>  nsfc -- the matrix m is processed symbolically to determine where
-           fillin will occur during the numeric factorization.
-  nnfc -- the matrix m is factored numerically into the product ldu
-           of a unit lower triangular matrix l, a diagonal matrix
-           d, and a unit upper triangular matrix u, and the system
-           mx = b  is solved.
-  nnsc -- the linear system  mx = b  is solved using the ldu
+       -           ic(c(i)) = i  for i=1,...,n.
+       -           size = n.
 </code></pre></div>
 
-<p>or           factorization from nnfc.
-      nntc &ndash; the transposed linear system  mt x = b  is solved using
-               the ldu factorization from nnf.</p>
+<p>the solution of the system of linear equations is divided into
+   three stages &ndash;</p>
+<div class="codehilite"><pre><span></span><code>      nsfc -- the matrix m is processed symbolically to determine where
+               fillin will occur during the numeric factorization.
+      nnfc -- the matrix m is factored numerically into the product ldu
+               of a unit lower triangular matrix l, a diagonal matrix
+               d, and a unit upper triangular matrix u, and the system
+               mx = b  is solved.
+      nnsc -- the linear system  mx = b  is solved using the ldu
+  or           factorization from nnfc.
+      nntc -- the transposed linear system  mt x = b  is solved using
+               the ldu factorization from nnf.
+</code></pre></div>
+
 <p>for several systems whose coefficient matrices have the same
    nonzero structure, nsfc need be done only once (for the first
    system).  then nnfc is done once for each additional system.  for
    several systems with the same coefficient matrix, nsfc and nnfc
    need be done only once (for the first system).  then nnsc or nntc
    is done once for each additional right-hand side.</p>
-<p>nv    - path  - path specification.  values and their meanings are &ndash;
+<div class="codehilite"><pre><span></span><code> nv    - path  - path specification.  values and their meanings are --
        -           1  perform nroc, nsfc, and nnfc.
        -           2  perform nnfc only  (nsfc is assumed to have been
        -               done in a manner compatible with the storage
@@ -229,41 +237,45 @@
        -           4  perform nntc only  (nsfc and nnfc are assumed to
        -               have been done in a manner compatible with the
        -               storage allocation used in the driver).
-       -           5  perform nroc and nsfc.</p>
+       -           5  perform nroc and nsfc.
+</code></pre></div>
+
 <p>various errors are detected by the driver and the individual
    subroutines.</p>
-<p>nr    - flag  - error flag.  values and their meanings are &ndash;
+<div class="codehilite"><pre><span></span><code> nr    - flag  - error flag.  values and their meanings are --
        -             0     no errors detected
-       -             n+k   null row in a  &ndash;  row = k
-       -            2n+k   duplicate entry in a  &ndash;  row = k
-       -            3n+k   insufficient storage in nsfc  &ndash;  row = k
+       -             n+k   null row in a  --  row = k
+       -            2n+k   duplicate entry in a  --  row = k
+       -            3n+k   insufficient storage in nsfc  --  row = k
        -            4n+1   insufficient storage in nnfc
-       -            5n+k   null pivot  &ndash;  row = k
-       -            6n+k   insufficient storage in nsfc  &ndash;  row = k
+       -            5n+k   null pivot  --  row = k
+       -            6n+k   insufficient storage in nsfc  --  row = k
        -            7n+1   insufficient storage in nnfc
-       -            8n+k   zero pivot  &ndash;  row = k
+       -            8n+k   zero pivot  --  row = k
        -           10n+1   insufficient storage in cdrv
-       -           11n+1   illegal path specification</p>
+       -           11n+1   illegal path specification
+</code></pre></div>
+
 <p>working storage is needed for the factored form of the matrix
    m plus various temporary vectors.  the arrays isp and rsp should be
    equivalenced.  integer storage is allocated from the beginning of
    isp and real storage from the end of rsp.</p>
-<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="n">nv</span><span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">nsp</span><span class="w">   </span><span class="o">-</span><span class="w"> </span><span class="n">declared</span><span class="w"> </span><span class="n">dimension</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">rsp</span><span class="o">.</span><span class="w">  </span><span class="n">nsp</span><span class="w"> </span><span class="n">generally</span><span class="w"> </span><span class="n">must</span><span class="w"></span>
-<span class="w">                    </span><span class="n">be</span><span class="w"> </span><span class="n">larger</span><span class="w"> </span><span class="n">than</span><span class="w">  </span><span class="mi">8</span><span class="n">n</span><span class="o">+</span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="n">k</span><span class="w">  </span><span class="p">(</span><span class="n">where</span><span class="w">  </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">number</span><span class="w"> </span><span class="n">of</span><span class="w"></span>
-<span class="w">                    </span><span class="n">nonzero</span><span class="w"> </span><span class="n">entries</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">m</span><span class="p">))</span><span class="o">.</span><span class="w"></span>
-<span class="w">    </span><span class="n">nvira</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">isp</span><span class="w">   </span><span class="o">-</span><span class="w"> </span><span class="n">integer</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="n">divided</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">arrays</span><span class="w"></span>
-<span class="w">                    </span><span class="n">needed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">subroutines</span><span class="o">.</span><span class="w">  </span><span class="n">isp</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">rsp</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"></span>
-<span class="w">                    </span><span class="n">equivalenced</span><span class="o">.</span><span class="w"></span>
-<span class="w">                         </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lratio</span><span class="o">*</span><span class="n">nsp</span><span class="o">.</span><span class="w"></span>
-<span class="w">    </span><span class="n">fvira</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">rsp</span><span class="w">   </span><span class="o">-</span><span class="w"> </span><span class="n">real</span><span class="w"> </span><span class="n">working</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="n">divided</span><span class="w"> </span><span class="n">up</span><span class="w"> </span><span class="n">into</span><span class="w"> </span><span class="n">various</span><span class="w"> </span><span class="n">arrays</span><span class="w"></span>
-<span class="w">                    </span><span class="n">needed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">subroutines</span><span class="o">.</span><span class="w">  </span><span class="n">isp</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">rsp</span><span class="w"> </span><span class="n">should</span><span class="w"> </span><span class="n">be</span><span class="w"></span>
-<span class="w">                    </span><span class="n">equivalenced</span><span class="o">.</span><span class="w"></span>
-<span class="w">                         </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nsp</span><span class="o">.</span><span class="w"></span>
-<span class="w">    </span><span class="n">nr</span><span class="w">    </span><span class="o">-</span><span class="w"> </span><span class="n">esp</span><span class="w">   </span><span class="o">-</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">sufficient</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">perform</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
-<span class="w">                    </span><span class="n">symbolic</span><span class="w"> </span><span class="n">factorization</span><span class="w"> </span><span class="p">(</span><span class="n">nsfc</span><span class="p">),</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">esp</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">set</span><span class="w"> </span><span class="n">to</span><span class="w"></span>
-<span class="w">                    </span><span class="n">the</span><span class="w"> </span><span class="n">amount</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">excess</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="n">provided</span><span class="w"> </span><span class="p">(</span><span class="n">negative</span><span class="w"> </span><span class="k">if</span><span class="w"></span>
-<span class="w">                    </span><span class="n">insufficient</span><span class="w"> </span><span class="n">storage</span><span class="w"> </span><span class="n">was</span><span class="w"> </span><span class="n">available</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">perform</span><span class="w"> </span><span class="n">the</span><span class="w"></span>
-<span class="w">                    </span><span class="n">numeric</span><span class="w"> </span><span class="n">factorization</span><span class="w"> </span><span class="p">(</span><span class="n">nnfc</span><span class="p">))</span><span class="o">.</span><span class="w"></span>
+<div class="codehilite"><pre><span></span><code>        nv    - nsp   - declared dimension of rsp.  nsp generally must
+                        be larger than  8n+2 + 2k  (where  k = (number of
+                        nonzero entries in m)).
+        nvira - isp   - integer working storage divided up into various arrays
+                        needed by the subroutines.  isp and rsp should be
+                        equivalenced.
+                             size = lratio*nsp.
+        fvira - rsp   - real working storage divided up into various arrays
+                        needed by the subroutines.  isp and rsp should be
+                        equivalenced.
+                             size = nsp.
+        nr    - esp   - if sufficient storage was available to perform the
+                        symbolic factorization (nsfc), then esp is set to
+                        the amount of excess storage provided (negative if
+                        insufficient storage was available to perform the
+                        numeric factorization (nnfc)).
 </code></pre></div>
 
     <h3>Arguments</h3>
@@ -375,157 +387,157 @@
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~cdrv~~CalledByGraph Pages: 1 -->
-<svg id="proccdrvCalledByGraph" width="332pt" height="197pt"
- viewBox="0.00 0.00 332.00 197.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~cdrv~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 193)">
+<svg id="proccdrvCalledByGraph" width="332pt" height="196pt"
+ viewBox="0.00 0.00 332.00 196.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~cdrv~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 192)">
 <title>proc~~cdrv~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-193 328,-193 328,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-192 328,-192 328,4 -4,4"/>
 <!-- proc~cdrv -->
 <g id="proc~~cdrv~~CalledByGraph_node1" class="node">
 <title>proc~cdrv</title>
-<polygon fill="none" stroke="black" points="324,-105 270,-105 270,-81 324,-81 324,-105"/>
-<text text-anchor="middle" x="297" y="-90.6" font-family="Helvetica,sans-Serif" font-size="10.50">cdrv</text>
+<polygon fill="none" stroke="black" points="324,-106 270,-106 270,-82 324,-82 324,-106"/>
+<text text-anchor="middle" x="297" y="-91.6" font-family="Helvetica,sans-Serif" font-size="10.50">cdrv</text>
 </g>
 <!-- proc~dprep -->
 <g id="proc~~cdrv~~CalledByGraph_node2" class="node">
 <title>proc~dprep</title>
 <g id="a_proc~~cdrv~~CalledByGraph_node2"><a xlink:href=".././proc/dprep.html" xlink:title="dprep">
-<polygon fill="#d9534f" stroke="#d9534f" points="234,-189 180,-189 180,-165 234,-165 234,-189"/>
-<text text-anchor="middle" x="207" y="-174.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprep</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-188 180,-188 180,-164 234,-164 234,-188"/>
+<text text-anchor="middle" x="207" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprep</text>
 </a>
 </g>
 </g>
 <!-- proc~dprep&#45;&gt;proc~cdrv -->
 <g id="proc~~cdrv~~CalledByGraph_edge1" class="edge">
 <title>proc~dprep&#45;&gt;proc~cdrv</title>
-<path fill="none" stroke="#000000" d="M223.64,-164.85C227.11,-162.02 230.73,-158.96 234,-156 249.44,-142 265.95,-125.13 278.04,-112.36"/>
-<polygon fill="#000000" stroke="#000000" points="280.66,-114.7 284.96,-105.01 275.56,-109.9 280.66,-114.7"/>
+<path fill="none" stroke="#000000" d="M223.61,-163.81C227.08,-160.98 230.71,-157.94 234,-155 248.98,-141.64 265.11,-125.72 277.17,-113.49"/>
+<polygon fill="#000000" stroke="#000000" points="279.95,-115.64 284.45,-106.05 274.95,-110.75 279.95,-115.64"/>
 </g>
 <!-- proc~dprjis -->
 <g id="proc~~cdrv~~CalledByGraph_node3" class="node">
 <title>proc~dprjis</title>
 <g id="a_proc~~cdrv~~CalledByGraph_node3"><a xlink:href=".././proc/dprjis.html" xlink:title="dprjis">
-<polygon fill="#d9534f" stroke="#d9534f" points="234,-147 180,-147 180,-123 234,-123 234,-147"/>
-<text text-anchor="middle" x="207" y="-132.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprjis</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-146 180,-146 180,-122 234,-122 234,-146"/>
+<text text-anchor="middle" x="207" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprjis</text>
 </a>
 </g>
 </g>
 <!-- proc~dprjis&#45;&gt;proc~cdrv -->
 <g id="proc~~cdrv~~CalledByGraph_edge2" class="edge">
 <title>proc~dprjis&#45;&gt;proc~cdrv</title>
-<path fill="none" stroke="#000000" d="M233.45,-122.85C242.21,-118.67 252.17,-113.92 261.52,-109.46"/>
-<polygon fill="#000000" stroke="#000000" points="263.09,-112.59 270.6,-105.12 260.07,-106.27 263.09,-112.59"/>
-</g>
-<!-- proc~dsolss -->
-<g id="proc~~cdrv~~CalledByGraph_node4" class="node">
-<title>proc~dsolss</title>
-<g id="a_proc~~cdrv~~CalledByGraph_node4"><a xlink:href=".././proc/dsolss.html" xlink:title="dsolss">
-<polygon fill="#d9534f" stroke="#d9534f" points="234,-105 180,-105 180,-81 234,-81 234,-105"/>
-<text text-anchor="middle" x="207" y="-90.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolss</text>
-</a>
-</g>
-</g>
-<!-- proc~dsolss&#45;&gt;proc~cdrv -->
-<g id="proc~~cdrv~~CalledByGraph_edge3" class="edge">
-<title>proc~dsolss&#45;&gt;proc~cdrv</title>
-<path fill="none" stroke="#000000" d="M234.4,-93C242.39,-93 251.31,-93 259.82,-93"/>
-<polygon fill="#000000" stroke="#000000" points="259.92,-96.5 269.92,-93 259.92,-89.5 259.92,-96.5"/>
-</g>
-<!-- proc~dainvgs -->
-<g id="proc~~cdrv~~CalledByGraph_node5" class="node">
-<title>proc~dainvgs</title>
-<g id="a_proc~~cdrv~~CalledByGraph_node5"><a xlink:href=".././proc/dainvgs.html" xlink:title="dainvgs">
-<polygon fill="#d9534f" stroke="#d9534f" points="144,-66 90,-66 90,-42 144,-42 144,-66"/>
-<text text-anchor="middle" x="117" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dainvgs</text>
-</a>
-</g>
-</g>
-<!-- proc~dainvgs&#45;&gt;proc~cdrv -->
-<g id="proc~~cdrv~~CalledByGraph_edge4" class="edge">
-<title>proc~dainvgs&#45;&gt;proc~cdrv</title>
-<path fill="none" stroke="#000000" d="M144.05,-56.74C167.73,-59.53 203.52,-64.53 234,-72 242.57,-74.1 251.64,-76.86 260.12,-79.68"/>
-<polygon fill="#000000" stroke="#000000" points="259.15,-83.05 269.75,-82.99 261.43,-76.43 259.15,-83.05"/>
+<path fill="none" stroke="#000000" d="M234.4,-122C242.66,-118.25 251.9,-114.05 260.66,-110.06"/>
+<polygon fill="#000000" stroke="#000000" points="262.26,-113.18 269.92,-105.86 259.37,-106.81 262.26,-113.18"/>
 </g>
 <!-- proc~dprepi -->
-<g id="proc~~cdrv~~CalledByGraph_node6" class="node">
+<g id="proc~~cdrv~~CalledByGraph_node4" class="node">
 <title>proc~dprepi</title>
-<g id="a_proc~~cdrv~~CalledByGraph_node6"><a xlink:href=".././proc/dprepi.html" xlink:title="dprepi">
-<polygon fill="#d9534f" stroke="#d9534f" points="234,-25 180,-25 180,-1 234,-1 234,-25"/>
-<text text-anchor="middle" x="207" y="-10.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprepi</text>
+<g id="a_proc~~cdrv~~CalledByGraph_node4"><a xlink:href=".././proc/dprepi.html" xlink:title="dprepi">
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-66 180,-66 180,-42 234,-42 234,-66"/>
+<text text-anchor="middle" x="207" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprepi</text>
 </a>
 </g>
 </g>
 <!-- proc~dprepi&#45;&gt;proc~cdrv -->
-<g id="proc~~cdrv~~CalledByGraph_edge5" class="edge">
+<g id="proc~~cdrv~~CalledByGraph_edge3" class="edge">
 <title>proc~dprepi&#45;&gt;proc~cdrv</title>
-<path fill="none" stroke="#000000" d="M221.37,-25.15C235.66,-38.15 258.53,-58.93 275.18,-74.08"/>
-<polygon fill="#000000" stroke="#000000" points="273.04,-76.86 282.8,-81 277.75,-71.68 273.04,-76.86"/>
+<path fill="none" stroke="#000000" d="M234.4,-66C242.66,-69.75 251.9,-73.95 260.66,-77.94"/>
+<polygon fill="#000000" stroke="#000000" points="259.37,-81.19 269.92,-82.14 262.26,-74.82 259.37,-81.19"/>
+</g>
+<!-- proc~dsolss -->
+<g id="proc~~cdrv~~CalledByGraph_node5" class="node">
+<title>proc~dsolss</title>
+<g id="a_proc~~cdrv~~CalledByGraph_node5"><a xlink:href=".././proc/dsolss.html" xlink:title="dsolss">
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-24 180,-24 180,0 234,0 234,-24"/>
+<text text-anchor="middle" x="207" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolss</text>
+</a>
+</g>
+</g>
+<!-- proc~dsolss&#45;&gt;proc~cdrv -->
+<g id="proc~~cdrv~~CalledByGraph_edge4" class="edge">
+<title>proc~dsolss&#45;&gt;proc~cdrv</title>
+<path fill="none" stroke="#000000" d="M223.61,-24.19C227.08,-27.02 230.71,-30.06 234,-33 248.98,-46.36 265.11,-62.28 277.17,-74.51"/>
+<polygon fill="#000000" stroke="#000000" points="274.95,-77.25 284.45,-81.95 279.95,-72.36 274.95,-77.25"/>
+</g>
+<!-- proc~dainvgs -->
+<g id="proc~~cdrv~~CalledByGraph_node6" class="node">
+<title>proc~dainvgs</title>
+<g id="a_proc~~cdrv~~CalledByGraph_node6"><a xlink:href=".././proc/dainvgs.html" xlink:title="dainvgs">
+<polygon fill="#d9534f" stroke="#d9534f" points="144,-107 90,-107 90,-83 144,-83 144,-107"/>
+<text text-anchor="middle" x="117" y="-92.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dainvgs</text>
+</a>
+</g>
+</g>
+<!-- proc~dainvgs&#45;&gt;proc~cdrv -->
+<g id="proc~~cdrv~~CalledByGraph_edge5" class="edge">
+<title>proc~dainvgs&#45;&gt;proc~cdrv</title>
+<path fill="none" stroke="#000000" d="M144.26,-94.85C174.85,-94.68 225.55,-94.4 259.84,-94.2"/>
+<polygon fill="#000000" stroke="#000000" points="259.94,-97.7 269.92,-94.15 259.9,-90.7 259.94,-97.7"/>
 </g>
 <!-- proc~diprep -->
 <g id="proc~~cdrv~~CalledByGraph_node7" class="node">
 <title>proc~diprep</title>
 <g id="a_proc~~cdrv~~CalledByGraph_node7"><a xlink:href=".././proc/diprep.html" xlink:title="diprep">
-<polygon fill="#d9534f" stroke="#d9534f" points="144,-189 90,-189 90,-165 144,-165 144,-189"/>
-<text text-anchor="middle" x="117" y="-174.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">diprep</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="144,-188 90,-188 90,-164 144,-164 144,-188"/>
+<text text-anchor="middle" x="117" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">diprep</text>
 </a>
 </g>
 </g>
 <!-- proc~diprep&#45;&gt;proc~dprep -->
 <g id="proc~~cdrv~~CalledByGraph_edge6" class="edge">
 <title>proc~diprep&#45;&gt;proc~dprep</title>
-<path fill="none" stroke="#000000" d="M144.4,-177C152.39,-177 161.31,-177 169.82,-177"/>
-<polygon fill="#000000" stroke="#000000" points="169.92,-180.5 179.92,-177 169.92,-173.5 169.92,-180.5"/>
+<path fill="none" stroke="#000000" d="M144.4,-176C152.39,-176 161.31,-176 169.82,-176"/>
+<polygon fill="#000000" stroke="#000000" points="169.92,-179.5 179.92,-176 169.92,-172.5 169.92,-179.5"/>
 </g>
 <!-- proc~diprepi -->
 <g id="proc~~cdrv~~CalledByGraph_node8" class="node">
 <title>proc~diprepi</title>
 <g id="a_proc~~cdrv~~CalledByGraph_node8"><a xlink:href=".././proc/diprepi.html" xlink:title="diprepi">
-<polygon fill="#d9534f" stroke="#d9534f" points="144,-24 90,-24 90,0 144,0 144,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">diprepi</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="144,-65 90,-65 90,-41 144,-41 144,-65"/>
+<text text-anchor="middle" x="117" y="-50.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">diprepi</text>
 </a>
 </g>
 </g>
 <!-- proc~diprepi&#45;&gt;proc~dprepi -->
-<g id="proc~~cdrv~~CalledByGraph_edge8" class="edge">
+<g id="proc~~cdrv~~CalledByGraph_edge7" class="edge">
 <title>proc~diprepi&#45;&gt;proc~dprepi</title>
-<path fill="none" stroke="#000000" d="M144.4,-12.3C152.39,-12.39 161.31,-12.49 169.82,-12.59"/>
-<polygon fill="#000000" stroke="#000000" points="169.88,-16.09 179.92,-12.7 169.96,-9.09 169.88,-16.09"/>
+<path fill="none" stroke="#000000" d="M144.4,-53.3C152.39,-53.39 161.31,-53.49 169.82,-53.59"/>
+<polygon fill="#000000" stroke="#000000" points="169.88,-57.09 179.92,-53.7 169.96,-50.09 169.88,-57.09"/>
 </g>
 <!-- proc~dlsodis -->
 <g id="proc~~cdrv~~CalledByGraph_node9" class="node">
 <title>proc~dlsodis</title>
 <g id="a_proc~~cdrv~~CalledByGraph_node9"><a xlink:href=".././proc/dlsodis.html" xlink:title="dlsodis">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-45 0,-45 0,-21 54,-21 54,-45"/>
-<text text-anchor="middle" x="27" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodis</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-86 0,-86 0,-62 54,-62 54,-86"/>
+<text text-anchor="middle" x="27" y="-71.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodis</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodis&#45;&gt;proc~dainvgs -->
-<g id="proc~~cdrv~~CalledByGraph_edge7" class="edge">
+<g id="proc~~cdrv~~CalledByGraph_edge8" class="edge">
 <title>proc~dlsodis&#45;&gt;proc~dainvgs</title>
-<path fill="none" stroke="#000000" d="M54.4,-39.3C62.48,-41.23 71.51,-43.38 80.1,-45.43"/>
-<polygon fill="#000000" stroke="#000000" points="79.38,-48.86 89.92,-47.78 81,-42.05 79.38,-48.86"/>
+<path fill="none" stroke="#000000" d="M54.4,-80.3C62.48,-82.23 71.51,-84.38 80.1,-86.43"/>
+<polygon fill="#000000" stroke="#000000" points="79.38,-89.86 89.92,-88.78 81,-83.05 79.38,-89.86"/>
 </g>
 <!-- proc~dlsodis&#45;&gt;proc~diprepi -->
 <g id="proc~~cdrv~~CalledByGraph_edge10" class="edge">
 <title>proc~dlsodis&#45;&gt;proc~diprepi</title>
-<path fill="none" stroke="#000000" d="M54.4,-26.7C62.48,-24.77 71.51,-22.62 80.1,-20.57"/>
-<polygon fill="#000000" stroke="#000000" points="81,-23.95 89.92,-18.22 79.38,-17.14 81,-23.95"/>
+<path fill="none" stroke="#000000" d="M54.4,-67.7C62.48,-65.77 71.51,-63.62 80.1,-61.57"/>
+<polygon fill="#000000" stroke="#000000" points="81,-64.95 89.92,-59.22 79.38,-58.14 81,-64.95"/>
 </g>
 <!-- proc~dlsodes -->
 <g id="proc~~cdrv~~CalledByGraph_node10" class="node">
 <title>proc~dlsodes</title>
 <g id="a_proc~~cdrv~~CalledByGraph_node10"><a xlink:href=".././proc/dlsodes.html" xlink:title="dlsodes">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-189 0,-189 0,-165 54,-165 54,-189"/>
-<text text-anchor="middle" x="27" y="-174.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodes</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-188 0,-188 0,-164 54,-164 54,-188"/>
+<text text-anchor="middle" x="27" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodes</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodes&#45;&gt;proc~diprep -->
 <g id="proc~~cdrv~~CalledByGraph_edge9" class="edge">
 <title>proc~dlsodes&#45;&gt;proc~diprep</title>
-<path fill="none" stroke="#000000" d="M54.4,-177C62.39,-177 71.31,-177 79.82,-177"/>
-<polygon fill="#000000" stroke="#000000" points="79.92,-180.5 89.92,-177 79.92,-173.5 79.92,-180.5"/>
+<path fill="none" stroke="#000000" d="M54.4,-176C62.39,-176 71.31,-176 79.82,-176"/>
+<polygon fill="#000000" stroke="#000000" points="79.92,-179.5 89.92,-176 79.92,-172.5 79.92,-179.5"/>
 </g>
 </g>
 </svg>
@@ -625,7 +637,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-03 23:59            </p>
+ on 2022-02-04 02:59            </p>
         </div>
       </div>
       <br>

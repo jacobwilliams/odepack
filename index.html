@@ -113,69 +113,73 @@ site and covered by a public domain license.</p>
      About 28 000, lines of core source files
      (About 11 000, lines of core code excluding comments)
      An additional 3700 lines of test cases.
-```text
-
-
- preliminary targets
-
- + remove obsolescent syntax (trying plusFORT and spag)
- + should be able to build using fpm(1)  (the Fortran Package Manager)
-   - in debug mode
-   - with ifort, gfortran, nvfortran
- + text viewable in ford(1) and extractable as markup that can run through pandoc(1)
- + available on github (or equivalent)
- + no common blocks
- + no equivalences
- + build as a (single?) module M_odepack
- + complete set of unit tests
-
-In this case the originally bundled subset of BLAS/LAPACK routines are being included in the module.
-In production, this might not be done in order to be able to easily call external optimized versions.
-
-The biggest hinderance is some storage used for both INTEGER and DOUBLE PRECISION values.
-
- One take-away is how critical unit tests are to enable rapid development (which so far this
- package does not have)
-
-The initial pass was done just using the original sample programs as unit tests. This may have
-allowed for introduction of errors but the original samples run with the same output as the
-original.
-
-As a proof of concept I have gleaned what I wanted from this effort. plusFORT was invaluable and
-reduced the effort by an estimated 85 percent. To do this successfully either highly reliable
-automated tools and/or a complete unit test suite is required. Non-standard but (at the time)
-de-facto fortran standards such as equivalencing different types, creating scratch space that is
-used as different numeric types, and treating scalars as arrays and vice-versa as well as passing
-the same arrays or values multiple times are the most time-consuming usages to correct to being
-standard-conforming, particularly since spag(1) does an excellent job with pre-f2003 code. It
-(currently?) has issues with code that has been partially migrated to use f2003+ features and
-syntax.
-
-It is not complete.
-
-The type-mismatch issues have not been eliminated enough to include
-the routines in the files &quot;M_da1/dprep.inc&quot; &quot;M_da1/dainvgs.inc&quot;
-&quot;M_da1/dprepi.inc&quot; &quot;M_da1/dstodi.inc&quot; and &quot;M_da1_/dstode.inc&quot;,
-and a few places in the example programs.
-
-It builds as an fpm(1) package with the current options:
-```bash
- fpm run                     --compiler nvfortran --example &#39;*&#39;
- fpm run --profile release   --compiler ifort     --example &#39;*&#39;
- fpm run --flag -std=legacy  --compiler gfortran  --example &#39;*&#39;
 </code></pre></div>
 
-<p>A second pass needs made to restructure the code in some places manually, but
-the code is far more readable after having been refactored by spag(1) from the
-plusFORT package.</p>
+<h4 id="preliminary-targets-for-phase-i">preliminary targets for phase I:</h4>
+<ul>
+<li>remove obsolescent syntax (trying plusFORT and spag)</li>
+<li>able to build using fpm(1)  (the Fortran Package Manager)</li>
+<li>in debug mode</li>
+<li>with ifort, gfortran, nvfortran</li>
+<li>text viewable in ford(1) and extractable as markup that can run through pandoc(1)</li>
+<li>available on github (or equivalent)</li>
+<li>no common blocks</li>
+<li>no equivalences</li>
+<li>build as a (single?) module M_odepack</li>
+<li>complete set of unit tests</li>
+</ul>
+<p>In this case the originally bundled subset of BLAS/LAPACK routines are
+being included in the module.  In production, this might not be done in
+order to be able to easily call external optimized versions.</p>
+<p>The biggest hinderance is some storage used for both INTEGER and DOUBLE
+PRECISION values.</p>
+<p>One take-away is how critical unit tests are to enable rapid development
+ (which so far this package does not have)</p>
+<p>The initial pass was done just using the original sample programs as
+unit tests. This may have allowed for introduction of errors but the
+original samples run with the same output as the original.</p>
+<p>As a proof of concept I have gleaned what I wanted from this
+effort. plusFORT was invaluable and reduced the effort by an estimated
+85 percent.</p>
+<h3 id="phase-ii">Phase II ?</h3>
+<p>The results of this first pass were significant enough that this project
+will hopefully continue.  I feel a complete unit test suite is required
+to allow development to proceed rapdily.</p>
+<p>Another issue is the remaining non-standard code.  Non-standard (but
+at the time de-facto fortran standards) such as equivalencing different
+types, creating scratch space that is used as different numeric types,
+and treating scalars as arrays and vice-versa as well as passing the same
+arrays or values multiple times are the most time-consuming usages to
+correct to standard-conforming, particularly since spag(1) had already
+done an excellent job with updating the pre-f2003 code. spag(1) is not
+(currently?) sufficient by itself to automate the additional refactoring
+desired, which includes using post f95 features and code restructuring,
+so the remaining work requires manual recoding.</p>
+<p>The type-mismatch issues have not been eliminated enough to include all
+the routines in the module, so  those in the files &ldquo;M_da1/dprep.inc&rdquo;
+&ldquo;M_da1/dainvgs.inc&rdquo; &ldquo;M_da1/dprepi.inc&rdquo; &ldquo;M_da1/dstodi.inc&rdquo; and
+&ldquo;M_da1_/dstode.inc&rdquo; still require being built without an interface
+definition.</p>
+<h3 id="building">building</h3>
+<p>This version of ODEPACK already builds with an included make(1) file
+as an fpm(1) package with the current options:</p>
+<div class="codehilite"><pre><span></span><code> fpm run                     --compiler nvfortran --example <span class="s1">&#39;*&#39;</span>
+ fpm run --profile release   --compiler ifort     --example <span class="s1">&#39;*&#39;</span>
+ fpm run --flag -std<span class="o">=</span>legacy  --compiler gfortran  --example <span class="s1">&#39;*&#39;</span>
+</code></pre></div>
+
+<p>As noted, a second pass needs made to restructure the code in some places
+manually, but the code is far more readable after having been refactored
+by spag(1) from the plusFORT package and hopefully as useable as the
+original already.</p>
 <p>There are a few notes in src/M_odepack.f90 concerning continuing issues.</p>
 <p>If there is interest in completing this transformation it can continue on this
-site or the parent on jacobwilliams site as a group project or via a clone or
-fork. If anyone spawns a project from this one let me know so I can remove this
-one.</p>
-<p>I do not plan on continuing this any further with additional interest, but leave
-it here in case anyone else wants to see this brought to a product-quality product,
-as I have learned what I wanted from it in this state.</p>
+site, hopefully as a group project.</p>
+<p>We are particulary interested in current users of ODEPACK trying this version,
+and contributions of additional test suites.</p>
+<p>Although I have learned what I wanted from the project in phase I, hopefully as
+a community we can complete creating a new maintained production-quality version
+of this venerable and continuingly useful package.</p>
 <h3 id="documentation">Documentation</h3>
 <p>The API documentation for the current <code>master</code> branch can be found <a href="https://jacobwilliams.github.io/odepack/">here</a>.  This is generated by processing the source files with <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>.</p>
 <hr>
@@ -381,73 +385,69 @@ the Example Problem (or demonstration program), then later refer to the
 Full Description if and when more details or nonstandard options are needed.</p>
 <hr>
 <h3 id="iii-installation-notes">III. Installation Notes</h3>
-<ol>
-<li>In addition to this document, the double precision version of ODEPACK
-consists of three source files, plus a demonstration program file.
-The solver source files are organized as follows:</li>
-</ol>
-<p>opkdmain.f = Main Source File, consisting of the driver subroutine for each of the nine solvers</p>
-<p>opkda1.f   = First Auxiliary Source File, consisting of subordinate routines for the solvers</p>
-<p>opkda2.f   = Second Auxiliary Source File, consisting of subordinate routines which may already reside on the user&rsquo;s system (See Notes 2 and 3 below.)</p>
-<p>The demonstration program file is:</p>
-<p>opkddemos  = a merge of the nine demonstration programs, with the source for each followed by a sample output</p>
-<ol>
-<li>
-<p>The Second Auxiliary Source File includes the routines from the
+<h5 id="use-of-supplied-matrix-procedures">Use of supplied matrix procedures</h5>
+<p>THe src/M_matrix/ directory  includes modified versions of routines from the
 LINPACK and BLAS collections that are needed by the solvers (and by two
 of the demonstration programs), for the solution of dense and banded
 linear systems and associated basic linear algebra operations.
-These routine are:
-   From LINPACK:  DGEFA, DGESL, DGBFA, DGBSL
-   From the BLAS: DAXPY, DCOPY, DDOT, DSCAL, DNRM2, IDAMAX
-If your computer system already has these routines, and especially if it
-has machine-optimized versions, the copies provided here can be discarded.</p>
-</li>
-<li>
-<p>The Second Auxiliary Source File includes a set of five routines &ndash;
-XERRWD, XSETUN, XSETF, IXSAV, IUMACH &ndash; which handle error messages
-from the solvers.  This set is in fact a reduced version (sufficient
-for the needs of ODEPACK) of a much larger error handling package from
-the SLATEC Library.  If your computer system already has the full
-SLATEC error handler, the version provided here can be discarded.  If
-the reduced version is used, its machine-dependent features should be
-checked first; see comments in Subroutine XERRWD.</p>
-</li>
-<li>
-<p>ODEPACK contains a few instances where ANSI Fortran 77 is violated:
-   (a) In various places in the LSODES and LSODIS solvers, a call to a
+These routine are:</p>
+<div class="codehilite"><pre><span></span><code>   _From LINPACK_ :  DGEFA, DGESL, DGBFA, DGBSL
+   _From the BLAS_: DAXPY, DCOPY, DDOT, DSCAL, DNRM2, IDAMAX
+</code></pre></div>
+
+<p>If your computer system already has these routines, and especially if it
+has machine-optimized versions, the copies provided in the M_module
+module should probably not be called by your program if high performance
+is required.</p>
+<h5 id="the-message-package">The message package</h5>
+<p>The second auxiliary source file directory M_da1/ includes a set of five
+routines &ndash; XERRWD, XSETUN, XSETF, IXSAV, IUMACH &ndash; which handle error
+messages from the solvers.</p>
+<p>These routines are slated for elimination and replacement with a 
+more intuitive interface.</p>
+<p>This set is in fact a reduced version (sufficient for the needs of
+ODEPACK) of a much larger error handling package from the SLATEC Library.
+If your computer system already has the full SLATEC error handler, the
+version provided here can be ignored.  If the reduced version is used,
+its machine-dependent features should be checked first; see comments in
+Subroutine XERRWD.</p>
+<h5 id="non-standard-code">Non-standard code</h5>
+<ol>
+<li>ODEPACK contains a few instances where the Fortran Standard is violated:</li>
+</ol>
+<p>(a) In various places in the LSODES and LSODIS solvers, a call to a
    subroutine has a subscripted real array as an argument where the
    subroutine called expects an integer array.  Calls of this form
    occur in Subroutine DLSODES (to DSTODE), in DIPREP (to DPREP),
    in Subroutine DLSODIS (to DSTODI), and in DIPREPI (to DPREPI).
    Another such call occurs in the DLSODES demonstration program,
-   from the main program to Subroutine SSOUT.  This is done in order
+   from the main program to Subroutine SSOUT.  </p>
+<p>This is done in order
    to use work space in an efficient manner, as the same space is
    sometimes used for real work space and sometimes for integer work
    space.  If your compiler does not accept this feature, one possible
    way to get the desired result is to compile the called routines
    and calling routines in separate jobs, and then combine the binary
-   modules in an appropriate manner.  If this procedure is still not
+   modules in an appropriate manner. </p>
+<p>If this procedure is still not
    acceptable under your system, it will be necessary to radically
    alter the structure of the array RWORK within the LSODES or LSODIS
-   solver package.  (See also Note 5 below.)
-   (b) Each ODEPACK solver treats the arguments NEQ, Y, RTOL, and ATOL
+   solver package.  (See also Note 5 below.)</p>
+<p>(b) Each ODEPACK solver treats the arguments NEQ, Y, RTOL, and ATOL
    as arrays, even though the length may be only 1.  Moreover,
    except for Y, the usage instructions say that these arguments
    may be either arrays or scalars.  If your system does not allow
    such a mismatch, then the documentation of these arguments
    should be changed accordingly.</p>
-</li>
-<li>
-<p>For maximum storage economy, the LSODES and LSODIS solvers make use
+<ol>
+<li>For maximum storage economy, the LSODES and LSODIS solvers make use
 of the real to integer wordlength ratio.  This is assumed to be an
 integer L such that if a real array R and an integer array M occupy
 the same space in memory, R(1) having the same bit address as M(1),
 then R(I) has the same address as M((I-1)*L+1).  This ratio L is
 usually 2 for double precision, and this is the value used in the
 double precision version supplied.  If this value is incorrect, it
-needs to be changed in two places:</p>
-</li>
+needs to be changed in two places:</li>
 </ol>
 <p>(a) The integer LENRAT is DATA-loaded in Subroutines DLSODES and
       DLSODIS to this ratio, shortly below the prologue.</p>
@@ -581,7 +581,7 @@ double precision version of each solver.</p>
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-03 23:59            </p>
+ on 2022-02-04 02:59            </p>
         </div>
       </div>
       <br>

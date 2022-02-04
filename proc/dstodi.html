@@ -368,24 +368,28 @@ take effect until the next change of H is considered.</p>
 <dt>JSTART</dt>
 <dd>
 <p>an integer used for input only, with the following
-values and meanings:
-        0  perform the first step.
-    .gt.0  take a new step continuing from the last.
-       -1  take the next step with a new value of H, MAXORD,
-           N, METH, MITER, and/or matrix parameters.
-       -2  take the next step with a new value of H,
-           but with other inputs unchanged.
-           On return, JSTART is set to 1 to facilitate continuation.</p>
+values and meanings:</p>
+<div class="codehilite"><pre><span></span><code>      <span class="mi">0</span>  <span class="nv">perform</span> <span class="nv">the</span> <span class="nv">first</span> <span class="nv">step</span>.
+  .<span class="nv">gt</span>.<span class="mi">0</span>  <span class="nv">take</span> <span class="nv">a</span> <span class="nv">new</span> <span class="nv">step</span> <span class="nv">continuing</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">last</span>.
+     <span class="o">-</span><span class="mi">1</span>  <span class="nv">take</span> <span class="nv">the</span> <span class="k">next</span> <span class="nv">step</span> <span class="nv">with</span> <span class="nv">a</span> <span class="nv">new</span> <span class="nv">value</span> <span class="nv">of</span> <span class="nv">H</span>, <span class="nv">MAXORD</span>,
+         <span class="nv">N</span>, <span class="nv">METH</span>, <span class="nv">MITER</span>, <span class="nv">and</span><span class="o">/</span><span class="nv">or</span> <span class="nv">matrix</span> <span class="nv">parameters</span>.
+     <span class="o">-</span><span class="mi">2</span>  <span class="nv">take</span> <span class="nv">the</span> <span class="k">next</span> <span class="nv">step</span> <span class="nv">with</span> <span class="nv">a</span> <span class="nv">new</span> <span class="nv">value</span> <span class="nv">of</span> <span class="nv">H</span>,
+         <span class="nv">but</span> <span class="nv">with</span> <span class="nv">other</span> <span class="nv">inputs</span> <span class="nv">unchanged</span>.
+         <span class="nv">On</span> <span class="k">return</span>, <span class="nv">JSTART</span> <span class="nv">is</span> <span class="nv">set</span> <span class="nv">to</span> <span class="mi">1</span> <span class="nv">to</span> <span class="nv">facilitate</span> <span class="nv">continuation</span>.
+</code></pre></div>
+
 </dd>
 <dt>KFLAG</dt>
 <dd>
-<p>a completion code with the following meanings:
-          0  the step was succesful.
-         -1  the requested error could not be achieved.
-         -2  corrector convergence could not be achieved.
-         -3  RES ordered immediate return.
-         -4  error condition from RES could not be avoided.
-         -5  fatal error in PJAC or SLVS.</p>
+<p>a completion code with the following meanings:</p>
+<div class="codehilite"><pre><span></span><code>      <span class="mi">0</span>  <span class="nv">the</span> <span class="nv">step</span> <span class="nv">was</span> <span class="nv">succesful</span>.
+     <span class="o">-</span><span class="mi">1</span>  <span class="nv">the</span> <span class="nv">requested</span> <span class="nv">error</span> <span class="nv">could</span> <span class="nv">not</span> <span class="nv">be</span> <span class="nv">achieved</span>.
+     <span class="o">-</span><span class="mi">2</span>  <span class="nv">corrector</span> <span class="nv">convergence</span> <span class="nv">could</span> <span class="nv">not</span> <span class="nv">be</span> <span class="nv">achieved</span>.
+     <span class="o">-</span><span class="mi">3</span>  <span class="nv">RES</span> <span class="nv">ordered</span> <span class="nv">immediate</span> <span class="k">return</span>.
+     <span class="o">-</span><span class="mi">4</span>  <span class="nv">error</span> <span class="nv">condition</span> <span class="nv">from</span> <span class="nv">RES</span> <span class="nv">could</span> <span class="nv">not</span> <span class="nv">be</span> <span class="nv">avoided</span>.
+     <span class="o">-</span><span class="mi">5</span>  <span class="nv">fatal</span> <span class="nv">error</span> <span class="nv">in</span> <span class="nv">PJAC</span> <span class="nv">or</span> <span class="nv">SLVS</span>.
+</code></pre></div>
+
 </dd>
 </dl>
 <p>A return with KFLAG = -1, -2, or -4 means either</p>
@@ -663,18 +667,18 @@ METH/MITER = the method flags.  See description in driver.</p>
 <polygon fill="none" stroke="black" points="144,-66 90,-66 90,-42 144,-42 144,-66"/>
 <text text-anchor="middle" x="117" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">dstodi</text>
 </g>
-<!-- proc~dlsodis -->
+<!-- proc~dlsodi -->
 <g id="proc~~dstodi~~CalledByGraph_node2" class="node">
-<title>proc~dlsodis</title>
-<g id="a_proc~~dstodi~~CalledByGraph_node2"><a xlink:href=".././proc/dlsodis.html" xlink:title="dlsodis">
+<title>proc~dlsodi</title>
+<g id="a_proc~~dstodi~~CalledByGraph_node2"><a xlink:href=".././proc/dlsodi.html" xlink:title="dlsodi">
 <polygon fill="#d9534f" stroke="#d9534f" points="54,-108 0,-108 0,-84 54,-84 54,-108"/>
-<text text-anchor="middle" x="27" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodis</text>
+<text text-anchor="middle" x="27" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodi</text>
 </a>
 </g>
 </g>
-<!-- proc~dlsodis&#45;&gt;proc~dstodi -->
+<!-- proc~dlsodi&#45;&gt;proc~dstodi -->
 <g id="proc~~dstodi~~CalledByGraph_edge1" class="edge">
-<title>proc~dlsodis&#45;&gt;proc~dstodi</title>
+<title>proc~dlsodi&#45;&gt;proc~dstodi</title>
 <path fill="none" stroke="#000000" d="M53.45,-83.85C62.21,-79.67 72.17,-74.92 81.52,-70.46"/>
 <polygon fill="#000000" stroke="#000000" points="83.09,-73.59 90.6,-66.12 80.07,-67.27 83.09,-73.59"/>
 </g>
@@ -693,18 +697,18 @@ METH/MITER = the method flags.  See description in driver.</p>
 <path fill="none" stroke="#000000" d="M54.4,-54C62.39,-54 71.31,-54 79.82,-54"/>
 <polygon fill="#000000" stroke="#000000" points="79.92,-57.5 89.92,-54 79.92,-50.5 79.92,-57.5"/>
 </g>
-<!-- proc~dlsodi -->
+<!-- proc~dlsodis -->
 <g id="proc~~dstodi~~CalledByGraph_node4" class="node">
-<title>proc~dlsodi</title>
-<g id="a_proc~~dstodi~~CalledByGraph_node4"><a xlink:href=".././proc/dlsodi.html" xlink:title="dlsodi">
+<title>proc~dlsodis</title>
+<g id="a_proc~~dstodi~~CalledByGraph_node4"><a xlink:href=".././proc/dlsodis.html" xlink:title="dlsodis">
 <polygon fill="#d9534f" stroke="#d9534f" points="54,-24 0,-24 0,0 54,0 54,-24"/>
-<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodi</text>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodis</text>
 </a>
 </g>
 </g>
-<!-- proc~dlsodi&#45;&gt;proc~dstodi -->
+<!-- proc~dlsodis&#45;&gt;proc~dstodi -->
 <g id="proc~~dstodi~~CalledByGraph_edge3" class="edge">
-<title>proc~dlsodi&#45;&gt;proc~dstodi</title>
+<title>proc~dlsodis&#45;&gt;proc~dstodi</title>
 <path fill="none" stroke="#000000" d="M53.45,-24.15C62.21,-28.33 72.17,-33.08 81.52,-37.54"/>
 <polygon fill="#000000" stroke="#000000" points="80.07,-40.73 90.6,-41.88 83.09,-34.41 80.07,-40.73"/>
 </g>
@@ -996,7 +1000,7 @@ METH/MITER = the method flags.  See description in driver.</p>
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-03 23:59            </p>
+ on 2022-02-04 02:59            </p>
         </div>
       </div>
       <br>
