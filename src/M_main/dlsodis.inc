@@ -2,24 +2,24 @@
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !==================================================================================================================================!
 !>
-!! This is the 18 November 2003 version of
-!! DLSODIS: Livermore Solver for Ordinary Differential equations
-!!          (Implicit form) with general Sparse Jacobian matrices.
-!!
-!! This version is in double precision.
+!!##Synopsis
 !!
 !! DLSODIS solves the initial value problem for linearly implicit
 !! systems of first order ODEs,
 !!
+!!```text
 !!     A(t,y) * dy/dt = g(t,y),  where A(t,y) is a square matrix,
+!!```
 !!
 !! or, in component form,
 !!
+!!```text
 !!     ( a   * ( dy / dt ))  + ... +  ( a     * ( dy   / dt ))  =
 !!        i,1      1                     i,NEQ      NEQ
 !!
 !!      =   g ( t, y, y ,..., y    )   ( i = 1,...,NEQ )
 !!           i      1   2       NEQ
+!!```
 !!
 !! If A is singular, this is a differential-algebraic system.
 !!
@@ -35,6 +35,16 @@
 !!                Sheila Balsdon
 !!                Zycor, Inc.
 !!                Austin, TX 78741
+!!
+!! DLSODIS is derived from the Livermore Solver for Ordinary
+!! Differential Equations package ODEPACK,
+!!
+!! This is the 18 November 2003 version of
+!! DLSODIS: Livermore Solver for Ordinary Differential equations
+!!          (Implicit form) with general Sparse Jacobian matrices.
+!!
+!! This version is in double precision.
+!!
 !!-----------------------------------------------------------------------
 !! References:
 !! 1.  M. K. Seager and S. Balsdon,  LSODIS, A Sparse Implicit

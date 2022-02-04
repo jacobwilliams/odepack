@@ -7,8 +7,8 @@
 !!
 !!### DESCRIPTION
 !!  This routine saves or restores (depending on JOB) the contents of
-!!  the COMMON block DLS001, which is used internally
-!!  by one or more ODEPACK solvers.
+!!  the internal types used to store the current state
+!!  by one (or more) of the ODEPACK solvers.
 !!
 !!### VALUES
 !!

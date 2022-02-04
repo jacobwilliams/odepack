@@ -29,10 +29,11 @@
 !!
 !!        B       the solution vector  x .
 !!
-!!   Modification of LINPACK, by Peter Brown, LLNL.
-!!   Written 7/20/83.  This version dated 6/20/01.
-!!
-!!   BLAS called: DAXPY
+!-----------------------------------------------------------------------
+!    Modification of LINPACK, by Peter Brown, LLNL.
+!    Written 7/20/83.  This version dated 6/20/01.
+! 
+!    BLAS called: DAXPY
 !-----------------------------------------------------------------------
 subroutine dhesl(A,Lda,N,Ipvt,B)
 !

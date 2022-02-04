@@ -3,17 +3,16 @@
 !----------------------------------------------------------------------------------------------------------------------------------!
 !>
 !! This routine saves or restores (depending on JOB) the contents of
-!! the Common blocks DLS001, DLPK01, which are used
-!! internally by the DLSODPK solver.
+!! the internal types used internally by the DLSODPK solver.
 !!
 !! RSAV 
 !!
 !! : real array of length 222 or more.
-!1
+!!
 !! ISAV 
 !!
 !! : integer array of length 50 or more.
-!1
+!!
 !! JOB  
 !!
 !! : flag indicating to save or restore the Common blocks:

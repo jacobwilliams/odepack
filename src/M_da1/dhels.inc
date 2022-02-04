@@ -11,7 +11,7 @@
 !!
 !!     using the factors computed by DHEQR.
 !!
-!!     On entry
+!!### On entry
 !!
 !!        A       DOUBLE PRECISION(LDA, N)
 !!                the output from DHEQR which contains the upper
@@ -30,14 +30,15 @@
 !!        B       DOUBLE PRECISION(N+1)
 !!                the right hand side vector.
 !!
-!!     On return
+!!### On return
 !!
 !!        B       the solution vector  x .
 !!
-!!     Modification of LINPACK, by Peter Brown, LLNL.
-!!     Written 1/13/86.  This version dated 6/20/01.
-!!
-!!     BLAS called: DAXPY
+!-----------------------------------------------------------------------
+!    Modification of LINPACK, by Peter Brown, LLNL.
+!    Written 1/13/86.  This version dated 6/20/01.
+! 
+!    BLAS called: DAXPY
 !-----------------------------------------------------------------------
  
 subroutine dhels(A,Lda,N,Q,B)

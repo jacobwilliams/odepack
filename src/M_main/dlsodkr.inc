@@ -2,22 +2,28 @@
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !==================================================================================================================================!
 !>
-!! *DECK DLSODKR
-!!-----------------------------------------------------------------------
-!! This is the 18 November 2003 version of
+!!### Synopsis
+!!
 !! DLSODKR: Livermore Solver for Ordinary Differential equations,
 !!          with preconditioned Krylov iteration methods for the
 !!          Newton correction linear systems, and with Rootfinding.
 !!
-!! This version is in double precision.
-!!
 !! DLSODKR solves the initial value problem for stiff or nonstiff
 !! systems of first order ODEs,
+!!```text
 !!     dy/dt = f(t,y),  or, in component form,
 !!     dy(i)/dt = f(i) = f(i,t,y(1),y(2),...,y(NEQ)) (i = 1,...,NEQ).
+!!```
 !! At the same time, it locates the roots of any of a set of functions
+!!```text
 !!     g(i) = g(i,t,y(1),...,y(NEQ))  (i = 1,...,ng).
+!!```
+!!   DLSODKR is derived from the Livermore Solver for Ordinary
+!!   Differential Equations package ODEPACK,
 !!
+!!   This version is in double precision.
+!!
+!!   This is the 18 November 2003 version of
 !!-----------------------------------------------------------------------
 !! Introduction.
 !!

@@ -1,110 +1,123 @@
 !>
-!!### PURPOSE  Livermore Solver for Ordinary Differential Equations.
-!!            DLSODE solves the initial-value problem for stiff or
-!!            nonstiff systems of first-order ODE's,
-!!               dy/dt = f(t,y),   or, in component form,
-!!               dy(i)/dt = f(i) = f(i,t,y(1),y(2),...,y(N)),  i=1,...,N.
-!!### DESCRIPTION
+!!### Synopsis
 !!
-!!     NOTE: The "Usage" and "Arguments" sections treat only a subset of
-!!           available options, in condensed fashion.  The options
-!!           covered and the information supplied will support most
-!!           standard uses of DLSODE.
+!!   DLSODE solves the initial-value problem for stiff or
+!!   nonstiff systems of first-order ODE's,
+!!```text
+!!   dy/dt = f(t,y),   or, in component form,
+!!   dy(i)/dt = f(i) = f(i,t,y(1),y(2),...,y(N)),  i=1,...,N.
+!!```
+!!### Description
 !!
-!!           For more sophisticated uses, full details on all options are
-!!           given in the concluding section, headed "Long Description."
-!!           A synopsis of the DLSODE Long Description is provided at the
-!!           beginning of that section; general topics covered are:
-!!           - Elements of the call sequence; optional input and output
-!!           - Optional supplemental routines in the DLSODE package
-!!           - internal COMMON block
+!!   **NOTE**: The "Usage" and "Arguments" sections treat only a subset of
+!!   available options, in condensed fashion.  The options
+!!   covered and the information supplied will support most
+!!   standard uses of DLSODE.
 !!
-!!### USAGE
-!!     Communication between the user and the DLSODE package, for normal
-!!     situations, is summarized here.  This summary describes a subset
-!!     of the available options.  See "Long Description" for complete
-!!     details, including optional communication, nonstandard options,
-!!     and instructions for special situations.
+!!   For more sophisticated uses, full details on all options are
+!!   given in the concluding section, headed "Long Description."
+!!   A synopsis of the DLSODE Long Description is provided at the
+!!   beginning of that section; general topics covered are:
 !!
-!!     A sample program is given in the "Examples" section.
+!!      - Elements of the call sequence; optional input and output
+!!      - Optional supplemental routines in the DLSODE package
+!!      - internal COMMON block
 !!
-!!     Refer to the argument descriptions for the definitions of the
-!!     quantities that appear in the following sample declarations.
+!!   DLSODE is derived from the Livermore Solver for Ordinary
+!!   Differential Equations package ODEPACK,
 !!
-!!     For MF = 10,
+!!### Usage
+!!   Communication between the user and the DLSODE package, for normal
+!!   situations, is summarized here.  This summary describes a subset
+!!   of the available options.  See "Long Description" for complete
+!!   details, including optional communication, nonstandard options,
+!!   and instructions for special situations.
+!!
+!!   A sample program is given in the "Examples" section.
+!!
+!!   Refer to the argument descriptions for the definitions of the
+!!   quantities that appear in the following sample declarations.
+!!
+!!   For MF = 10,
+!!```fortran
 !!        PARAMETER  (LRW = 20 + 16*NEQ,           LIW = 20)
-!!     For MF = 21 or 22,
+!!```
+!!   For MF = 21 or 22,
+!!```fortran
 !!        PARAMETER  (LRW = 22 +  9*NEQ + NEQ**2,  LIW = 20 + NEQ)
-!!     For MF = 24 or 25,
+!!```
+!!   For MF = 24 or 25,
+!!```fortran
 !!        PARAMETER  (LRW = 22 + 10*NEQ + (2*ML+MU)*NEQ,
-!!       *                                         LIW = 20 + NEQ)
+!!       &                                         LIW = 20 + NEQ)
 !!
 !!        EXTERNAL F, JAC
 !!        INTEGER  NEQ, ITOL, ITASK, ISTATE, IOPT, LRW, IWORK(LIW),
-!!       *         LIW, MF
+!!       &         LIW, MF
 !!        DOUBLE PRECISION Y(NEQ), T, TOUT, RTOL, ATOL(ntol), RWORK(LRW)
 !!
 !!        CALL DLSODE (F, NEQ, Y, T, TOUT, ITOL, RTOL, ATOL, ITASK,
-!!       *            ISTATE, IOPT, RWORK, LRW, IWORK, LIW, JAC, MF)
+!!       &            ISTATE, IOPT, RWORK, LRW, IWORK, LIW, JAC, MF)
+!!```
 !!
-!!### ARGUMENTS
+!!### Arguments
 !!     F     :EXT    Name of subroutine for right-hand-side vector f.
 !!                   This name must be declared EXTERNAL in calling
 !!                   program.  The form of F must be:
-!!
+!!                                     
 !!                   SUBROUTINE  F (NEQ, T, Y, YDOT)
 !!                   INTEGER  NEQ
 !!                   DOUBLE PRECISION  T, Y(*), YDOT(*)
-!!
+!!                                     
 !!                   The inputs are NEQ, T, Y.  F is to set
-!!
+!!                                     
 !!                   YDOT(i) = f(i,T,Y(1),Y(2),...,Y(NEQ)),
 !!                                                     i = 1, ..., NEQ .
-!!
+!!                                     
 !!     NEQ   :IN     Number of first-order ODE's.
-!!
+!!                                     
 !!     Y     :INOUT  Array of values of the y(t) vector, of length NEQ.
 !!                   Input:  For the first call, Y should contain the
 !!                           values of y(t) at t = T. (Y is an input
 !!                           variable only if ISTATE = 1.)
 !!                   Output: On return, Y will contain the values at the
 !!                           new t-value.
-!!
+!!                                     
 !!     T     :INOUT  Value of the independent variable.  On return it
 !!                   will be the current value of t (normally TOUT).
-!!
+!!                                     
 !!     TOUT  :IN     Next point where output is desired (.NE. T).
-!!
+!!                                     
 !!     ITOL  :IN     1 or 2 according as ATOL (below) is a scalar or
 !!                   an array.
-!!
+!!                                     
 !!     RTOL  :IN     Relative tolerance parameter (scalar).
-!!
+!!                                     
 !!     ATOL  :IN     Absolute tolerance parameter (scalar or array).
 !!                   If ITOL = 1, ATOL need not be dimensioned.
 !!                   If ITOL = 2, ATOL must be dimensioned at least NEQ.
-!!
+!!                                     
 !!                   The estimated local error in Y(i) will be controlled
 !!                   so as to be roughly less (in magnitude) than
-!!
+!!                                     
 !!                   EWT(i) = RTOL*ABS(Y(i)) + ATOL     if ITOL = 1, or
 !!                   EWT(i) = RTOL*ABS(Y(i)) + ATOL(i)  if ITOL = 2.
-!!
+!!                                     
 !!                   Thus the local error test passes if, in each
 !!                   component, either the absolute error is less than
 !!                   ATOL (or ATOL(i)), or the relative error is less
 !!                   than RTOL.
-!!
+!!                                     
 !!                   Use RTOL = 0.0 for pure absolute error control, and
 !!                   use ATOL = 0.0 (or ATOL(i) = 0.0) for pure relative
 !!                   error control.  Caution:  Actual (global) errors may
 !!                   exceed these local tolerances, so choose them
 !!                   conservatively.
-!!
+!!                                     
 !!     ITASK :IN     Flag indicating the task DLSODE is to perform.
 !!                   Use ITASK = 1 for normal computation of output
 !!                   values of y at t = TOUT.
-!!
+!!                                     
 !!     ISTATE:INOUT  Index used for input and output to specify the state
 !!                   of the calculation.
 !!                   Input:
@@ -128,96 +141,98 @@
 !!                   -6   Error weight became zero during problem
 !!                        (solution component i vanished, and ATOL or
 !!                        ATOL(i) = 0.).
-!!
+!!                                     
 !!     IOPT  :IN     Flag indicating whether optional inputs are used:
 !!                   0   No.
 !!                   1   Yes.  (See "Optional inputs" under "Long
 !!                       Description," Part 1.)
-!!
+!!                                     
 !!     RWORK :WORK   Real work array of length at least:
 !!                   20 + 16*NEQ                    for MF = 10,
 !!                   22 +  9*NEQ + NEQ**2           for MF = 21 or 22,
 !!                   22 + 10*NEQ + (2*ML + MU)*NEQ  for MF = 24 or 25.
-!!
+!!                                     
 !!     LRW   :IN     Declared length of RWORK (in user's DIMENSION
 !!                   statement).
-!!
+!!                                     
 !!     IWORK :WORK   Integer work array of length at least:
 !!                   20        for MF = 10,
 !!                   20 + NEQ  for MF = 21, 22, 24, or 25.
-!!
+!!                                     
 !!                   If MF = 24 or 25, input in IWORK(1),IWORK(2) the
 !!                   lower and upper Jacobian half-bandwidths ML,MU.
-!!
+!!                                     
 !!                   On return, IWORK contains information that may be
 !!                   of interest to the user:
-!!
-!!            Name   Location   Meaning
-!!            -----  ---------  -----------------------------------------
-!!            NST    IWORK(11)  Number of steps taken for the problem so
-!!                              far.
-!!            NFE    IWORK(12)  Number of f evaluations for the problem
-!!                              so far.
-!!            NJE    IWORK(13)  Number of Jacobian evaluations (and of
-!!                              matrix LU decompositions) for the problem
-!!                              so far.
-!!            NQU    IWORK(14)  Method order last used (successfully).
-!!            LENRW  IWORK(17)  Length of RWORK actually required.  This
-!!                              is defined on normal returns and on an
-!!                              illegal input return for insufficient
-!!                              storage.
-!!            LENIW  IWORK(18)  Length of IWORK actually required.  This
-!!                              is defined on normal returns and on an
-!!                              illegal input return for insufficient
-!!                              storage.
-!!
+!!                                     
+!!            Name  | Location  | Meaning
+!!            ----- | --------- | -----------------------------------------
+!!            NST   | IWORK(11) | Number of steps taken for the problem so
+!!                  |           | far.
+!!            NFE   | IWORK(12) | Number of f evaluations for the problem
+!!                  |           | so far.
+!!            NJE   | IWORK(13) | Number of Jacobian evaluations (and of
+!!                  |           | matrix LU decompositions) for the problem
+!!                  |           | so far.
+!!            NQU   | IWORK(14) | Method order last used (successfully).
+!!            LENRW | IWORK(17) | Length of RWORK actually required.  This
+!!                  |           | is defined on normal returns and on an
+!!                  |           | illegal input return for insufficient
+!!                  |           | storage.
+!!            LENIW | IWORK(18) | Length of IWORK actually required.  This
+!!                  |           | is defined on normal returns and on an
+!!                  |           | illegal input return for insufficient
+!!                  |           | storage.
+!!                                     
 !!     LIW   :IN     Declared length of IWORK (in user's DIMENSION
 !!                   statement).
-!!
+!!                                     
 !!     JAC   :EXT    Name of subroutine for Jacobian matrix (MF =
 !!                   21 or 24).  If used, this name must be declared
 !!                   EXTERNAL in calling program.  If not used, pass a
 !!                   dummy name.  The form of JAC must be:
-!!
+!!                                     
 !!                   SUBROUTINE JAC (NEQ, T, Y, ML, MU, PD, NROWPD)
 !!                   INTEGER  NEQ, ML, MU, NROWPD
 !!                   DOUBLE PRECISION  T, Y(*), PD(NROWPD,*)
-!!
+!!                                     
 !!                   See item c, under "Description" below for more
 !!                   information about JAC.
-!!
+!!                                     
 !!     MF    :IN     Method flag.  Standard values are:
-!!                   10  Nonstiff (Adams) method, no Jacobian used.
-!!                   21  Stiff (BDF) method, user-supplied full Jacobian.
-!!                   22  Stiff method, internally generated full
-!!                       Jacobian.
-!!                   24  Stiff method, user-supplied banded Jacobian.
-!!                   25  Stiff method, internally generated banded
-!!                       Jacobian.
-!!
-!!### LONG DESCRIPTION
-!!     DLSODE solves the initial value problem for stiff or nonstiff
-!!     systems of first-order ODE's,
-!!
+!!                value | definition
+!!                ----- | ----------
+!!                   10 | Nonstiff (Adams) method, no Jacobian used.
+!!                   21 | Stiff (BDF) method, user-supplied full Jacobian.
+!!                   22 | Stiff method, internally generated full
+!!                      | Jacobian.
+!!                   24 | Stiff method, user-supplied banded Jacobian.
+!!                   25 | Stiff method, internally generated banded
+!!                      | Jacobian.
+!!                                     
+!!### Long Description
+!!   DLSODE solves the initial value problem for stiff or nonstiff
+!!   systems of first-order ODE's,
+!!```text
 !!        dy/dt = f(t,y) ,
-!!
+!!```
 !!     or, in component form,
-!!
+!!```text
 !!        dy(i)/dt = f(i) = f(i,t,y(1),y(2),...,y(NEQ))
 !!                                                  (i = 1, ..., NEQ) .
+!!```
+!!   DLSODE is a package based on the GEAR and GEARB packages, and on
+!!   the October 23, 1978, version of the tentative ODEPACK user
+!!   interface standard, with minor modifications.
 !!
-!!     DLSODE is a package based on the GEAR and GEARB packages, and on
-!!     the October 23, 1978, version of the tentative ODEPACK user
-!!     interface standard, with minor modifications.
-!!
-!!     The steps in solving such a problem are as follows.
+!!   The steps in solving such a problem are as follows.
 !!
 !!     a. First write a subroutine of the form
-!!
+!!```fortran
 !!           SUBROUTINE  F (NEQ, T, Y, YDOT)
 !!           INTEGER  NEQ
 !!           DOUBLE PRECISION  T, Y(*), YDOT(*)
-!!
+!!```
 !!        which supplies the vector function f by loading YDOT(i) with
 !!        f(i).
 !!
@@ -243,11 +258,11 @@
 !!        DLSODE will compute it internally by difference quotients (MF =
 !!        22 or 25).  If you are supplying the Jacobian, write a
 !!        subroutine of the form
-!!
+!!```fortran
 !!           SUBROUTINE  JAC (NEQ, T, Y, ML, MU, PD, NROWPD)
 !!           INTEGER  NEQ, ML, MU, NRWOPD
 !!           DOUBLE PRECISION  T, Y(*), PD(NROWPD,*)
-!!
+!!```
 !!        which provides df/dy by loading PD as follows:
 !!        - For a full Jacobian (MF = 21), load PD(i,j) with df(i)/dy(j),
 !!          the partial derivative of f(i) with respect to y(j).  (Ignore
@@ -268,23 +283,23 @@
 !!        reset TOUT and call DLSODE again.  No other parameters need be
 !!        reset.
 !!
-!!### EXAMPLES
-!!     The following is a simple example problem, with the coding needed
-!!     for its solution by DLSODE. The problem is from chemical kinetics,
-!!     and consists of the following three rate equations:
-!!
+!!### Examples
+!!   The following is a simple example problem, with the coding needed
+!!   for its solution by DLSODE. The problem is from chemical kinetics,
+!!   and consists of the following three rate equations:
+!!```text
 !!        dy1/dt = -.04*y1 + 1.E4*y2*y3
 !!        dy2/dt = .04*y1 - 1.E4*y2*y3 - 3.E7*y2**2
 !!        dy3/dt = 3.E7*y2**2
+!!```
+!!   on the interval from t = 0.0 to t = 4.E10, with initial conditions
+!!   y1 = 1.0, y2 = y3 = 0. The problem is stiff.
 !!
-!!     on the interval from t = 0.0 to t = 4.E10, with initial conditions
-!!     y1 = 1.0, y2 = y3 = 0. The problem is stiff.
-!!
-!!     The following coding solves this problem with DLSODE, using
-!!     MF = 21 and printing results at t = .4, 4., ..., 4.E10.  It uses
-!!     ITOL = 2 and ATOL much smaller for y2 than for y1 or y3 because y2
-!!     has much smaller values.  At the end of the run, statistical
-!!     quantities of interest are printed.
+!!   The following coding solves this problem with DLSODE, using
+!!   MF = 21 and printing results at t = .4, 4., ..., 4.E10.  It uses
+!!   ITOL = 2 and ATOL much smaller for y2 than for y1 or y3 because y2
+!!   has much smaller values.  At the end of the run, statistical
+!!   quantities of interest are printed.
 !!
 !!```fortran
 !!program dlsode_ex
@@ -371,6 +386,7 @@
 !!end subroutine jex
 !!```
 !!
+!!```text
 !!     The output from this program (on a Cray-1 in single precision)
 !!     is as follows.
 !!
@@ -388,34 +404,35 @@
 !!     At t =  4.0000e+10   y = -7.170603e-08 -2.868241e-13  1.000000e+00
 !!
 !!     No. steps = 330,  No. f-s = 405,  No. J-s = 69
+!!```text
 !!
-!! *Accuracy:
-!!     The accuracy of the solution depends on the choice of tolerances
-!!     RTOL and ATOL.  Actual (global) errors may exceed these local
-!!     tolerances, so choose them conservatively.
+!!#### Accuracy:
+!!   The accuracy of the solution depends on the choice of tolerances
+!!   RTOL and ATOL.  Actual (global) errors may exceed these local
+!!   tolerances, so choose them conservatively.
 !!
-!! *Cautions:
-!!     The work arrays should not be altered between calls to DLSODE for
-!!     the same problem, except possibly for the conditional and optional
-!!     inputs.
+!!#### Cautions:
+!!   The work arrays should not be altered between calls to DLSODE for
+!!   the same problem, except possibly for the conditional and optional
+!!   inputs.
 !!
-!! *Portability:
-!!     Since NEQ is dimensioned inside DLSODE, some compilers may object
-!!     to a call to DLSODE with NEQ a scalar variable.  In this event,
-!!     use DIMENSION NEQ(1).  Similar remarks apply to RTOL and ATOL.
+!!#### Portability:
+!!   Since NEQ is dimensioned inside DLSODE, some compilers may object
+!!   to a call to DLSODE with NEQ a scalar variable.  In this event,
+!!   use DIMENSION NEQ(1).  Similar remarks apply to RTOL and ATOL.
 !!
-!!     Note to Cray users:
-!!     For maximum efficiency, use the CFT77 compiler.  Appropriate
-!!     compiler optimization directives have been inserted for CFT77.
+!!   Note to Cray users:
+!!   For maximum efficiency, use the CFT77 compiler.  Appropriate
+!!   compiler optimization directives have been inserted for CFT77.
 !!
-!! *Reference:
-!!     Alan C. Hindmarsh, "ODEPACK, A Systematized Collection of ODE
-!!     Solvers," in Scientific Computing, R. S. Stepleman, et al., Eds.
-!!     (North-Holland, Amsterdam, 1983), pp. 55-64.
+!!#### Reference:
+!!   Alan C. Hindmarsh, "ODEPACK, A Systematized Collection of ODE
+!!   Solvers," in Scientific Computing, R. S. Stepleman, et al., Eds.
+!!   (North-Holland, Amsterdam, 1983), pp. 55-64.
 !!
-!! *Long Description:
-!!     The following complete description of the user interface to
-!!     DLSODE consists of four parts:
+!!### Long Description:
+!!   The following complete description of the user interface to
+!!   DLSODE consists of four parts:
 !!
 !!     1.  The call sequence to subroutine DLSODE, which is a driver
 !!         routine for the solver.  This includes descriptions of both
@@ -438,8 +455,7 @@
 !!         These relate to the measurement of errors.
 !!
 !!
-!!                         Part 1.  Call Sequence
-!!                         ----------------------
+!!#### Part 1.  Call Sequence
 !!
 !!     Arguments
 !!     ---------
@@ -580,12 +596,12 @@
 !!              types (scalar/array) of RTOL and ATOL, and the
 !!              corresponding form of EWT(i).
 !!
-!!              ITOL    RTOL      ATOL      EWT(i)
-!!              ----    ------    ------    -----------------------------
-!!              1       scalar    scalar    RTOL*ABS(Y(i)) + ATOL
-!!              2       scalar    array     RTOL*ABS(Y(i)) + ATOL(i)
-!!              3       array     scalar    RTOL(i)*ABS(Y(i)) + ATOL
-!!              4       array     array     RTOL(i)*ABS(Y(i)) + ATOL(i)
+!!              ITOL  | RTOL   |  ATOL   |  EWT(i)
+!!              ----  | ------ |  ------ |  -----------------------------
+!!              1     | scalar |  scalar |  RTOL*ABS(Y(i)) + ATOL
+!!              2     | scalar |  array  |  RTOL*ABS(Y(i)) + ATOL(i)
+!!              3     | array  |  scalar |  RTOL(i)*ABS(Y(i)) + ATOL
+!!              4     | array  |  array  |  RTOL(i)*ABS(Y(i)) + ATOL(i)
 !!
 !!              When either of these parameters is a scalar, it need not
 !!              be dimensioned in the user's calling program.
@@ -860,31 +876,31 @@
 !!     locations 5 to 10 in RWORK and IWORK to 0.0 and 0 respectively,
 !!     and then set those of interest to nonzero values.
 !!
-!!     Name    Location   Meaning and default value
-!!     ------  ---------  -----------------------------------------------
-!!     H0      RWORK(5)   Step size to be attempted on the first step.
-!!                        The default value is determined by the solver.
-!!     HMAX    RWORK(6)   Maximum absolute step size allowed.  The
-!!                        default value is infinite.
-!!     HMIN    RWORK(7)   Minimum absolute step size allowed.  The
-!!                        default value is 0.  (This lower bound is not
-!!                        enforced on the final step before reaching
-!!                        TCRIT when ITASK = 4 or 5.)
-!!     MAXORD  IWORK(5)   Maximum order to be allowed.  The default value
-!!                        is 12 if METH = 1, and 5 if METH = 2. (See the
-!!                        MF description above for METH.)  If MAXORD
-!!                        exceeds the default value, it will be reduced
-!!                        to the default value.  If MAXORD is changed
-!!                        during the problem, it may cause the current
-!!                        order to be reduced.
-!!     MXSTEP  IWORK(6)   Maximum number of (internally defined) steps
-!!                        allowed during one call to the solver.  The
-!!                        default value is 500.
-!!     MXHNIL  IWORK(7)   Maximum number of messages printed (per
-!!                        problem) warning that T + H = T on a step
-!!                        (H = step size).  This must be positive to
-!!                        result in a nondefault value.  The default
-!!                        value is 10.
+!!     Name  | Location | Meaning and default value
+!!     ------| ---------| -----------------------------------------------
+!!     H0    | RWORK(5) | Step size to be attempted on the first step.
+!!           |          | The default value is determined by the solver.
+!!     HMAX  | RWORK(6) | Maximum absolute step size allowed.  The
+!!           |          | default value is infinite.
+!!     HMIN  | RWORK(7) | Minimum absolute step size allowed.  The
+!!           |          | default value is 0.  (This lower bound is not
+!!           |          | enforced on the final step before reaching
+!!           |          | TCRIT when ITASK = 4 or 5.)
+!!     MAXORD| IWORK(5) | Maximum order to be allowed.  The default value
+!!           |          | is 12 if METH = 1, and 5 if METH = 2. (See the
+!!           |          | MF description above for METH.)  If MAXORD
+!!           |          | exceeds the default value, it will be reduced
+!!           |          | to the default value.  If MAXORD is changed
+!!           |          | during the problem, it may cause the current
+!!           |          | order to be reduced.
+!!     MXSTEP| IWORK(6) | Maximum number of (internally defined) steps
+!!           |          | allowed during one call to the solver.  The
+!!           |          | default value is 500.
+!!     MXHNIL| IWORK(7) | Maximum number of messages printed (per
+!!           |          | problem) warning that T + H = T on a step
+!!           |          | (H = step size).  This must be positive to
+!!           |          | result in a nondefault value.  The default
+!!           |          | value is 10.
 !!
 !!     Optional Outputs
 !!     ----------------
@@ -899,101 +915,99 @@
 !!     possibly for TOLSF, LENRW, and LENIW.  On any error return,
 !!     outputs relevant to the error will be defined, as noted below.
 !!
-!!     Name   Location   Meaning
-!!     -----  ---------  ------------------------------------------------
-!!     HU     RWORK(11)  Step size in t last used (successfully).
-!!     HCUR   RWORK(12)  Step size to be attempted on the next step.
-!!     TCUR   RWORK(13)  Current value of the independent variable which
-!!                       the solver has actually reached, i.e., the
-!!                       current internal mesh point in t. On output,
-!!                       TCUR will always be at least as far as the
-!!                       argument T, but may be farther (if interpolation
-!!                       was done).
-!!     TOLSF  RWORK(14)  Tolerance scale factor, greater than 1.0,
-!!                       computed when a request for too much accuracy
-!!                       was detected (ISTATE = -3 if detected at the
-!!                       start of the problem, ISTATE = -2 otherwise).
-!!                       If ITOL is left unaltered but RTOL and ATOL are
-!!                       uniformly scaled up by a factor of TOLSF for the
-!!                       next call, then the solver is deemed likely to
-!!                       succeed.  (The user may also ignore TOLSF and
-!!                       alter the tolerance parameters in any other way
-!!                       appropriate.)
-!!     NST    IWORK(11)  Number of steps taken for the problem so far.
-!!     NFE    IWORK(12)  Number of F evaluations for the problem so far.
-!!     NJE    IWORK(13)  Number of Jacobian evaluations (and of matrix LU
-!!                       decompositions) for the problem so far.
-!!     NQU    IWORK(14)  Method order last used (successfully).
-!!     NQCUR  IWORK(15)  Order to be attempted on the next step.
-!!     IMXER  IWORK(16)  Index of the component of largest magnitude in
-!!                       the weighted local error vector ( e(i)/EWT(i) ),
-!!                       on an error return with ISTATE = -4 or -5.
-!!     LENRW  IWORK(17)  Length of RWORK actually required.  This is
-!!                       defined on normal returns and on an illegal
-!!                       input return for insufficient storage.
-!!     LENIW  IWORK(18)  Length of IWORK actually required.  This is
-!!                       defined on normal returns and on an illegal
-!!                       input return for insufficient storage.
+!!     Name  | Location  | Meaning
+!!     ----- | --------- | ------------------------------------------------
+!!     HU    | RWORK(11) | Step size in t last used (successfully).
+!!     HCUR  | RWORK(12) | Step size to be attempted on the next step.
+!!     TCUR  | RWORK(13) | Current value of the independent variable which
+!!           |           | the solver has actually reached, i.e., the
+!!           |           | current internal mesh point in t. On output,
+!!           |           | TCUR will always be at least as far as the
+!!           |           | argument T, but may be farther (if interpolation
+!!           |           | was done).
+!!     TOLSF | RWORK(14) | Tolerance scale factor, greater than 1.0,
+!!           |           | computed when a request for too much accuracy
+!!           |           | was detected (ISTATE = -3 if detected at the
+!!           |           | start of the problem, ISTATE = -2 otherwise).
+!!           |           | If ITOL is left unaltered but RTOL and ATOL are
+!!           |           | uniformly scaled up by a factor of TOLSF for the
+!!           |           | next call, then the solver is deemed likely to
+!!           |           | succeed.  (The user may also ignore TOLSF and
+!!           |           | alter the tolerance parameters in any other way
+!!           |           | appropriate.)
+!!     NST   | IWORK(11) | Number of steps taken for the problem so far.
+!!     NFE   | IWORK(12) | Number of F evaluations for the problem so far.
+!!     NJE   | IWORK(13) | Number of Jacobian evaluations (and of matrix LU
+!!           |           | decompositions) for the problem so far.
+!!     NQU   | IWORK(14) | Method order last used (successfully).
+!!     NQCUR | IWORK(15) | Order to be attempted on the next step.
+!!     IMXER | IWORK(16) | Index of the component of largest magnitude in
+!!           |           | the weighted local error vector ( e(i)/EWT(i) ),
+!!           |           | on an error return with ISTATE = -4 or -5.
+!!     LENRW | IWORK(17) | Length of RWORK actually required.  This is
+!!           |           | defined on normal returns and on an illegal
+!!           |           | input return for insufficient storage.
+!!     LENIW | IWORK(18) | Length of IWORK actually required.  This is
+!!           |           | defined on normal returns and on an illegal
+!!           |           | input return for insufficient storage.
 !!
 !!     The following two arrays are segments of the RWORK array which may
 !!     also be of interest to the user as optional outputs.  For each
 !!     array, the table below gives its internal name, its base address
 !!     in RWORK, and its description.
 !!
-!!     Name  Base address  Description
-!!     ----  ------------  ----------------------------------------------
-!!     YH    21            The Nordsieck history array, of size NYH by
-!!                         (NQCUR + 1), where NYH is the initial value of
-!!                         NEQ.  For j = 0,1,...,NQCUR, column j + 1 of
-!!                         YH contains HCUR**j/factorial(j) times the jth
-!!                         derivative of the interpolating polynomial
-!!                         currently representing the solution, evaluated
-!!                         at t = TCUR.
-!!     ACOR  LENRW-NEQ+1   Array of size NEQ used for the accumulated
-!!                         corrections on each step, scaled on output to
-!!                         represent the estimated local error in Y on
-!!                         the last step.  This is the vector e in the
-!!                         description of the error control.  It is
-!!                         defined only on successful return from DLSODE.
+!!     Name| Base address| Description
+!!     ----| ------------| ----------------------------------------------
+!!     YH  | 21          | The Nordsieck history array, of size NYH by
+!!         |             | (NQCUR + 1), where NYH is the initial value of
+!!         |             | NEQ.  For j = 0,1,...,NQCUR, column j + 1 of
+!!         |             | YH contains HCUR**j/factorial(j) times the jth
+!!         |             | derivative of the interpolating polynomial
+!!         |             | currently representing the solution, evaluated
+!!         |             | at t = TCUR.
+!!     ACOR| LENRW-NEQ+1 | Array of size NEQ used for the accumulated
+!!         |             | corrections on each step, scaled on output to
+!!         |             | represent the estimated local error in Y on
+!!         |             | the last step.  This is the vector e in the
+!!         |             | description of the error control.  It is
+!!         |             | defined only on successful return from DLSODE.
 !!
-!!
-!!                    Part 2.  Other Callable Routines
-!!                    --------------------------------
+!!#### Part 2.  Other Callable Routines
 !!
 !!     The following are optional calls which the user may make to gain
 !!     additional capabilities in conjunction with DLSODE.
 !!
 !!     Form of call              Function
-!!     ------------------------  ----------------------------------------
-!!     CALL XSETUN(LUN)          Set the logical unit number, LUN, for
-!!                               output of messages from DLSODE, if the
-!!                               default is not desired.  The default
-!!                               value of LUN is 6. This call may be made
-!!                               at any time and will take effect
-!!                               immediately.
-!!     CALL XSETF(MFLAG)         Set a flag to control the printing of
-!!                               messages by DLSODE.  MFLAG = 0 means do
-!!                               not print.  (Danger:  this risks losing
-!!                               valuable information.)  MFLAG = 1 means
-!!                               print (the default).  This call may be
-!!                               made at any time and will take effect
-!!                               immediately.
-!!     CALL DSRCOM(RSAV,ISAV,JOB)  Saves and restores the contents of the
-!!                               internal COMMON blocks used by DLSODE
-!!                               (see Part 3 below).  RSAV must be a
-!!                               real array of length 218 or more, and
-!!                               ISAV must be an integer array of length
-!!                               37 or more.  JOB = 1 means save COMMON
-!!                               into RSAV/ISAV.  JOB = 2 means restore
-!!                               COMMON from same.  DSRCOM is useful if
-!!                               one is interrupting a run and restarting
-!!                               later, or alternating between two or
-!!                               more problems solved with DLSODE.
-!!     CALL DINTDY(,,,,,)        Provide derivatives of y, of various
-!!     (see below)               orders, at a specified point t, if
-!!                               desired.  It may be called only after a
-!!                               successful return from DLSODE.  Detailed
-!!                               instructions follow.
+!!     ------------------------- | ---------------------------------------
+!!     CALL XSETUN(LUN)          | Set the logical unit number, LUN, for
+!!                               | output of messages from DLSODE, if the
+!!                               | default is not desired.  The default
+!!                               | value of LUN is 6. This call may be made
+!!                               | at any time and will take effect
+!!                               | immediately.
+!!     CALL XSETF(MFLAG)         | Set a flag to control the printing of
+!!                               | messages by DLSODE.  MFLAG = 0 means do
+!!                               | not print.  (Danger:  this risks losing
+!!                               | valuable information.)  MFLAG = 1 means
+!!                               | print (the default).  This call may be
+!!                               | made at any time and will take effect
+!!                               | immediately.
+!!     CALL DSRCOM(RSAV,ISAV,JOB)|  Saves and restores the contents of the
+!!                               | internal COMMON blocks used by DLSODE
+!!                               | (see Part 3 below).  RSAV must be a
+!!                               | real array of length 218 or more, and
+!!                               | ISAV must be an integer array of length
+!!                               | 37 or more.  JOB = 1 means save COMMON
+!!                               | into RSAV/ISAV.  JOB = 2 means restore
+!!                               | COMMON from same.  DSRCOM is useful if
+!!                               | one is interrupting a run and restarting
+!!                               | later, or alternating between two or
+!!                               | more problems solved with DLSODE.
+!!     CALL DINTDY(,,,,,)        | Provide derivatives of y, of various
+!!     (see below)               | orders, at a specified point t, if
+!!                               | desired.  It may be called only after a
+!!                               | successful return from DLSODE.  Detailed
+!!                               | instructions follow.
 !!
 !!     Detailed instructions for using DINTDY
 !!     --------------------------------------
@@ -1030,83 +1044,83 @@
 !!                          Part 3.  Common Blocks
 !!                          ----------------------
 !!
-!!     If DLSODE is to be used in an overlay situation, the user must
-!!     declare, in the primary overlay, the variables in:
-!!     (1) the call sequence to DLSODE,
-!!     (2) the internal COMMON block /DLS001/, of length 255
-!!         (218 double precision words followed by 37 integer words).
+!!  If DLSODE is to be used in an overlay situation, the user must
+!!  declare, in the primary overlay, the variables in:
+!!  (1) the call sequence to DLSODE,
+!!  (2) the internal COMMON block /DLS001/, of length 255
+!!      (218 double precision words followed by 37 integer words).
 !!
-!!     If DLSODE is used on a system in which the contents of internal
-!!     COMMON blocks are not preserved between calls, the user should
-!!     declare the above COMMON block in his main program to insure that
-!!     its contents are preserved.
+!!  If DLSODE is used on a system in which the contents of internal
+!!  COMMON blocks are not preserved between calls, the user should
+!!  declare the above COMMON block in his main program to insure that
+!!  its contents are preserved.
 !!
-!!     If the solution of a given problem by DLSODE is to be interrupted
-!!     and then later continued, as when restarting an interrupted run or
-!!     alternating between two or more problems, the user should save,
-!!     following the return from the last DLSODE call prior to the
-!!     interruption, the contents of the call sequence variables and the
-!!     internal COMMON block, and later restore these values before the
-!!     next DLSODE call for that problem.   In addition, if XSETUN and/or
-!!     XSETF was called for non-default handling of error messages, then
-!!     these calls must be repeated.  To save and restore the COMMON
-!!     block, use subroutine DSRCOM (see Part 2 above).
+!!  If the solution of a given problem by DLSODE is to be interrupted
+!!  and then later continued, as when restarting an interrupted run or
+!!  alternating between two or more problems, the user should save,
+!!  following the return from the last DLSODE call prior to the
+!!  interruption, the contents of the call sequence variables and the
+!!  internal COMMON block, and later restore these values before the
+!!  next DLSODE call for that problem.   In addition, if XSETUN and/or
+!!  XSETF was called for non-default handling of error messages, then
+!!  these calls must be repeated.  To save and restore the COMMON
+!!  block, use subroutine DSRCOM (see Part 2 above).
 !!
 !!
 !!              Part 4.  Optionally Replaceable Solver Routines
 !!              -----------------------------------------------
 !!
-!!     Below are descriptions of two routines in the DLSODE package which
-!!     relate to the measurement of errors.  Either routine can be
-!!     replaced by a user-supplied version, if desired.  However, since
-!!     such a replacement may have a major impact on performance, it
-!!     should be done only when absolutely necessary, and only with great
-!!     caution.  (Note:  The means by which the package version of a
-!!     routine is superseded by the user's version may be system-
-!!     dependent.)
+!!  Below are descriptions of two routines in the DLSODE package which
+!!  relate to the measurement of errors.  Either routine can be
+!!  replaced by a user-supplied version, if desired.  However, since
+!!  such a replacement may have a major impact on performance, it
+!!  should be done only when absolutely necessary, and only with great
+!!  caution.  (Note:  The means by which the package version of a
+!!  routine is superseded by the user's version may be system-
+!!  dependent.)
 !!
 !!     DEWSET
 !!     ------
-!!     The following subroutine is called just before each internal
-!!     integration step, and sets the array of error weights, EWT, as
-!!     described under ITOL/RTOL/ATOL above:
+!!  The following subroutine is called just before each internal
+!!  integration step, and sets the array of error weights, EWT, as
+!!  described under ITOL/RTOL/ATOL above:
 !!
 !!           SUBROUTINE DEWSET (NEQ, ITOL, RTOL, ATOL, YCUR, EWT)
 !!
-!!     where NEQ, ITOL, RTOL, and ATOL are as in the DLSODE call
-!!     sequence, YCUR contains the current dependent variable vector,
-!!     and EWT is the array of weights set by DEWSET.
+!!  where NEQ, ITOL, RTOL, and ATOL are as in the DLSODE call
+!!  sequence, YCUR contains the current dependent variable vector,
+!!  and EWT is the array of weights set by DEWSET.
 !!
-!!     If the user supplies this subroutine, it must return in EWT(i)
-!!     (i = 1,...,NEQ) a positive quantity suitable for comparing errors
-!!     in Y(i) to.  The EWT array returned by DEWSET is passed to the
-!!     DVNORM routine (see below), and also used by DLSODE in the
-!!     computation of the optional output IMXER, the diagonal Jacobian
-!!     approximation, and the increments for difference quotient
-!!     Jacobians.
+!!  If the user supplies this subroutine, it must return in EWT(i)
+!!  (i = 1,...,NEQ) a positive quantity suitable for comparing errors
+!!  in Y(i) to.  The EWT array returned by DEWSET is passed to the
+!!  DVNORM routine (see below), and also used by DLSODE in the
+!!  computation of the optional output IMXER, the diagonal Jacobian
+!!  approximation, and the increments for difference quotient
+!!  Jacobians.
 !!
-!!     In the user-supplied version of DEWSET, it may be desirable to use
-!!     the current values of derivatives of y. Derivatives up to order NQ
-!!     are available from the history array YH, described above under
-!!     optional outputs.  In DEWSET, YH is identical to the YCUR array,
-!!     extended to NQ + 1 columns with a column length of NYH and scale
-!!     factors of H**j/factorial(j).  On the first call for the problem,
-!!     given by NST = 0, NQ is 1 and H is temporarily set to 1.0.
-!!     NYH is the initial value of NEQ.  The quantities NQ, H, and NST
-!!     can be obtained by including in SEWSET the statements:
+!!  In the user-supplied version of DEWSET, it may be desirable to use
+!!  the current values of derivatives of y. Derivatives up to order NQ
+!!  are available from the history array YH, described above under
+!!  optional outputs.  In DEWSET, YH is identical to the YCUR array,
+!!  extended to NQ + 1 columns with a column length of NYH and scale
+!!  factors of H**j/factorial(j).  On the first call for the problem,
+!!  given by NST = 0, NQ is 1 and H is temporarily set to 1.0.
+!!  NYH is the initial value of NEQ.  The quantities NQ, H, and NST
+!!  can be obtained by including in SEWSET the statements:
 !!           DOUBLE PRECISION RLS
 !!           COMMON /DLS001/ RLS(218),ILS(37)
 !!           NQ = ILS(33)
 !!           NST = ILS(34)
 !!           H = RLS(212)
-!!     Thus, for example, the current value of dy/dt can be obtained as
-!!     YCUR(NYH+i)/H (i=1,...,NEQ) (and the division by H is unnecessary
-!!     when NST = 0).
+!!  Thus, for example, the current value of dy/dt can be obtained as
+!!  YCUR(NYH+i)/H (i=1,...,NEQ) (and the division by H is unnecessary
+!!  when NST = 0).
 !!
 !!     DVNORM
 !!     ------
-!!     DVNORM is a real function routine which computes the weighted
-!!     root-mean-square norm of a vector v:
+!!  DVNORM is a real function routine which computes the weighted
+!!  root-mean-square norm of a vector v:
 !!
 !!        d = DVNORM (n, v, w)
 !!
@@ -1116,13 +1130,13 @@
 !!     w = real array of length n containing weights,
 !!     d = SQRT( (1/n) * sum(v(i)*w(i))**2 ).
 !!
-!!     DVNORM is called with n = NEQ and with w(i) = 1.0/EWT(i), where
-!!     EWT is as set by subroutine DEWSET.
+!!  DVNORM is called with n = NEQ and with w(i) = 1.0/EWT(i), where
+!!  EWT is as set by subroutine DEWSET.
 !!
-!!     If the user supplies this function, it should return a nonnegative
-!!     value of DVNORM suitable for use in the error control in DLSODE.
-!!     None of the arguments should be altered by DVNORM.  For example, a
-!!     user-supplied DVNORM routine might:
+!!  If the user supplies this function, it should return a nonnegative
+!!  value of DVNORM suitable for use in the error control in DLSODE.
+!!  None of the arguments should be altered by DVNORM.  For example, a
+!!  user-supplied DVNORM routine might:
 !!     - Substitute a max-norm of (v(i)*w(i)) for the rms-norm, or
 !!     - Ignore some components of v in the norm, with the effect of
 !!       suppressing the error control on those components of Y.

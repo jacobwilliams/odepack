@@ -3,23 +3,24 @@
 !==================================================================================================================================!
 !>
 !!### Synopsis
-!! _DLSODA_: Livermore Solver for Ordinary Differential Equations, with
-!!         Automatic method switching for stiff and nonstiff problems.
-!!
-!! based on the 12 November 2003 version in double precision.
 !!
 !! _DLSODA_ solves the initial value problem for stiff or nonstiff
-!! systems of first order ODEs,
+!! systems of first order ODEs
 !!```text
 !!     dy/dt = f(t,y),  or, in component form,
 !!     dy(i)/dt = f(i) = f(i,t,y(1),y(2),...,y(NEQ)) (i = 1,...,NEQ).
 !!```
+!! with automatic method switching for stiff and nonstiff problems.
+!!
 !! This a variant version of the _DLSODE_ package.
 !! It switches automatically between stiff and nonstiff methods.
 !! This means that the user does not have to determine whether the
 !! problem is stiff or not, and the solver will automatically choose the
 !! appropriate method.  It always starts with the nonstiff method.
 !!
+!! DLSODA is derived from the Livermore Solver for Ordinary
+!! Differential Equations package ODEPACK,
+!! based on the 12 November 2003 version in double precision.
 !!-----------------------------------------------------------------------
 !!### Summary of Usage
 !!
@@ -337,7 +338,7 @@
 !! initial call for the problem, but not checked thereafter unless a
 !! change in input parameters is flagged by ISTATE = 3 on input.
 !!
-!! The descriptions of the call arguments are as follows.
+!! The descriptions of the call arguments are as follows:
 !!
 !! F
 !!
@@ -438,13 +439,13 @@
 !!
 !! RTOL
 !!
-!! : a relative error tolerance parameter, 
+!! : a relative error tolerance parameter,
 !! an array of length NEQ.  See description below under ATOL.
 !! Input only.
 !!
 !! ATOL
 !!
-!! : an absolute error tolerance parameter, 
+!! : an absolute error tolerance parameter,
 !! an array of length NEQ.  Input only.
 !!
 !! The input parameters ITOL, RTOL, and ATOL determine
@@ -459,13 +460,12 @@
 !! The following table gives the types (single/mult-value array) of
 !! RTOL and ATOL, and the corresponding form of EWT(i).
 !!
-!!   ITOL |  RTOL    |   ATOL   |           EWT(i)
-!!   ---- | -------- | -------- | -------------------------------
-!!    1   | single   |  single  |  RTOL*ABS(Y(i)) + ATOL
-!!    2   | single   |  array   |  RTOL*ABS(Y(i)) + ATOL(i)
-!!    3   | array    |  single  |  RTOL(i)*ABS(Y(i)) + ATOL
-!!    4   | array    |  array   |  RTOL(i)*ABS(Y(i)) + ATOL(i)
-!!  
+!!  ITOL |  RTOL    |   ATOL   |           EWT(i)
+!!  ---- | -------- | -------- | -------------------------------
+!!   1   | single   |  single  |  RTOL*ABS(Y(i)) + ATOL
+!!   2   | single   |  array   |  RTOL*ABS(Y(i)) + ATOL(i)
+!!   3   | array    |  single  |  RTOL(i)*ABS(Y(i)) + ATOL
+!!   4   | array    |  array   |  RTOL(i)*ABS(Y(i)) + ATOL(i)
 !!
 !! Even when these parameters are a single value, it needs to be an array
 !! in the user's calling program, or passed as a temporary array (ie. use
@@ -502,7 +502,7 @@
 !!         | has a singularity at or beyond t = TCRIT.
 !!       5 | means take one step, without passing TCRIT, and return.
 !!         | TCRIT must be input as RWORK(1).
-!!  
+!!
 !! Note:  If ITASK = 4 or 5 and the solver reaches TCRIT
 !! (within roundoff), it will return T = TCRIT (exactly) to
 !! indicate this (unless ITASK = 4 and TOUT comes before TCRIT,
@@ -513,7 +513,7 @@
 !! : an index used for input and output to specify the
 !! the state of the calculation.
 !!
-!! On input, the values of ISTATE are as follows.
+!! On input, the values of ISTATE are as follows:
 !!
 !!  value  | descriptions
 !!  ------ | -----------------------------------------------------------
@@ -533,7 +533,7 @@
 !!         | and any optional inputs except H0, MXORDN, and MXORDS.
 !!         | (See IWORK description for ML and MU.)
 !!
-!!  
+!!
 !! Note:  A preliminary call with TOUT = T is not counted
 !! as a first call here, as no initialization or checking of
 !! input is done.  (Such a call is sometimes useful for the
@@ -588,7 +588,7 @@
 !!           | proceed, but the integration was successful as far as T.
 !!           | This happens when _DLSODA_ chooses to switch methods
 !!           | but LRW and/or LIW is too small for the new method.
-!!  
+!!
 !!
 !! Note:  Since the normal output value of ISTATE is 2,
 !! it does not need to be reset for normal continuation.
@@ -618,8 +618,9 @@
 !! have a static (fixed) length large enough for both methods,
 !! or have a dynamic (changing) length altered by the calling
 !! program in response to output from _DLSODA_.
+!!
+!!#### Fixed Length Case
 !!```text
-!!                --- Fixed Length Case ---
 !!   If the RWORK length is to be fixed, it should be at least
 !!        MAX (LRN, LRS),
 !!   where LRN and LRS are the RWORK lengths required when the
@@ -644,23 +645,25 @@
 !!      LMAT   = length of matrix work space:
 !!      LMAT   = NEQ**2 + 2              if JT = 1 or 2,
 !!      LMAT   = (2*ML + MU + 1)*NEQ + 2 if JT = 4 or 5.
-!!
 !!```
 !!
+!!#### Dynamic Length Case
 !!```text
-!!            --- Dynamic Length Case ---
 !! If the length of RWORK is to be dynamic, then it should
 !! be at least LRN or LRS, as defined above, depending on the
-!! current method.  Initially, it must be at least LRN (since
-!! _DLSODA_ starts with the nonstiff method).  On any return
-!! from _DLSODA_, the optional output MCUR indicates the current
-!! method.  If MCUR differs from the value it had on the
-!! previous return, or if there has only been one call to
-!! _DLSODA_ and MCUR is now 2, then _DLSODA_ has switched
-!! methods during the last call, and the length of RWORK
-!! should be reset (to LRN if MCUR = 1, or to LRS if
-!! MCUR = 2).  (An increase in the RWORK length is required
-!! if _DLSODA_ returned ISTATE = -7, but not otherwise.)
+!! current method.
+!!
+!! Initially, it must be at least LRN (since
+!! _DLSODA_ starts with the nonstiff method).
+!!
+!! On any return from _DLSODA_, the optional output MCUR indicates the
+!! current method.  If MCUR differs from the value it had on the previous
+!! return, or if there has only been one call to _DLSODA_ and MCUR is now 2,
+!! then _DLSODA_ has switched methods during the last call, and the length
+!! of RWORK should be reset (to LRN if MCUR = 1, or to LRS if MCUR = 2).
+!! (An increase in the RWORK length is required if _DLSODA_ returned
+!! ISTATE = -7, but not otherwise.)
+!!
 !! After resetting the length, call _DLSODA_ with ISTATE = 3
 !! to signal that change.
 !!
@@ -681,25 +684,23 @@
 !! dynamic length of at least LIN or LIS, depending on the
 !! current method.  The comments on dynamic length under
 !! RWORK above apply here.  Initially, this length need
-!! only be at least LIN = 20.
+!! only be at least LIN = 20 .
 !!
 !! The first few words of IWORK are used for conditional and
 !! optional inputs and optional outputs.
 !!
 !! The following 2 words in IWORK are conditional inputs:
 !!```text
-!!   IWORK(1) = ML     these are the lower and upper
-!!   IWORK(2) = MU     half-bandwidths, respectively, of the
-!!              banded Jacobian, excluding the main diagonal.
-!!              The band is defined by the matrix locations
-!!              (i,j) with i-ML .le. j .le. i+MU.  ML and MU
-!!              must satisfy  0 .le.  ML,MU  .le. NEQ-1.
-!!              These are required if JT is 4 or 5, and
-!!              ignored otherwise.  ML and MU may in fact be
-!!              the band parameters for a matrix to which
-!!              df/dy is only approximately equal.
-!!
+!!   IWORK(1) = ML
+!!   IWORK(2) = MU
 !!```
+!! These are the lower and upper half-bandwidths, respectively, of the
+!! banded Jacobian, excluding the main diagonal.  The band is defined by
+!! the matrix locations (i,j) with i-ML .le. j .le. i+MU.  ML and MU must
+!! satisfy  0 .le.  ML,MU  .le. NEQ-1.  These are required if JT is 4 or 5,
+!! and ignored otherwise.  ML and MU may in fact be the band parameters
+!! for a matrix to which df/dy is only approximately equal.
+!!
 !! LIW
 !!
 !! : the length of the array IWORK, as declared by the user.
@@ -784,7 +785,7 @@
 !!     5 | means an internally generated banded Jacobian (using
 !!       | ML+MU+1 extra calls to F per df/dy evaluation).
 !!
-!!  
+!!
 !! If JT = 1 or 4, the user must supply a Subroutine JAC
 !! (the name is arbitrary) as described above under JAC.
 !! If JT = 2 or 5, a dummy argument can be used.
@@ -842,7 +843,7 @@
 !!        |           | be reduced to the default value.
 !!        |           | MXORDS is held constant during the problem.
 !!
-!!  
+!!
 !! -----------------------------------------------------------------------
 !!##### Optional Outputs.
 !!
@@ -918,7 +919,7 @@
 !!        |           | This is the method to be attempted
 !!        |           | on the next step.  Thus it differs from MUSED
 !!        |           | only if a method switch has just been made.
-!!  
+!!
 !!
 !! The following two arrays are segments of the RWORK array which
 !! may also be of interest to the user as optional outputs.
@@ -946,7 +947,6 @@
 !!        |               |following 2 lines:
 !!        |               |    COMMON /DLS001/ RLS(218), ILS(37)
 !!        |               |    LACOR = ILS(22)
-!!  
 !!
 !!-----------------------------------------------------------------------
 !!#### Part 2.  Other Routines Callable.
@@ -988,9 +988,9 @@
 !!        (see below)          orders, at a specified point t, if
 !!                             desired.  It may be called only after
 !!                             a successful return from _DLSODA_.
-!!  
+!!
 !!```
-!! The detailed instructions for using DINTDY are as follows.
+!! The detailed instructions for using DINTDY are as follows:
 !!
 !! The form of the call is:
 !!```fortran

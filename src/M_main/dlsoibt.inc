@@ -2,27 +2,32 @@
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !==================================================================================================================================!
 !>
-!!-----------------------------------------------------------------------
-!! This is the 18 November 2003 version of
+!!### Synopsis
+!!
 !! DLSOIBT: Livermore Solver for Ordinary differential equations given
 !!          in Implicit form, with Block-Tridiagonal Jacobian treatment.
 !!
-!! This version is in double precision.
-!!
 !! DLSOIBT solves the initial value problem for linearly implicit
 !! systems of first order ODEs,
+!!```text
 !!     A(t,y) * dy/dt = g(t,y),  where A(t,y) is a square matrix,
+!!```
 !! or, in component form,
+!!```text
 !!     ( a   * ( dy / dt ))  + ... +  ( a     * ( dy   / dt ))  =
 !!        i,1      1                     i,NEQ      NEQ
 !!
 !!      =   g ( t, y, y ,..., y    )   ( i = 1,...,NEQ )
 !!           i      1   2       NEQ
+!!```
 !!
 !! If A is singular, this is a differential-algebraic system.
 !!
 !! DLSOIBT is a variant version of the DLSODI package, for the case where
 !! the matrices A, dg/dy, and d(A*s)/dy are all block-tridiagonal.
+!!
+!! This is the 18 November 2003 version of
+!! This version is in double precision.
 !!-----------------------------------------------------------------------
 !! Reference:
 !!     Alan C. Hindmarsh,  ODEPACK, A Systematized Collection of ODE

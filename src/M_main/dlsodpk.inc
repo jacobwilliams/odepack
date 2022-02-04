@@ -2,19 +2,25 @@
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !==================================================================================================================================!
 !>
-!! *DECK DLSODPK
-!!-----------------------------------------------------------------------
-!! This is the 18 November 2003 version of
+!!### Synopsis
+!!
 !! DLSODPK: Livermore Solver for Ordinary Differential equations,
 !!          with Preconditioned Krylov iteration methods for the
 !!          Newton correction linear systems.
 !!
-!! This version is in double precision.
-!!
 !! DLSODPK solves the initial value problem for stiff or nonstiff
 !! systems of first order ODEs,
+!!```text
 !!     dy/dt = f(t,y),  or, in component form,
 !!     dy(i)/dt = f(i) = f(i,t,y(1),y(2),...,y(NEQ)) (i = 1,...,NEQ).
+!!```
+!!
+!! DLSODE is derived from the Livermore Solver for Ordinary
+!! Differential Equations package ODEPACK,
+!!
+!! This is the 18 November 2003 version of
+!!
+!! This version is in double precision.
 !!-----------------------------------------------------------------------
 !! Introduction.
 !!

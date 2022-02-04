@@ -2,18 +2,14 @@
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !==================================================================================================================================!
 !>
-!! This is the 12 November 2003 version of
-!! DLSODES: Livermore Solver for Ordinary Differential Equations
-!!          with general Sparse Jacobian matrix.
-!!
-!! This version is in double precision.
+!!### Synopsis
 !!
 !! DLSODES solves the initial value problem for stiff or nonstiff
 !! systems of first order ODEs,
-!!
+!!```text
 !!     dy/dt = f(t,y),  or, in component form,
 !!     dy(i)/dt = f(i) = f(i,t,y(1),y(2),...,y(NEQ)) (i = 1,...,NEQ).
-!!
+!!```
 !! DLSODES is a variant of the DLSODE package, and is intended for
 !! problems in which the Jacobian matrix df/dy has an arbitrary
 !! sparse structure (when the problem is stiff).
@@ -26,6 +22,16 @@
 !!                Andrew H. Sherman
 !!                J. S. Nolen and Associates
 !!                Houston, TX 77084
+
+!!
+!! DLSODES is derived from the Livermore Solver for Ordinary
+!! Differential Equations package ODEPACK.
+!!
+!! This version is in double precision.
+!!
+!! This is the 12 November 2003 version of
+!! DLSODES: Livermore Solver for Ordinary Differential Equations
+!!          with general Sparse Jacobian matrix.
 !!-----------------------------------------------------------------------
 !! References:
 !! 1.  Alan C. Hindmarsh,  ODEPACK, A Systematized Collection of ODE

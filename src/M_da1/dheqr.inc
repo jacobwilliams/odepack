@@ -47,8 +47,9 @@
 !!                     indicate that DHELS will divide by zero
 !!                     if called.
 !!
-!!   Modification of LINPACK, by Peter Brown, LLNL.
-!!   Written 1/13/86.  This version dated 6/20/01.
+!-----------------------------------------------------------------------
+!    Modification of LINPACK, by Peter Brown, LLNL.
+!    Written 1/13/86.  This version dated 6/20/01.
 !-----------------------------------------------------------------------
 subroutine dheqr(A,Lda,N,Q,Info,Ijob)
 !

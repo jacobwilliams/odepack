@@ -6,6 +6,10 @@ see more recent:
 might have test cases:
 
    https://people.sc.fsu.edu/~jburkardt/f77_src/odepack/odepack.html
+
+markdown references
+
+   https://michelf.ca/projects/php-markdown/extra
 -->
 
 ![ODEPACK](docs/images/odepack.png)
