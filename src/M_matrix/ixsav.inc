@@ -74,7 +74,7 @@
 !  Subroutines called by IXSAV.. None
 !  Function routine called by IXSAV.. None
 ! -----------------------------------------------------------------------
-pure function ixsav(Ipar,Ivalue,Iset)
+function ixsav(Ipar,Ivalue,Iset)
 use,intrinsic :: iso_fortran_env, only : stdin=>input_unit, &
                                          stdout=>output_unit, &
 					 stderr=>error_unit
@@ -99,7 +99,7 @@ integer,save :: mesflg = 1
       if ( Iset ) mesflg = Ivalue
 
    case default
-      stop '*ixsav* unknown value for Ipar=',Ipar
+      stop '*ixsav* unknown value for Ipar'
 
    end select
 
