@@ -4,7 +4,7 @@
 !>
 !!### NAME
 !! nnfc(3f) - [M_odepack] numerical LDU-factorization of sparse nonsymmetric matrix
-11
+!!
 !!### DESCRIPTION
 !!   numerical ldu-factorization of sparse nonsymmetric matrix and
 !!   solution of system of linear equations (compressed pointer
