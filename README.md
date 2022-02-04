@@ -35,10 +35,10 @@ site and covered by a public domain license.
      (About 11 000, lines of core code excluding comments)
      An additional 3700 lines of test cases.
 ```
-#### preliminary targets
+#### preliminary targets for phase I:
 
  + remove obsolescent syntax (trying plusFORT and spag)
- + should be able to build using fpm(1)  (the Fortran Package Manager)
+ + able to build using fpm(1)  (the Fortran Package Manager)
    - in debug mode
    - with ifort, gfortran, nvfortran
  + text viewable in ford(1) and extractable as markup that can run through pandoc(1)
@@ -48,56 +48,73 @@ site and covered by a public domain license.
  + build as a (single?) module M_odepack
  + complete set of unit tests
 
-In this case the originally bundled subset of BLAS/LAPACK routines are being included in the module.
-In production, this might not be done in order to be able to easily call external optimized versions.
+In this case the originally bundled subset of BLAS/LAPACK routines are
+being included in the module.  In production, this might not be done in
+order to be able to easily call external optimized versions.
 
-The biggest hinderance is some storage used for both INTEGER and DOUBLE PRECISION values.
+The biggest hinderance is some storage used for both INTEGER and DOUBLE
+PRECISION values.
 
- One take-away is how critical unit tests are to enable rapid development (which so far this
- package does not have)
+ One take-away is how critical unit tests are to enable rapid development
+ (which so far this package does not have)
 
-The initial pass was done just using the original sample programs as unit tests. This may have
-allowed for introduction of errors but the original samples run with the same output as the
-original.
+The initial pass was done just using the original sample programs as
+unit tests. This may have allowed for introduction of errors but the
+original samples run with the same output as the original.
 
-As a proof of concept I have gleaned what I wanted from this effort. plusFORT was invaluable and
-reduced the effort by an estimated 85 percent. To do this successfully either highly reliable
-automated tools and/or a complete unit test suite is required. Non-standard but (at the time)
-de-facto fortran standards such as equivalencing different types, creating scratch space that is
-used as different numeric types, and treating scalars as arrays and vice-versa as well as passing
-the same arrays or values multiple times are the most time-consuming usages to correct to being
-standard-conforming, particularly since spag(1) does an excellent job with pre-f2003 code. It
-(currently?) has issues with code that has been partially migrated to use f2003+ features and
-syntax.
+As a proof of concept I have gleaned what I wanted from this
+effort. plusFORT was invaluable and reduced the effort by an estimated
+85 percent.
 
-It is not complete.
+### Phase II ?
 
-The type-mismatch issues have not been eliminated enough to include
-the routines in the files "M_da1/dprep.inc" "M_da1/dainvgs.inc"
-"M_da1/dprepi.inc" "M_da1/dstodi.inc" and "M_da1_/dstode.inc",
-and a few places in the example programs.
+The results of this first pass were significant enough that this project
+will hopefully continue.  I feel a complete unit test suite is required
+to allow development to proceed rapdily.
 
-It builds as an fpm(1) package with the current options:
+Another issue is the remaining non-standard code.  Non-standard (but
+at the time de-facto fortran standards) such as equivalencing different
+types, creating scratch space that is used as different numeric types,
+and treating scalars as arrays and vice-versa as well as passing the same
+arrays or values multiple times are the most time-consuming usages to
+correct to standard-conforming, particularly since spag(1) had already
+done an excellent job with updating the pre-f2003 code. spag(1) is not
+(currently?) sufficient by itself to automate the additional refactoring
+desired, which includes using post f95 features and code restructuring,
+so the remaining work requires manual recoding.
+
+The type-mismatch issues have not been eliminated enough to include all
+the routines in the module, so  those in the files "M_da1/dprep.inc"
+"M_da1/dainvgs.inc" "M_da1/dprepi.inc" "M_da1/dstodi.inc" and
+"M_da1_/dstode.inc" still require being built without an interface
+definition.
+
+### building
+
+This version of ODEPACK already builds with an included make(1) file
+as an fpm(1) package with the current options:
 ```bash
  fpm run                     --compiler nvfortran --example '*'
  fpm run --profile release   --compiler ifort     --example '*'
  fpm run --flag -std=legacy  --compiler gfortran  --example '*'
 ```
 
-A second pass needs made to restructure the code in some places manually, but
-the code is far more readable after having been refactored by spag(1) from the
-plusFORT package.
+As noted, a second pass needs made to restructure the code in some places
+manually, but the code is far more readable after having been refactored
+by spag(1) from the plusFORT package and hopefully as useable as the
+original already.
 
 There are a few notes in src/M_odepack.f90 concerning continuing issues.
 
 If there is interest in completing this transformation it can continue on this
-site or the parent on jacobwilliams site as a group project or via a clone or
-fork. If anyone spawns a project from this one let me know so I can remove this
-one.
+site, hopefully as a group project.
 
-I do not plan on continuing this any further with additional interest, but leave
-it here in case anyone else wants to see this brought to a product-quality product,
-as I have learned what I wanted from it in this state.
+We are particulary interested in current users of ODEPACK trying this version,
+and contributions of additional test suites.
+
+Although I have learned what I wanted from the project in phase I, hopefully as
+a community we can complete creating a new maintained production-quality version
+of this venerable and continuingly useful package.
 
 ### Documentation
 
