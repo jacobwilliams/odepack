@@ -70,17 +70,17 @@ effort. plusFORT was invaluable and reduced the effort by an estimated
 
 The results of this first pass were significant enough that this project
 will hopefully continue.  I feel a complete unit test suite is required
-to allow development to proceed rapdily.
+to allow development to proceed rapidily.
 
 Another issue is the remaining non-standard code.  Non-standard (but
-at the time de-facto fortran standards) such as equivalencing different
+at the time de-facto fortran standard) such as equivalencing different
 types, creating scratch space that is used as different numeric types,
 and treating scalars as arrays and vice-versa as well as passing the same
 arrays or values multiple times are the most time-consuming usages to
 correct to standard-conforming, particularly since spag(1) had already
 done an excellent job with updating the pre-f2003 code. spag(1) is not
 (currently?) sufficient by itself to automate the additional refactoring
-desired, which includes using post f95 features and code restructuring,
+desired, which includes using post-f95 features and code restructuring,
 so the remaining work requires manual recoding.
 
 The type-mismatch issues have not been eliminated enough to include all
@@ -92,7 +92,7 @@ definition.
 ### building
 
 This version of ODEPACK already builds with an included make(1) file
-as an fpm(1) package with the current options:
+and as an fpm(1) package with the current options:
 ```bash
  fpm run                     --compiler nvfortran --example '*'
  fpm run --profile release   --compiler ifort     --example '*'
@@ -102,7 +102,7 @@ as an fpm(1) package with the current options:
 As noted, a second pass needs made to restructure the code in some places
 manually, but the code is far more readable after having been refactored
 by spag(1) from the plusFORT package and hopefully as useable as the
-original already.
+original.
 
 There are a few notes in src/M_odepack.f90 concerning continuing issues.
 
@@ -114,7 +114,7 @@ and contributions of additional test suites.
 
 Although I have learned what I wanted from the project in phase I, hopefully as
 a community we can complete creating a new maintained production-quality version
-of this venerable and continuingly useful package.
+of this venerable and still-valuable package.
 
 ### Documentation
 
