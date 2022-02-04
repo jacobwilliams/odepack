@@ -112,23 +112,26 @@
 !!
 !! : an integer used for input only, with the following
 !! values and meanings:
-!!         0  perform the first step.
-!!     .gt.0  take a new step continuing from the last.
-!!        -1  take the next step with a new value of H, MAXORD,
-!!            N, METH, MITER, and/or matrix parameters.
-!!        -2  take the next step with a new value of H,
-!!            but with other inputs unchanged.
-!!            On return, JSTART is set to 1 to facilitate continuation.
+!!
+!!               0  perform the first step.
+!!           .gt.0  take a new step continuing from the last.
+!!              -1  take the next step with a new value of H, MAXORD,
+!!                  N, METH, MITER, and/or matrix parameters.
+!!              -2  take the next step with a new value of H,
+!!                  but with other inputs unchanged.
+!!                  On return, JSTART is set to 1 to facilitate continuation.
 !!
 !! KFLAG
 !!
 !! : a completion code with the following meanings:
+!!
 !!               0  the step was succesful.
 !!              -1  the requested error could not be achieved.
 !!              -2  corrector convergence could not be achieved.
 !!              -3  RES ordered immediate return.
 !!              -4  error condition from RES could not be avoided.
 !!              -5  fatal error in PJAC or SLVS.
+!!
 !! A return with KFLAG = -1, -2, or -4 means either
 !!
 !! ABS(H)

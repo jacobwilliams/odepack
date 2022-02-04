@@ -22,7 +22,7 @@
 !!
 !!   using the factors computed by DGECO or DGEFA.
 !!
-!!     Error Condition
+!!#### Error Condition
 !!
 !!        A division by zero will occur if the input factor contains a
 !!        zero on the diagonal.  Technically this indicates singularity

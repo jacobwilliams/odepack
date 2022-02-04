@@ -12,10 +12,12 @@
 !!### DESCRIPTION
 !!   XSETF sets the error print control flag to MFLAG:
 !!### OPTIONS
+!!
 !!   MFLAG
-!!   :
-!!        MFLAG=1 means print all messages (the default).
-!!        MFLAG=0 means no printing.
+!!
+!!   : MFLAG=1 means print all messages (the default).
+!!
+!!   MFLAG=0 means no printing.
 !!
 ! ### BEGIN PROLOGUE  XSETF
 ! ### CATEGORY  R3A

@@ -4,14 +4,18 @@
 !>
 !! This subroutine computes the initial value
 !! of the vector YDOT satisfying
-!!     A * YDOT = g(t,y)
+!!
+!!      A * YDOT = g(t,y)
+!!
 !! when A is nonsingular.  It is called by DLSOIBT for
 !! initialization only, when ISTATE = 0 .
 !! DAIGBT returns an error flag IER:
+!!   
 !!     IER  =  0  means DAIGBT was successful.
 !!     IER .ge. 2 means RES returned an error flag IRES = IER.
 !!     IER .lt. 0 means the A matrix was found to have a singular
 !!                diagonal block (hence YDOT could not be solved for).
+!!   
 !-----------------------------------------------------------------------
 subroutine daigbt(res,adda,Neq,T,Y,Ydot,Mb,Nb,Pw,Ipvt,Ier)
 !

@@ -102,21 +102,25 @@
 !!
 !! : an integer used for input only, with the following
 !! values and meanings:
-!!         0  perform the first step.
-!!     .gt.0  take a new step continuing from the last.
-!!        -1  take the next step with a new value of H, MAXORD,
-!!            N, METH, MITER, and/or matrix parameters.
-!!        -2  take the next step with a new value of H,
-!!            but with other inputs unchanged.
+!!
+!!               0  perform the first step.
+!!           .gt.0  take a new step continuing from the last.
+!!              -1  take the next step with a new value of H, MAXORD,
+!!                  N, METH, MITER, and/or matrix parameters.
+!!              -2  take the next step with a new value of H,
+!!                  but with other inputs unchanged.
+!!
 !! On return, JSTART is set to 1 to facilitate continuation.
 !!
 !! KFLAG
 !!
 !! : a completion code with the following meanings:
-!!          0  the step was succesful.
-!!         -1  the requested error could not be achieved.
-!!         -2  corrector convergence could not be achieved.
-!!         -3  fatal error in DSETPK or DSOLPK.
+!!
+!!                0  the step was succesful.
+!!               -1  the requested error could not be achieved.
+!!               -2  corrector convergence could not be achieved.
+!!               -3  fatal error in DSETPK or DSOLPK.
+!!
 !! A return with KFLAG = -1 or -2 means either
 !! ABS(H) = HMIN or 10 consecutive failures occurred.
 !! On a return with KFLAG negative, the values of TN and

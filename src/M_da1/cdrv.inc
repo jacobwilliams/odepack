@@ -19,9 +19,8 @@
 !!       i - used internally by the driver
 !!       a - array
 !!
-!! class - parameter
-!! ------+----------
-!!       -
+!!### class - parameter
+!!        
 !!   the nonzero entries of the coefficient matrix m are stored
 !!   row-by-row in the array a.  to identify the individual nonzero
 !!   entries in each row, we need to know in which column each entry
@@ -36,22 +35,31 @@
 !!   thus, the number of entries in the i-th row is given by
 !!   ia(i+1) - ia(i),  the nonzero entries of the i-th row are stored
 !!   consecutively in
+!!```text
 !!            a(ia(i)),  a(ia(i)+1),  ..., a(ia(i+1)-1),
+!!```
 !!   and the corresponding column indices are stored consecutively in
+!!```text
 !!            ja(ia(i)), ja(ia(i)+1), ..., ja(ia(i+1)-1).
+!!```
 !!   for example, the 5 by 5 matrix
+!!```text
 !!                ( 1. 0. 2. 0. 0.)
 !!                ( 0. 3. 0. 0. 0.)
 !!            m = ( 0. 4. 5. 6. 0.)
 !!                ( 0. 0. 0. 7. 0.)
 !!                ( 0. 0. 0. 8. 9.)
+!!```
 !!   would be stored as
+!!```text
 !!               - 1  2  3  4  5  6  7  8  9
 !!            ---+--------------------------
 !!            ia - 1  3  4  7  8 10
 !!            ja - 1  3  2  2  3  4  4  4  5
 !!             a - 1. 2. 3. 4. 5. 6. 7. 8. 9.         .
+!!```
 !!
+!!```text
 !!     nv    - n     - number of variables/equations.
 !!     fva   - a     - nonzero entries of the coefficient matrix m, stored
 !!           -           by rows.
@@ -64,6 +72,7 @@
 !!           -           size = n.
 !!     fra   - z     - solution x.  b and z can be the same array.
 !!           -           size = n.
+!!```
 !!
 !!   the rows and columns of the original matrix m can be
 !!   reordered (e.g., to reduce fillin or ensure numerical stability)
@@ -78,6 +87,7 @@
 !!   to the new ordering.  if  path.ne.1,  then nroc is assumed to have
 !!   been called already.
 !!
+!!```text
 !! nva   - r     - ordering of the rows of m.
 !!       -           size = n.
 !! nva   - c     - ordering of the columns of m.
@@ -85,10 +95,12 @@
 !! nva   - ic    - inverse of the ordering of the columns of m.  i.e.,
 !!       -           ic(c(i)) = i  for i=1,...,n.
 !!       -           size = n.
+!!```
 !!
 !!   the solution of the system of linear equations is divided into
 !!   three stages --
 !!
+!!```text
 !!      nsfc -- the matrix m is processed symbolically to determine where
 !!               fillin will occur during the numeric factorization.
 !!      nnfc -- the matrix m is factored numerically into the product ldu
@@ -99,6 +111,7 @@
 !!  or           factorization from nnfc.
 !!      nntc -- the transposed linear system  mt x = b  is solved using
 !!               the ldu factorization from nnf.
+!!```
 !!
 !!   for several systems whose coefficient matrices have the same
 !!   nonzero structure, nsfc need be done only once (for the first
@@ -106,7 +119,7 @@
 !!   several systems with the same coefficient matrix, nsfc and nnfc
 !!   need be done only once (for the first system).  then nnsc or nntc
 !!   is done once for each additional right-hand side.
-!!
+!!```text
 !! nv    - path  - path specification.  values and their meanings are --
 !!       -           1  perform nroc, nsfc, and nnfc.
 !!       -           2  perform nnfc only  (nsfc is assumed to have been
@@ -119,10 +132,12 @@
 !!       -               have been done in a manner compatible with the
 !!       -               storage allocation used in the driver).
 !!       -           5  perform nroc and nsfc.
+!!```
 !!
 !!   various errors are detected by the driver and the individual
 !!   subroutines.
 !!
+!!```text
 !! nr    - flag  - error flag.  values and their meanings are --
 !!       -             0     no errors detected
 !!       -             n+k   null row in a  --  row = k
@@ -135,12 +150,14 @@
 !!       -            8n+k   zero pivot  --  row = k
 !!       -           10n+1   insufficient storage in cdrv
 !!       -           11n+1   illegal path specification
+!!```
 !!
 !!   working storage is needed for the factored form of the matrix
 !!   m plus various temporary vectors.  the arrays isp and rsp should be
 !!   equivalenced.  integer storage is allocated from the beginning of
 !!   isp and real storage from the end of rsp.
 !!
+!!```text
 !!        nv    - nsp   - declared dimension of rsp.  nsp generally must
 !!                        be larger than  8n+2 + 2k  (where  k = (number of
 !!                        nonzero entries in m)).
@@ -157,6 +174,7 @@
 !!                        the amount of excess storage provided (negative if
 !!                        insufficient storage was available to perform the
 !!                        numeric factorization (nnfc)).
+!!```
 !!
 !-----------------------------------------------------------------------
 subroutine cdrv(N,R,C,Ic,Ia,Ja,A,B,Z,Nsp,Isp,Rsp,Esp,Path,Flag)

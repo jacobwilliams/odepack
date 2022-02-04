@@ -34,10 +34,8 @@ site and covered by a public domain license.
      About 28 000, lines of core source files
      (About 11 000, lines of core code excluding comments)
      An additional 3700 lines of test cases.
-```text
-
-
- preliminary targets
+```
+#### preliminary targets
 
  + remove obsolescent syntax (trying plusFORT and spag)
  + should be able to build using fpm(1)  (the Fortran Package Manager)
@@ -311,56 +309,63 @@ Full Description if and when more details or nonstandard options are needed.
 
 ### III. Installation Notes
 
-1. In addition to this document, the double precision version of ODEPACK
-consists of three source files, plus a demonstration program file.
-The solver source files are organized as follows:
+##### Use of supplied matrix procedures
 
-   opkdmain.f = Main Source File, consisting of the driver subroutine for each of the nine solvers
-
-   opkda1.f   = First Auxiliary Source File, consisting of subordinate routines for the solvers
-
-   opkda2.f   = Second Auxiliary Source File, consisting of subordinate routines which may already reside on the user's system (See Notes 2 and 3 below.)
-
-   The demonstration program file is:
-
-   opkddemos  = a merge of the nine demonstration programs, with the source for each followed by a sample output
-
-2. The Second Auxiliary Source File includes the routines from the
+THe src/M_matrix/ directory  includes modified versions of routines from the
 LINPACK and BLAS collections that are needed by the solvers (and by two
 of the demonstration programs), for the solution of dense and banded
 linear systems and associated basic linear algebra operations.
 These routine are:
-   From LINPACK:  DGEFA, DGESL, DGBFA, DGBSL
-   From the BLAS: DAXPY, DCOPY, DDOT, DSCAL, DNRM2, IDAMAX
+
+       _From LINPACK_ :  DGEFA, DGESL, DGBFA, DGBSL
+       _From the BLAS_: DAXPY, DCOPY, DDOT, DSCAL, DNRM2, IDAMAX
+
 If your computer system already has these routines, and especially if it
-has machine-optimized versions, the copies provided here can be discarded.
+has machine-optimized versions, the copies provided in the M_module
+module should probably not be called by your program if high performance
+is required.
 
-3. The Second Auxiliary Source File includes a set of five routines --
-XERRWD, XSETUN, XSETF, IXSAV, IUMACH -- which handle error messages
-from the solvers.  This set is in fact a reduced version (sufficient
-for the needs of ODEPACK) of a much larger error handling package from
-the SLATEC Library.  If your computer system already has the full
-SLATEC error handler, the version provided here can be discarded.  If
-the reduced version is used, its machine-dependent features should be
-checked first; see comments in Subroutine XERRWD.
+##### The message package
 
-4. ODEPACK contains a few instances where ANSI Fortran 77 is violated:
+The second auxiliary source file directory M_da1/ includes a set of five
+routines -- XERRWD, XSETUN, XSETF, IXSAV, IUMACH -- which handle error
+messages from the solvers.
+
+These routines are slated for elimination and replacement with a 
+more intuitive interface.
+
+This set is in fact a reduced version (sufficient for the needs of
+ODEPACK) of a much larger error handling package from the SLATEC Library.
+If your computer system already has the full SLATEC error handler, the
+version provided here can be ignored.  If the reduced version is used,
+its machine-dependent features should be checked first; see comments in
+Subroutine XERRWD.
+
+##### Non-standard code
+
+4. ODEPACK contains a few instances where the Fortran Standard is violated:
+
    (a) In various places in the LSODES and LSODIS solvers, a call to a
    subroutine has a subscripted real array as an argument where the
    subroutine called expects an integer array.  Calls of this form
    occur in Subroutine DLSODES (to DSTODE), in DIPREP (to DPREP),
    in Subroutine DLSODIS (to DSTODI), and in DIPREPI (to DPREPI).
    Another such call occurs in the DLSODES demonstration program,
-   from the main program to Subroutine SSOUT.  This is done in order
+   from the main program to Subroutine SSOUT.  
+
+   This is done in order
    to use work space in an efficient manner, as the same space is
    sometimes used for real work space and sometimes for integer work
    space.  If your compiler does not accept this feature, one possible
    way to get the desired result is to compile the called routines
    and calling routines in separate jobs, and then combine the binary
-   modules in an appropriate manner.  If this procedure is still not
+   modules in an appropriate manner. 
+
+   If this procedure is still not
    acceptable under your system, it will be necessary to radically
    alter the structure of the array RWORK within the LSODES or LSODIS
    solver package.  (See also Note 5 below.)
+
    (b) Each ODEPACK solver treats the arguments NEQ, Y, RTOL, and ATOL
    as arrays, even though the length may be only 1.  Moreover,
    except for Y, the usage instructions say that these arguments
