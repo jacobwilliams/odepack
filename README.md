@@ -98,6 +98,11 @@ and as an fpm(1) package with the current options:
  fpm run --profile release   --compiler ifort     --example '*'
  fpm run --flag -std=legacy  --compiler gfortran  --example '*'
 ```
+To rebuild the documentation with ford(1), use
+
+```bash
+ ford --css docs/local.css --extensions 'inc' --extensions 'f90' ford.md
+```
 
 As noted, a second pass needs made to restructure the code in some places
 manually, but the code is far more readable after having been refactored

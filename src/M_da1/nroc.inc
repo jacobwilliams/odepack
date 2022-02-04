@@ -6,13 +6,16 @@
 !!               yale sparse matrix package - nonsymmetric codes
 !!                    solving the system of equations mx = b
 !!
-!!    i.   calling sequences
+!!### i.   calling sequences
+!!
 !!         the coefficient matrix can be processed by an ordering routine
 !!    (e.g., to reduce fillin or ensure numerical stability) before using
 !!    the remaining subroutines.  if no reordering is done, then set
 !!    r(i) = c(i) = ic(i) = i  for i=1,...,n.  if an ordering subroutine
 !!    is used, then nroc should be used to reorder the coefficient matrix
-!!    the calling sequence is --
+!!
+!!### the calling sequence is --
+!!```text
 !!        (       (matrix ordering))
 !!        (nroc   (matrix reordering))
 !!         nsfc   (symbolic factorization to determine where fillin will
@@ -23,11 +26,13 @@
 !!                  system)
 !!         nnsc   (solution of linear system for additional right-hand
 !!                  side using ldu factorization from nnfc)
+!!```
 !!    (if only one system of equations is to be solved, then the
 !!    subroutine trk should be used.)
 !!
-!!    ii.  storage of sparse matrices
+!!### ii.  storage of sparse matrices
 !!         the nonzero entries of the coefficient matrix m are stored
+!!
 !!    row-by-row in the array a.  to identify the individual nonzero
 !!    entries in each row, we need to know in which column each entry
 !!    lies.  the column indices which correspond to the nonzero entries
@@ -41,21 +46,29 @@
 !!    thus, the number of entries in the i-th row is given by
 !!    ia(i+1) - ia(i),  the nonzero entries of the i-th row are stored
 !!    consecutively in
+!!
 !!            a(ia(i)),  a(ia(i)+1),  ..., a(ia(i+1)-1),
+!!
 !!    and the corresponding column indices are stored consecutively in
+!!
 !!            ja(ia(i)), ja(ia(i)+1), ..., ja(ia(i+1)-1).
+!!
 !!    for example, the 5 by 5 matrix
+!!```text
 !!                ( 1. 0. 2. 0. 0.)
 !!                ( 0. 3. 0. 0. 0.)
 !!            m = ( 0. 4. 5. 6. 0.)
 !!                ( 0. 0. 0. 7. 0.)
 !!                ( 0. 0. 0. 8. 9.)
+!!```
 !!    would be stored as
+!!```text
 !!               - 1  2  3  4  5  6  7  8  9
 !!            ---+--------------------------
 !!            ia - 1  3  4  7  8 10
 !!            ja - 1  3  2  2  3  4  4  4  5
 !!             a - 1. 2. 3. 4. 5. 6. 7. 8. 9.         .
+!!```
 !!
 !!         the strict upper (lower) triangular portion of the matrix
 !!    u (l) is stored in a similar fashion using the arrays  iu, ju, u
@@ -74,37 +87,44 @@
 !!    head of the kth row (column), then iju(k) (ijl(k)) points to the
 !!    start of that tail portion.  for example, the nonzero structure of
 !!    the strict upper triangular part of the matrix
+!!```text
 !!            d 0 x x x
 !!            0 d 0 x x
 !!            0 0 d x 0
 !!            0 0 0 d x
 !!            0 0 0 0 d
+!!```
 !!    would be represented as
+!!```text
 !!                - 1 2 3 4 5 6
 !!            ----+------------
 !!             iu - 1 4 6 7 8 8
 !!             ju - 3 4 5 4
 !!            iju - 1 2 4 3           .
+!!```
 !!    the diagonal entries of l and u are assumed to be equal to one and
 !!    are not stored.  the array d contains the reciprocals of the
 !!    diagonal entries of the matrix d.
 !!
-!!    iii. additional storage savings
+!!### iii. additional storage savings
 !!         in nsfc, r and ic can be the same array in the calling
 !!    sequence if no reordering of the coefficient matrix has been done.
+!!
 !!         in nnfc, r, c, and ic can all be the same array if no
 !!    reordering has been done.  if only the rows have been reordered,
 !!    then c and ic can be the same array.  if the row and column
 !!    orderings are the same, then r and c can be the same array.  z and
 !!    row can be the same array.
+!!
 !!         in nnsc or nntc, r and c can be the same array if no
 !!    reordering has been done or if the row and column orderings are the
 !!    same.  z and b can be the same array.  however, then b will be
 !!    destroyed.
 !!
-!!    iv.  parameters
+!!### iv.  parameters
 !!         following is a list of parameters to the programs.  names are
 !!    uniform among the various subroutines.  class abbreviations are --
+!!```text
 !!       n - integer variable
 !!       f - real variable
 !!       v - supplies a value to a subroutine
@@ -175,6 +195,7 @@
 !! fra   - z     - solution x.
 !!       -           size = n.
 !!
+!!```
 !!       ----------------------------------------------------------------
 !!
 !!###  subroutine nroc

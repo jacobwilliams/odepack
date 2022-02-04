@@ -13,8 +13,10 @@
 !!       output variables.. z
 !!
 !!       parameters used internally..
+!!```text
 !! fia   - tmp   - temporary vector which gets result of solving ut y = b
 !!       -           size = n.
+!!```
 !!
 !!  internal variables..
 !!    jmin, jmax - indices of the first and last positions in a row of

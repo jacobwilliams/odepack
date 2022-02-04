@@ -3,14 +3,17 @@
 !----------------------------------------------------------------------------------------------------------------------------------!
 !>
 !!###  subroutine nsfc
+!!
 !!###  symbolic ldu-factorization of nonsymmetric sparse matrix
 !!      (compressed pointer storage)
 !!
 !!
 !!       input variables.. n, r, ic, ia, ja, jlmax, jumax.
+
 !!       output variables.. il, jl, ijl, iu, ju, iju, flag.
 !!
 !!       parameters used internally..
+!!```text
 !! nia   - q     - suppose  m*  is the result of reordering  m.  if
 !!       -           processing of the ith row of  m*  (hence the ith
 !!       -           row of  u) is being done,  q(j)  is initially
@@ -46,13 +49,17 @@
 !! nia   - iru,  - vectors used in a manner analogous to  irl and jrl
 !! nia   - jru       to find the columns of  u.
 !!       -           size of each = n.
+!!```
 !!
-!!  internal variables..
+!!### internal variables..
+!!
+!!```text
 !!    jlptr - points to the last position used in  jl.
 !!    juptr - points to the last position used in  ju.
 !!    jmin,jmax - are the indices in  a or u  of the first and last
 !!                elements to be examined in a given row.
 !!                for example,  jmin=ia(k), jmax=ia(k+1)-1.
+!!```
 !!
 !-----------------------------------------------------------------------
 subroutine nsfc(N,R,Ic,Ia,Ja,Jlmax,Il,Jl,Ijl,Jumax,Iu,Ju,Iju,Q,Ira,Jra,Irac,Irl,Jrl,Iru,Jru,Flag)

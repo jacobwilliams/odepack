@@ -68,7 +68,7 @@
 !!
 !! ITOL
 !!
-!! : 1 or 2 according as ATOL (below) is a scalar or array.
+!! : 1 or 2 according as ATOL (below) is a single or multi-value array.
 !!
 !! RTOL
 !!
@@ -76,7 +76,7 @@
 !!
 !! ATOL
 !!
-!! : absolute tolerance parameter (scalar or array).
+!! : absolute tolerance parameter (array).
 !!   the estimated local error in y(i) will be controlled so as
 !!   to be less than
 !!
@@ -374,12 +374,12 @@
 !! remaining components of Y should be left undisturbed, if
 !! these are to be accessed in F and/or JAC.
 !!
-!! Normally, NEQ is a scalar, and it is generally referred to
+!! Normally, NEQ is a single value, and it is generally referred to
 !! as a scalar in this user interface description.  However,
-!! NEQ may be an array, with NEQ(1) set to the system size.
+!! NEQ must be an array, with NEQ(1) set to the system size.
 !! (The _DLSODA_ package accesses only NEQ(1).)  In either case,
 !! this parameter is passed as the NEQ argument in all calls
-!! to F and JAC.  Hence, if it is an array, locations
+!! to F and JAC.  Hence, if it is an multi-value array, locations
 !! NEQ(2),... may be used to store other integer data and pass
 !! it to F and/or JAC.  Subroutines F and/or JAC must include
 !! NEQ in a Dimension statement in that case.
@@ -438,13 +438,13 @@
 !!
 !! RTOL
 !!
-!! : a relative error tolerance parameter, either a scalar or
+!! : a relative error tolerance parameter, 
 !! an array of length NEQ.  See description below under ATOL.
 !! Input only.
 !!
 !! ATOL
 !!
-!! : an absolute error tolerance parameter, either a scalar or
+!! : an absolute error tolerance parameter, 
 !! an array of length NEQ.  Input only.
 !!
 !! The input parameters ITOL, RTOL, and ATOL determine
@@ -456,19 +456,20 @@
 !!
 !! where EWT = (EWT(i)) is a vector of positive error weights.
 !! The values of RTOL and ATOL should all be non-negative.
-!! The following table gives the types (scalar/array) of
+!! The following table gives the types (single/mult-value array) of
 !! RTOL and ATOL, and the corresponding form of EWT(i).
 !!
 !!   ITOL |  RTOL    |   ATOL   |           EWT(i)
 !!   ---- | -------- | -------- | -------------------------------
-!!    1   | scalar   |  scalar  |  RTOL*ABS(Y(i)) + ATOL
-!!    2   | scalar   |  array   |  RTOL*ABS(Y(i)) + ATOL(i)
-!!    3   | array    |  scalar  |  RTOL(i)*ABS(Y(i)) + ATOL
+!!    1   | single   |  single  |  RTOL*ABS(Y(i)) + ATOL
+!!    2   | single   |  array   |  RTOL*ABS(Y(i)) + ATOL(i)
+!!    3   | array    |  single  |  RTOL(i)*ABS(Y(i)) + ATOL
 !!    4   | array    |  array   |  RTOL(i)*ABS(Y(i)) + ATOL(i)
 !!  
 !!
-!! When either of these parameters is a scalar, it need not
-!! be dimensioned in the user's calling program.
+!! Even when these parameters are a single value, it needs to be an array
+!! in the user's calling program, or passed as a temporary array (ie. use
+!! "[NEQ]" on the call if NEQ is a scalar).
 !!
 !! If none of the above choices (with ITOL, RTOL, and ATOL
 !! fixed throughout the problem) is suitable, more general
