@@ -17,7 +17,8 @@ integer,intent(inout) :: Last(*)
 integer,intent(inout) :: Next(*)
 integer,intent(inout) :: Mark(*)
 !
-integer :: es, evi, free, i, ilp, ilpmax, li, ls, lvi, s, tag, vi
+integer :: es, evi, i, ilp, ilpmax, li, ls, lvi, s, tag, vi
+integer,save :: free=-1
    !
    !----initialize tag
    tag = Mark(Ek)
@@ -30,8 +31,8 @@ integer :: es, evi, free, i, ilp, ilpmax, li, ls, lvi, s, tag, vi
          i = li
          li = L(i)
          vi = V(li)
-   !
-   !------remove vi from degree list
+         !
+         !------remove vi from degree list
          if ( Last(vi)/=0 ) then
             if ( Last(vi)>0 ) then
                Next(Last(vi)) = Next(vi)
@@ -40,39 +41,39 @@ integer :: es, evi, free, i, ilp, ilpmax, li, ls, lvi, s, tag, vi
             endif
             if ( Next(vi)>0 ) Last(Next(vi)) = Last(vi)
          endif
-   !
-   !------remove inactive items from element list of vi
+         !
+         !------remove inactive items from element list of vi
          ls = vi
          do
             s = ls
             ls = L(s)
             if ( ls==0 ) then
-   !
-   !------if vi is interior vertex, then remove from list and eliminate
+               !
+               !------if vi is interior vertex, then remove from list and eliminate
                lvi = L(vi)
                if ( lvi/=0 ) then
-   !
-   !------else ...
-   !--------classify vertex vi
+                  !
+                  !------else ...
+                  !--------classify vertex vi
                   if ( L(lvi)/=0 ) then
-   !
-   !----------else mark vi to compute degree
+                     !
+                     !----------else mark vi to compute degree
                      Last(vi) = -Ek
                   else
                      evi = V(lvi)
                      if ( Next(evi)>=0 ) then
                         Last(vi) = -Ek
                      elseif ( Mark(evi)<0 ) then
-   !
-   !----------else if vi is duplicate vertex, then mark as such and adjust
-   !----------overlap count for corresponding element
+                        !
+                        !----------else if vi is duplicate vertex, then mark as such and adjust
+                        !----------overlap count for corresponding element
                         Last(vi) = 0
                         Mark(evi) = Mark(evi) - 1
                      else
-   !
-   !----------if vi is prototype vertex, then mark as such, initialize
-   !----------overlap count for corresponding element, and move vi to end
-   !----------of boundary list
+                       !
+                       !----------if vi is prototype vertex, then mark as such, initialize
+                       !----------overlap count for corresponding element, and move vi to end
+                       !----------of boundary list
                         Last(vi) = evi
                         Mark(evi) = -1
                         L(Tail) = li
@@ -81,15 +82,19 @@ integer :: es, evi, free, i, ilp, ilpmax, li, ls, lvi, s, tag, vi
                         li = i
                      endif
                   endif
-   !
-   !--------insert ek in element list of vi
-                  V(free) = Ek
-                  L(free) = L(vi)
-                  L(vi) = free
+                  !
+                  !--------insert ek in element list of vi
+		  if(free.gt.0)then
+                     V(free) = Ek
+                     L(free) = L(vi)
+                     L(vi) = free
+		  else
+		     stop '*mdp* is uninitialized but being used'
+		  endif
                else
                   L(i) = L(li)
                   li = i
-   !
+       
                   K = K + 1
                   Next(vi) = -K
                   Last(Ek) = Last(Ek) - 1
