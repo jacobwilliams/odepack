@@ -46,7 +46,7 @@
 !! instructions for special situations.  See also the example
 !! problem (with program and output) following this summary.
 !!
-!!#### Step A. 
+!!#### Step A.
 !1
 !! First provide a subroutine of the form:
 !!```fortran
@@ -56,7 +56,7 @@
 !!```
 !! which supplies the vector function f by loading YDOT(i) with f(i).
 !!
-!!#### Step B. 
+!!#### Step B.
 !!
 !! Provide a subroutine of the form:
 !!```fortran
@@ -72,33 +72,33 @@
 !! Write a main program which calls Subroutine DLSODAR once for
 !! each point at which answers are desired.  This should also provide
 !! for possible use of logical unit 6 for output of error messages by
-!! DLSODAR. 
+!! DLSODAR.
 !!
 !!#### On the first call to DLSODAR, supply arguments as follows:
 !!
-!! F      
+!! F
 !!
 !! : name of subroutine for right-hand side vector f.
 !! This name must be declared External in calling program.
-!! NEQ    
+!! NEQ
 !!
 !! : number of first order ODEs.
-!! Y      
+!! Y
 !!
 !! : array of initial values, of length NEQ.
-!! T      
+!! T
 !!
 !! : the initial value of the independent variable.
-!! TOUT   
+!! TOUT
 !!
 !! : first point where output is desired (.ne. T).
-!! ITOL   
+!! ITOL
 !!
 !! : 1 or 2 according as ATOL (below) is a scalar or array.
-!! RTOL   
+!! RTOL
 !!
 !! : relative tolerance parameter (scalar).
-!! ATOL   
+!! ATOL
 !!
 !! : absolute tolerance parameter (scalar or array).
 !! the estimated local error in y(i) will be controlled so as
@@ -115,19 +115,19 @@
 !! control.  _Caution_: actual (global) errors may exceed these
 !! local tolerances, so choose them conservatively.
 !!
-!! ITASK  
+!! ITASK
 !!
 !! : 1 for normal computation of output values of y at t = TOUT.
 !!
-!! ISTATE 
+!! ISTATE
 !!
 !! : integer flag (input and output).  Set ISTATE = 1.
 !!
-!! IOPT   
+!! IOPT
 !!
 !! : 0 to indicate no optional inputs used.
 !!
-!! RWORK  
+!! RWORK
 !!
 !! : real work array of length at least:
 !!
@@ -135,40 +135,40 @@
 !!
 !! See also Paragraph F below.
 !!
-!! LRW    
+!! LRW
 !!
 !! : declared length of RWORK (in user's dimension).
 !!
-!! IWORK  
+!! IWORK
 !!
 !! : integer work array of length at least  20 + NEQ.
 !!
-!! LIW    
+!! LIW
 !!
 !! : declared length of IWORK (in user's dimension).
 !!
-!! JAC    
+!! JAC
 !!
 !! : name of subroutine for Jacobian matrix.
 !! Use a dummy name to a noop function.  See also Paragraph F below.
 !!
-!! JT     
+!! JT
 !!
 !! : Jacobian type indicator.  Set JT = 2.
 !! See also Paragraph F below.
 !!
-!! G      
+!! G
 !!
 !! : name of subroutine for constraint functions, whose
 !! roots are desired during the integration.
 !! This name must be declared External in calling program.
 !!
-!! NG     
+!! NG
 !!
 !! : number of constraint functions g(i).  If there are none,
 !! set NG = 0, and pass a dummy name for G.
 !!
-!! JROOT  
+!! JROOT
 !!
 !! : integer array of length NG for output of root information.
 !! See next paragraph.
@@ -179,11 +179,11 @@
 !!
 !! The output from the first call (or any call) is:
 !!
-!! Y 
+!! Y
 !!
 !! : array of computed values of y(t) vector.
 !!
-!! T 
+!! T
 !!
 !! : corresponding value of independent variable.  This is
 !! TOUT if ISTATE = 2, or the root location if ISTATE = 3,
@@ -205,12 +205,12 @@
 !!     -7 | means work space insufficient to finish (see messages).
 !!        |
 !!
-!! JROOT  
+!! JROOT
 !!
 !! : array showing roots found if ISTATE = 3 on return.
 !! JROOT(i) = 1 if g(i) has a root at t, or 0 otherwise.
 !!
-!!#### Step E. 
+!!#### Step E.
 !!
 !! To continue the integration after a successful return, proceed as follows:
 !!
@@ -220,7 +220,7 @@
 !!
 !! In either case, no other parameters need be reset.
 !!
-!!#### Step F. 
+!!#### Step F.
 !!
 !! **Notes:**
 !!
@@ -229,11 +229,11 @@
 !! Jacobian matrix, J = df/dy.  For the sake of simplicity, the
 !! inputs to DLSODAR recommended in Paragraph C above cause DLSODAR to
 !! treat J as a full matrix, and to approximate it internally by
-!! difference quotients. 
+!! difference quotients.
 !!
 !! Alternatively, J can be treated as a band
 !! matrix (with great potential reduction in the size of the RWORK
-!! array). 
+!! array).
 !!
 !! Also, in either the full or banded case, the user can supply
 !! J in closed form, with a routine whose name is passed as the JAC
@@ -275,7 +275,7 @@
 !!external gex
 !!external jdum
 !!integer,parameter :: dp=kind(0.0d0)
-!! 
+!!
 !!real(kind=dp),dimension(3)   ::  atol,y
 !!integer                      ::  iopt,iout,istate,itask,itol,jt,liw,lrw,neq,ng
 !!integer,dimension(23)        ::  iwork
@@ -332,7 +332,7 @@
 !!subroutine jdum()
 !!implicit none
 !!end subroutine jdum
-!! 
+!!
 !!subroutine fex(Neq,T,Y,Ydot)
 !!implicit none
 !!integer,parameter                         ::  dp=kind(0.0d0)
@@ -340,15 +340,15 @@
 !!real(kind=dp)                             ::  T
 !!real(kind=dp),intent(in),dimension(3)     ::  Y
 !!real(kind=dp),intent(inout),dimension(3)  ::  Ydot
-!! 
+!!
 !!   Ydot(1) = -.04*Y(1) + 1.D4*Y(2)*Y(3)
 !!   Ydot(3) = 3.D7*Y(2)*Y(2)
 !!   Ydot(2) = -Ydot(1) - Ydot(3)
 !!end subroutine fex
-!! 
+!!
 !!subroutine gex(Neq,T,Y,Ng,Gout)
 !!implicit none
-!! 
+!!
 !!integer                                 ::  Neq
 !!integer,parameter                       ::  dp=kind(0.0d0)
 !!real(kind=dp)                           ::  T
@@ -430,7 +430,7 @@
 !!## Arguments
 !! The descriptions of the call arguments are as follows.
 !!
-!! F      
+!! F
 !!
 !! : the name of the user-supplied subroutine defining the
 !! ODE system.  The system must be put in the first-order
@@ -454,7 +454,7 @@
 !! for this purpose, for consistent and accurate results.
 !! If only the derivative dy/dt is needed, use DINTDY instead.
 !!
-!! NEQ    
+!! NEQ
 !!
 !! : the size of the ODE system (number of first order
 !! ordinary differential equations).  Used only for input.
@@ -473,7 +473,7 @@
 !! it to F, JAC, and G.  Each such subroutine must include
 !! NEQ in a Dimension statement in that case.
 !!
-!! Y     
+!! Y
 !!
 !! : = a real array for the vector of dependent variables, of
 !! NEQ or more.  Used for both input and output on the
@@ -489,7 +489,7 @@
 !! pass it to F, JAC, and G.  (The DLSODAR package accesses only
 !! Y(1),...,Y(NEQ).)
 !!
-!! T     
+!! T
 !!
 !! : = the independent variable.  On input, T is used only on the
 !! first call, as the initial point of the integration.
@@ -500,7 +500,7 @@
 !!
 !! On an error return, T is the farthest point reached.
 !!
-!! TOUT  
+!! TOUT
 !!
 !! : = the next value of t at which a computed solution is desired.
 !! Used only for input.
@@ -523,18 +523,18 @@
 !! TCUR - HU and TCUR (see optional outputs, below, for
 !! TCUR and HU).
 !!
-!! ITOL  
+!! ITOL
 !!
 !! : an indicator for the type of error control.  See
 !! description below under ATOL.  Used only for input.
 !!
-!! RTOL   
+!! RTOL
 !!
 !! : a relative error tolerance parameter, either a scalar or
 !! an array of length NEQ.  See description below under ATOL.
 !! Input only.
 !!
-!! ATOL   
+!! ATOL
 !!
 !! : an absolute error tolerance parameter, either a scalar or
 !! an array of length NEQ.  Input only.
@@ -570,7 +570,7 @@
 !! components of RTOL and ATOL (i.e. of EWT) should be scaled
 !! down uniformly.
 !!
-!! ITASK  
+!! ITASK
 !!
 !! : an index specifying the task to be performed.
 !! input only.  ITASK has the following values and meanings.
@@ -600,7 +600,7 @@
 !!       |  indicate this (unless ITASK = 4 and TOUT comes before TCRIT,
 !!       |  in which case answers at t = TOUT are returned first).
 !!
-!! ISTATE 
+!! ISTATE
 !!
 !! : an index used for input and output to specify the
 !! the state of the calculation.
@@ -629,7 +629,7 @@
 !!       | In addition, immediately following a return with
 !!       | ISTATE = 3 (root found), NG and G may be changed.
 !!       | (But changing NG from 0 to .gt. 0 is not allowed.)
-!! 
+!!
 !! Note:  A preliminary call with TOUT = T is not counted
 !! as a first call here, as no initialization or checking of
 !! input is done.  (Such a call is sometimes useful for the
@@ -642,14 +642,14 @@
 !!  value    | description
 !!  -------- | --------------------------------------------------------
 !!         1 | means nothing was done; TOUT = t and ISTATE = 1 on input.
-!!           | 
+!!           |
 !!         2 | means the integration was performed successfully, and
 !!           | no roots were found.
-!!           | 
+!!           |
 !!         3 | means the integration was successful, and one or more
 !!           | roots were found before satisfying the stop condition
 !!           | specified by ITASK.  See JROOT.
-!!           | 
+!!           |
 !!        -1 | means an excessive amount of work (more than MXSTEP
 !!           | steps) was done on this call, before completing the
 !!           | requested task, but the integration was otherwise
@@ -659,7 +659,7 @@
 !!           | (the excess work step counter will be reset to 0).
 !!           | In addition, the user may increase MXSTEP to avoid
 !!           | this error return (see below on optional inputs).
-!!           | 
+!!           |
 !!        -2 | means too much accuracy was requested for the precision
 !!           | of the machine being used.  This was detected before
 !!           | completing the requested task, but the integration
@@ -669,35 +669,35 @@
 !!           | purpose.  (Note: If this condition is detected before
 !!           | taking any steps, then an illegal input return
 !!           | (ISTATE = -3) occurs instead.)
-!!           | 
+!!           |
 !!        -3 | means illegal input was detected, before taking any
 !!           | integration steps.  See written message for details.
 !!           | Note:  If the solver detects an infinite loop of calls
 !!           | to the solver with illegal input, it will cause
 !!           | the run to stop.
-!!           | 
+!!           |
 !!        -4 | means there were repeated error test failures on
 !!           | one attempted step, before completing the requested
 !!           | task, but the integration was successful as far as T.
 !!           | The problem may have a singularity, or the input
 !!           | may be inappropriate.
-!!           | 
+!!           |
 !!        -5 | means there were repeated convergence test failures on
 !!           | one attempted step, before completing the requested
 !!           | task, but the integration was successful as far as T.
 !!           | This may be caused by an inaccurate Jacobian matrix,
 !!           | if one is being used.
-!!           | 
+!!           |
 !!        -6 | means EWT(i) became zero for some i during the
 !!           | integration.  Pure relative error control (ATOL(i)=0.0)
 !!           | was requested on a variable which has now vanished.
 !!           | The integration was successful as far as T.
-!!           | 
+!!           |
 !!        -7 | means the length of RWORK and/or IWORK was too small to
 !!           | proceed, but the integration was successful as far as T.
 !!           | This happens when DLSODAR chooses to switch methods
 !!           | but LRW and/or LIW is too small for the new method.
-!!           | 
+!!           |
 !!
 !!   Note:  Since the normal output value of ISTATE is 2,
 !!   it does not need to be reset for normal continuation.
@@ -706,7 +706,7 @@
 !!   user to change it, and possibly other inputs, before
 !!   calling the solver again.
 !!
-!! IOPT   
+!! IOPT
 !!
 !! : an integer flag to specify whether or not any optional
 !! inputs are being used on this call.  Input only.
@@ -716,7 +716,7 @@
 !!                   Default values will be used in all cases.
 !!          IOPT = 1 means one or more optional inputs are being used.
 !!
-!! RWORK  
+!! RWORK
 !!
 !! : a real array (double precision) for work space, and (in the
 !! first 20 words) for conditional and optional inputs and
@@ -772,12 +772,12 @@
 !!          After resetting the length, call DLSODAR with ISTATE = 3
 !!          to signal that change.
 !!
-!! LRW    
+!! LRW
 !!
 !! : the length of the array RWORK, as declared by the user.
 !!          (This will be checked by the solver.)
 !!
-!! IWORK  
+!! IWORK
 !!
 !! : an integer array for work space.
 !!          As DLSODAR switches automatically between stiff and nonstiff
@@ -806,7 +806,7 @@
 !!                       the band parameters for a matrix to which
 !!                       df/dy is only approximately equal.
 !!
-!! LIW    
+!! LIW
 !!
 !! : the length of the array IWORK, as declared by the user.
 !!          (This will be checked by the solver.)
@@ -820,7 +820,7 @@
 !! available for use by the user outside DLSODAR between calls, if
 !! desired (but not for use by F, JAC, or G).
 !!
-!! JAC    
+!! JAC
 !!
 !! : the name of the user-supplied routine to compute the
 !! Jacobian matrix, df/dy, if JT = 1 or 4.  The JAC routine
@@ -874,7 +874,7 @@
 !! (dimensioned in JAC) and/or Y has length exceeding NEQ(1).
 !! See the descriptions of NEQ and Y above.
 !!
-!! JT     
+!! JT
 !!
 !! : Jacobian type indicator.  Used only for input.
 !!
@@ -895,7 +895,7 @@
 !! (the name is arbitrary) as described above under JAC.
 !! If JT = 2 or 5, a dummy argument can be used.
 !!
-!! G      
+!! G
 !!
 !! : the name of subroutine for constraint functions, whose
 !! roots are desired during the integration.  It is to have
@@ -930,12 +930,12 @@
 !! (dimensioned in G) and/or Y has length exceeding NEQ(1).
 !! See the descriptions of NEQ and Y above.
 !!
-!! NG     
+!! NG
 !!
 !! : number of constraint functions g(i).  If there are none,
 !! set NG = 0, and pass a dummy name for G.
 !!
-!! JROOT  
+!! JROOT
 !!
 !! : integer array of length NG.  Used only for output.
 !! On a return with ISTATE = 3 (one or more roots found),
@@ -1004,7 +1004,7 @@
 !!
 !! Except where stated otherwise, all of these outputs are defined
 !! on any successful return from DLSODAR, and on any return with
-!! ISTATE = -1, -2, -4, -5, or -6. 
+!! ISTATE = -1, -2, -4, -5, or -6.
 !!
 !! On an illegal input return
 !! (ISTATE = -3), they will be unchanged from their existing values
@@ -1272,78 +1272,78 @@
 !! In addition to Subroutine DLSODAR, the DLSODAR package includes the
 !! following subroutines and function routines:
 !!
-!!  DRCHEK   
+!!  DRCHEK
 !!
 !!  : does preliminary checking for roots, and serves as an
 !!  interface between Subroutine DLSODAR and Subroutine DROOTS.
 !!
-!!  DROOTS   
+!!  DROOTS
 !!
 !!  : finds the leftmost root of a set of functions.
 !!
-!!  DINTDY   
+!!  DINTDY
 !!
 !!  : computes an interpolated value of the y vector at t = TOUT.
 !!
-!!  DSTODA   
+!!  DSTODA
 !!
 !!  : is the core integrator, which does one step of the
 !!  integration and the associated error control.
 !!
-!!  DCFODE   
+!!  DCFODE
 !!
 !!  : sets all method coefficients and test constants.
 !!
-!!  DPRJA    
+!!  DPRJA
 !!
 !!  : computes and preprocesses the Jacobian matrix J = df/dy
 !!  and the Newton iteration matrix P = I - h*l0*J.
 !!
-!!  DSOLSY   
+!!  DSOLSY
 !!
 !!  : manages solution of linear system in chord iteration.
 !!
-!!  DEWSET   
+!!  DEWSET
 !!
 !!  : sets the error weight vector EWT before each step.
 !!
-!!  DMNORM   
+!!  DMNORM
 !!
 !!  : computes the weighted max-norm of a vector.
 !!
-!!  DFNORM   
+!!  DFNORM
 !!
 !!  : computes the norm of a full matrix consistent with the
 !!  weighted max-norm on vectors.
 !!
-!!  DBNORM   
+!!  DBNORM
 !!
 !!  : computes the norm of a band matrix consistent with the
 !!  weighted max-norm on vectors.
 !!
-!!  DSRCAR   
+!!  DSRCAR
 !!
 !!  : is a user-callable routine to save and restore
 !!  the contents of the internal Common blocks.
 !!
-!!  DGEFA and DGESL   
+!!  DGEFA and DGESL
 !!
 !!  : are routines from LINPACK for solving full
 !!  systems of linear algebraic equations.
 !!
-!!  DGBFA and DGBSL   
+!!  DGBFA and DGBSL
 !!
 !!  : are routines from LINPACK for solving banded
 !!  linear systems.
-!!  DCOPY    
+!!  DCOPY
 !!
 !!  : is one of the basic linear algebra modules (BLAS).
 !!
-!!  DUMACH   
+!!  DUMACH
 !!
 !!  : computes the unit roundoff in a machine-independent manner.
 !!
-!!  XERRWD, XSETUN, XSETF, and IXSAV  
+!!  XERRWD, XSETUN, XSETF, and IXSAV
 !!
 !!  : handle the printing of all
 !!  error messages and warnings.  XERRWD is machine-dependent.
@@ -1352,7 +1352,7 @@
 !! function routines.  All the others are subroutines.
 !!
 !!-----------------------------------------------------------------------
-! 
+!
 ! ### REVISION HISTORY  (YYYYMMDD)
 !  19811102  DATE WRITTEN
 !  19820126  Fixed bug in tests of work space lengths;
@@ -1383,7 +1383,7 @@
 !  20031105  Restored 'own' variables to Common blocks, to enable
 !            interrupt/restart feature.
 !  20031112  Added SAVE statements for data-loaded constants.
-! 
+!
 !!-----------------------------------------------------------------------
 subroutine dlsodar(f,Neq,Y,T,Tout,Itol,Rtol,Atol,Itask,Istate,Iopt,Rwork,Lrw,Iwork,Liw,jac,Jt,g,Ng,Jroot)
 !
@@ -1641,7 +1641,7 @@ else
                len1s = lyhnew - 1 + (dlsa%mxords+1)*dls1%nyh
                dls1%lwm = len1s + 1
 
-	       lenwm=0
+               lenwm=0
                if ( Jt<=2 ) lenwm = dls1%n*dls1%n + 2
                if ( Jt>=4 ) lenwm = (2*ml+mu+1)*dls1%n + 2
 

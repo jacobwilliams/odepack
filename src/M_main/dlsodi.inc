@@ -231,7 +231,7 @@
 !!external aplusp
 !!external dgbydy
 !!external resid
-!! 
+!!
 !!integer,parameter            ::  dp=kind(0.0d0)
 !!real(kind=dp),dimension(3)   ::  atol,y,ydoti
 !!integer                      ::  iopt,iout,istate,itask,itol,liw,lrw,mf,neq
@@ -240,7 +240,7 @@
 !!real(kind=dp),dimension(58)  ::  rwork
 !!
 !!   call reference()
-!! 
+!!
 !!   neq = 3
 !!   y(1) = 1.
 !!   y(2) = 0.
@@ -276,29 +276,29 @@
 !!   enddo
 !!   write (6,99030) iwork(11),iwork(12),iwork(13)
 !!   99030 format (/' No. steps =',i4,'  No. r-s =',i4,'  No. J-s =',i4)
-!!     
+!!
 !!end program dlsodi_ex
-!! 
+!!
 !!subroutine resid(Neq,T,Y,S,R,Ires)
 !!implicit none
 !!integer,parameter :: dp=kind(0.0d0)
-!! 
+!!
 !!integer                                 ::  Neq
 !!real(kind=dp)                           ::  T
 !!real(kind=dp),intent(in),dimension(3)   ::  Y
 !!real(kind=dp),intent(in),dimension(3)   ::  S
 !!real(kind=dp),intent(out),dimension(3)  ::  R
 !!integer                                 ::  Ires
-!! 
+!!
 !!   R(1) = -.04*Y(1) + 1.D4*Y(2)*Y(3) - S(1)
 !!   R(2) = .04*Y(1) - 1.D4*Y(2)*Y(3) - 3.D7*Y(2)*Y(2) - S(2)
 !!   R(3) = Y(1) + Y(2) + Y(3) - 1.
 !!end subroutine resid
-!! 
+!!
 !!subroutine aplusp(Neq,T,Y,Ml,Mu,P,Nrowp)
 !!implicit none
 !!integer,parameter :: dp=kind(0.0d0)
-!! 
+!!
 !!integer                                         ::  Neq
 !!real(kind=dp)                                   ::  T
 !!real(kind=dp),dimension(3)                      ::  Y
@@ -306,11 +306,11 @@
 !!integer                                         ::  Mu
 !!real(kind=dp),intent(inout),dimension(Nrowp,3)  ::  P
 !!integer,intent(in)                              ::  Nrowp
-!! 
+!!
 !!   P(1,1) = P(1,1) + 1.
 !!   P(2,2) = P(2,2) + 1.
 !!end subroutine aplusp
-!! 
+!!
 !!subroutine dgbydy(Neq,T,Y,S,Ml,Mu,P,Nrowp)
 !!implicit none
 !!integer,parameter                             ::  dp=kind(0.0d0)
@@ -322,7 +322,7 @@
 !!integer                                       ::  Mu
 !!real(kind=dp),intent(out),dimension(Nrowp,3)  ::  P
 !!integer,intent(in)                            ::  Nrowp
-!! 
+!!
 !!   P(1,1) = -.04
 !!   P(1,2) = 1.D4*Y(3)
 !!   P(1,3) = 1.D4*Y(2)
@@ -1245,7 +1245,7 @@ real(kind=dp), intent(inout) :: T, Tout
 !  Groups of variables are replaced by dummy arrays in the Common
 !  declarations in routines where those variables are not used.
 ! -----------------------------------------------------------------------
-! 
+!
 data mord(1), mord(2)/12, 5/, mxstp0/500/, mxhnl0/10/
 ihit=.false.
 ! -----------------------------------------------------------------------
@@ -1267,7 +1267,7 @@ if ( Istate<0 .or. Istate>3 ) then
    msg = 'DLSODI-  ISTATE (=I1) illegal.'
    call xerrwd(msg,30,1,0,1,Istate,0,0,0.0D0,0.0D0)
    if ( Istate>=0 ) goto 1300
-! 
+!
    msg = 'DLSODI-  Run aborted.. apparent infinite loop.    '
    call xerrwd(msg,50,303,2,0,0,0,0,0.0D0,0.0D0)
    goto 99999
@@ -1292,7 +1292,7 @@ else
 !  The next code block is executed for the initial call (ISTATE = 0 or 1)
 !  or for a continuation call with parameter changes (ISTATE = 3).
 !  It contains checking of all inputs and various initializations.
-! 
+!
 !  First check legality of the non-optional inputs NEQ, ITOL, IOPT,
 !  MF, ML, and MU.
 ! -----------------------------------------------------------------------
@@ -1406,7 +1406,7 @@ else
             if ( Istate<=1 ) dls1%nyh = dls1%n
             dls1%lwm = dls1%lyh + (dls1%maxord+1)*dls1%nyh
 
-	    lenwm=0
+            lenwm=0
             if ( dls1%miter<=2 ) lenwm = dls1%n*dls1%n + 2
             if ( dls1%miter>=4 ) lenwm = (2*ml+mu+1)*dls1%n + 2
 
@@ -1659,9 +1659,9 @@ endif
 !  Block E.
 !  The next block is normally executed for all calls and contains
 !  the call to the one-step core integrator DSTODI.
-! 
+!
 !  This is a looping point for the integration steps.
-! 
+!
 !  First check for too many steps being taken, update EWT (if not at
 !  start of problem), check for too much accuracy being requested, and
 !  check for H below the roundoff level in T.
@@ -1756,7 +1756,7 @@ if ( tolsf<=1.0D0 ) then
       Istate = -7
       goto 700
    case default
-! 
+!
 !  KGO = 1:success; 2:error test failure; 3:convergence failure;
 !        4:RES ordered return. 5:RES returned error.
 ! -----------------------------------------------------------------------

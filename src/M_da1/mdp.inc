@@ -84,17 +84,17 @@ integer,save :: free=-1
                   endif
                   !
                   !--------insert ek in element list of vi
-		  if(free.gt.0)then
+                  if(free.gt.0)then
                      V(free) = Ek
                      L(free) = L(vi)
                      L(vi) = free
-		  else
-		     stop '*mdp* is uninitialized but being used'
-		  endif
+                  else
+                     stop '*mdp* is uninitialized but being used'
+                  endif
                else
                   L(i) = L(li)
                   li = i
-       
+
                   K = K + 1
                   Next(vi) = -K
                   Last(Ek) = Last(Ek) - 1
@@ -114,5 +114,5 @@ integer,save :: free=-1
    !
    !----terminate boundary list
    L(Tail) = 0
- 
+
 end subroutine mdp
