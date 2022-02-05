@@ -20,63 +20,60 @@ markdown references
 This is a WIP(Work In Progress) to evaluate the effort required and
 feasibility of updating older Fortran code from the netlib repository
 using a combination of the commercial plusFORT/spag software and GNU
-utilities.
+utilities as well as conventional manual refactoring.
 
 Many thanks to plusFORT for making an evaluation copy available for
 several months to the Fortran Community. The plusFORT tools were crucial
 to this study and unmatched in my experience for removing deprecated
 syntax from pre-f2003 code.
 
-This began with [ODEPACK](https://github.com/jacobwilliams/odepack)
+This began with [ODEPACK](https://computing.llnl.gov/projects/odepack)
 
 the ODEPACK package has been selected as a significant code that is well
 documented and structured for its vintage, and available on the netlib
 site and covered by a public domain license.
 
-```text
-     ODEPACK:
-     About 28 000, lines of core source files
-     (About 11 000, lines of core code excluding comments)
-     An additional 3700 lines of test cases.
-```
 #### preliminary targets for phase I:
 
  + remove obsolescent syntax (trying plusFORT and spag)
  + able to build using fpm(1)  (the Fortran Package Manager)
-   - in debug mode
+   - in debug mode (ongoing)
    - with ifort, gfortran, nvfortran
- + text viewable in ford(1) and extractable as markup that can run through pandoc(1)
+ + text viewable in ford(1) and extractable as markup that can run through pandoc(1) (ongoing)
  + available on github (or equivalent)
  + no common blocks
  + no equivalences
- + build as a (single?) module M_odepack
- + complete set of unit tests
+ + build as a (single?) module M_odepack (ongoing)
+ + complete set of unit tests (tests currently only use the original examples)
 
-In this case the originally bundled subset of BLAS/LAPACK routines are
+The originally bundled subset of BLAS/LAPACK routines are
 being included in the module.  In production, this might not be done in
 order to be able to easily call external optimized versions.
 
 The biggest hinderance is some storage used for both INTEGER and DOUBLE
 PRECISION values.
 
- One take-away is how critical unit tests are to enable rapid development
- (which so far this package does not have)
+One take-away is how critical unit tests are to enable rapid development
+(which so far this package does not have)
 
 The initial pass was done just using the original sample programs as
-unit tests. This may have allowed for introduction of errors but the
-original samples run with the same output as the original.
+unit tests. This may have allowed for introduction of errors as this
+is a WIP but the original samples run with the same output as the original.
 
-As a proof of concept I have gleaned what I wanted from this
-effort. plusFORT was invaluable and reduced the effort by an estimated
-85 percent.
+plusFORT was invaluable and reduced the effort by an estimated 85
+percent. The results have been encouraging enough to inspire completing
+the transformation.
 
 ### Phase II ?
 
-The results of this first pass were significant enough that this project
-will hopefully continue.  I feel a complete unit test suite is required
-to allow development to proceed rapidily.
+Some of the goals of phase I are incomplete, but The results of this first
+pass were significant enough that this project will hopefully continue.
 
-Another issue is the remaining non-standard code.  Non-standard (but
+A complete unit test suite is required to allow development to proceed
+rapidily. Contributions, especially from current ODEPACK users are
+particularly welcome.
+
+Another major issue is the remaining non-standard code.  Non-standard (but
 at the time de-facto fortran standard) such as equivalencing different
 types, creating scratch space that is used as different numeric types,
 and treating scalars as arrays and vice-versa as well as passing the same
@@ -108,27 +105,26 @@ To rebuild the documentation with ford(1), use
  ford --css docs/local.css --extensions 'inc' --extensions 'f90' ford.md
 ```
 
-As noted, a second pass needs made to restructure the code in some places
-manually, but the code is far more readable after having been refactored
-by spag(1) from the plusFORT package and hopefully as useable as the
-original.
+The code is far more readable after having been refactored by
+a combination of using spag(1) from the plusFORT package and manual
+editing, and is believed as useable as the original.
 
 There are a few notes in src/M_odepack.f90 concerning continuing issues.
 
-If there is interest in completing this transformation it can continue on this
-site, hopefully as a group project.
+Current users of ODEPACK are encouraged to try this version and provide
+feedback.
 
-We are particulary interested in current users of ODEPACK trying this version,
-and contributions of additional test suites.
-
-Although I have learned what I wanted from the project in phase I, hopefully as
-a community we can complete creating a new maintained production-quality version
-of this venerable and still-valuable package.
+Hopefully as a community we can complete creating a new maintained
+production-quality version of this venerable and still-valuable package.
 
 ### Documentation
 
-The API documentation for the current `master` branch can be found [here](https://jacobwilliams.github.io/odepack/).  This is generated by processing the source files with [FORD](https://github.com/Fortran-FOSS-Programmers/ford).
+The ongoing API documentation for the current `master` branch can
+be found [here](https://jacobwilliams.github.io/odepack/).
+This is generated by processing the source files with
+[FORD](https://github.com/Fortran-FOSS-Programmers/ford).
 
+Here is an overview primarily from the original documentation  ...
 --------------------------------------------------------------------------------
 ## Brief Description of ODEPACK - A Systematized Collection of ODE Solvers (Double Precision Version)
 
