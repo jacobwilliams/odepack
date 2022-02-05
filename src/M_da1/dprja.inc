@@ -78,6 +78,8 @@ real(kind=dp), dimension(*) :: Ftem
 real(kind=dp), dimension(*) :: Savf
 real(kind=dp), intent(inout), dimension(*) :: Wm
 integer, dimension(*) :: Iwm
+external :: f
+external :: jac
 !
 real(kind=dp) :: con, fac, hl0, r, r0, srur, yi, yj, yjj
 integer :: i, i1, i2, ier, ii, j, j1, jj, lenp, mba, mband, meb1, meband, ml, ml3, mu, np1

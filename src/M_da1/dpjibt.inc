@@ -78,6 +78,9 @@ real(kind=dp),dimension(*) :: Savr
 real(kind=dp),dimension(*) :: S
 real(kind=dp),intent(inout), dimension(*) :: Wm
 integer, dimension(*) :: Iwm
+external :: res
+external :: jac
+external :: adda
 !
 real(kind=dp) :: con, fac, hl0, r, srur
 integer :: i, ier, iia, iib, iic, ipa, ipb, ipc, ires, j, j1, j2, k, k1, lblox, lenp, lpb, lpc, mb, mbsq, mwid, nb

@@ -45,6 +45,8 @@ integer , save :: lout
 real(kind=dp) , dimension(1000) :: rwork
 real(kind=dp) , dimension(9) :: y
 external fdem , jdem
+external ssout
+external edit
 !
 equivalence (ia(1),iwork(31))
 equivalence (ja(1),iwork(41))

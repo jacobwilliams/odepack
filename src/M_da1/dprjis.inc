@@ -83,6 +83,9 @@ real(kind=dp), dimension(*) :: Savr
 real(kind=dp), dimension(*) :: S
 real(kind=dp), intent(inout), dimension(*) :: Wk
 integer, dimension(*) :: Iwk
+external :: res
+external :: jac
+external :: adda
 !
 real(kind=dp) :: con, fac, hl0, r, srur
 

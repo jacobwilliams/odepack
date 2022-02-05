@@ -97,6 +97,7 @@ integer :: N
 real(kind=dp) , intent(in) :: Delta
 real(kind=dp) :: Hl0
 integer , intent(in) :: Mnewt
+external :: psol
 !
 real(kind=dp) :: bnrm
 integer :: i , ier
