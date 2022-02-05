@@ -33,14 +33,14 @@ integer,parameter :: lenils=37, lenrls=218
 select case(job)
 case(1)
 
-      rsav(1:lenrls) = return_dls1_int()
+      rsav(1:lenrls) = return_dls1_real()
 
       rsav(lenrls+1)   =  dlpk%delt
       rsav(lenrls+2)   =  dlpk%epcon
       rsav(lenrls+3)   =  dlpk%sqrtn
       rsav(lenrls+4)   =  dlpk%rsqrtn
 
-      isav(1:lenils) = return_dls1_real()
+      isav(1:lenils) = return_dls1_int()
 
       isav(lenils+1)   =  dlpk%jpre
       isav(lenils+2)   =  dlpk%jacflg
