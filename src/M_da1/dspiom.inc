@@ -216,16 +216,16 @@ external psol
          lm1 = ll - 1
          if ( ll>1 .and. Ipvt(lm1)==lm1 ) prod = prod*Hes(ll,lm1)
          if ( info/=ll ) then
-         !-----------------------------------------------------------------------
-         !  Update RHO, the estimate of the norm of the residual b - A*x(l).
-         !  test for convergence.  If passed, compute approximation x(l).
-         !  If failed and l .lt. MAXL, then continue iterating.
-         !-----------------------------------------------------------------------
+            !-----------------------------------------------------------------------
+            !  Update RHO, the estimate of the norm of the residual b - A*x(l).
+            !  test for convergence.  If passed, compute approximation x(l).
+            !  If failed and l .lt. MAXL, then continue iterating.
+            !-----------------------------------------------------------------------
             rho = bnrm*snormw*abs(prod/Hes(ll,ll))
             if ( rho<=Delta ) then
                call approximate()
                return
-         endif
+            endif
             if ( ll==Maxl ) exit
          else
             !-----------------------------------------------------------------------
