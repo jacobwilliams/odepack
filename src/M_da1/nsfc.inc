@@ -89,7 +89,6 @@ integer,intent(out)   :: Flag
 !
 integer :: cend, i, i1, iak, irai, irll, irul, j, jaiak, jairai, jlmin, jlptr, jmax, jmin, jtmp, jumin, juptr, k, &
          & lasti, lastid, long, luk, m, np1, qm, rend, rk, vj
-integer :: m_odepack
    !
    !   ******  initialize pointers  ****************************************
    np1 = N + 1

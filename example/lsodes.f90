@@ -275,7 +275,6 @@ data yex/6.687279d-01 , 9.901910d-01 , 7.603061d-01 ,           &
 
 subroutine ssout(neq,iwk,iwork,lout)
 implicit none
-integer,parameter :: dp=kind(0.0d0)
 !
 integer :: neq
 integer , dimension(*) :: iwk

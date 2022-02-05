@@ -148,7 +148,6 @@ real(kind=dp) , intent(inout) , dimension(Maxl,Maxl) :: Hes
 integer :: i , ier , info , j , k , ll , lm1
 integer , intent(out) :: Iflag , Liom , Npsl
 integer , dimension(*) :: Ipvt , Iwp
-integer :: m_odepack
 real(kind=dp) , dimension(N,*) :: V
 real(kind=dp) , dimension(*) :: Wk , Wp , X
 external psol

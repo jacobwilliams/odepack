@@ -232,7 +232,6 @@ integer , intent(inout) , dimension(*) :: P
 integer , intent(out) :: Flag
 !
 integer :: i , j , jmax , jmin , k , newj
-integer :: m_odepack
    !
    !   ******  for each nonempty row  *******************************
    do k = 1 , N

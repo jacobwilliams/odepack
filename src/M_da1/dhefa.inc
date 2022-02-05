@@ -73,7 +73,6 @@ integer , intent(out)         :: Info
 integer , intent(in)          :: Job
 !
 integer :: j , k , km1 , kp1 , l , nm1
-integer :: m_odepack
 real(kind=dp) :: t
 !
    if ( Job>1 ) then

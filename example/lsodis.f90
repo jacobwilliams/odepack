@@ -212,7 +212,6 @@ end program lsodis
 
 subroutine struct(ia,ja,ic,jc,n)
 implicit none
-integer,parameter :: dp=kind(0.0d0)
 !
 integer , dimension(*) :: ia
 integer , dimension(*) :: ja

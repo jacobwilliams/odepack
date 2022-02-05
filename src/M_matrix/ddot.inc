@@ -71,7 +71,7 @@ integer,intent(in)       :: Incx
 real(kind=dp),intent(in) :: Dy(*)
 integer, intent(in)      :: Incy
 !
-integer :: i, ix, iy, m, mp1, ns, nx
+integer :: i, ix, iy, m, mp1, ns
 !
    ddot = 0.0D0
    if ( N<=0 ) return

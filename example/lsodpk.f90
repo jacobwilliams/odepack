@@ -321,7 +321,6 @@ end subroutine setpar
 
 subroutine gset(m,ng,jg,jig,jr)
 implicit none
-integer,parameter :: dp=kind(0.0d0)
 !
 integer :: m
 integer :: ng

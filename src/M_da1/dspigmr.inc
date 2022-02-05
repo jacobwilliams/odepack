@@ -165,7 +165,6 @@ real(kind=dp) , dimension(Maxlp1,*) :: Hes
 integer :: i , i2 , ier , info , ip1 , j , k , ll , llp1
 integer,intent(out)  :: Iflag , Lgmr , Npsl
 integer :: Iwp(*)
-integer :: m_odepack
 real(kind=dp), intent(inout), dimension(N,*) :: V
 !
 Iflag = 0
