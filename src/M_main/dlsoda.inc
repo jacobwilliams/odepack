@@ -5,7 +5,7 @@
 !!### Synopsis
 !!
 !! _DLSODA_ solves the initial value problem for stiff or nonstiff
-!! systems of first order ODEs
+!! systems of first order ODEs of the form
 !!```text
 !!     dy/dt = f(t,y),  or, in component form,
 !!     dy(i)/dt = f(i) = f(i,t,y(1),y(2),...,y(NEQ)) (i = 1,...,NEQ).
@@ -19,7 +19,7 @@
 !! appropriate method.  It always starts with the nonstiff method.
 !!
 !! DLSODA is derived from the Livermore Solver for Ordinary
-!! Differential Equations package ODEPACK,
+!! Differential Equations package ODEPACK, and is
 !! based on the 12 November 2003 version in double precision.
 !!-----------------------------------------------------------------------
 !!### Summary of Usage
@@ -1261,6 +1261,7 @@ integer,save :: mxhnl0, mxstp0
 ! -----------------------------------------------------------------------
 !
 data mord(1), mord(2)/12, 5/, mxstp0/500/, mxhnl0/10/
+ihit=.false.
 ! -----------------------------------------------------------------------
 !  Block A.
 !  This code block is executed on every call.
@@ -1531,13 +1532,13 @@ do i = 1, dls1%n
    endif
 enddo
 if ( Istate==1 ) then
-! -----------------------------------------------------------------------
-!  Block C.
-!  The next block is for the initial call only (ISTATE = 1).
-!  It contains all remaining initializations, the initial call to F,
-!  and the calculation of the initial step size.
-!  The error weights in EWT are inverted after being loaded.
-! -----------------------------------------------------------------------
+   ! -----------------------------------------------------------------------
+   !  Block C.
+   !  The next block is for the initial call only (ISTATE = 1).
+   !  It contains all remaining initializations, the initial call to F,
+   !  and the calculation of the initial step size.
+   !  The error weights in EWT are inverted after being loaded.
+   ! -----------------------------------------------------------------------
    dls1%uround = dumach()
    dls1%tn = T
    dlsa%tsw = T
@@ -1565,15 +1566,15 @@ if ( Istate==1 ) then
    dls1%maxcor = 3
    dls1%msbp = 20
    dls1%mxncf = 10
-!  Initial call to F.  (LF0 points to YH(*,2).) -------------------------
+   !  Initial call to F.  (LF0 points to YH(*,2).) -------------------------
    lf0 = dls1%lyh + dls1%nyh
    call f(Neq,T,Y,Rwork(lf0))
    dls1%nfe = 1
-!  Load the initial value vector in YH. ---------------------------------
+   !  Load the initial value vector in YH. ---------------------------------
    do i = 1, dls1%n
       Rwork(i+dls1%lyh-1) = Y(i)
    enddo
-!  Load and invert the EWT array.  (H is temporarily set to 1.0.) -------
+   !  Load and invert the EWT array.  (H is temporarily set to 1.0.) -------
    dls1%nq = 1
    dls1%h = 1.0D0
    call dewset(dls1%n,Itol,Rtol,Atol,Rwork(dls1%lyh),Rwork(dls1%lewt))
@@ -1587,25 +1588,25 @@ if ( Istate==1 ) then
       endif
       Rwork(i+dls1%lewt-1) = 1.0D0/Rwork(i+dls1%lewt-1)
    enddo
-! -----------------------------------------------------------------------
-!  The coding below computes the step size, H0, to be attempted on the
-!  first step, unless the user has supplied a value for this.
-!  First check that TOUT - T differs significantly from zero.
-!  A scalar tolerance quantity TOL is computed, as MAX(RTOL(i))
-!  if this is positive, or MAX(ATOL(i)/ABS(Y(i))) otherwise, adjusted
-!  so as to be between 100*UROUND and 1.0E-3.
-!  Then the computed value H0 is given by:
-!
-!    H0**(-2)  =  1./(TOL * w0**2)  +  TOL * (norm(F))**2
-!
-!  where   w0     = MAX ( ABS(T), ABS(TOUT) ),
-!          F      = the initial value of the vector f(t,y), and
-!          norm() = the weighted vector norm used throughout, given by
-!                   the DMNORM function routine, and weighted by the
-!                   tolerances initially loaded into the EWT array.
-!  The sign of H0 is inferred from the initial values of TOUT and T.
-!  ABS(H0) is made .le. ABS(TOUT-T) in any case.
-! -----------------------------------------------------------------------
+   ! -----------------------------------------------------------------------
+   !  The coding below computes the step size, H0, to be attempted on the
+   !  first step, unless the user has supplied a value for this.
+   !  First check that TOUT - T differs significantly from zero.
+   !  A scalar tolerance quantity TOL is computed, as MAX(RTOL(i))
+   !  if this is positive, or MAX(ATOL(i)/ABS(Y(i))) otherwise, adjusted
+   !  so as to be between 100*UROUND and 1.0E-3.
+   !  Then the computed value H0 is given by:
+   !
+   !    H0**(-2)  =  1./(TOL * w0**2)  +  TOL * (norm(F))**2
+   !
+   !  where   w0     = MAX ( ABS(T), ABS(TOUT) ),
+   !          F      = the initial value of the vector f(t,y), and
+   !          norm() = the weighted vector norm used throughout, given by
+   !                   the DMNORM function routine, and weighted by the
+   !                   tolerances initially loaded into the EWT array.
+   !  The sign of H0 is inferred from the initial values of TOUT and T.
+   !  ABS(H0) is made .le. ABS(TOUT-T) in any case.
+   ! -----------------------------------------------------------------------
    if ( h0==0.0D0 ) then
       tdist = abs(Tout-T)
       w0 = max(abs(T),abs(Tout))
@@ -1637,20 +1638,20 @@ if ( Istate==1 ) then
       h0 = min(h0,tdist)
       h0 = sign(h0,Tout-T)
    endif
-!  Adjust H0 if necessary to meet HMAX bound. ---------------------------
+   !  Adjust H0 if necessary to meet HMAX bound. ---------------------------
    rh = abs(h0)*dls1%hmxi
    if ( rh>1.0D0 ) h0 = h0/rh
-!  Load H with H0 and scale YH(*,2) by H0. ------------------------------
+   !  Load H with H0 and scale YH(*,2) by H0. ------------------------------
    dls1%h = h0
    do i = 1, dls1%n
       Rwork(i+lf0-1) = h0*Rwork(i+lf0-1)
    enddo
    goto 300
 else
-!  If ISTATE = 3, set flag to signal parameter changes to DSTODA. -------
+   !  If ISTATE = 3, set flag to signal parameter changes to DSTODA. -------
    dls1%jstart = -1
    if ( dls1%n/=dls1%nyh ) then
-!  NEQ was reduced.  Zero part of YH to avoid undefined references. -----
+      !  NEQ was reduced.  Zero part of YH to avoid undefined references. -----
       i1 = dls1%lyh + dls1%l*dls1%nyh
       i2 = dls1%lyh + (dls1%maxord+1)*dls1%nyh - 1
       if ( i1<=i2 ) then
@@ -1753,16 +1754,16 @@ if ( dls1%meth/=dlsa%mused ) then
 endif
 if ( (dls1%nst-dls1%nslast)>=dls1%mxstep ) then
 !===================================================================================================================================
-! -----------------------------------------------------------------------
-!  Block H.
-!  The following block handles all unsuccessful returns other than
-!  those for illegal input.  First the error message routine is called.
-!  If there was an error test or convergence test failure, IMXER is set.
-!  Then Y is loaded from YH and T is set to TN.
-!  The optional outputs are loaded into the work arrays before returning.
-! -----------------------------------------------------------------------
-!  The maximum number of steps was taken before reaching TOUT. ----------
-!  Block H.
+   ! -----------------------------------------------------------------------
+   !  Block H.
+   !  The following block handles all unsuccessful returns other than
+   !  those for illegal input.  First the error message routine is called.
+   !  If there was an error test or convergence test failure, IMXER is set.
+   !  Then Y is loaded from YH and T is set to TN.
+   !  The optional outputs are loaded into the work arrays before returning.
+   ! -----------------------------------------------------------------------
+   !  The maximum number of steps was taken before reaching TOUT. ----------
+   !  Block H.
    msg = 'DLSODA-  At current T (=R1), MXSTEP (=I1) steps   '
    call xerrwd(msg,50,201,0,0,0,0,0,0.0D0,0.0D0)
    msg = '      taken on this call before reaching TOUT     '
@@ -1773,8 +1774,8 @@ else
    call dewset(dls1%n,Itol,Rtol,Atol,Rwork(dls1%lyh),Rwork(dls1%lewt))
    do i = 1, dls1%n
       if ( Rwork(i+dls1%lewt-1)<=0.0D0 ) then
-!  EWT(i) .le. 0.0 for some i (not at start of problem). ----------------
-!  Block H.
+         !  EWT(i) .le. 0.0 for some i (not at start of problem). ----------------
+         !  Block H.
          ewti = Rwork(dls1%lewt+i-1)
          msg = 'DLSODA-  At T (=R1), EWT(I1) has become R2 .le. 0.'
          call xerrwd(msg,50,202,0,1,i,0,2,dls1%tn,ewti)
@@ -1805,17 +1806,17 @@ if ( tolsf<=1.0D0 ) then
          endif
       endif
    endif
-! -----------------------------------------------------------------------
-!    CALL DSTODA(NEQ,Y,YH,NYH,YH,EWT,SAVF,ACOR,WM,IWM,f,JAC,DPRJA,DSOLSY)
-! -----------------------------------------------------------------------
+   ! -----------------------------------------------------------------------
+   !    CALL DSTODA(NEQ,Y,YH,NYH,YH,EWT,SAVF,ACOR,WM,IWM,f,JAC,DPRJA,DSOLSY)
+   ! -----------------------------------------------------------------------
    call dstoda(Neq,Y,Rwork(dls1%lyh),dls1%nyh,Rwork(dls1%lyh),Rwork(dls1%lewt), &
    & Rwork(dls1%lsavf),Rwork(dls1%lacor),Rwork(dls1%lwm), &
              & Iwork(dls1%liwm),f,jac,dprja,dsolsy)
    kgo = 1 - dls1%kflag
    select case (kgo)
    case (2)
-!  KFLAG = -1.  Error test failed repeatedly or with ABS(H) = HMIN. -----
-!  Block H.
+      !  KFLAG = -1.  Error test failed repeatedly or with ABS(H) = HMIN. -----
+      !  Block H.
       msg = 'DLSODA-  At T(=R1) and step size H(=R2), the error'
       call xerrwd(msg,50,204,0,0,0,0,0,0.0D0,0.0D0)
       msg = '      test failed repeatedly or with ABS(H) = HMIN'
@@ -1823,8 +1824,8 @@ if ( tolsf<=1.0D0 ) then
       Istate = -4
       goto 800
    case (3)
-!  KFLAG = -2.  Convergence failed repeatedly or with ABS(H) = HMIN. ----
-!  Block H.
+      !  KFLAG = -2.  Convergence failed repeatedly or with ABS(H) = HMIN. ----
+      !  Block H.
       msg = 'DLSODA-  At T (=R1) and step size H (=R2), the    '
       call xerrwd(msg,50,205,0,0,0,0,0,0.0D0,0.0D0)
       msg = '      corrector convergence failed repeatedly     '
@@ -1834,15 +1835,15 @@ if ( tolsf<=1.0D0 ) then
       Istate = -5
       goto 800
    case default
-! -----------------------------------------------------------------------
-!  Block F.
-!  The following block handles the case of a successful return from the
-!  core integrator (KFLAG = 0).
-!  If a method switch was just made, record TSW, reset MAXORD,
-!  set JSTART to -1 to signal DSTODA to complete the switch,
-!  and do extra printing of data if IXPR = 1.
-!  Then, in any case, check for stop conditions.
-! -----------------------------------------------------------------------
+   ! -----------------------------------------------------------------------
+   !  Block F.
+   !  The following block handles the case of a successful return from the
+   !  core integrator (KFLAG = 0).
+   !  If a method switch was just made, record TSW, reset MAXORD,
+   !  set JSTART to -1 to signal DSTODA to complete the switch,
+   !  and do extra printing of data if IXPR = 1.
+   !  Then, in any case, check for stop conditions.
+   ! -----------------------------------------------------------------------
       dls1%init = 1
       if ( dls1%meth/=dlsa%mused ) then
          dlsa%tsw = dls1%tn
@@ -1868,10 +1869,10 @@ if ( tolsf<=1.0D0 ) then
       select case (Itask)
       case (2)
       case (3)
-!  ITASK = 3.  Jump to exit if TOUT was reached. ------------------------
+         !  ITASK = 3.  Jump to exit if TOUT was reached. ------------------------
          if ( (dls1%tn-Tout)*dls1%h<0.0D0 ) goto 200
       case (4)
-!  ITASK = 4.  See if TOUT or TCRIT was reached.  Adjust H if necessary.
+         !  ITASK = 4.  See if TOUT or TCRIT was reached.  Adjust H if necessary.
          if ( (dls1%tn-Tout)*dls1%h<0.0D0 ) then
             hmx = abs(dls1%tn) + abs(dls1%h)
             ihit = abs(dls1%tn-tcrit)<=100.0D0*dls1%uround*hmx
@@ -1889,11 +1890,11 @@ if ( tolsf<=1.0D0 ) then
             goto 500
          endif
       case (5)
-!  ITASK = 5.  See if TCRIT was reached and jump to exit. ---------------
+         !  ITASK = 5.  See if TCRIT was reached and jump to exit. ---------------
          hmx = abs(dls1%tn) + abs(dls1%h)
          ihit = abs(dls1%tn-tcrit)<=100.0D0*dls1%uround*hmx
       case default
-!  ITASK = 1.  If TOUT has been reached, interpolate. -------------------
+         !  ITASK = 1.  If TOUT has been reached, interpolate. -------------------
          if ( (dls1%tn-Tout)*dls1%h<0.0D0 ) goto 200
          call dintdy(Tout,0,Rwork(dls1%lyh),dls1%nyh,Y,iflag)
          T = Tout
@@ -1911,8 +1912,8 @@ else
       Istate = -3
       return
    endif
-!  Too much accuracy requested for machine precision. -------------------
-!  Block H.
+   !  Too much accuracy requested for machine precision. -------------------
+   !  Block H.
    msg = 'DLSODA-  At T (=R1), too much accuracy requested  '
    call xerrwd(msg,50,203,0,0,0,0,0,0.0D0,0.0D0)
    msg = '      for precision of machine..  See TOLSF (=R2) '

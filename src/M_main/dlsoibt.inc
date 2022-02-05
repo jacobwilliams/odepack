@@ -1287,6 +1287,7 @@ real(kind=dp), intent(inout) :: T, Tout
 ! -----------------------------------------------------------------------
 !
 data mord(1), mord(2)/12, 5/, mxstp0/500/, mxhnl0/10/
+ihit=.false.
 ! -----------------------------------------------------------------------
 !  Block A.
 !  This code block is executed on every call.

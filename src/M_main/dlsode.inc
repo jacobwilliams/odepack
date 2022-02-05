@@ -19,9 +19,9 @@
 !!   A synopsis of the DLSODE Long Description is provided at the
 !!   beginning of that section; general topics covered are:
 !!
-!!      - Elements of the call sequence; optional input and output
-!!      - Optional supplemental routines in the DLSODE package
-!!      - internal COMMON block
+!!      + Elements of the call sequence; optional input and output
+!!      + Optional supplemental routines in the DLSODE package
+!!      + internal COMMON block
 !!
 !!   DLSODE is derived from the Livermore Solver for Ordinary
 !!   Differential Equations package ODEPACK,
@@ -1267,6 +1267,7 @@ real(kind=dp), intent(inout) :: T, Tout
 ! -----------------------------------------------------------------------
 !
 data mord(1), mord(2)/12, 5/, mxstp0/500/, mxhnl0/10/
+ihit=.false.
 ! -----------------------------------------------------------------------
 !  Block A.
 !  This code block is executed on every call.
@@ -1278,17 +1279,17 @@ data mord(1), mord(2)/12, 5/, mxstp0/500/, mxhnl0/10/
 !
 ! ### FIRST EXECUTABLE STATEMENT  DLSODE
 if ( Istate<1 .or. Istate>3 ) then
-! -----------------------------------------------------------------------
-!  Block I.
-!  The following block handles all error returns due to illegal input
-!  (ISTATE = -3), as detected before calling the core integrator.
-!  First the error message routine is called.  If the illegal input
-!  is a negative ISTATE, the run is aborted (apparent infinite loop).
-! -----------------------------------------------------------------------
+   ! -----------------------------------------------------------------------
+   !  Block I.
+   !  The following block handles all error returns due to illegal input
+   !  (ISTATE = -3), as detected before calling the core integrator.
+   !  First the error message routine is called.  If the illegal input
+   !  is a negative ISTATE, the run is aborted (apparent infinite loop).
+   ! -----------------------------------------------------------------------
    msg = 'DLSODE-  ISTATE (=I1) illegal '
    call xerrwd(msg,30,1,0,1,Istate,0,0,0.0D0,0.0D0)
    if ( Istate>=0 ) goto 1100
-!
+ 
    msg = 'DLSODE-  Run aborted.. apparent infinite loop     '
    call xerrwd(msg,50,303,2,0,0,0,0,0.0D0,0.0D0)
    goto 99999

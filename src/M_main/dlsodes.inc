@@ -1325,6 +1325,7 @@ real(kind=dp), intent(inout) :: T, Tout
 ! -----------------------------------------------------------------------
 
 data mord(1), mord(2)/12, 5/, mxstp0/500/, mxhnl0/10/
+ihit=.false.
 ! -----------------------------------------------------------------------
 !  In the Data statement below, set LENRAT equal to the ratio of
 !  the wordlength for a real number to that for an integer.  Usually,

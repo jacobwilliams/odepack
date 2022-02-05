@@ -5,7 +5,7 @@
 !!### Synopsis
 !!
 !! DLSODAR solves the initial value problem for stiff or nonstiff
-!! systems of first order ODEs,
+!! systems of first order ODEs of the form
 !!```text
 !!     dy/dt = f(t,y),  or, in component form,
 !!     dy(i)/dt = f(i) = f(i,t,y(1),y(2),...,y(NEQ)) (i = 1,...,NEQ).
@@ -17,7 +17,7 @@
 !!```text
 !!     g(i) = g(i,t,y(1),...,y(NEQ))  (i = 1,...,ng).
 !!```
-!! This a variant version of the DLSODE package.  It differs from it
+!! This a variant version of the _DLSODE_ package.  It differs from it
 !! in two ways:
 !!
 !! (a) It switches automatically between stiff and nonstiff methods.
@@ -33,11 +33,8 @@
 !! sooner than the specified stop condition, and otherwise returns
 !! the solution according the specified stop condition.
 !!
-!! _DLSODAR_: DLSODA is derived from the Livermore Solver for Ordinary
-!! Differential Equations package ODEPACK.
-!!
-!! This version is in double precision, and initially based on the
-!! November 12th, 2003, version of the reference ODEPACK version.
+!! _DLSODAR_ is derived from the Livermore Solver for Ordinary
+!! Differential Equations package ODEPACK, and is in double precision.
 !!-----------------------------------------------------------------------
 !!#### Summary of Usage.
 !!
@@ -1422,6 +1419,7 @@ real(kind=dp), intent(inout) :: T, Tout
 ! -----------------------------------------------------------------------
 !
 data mord(1), mord(2)/12, 5/, mxstp0/500/, mxhnl0/10/
+ihit=.false.
 ! -----------------------------------------------------------------------
 !  Block A.
 !  This code block is executed on every call.
