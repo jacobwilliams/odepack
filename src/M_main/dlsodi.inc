@@ -1405,8 +1405,11 @@ else
             dls1%lyh = 21
             if ( Istate<=1 ) dls1%nyh = dls1%n
             dls1%lwm = dls1%lyh + (dls1%maxord+1)*dls1%nyh
+
+	    lenwm=0
             if ( dls1%miter<=2 ) lenwm = dls1%n*dls1%n + 2
             if ( dls1%miter>=4 ) lenwm = (2*ml+mu+1)*dls1%n + 2
+
             dls1%lewt = dls1%lwm + lenwm
             dls1%lsavf = dls1%lewt + dls1%n
             dls1%lacor = dls1%lsavf + dls1%n

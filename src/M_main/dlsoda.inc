@@ -1459,8 +1459,11 @@ dls1%lyh = 21
 len1n = 20 + (dlsa%mxordn+1)*dls1%nyh
 len1s = 20 + (dlsa%mxords+1)*dls1%nyh
 dls1%lwm = len1s + 1
+
+lenwm=0
 if ( Jt<=2 ) lenwm = dls1%n*dls1%n + 2
 if ( Jt>=4 ) lenwm = (2*ml+mu+1)*dls1%n + 2
+
 len1s = len1s + lenwm
 len1c = len1n
 if ( dls1%meth==2 ) len1c = len1s
