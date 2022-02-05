@@ -18,7 +18,8 @@ integer,intent(inout) :: Next(*)
 integer,intent(inout) :: Mark(*)
 !
 integer :: es, evi, i, ilp, ilpmax, li, ls, lvi, s, tag, vi
-integer,save :: free=-1
+integer :: free
+   free=-1
    !
    !----initialize tag
    tag = Mark(Ek)
@@ -84,7 +85,7 @@ integer,save :: free=-1
                   endif
                   !
                   !--------insert ek in element list of vi
-                  if(free.gt.0)then
+                  if(free > 0)then
                      V(free) = Ek
                      L(free) = L(vi)
                      L(vi) = free
