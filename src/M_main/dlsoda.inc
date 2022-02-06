@@ -18,9 +18,6 @@
 !! problem is stiff or not, and the solver will automatically choose the
 !! appropriate method.  It always starts with the nonstiff method.
 !!
-!! DLSODA is derived from the Livermore Solver for Ordinary
-!! Differential Equations package ODEPACK, and is
-!! based on the 12 November 2003 version in double precision.
 !!-----------------------------------------------------------------------
 !!### Summary of Usage
 !!
@@ -80,10 +77,10 @@
 !! : absolute tolerance parameter (array).
 !!   the estimated local error in y(i) will be controlled so as
 !!   to be less than
-!!
+!!```text
 !!        EWT(i) = RTOL*ABS(Y(i)) + ATOL     if ITOL = 1, or
 !!        EWT(i) = RTOL*ABS(Y(i)) + ATOL(i)  if ITOL = 2.
-!!
+!!```
 !!   Thus the local error test passes if, in each component,
 !!   either the absolute error is less than ATOL (or ATOL(i)),
 !!   or the relative error is less than RTOL.
@@ -108,7 +105,9 @@
 !! RWORK
 !!
 !! : real work array of length at least:
-!!             22 + NEQ * MAX(16, NEQ + 9).
+!!```text
+!!         22 + NEQ * MAX(16, NEQ + 9).
+!!```
 !!   See also _Section E_ below.
 !!
 !! LRW
@@ -462,10 +461,10 @@
 !!
 !!  ITOL |  RTOL    |   ATOL   |           EWT(i)
 !!  ---- | -------- | -------- | -------------------------------
-!!   1   | single   |  single  |  RTOL*ABS(Y(i)) + ATOL
-!!   2   | single   |  array   |  RTOL*ABS(Y(i)) + ATOL(i)
-!!   3   | array    |  single  |  RTOL(i)*ABS(Y(i)) + ATOL
-!!   4   | array    |  array   |  RTOL(i)*ABS(Y(i)) + ATOL(i)
+!!   1   | single   |  single  |  RTOL\*ABS(Y(i)) + ATOL
+!!   2   | single   |  array   |  RTOL\*ABS(Y(i)) + ATOL(i)
+!!   3   | array    |  single  |  RTOL(i)\*ABS(Y(i)) + ATOL
+!!   4   | array    |  array   |  RTOL(i)\*ABS(Y(i)) + ATOL(i)
 !!
 !! Even when these parameters are a single value, it needs to be an array
 !! in the user's calling program, or passed as a temporary array (ie. use
@@ -648,7 +647,7 @@
 !!```
 !!
 !!#### Dynamic Length Case
-!!```text
+!!
 !! If the length of RWORK is to be dynamic, then it should
 !! be at least LRN or LRS, as defined above, depending on the
 !! current method.
@@ -710,7 +709,7 @@
 !! altered between calls to _DLSODA_ for the same problem.
 !! The contents of the work arrays must not be altered
 !! between calls, except possibly for the conditional and
-!! optional inputs, and except for the last 3*NEQ words of RWORK.
+!! optional inputs, and except for the last 3\*NEQ words of RWORK.
 !! The latter space is used for internal scratch space, and so is
 !! available for use by the user outside _DLSODA_ between calls, if
 !! desired (but not for use by F or JAC).
@@ -931,7 +930,7 @@
 !! YH     | 21            |the Nordsieck history array, of size NYH by
 !!        |               |(NQCUR + 1), where NYH is the initial value
 !!        |               |of NEQ.  For j = 0,1,...,NQCUR, column j+1
-!!        |               |of YH contains HCUR**j/factorial(j) times
+!!        |               |of YH contains HCUR\*\*j/factorial(j) times
 !!        |               |the j-th derivative of the interpolating
 !!        |               |polynomial currently representing the solution,
 !!        |               |evaluated at T = TCUR.
@@ -955,41 +954,42 @@
 !! gain additional capabilities in conjunction with _DLSODA_.
 !! (The routines XSETUN and XSETF are designed to conform to the
 !! SLATEC error handling package.)
-!!```text
-!!     Form of Call                  Function
-!!   CALL XSETUN(LUN)          set the logical unit number, LUN, for
-!!                             output of messages from _DLSODA_, if
-!!                             the default is not desired.
-!!                             The default value of LUN is 6.
 !!
-!!   CALL XSETF(MFLAG)         set a flag to control the printing of
-!!                             messages by _DLSODA_.
-!!                             MFLAG = 0 means do not print. (Danger:
-!!                             This risks losing valuable information.)
-!!                             MFLAG = 1 means print (the default).
+!!  Form of Call                | Function
+!!  --------------------------- | ---------------------------------------
+!!  CALL XSETUN(LUN)            | set the logical unit number, LUN, for
+!!                              | output of messages from _DLSODA_, if
+!!                              | the default is not desired.
+!!                              | The default value of LUN is 6.
+!!                              |                                   
+!!  CALL XSETF(MFLAG)           | set a flag to control the printing of
+!!                              | messages by _DLSODA_.
+!!                              | MFLAG = 0 means do not print. (Danger:
+!!                              | This risks losing valuable information.)
+!!                              | MFLAG = 1 means print (the default).
+!!                              |                                   
+!!                              | Either of the above calls may be made at
+!!                              | any time and will take effect immediately.
+!!                              |                                   
+!!  CALL DSRCMA(RSAV,ISAV,JOB)  | saves and restores the contents of
+!!                              | the internal Common blocks used by
+!!                              | _DLSODA_ (see Part 3 below).
+!!                              | RSAV must be a real array of length 240
+!!                              | or more, and ISAV must be an integer
+!!                              | array of length 46 or more.
+!!                              | JOB=1 means save Common into RSAV/ISAV.
+!!                              | JOB=2 means restore Common from RSAV/ISAV.
+!!                              |    DSRCMA is useful if one is
+!!                              | interrupting a run and restarting
+!!                              | later, or alternating between two or
+!!                              | more problems solved with _DLSODA_.
+!!                              |                                   
+!!  CALL DINTDY(,,,,,)          | provide derivatives of y, of various
+!!       (see below)            | orders, at a specified point t, if
+!!                              | desired.  It may be called only after
+!!                              | a successful return from _DLSODA_.
+!!                                                              
 !!
-!!                             Either of the above calls may be made at
-!!                             any time and will take effect immediately.
-!!
-!!   CALL DSRCMA(RSAV,ISAV,JOB) saves and restores the contents of
-!!                             the internal Common blocks used by
-!!                             _DLSODA_ (see Part 3 below).
-!!                             RSAV must be a real array of length 240
-!!                             or more, and ISAV must be an integer
-!!                             array of length 46 or more.
-!!                             JOB=1 means save Common into RSAV/ISAV.
-!!                             JOB=2 means restore Common from RSAV/ISAV.
-!!                                DSRCMA is useful if one is
-!!                             interrupting a run and restarting
-!!                             later, or alternating between two or
-!!                             more problems solved with _DLSODA_.
-!!
-!!   CALL DINTDY(,,,,,)        provide derivatives of y, of various
-!!        (see below)          orders, at a specified point t, if
-!!                             desired.  It may be called only after
-!!                             a successful return from _DLSODA_.
-!!
-!!```
 !! The detailed instructions for using DINTDY are as follows:
 !!
 !! The form of the call is:
@@ -1077,7 +1077,7 @@
 !! are available from the history array YH, described above under
 !! optional outputs.  In DEWSET, YH is identical to the YCUR array,
 !! extended to NQ + 1 columns with a column length of NYH and scale
-!! factors of H**j/factorial(j).  On the first call for the problem,
+!! factors of H\*\*j/factorial(j).  On the first call for the problem,
 !! given by NST = 0, NQ is 1 and H is temporarily set to 1.0.
 !! NYH is the initial value of NEQ.  The quantities NQ, H, and NST
 !! can be obtained by including in DEWSET the statements:
@@ -1091,7 +1091,13 @@
 !! Thus, for example, the current value of dy/dt can be obtained as
 !! YCUR(NYH+i)/H  (i=1,...,NEQ)  (and the division by H is
 !! unnecessary when NST = 0).
+!!
 !!-----------------------------------------------------------------------
+!!### Pedigree:
+!! _DLSODA_ is derived from the Livermore Solver for Ordinary
+!! Differential Equations package ODEPACK, and is
+!! based on the 12 November 2003 version in double precision.
+!!
 !!### Authors:
 !!```text
 !!    Alan C. Hindmarsh
@@ -1115,7 +1121,7 @@
 !!     Stiff and Nonstiff Systems of Ordinary Differential Equations,
 !!     Siam J. Sci. Stat. Comput. 4 (1983), pp. 136-148.
 !!
-! -----------------------------------------------------------------------
+!!-----------------------------------------------------------------------
 !!#### Other routines in the _DLSODA_ package.
 !!
 !! In addition to Subroutine _DLSODA_, the _DLSODA_ package includes the
@@ -1137,7 +1143,7 @@
 !!  DPRJA
 !!
 !!  : computes and preprocesses the Jacobian matrix J = df/dy
-!!  and the Newton iteration matrix P = I - h*l0*J.
+!!  and the Newton iteration matrix P = I - h\*l0\*J.
 !!
 !!  DSOLSY
 !!

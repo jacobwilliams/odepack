@@ -341,6 +341,7 @@ integer :: ig , j , len1 , mper , ngm1
       do j = 1 , len1
          jig(j) = 1 + (j-1)/mper
       enddo
+
       len1 = len1 + 1
       do j = len1 , m
          jig(j) = ng

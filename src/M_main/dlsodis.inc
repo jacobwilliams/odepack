@@ -4,13 +4,12 @@
 !>
 !!##Synopsis
 !!
-!! DLSODIS solves the initial value problem for linearly implicit
+!! _DLSODIS_ solves the initial value problem for linearly implicit
 !! systems of first order ODEs,
 !!
 !!```text
 !!     A(t,y) * dy/dt = g(t,y),  where A(t,y) is a square matrix,
 !!```
-!!
 !! or, in component form,
 !!
 !!```text
@@ -27,44 +26,10 @@
 !! for stiff problems in which the matrix A and the Jacobian matrix
 !! d(g - A*s)/dy have arbitrary sparse structures.
 !!
-!! Authors:       Alan C. Hindmarsh
-!!                Center for Applied Scientific Computing, L-561
-!!                Lawrence Livermore National Laboratory
-!!                Livermore, CA 94551
-!! and
-!!                Sheila Balsdon
-!!                Zycor, Inc.
-!!                Austin, TX 78741
-!!
-!! DLSODIS is derived from the Livermore Solver for Ordinary
-!! Differential Equations package ODEPACK,
-!!
-!! This is the 18 November 2003 version of
-!! DLSODIS: Livermore Solver for Ordinary Differential equations
-!!          (Implicit form) with general Sparse Jacobian matrices.
-!!
 !! This version is in double precision.
 !!
 !!-----------------------------------------------------------------------
-!! References:
-!! 1.  M. K. Seager and S. Balsdon,  LSODIS, A Sparse Implicit
-!!     ODE Solver, in Proceedings of the IMACS 10th World Congress,
-!!     Montreal, August 8-13, 1982.
-!!
-!! 2.  Alan C. Hindmarsh,  LSODE and LSODI, Two New Initial Value
-!!     Ordinary Differential Equation Solvers,
-!!     ACM-SIGNUM Newsletter, vol. 15, no. 4 (1980), pp. 10-11.
-!!
-!! 3.  S. C. Eisenstat, M. C. Gursky, M. H. Schultz, and A. H. Sherman,
-!!     Yale Sparse Matrix Package: I. The Symmetric Codes,
-!!     Int. J. Num. Meth. Eng., vol. 18 (1982), pp. 1145-1151.
-!!
-!! 4.  S. C. Eisenstat, M. C. Gursky, M. H. Schultz, and A. H. Sherman,
-!!     Yale Sparse Matrix Package: II. The Nonsymmetric Codes,
-!!     Research Report No. 114, Dept. of Computer Sciences, Yale
-!!     University, 1977.
-!!-----------------------------------------------------------------------
-!! Summary of Usage.
+!!### Summary of Usage.
 !!
 !! Communication between the user and the DLSODIS package, for normal
 !! situations, is summarized here.  This summary describes only a subset
@@ -73,11 +38,15 @@
 !! and instructions for special situations.  See also the example
 !! problem (with program and output) following this summary.
 !!
-!! A. First, provide a subroutine of the form:
+!! **A.** First, provide a subroutine of the form:
+!!```fortran
 !!                SUBROUTINE RES (NEQ, T, Y, S, R, IRES)
 !!                DOUBLE PRECISION T, Y(*), S(*), R(*)
+!!```
 !! which computes the residual function
+!!```text
 !!      r = g(t,y)  -  A(t,y) * s ,
+!!```
 !! as a function of t and the vectors y and s.  (s is an internally
 !! generated approximation to dy/dt.)  The arrays Y and S are inputs
 !! to the RES routine and should not be altered.  The residual
@@ -85,7 +54,7 @@
 !! ignored for casual use of DLSODIS.  (For uses of IRES, see the
 !! paragraph on RES in the full description below.)
 !!
-!! B. DLSODIS must deal internally with the matrices A and dr/dy, where
+!! **B.** DLSODIS must deal internally with the matrices A and dr/dy, where
 !! r is the residual function defined above.  DLSODIS generates a linear
 !! combination of these two matrices in sparse form.
 !!      The matrix structure is communicated by a method flag, MF:
@@ -96,10 +65,12 @@
 !!         MF = 321 or 422     when the user provides the structure
 !!                             of matrix A.
 !!
-!! C. You must also provide a subroutine of the form:
-!!                SUBROUTINE ADDA (NEQ, T, Y, J, IAN, JAN, P)
-!!                DOUBLE PRECISION T, Y(*), P(*)
-!!                INTEGER IAN(*), JAN(*)
+!! **C.** You must also provide a subroutine of the form:
+!!```fortran
+!!       SUBROUTINE ADDA (NEQ, T, Y, J, IAN, JAN, P)
+!!       DOUBLE PRECISION T, Y(*), P(*)
+!!       INTEGER IAN(*), JAN(*)
+!!```
 !! which adds the matrix A = A(t,y) to the contents of the array P.
 !! NEQ, T, Y, and J are input arguments and should not be altered.
 !! This routine should add the J-th column of matrix A to the array
@@ -107,128 +78,213 @@
 !! values of i.  The arguments IAN and JAN should be ignored for normal
 !! situations.  DLSODIS will call the ADDA routine with J = 1,2,...,NEQ.
 !!
-!! D. For the sake of efficiency, you are encouraged to supply the
-!! Jacobian matrix dr/dy in closed form, where r = g(t,y) - A(t,y)*s
+!! **D.** For the sake of efficiency, you are encouraged to supply the
+!! Jacobian matrix dr/dy in closed form, where r = g(t,y) - A(t,y)\*s
 !! (s = a fixed vector) as above.  If dr/dy is being supplied,
 !! use MF = 21, 121, or 321, and provide a subroutine of the form:
-!!               SUBROUTINE JAC (NEQ, T, Y, S, J, IAN, JAN, PDJ)
-!!               DOUBLE PRECISION T, Y(*), S(*), PDJ(*)
-!!               INTEGER IAN(*), JAN(*)
+!!```fortran
+!!       SUBROUTINE JAC (NEQ, T, Y, S, J, IAN, JAN, PDJ)
+!!       DOUBLE PRECISION T, Y(*), S(*), PDJ(*)
+!!       INTEGER IAN(*), JAN(*)
+!!```
 !! which computes dr/dy as a function of t, y, and s.  Here NEQ, T, Y, S,
 !! and J are input arguments, and the JAC routine is to load the array
 !! PDJ (of length NEQ) with the J-th column of dr/dy.  I.e. load PDJ(i)
 !! with dr(i)/dy(J) for all relevant values of i.  The arguments IAN and
 !! JAN should be ignored for normal situations.  DLSODIS will call the
 !! JAC routine with J = 1,2,...,NEQ.
-!!      Only nonzero elements need be loaded.  A crude approximation
+!!
+!! Only nonzero elements need be loaded.  A crude approximation
 !! to dr/dy, possibly with fewer nonzero elememts, will suffice.
 !! Note that if A is independent of y (or this dependence
 !! is weak enough to be ignored) then JAC is to compute dg/dy.
-!!      If it is not feasible to provide a JAC routine, use
+!!
+!! If it is not feasible to provide a JAC routine, use
 !! MF = 22, 222, or 422 and DLSODIS will compute an approximate
 !! Jacobian internally by difference quotients.
 !!
-!! E. Next decide whether or not to provide the initial value of the
+!! **E**. Next decide whether or not to provide the initial value of the
 !! derivative vector dy/dt.  If the initial value of A(t,y) is
 !! nonsingular (and not too ill-conditioned), you may let DLSODIS compute
-!! this vector (ISTATE = 0).  (DLSODIS will solve the system A*s = g for
+!! this vector (ISTATE = 0).  (DLSODIS will solve the system A\*s = g for
 !! s, with initial values of A and g.)  If A(t,y) is initially
 !! singular, then the system is a differential-algebraic system, and
 !! you must make use of the particular form of the system to compute the
 !! initial values of y and dy/dt.  In that case, use ISTATE = 1 and
 !! load the initial value of dy/dt into the array YDOTI.
-!! The input array YDOTI and the initial Y array must be consistent with
-!! the equations A*dy/dt = g.  This implies that the initial residual
-!! r = g(t,y) - A(t,y)*YDOTI   must be approximately zero.
 !!
-!! F. Write a main program which calls Subroutine DLSODIS once for
+!! The input array YDOTI and the initial Y array must be consistent with
+!! the equations A\*dy/dt = g.  This implies that the initial residual
+!! r = g(t,y) - A(t,y)\*YDOTI   must be approximately zero.
+!!
+!! **F.** Write a main program which calls Subroutine DLSODIS once for
 !! each point at which answers are desired.  This should also provide
 !! for possible use of logical unit 6 for output of error messages by
 !! DLSODIS.  On the first call to DLSODIS, supply arguments as follows:
-!! RES    = name of user subroutine for residual function r.
-!! ADDA   = name of user subroutine for computing and adding A(t,y).
-!! JAC    = name of user subroutine for Jacobian matrix dr/dy
-!!          (MF = 121).  If not used, pass a dummy name.
+!!
+!! RES    
+!!
+!! : name of user subroutine for residual function r.
+!!
+!! ADDA   
+!!
+!! : name of user subroutine for computing and adding A(t,y).
+!!
+!! JAC    
+!!
+!! : name of user subroutine for Jacobian matrix dr/dy
+!! (MF = 121).  If not used, pass a dummy name.
 !! Note: The names for the RES and ADDA routines and (if used) the
-!!        JAC routine must be declared External in the calling program.
-!! NEQ    = number of scalar equations in the system.
-!! Y      = array of initial values, of length NEQ.
-!! YDOTI  = array of length NEQ (containing initial dy/dt if ISTATE = 1).
-!! T      = the initial value of the independent variable.
-!! TOUT   = first point where output is desired (.ne. T).
-!! ITOL   = 1 or 2 according as ATOL (below) is a scalar or array.
-!! RTOL   = relative tolerance parameter (scalar).
-!! ATOL   = absolute tolerance parameter (scalar or array).
-!!          The estimated local error in y(i) will be controlled so as
-!!          to be roughly less (in magnitude) than
-!!             EWT(i) = RTOL*ABS(Y(i)) + ATOL     if ITOL = 1, or
-!!             EWT(i) = RTOL*ABS(Y(i)) + ATOL(i)  if ITOL = 2.
-!!          Thus the local error test passes if, in each component,
-!!          either the absolute error is less than ATOL (or ATOL(i)),
-!!          or the relative error is less than RTOL.
-!!          Use RTOL = 0.0 for pure absolute error control, and
-!!          use ATOL = 0.0 (or ATOL(i) = 0.0) for pure relative error
-!!          control.  Caution: Actual (global) errors may exceed these
-!!          local tolerances, so choose them conservatively.
-!! ITASK  = 1 for normal computation of output values of y at t = TOUT.
-!! ISTATE = integer flag (input and output).  Set ISTATE = 1 if the
-!!          initial dy/dt is supplied, and 0 otherwise.
-!! IOPT   = 0 to indicate no optional inputs used.
-!! RWORK  = real work array of length at least:
+!!
+!! JAC routine must be declared External in the calling program.
+!!
+!! NEQ    
+!!
+!! : number of scalar equations in the system.
+!!
+!! Y      
+!!
+!! : array of initial values, of length NEQ.
+!!
+!! YDOTI  
+!!
+!! : array of length NEQ (containing initial dy/dt if ISTATE = 1).
+!!
+!! T      
+!!
+!! : the initial value of the independent variable.
+!!
+!! TOUT   
+!!
+!! : first point where output is desired (.ne. T).
+!!
+!! ITOL   
+!!
+!! : 1 or 2 according as ATOL (below) is a scalar or array.
+!!
+!! RTOL   
+!!
+!! : relative tolerance parameter (scalar).
+!!
+!! ATOL   
+!!
+!! : absolute tolerance parameter (scalar or array).
+!! The estimated local error in y(i) will be controlled so as
+!! to be roughly less (in magnitude) than
+!!```text
+!!        EWT(i) = RTOL*ABS(Y(i)) + ATOL     if ITOL = 1, or
+!!        EWT(i) = RTOL*ABS(Y(i)) + ATOL(i)  if ITOL = 2.
+!!```
+!! Thus the local error test passes if, in each component,
+!! either the absolute error is less than ATOL (or ATOL(i)),
+!! or the relative error is less than RTOL.
+!! Use RTOL = 0.0 for pure absolute error control, and
+!! use ATOL = 0.0 (or ATOL(i) = 0.0) for pure relative error
+!! control.  Caution: Actual (global) errors may exceed these
+!! local tolerances, so choose them conservatively.
+!!
+!! ITASK  
+!!
+!! : 1 for normal computation of output values of y at t = TOUT.
+!!
+!! ISTATE 
+!!
+!! : integer flag (input and output).  Set ISTATE = 1 if the
+!! initial dy/dt is supplied, and 0 otherwise.
+!!
+!! IOPT   
+!!
+!! : 0 to indicate no optional inputs used.
+!!
+!! RWORK  
+!!
+!! : real work array of length at least:
+!!```text
 !!             20 + (2 + 1./LENRAT)*NNZ + (11 + 9./LENRAT)*NEQ
-!!          where:
+!!```
+!! where:
+!!```text
 !!          NNZ    = the number of nonzero elements in the sparse
-!!                   iteration matrix  P = A - con*dr/dy (con = scalar)
+!!                   iteration matrix  P = A - con\*dr/dy (con = scalar)
 !!                   (If NNZ is unknown, use an estimate of it.)
 !!          LENRAT = the real to integer wordlength ratio (usually 1 in
 !!                   single precision and 2 in double precision).
-!!          In any case, the required size of RWORK cannot generally
-!!          be predicted in advance for any value of MF, and the
-!!          value above is a rough estimate of a crude lower bound.
-!!          Some experimentation with this size may be necessary.
-!!          (When known, the correct required length is an optional
-!!          output, available in IWORK(17).)
-!! LRW    = declared length of RWORK (in user's dimension).
-!! IWORK  = integer work array of length at least 30.
-!! LIW    = declared length of IWORK (in user's dimension).
-!! MF     = method flag.  Standard values are:
-!!          121 for a user-supplied sparse Jacobian.
-!!          222 for an internally generated sparse Jacobian.
-!!          For other choices of MF, see the paragraph on MF in
-!!          the full description below.
+!!```
+!! In any case, the required size of RWORK cannot generally
+!! be predicted in advance for any value of MF, and the
+!! value above is a rough estimate of a crude lower bound.
+!! Some experimentation with this size may be necessary.
+!! (When known, the correct required length is an optional
+!! output, available in IWORK(17).)
+!!
+!! LRW    
+!!
+!! : declared length of RWORK (in user's dimension).
+!!
+!! IWORK  
+!!
+!! : integer work array of length at least 30.
+!!
+!! LIW    
+!!
+!! : declared length of IWORK (in user's dimension).
+!!
+!! MF     
+!!
+!! : method flag.  Standard values are:
+!!```text
+!!      121 for a user-supplied sparse Jacobian.
+!!      222 for an internally generated sparse Jacobian.
+!!```
+!! For other choices of MF, see the paragraph on MF in
+!! the full description below.
+!!
 !! Note that the main program must declare arrays Y, YDOTI, RWORK, IWORK,
 !! and possibly ATOL.
 !!
-!! G. The output from the first call, or any call, is:
-!!      Y = array of computed values of y(t) vector.
-!!      T = corresponding value of independent variable (normally TOUT).
-!! ISTATE =  2  if DLSODIS was successful, negative otherwise.
-!!          -1 means excess work done on this call (check all inputs).
-!!          -2 means excess accuracy requested (tolerances too small).
-!!          -3 means illegal input detected (see printed message).
-!!          -4 means repeated error test failures (check all inputs).
-!!          -5 means repeated convergence failures (perhaps bad Jacobian
-!!             supplied or wrong choice of tolerances).
-!!          -6 means error weight became zero during problem. (Solution
-!!             component i vanished, and ATOL or ATOL(i) = 0.)
-!!          -7 cannot occur in casual use.
-!!          -8 means DLSODIS was unable to compute the initial dy/dt.
-!!             in casual use, this means A(t,y) is initially singular.
-!!             Supply YDOTI and use ISTATE = 1 on the first call.
-!!          -9 means a fatal error return flag came from sparse solver
-!!             CDRV by way of DPRJIS or DSOLSS.  Should never happen.
+!! **G.** The output from the first call, or any call, is:
 !!
-!!          A return with ISTATE = -1, -4, or -5, may result from using
-!!          an inappropriate sparsity structure, one that is quite
-!!          different from the initial structure.  Consider calling
-!!          DLSODIS again with ISTATE = 3 to force the structure to be
-!!          reevaluated.  See the full description of ISTATE below.
+!! Y 
 !!
-!!  If DLSODIS returns ISTATE = -1, -4  or -5, then the output of
-!!  DLSODIS also includes YDOTI = array containing residual vector
-!!  r = g - A * dy/dt  evaluated at the current t, y, and dy/dt.
+!! : array of computed values of y(t) vector.
 !!
-!! H. To continue the integration after a successful return, simply
+!! T 
+!!
+!! : corresponding value of independent variable (normally TOUT).
+!!
+!! ISTATE 
+!!
+!! : value and their meanings:
+!!
+!!  value | descriptions
+!!  ----- | --------------------------------------------------------
+!!      2 | if DLSODIS was successful, negative otherwise.
+!!     -1 | means excess work done on this call (check all inputs).
+!!     -2 | means excess accuracy requested (tolerances too small).
+!!     -3 | means illegal input detected (see printed message).
+!!     -4 | means repeated error test failures (check all inputs).
+!!     -5 | means repeated convergence failures (perhaps bad Jacobian
+!!        | supplied or wrong choice of tolerances).
+!!     -6 | means error weight became zero during problem. (Solution
+!!        | component i vanished, and ATOL or ATOL(i) = 0.)
+!!     -7 | cannot occur in casual use.
+!!     -8 | means DLSODIS was unable to compute the initial dy/dt.
+!!        | in casual use, this means A(t,y) is initially singular.
+!!        | Supply YDOTI and use ISTATE = 1 on the first call.
+!!     -9 | means a fatal error return flag came from sparse solver
+!!        | CDRV by way of DPRJIS or DSOLSS.  Should never happen.
+!!
+!! A return with ISTATE = -1, -4, or -5, may result from using
+!! an inappropriate sparsity structure, one that is quite
+!! different from the initial structure.  Consider calling
+!! DLSODIS again with ISTATE = 3 to force the structure to be
+!! reevaluated.  See the full description of ISTATE below.
+!!
+!! If DLSODIS returns ISTATE = -1, -4  or -5, then the output of
+!! DLSODIS also includes YDOTI = array containing residual vector
+!! r = g - A \* dy/dt  evaluated at the current t, y, and dy/dt.
+!!
+!! **H.** To continue the integration after a successful return, simply
 !! reset TOUT and call DLSODIS again.  No other parameters need be reset.
 !!
 !!-----------------------------------------------------------------------
@@ -237,6 +293,7 @@
 !! The following is an example problem, with the coding needed
 !! for its solution by DLSODIS.  The problem comes from the partial
 !! differential equation (the Burgers equation)
+!!```text
 !!   du/dt  =  - u * du/dx  +  eta * d**2 u/dx**2,   eta = .05,
 !! on -1 .le. x .le. 1.  The boundary conditions are periodic:
 !!   u(-1,t) = u(1,t)  and  du/dx(-1,t) = du/dx(1,t)
@@ -257,6 +314,7 @@
 !!  (1/6)dy(nm1)/dt+(4/6)dy(NEQ)/dt+(1/6)dy(1)/dt
 !!       = r4d*(y(nm1)**2-y(1)**2)+eodsq*(y(1)-2*y(NEQ)+y(nm1))
 !! where r4d = 1/(4*delx), eodsq = eta/delx**2 and nm1 = NEQ-1.
+!!```
 !! The following coding solves the problem with MF = 121, with output
 !! of solution statistics at t = .1, .2, .3, and .4, and of the
 !! solution vector at t = .4.  Optional outputs (run statistics) are
@@ -420,6 +478,7 @@
 !! The output of this program (on a CDC-7600 in single precision)
 !! is as follows:
 !!
+!!```text
 !! At t = 0.10   No. steps =  15    Last step =  1.6863e-02
 !! At t = 0.20   No. steps =  19    Last step =  2.4101e-02
 !! At t = 0.30   No. steps =  22    Last step =  4.3143e-02
@@ -438,9 +497,9 @@
 !! Required RW size = 1409   IW size =  30
 !! No. steps =  24   No. r-s =  33   No. J-s =   8
 !! No. of nonzeros in P matrix = 120   No. of nonzeros in LU = 194
-!!
+!!```
 !!-----------------------------------------------------------------------
-!! Full Description of User Interface to DLSODIS.
+!!#### Full Description of User Interface to DLSODIS.
 !!
 !! The user interface to DLSODIS consists of the following parts.
 !!
@@ -465,13 +524,15 @@
 !!      These relate to the measurement of errors.
 !!
 !!-----------------------------------------------------------------------
-!! Part 1.  Call Sequence.
+!!### Part 1.  Call Sequence.
 !!
 !! The call sequence parameters used for input only are
 !!     RES, ADDA, JAC, NEQ, TOUT, ITOL, RTOL, ATOL, ITASK,
 !!     IOPT, LRW, LIW, MF,
+!!
 !! and those used for both input and output are
 !!     Y, T, ISTATE, YDOTI.
+!!
 !! The work arrays RWORK and IWORK are also used for conditional and
 !! optional inputs and optional outputs.  (The term output here refers
 !! to the return from Subroutine DLSODIS to the user's calling program.)
@@ -482,521 +543,663 @@
 !!
 !! The descriptions of the call arguments are as follows.
 !!
-!! RES    = the name of the user-supplied subroutine which supplies
-!!          the residual vector for the ODE system, defined by
+!! RES    
+!!
+!! : the name of the user-supplied subroutine which supplies
+!! the residual vector for the ODE system, defined by
+!!```text
 !!            r = g(t,y) - A(t,y) * s
-!!          as a function of the scalar t and the vectors
-!!          s and y (s approximates dy/dt).  This subroutine
-!!          is to have the form
+!!```
+!! as a function of the scalar t and the vectors
+!! s and y (s approximates dy/dt).  This subroutine
+!! is to have the form
+!!```fortran
 !!               SUBROUTINE RES (NEQ, T, Y, S, R, IRES)
 !!               DOUBLE PRECISION T, Y(*), S(*), R(*)
-!!          where NEQ, T, Y, S, and IRES are input, and R and
-!!          IRES are output.  Y, S, and R are arrays of length NEQ.
-!!             On input, IRES indicates how DLSODIS will use the
-!!          returned array R, as follows:
+!!```
+!! where NEQ, T, Y, S, and IRES are input, and R and
+!! IRES are output.  Y, S, and R are arrays of length NEQ.
+!!
+!! On input, IRES indicates how DLSODIS will use the
+!! returned array R, as follows:
+!!```text
 !!             IRES = 1  means that DLSODIS needs the full residual,
-!!                       r = g - A*s, exactly.
+!!                       r = g - A\*s, exactly.
 !!             IRES = -1 means that DLSODIS is using R only to compute
 !!                       the Jacobian dr/dy by difference quotients.
-!!          The RES routine can ignore IRES, or it can omit some terms
-!!          if IRES = -1.  If A does not depend on y, then RES can
-!!          just return R = g when IRES = -1.  If g - A*s contains other
-!!          additive terms that are independent of y, these can also be
-!!          dropped, if done consistently, when IRES = -1.
-!!             The subroutine should set the flag IRES if it
-!!          encounters a halt condition or illegal input.
-!!          Otherwise, it should not reset IRES.  On output,
-!!             IRES = 1 or -1 represents a normal return, and
-!!          DLSODIS continues integrating the ODE.  Leave IRES
-!!          unchanged from its input value.
-!!             IRES = 2 tells DLSODIS to immediately return control
-!!          to the calling program, with ISTATE = 3.  This lets
-!!          the calling program change parameters of the problem
-!!          if necessary.
-!!             IRES = 3 represents an error condition (for example, an
-!!          illegal value of y).  DLSODIS tries to integrate the system
-!!          without getting IRES = 3 from RES.  If it cannot, DLSODIS
-!!          returns with ISTATE = -7 or -1.
-!!             On a return with ISTATE = 3, -1, or -7, the values
-!!          of T and Y returned correspond to the last point reached
-!!          successfully without getting the flag IRES = 2 or 3.
-!!             The flag values IRES = 2 and 3 should not be used to
-!!          handle switches or root-stop conditions.  This is better
-!!          done by calling DLSODIS in a one-step mode and checking the
-!!          stopping function for a sign change at each step.
-!!             If quantities computed in the RES routine are needed
-!!          externally to DLSODIS, an extra call to RES should be made
-!!          for this purpose, for consistent and accurate results.
-!!          To get the current dy/dt for the S argument, use DINTDY.
-!!             RES must be declared External in the calling
-!!          program.  See note below for more about RES.
+!!```
+!! The RES routine can ignore IRES, or it can omit some terms
+!! if IRES = -1.  If A does not depend on y, then RES can
+!! just return R = g when IRES = -1.  If g - A\*s contains other
+!! additive terms that are independent of y, these can also be
+!! dropped, if done consistently, when IRES = -1.
 !!
-!! ADDA   = the name of the user-supplied subroutine which adds the
-!!          matrix A = A(t,y) to another matrix stored in sparse form.
-!!          This subroutine is to have the form
-!!               SUBROUTINE ADDA (NEQ, T, Y, J, IAN, JAN, P)
-!!               DOUBLE PRECISION T, Y(*), P(*)
-!!               INTEGER IAN(*), JAN(*)
-!!          where NEQ, T, Y, J, IAN, JAN, and P  are input.  This routine
-!!          should add the J-th column of matrix A to the array P, of
-!!          length NEQ.  Thus a(i,J) is to be added to P(i) for all
-!!          relevant values of i.  Here T and Y have the same meaning as
-!!          in Subroutine RES, and J is a column index (1 to NEQ).
-!!          IAN and JAN are undefined in calls to ADDA for structure
-!!          determination (MOSS .ne. 0).  Otherwise, IAN and JAN are
-!!          structure descriptors, as defined under optional outputs
-!!          below, and so can be used to determine the relevant row
-!!          indices i, if desired.
-!!               Calls to ADDA are made with J = 1,...,NEQ, in that
-!!          order.  ADDA must not alter its input arguments.
-!!               ADDA must be declared External in the calling program.
-!!          See note below for more information about ADDA.
+!! The subroutine should set the flag IRES if it
+!! encounters a halt condition or illegal input.
+!! Otherwise, it should not reset IRES.  On output,
 !!
-!! JAC    = the name of the user-supplied subroutine which supplies
-!!          the Jacobian matrix, dr/dy, where r = g - A*s.  JAC is
-!!          required if MITER = 1, or MOSS = 1 or 3.  Otherwise a dummy
-!!          name can be passed.  This subroutine is to have the form
+!! IRES = 1 or -1 represents a normal return, and
+!! DLSODIS continues integrating the ODE.  Leave IRES
+!! unchanged from its input value.
+!!
+!! IRES = 2 tells DLSODIS to immediately return control
+!! to the calling program, with ISTATE = 3.  This lets
+!! the calling program change parameters of the problem
+!! if necessary.
+!!
+!! IRES = 3 represents an error condition (for example, an
+!! illegal value of y).  DLSODIS tries to integrate the system
+!! without getting IRES = 3 from RES.  If it cannot, DLSODIS
+!! returns with ISTATE = -7 or -1.
+!!
+!! On a return with ISTATE = 3, -1, or -7, the values
+!! of T and Y returned correspond to the last point reached
+!! successfully without getting the flag IRES = 2 or 3.
+!!
+!! The flag values IRES = 2 and 3 should not be used to
+!! handle switches or root-stop conditions.  This is better
+!! done by calling DLSODIS in a one-step mode and checking the
+!! stopping function for a sign change at each step.
+!!
+!! If quantities computed in the RES routine are needed
+!! externally to DLSODIS, an extra call to RES should be made
+!! for this purpose, for consistent and accurate results.
+!! To get the current dy/dt for the S argument, use DINTDY.
+!!
+!! RES must be declared External in the calling
+!! program.  See note below for more about RES.
+!!
+!! ADDA   
+!!
+!! : the name of the user-supplied subroutine which adds the
+!! matrix A = A(t,y) to another matrix stored in sparse form.
+!! This subroutine is to have the form
+!!```fortran
+!!       SUBROUTINE ADDA (NEQ, T, Y, J, IAN, JAN, P)
+!!       DOUBLE PRECISION T, Y(*), P(*)
+!!       INTEGER IAN(*), JAN(*)
+!!```
+!! where NEQ, T, Y, J, IAN, JAN, and P  are input.  This routine
+!! should add the J-th column of matrix A to the array P, of
+!! length NEQ.  Thus a(i,J) is to be added to P(i) for all
+!! relevant values of i.  Here T and Y have the same meaning as
+!! in Subroutine RES, and J is a column index (1 to NEQ).
+!! IAN and JAN are undefined in calls to ADDA for structure
+!! determination (MOSS .ne. 0).  Otherwise, IAN and JAN are
+!! structure descriptors, as defined under optional outputs
+!! below, and so can be used to determine the relevant row
+!! indices i, if desired.
+!!
+!! Calls to ADDA are made with J = 1,...,NEQ, in that
+!! order.  ADDA must not alter its input arguments.
+!!
+!! ADDA must be declared External in the calling program.
+!! See note below for more information about ADDA.
+!!
+!! JAC    
+!!
+!! : the name of the user-supplied subroutine which supplies
+!! the Jacobian matrix, dr/dy, where r = g - A\*s.  JAC is
+!! required if MITER = 1, or MOSS = 1 or 3.  Otherwise a dummy
+!! name can be passed.  This subroutine is to have the form
+!!```fortran
 !!               SUBROUTINE JAC (NEQ, T, Y, S, J, IAN, JAN, PDJ)
 !!               DOUBLE PRECISION T, Y(*), S(*), PDJ(*)
 !!               INTEGER IAN(*), JAN(*)
-!!         where NEQ, T, Y, S, J, IAN, and JAN are input.  The
-!!         array PDJ, of length NEQ, is to be loaded with column J
-!!         of the Jacobian on output.  Thus dr(i)/dy(J) is to be
-!!         loaded into PDJ(i) for all relevant values of i.
-!!         Here T, Y, and S have the same meaning as in Subroutine RES,
-!!         and J is a column index (1 to NEQ).  IAN and JAN
-!!         are undefined in calls to JAC for structure determination
-!!         (MOSS .ne. 0).  Otherwise, IAN and JAN are structure
-!!         descriptors, as defined under optional outputs below, and
-!!         so can be used to determine the relevant row indices i, if
-!!         desired.
-!!              JAC need not provide dr/dy exactly.  A crude
-!!         approximation (possibly with greater sparsity) will do.
-!!              In any case, PDJ is preset to zero by the solver,
-!!         so that only the nonzero elements need be loaded by JAC.
-!!         Calls to JAC are made with J = 1,...,NEQ, in that order, and
-!!         each such set of calls is preceded by a call to RES with the
-!!         same arguments NEQ, T, Y, S, and IRES.  Thus to gain some
-!!         efficiency intermediate quantities shared by both calculations
-!!         may be saved in a user Common block by RES and not recomputed
-!!         by JAC, if desired.  JAC must not alter its input arguments.
-!!              JAC must be declared External in the calling program.
-!!              See note below for more about JAC.
+!!```
+!! where NEQ, T, Y, S, J, IAN, and JAN are input.  The
+!! array PDJ, of length NEQ, is to be loaded with column J
+!! of the Jacobian on output.  Thus dr(i)/dy(J) is to be
+!! loaded into PDJ(i) for all relevant values of i.
 !!
-!!    Note on RES, ADDA, and JAC:
-!!          These subroutines may access user-defined quantities in
-!!          NEQ(2),... and/or in Y(NEQ(1)+1),... if NEQ is an array
-!!          (dimensioned in the subroutines) and/or Y has length
-!!          exceeding NEQ(1).  However, these subroutines should not
-!!          alter NEQ(1), Y(1),...,Y(NEQ) or any other input variables.
-!!          See the descriptions of NEQ and Y below.
+!! Here T, Y, and S have the same meaning as in Subroutine RES,
+!! and J is a column index (1 to NEQ).  IAN and JAN
+!! are undefined in calls to JAC for structure determination
+!! (MOSS .ne. 0).  Otherwise, IAN and JAN are structure
+!! descriptors, as defined under optional outputs below, and
+!! so can be used to determine the relevant row indices i, if
+!! desired.
 !!
-!! NEQ    = the size of the system (number of first order ordinary
-!!          differential equations or scalar algebraic equations).
-!!          Used only for input.
-!!          NEQ may be decreased, but not increased, during the problem.
-!!          If NEQ is decreased (with ISTATE = 3 on input), the
-!!          remaining components of Y should be left undisturbed, if
-!!          these are to be accessed in RES, ADDA, or JAC.
+!! JAC need not provide dr/dy exactly.  A crude
+!! approximation (possibly with greater sparsity) will do.
 !!
-!!          Normally, NEQ is a scalar, and it is generally referred to
-!!          as a scalar in this user interface description.  However,
-!!          NEQ may be an array, with NEQ(1) set to the system size.
-!!          (The DLSODIS package accesses only NEQ(1).)  In either case,
-!!          this parameter is passed as the NEQ argument in all calls
-!!          to RES, ADDA, and JAC.  Hence, if it is an array,
-!!          locations NEQ(2),... may be used to store other integer data
-!!          and pass it to RES, ADDA, or JAC.  Each such subroutine
-!!          must include NEQ in a Dimension statement in that case.
+!! In any case, PDJ is preset to zero by the solver,
+!! so that only the nonzero elements need be loaded by JAC.
+!! Calls to JAC are made with J = 1,...,NEQ, in that order, and
+!! each such set of calls is preceded by a call to RES with the
+!! same arguments NEQ, T, Y, S, and IRES.  Thus to gain some
+!! efficiency intermediate quantities shared by both calculations
+!! may be saved in a user Common block by RES and not recomputed
+!! by JAC, if desired.  JAC must not alter its input arguments.
 !!
-!! Y      = a real array for the vector of dependent variables, of
-!!          length NEQ or more.  Used for both input and output on the
-!!          first call (ISTATE = 0 or 1), and only for output on other
-!!          calls.  On the first call, Y must contain the vector of
-!!          initial values.  On output, Y contains the computed solution
-!!          vector, evaluated at T.  If desired, the Y array may be used
-!!          for other purposes between calls to the solver.
+!! JAC must be declared External in the calling program.
 !!
-!!          This array is passed as the Y argument in all calls to RES,
-!!          ADDA, and JAC.  Hence its length may exceed NEQ,
-!!          and locations Y(NEQ+1),... may be used to store other real
-!!          data and pass it to RES, ADDA, or JAC.  (The DLSODIS
-!!          package accesses only Y(1),...,Y(NEQ). )
+!! See note below for more about JAC.
 !!
-!! YDOTI  = a real array for the initial value of the vector
-!!          dy/dt and for work space, of dimension at least NEQ.
+!! Note on RES, ADDA, and JAC:
 !!
-!!          On input:
-!!            If ISTATE = 0 then DLSODIS will compute the initial value
-!!          of dy/dt, if A is nonsingular.  Thus YDOTI will
-!!          serve only as work space and may have any value.
-!!            If ISTATE = 1 then YDOTI must contain the initial value
-!!          of dy/dt.
-!!            If ISTATE = 2 or 3 (continuation calls) then YDOTI
-!!          may have any value.
-!!            Note: If the initial value of A is singular, then
-!!          DLSODIS cannot compute the initial value of dy/dt, so
-!!          it must be provided in YDOTI, with ISTATE = 1.
+!! These subroutines may access user-defined quantities in
+!! NEQ(2),... and/or in Y(NEQ(1)+1),... if NEQ is an array
+!! (dimensioned in the subroutines) and/or Y has length
+!! exceeding NEQ(1).  However, these subroutines should not
+!! alter NEQ(1), Y(1),...,Y(NEQ) or any other input variables.
+!! See the descriptions of NEQ and Y below.
 !!
-!!          On output, when DLSODIS terminates abnormally with ISTATE =
-!!          -1, -4, or -5, YDOTI will contain the residual
-!!          r = g(t,y) - A(t,y)*(dy/dt).  If r is large, t is near
-!!          its initial value, and YDOTI is supplied with ISTATE = 1,
-!!          there may have been an incorrect input value of
-!!          YDOTI = dy/dt, or the problem (as given to DLSODIS)
-!!          may not have a solution.
+!! NEQ    
 !!
-!!          If desired, the YDOTI array may be used for other
-!!          purposes between calls to the solver.
+!! : the size of the system (number of first order ordinary
+!! differential equations or scalar algebraic equations).
+!! Used only for input.
+!! NEQ may be decreased, but not increased, during the problem.
+!! If NEQ is decreased (with ISTATE = 3 on input), the
+!! remaining components of Y should be left undisturbed, if
+!! these are to be accessed in RES, ADDA, or JAC.
 !!
-!! T      = the independent variable.  On input, T is used only on the
-!!          first call, as the initial point of the integration.
-!!          On output, after each call, T is the value at which a
-!!          computed solution y is evaluated (usually the same as TOUT).
-!!          On an error return, T is the farthest point reached.
+!! Normally, NEQ is a scalar, and it is generally referred to
+!! as a scalar in this user interface description.  However,
+!! NEQ may be an array, with NEQ(1) set to the system size.
+!! (The DLSODIS package accesses only NEQ(1).)  In either case,
+!! this parameter is passed as the NEQ argument in all calls
+!! to RES, ADDA, and JAC.  Hence, if it is an array,
+!! locations NEQ(2),... may be used to store other integer data
+!! and pass it to RES, ADDA, or JAC.  Each such subroutine
+!! must include NEQ in a Dimension statement in that case.
 !!
-!! TOUT   = the next value of t at which a computed solution is desired.
-!!          Used only for input.
+!! Y      
 !!
-!!          When starting the problem (ISTATE = 0 or 1), TOUT may be
-!!          equal to T for one call, then should .ne. T for the next
-!!          call.  For the initial T, an input value of TOUT .ne. T is
-!!          used in order to determine the direction of the integration
-!!          (i.e. the algebraic sign of the step sizes) and the rough
-!!          scale of the problem.  Integration in either direction
-!!          (forward or backward in t) is permitted.
+!! : a real array for the vector of dependent variables, of
+!! length NEQ or more.  Used for both input and output on the
+!! first call (ISTATE = 0 or 1), and only for output on other
+!! calls.  On the first call, Y must contain the vector of
+!! initial values.  On output, Y contains the computed solution
+!! vector, evaluated at T.  If desired, the Y array may be used
+!! for other purposes between calls to the solver.
 !!
-!!          If ITASK = 2 or 5 (one-step modes), TOUT is ignored after
-!!          the first call (i.e. the first call with TOUT .ne. T).
-!!          Otherwise, TOUT is required on every call.
+!! This array is passed as the Y argument in all calls to RES,
+!! ADDA, and JAC.  Hence its length may exceed NEQ,
+!! and locations Y(NEQ+1),... may be used to store other real
+!! data and pass it to RES, ADDA, or JAC.  (The DLSODIS
+!! package accesses only Y(1),...,Y(NEQ). )
 !!
-!!          If ITASK = 1, 3, or 4, the values of TOUT need not be
-!!          monotone, but a value of TOUT which backs up is limited
-!!          to the current internal T interval, whose endpoints are
-!!          TCUR - HU and TCUR (see optional outputs, below, for
-!!          TCUR and HU).
+!! YDOTI  
 !!
-!! ITOL   = an indicator for the type of error control.  See
-!!          description below under ATOL.  Used only for input.
+!! : a real array for the initial value of the vector
+!! dy/dt and for work space, of dimension at least NEQ.
 !!
-!! RTOL   = a relative error tolerance parameter, either a scalar or
-!!          an array of length NEQ.  See description below under ATOL.
-!!          Input only.
+!! On input:
 !!
-!! ATOL   = an absolute error tolerance parameter, either a scalar or
-!!          an array of length NEQ.  Input only.
+!! If ISTATE = 0 then DLSODIS will compute the initial value
+!! of dy/dt, if A is nonsingular.  Thus YDOTI will
+!! serve only as work space and may have any value.
 !!
-!!             The input parameters ITOL, RTOL, and ATOL determine
-!!          the error control performed by the solver.  The solver will
-!!          control the vector E = (E(i)) of estimated local errors
-!!          in y, according to an inequality of the form
+!! If ISTATE = 1 then YDOTI must contain the initial value
+!! of dy/dt.
+!!
+!! If ISTATE = 2 or 3 (continuation calls) then YDOTI
+!! may have any value.
+!!
+!! Note: If the initial value of A is singular, then
+!! DLSODIS cannot compute the initial value of dy/dt, so
+!! it must be provided in YDOTI, with ISTATE = 1.
+!!
+!! On output, when DLSODIS terminates abnormally with ISTATE =
+!! -1, -4, or -5, YDOTI will contain the residual
+!! r = g(t,y) - A(t,y)\*(dy/dt).  If r is large, t is near
+!! its initial value, and YDOTI is supplied with ISTATE = 1,
+!! there may have been an incorrect input value of
+!! YDOTI = dy/dt, or the problem (as given to DLSODIS)
+!! may not have a solution.
+!!
+!! If desired, the YDOTI array may be used for other
+!! purposes between calls to the solver.
+!!
+!! T      
+!!
+!! : the independent variable.  On input, T is used only on the
+!! first call, as the initial point of the integration.
+!! On output, after each call, T is the value at which a
+!! computed solution y is evaluated (usually the same as TOUT).
+!! On an error return, T is the farthest point reached.
+!!
+!! TOUT   
+!!
+!! : the next value of t at which a computed solution is desired.
+!! Used only for input.
+!!
+!! When starting the problem (ISTATE = 0 or 1), TOUT may be
+!! equal to T for one call, then should .ne. T for the next
+!! call.  For the initial T, an input value of TOUT .ne. T is
+!! used in order to determine the direction of the integration
+!! (i.e. the algebraic sign of the step sizes) and the rough
+!! scale of the problem.  Integration in either direction
+!! (forward or backward in t) is permitted.
+!!
+!! If ITASK = 2 or 5 (one-step modes), TOUT is ignored after
+!! the first call (i.e. the first call with TOUT .ne. T).
+!! Otherwise, TOUT is required on every call.
+!!
+!! If ITASK = 1, 3, or 4, the values of TOUT need not be
+!! monotone, but a value of TOUT which backs up is limited
+!! to the current internal T interval, whose endpoints are
+!! TCUR - HU and TCUR (see optional outputs, below, for
+!! TCUR and HU).
+!!
+!! ITOL   
+!!
+!! : an indicator for the type of error control.  See
+!! description below under ATOL.  Used only for input.
+!!
+!! RTOL   
+!!
+!! : a relative error tolerance parameter, either a scalar or
+!! an array of length NEQ.  See description below under ATOL.
+!! Input only.
+!!
+!! ATOL   
+!!
+!! : an absolute error tolerance parameter, either a scalar or
+!! an array of length NEQ.  Input only.
+!!
+!! The input parameters ITOL, RTOL, and ATOL determine
+!! the error control performed by the solver.  The solver will
+!! control the vector E = (E(i)) of estimated local errors
+!! in y, according to an inequality of the form
+!!```text
 !!                      RMS-norm of ( E(i)/EWT(i) )   .le.   1,
 !!          where       EWT(i) = RTOL(i)*ABS(Y(i)) + ATOL(i),
-!!          and the RMS-norm (root-mean-square norm) here is
-!!          RMS-norm(v) = SQRT(sum v(i)**2 / NEQ).  Here EWT = (EWT(i))
-!!          is a vector of weights which must always be positive, and
-!!          the values of RTOL and ATOL should all be non-negative.
-!!          The following table gives the types (scalar/array) of
-!!          RTOL and ATOL, and the corresponding form of EWT(i).
+!!```
+!! and the RMS-norm (root-mean-square norm) here is
+!! RMS-norm(v) = SQRT(sum v(i)\*\*2 / NEQ).  Here EWT = (EWT(i))
+!! is a vector of weights which must always be positive, and
+!! the values of RTOL and ATOL should all be non-negative.
+!! The following table gives the types (scalar/array) of
+!! RTOL and ATOL, and the corresponding form of EWT(i).
 !!
-!!             ITOL    RTOL       ATOL          EWT(i)
-!!              1     scalar     scalar     RTOL*ABS(Y(i)) + ATOL
-!!              2     scalar     array      RTOL*ABS(Y(i)) + ATOL(i)
-!!              3     array      scalar     RTOL(i)*ABS(Y(i)) + ATOL
-!!              4     array      scalar     RTOL(i)*ABS(Y(i)) + ATOL(i)
+!!  ITOL |  RTOL    |  ATOL   |      EWT(i)
+!!  ---- | -------- | ------- | ------------------------------
+!!   1   | scalar   | scalar  |  RTOL\*ABS(Y(i)) + ATOL
+!!   2   | scalar   | array   |  RTOL\*ABS(Y(i)) + ATOL(i)
+!!   3   | array    | scalar  |  RTOL(i)\*ABS(Y(i)) + ATOL
+!!   4   | array    | scalar  |  RTOL(i)\*ABS(Y(i)) + ATOL(i)
 !!
-!!          When either of these parameters is a scalar, it need not
-!!          be dimensioned in the user's calling program.
+!! When either of these parameters is a scalar, it need not
+!! be dimensioned in the user's calling program.
 !!
-!!          If none of the above choices (with ITOL, RTOL, and ATOL
-!!          fixed throughout the problem) is suitable, more general
-!!          error controls can be obtained by substituting
-!!          user-supplied routines for the setting of EWT and/or for
-!!          the norm calculation.  See Part 4 below.
+!! If none of the above choices (with ITOL, RTOL, and ATOL
+!! fixed throughout the problem) is suitable, more general
+!! error controls can be obtained by substituting
+!! user-supplied routines for the setting of EWT and/or for
+!! the norm calculation.  See Part 4 below.
 !!
-!!          If global errors are to be estimated by making a repeated
-!!          run on the same problem with smaller tolerances, then all
-!!          components of RTOL and ATOL (i.e. of EWT) should be scaled
-!!          down uniformly.
+!! If global errors are to be estimated by making a repeated
+!! run on the same problem with smaller tolerances, then all
+!! components of RTOL and ATOL (i.e. of EWT) should be scaled
+!! down uniformly.
 !!
-!! ITASK  = an index specifying the task to be performed.
-!!          Input only.  ITASK has the following values and meanings.
-!!          1  means normal computation of output values of y(t) at
-!!             t = TOUT (by overshooting and interpolating).
-!!          2  means take one step only and return.
-!!          3  means stop at the first internal mesh point at or
-!!             beyond t = TOUT and return.
-!!          4  means normal computation of output values of y(t) at
-!!             t = TOUT but without overshooting t = TCRIT.
-!!             TCRIT must be input as RWORK(1).  TCRIT may be equal to
-!!             or beyond TOUT, but not behind it in the direction of
-!!             integration.  This option is useful if the problem
-!!             has a singularity at or beyond t = TCRIT.
-!!          5  means take one step, without passing TCRIT, and return.
-!!             TCRIT must be input as RWORK(1).
+!! ITASK  
 !!
-!!          Note:  If ITASK = 4 or 5 and the solver reaches TCRIT
-!!          (within roundoff), it will return T = TCRIT (exactly) to
-!!          indicate this (unless ITASK = 4 and TOUT comes before TCRIT,
-!!          in which case answers at t = TOUT are returned first).
+!! : an index specifying the task to be performed.
+!! Input only.  ITASK has the following values and meanings.
 !!
-!! ISTATE = an index used for input and output to specify the
-!!          state of the calculation.
 !!
-!!          On input, the values of ISTATE are as follows.
-!!          0  means this is the first call for the problem, and
-!!             DLSODIS is to compute the initial value of dy/dt
-!!             (while doing other initializations).  See note below.
-!!          1  means this is the first call for the problem, and
-!!             the initial value of dy/dt has been supplied in
-!!             YDOTI (DLSODIS will do other initializations).
-!!             See note below.
-!!          2  means this is not the first call, and the calculation
-!!             is to continue normally, with no change in any input
-!!             parameters except possibly TOUT and ITASK.
-!!             (If ITOL, RTOL, and/or ATOL are changed between calls
-!!             with ISTATE = 2, the new values will be used but not
-!!             tested for legality.)
-!!          3  means this is not the first call, and the
-!!             calculation is to continue normally, but with
-!!             a change in input parameters other than
-!!             TOUT and ITASK.  Changes are allowed in
-!!             NEQ, ITOL, RTOL, ATOL, IOPT, LRW, LIW, MF,
-!!             the conditional inputs IA, JA, IC, and JC,
-!!             and any of the optional inputs except H0.
-!!             A call with ISTATE = 3 will cause the sparsity
-!!             structure of the problem to be recomputed.
-!!             (Structure information is reread from IA and JA if
-!!             MOSS = 0, 3, or 4 and from IC and JC if MOSS = 0).
-!!          Note:  A preliminary call with TOUT = T is not counted
-!!          as a first call here, as no initialization or checking of
-!!          input is done.  (Such a call is sometimes useful for the
-!!          purpose of outputting the initial conditions.)
-!!          Thus the first call for which TOUT .ne. T requires
-!!          ISTATE = 0 or 1 on input.
+!!  value  | description 
+!!  ------ | ----------------------------------------------------
+!!      1  | means normal computation of output values of y(t) at
+!!         | t = TOUT (by overshooting and interpolating).
+!!      2  | means take one step only and return.
+!!      3  | means stop at the first internal mesh point at or
+!!         | beyond t = TOUT and return.
+!!      4  | means normal computation of output values of y(t) at
+!!         | t = TOUT but without overshooting t = TCRIT.
+!!         | TCRIT must be input as RWORK(1).  TCRIT may be equal to
+!!         | or beyond TOUT, but not behind it in the direction of
+!!         | integration.  This option is useful if the problem
+!!         | has a singularity at or beyond t = TCRIT.
+!!      5  | means take one step, without passing TCRIT, and return.
+!!         | TCRIT must be input as RWORK(1).
 !!
-!!          On output, ISTATE has the following values and meanings.
-!!           0 or 1  means nothing was done; TOUT = T and
-!!              ISTATE = 0 or 1 on input.
-!!           2  means that the integration was performed successfully.
-!!           3  means that the user-supplied Subroutine RES signalled
-!!              DLSODIS to halt the integration and return (IRES = 2).
-!!              Integration as far as T was achieved with no occurrence
-!!              of IRES = 2, but this flag was set on attempting the
-!!              next step.
-!!          -1  means an excessive amount of work (more than MXSTEP
-!!              steps) was done on this call, before completing the
-!!              requested task, but the integration was otherwise
-!!              successful as far as T.  (MXSTEP is an optional input
-!!              and is normally 500.)  To continue, the user may
-!!              simply reset ISTATE to a value .gt. 1 and call again
-!!              (the excess work step counter will be reset to 0).
-!!              In addition, the user may increase MXSTEP to avoid
-!!              this error return (see below on optional inputs).
-!!          -2  means too much accuracy was requested for the precision
-!!              of the machine being used.  This was detected before
-!!              completing the requested task, but the integration
-!!              was successful as far as T.  To continue, the tolerance
-!!              parameters must be reset, and ISTATE must be set
-!!              to 3.  The optional output TOLSF may be used for this
-!!              purpose.  (Note: If this condition is detected before
-!!              taking any steps, then an illegal input return
-!!              (ISTATE = -3) occurs instead.)
-!!          -3  means illegal input was detected, before taking any
-!!              integration steps.  See written message for details.
-!!              Note:  If the solver detects an infinite loop of calls
-!!              to the solver with illegal input, it will cause
-!!              the run to stop.
-!!          -4  means there were repeated error test failures on
-!!              one attempted step, before completing the requested
-!!              task, but the integration was successful as far as T.
-!!              The problem may have a singularity, or the input
-!!              may be inappropriate.
-!!          -5  means there were repeated convergence test failures on
-!!              one attempted step, before completing the requested
-!!              task, but the integration was successful as far as T.
-!!              This may be caused by an inaccurate Jacobian matrix.
-!!          -6  means EWT(i) became zero for some i during the
-!!              integration.  Pure relative error control (ATOL(i) = 0.0)
-!!              was requested on a variable which has now vanished.
-!!              the integration was successful as far as T.
-!!          -7  means that the user-supplied Subroutine RES set
-!!              its error flag (IRES = 3) despite repeated tries by
-!!              DLSODIS to avoid that condition.
-!!          -8  means that ISTATE was 0 on input but DLSODIS was unable
-!!              to compute the initial value of dy/dt.  See the
-!!              printed message for details.
-!!          -9  means a fatal error return flag came from the sparse
-!!              solver CDRV by way of DPRJIS or DSOLSS (numerical
-!!              factorization or backsolve).  This should never happen.
-!!              The integration was successful as far as T.
+!! Note:  If ITASK = 4 or 5 and the solver reaches TCRIT
+!! (within roundoff), it will return T = TCRIT (exactly) to
+!! indicate this (unless ITASK = 4 and TOUT comes before TCRIT,
+!! in which case answers at t = TOUT are returned first).
 !!
-!!          Note: An error return with ISTATE = -1, -4, or -5
-!!          may mean that the sparsity structure of the
-!!          problem has changed significantly since it was last
-!!          determined (or input).  In that case, one can attempt to
-!!          complete the integration by setting ISTATE = 3 on the next
-!!          call, so that a new structure determination is done.
+!! ISTATE 
 !!
-!!          Note:  Since the normal output value of ISTATE is 2,
-!!          it does not need to be reset for normal continuation.
-!!          similarly, ISTATE (= 3) need not be reset if RES told
-!!          DLSODIS to return because the calling program must change
-!!          the parameters of the problem.
-!!          Also, since a negative input value of ISTATE will be
-!!          regarded as illegal, a negative output value requires the
-!!          user to change it, and possibly other inputs, before
-!!          calling the solver again.
+!! : an index used for input and output to specify the
+!! state of the calculation.
 !!
-!! IOPT   = an integer flag to specify whether or not any optional
-!!          inputs are being used on this call.  Input only.
-!!          The optional inputs are listed separately below.
+!! On input, the values of ISTATE are as follows.
+!!
+!!  value  | description 
+!!  ------ | ----------------------------------------------------
+!!       0 | means this is the first call for the problem, and
+!!         | DLSODIS is to compute the initial value of dy/dt
+!!         | (while doing other initializations).  See note below.
+!!         | 
+!!       1 | means this is the first call for the problem, and
+!!         | the initial value of dy/dt has been supplied in
+!!         | YDOTI (DLSODIS will do other initializations).
+!!         | See note below.
+!!         | 
+!!       2 | means this is not the first call, and the calculation
+!!         | is to continue normally, with no change in any input
+!!         | parameters except possibly TOUT and ITASK.
+!!         | (If ITOL, RTOL, and/or ATOL are changed between calls
+!!         | with ISTATE = 2, the new values will be used but not
+!!         | tested for legality.)
+!!         | 
+!!       3 | means this is not the first call, and the
+!!         | calculation is to continue normally, but with
+!!         | a change in input parameters other than
+!!         | TOUT and ITASK.  Changes are allowed in
+!!         | NEQ, ITOL, RTOL, ATOL, IOPT, LRW, LIW, MF,
+!!         | the conditional inputs IA, JA, IC, and JC,
+!!         | and any of the optional inputs except H0.
+!!         | A call with ISTATE = 3 will cause the sparsity
+!!         | structure of the problem to be recomputed.
+!!         | (Structure information is reread from IA and JA if
+!!         | MOSS = 0, 3, or 4 and from IC and JC if MOSS = 0).
+!!
+!! Note:  A preliminary call with TOUT = T is not counted
+!! as a first call here, as no initialization or checking of
+!! input is done.  (Such a call is sometimes useful for the
+!! purpose of outputting the initial conditions.)
+!! Thus the first call for which TOUT .ne. T requires
+!! ISTATE = 0 or 1 on input.
+!!
+!! On output, ISTATE has the following values and meanings.
+!!
+!!  value  | description 
+!!  ------ | ----------------------------------------------------
+!!  0 or 1 | means nothing was done; TOUT = T and
+!!         | ISTATE = 0 or 1 on input.
+!!         | 
+!!  2      | means that the integration was performed successfully.
+!!         | 
+!!  3      | means that the user-supplied Subroutine RES signalled
+!!         | 
+!!         | DLSODIS to halt the integration and return (IRES = 2).
+!!         | Integration as far as T was achieved with no occurrence
+!!         | of IRES = 2, but this flag was set on attempting the
+!!         | next step.
+!!         | 
+!! -1      | means an excessive amount of work (more than MXSTEP
+!!         | steps) was done on this call, before completing the
+!!         | requested task, but the integration was otherwise
+!!         | successful as far as T.  (MXSTEP is an optional input
+!!         | and is normally 500.)  To continue, the user may
+!!         | simply reset ISTATE to a value .gt. 1 and call again
+!!         | (the excess work step counter will be reset to 0).
+!!         | In addition, the user may increase MXSTEP to avoid
+!!         | this error return (see below on optional inputs).
+!!         | 
+!! -2      | means too much accuracy was requested for the precision
+!!         | of the machine being used.  This was detected before
+!!         | completing the requested task, but the integration
+!!         | was successful as far as T.  To continue, the tolerance
+!!         | parameters must be reset, and ISTATE must be set
+!!         | to 3.  The optional output TOLSF may be used for this
+!!         | purpose.  (Note: If this condition is detected before
+!!         | taking any steps, then an illegal input return
+!!         | (ISTATE = -3) occurs instead.)
+!!         | 
+!! -3      | means illegal input was detected, before taking any
+!!         | integration steps.  See written message for details.
+!!         | Note:  If the solver detects an infinite loop of calls
+!!         | to the solver with illegal input, it will cause
+!!         | the run to stop.
+!!         | 
+!! -4      | means there were repeated error test failures on
+!!         | one attempted step, before completing the requested
+!!         | task, but the integration was successful as far as T.
+!!         | The problem may have a singularity, or the input
+!!         | may be inappropriate.
+!!         | 
+!! -5      | means there were repeated convergence test failures on
+!!         | one attempted step, before completing the requested
+!!         | task, but the integration was successful as far as T.
+!!         | This may be caused by an inaccurate Jacobian matrix.
+!!         | 
+!! -6      | means EWT(i) became zero for some i during the
+!!         | integration.  Pure relative error control (ATOL(i) = 0.0)
+!!         | was requested on a variable which has now vanished.
+!!         | the integration was successful as far as T.
+!!         | 
+!! -7      | means that the user-supplied Subroutine RES set
+!!         | its error flag (IRES = 3) despite repeated tries by
+!!         | DLSODIS to avoid that condition.
+!!         | 
+!! -8      | means that ISTATE was 0 on input but DLSODIS was unable
+!!         | to compute the initial value of dy/dt.  See the
+!!         | printed message for details.
+!!         | 
+!! -9      | means a fatal error return flag came from the sparse
+!!         | solver CDRV by way of DPRJIS or DSOLSS (numerical
+!!         | factorization or backsolve).  This should never happen.
+!!         | The integration was successful as far as T.
+!!
+!! Note: An error return with ISTATE = -1, -4, or -5
+!! may mean that the sparsity structure of the
+!! problem has changed significantly since it was last
+!! determined (or input).  In that case, one can attempt to
+!! complete the integration by setting ISTATE = 3 on the next
+!! call, so that a new structure determination is done.
+!!
+!! Note:  Since the normal output value of ISTATE is 2,
+!! it does not need to be reset for normal continuation.
+!! similarly, ISTATE (= 3) need not be reset if RES told
+!! DLSODIS to return because the calling program must change
+!! the parameters of the problem.
+!! Also, since a negative input value of ISTATE will be
+!! regarded as illegal, a negative output value requires the
+!! user to change it, and possibly other inputs, before
+!! calling the solver again.
+!!
+!! IOPT   
+!!
+!! : an integer flag to specify whether or not any optional
+!! inputs are being used on this call.  Input only.
+!! The optional inputs are listed separately below.
+!!
 !!          IOPT = 0 means no optional inputs are being used.
 !!                   Default values will be used in all cases.
 !!          IOPT = 1 means one or more optional inputs are being used.
 !!
-!! RWORK  = a work array used for a mixture of real (double precision)
-!!          and integer work space.
-!!          The length of RWORK (in real words) must be at least
-!!             20 + NYH*(MAXORD + 1) + 3*NEQ + LWM    where
+!! RWORK  
+!!
+!! : a work array used for a mixture of real (double precision)
+!! and integer work space.
+!!
+!! The length of RWORK (in real words) must be at least
+!!```text
+!!             20 + NYH*(MAXORD + 1) + 3*NEQ + LWM 
+!!```
+!! where
+!!```text
 !!          NYH    = the initial value of NEQ,
 !!          MAXORD = 12 (if METH = 1) or 5 (if METH = 2) (unless a
 !!                   smaller value is given as an optional input),
 !!          LWM = 2*NNZ + 2*NEQ + (NNZ+9*NEQ)/LENRAT   if MITER = 1,
 !!          LWM = 2*NNZ + 2*NEQ + (NNZ+10*NEQ)/LENRAT  if MITER = 2.
-!!          in the above formulas,
+!!```
+!! in the above formulas,
+!!```text
 !!          NNZ    = number of nonzero elements in the iteration matrix
 !!                   P = A - con*J  (con is a constant and J is the
 !!                   Jacobian matrix dr/dy).
 !!          LENRAT = the real to integer wordlength ratio (usually 1 in
 !!                   single precision and 2 in double precision).
 !!          (See the MF description for METH and MITER.)
-!!          Thus if MAXORD has its default value and NEQ is constant,
-!!          the minimum length of RWORK is:
+!!```
+!! Thus if MAXORD has its default value and NEQ is constant,
+!! the minimum length of RWORK is:
+!!```text
 !!             20 + 16*NEQ + LWM  for MF = 11, 111, 311, 12, 212, 412,
 !!             20 +  9*NEQ + LWM  for MF = 21, 121, 321, 22, 222, 422.
-!!          The above formula for LWM is only a crude lower bound.
-!!          The required length of RWORK cannot be readily predicted
-!!          in general, as it depends on the sparsity structure
-!!          of the problem.  Some experimentation may be necessary.
+!!```
+!! The above formula for LWM is only a crude lower bound.
+!! The required length of RWORK cannot be readily predicted
+!! in general, as it depends on the sparsity structure
+!! of the problem.  Some experimentation may be necessary.
 !!
-!!          The first 20 words of RWORK are reserved for conditional
-!!          and optional inputs and optional outputs.
+!! The first 20 words of RWORK are reserved for conditional
+!! and optional inputs and optional outputs.
 !!
-!!          The following word in RWORK is a conditional input:
-!!            RWORK(1) = TCRIT = critical value of t which the solver
-!!                       is not to overshoot.  Required if ITASK is
-!!                       4 or 5, and ignored otherwise.  (See ITASK.)
+!! The following word in RWORK is a conditional input:
 !!
-!! LRW    = the length of the array RWORK, as declared by the user.
-!!          (This will be checked by the solver.)
+!!        RWORK(1) = TCRIT = critical value of t which the solver
+!!                 is not to overshoot.  Required if ITASK is
+!!                 4 or 5, and ignored otherwise.  (See ITASK.)
 !!
-!! IWORK  = an integer work array.  The length of IWORK must be at least
-!!            32 + 2*NEQ + NZA + NZC   for MOSS = 0,
-!!            30                       for MOSS = 1 or 2,
-!!            31 + NEQ + NZA           for MOSS = 3 or 4.
-!!          (NZA is the number of nonzero elements in matrix A, and
-!!          NZC is the number of nonzero elements in dr/dy.)
+!! LRW    
 !!
-!!          In DLSODIS, IWORK is used for conditional and
-!!          optional inputs and optional outputs.
+!! : the length of the array RWORK, as declared by the user.
+!! (This will be checked by the solver.)
 !!
-!!          The following two blocks of words in IWORK are conditional
-!!          inputs, required if MOSS = 0, 3, or 4, but not otherwise
-!!          (see the description of MF for MOSS).
-!!            IWORK(30+j) = IA(j)     (j=1,...,NEQ+1)
-!!            IWORK(31+NEQ+k) = JA(k) (k=1,...,NZA)
-!!          The two arrays IA and JA describe the sparsity structure
-!!          to be assumed for the matrix A.  JA contains the row
-!!          indices where nonzero elements occur, reading in columnwise
-!!          order, and IA contains the starting locations in JA of the
-!!          descriptions of columns 1,...,NEQ, in that order, with
-!!          IA(1) = 1.  Thus, for each column index j = 1,...,NEQ, the
-!!          values of the row index i in column j where a nonzero
-!!          element may occur are given by
-!!            i = JA(k),  where   IA(j) .le. k .lt. IA(j+1).
-!!          If NZA is the total number of nonzero locations assumed,
-!!          then the length of the JA array is NZA, and IA(NEQ+1) must
-!!          be NZA + 1.  Duplicate entries are not allowed.
-!!          The following additional blocks of words are required
-!!          if MOSS = 0, but not otherwise.  If LC = 31 + NEQ + NZA, then
-!!            IWORK(LC+j) = IC(j)       (j=1,...,NEQ+1), and
-!!            IWORK(LC+NEQ+1+k) = JC(k) (k=1,...,NZC)
-!!          The two arrays IC and JC describe the sparsity
-!!          structure to be assumed for the Jacobian matrix dr/dy.
-!!          They are used in the same manner as the above IA and JA
-!!          arrays.  If NZC is the number of nonzero locations
-!!          assumed, then the length of the JC array is NZC, and
-!!          IC(NEQ+1) must be NZC + 1.  Duplicate entries are not
-!!          allowed.
+!! IWORK  
 !!
-!! LIW    = the length of the array IWORK, as declared by the user.
-!!          (This will be checked by the solver.)
+!! : an integer work array.  The length of IWORK must be at least
+!!```text
+!!      32 + 2*NEQ + NZA + NZC   for MOSS = 0,
+!!      30                       for MOSS = 1 or 2,
+!!      31 + NEQ + NZA           for MOSS = 3 or 4.
+!!```
+!! (NZA is the number of nonzero elements in matrix A, and
+!! NZC is the number of nonzero elements in dr/dy.)
+!!
+!! In DLSODIS, IWORK is used for conditional and
+!! optional inputs and optional outputs.
+!!
+!! The following two blocks of words in IWORK are conditional
+!! inputs, required if MOSS = 0, 3, or 4, but not otherwise
+!! (see the description of MF for MOSS).
+!!
+!!      IWORK(30+j) = IA(j)     (j=1,...,NEQ+1)
+!!      IWORK(31+NEQ+k) = JA(k) (k=1,...,NZA)
+!!
+!! The two arrays IA and JA describe the sparsity structure
+!! to be assumed for the matrix A.  JA contains the row
+!! indices where nonzero elements occur, reading in columnwise
+!! order, and IA contains the starting locations in JA of the
+!! descriptions of columns 1,...,NEQ, in that order, with
+!! IA(1) = 1.  Thus, for each column index j = 1,...,NEQ, the
+!! values of the row index i in column j where a nonzero
+!! element may occur are given by
+!!
+!!      i = JA(k),  where   IA(j) .le. k .lt. IA(j+1).
+!!
+!! If NZA is the total number of nonzero locations assumed,
+!! then the length of the JA array is NZA, and IA(NEQ+1) must
+!! be NZA + 1.  Duplicate entries are not allowed.
+!! The following additional blocks of words are required
+!! if MOSS = 0, but not otherwise.  If LC = 31 + NEQ + NZA, then
+!!```text
+!!      IWORK(LC+j) = IC(j)       (j=1,...,NEQ+1), and
+!!      IWORK(LC+NEQ+1+k) = JC(k) (k=1,...,NZC)
+!!```
+!! The two arrays IC and JC describe the sparsity
+!! structure to be assumed for the Jacobian matrix dr/dy.
+!! They are used in the same manner as the above IA and JA
+!! arrays.  If NZC is the number of nonzero locations
+!! assumed, then the length of the JC array is NZC, and
+!! IC(NEQ+1) must be NZC + 1.  Duplicate entries are not
+!! allowed.
+!!
+!! LIW    
+!!
+!! : the length of the array IWORK, as declared by the user.
+!! (This will be checked by the solver.)
 !!
 !! Note:  The work arrays must not be altered between calls to DLSODIS
 !! for the same problem, except possibly for the conditional and
-!! optional inputs, and except for the last 3*NEQ words of RWORK.
+!! optional inputs, and except for the last 3\*NEQ words of RWORK.
 !! The latter space is used for internal scratch space, and so is
 !! available for use by the user outside DLSODIS between calls, if
 !! desired (but not for use by RES, ADDA, or JAC).
 !!
-!! MF     = the method flag.  Used only for input.
-!!          MF has three decimal digits-- MOSS, METH, and MITER.
-!!          For standard options:
-!!             MF = 100*MOSS + 10*METH + MITER.
-!!          MOSS indicates the method to be used to obtain the sparsity
-!!          structure of the Jacobian matrix:
-!!            MOSS = 0 means the user has supplied IA, JA, IC, and JC
-!!                     (see descriptions under IWORK above).
-!!            MOSS = 1 means the user has supplied JAC (see below) and
-!!                     the structure will be obtained from NEQ initial
-!!                     calls to JAC and NEQ initial calls to ADDA.
-!!            MOSS = 2 means the structure will be obtained from NEQ+1
-!!                     initial calls to RES and NEQ initial calls to ADDA
-!!            MOSS = 3 like MOSS = 1, except user has supplied IA and JA.
-!!            MOSS = 4 like MOSS = 2, except user has supplied IA and JA.
-!!          METH indicates the basic linear multistep method:
-!!            METH = 1 means the implicit Adams method.
-!!            METH = 2 means the method based on Backward
-!!                     Differentiation Formulas (BDFs).
-!!              The BDF method is strongly preferred for stiff problems,
-!!            while the Adams method is preferred when the problem is
-!!            not stiff.  If the matrix A(t,y) is nonsingular,
-!!            stiffness here can be taken to mean that of the explicit
-!!            ODE system dy/dt = A-inverse * g.  If A is singular,
-!!            the concept of stiffness is not well defined.
-!!              If you do not know whether the problem is stiff, we
-!!            recommend using METH = 2.  If it is stiff, the advantage
-!!            of METH = 2 over METH = 1 will be great, while if it is
-!!            not stiff, the advantage of METH = 1 will be slight.
-!!            If maximum efficiency is important, some experimentation
-!!            with METH may be necessary.
-!!          MITER indicates the corrector iteration method:
-!!            MITER = 1 means chord iteration with a user-supplied
-!!                      sparse Jacobian, given by Subroutine JAC.
-!!            MITER = 2 means chord iteration with an internally
-!!                      generated (difference quotient) sparse
-!!                      Jacobian (using NGP extra calls to RES per
-!!                      dr/dy value, where NGP is an optional
-!!                      output described below.)
-!!            If MITER = 1 or MOSS = 1 or 3 the user must supply a
-!!            Subroutine JAC (the name is arbitrary) as described above
-!!            under JAC.  Otherwise, a dummy argument can be used.
+!! MF     
 !!
-!!          The standard choices for MF are:
-!!            MF = 21 or 22 for a stiff problem with IA/JA and IC/JC
-!!                 supplied,
-!!            MF = 121 for a stiff problem with JAC supplied, but not
-!!                 IA/JA or IC/JC,
-!!            MF = 222 for a stiff problem with neither IA/JA, IC/JC/,
-!!                 nor JAC supplied,
-!!            MF = 321 for a stiff problem with IA/JA and JAC supplied,
-!!                 but not IC/JC,
-!!            MF = 422 for a stiff problem with IA/JA supplied, but not
-!!                 IC/JC or JAC.
+!! : the method flag.  Used only for input.
+!! MF has three decimal digits-- MOSS, METH, and MITER.
+!! For standard options:
+!!```text
+!!       MF = 100*MOSS + 10*METH + MITER.
+!!```
+!! MOSS indicates the method to be used to obtain the sparsity
+!! structure of the Jacobian matrix:
 !!
-!!          The sparseness structure can be changed during the problem
-!!          by making a call to DLSODIS with ISTATE = 3.
+!!  MOSS | Description
+!!  ---- | -----------------------------------------------------
+!!     0 | means the user has supplied IA, JA, IC, and JC
+!!       | (see descriptions under IWORK above).
+!!     1 | means the user has supplied JAC (see below) and
+!!       | the structure will be obtained from NEQ initial
+!!       | calls to JAC and NEQ initial calls to ADDA.
+!!     2 | means the structure will be obtained from NEQ+1
+!!       | initial calls to RES and NEQ initial calls to ADDA
+!!     3 | like MOSS = 1, except user has supplied IA and JA.
+!!     4 | like MOSS = 2, except user has supplied IA and JA.
+!!
+!! METH indicates the basic linear multistep method:
+!!
+!!  METH | Description
+!!  ---- | -----------------------------------------------------
+!!     1 | means the implicit Adams method.
+!!     2 | means the method based on Backward
+!!       | Differentiation Formulas (BDFs).
+!!
+!!  The BDF method is strongly preferred for stiff problems,
+!!  while the Adams method is preferred when the problem is
+!!  not stiff.  If the matrix A(t,y) is nonsingular,
+!!  stiffness here can be taken to mean that of the explicit
+!!  ODE system dy/dt = A-inverse \* g.  If A is singular,
+!!  the concept of stiffness is not well defined.
+!!
+!!  If you do not know whether the problem is stiff, we
+!!  recommend using METH = 2.  If it is stiff, the advantage
+!!  of METH = 2 over METH = 1 will be great, while if it is
+!!  not stiff, the advantage of METH = 1 will be slight.
+!!  If maximum efficiency is important, some experimentation
+!!  with METH may be necessary.
+!!
+!!  MITER indicates the corrector iteration method:
+!!
+!!  METH | Description
+!!  ---- | -----------------------------------------------------
+!!     1 | means chord iteration with a user-supplied
+!!       | sparse Jacobian, given by Subroutine JAC.
+!!       | 
+!!     2 | means chord iteration with an internally
+!!       | generated (difference quotient) sparse
+!!       | Jacobian (using NGP extra calls to RES per
+!!       | dr/dy value, where NGP is an optional
+!!       | output described below.)
+!!
+!! If MITER = 1 or MOSS = 1 or 3 the user must supply a
+!! Subroutine JAC (the name is arbitrary) as described above
+!! under JAC.  Otherwise, a dummy argument can be used.
+!!
+!! The standard choices for MF are:
+!!
+!!  MF        | Description
+!!  --------- | -----------------------------------------------------
+!!   21 or 22 | for a stiff problem with IA/JA and IC/JC
+!!            |  supplied,
+!!            |
+!!   121      | for a stiff problem with JAC supplied, but not
+!!            | IA/JA or IC/JC,
+!!            |
+!!   222      | for a stiff problem with neither IA/JA, IC/JC/,
+!!            | nor JAC supplied,
+!!            |
+!!   321      | for a stiff problem with IA/JA and JAC supplied,
+!!            | but not IC/JC,
+!!            |
+!!   422      | for a stiff problem with IA/JA supplied, but not
+!!            | IC/JC or JAC.
+!!
+!!  The sparseness structure can be changed during the problem
+!!  by making a call to DLSODIS with ISTATE = 3.
 !!-----------------------------------------------------------------------
 !! Optional Inputs.
 !!
@@ -1011,272 +1214,282 @@
 !! locations 5 to 10 in RWORK and IWORK to 0.0 and 0 respectively, and
 !! then set those of interest to nonzero values.
 !!
-!! Name    Location      Meaning and Default Value
+!!  Name   | Location |     Meaning and Default Value
+!!  ------ | -------- | --------------------------------------------------
+!!  H0     | RWORK(5) | the step size to be attempted on the first step.
+!!         |          | The default value is determined by the solver.
+!!         |          |
+!!  HMAX   | RWORK(6) | the maximum absolute step size allowed.
+!!         |          | The default value is infinite.
+!!         |          |
+!!  HMIN   | RWORK(7) | the minimum absolute step size allowed.
+!!         |          | The default value is 0.  (This lower bound is not
+!!         |          | enforced on the final step before reaching TCRIT
+!!         |          | when ITASK = 4 or 5.)
+!!         |          |
+!!  MAXORD | IWORK(5) | the maximum order to be allowed.  The default
+!!         |          | value is 12 if METH = 1, and 5 if METH = 2.
+!!         |          | If MAXORD exceeds the default value, it will
+!!         |          | be reduced to the default value.
+!!         |          | If MAXORD is changed during the problem, it may
+!!         |          | cause the current order to be reduced.
+!!         |          |
+!!  MXSTEP | IWORK(6) | maximum number of (internally defined) steps
+!!         |          | allowed during one call to the solver.
+!!         |          | The default value is 500.
+!!         |          |
+!!  MXHNIL | IWORK(7) | maximum number of messages printed (per problem)
+!!         |          | warning that T + H = T on a step (H = step size).
+!!         |          | This must be positive to result in a non-default
+!!         |          | value.  The default value is 10.
 !!
-!! H0      RWORK(5)  the step size to be attempted on the first step.
-!!                   The default value is determined by the solver.
-!!
-!! HMAX    RWORK(6)  the maximum absolute step size allowed.
-!!                   The default value is infinite.
-!!
-!! HMIN    RWORK(7)  the minimum absolute step size allowed.
-!!                   The default value is 0.  (This lower bound is not
-!!                   enforced on the final step before reaching TCRIT
-!!                   when ITASK = 4 or 5.)
-!!
-!! MAXORD  IWORK(5)  the maximum order to be allowed.  The default
-!!                   value is 12 if METH = 1, and 5 if METH = 2.
-!!                   If MAXORD exceeds the default value, it will
-!!                   be reduced to the default value.
-!!                   If MAXORD is changed during the problem, it may
-!!                   cause the current order to be reduced.
-!!
-!! MXSTEP  IWORK(6)  maximum number of (internally defined) steps
-!!                   allowed during one call to the solver.
-!!                   The default value is 500.
-!!
-!! MXHNIL  IWORK(7)  maximum number of messages printed (per problem)
-!!                   warning that T + H = T on a step (H = step size).
-!!                   This must be positive to result in a non-default
-!!                   value.  The default value is 10.
-!!-----------------------------------------------------------------------
-!! Optional Outputs.
+!!#### Optional Outputs.
 !!
 !! As optional additional output from DLSODIS, the variables listed
 !! below are quantities related to the performance of DLSODIS
 !! which are available to the user.  These are communicated by way of
 !! the work arrays, but also have internal mnemonic names as shown.
+!!
 !! Except where stated otherwise, all of these outputs are defined
 !! on any successful return from DLSODIS, and on any return with
 !! ISTATE = -1, -2, -4, -5, -6, or -7.  On a return with -3 (illegal
 !! input) or -8, they will be unchanged from their existing values
 !! (if any), except possibly for TOLSF, LENRW, and LENIW.
+!!
 !! On any error return, outputs relevant to the error will be defined,
 !! as noted below.
 !!
-!! Name    Location      Meaning
-!!
-!! HU      RWORK(11) the step size in t last used (successfully).
-!!
-!! HCUR    RWORK(12) the step size to be attempted on the next step.
-!!
-!! TCUR    RWORK(13) the current value of the independent variable
-!!                   which the solver has actually reached, i.e. the
-!!                   current internal mesh point in t.  On output, TCUR
-!!                   will always be at least as far as the argument
-!!                   T, but may be farther (if interpolation was done).
-!!
-!! TOLSF   RWORK(14) a tolerance scale factor, greater than 1.0,
-!!                   computed when a request for too much accuracy was
-!!                   detected (ISTATE = -3 if detected at the start of
-!!                   the problem, ISTATE = -2 otherwise).  If ITOL is
-!!                   left unaltered but RTOL and ATOL are uniformly
-!!                   scaled up by a factor of TOLSF for the next call,
-!!                   then the solver is deemed likely to succeed.
-!!                   (The user may also ignore TOLSF and alter the
-!!                   tolerance parameters in any other way appropriate.)
-!!
-!! NST     IWORK(11) the number of steps taken for the problem so far.
-!!
-!! NRE     IWORK(12) the number of residual evaluations (RES calls)
-!!                   for the problem so far, excluding those for
-!!                   structure determination (MOSS = 2 or 4).
-!!
-!! NJE     IWORK(13) the number of Jacobian evaluations (each involving
-!!                   an evaluation of A and dr/dy) for the problem so
-!!                   far, excluding those for structure determination
-!!                   (MOSS = 1 or 3).  This equals the number of calls
-!!                   to ADDA and (if MITER = 1) JAC.
-!!
-!! NQU     IWORK(14) the method order last used (successfully).
-!!
-!! NQCUR   IWORK(15) the order to be attempted on the next step.
-!!
-!! IMXER   IWORK(16) the index of the component of largest magnitude in
-!!                   the weighted local error vector ( E(i)/EWT(i) ),
-!!                   on an error return with ISTATE = -4 or -5.
-!!
-!! LENRW   IWORK(17) the length of RWORK actually required.
-!!                   This is defined on normal returns and on an illegal
-!!                   input return for insufficient storage.
-!!
-!! LENIW   IWORK(18) the length of IWORK actually required.
-!!                   This is defined on normal returns and on an illegal
-!!                   input return for insufficient storage.
-!!
-!! NNZ     IWORK(19) the number of nonzero elements in the iteration
-!!                   matrix  P = A - con*J  (con is a constant and
-!!                   J is the Jacobian matrix dr/dy).
-!!
-!! NGP     IWORK(20) the number of groups of column indices, used in
-!!                   difference quotient Jacobian aproximations if
-!!                   MITER = 2.  This is also the number of extra RES
-!!                   evaluations needed for each Jacobian evaluation.
-!!
-!! NLU     IWORK(21) the number of sparse LU decompositions for the
-!!                   problem so far. (Excludes the LU decomposition
-!!                   necessary when ISTATE = 0.)
-!!
-!! LYH     IWORK(22) the base address in RWORK of the history array YH,
-!!                   described below in this list.
-!!
-!! IPIAN   IWORK(23) the base address of the structure descriptor array
-!!                   IAN, described below in this list.
-!!
-!! IPJAN   IWORK(24) the base address of the structure descriptor array
-!!                   JAN, described below in this list.
-!!
-!! NZL     IWORK(25) the number of nonzero elements in the strict lower
-!!                   triangle of the LU factorization used in the chord
-!!                   iteration.
-!!
-!! NZU     IWORK(26) the number of nonzero elements in the strict upper
-!!                   triangle of the LU factorization used in the chord
-!!                   iteration.  The total number of nonzeros in the
-!!                   factorization is therefore NZL + NZU + NEQ.
+!! Name  | Location |     Meaning
+!! ----- | -------- | ---------------------------------------------------
+!! HU    | RWORK(11)| the step size in t last used (successfully).
+!!       |          |
+!! HCUR  | RWORK(12)| the step size to be attempted on the next step.
+!!       |          |
+!! TCUR  | RWORK(13)| the current value of the independent variable
+!!       |          | which the solver has actually reached, i.e. the
+!!       |          | current internal mesh point in t.  On output, TCUR
+!!       |          | will always be at least as far as the argument
+!!       |          | T, but may be farther (if interpolation was done).
+!!       |          |
+!! TOLSF | RWORK(14)| a tolerance scale factor, greater than 1.0,
+!!       |          | computed when a request for too much accuracy was
+!!       |          | detected (ISTATE = -3 if detected at the start of
+!!       |          | the problem, ISTATE = -2 otherwise).  If ITOL is
+!!       |          | left unaltered but RTOL and ATOL are uniformly
+!!       |          | scaled up by a factor of TOLSF for the next call,
+!!       |          | then the solver is deemed likely to succeed.
+!!       |          | (The user may also ignore TOLSF and alter the
+!!       |          | tolerance parameters in any other way appropriate.)
+!!       |          |
+!! NST   | IWORK(11)| the number of steps taken for the problem so far.
+!!       |          |
+!! NRE   | IWORK(12)| the number of residual evaluations (RES calls)
+!!       |          | for the problem so far, excluding those for
+!!       |          | structure determination (MOSS = 2 or 4).
+!!       |          |
+!! NJE   | IWORK(13)| the number of Jacobian evaluations (each involving
+!!       |          | an evaluation of A and dr/dy) for the problem so
+!!       |          | far, excluding those for structure determination
+!!       |          | (MOSS = 1 or 3).  This equals the number of calls
+!!       |          | to ADDA and (if MITER = 1) JAC.
+!!       |          |
+!! NQU   | IWORK(14)| the method order last used (successfully).
+!!       |          |
+!! NQCUR | IWORK(15)| the order to be attempted on the next step.
+!!       |          |
+!! IMXER | IWORK(16)| the index of the component of largest magnitude in
+!!       |          | the weighted local error vector ( E(i)/EWT(i) ),
+!!       |          | on an error return with ISTATE = -4 or -5.
+!!       |          |
+!! LENRW | IWORK(17)| the length of RWORK actually required.
+!!       |          | This is defined on normal returns and on an illegal
+!!       |          | input return for insufficient storage.
+!!       |          |
+!! LENIW | IWORK(18)| the length of IWORK actually required.
+!!       |          | This is defined on normal returns and on an illegal
+!!       |          | input return for insufficient storage.
+!!       |          |
+!! NNZ   | IWORK(19)| the number of nonzero elements in the iteration
+!!       |          | matrix  P = A - con\*J  (con is a constant and
+!!       |          | J is the Jacobian matrix dr/dy).
+!!       |          |
+!! NGP   | IWORK(20)| the number of groups of column indices, used in
+!!       |          | difference quotient Jacobian aproximations if
+!!       |          | MITER = 2.  This is also the number of extra RES
+!!       |          | evaluations needed for each Jacobian evaluation.
+!!       |          |
+!! NLU   | IWORK(21)| the number of sparse LU decompositions for the
+!!       |          | problem so far. (Excludes the LU decomposition
+!!       |          | necessary when ISTATE = 0.)
+!!       |          |
+!! LYH   | IWORK(22)| the base address in RWORK of the history array YH,
+!!       |          | described below in this list.
+!!       |          |
+!! IPIAN | IWORK(23)| the base address of the structure descriptor array
+!!       |          | IAN, described below in this list.
+!!       |          |
+!! IPJAN | IWORK(24)| the base address of the structure descriptor array
+!!       |          | JAN, described below in this list.
+!!       |          |
+!! NZL   | IWORK(25)| the number of nonzero elements in the strict lower
+!!       |          | triangle of the LU factorization used in the chord
+!!       |          | iteration.
+!!       |          |
+!! NZU   | IWORK(26)| the number of nonzero elements in the strict upper
+!!       |          | triangle of the LU factorization used in the chord
+!!       |          | iteration.  The total number of nonzeros in the
+!!       |          | factorization is therefore NZL + NZU + NEQ.
 !!
 !! The following four arrays are segments of the RWORK array which
 !! may also be of interest to the user as optional outputs.
 !! For each array, the table below gives its internal name,
 !! its base address, and its description.
+!!
 !! For YH and ACOR, the base addresses are in RWORK (a real array).
 !! The integer arrays IAN and JAN are to be obtained by declaring an
 !! integer array IWK and identifying IWK(1) with RWORK(21), using either
 !! an equivalence statement or a subroutine call.  Then the base
 !! addresses IPIAN (of IAN) and IPJAN (of JAN) in IWK are to be obtained
 !! as optional outputs IWORK(23) and IWORK(24), respectively.
+!!
 !! Thus IAN(1) is IWK(ipian), etc.
 !!
-!! Name    Base Address      Description
-!!
-!! IAN    IPIAN (in IWK)  structure descriptor array of size NEQ + 1.
-!! JAN    IPJAN (in IWK)  structure descriptor array of size NNZ.
-!!         (see above)    IAN and JAN together describe the sparsity
-!!                        structure of the iteration matrix
-!!                          P = A - con*J,  as used by DLSODIS.
-!!                        JAN contains the row indices of the nonzero
-!!                        locations, reading in columnwise order, and
-!!                        IAN contains the starting locations in JAN of
-!!                        the descriptions of columns 1,...,NEQ, in
-!!                        that order, with IAN(1) = 1.  Thus for each
-!!                        j = 1,...,NEQ, the row indices i of the
-!!                        nonzero locations in column j are
-!!                        i = JAN(k),  IAN(j) .le. k .lt. IAN(j+1).
-!!                        Note that IAN(NEQ+1) = NNZ + 1.
-!! YH      LYH            the Nordsieck history array, of size NYH by
-!!          (optional     (NQCUR + 1), where NYH is the initial value
-!!           output)      of NEQ.  For j = 0,1,...,NQCUR, column j+1
-!!                        of YH contains HCUR**j/factorial(j) times
-!!                        the j-th derivative of the interpolating
-!!                        polynomial currently representing the solution,
-!!                        evaluated at t = TCUR.  The base address LYH
-!!                        is another optional output, listed above.
-!!
-!! ACOR     LENRW-NEQ+1   array of size NEQ used for the accumulated
-!!                        corrections on each step, scaled on output to
-!!                        represent the estimated local error in y on the
-!!                        last step.  This is the vector E in the
-!!                        description of the error control. It is defined
-!!                        only on a return from DLSODIS with ISTATE = 2.
+!! Name |  Base Address  |    Description
+!! ---- | -------------- | ----------------------------------------------
+!! IAN  | IPIAN (in IWK) | structure descriptor array of size NEQ + 1.
+!! JAN  | IPJAN (in IWK) | structure descriptor array of size NNZ.
+!!      |  (see above)   | IAN and JAN together describe the sparsity
+!!      |                | structure of the iteration matrix
+!!      |                |   P = A - con\*J,  as used by DLSODIS.
+!!      |                | JAN contains the row indices of the nonzero
+!!      |                | locations, reading in columnwise order, and
+!!      |                | IAN contains the starting locations in JAN of
+!!      |                | the descriptions of columns 1,...,NEQ, in
+!!      |                | that order, with IAN(1) = 1.  Thus for each
+!!      |                | j = 1,...,NEQ, the row indices i of the
+!!      |                | nonzero locations in column j are
+!!      |                | i = JAN(k),  IAN(j) .le. k .lt. IAN(j+1).
+!!      |                | Note that IAN(NEQ+1) = NNZ + 1.
+!! YH   |  LYH           | the Nordsieck history array, of size NYH by
+!!      |   (optional    | (NQCUR + 1), where NYH is the initial value
+!!      |    output)     | of NEQ.  For j = 0,1,...,NQCUR, column j+1
+!!      |                | of YH contains HCUR\*\*j/factorial(j) times
+!!      |                | the j-th derivative of the interpolating
+!!      |                | polynomial currently representing the solution,
+!!      |                | evaluated at t = TCUR.  The base address LYH
+!!      |                | is another optional output, listed above.
+!!      |                |
+!! ACOR |   LENRW-NEQ+1  | array of size NEQ used for the accumulated
+!!      |                | corrections on each step, scaled on output to
+!!      |                | represent the estimated local error in y on the
+!!      |                | last step.  This is the vector E in the
+!!      |                | description of the error control. It is defined
+!!      |                | only on a return from DLSODIS with ISTATE = 2.
 !!
 !!-----------------------------------------------------------------------
-!! Part 2.  Other Routines Callable.
+!!### Part 2.  Other Routines Callable.
 !!
 !! The following are optional calls which the user may make to
 !! gain additional capabilities in conjunction with DLSODIS.
 !! (The routines XSETUN and XSETF are designed to conform to the
 !! SLATEC error handling package.)
 !!
-!!     Form of Call                  Function
-!!   CALL XSETUN(LUN)          Set the logical unit number, LUN, for
-!!                             output of messages from DLSODIS, if
-!!                             The default is not desired.
-!!                             The default value of LUN is 6.
-!!
-!!   CALL XSETF(MFLAG)         Set a flag to control the printing of
-!!                             messages by DLSODIS.
-!!                             MFLAG = 0 means do not print. (Danger:
-!!                             This risks losing valuable information.)
-!!                             MFLAG = 1 means print (the default).
-!!
-!!                             Either of the above calls may be made at
-!!                             any time and will take effect immediately.
-!!
-!!   CALL DSRCMS(RSAV,ISAV,JOB) saves and restores the contents of
-!!                             the internal Common blocks used by
-!!                             DLSODIS (see Part 3 below).
-!!                             RSAV must be a real array of length 224
-!!                             or more, and ISAV must be an integer
-!!                             array of length 71 or more.
-!!                             JOB=1 means save Common into RSAV/ISAV.
-!!                             JOB=2 means restore Common from RSAV/ISAV.
-!!                                DSRCMS is useful if one is
-!!                             interrupting a run and restarting
-!!                             later, or alternating between two or
-!!                             more problems solved with DLSODIS.
-!!
-!!   CALL DINTDY(,,,,,)        Provide derivatives of y, of various
-!!        (see below)          orders, at a specified point t, if
-!!                             desired.  It may be called only after
-!!                             a successful return from DLSODIS.
+!! Form of Call                | Function
+!! --------------------------- | ----------------------------------------
+!!   CALL XSETUN(LUN)          | Set the logical unit number, LUN, for
+!!                             | output of messages from DLSODIS, if
+!!                             | The default is not desired.
+!!                             | The default value of LUN is 6.
+!!                             |       
+!!   CALL XSETF(MFLAG)         | Set a flag to control the printing of
+!!                             | messages by DLSODIS.
+!!                             |       
+!!                             |   MFLAG = 0 means do not print. (Danger:
+!!                             |   This risks losing valuable information.)
+!!                             |   MFLAG = 1 means print (the default).
+!!                             |       
+!!                             | Either of the above calls may be made at
+!!                             | any time and will take effect immediately.
+!!                             |       
+!!   CALL DSRCMS(RSAV,ISAV,JOB)| saves and restores the contents of
+!!                             | the internal Common blocks used by
+!!                             | DLSODIS (see Part 3 below).
+!!                             | RSAV must be a real array of length 224
+!!                             | or more, and ISAV must be an integer
+!!                             | array of length 71 or more.
+!!                             |       
+!!                             |   JOB=1 means save into RSAV/ISAV.
+!!                             |   JOB=2 means restore from RSAV/ISAV.
+!!                             |       
+!!                             | DSRCMS is useful if one is
+!!                             | interrupting a run and restarting
+!!                             | later, or alternating between two or
+!!                             | more problems solved with DLSODIS.
+!!                             |       
+!!   CALL DINTDY(,,,,,)        | Provide derivatives of y, of various
+!!        (see below)          | orders, at a specified point t, if
+!!                             | desired.  It may be called only after
+!!                             | a successful return from DLSODIS.
 !!
 !! The detailed instructions for using DINTDY are as follows.
 !! The form of the call is:
-!!
+!!```fortran
 !!   LYH = IWORK(22)
 !!   CALL DINTDY (T, K, RWORK(LYH), NYH, DKY, IFLAG)
-!!
+!!```
 !! The input parameters are:
 !!
-!! T         = value of independent variable where answers are desired
-!!             (normally the same as the T last returned by DLSODIS).
-!!             For valid results, T must lie between TCUR - HU and TCUR.
-!!             (See optional outputs for TCUR and HU.)
-!! K         = integer order of the derivative desired.  K must satisfy
-!!             0 .le. K .le. NQCUR, where NQCUR is the current order
-!!             (see optional outputs).  The capability corresponding
-!!             to K = 0, i.e. computing y(t), is already provided
-!!             by DLSODIS directly.  Since NQCUR .ge. 1, the first
-!!             derivative dy/dt is always available with DINTDY.
-!! LYH       = the base address of the history array YH, obtained
-!!             as an optional output as shown above.
-!! NYH       = column length of YH, equal to the initial value of NEQ.
+!! T         
+!!
+!! : value of independent variable where answers are desired
+!! (normally the same as the T last returned by DLSODIS).
+!! For valid results, T must lie between TCUR - HU and TCUR.
+!! (See optional outputs for TCUR and HU.)
+!!
+!! K         
+!!
+!! : integer order of the derivative desired.  K must satisfy
+!! 0 .le. K .le. NQCUR, where NQCUR is the current order
+!! (see optional outputs).  The capability corresponding
+!! to K = 0, i.e. computing y(t), is already provided
+!! by DLSODIS directly.  Since NQCUR .ge. 1, the first
+!! derivative dy/dt is always available with DINTDY.
+!!
+!! LYH       
+!!
+!! : the base address of the history array YH, obtained
+!! as an optional output as shown above.
+!!
+!! NYH       
+!!
+!! : column length of YH, equal to the initial value of NEQ.
 !!
 !! The output parameters are:
 !!
-!! DKY       = a real array of length NEQ containing the computed value
-!!             of the K-th derivative of y(t).
-!! IFLAG     = integer flag, returned as 0 if K and T were legal,
-!!             -1 if K was illegal, and -2 if T was illegal.
-!!             On an error return, a message is also written.
+!! DKY       
+!!
+!! : a real array of length NEQ containing the computed value
+!! of the K-th derivative of y(t).
+!!
+!! IFLAG     
+!!
+!! : integer flag, returned as 0 if K and T were legal,
+!! -1 if K was illegal, and -2 if T was illegal.
+!! On an error return, a message is also written.
 !!-----------------------------------------------------------------------
-!! Part 3.  Common Blocks.
-!!
-!! If DLSODIS is to be used in an overlay situation, the user
-!! must declare, in the primary overlay, the variables in:
-!!   (1) the call sequence to DLSODIS, and
-!!   (2) the two internal Common blocks
-!!         /DLS001/  of length  255  (218 double precision words
-!!                      followed by 37 integer words),
-!!         /DLSS01/  of length  40  (6 double precision words
-!!                      followed by 34 integer words).
-!!
-!! If DLSODIS is used on a system in which the contents of internal
-!! Common blocks are not preserved between calls, the user should
-!! declare the above Common blocks in the calling program to insure
-!! that their contents are preserved.
+!!### Part 3.  Save and Restore Program State
 !!
 !! If the solution of a given problem by DLSODIS is to be interrupted
 !! and then later continued, such as when restarting an interrupted run
 !! or alternating between two or more problems, the user should save,
 !! following the return from the last DLSODIS call prior to the
 !! interruption, the contents of the call sequence variables and the
-!! internal Common blocks, and later restore these values before the
-!! next DLSODIS call for that problem.  To save and restore the Common
-!! blocks, use Subroutines DSRCMS (see Part 2 above).
+!! internal state variables, and later restore these values before the
+!! next DLSODIS call for that problem.  To save and restore the program
+!! state, use Subroutines DSRCMS (see Part 2 above).
 !!
 !!-----------------------------------------------------------------------
-!! Part 4.  Optionally Replaceable Solver Routines.
+!!### Part 4.  Optionally Replaceable Solver Routines.
 !!
 !! Below are descriptions of two routines in the DLSODIS package which
 !! relate to the measurement of errors.  Either routine can be
@@ -1286,11 +1499,13 @@
 !! (Note: The means by which the package version of a routine is
 !! superseded by the user's version may be system-dependent.)
 !!
-!! (a) DEWSET.
+!!##### (a) DEWSET()
 !! The following subroutine is called just before each internal
 !! integration step, and sets the array of error weights, EWT, as
 !! described under ITOL/RTOL/ATOL above:
+!!```fortran
 !!     SUBROUTINE DEWSET (NEQ, ITOL, RTOL, ATOL, YCUR, EWT)
+!!```
 !! where NEQ, ITOL, RTOL, and ATOL are as in the DLSODIS call sequence,
 !! YCUR contains the current dependent variable vector, and
 !! EWT is the array of weights set by DEWSET.
@@ -1307,28 +1522,34 @@
 !! are available from the history array YH, described above under
 !! optional outputs.  In DEWSET, YH is identical to the YCUR array,
 !! extended to NQ + 1 columns with a column length of NYH and scale
-!! factors of H**j/factorial(j).  On the first call for the problem,
+!! factors of H\*\*j/factorial(j).  On the first call for the problem,
 !! given by NST = 0, NQ is 1 and H is temporarily set to 1.0.
 !! NYH is the initial value of NEQ.  The quantities NQ, H, and NST
 !! can be obtained by including in DEWSET the statements:
+!!```fortran
 !!     DOUBLE PRECISION RLS
 !!     COMMON /DLS001/ RLS(218),ILS(37)
 !!     NQ = ILS(33)
 !!     NST = ILS(34)
 !!     H = RLS(212)
+!!```
 !! Thus, for example, the current value of dy/dt can be obtained as
 !! YCUR(NYH+i)/H  (i=1,...,NEQ)  (and the division by H is
 !! unnecessary when NST = 0).
 !!
-!! (b) DVNORM.
+!!#### (b) DVNORM()
 !! The following is a real function routine which computes the weighted
 !! root-mean-square norm of a vector v:
+!!```text
 !!     D = DVNORM (N, V, W)
+!!```
 !! where:
+!!```text
 !!   N = the length of the vector,
 !!   V = real array of length N containing the vector,
 !!   W = real array of length N containing weights,
 !!   D = SQRT( (1/N) * sum(V(i)*W(i))**2 ).
+!!```
 !! DVNORM is called with N = NEQ and with W(i) = 1.0/EWT(i), where
 !! EWT is as set by Subroutine DEWSET.
 !!
@@ -1336,107 +1557,145 @@
 !! value of DVNORM suitable for use in the error control in DLSODIS.
 !! None of the arguments should be altered by DVNORM.
 !! For example, a user-supplied DVNORM routine might:
-!!   -substitute a max-norm of (V(i)*w(I)) for the RMS-norm, or
-!!   -ignore some components of V in the norm, with the effect of
+
+!!  - substitute a max-norm of (V(i)\*w(I)) for the RMS-norm, or
+!!  - ignore some components of V in the norm, with the effect of
 !!    suppressing the error control on those components of y.
-!!-----------------------------------------------------------------------
-!!
-!!### REVISION HISTORY  (YYYYMMDD)
-!! 19820714  DATE WRITTEN
-!! 19830812  Major update, based on recent LSODI and LSODES revisions:
-!!           Upgraded MDI in ODRV package: operates on M + M-transpose.
-!!           Numerous revisions in use of work arrays;
-!!           use wordlength ratio LENRAT; added IPISP & LRAT to Common;
-!!           added optional outputs IPIAN/IPJAN;
-!!           Added routine CNTNZU; added NZL and NZU to /LSS001/;
-!!           changed ADJLR call logic; added optional outputs NZL & NZU;
-!!           revised counter initializations; revised PREPI stmt. nos.;
-!!           revised difference quotient increment;
-!!           eliminated block /LSI001/, using IERPJ flag;
-!!           revised STODI logic after PJAC return;
-!!           revised tuning of H change and step attempts in STODI;
-!!           corrections to main prologue and comments throughout.
-!! 19870320  Corrected jump on test of umax in CDRV routine.
-!! 20010125  Numerous revisions: corrected comments throughout;
-!!           removed TRET from Common; rewrote EWSET with 4 loops;
-!!           fixed t test in INTDY; added Cray directives in STODI;
-!!           in STODI, fixed DELP init. and logic around PJAC call;
-!!           combined routines to save/restore Common;
-!!           passed LEVEL = 0 in error message calls (except run abort).
-!! 20010425  Major update: convert source lines to upper case;
-!!           added *DECK lines; changed from 1 to * in dummy dimensions;
-!!           changed names R1MACH/D1MACH to RUMACH/DUMACH;
-!!           renamed routines for uniqueness across single/double prec.;
-!!           converted intrinsic names to generic form;
-!!           removed ILLIN and NTREP (data loaded) from Common;
-!!           removed all 'own' variables from Common;
-!!           changed error messages to quoted strings;
-!!           replaced XERRWV/XERRWD with 1993 revised version;
-!!           converted prologues, comments, error messages to mixed case;
-!!           converted arithmetic IF statements to logical IF statements;
-!!           numerous corrections to prologues and internal comments.
-!! 20010507  Converted single precision source to double precision.
-!! 20020502  Corrected declarations in descriptions of user routines.
-!! 20031021  Fixed address offset bugs in Subroutine DPREPI.
-!! 20031027  Changed 0. to 0.0D0 in Subroutine DPREPI.
-!! 20031105  Restored 'own' variables to Common blocks, to enable
-!!           interrupt/restart feature.
-!! 20031112  Added SAVE statements for data-loaded constants.
-!! 20031117  Changed internal names NRE, LSAVR to NFE, LSAVF resp.
 !!
 !!-----------------------------------------------------------------------
-!! Other routines in the DLSODIS package.
+!! References:
+!! 1.  M. K. Seager and S. Balsdon,  LSODIS, A Sparse Implicit
+!!     ODE Solver, in Proceedings of the IMACS 10th World Congress,
+!!     Montreal, August 8-13, 1982.
 !!
-!! In addition to Subroutine DLSODIS, the DLSODIS package includes the
-!! following subroutines and function routines:
-!!  DIPREPI  acts as an interface between DLSODIS and DPREPI, and also
-!!           does adjusting of work space pointers and work arrays.
-!!  DPREPI   is called by DIPREPI to compute sparsity and do sparse
-!!           matrix preprocessing.
-!!  DAINVGS  computes the initial value of the vector
-!!             dy/dt = A-inverse * g
-!!  ADJLR    adjusts the length of required sparse matrix work space.
-!!           It is called by DPREPI.
-!!  CNTNZU   is called by DPREPI and counts the nonzero elements in the
-!!           strict upper triangle of P + P-transpose.
-!!  JGROUP   is called by DPREPI to compute groups of Jacobian column
-!!           indices for use when MITER = 2.
-!!  DINTDY   computes an interpolated value of the y vector at t = TOUT.
-!!  DSTODI   is the core integrator, which does one step of the
-!!           integration and the associated error control.
-!!  DCFODE   sets all method coefficients and test constants.
-!!  DPRJIS   computes and preprocesses the Jacobian matrix J = dr/dy
-!!           and the Newton iteration matrix P = A - h*l0*J.
-!!  DSOLSS   manages solution of linear system in chord iteration.
-!!  DEWSET   sets the error weight vector EWT before each step.
-!!  DVNORM   computes the weighted RMS-norm of a vector.
-!!  DSRCMS   is a user-callable routine to save and restore
-!!           the contents of the internal Common blocks.
-!!  ODRV     constructs a reordering of the rows and columns of
-!!           a matrix by the minimum degree algorithm.  ODRV is a
-!!           driver routine which calls Subroutines MD, MDI, MDM,
-!!           MDP, MDU, and SRO.  See Ref. 2 for details.  (The ODRV
-!!           module has been modified since Ref. 2, however.)
-!!  CDRV     performs reordering, symbolic factorization, numerical
-!!           factorization, or linear system solution operations,
-!!           depending on a path argument IPATH.  CDRV is a
-!!           driver routine which calls Subroutines NROC, NSFC,
-!!           NNFC, NNSC, and NNTC.  See Ref. 3 for details.
-!!           DLSODIS uses CDRV to solve linear systems in which the
-!!           coefficient matrix is  P = A - con*J, where A is the
-!!           matrix for the linear system A(t,y)*dy/dt = g(t,y),
-!!           con is a scalar, and J is an approximation to
-!!           the Jacobian dr/dy.  Because CDRV deals with rowwise
-!!           sparsity descriptions, CDRV works with P-transpose, not P.
-!!           DLSODIS also uses CDRV to solve the linear system
-!!             A(t,y)*dy/dt = g(t,y)  for dy/dt when ISTATE = 0.
-!!           (For this, CDRV works with A-transpose, not A.)
-!!  DUMACH   computes the unit roundoff in a machine-independent manner.
-!!  XERRWD, XSETUN, XSETF, IXSAV, and handle the printing of all
-!!           error messages and warnings.  XERRWD is machine-dependent.
-!! Note:  DVNORM, DUMACH, IXSAV, and are function routines.
-!! All the others are subroutines.
+!! 2.  Alan C. Hindmarsh,  LSODE and LSODI, Two New Initial Value
+!!     Ordinary Differential Equation Solvers,
+!!     ACM-SIGNUM Newsletter, vol. 15, no. 4 (1980), pp. 10-11.
 !!
+!! 3.  S. C. Eisenstat, M. C. Gursky, M. H. Schultz, and A. H. Sherman,
+!!     Yale Sparse Matrix Package: I. The Symmetric Codes,
+!!     Int. J. Num. Meth. Eng., vol. 18 (1982), pp. 1145-1151.
+!!
+!! 4.  S. C. Eisenstat, M. C. Gursky, M. H. Schultz, and A. H. Sherman,
+!!     Yale Sparse Matrix Package: II. The Nonsymmetric Codes,
+!!     Research Report No. 114, Dept. of Computer Sciences, Yale
+!!     University, 1977.
+!!
+!!-----------------------------------------------------------------------
+!!### Pedigree:
+!!
+!! DLSODIS is derived from the 18 November 2003 version of
+!! Livermore Solver for Ordinary Differential Equations package ODEPACK,
+!! (Implicit form) with general Sparse Jacobian matrices.
+!!
+!! Authors:       Alan C. Hindmarsh
+!!                Center for Applied Scientific Computing, L-561
+!!                Lawrence Livermore National Laboratory
+!!                Livermore, CA 94551
+!! and
+!!                Sheila Balsdon
+!!                Zycor, Inc.
+!!                Austin, TX 78741
+!!
+!!
+!!-----------------------------------------------------------------------
+! 
+! ### REVISION HISTORY  (YYYYMMDD)
+!  19820714  DATE WRITTEN
+!  19830812  Major update, based on recent LSODI and LSODES revisions:
+!            Upgraded MDI in ODRV package: operates on M + M-transpose.
+!            Numerous revisions in use of work arrays;
+!            use wordlength ratio LENRAT; added IPISP & LRAT to Common;
+!            added optional outputs IPIAN/IPJAN;
+!            Added routine CNTNZU; added NZL and NZU to /LSS001/;
+!            changed ADJLR call logic; added optional outputs NZL & NZU;
+!            revised counter initializations; revised PREPI stmt. nos.;
+!            revised difference quotient increment;
+!            eliminated block /LSI001/, using IERPJ flag;
+!            revised STODI logic after PJAC return;
+!            revised tuning of H change and step attempts in STODI;
+!            corrections to main prologue and comments throughout.
+!  19870320  Corrected jump on test of umax in CDRV routine.
+!  20010125  Numerous revisions: corrected comments throughout;
+!            removed TRET from Common; rewrote EWSET with 4 loops;
+!            fixed t test in INTDY; added Cray directives in STODI;
+!            in STODI, fixed DELP init. and logic around PJAC call;
+!            combined routines to save/restore Common;
+!            passed LEVEL = 0 in error message calls (except run abort).
+!  20010425  Major update: convert source lines to upper case;
+!            added *DECK lines; changed from 1 to * in dummy dimensions;
+!            changed names R1MACH/D1MACH to RUMACH/DUMACH;
+!            renamed routines for uniqueness across single/double prec.;
+!            converted intrinsic names to generic form;
+!            removed ILLIN and NTREP (data loaded) from Common;
+!            removed all 'own' variables from Common;
+!            changed error messages to quoted strings;
+!            replaced XERRWV/XERRWD with 1993 revised version;
+!            converted prologues, comments, error messages to mixed case;
+!            converted arithmetic IF statements to logical IF statements;
+!            numerous corrections to prologues and internal comments.
+!  20010507  Converted single precision source to double precision.
+!  20020502  Corrected declarations in descriptions of user routines.
+!  20031021  Fixed address offset bugs in Subroutine DPREPI.
+!  20031027  Changed 0. to 0.0D0 in Subroutine DPREPI.
+!  20031105  Restored 'own' variables to Common blocks, to enable
+!            interrupt/restart feature.
+!  20031112  Added SAVE statements for data-loaded constants.
+!  20031117  Changed internal names NRE, LSAVR to NFE, LSAVF resp.
+! 
+! -----------------------------------------------------------------------
+!  Other routines in the DLSODIS package.
+! 
+!  In addition to Subroutine DLSODIS, the DLSODIS package includes the
+!  following subroutines and function routines:
+!   DIPREPI  acts as an interface between DLSODIS and DPREPI, and also
+!            does adjusting of work space pointers and work arrays.
+!   DPREPI   is called by DIPREPI to compute sparsity and do sparse
+!            matrix preprocessing.
+!   DAINVGS  computes the initial value of the vector
+!              dy/dt = A-inverse * g
+!   ADJLR    adjusts the length of required sparse matrix work space.
+!            It is called by DPREPI.
+!   CNTNZU   is called by DPREPI and counts the nonzero elements in the
+!            strict upper triangle of P + P-transpose.
+!   JGROUP   is called by DPREPI to compute groups of Jacobian column
+!            indices for use when MITER = 2.
+!   DINTDY   computes an interpolated value of the y vector at t = TOUT.
+!   DSTODI   is the core integrator, which does one step of the
+!            integration and the associated error control.
+!   DCFODE   sets all method coefficients and test constants.
+!   DPRJIS   computes and preprocesses the Jacobian matrix J = dr/dy
+!            and the Newton iteration matrix P = A - h*l0*J.
+!   DSOLSS   manages solution of linear system in chord iteration.
+!   DEWSET   sets the error weight vector EWT before each step.
+!   DVNORM   computes the weighted RMS-norm of a vector.
+!   DSRCMS   is a user-callable routine to save and restore
+!            the contents of the internal Common blocks.
+!   ODRV     constructs a reordering of the rows and columns of
+!            a matrix by the minimum degree algorithm.  ODRV is a
+!            driver routine which calls Subroutines MD, MDI, MDM,
+!            MDP, MDU, and SRO.  See Ref. 2 for details.  (The ODRV
+!            module has been modified since Ref. 2, however.)
+!   CDRV     performs reordering, symbolic factorization, numerical
+!            factorization, or linear system solution operations,
+!            depending on a path argument IPATH.  CDRV is a
+!            driver routine which calls Subroutines NROC, NSFC,
+!            NNFC, NNSC, and NNTC.  See Ref. 3 for details.
+!            DLSODIS uses CDRV to solve linear systems in which the
+!            coefficient matrix is  P = A - con*J, where A is the
+!            matrix for the linear system A(t,y)*dy/dt = g(t,y),
+!            con is a scalar, and J is an approximation to
+!            the Jacobian dr/dy.  Because CDRV deals with rowwise
+!            sparsity descriptions, CDRV works with P-transpose, not P.
+!            DLSODIS also uses CDRV to solve the linear system
+!              A(t,y)*dy/dt = g(t,y)  for dy/dt when ISTATE = 0.
+!            (For this, CDRV works with A-transpose, not A.)
+!   DUMACH   computes the unit roundoff in a machine-independent manner.
+!   XERRWD, XSETUN, XSETF, IXSAV, and handle the printing of all
+!            error messages and warnings.  XERRWD is machine-dependent.
+!  Note:  DVNORM, DUMACH, IXSAV, and are function routines.
+!  All the others are subroutines.
+! 
 !==================================================================================================================================!
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !==================================================================================================================================!

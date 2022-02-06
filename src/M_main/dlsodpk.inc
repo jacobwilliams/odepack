@@ -15,21 +15,19 @@
 !!     dy(i)/dt = f(i) = f(i,t,y(1),y(2),...,y(NEQ)) (i = 1,...,NEQ).
 !!```
 !!
-!! DLSODE is derived from the Livermore Solver for Ordinary
-!! Differential Equations package ODEPACK,
-!!
-!! This is the 18 November 2003 version of
-!!
 !! This version is in double precision.
+!!
 !!-----------------------------------------------------------------------
-!! Introduction.
+!!### Introduction.
 !!
 !! This is a modification of the DLSODE package which incorporates
 !! various preconditioned Krylov subspace iteration methods for the
 !! linear algebraic systems that arise in the case of stiff systems.
 !!
 !! The linear systems that must be solved have the form
+!!```text
 !!   A * x  = b,  where  A = identity - hl0 * (df/dy) .
+!!```
 !! Here hl0 is a scalar, and df/dy is the Jacobian matrix of partial
 !! derivatives of f (NEQ by NEQ).
 !!
@@ -37,62 +35,55 @@
 !! MITER, in the method flag MF.
 !! Currently, the values of MITER have the following meanings:
 !!
-!!  MITER = 1 means the preconditioned Scaled Incomplete
-!!            Orthogonalization Method (SPIOM).
+!!  MITER     | description
+!!  --------- | ----------------------------------------------------------
+!!          1 | means the preconditioned Scaled Incomplete
+!!            | Orthogonalization Method (SPIOM).
+!!            |
+!!          2 | means an incomplete version of the Preconditioned Scaled
+!!            | Generalized Minimal Residual method (SPIGMR).
+!!            | This is the best choice in general.
+!!            |
+!!          3 | means the Preconditioned Conjugate Gradient method (PCG).
+!!            | Recommended only when df/dy is symmetric or nearly so.
+!!            |
+!!          4 | means the scaled Preconditioned Conjugate Gradient method
+!!            | (PCGS).  Recommended only when D-inverse \* df/dy \* D is
+!!            | symmetric or nearly so, where D is the diagonal scaling
+!!            | matrix with elements 1/EWT(i) (see RTOL/ATOL description).
+!!            |
+!!          9 | means that only a user-supplied matrix P (approximating A)
+!!            | will be used, with no Krylov iteration done.  This option
+!!            | allows the user to provide the complete linear system
+!!            | solution algorithm, if desired.
+!!            | 
 !!
-!!          2 means an incomplete version of the Preconditioned Scaled
-!!            Generalized Minimal Residual method (SPIGMR).
-!!            This is the best choice in general.
-!!
-!!          3 means the Preconditioned Conjugate Gradient method (PCG).
-!!            Recommended only when df/dy is symmetric or nearly so.
-!!
-!!          4 means the scaled Preconditioned Conjugate Gradient method
-!!            (PCGS).  Recommended only when D-inverse * df/dy * D is
-!!            symmetric or nearly so, where D is the diagonal scaling
-!!            matrix with elements 1/EWT(i) (see RTOL/ATOL description).
-!!
-!!          9 means that only a user-supplied matrix P (approximating A)
-!!            will be used, with no Krylov iteration done.  This option
-!!            allows the user to provide the complete linear system
-!!            solution algorithm, if desired.
-!!
-!! The user can apply preconditioning to the linear system A*x = b,
+!! The user can apply preconditioning to the linear system A\*x = b,
 !! by means of arbitrary matrices (the preconditioners).
-!!     In the case of SPIOM and SPIGMR, one can apply left and right
+!! 
+!! In the case of SPIOM and SPIGMR, one can apply left and right
 !! preconditioners P1 and P2, and the basic iterative method is then
-!! applied to the matrix (P1-inverse)*A*(P2-inverse) instead of to the
-!! matrix A.  The product P1*P2 should be an approximation to matrix A
+!! applied to the matrix (P1-inverse)\*A\*(P2-inverse) instead of to the
+!! matrix A.  The product P1\*P2 should be an approximation to matrix A
 !! such that linear systems with P1 or P2 are easier to solve than with
 !! A.  Preconditioning from the left only or right only means using
 !! P2 = identity or P1 = identity, respectively.
-!!     In the case of the PCG and PCGS methods, there is only one
+!!
+!! In the case of the PCG and PCGS methods, there is only one
 !! preconditioner matrix P (but it can be the product of more than one).
 !! It should approximate the matrix A but allow for relatively
 !! easy solution of linear systems with coefficient matrix P.
-!! For PCG, P should be positive definite symmetric, or nearly so,
-!! and for PCGS, the scaled preconditioner D-inverse * P * D
-!! should be symmetric or nearly so.
-!!     If the Jacobian J = df/dy splits in a natural way into a sum
-!! J = J1 + J2, then one possible choice of preconditioners is
-!!     P1 = identity - hl0 * J1  and  P2 = identity - hl0 * J2
-!! provided each of these is easy to solve (or approximately solve).
 !!
+!! For PCG, P should be positive definite symmetric, or nearly so,
+!! and for PCGS, the scaled preconditioner D-inverse \* P \* D
+!! should be symmetric or nearly so.
+!!
+!! If the Jacobian J = df/dy splits in a natural way into a sum
+!! J = J1 + J2, then one possible choice of preconditioners is
+!! P1 = identity - hl0 \* J1  and  P2 = identity - hl0 \* J2
+!! provided each of these is easy to solve (or approximately solve).
 !!-----------------------------------------------------------------------
-!! References:
-!! 1.  Peter N. Brown and Alan C. Hindmarsh, Reduced Storage Matrix
-!!     Methods in Stiff ODE Systems, J. Appl. Math. & Comp., 31 (1989),
-!!     pp. 40-91; also  L.L.N.L. Report UCRL-95088, Rev. 1, June 1987.
-!! 2.  Alan C. Hindmarsh,  ODEPACK, A Systematized Collection of ODE
-!!     Solvers, in Scientific Computing, R. S. Stepleman et al. (Eds.),
-!!     North-Holland, Amsterdam, 1983, pp. 55-64.
-!!-----------------------------------------------------------------------
-!! Authors:       Alan C. Hindmarsh and Peter N. Brown
-!!                Center for Applied Scientific Computing, L-561
-!!                Lawrence Livermore National Laboratory
-!!                Livermore, CA 94551
-!!-----------------------------------------------------------------------
-!! Summary of Usage.
+!!### Summary of Usage.
 !!
 !! Communication between the user and the DLSODPK package, for normal
 !! situations, is summarized here.  This summary describes only a subset
@@ -101,12 +92,14 @@
 !! and instructions for special situations.  See also the demonstration
 !! program distributed with this solver.
 !!
-!! A. First provide a subroutine of the form:
-!!               SUBROUTINE F (NEQ, T, Y, YDOT)
-!!               DOUBLE PRECISION T, Y(*), YDOT(*)
+!! **A.** First provide a subroutine of the form:
+!!```fortran
+!!       SUBROUTINE F (NEQ, T, Y, YDOT)
+!!       DOUBLE PRECISION T, Y(*), YDOT(*)
+!!```
 !! which supplies the vector function f by loading YDOT(i) with f(i).
 !!
-!! B. Next determine (or guess) whether or not the problem is stiff.
+!! **B.** Next determine (or guess) whether or not the problem is stiff.
 !! Stiffness occurs when the Jacobian matrix df/dy has an eigenvalue
 !! whose real part is negative and large in magnitude, compared to the
 !! reciprocal of the t span of interest.  If the problem is nonstiff,
@@ -115,6 +108,8 @@
 !! Use 23 or 24 only if symmetry is present.  Use MF = 29 if the
 !! complete linear system solution is to be provided by the user.
 !! The following four parameters must also be set.
+!!
+!!```text
 !!  IWORK(1) = LWP  = length of real array WP for preconditioning.
 !!  IWORK(2) = LIWP = length of integer array IWP for preconditioning.
 !!  IWORK(3) = JPRE = preconditioner type flag:
@@ -125,128 +120,204 @@
 !!  IWORK(4) = JACFLG = flag for whether JAC is called.
 !!                    = 0 if JAC is not to be called,
 !!                    = 1 if JAC is to be called.
+!!```
 !!  Use JACFLG = 1 if JAC computes any nonconstant data for use in
 !!  preconditioning, such as Jacobian elements.
 !!  The arrays WP and IWP are work arrays under the user's control,
 !!  for use in the routines that perform preconditioning operations.
 !!
-!! C. If the problem is stiff, you must supply two routines that deal
+!! **C.** If the problem is stiff, you must supply two routines that deal
 !! with the preconditioning of the linear systems to be solved.
 !! These are as follows:
-!!
+!!```fortran
 !!     SUBROUTINE JAC (F, NEQ, T, Y, YSV, REWT, FTY, V, HL0, WP,IWP, IER)
 !!     DOUBLE PRECISION T, Y(*),YSV(*), REWT(*), FTY(*), V(*), HL0, WP(*)
 !!     INTEGER IWP(*)
-!!        This routine must evaluate and preprocess any parts of the
-!!     Jacobian matrix df/dy involved in the preconditioners P1, P2, P.
-!!     The Y and FTY arrays contain the current values of y and f(t,y),
-!!     respectively, and YSV also contains the current value of y.
-!!     The array V is work space of length NEQ.
-!!     JAC must multiply all computed Jacobian elements by the scalar
-!!     -HL0, add the identity matrix, and do any factorization
-!!     operations called for, in preparation for solving linear systems
-!!     with a coefficient matrix of P1, P2, or P.  The matrix P1*P2 or P
-!!     should be an approximation to  identity - HL0 * (df/dy).
-!!     JAC should return IER = 0 if successful, and IER .ne. 0 if not.
-!!     (If IER .ne. 0, a smaller time step will be tried.)
+!!```
+!! This routine must evaluate and preprocess any parts of the
+!! Jacobian matrix df/dy involved in the preconditioners P1, P2, P.
+!! The Y and FTY arrays contain the current values of y and f(t,y),
+!! respectively, and YSV also contains the current value of y.
+!! The array V is work space of length NEQ.
 !!
+!! JAC must multiply all computed Jacobian elements by the scalar
+!! -HL0, add the identity matrix, and do any factorization
+!! operations called for, in preparation for solving linear systems
+!! with a coefficient matrix of P1, P2, or P.  The matrix P1\*P2 or P
+!! should be an approximation to  identity - HL0 \* (df/dy).
+!! JAC should return IER = 0 if successful, and IER .ne. 0 if not.
+!! (If IER .ne. 0, a smaller time step will be tried.)
+!!```fortran
 !!     SUBROUTINE PSOL (NEQ, T, Y, FTY, WK, HL0, WP, IWP, B, LR, IER)
 !!     DOUBLE PRECISION T, Y(*), FTY(*), WK(*), HL0, WP(*), B(*)
 !!     INTEGER IWP(*)
-!!        This routine must solve a linear system with B as right-hand
-!!     side and one of the preconditioning matrices, P1, P2, or P, as
-!!     coefficient matrix, and return the solution vector in B.
-!!     LR is a flag concerning left vs right preconditioning, input
-!!     to PSOL.  PSOL is to use P1 if LR = 1 and P2 if LR = 2.
-!!     In the case of the PCG or PCGS method, LR will be 3, and PSOL
-!!     should solve the system P*x = B with the preconditioner matrix P.
-!!     In the case MF = 29 (no Krylov iteration), LR will be 0,
-!!     and PSOL is to return in B the desired approximate solution
-!!     to A * x = B, where A = identity - HL0 * (df/dy).
-!!     PSOL can use data generated in the JAC routine and stored in
-!!     WP and IWP.  WK is a work array of length NEQ.
-!!     The argument HL0 is the current value of the scalar appearing
-!!     in the linear system.  If the old value, at the time of the last
-!!     JAC call, is needed, it must have been saved by JAC in WP.
-!!     On return, PSOL should set the error flag IER as follows:
+!!```
+!! This routine must solve a linear system with B as right-hand
+!! side and one of the preconditioning matrices, P1, P2, or P, as
+!! coefficient matrix, and return the solution vector in B.
+!!
+!! LR is a flag concerning left vs right preconditioning, input
+!! to PSOL.  PSOL is to use P1 if LR = 1 and P2 if LR = 2.
+!! In the case of the PCG or PCGS method, LR will be 3, and PSOL
+!! should solve the system P\*x = B with the preconditioner matrix P.
+!! In the case MF = 29 (no Krylov iteration), LR will be 0,
+!! and PSOL is to return in B the desired approximate solution
+!! to A \* x = B, where A = identity - HL0 \* (df/dy).
+!!
+!! PSOL can use data generated in the JAC routine and stored in
+!! WP and IWP.  WK is a work array of length NEQ.
+!!
+!! The argument HL0 is the current value of the scalar appearing
+!! in the linear system.  If the old value, at the time of the last
+!! JAC call, is needed, it must have been saved by JAC in WP.
+!! On return, PSOL should set the error flag IER as follows:
+!!
 !!       IER = 0 if PSOL was successful,
 !!       IER .gt. 0 if a recoverable error occurred, meaning that the
 !!              time step will be retried,
 !!       IER .lt. 0 if an unrecoverable error occurred, meaning that the
 !!              solver is to stop immediately.
 !!
-!! D. Write a main program which calls Subroutine DLSODPK once for
+!! **D.** Write a main program which calls Subroutine DLSODPK once for
 !! each point at which answers are desired.  This should also provide
 !! for possible use of logical unit 6 for output of error messages by
 !! DLSODPK.  On the first call to DLSODPK, supply arguments as follows:
-!! F      = name of subroutine for right-hand side vector f.
-!!          This name must be declared External in calling program.
-!! NEQ    = number of first order ODEs.
-!! Y      = array of initial values, of length NEQ.
-!! T      = the initial value of the independent variable.
-!! TOUT   = first point where output is desired (.ne. T).
-!! ITOL   = 1 or 2 according as ATOL (below) is a scalar or array.
-!! RTOL   = relative tolerance parameter (scalar).
-!! ATOL   = absolute tolerance parameter (scalar or array).
-!!          the estimated local error in y(i) will be controlled so as
-!!          to be roughly less (in magnitude) than
+!!
+!! F      
+!!
+!! : name of subroutine for right-hand side vector f.
+!! This name must be declared External in calling program.
+!!
+!! NEQ    
+!!
+!! : number of first order ODEs.
+!!
+!! Y      
+!!
+!! : array of initial values, of length NEQ.
+!!
+!! T      
+!!
+!! : the initial value of the independent variable.
+!!
+!! TOUT   
+!!
+!! : first point where output is desired (.ne. T).
+!!
+!! ITOL   
+!!
+!! : 1 or 2 according as ATOL (below) is a scalar or array.
+!!
+!! RTOL   
+!!
+!! : relative tolerance parameter (scalar).
+!!
+!! ATOL   
+!!
+!! : absolute tolerance parameter (scalar or array).
+!! the estimated local error in y(i) will be controlled so as
+!! to be roughly less (in magnitude) than
+!!```text
 !!             EWT(i) = RTOL*ABS(Y(i)) + ATOL     if ITOL = 1, or
 !!             EWT(i) = RTOL*ABS(Y(i)) + ATOL(i)  if ITOL = 2.
-!!          Thus the local error test passes if, in each component,
-!!          either the absolute error is less than ATOL (or ATOL(i)),
-!!          or the relative error is less than RTOL.
-!!          Use RTOL = 0.0 for pure absolute error control, and
-!!          use ATOL = 0.0 (or ATOL(i) = 0.0) for pure relative error
-!!          control.  Caution: Actual (global) errors may exceed these
-!!          local tolerances, so choose them conservatively.
-!! ITASK  = 1 for normal computation of output values of y at t = TOUT.
-!! ISTATE = integer flag (input and output).  Set ISTATE = 1.
-!! IOPT   = 0 to indicate no optional inputs used.
-!! RWORK  = real work array of length at least:
-!!             20 + 16*NEQ           for MF = 10,
-!!             45 + 17*NEQ + LWP     for MF = 21,
-!!             61 + 17*NEQ + LWP     for MF = 22,
-!!             20 + 15*NEQ + LWP     for MF = 23 or 24,
-!!             20 + 12*NEQ + LWP     for MF = 29.
-!! LRW    = declared length of RWORK (in user's dimension).
-!! IWORK  = integer work array of length at least:
-!!             30            for MF = 10,
-!!             35 + LIWP     for MF = 21,
-!!             30 + LIWP     for MF = 22, 23, 24, or 29.
-!! LIW    = declared length of IWORK (in user's dimension).
-!! JAC,PSOL = names of subroutines for preconditioning.
-!!          These names must be declared External in the calling program.
-!! MF     = method flag.  Standard values are:
-!!          10 for nonstiff (Adams) method.
-!!          21 for stiff (BDF) method, with preconditioned SIOM.
-!!          22 for stiff method, with preconditioned GMRES method.
-!!          23 for stiff method, with preconditioned CG method.
-!!          24 for stiff method, with scaled preconditioned CG method.
-!!          29 for stiff method, with user's PSOL routine only.
+!!```
+!! Thus the local error test passes if, in each component,
+!! either the absolute error is less than ATOL (or ATOL(i)),
+!! or the relative error is less than RTOL.
+!!
+!! Use RTOL = 0.0 for pure absolute error control, and
+!! use ATOL = 0.0 (or ATOL(i) = 0.0) for pure relative error
+!! control.  Caution: Actual (global) errors may exceed these
+!! local tolerances, so choose them conservatively.
+!!
+!! ITASK  
+!!
+!! : 1 for normal computation of output values of y at t = TOUT.
+!!
+!! ISTATE 
+!!
+!! : integer flag (input and output).  Set ISTATE = 1.
+!!
+!! IOPT   
+!!
+!! : 0 to indicate no optional inputs used.
+!!
+!! RWORK  
+!!
+!! : real work array of length at least:
+!!```text
+!!        20 + 16*NEQ           for MF = 10,
+!!        45 + 17*NEQ + LWP     for MF = 21,
+!!        61 + 17*NEQ + LWP     for MF = 22,
+!!        20 + 15*NEQ + LWP     for MF = 23 or 24,
+!!        20 + 12*NEQ + LWP     for MF = 29.
+!!```
+!!
+!! LRW    
+!!
+!! : declared length of RWORK (in user's dimension).
+!!
+!! IWORK  
+!!
+!! : integer work array of length at least:
+!!```text
+!!        30            for MF = 10,
+!!        35 + LIWP     for MF = 21,
+!!        30 + LIWP     for MF = 22, 23, 24, or 29.
+!!```
+!!
+!! LIW    
+!!
+!! : declared length of IWORK (in user's dimension).
+!!
+!! JAC,PSOL 
+!!
+!! : names of subroutines for preconditioning.
+!! These names must be declared External in the calling program.
+!!
+!! MF     
+!!
+!! : method flag.  Standard values are:
+!!
+!!  value | description
+!!  ----- | -------------------------------------------------------
+!!     10 | for nonstiff (Adams) method.
+!!     21 | for stiff (BDF) method, with preconditioned SIOM.
+!!     22 | for stiff method, with preconditioned GMRES method.
+!!     23 | for stiff method, with preconditioned CG method.
+!!     24 | for stiff method, with scaled preconditioned CG method.
+!!     29 | for stiff method, with user's PSOL routine only.
+!!
 !! Note that the main program must declare arrays Y, RWORK, IWORK,
 !! and possibly ATOL.
 !!
-!! E. The output from the first call (or any call) is:
+!! **E.** The output from the first call (or any call) is:
+!!
 !!      Y = array of computed values of y(t) vector.
 !!      T = corresponding value of independent variable (normally TOUT).
-!! ISTATE = 2  if DLSODPK was successful, negative otherwise.
-!!          -1 means excess work done on this call (perhaps wrong MF).
-!!          -2 means excess accuracy requested (tolerances too small).
-!!          -3 means illegal input detected (see printed message).
-!!          -4 means repeated error test failures (check all inputs).
-!!          -5 means repeated convergence failures (perhaps bad JAC
-!!             or PSOL routine supplied or wrong choice of MF or
-!!             tolerances, or this solver is inappropriate).
-!!          -6 means error weight became zero during problem. (Solution
-!!             component i vanished, and ATOL or ATOL(i) = 0.)
-!!          -7 means an unrecoverable error occurred in PSOL.
+!! ISTATE 
 !!
-!! F. To continue the integration after a successful return, simply
+!! : table of values:
+!!
+!!  value | description
+!!  ----- | --------------------------------------------------------------
+!!      2 | if DLSODPK was successful, negative otherwise.
+!!     -1 | means excess work done on this call (perhaps wrong MF).
+!!     -2 | means excess accuracy requested (tolerances too small).
+!!     -3 | means illegal input detected (see printed message).
+!!     -4 | means repeated error test failures (check all inputs).
+!!     -5 | means repeated convergence failures (perhaps bad JAC
+!!        | or PSOL routine supplied or wrong choice of MF or
+!!        | tolerances, or this solver is inappropriate).
+!!     -6 | means error weight became zero during problem. (Solution
+!!        | component i vanished, and ATOL or ATOL(i) = 0.)
+!!     -7 | means an unrecoverable error occurred in PSOL.
+!!
+!! **F.** To continue the integration after a successful return, simply
 !! reset TOUT and call DLSODPK again.  No other parameters need be reset.
 !!
 !!-----------------------------------------------------------------------
-!!-----------------------------------------------------------------------
-!! Full Description of User Interface to DLSODPK.
+!!#### Full Description of User Interface to DLSODPK.
 !!
 !! The user interface to DLSODPK consists of the following parts.
 !!
@@ -271,12 +342,14 @@
 !!      These relate to the measurement of errors.
 !!
 !!-----------------------------------------------------------------------
-!! Part 1.  Call Sequence.
+!!#### Part 1.  Call Sequence.
 !!
 !! The call sequence parameters used for input only are
 !!  F, NEQ, TOUT, ITOL, RTOL, ATOL, ITASK, IOPT, LRW, LIW, JAC, PSOL, MF,
+!!
 !! and those used for both input and output are
 !!  Y, T, ISTATE.
+!!
 !! The work arrays RWORK and IWORK are also used for conditional and
 !! optional inputs and optional outputs.  (The term output here refers
 !! to the return from Subroutine DLSODPK to the user's calling program.)
@@ -287,251 +360,293 @@
 !!
 !! The descriptions of the call arguments are as follows.
 !!
-!! F      = the name of the user-supplied subroutine defining the
-!!          ODE system.  The system must be put in the first-order
-!!          form dy/dt = f(t,y), where f is a vector-valued function
-!!          of the scalar t and the vector y.  Subroutine F is to
-!!          compute the function f.  It is to have the form
-!!               SUBROUTINE F (NEQ, T, Y, YDOT)
-!!               DOUBLE PRECISION T, Y(*), YDOT(*)
-!!          where NEQ, T, and Y are input, and the array YDOT = f(t,y)
-!!          is output.  Y and YDOT are arrays of length NEQ.
-!!          Subroutine F should not alter Y(1),...,Y(NEQ).
-!!          F must be declared External in the calling program.
+!! F      
 !!
-!!          Subroutine F may access user-defined quantities in
-!!          NEQ(2),... and/or in Y(NEQ(1)+1),... if NEQ is an array
-!!          (dimensioned in F) and/or Y has length exceeding NEQ(1).
-!!          See the descriptions of NEQ and Y below.
+!! : the name of the user-supplied subroutine defining the
+!! ODE system.  The system must be put in the first-order
+!! form dy/dt = f(t,y), where f is a vector-valued function
+!! of the scalar t and the vector y.  Subroutine F is to
+!! compute the function f.  It is to have the form
+!!```fortran
+!!          SUBROUTINE F (NEQ, T, Y, YDOT)
+!!          DOUBLE PRECISION T, Y(*), YDOT(*)
+!!```
+!! where NEQ, T, and Y are input, and the array YDOT = f(t,y)
+!! is output.  Y and YDOT are arrays of length NEQ.
+!! Subroutine F should not alter Y(1),...,Y(NEQ).
+!! F must be declared External in the calling program.
 !!
-!!          If quantities computed in the F routine are needed
-!!          externally to DLSODPK, an extra call to F should be made
-!!          for this purpose, for consistent and accurate results.
-!!          If only the derivative dy/dt is needed, use DINTDY instead.
+!! Subroutine F may access user-defined quantities in
+!! NEQ(2),... and/or in Y(NEQ(1)+1),... if NEQ is an array
+!! (dimensioned in F) and/or Y has length exceeding NEQ(1).
+!! See the descriptions of NEQ and Y below.
 !!
-!! NEQ    = the size of the ODE system (number of first order
-!!          ordinary differential equations).  Used only for input.
-!!          NEQ may be decreased, but not increased, during the problem.
-!!          If NEQ is decreased (with ISTATE = 3 on input), the
-!!          remaining components of Y should be left undisturbed, if
-!!          these are to be accessed in the user-supplied subroutines.
+!! If quantities computed in the F routine are needed
+!! externally to DLSODPK, an extra call to F should be made
+!! for this purpose, for consistent and accurate results.
+!! If only the derivative dy/dt is needed, use DINTDY instead.
 !!
-!!          Normally, NEQ is a scalar, and it is generally referred to
-!!          as a scalar in this user interface description.  However,
-!!          NEQ may be an array, with NEQ(1) set to the system size.
-!!          (The DLSODPK package accesses only NEQ(1).)  In either case,
-!!          this parameter is passed as the NEQ argument in all calls
-!!          to F, JAC, and PSOL.  Hence, if it is an array, locations
-!!          NEQ(2),... may be used to store other integer data and pass
-!!          it to the user-supplied subroutines.  Each such routine must
-!!          include NEQ in a Dimension statement in that case.
+!! NEQ    
 !!
-!! Y      = a real array for the vector of dependent variables, of
-!!          length NEQ or more.  Used for both input and output on the
-!!          first call (ISTATE = 1), and only for output on other calls.
-!!          On the first call, Y must contain the vector of initial
-!!          values.  On output, Y contains the computed solution vector,
-!!          evaluated at T.  If desired, the Y array may be used
-!!          for other purposes between calls to the solver.
+!! : the size of the ODE system (number of first order
+!! ordinary differential equations).  Used only for input.
+!! NEQ may be decreased, but not increased, during the problem.
+!! If NEQ is decreased (with ISTATE = 3 on input), the
+!! remaining components of Y should be left undisturbed, if
+!! these are to be accessed in the user-supplied subroutines.
 !!
-!!          This array is passed as the Y argument in all calls to F,
-!!          JAC, and PSOL. Hence its length may exceed NEQ, and locations
-!!          Y(NEQ+1),... may be used to store other real data and
-!!          pass it to the user-supplied subroutines.  (The DLSODPK
-!!          package accesses only Y(1),...,Y(NEQ).)
+!! Normally, NEQ is a scalar, and it is generally referred to
+!! as a scalar in this user interface description.  However,
+!! NEQ may be an array, with NEQ(1) set to the system size.
+!! (The DLSODPK package accesses only NEQ(1).)  In either case,
+!! this parameter is passed as the NEQ argument in all calls
+!! to F, JAC, and PSOL.  Hence, if it is an array, locations
+!! NEQ(2),... may be used to store other integer data and pass
+!! it to the user-supplied subroutines.  Each such routine must
+!! include NEQ in a Dimension statement in that case.
 !!
-!! T      = the independent variable.  On input, T is used only on the
-!!          first call, as the initial point of the integration.
-!!          On output, after each call, T is the value at which a
-!!          computed solution y is evaluated (usually the same as TOUT).
-!!          On an error return, T is the farthest point reached.
+!! Y      
 !!
-!! TOUT   = the next value of t at which a computed solution is desired.
-!!          Used only for input.
+!! : a real array for the vector of dependent variables, of
+!! length NEQ or more.  Used for both input and output on the
+!! first call (ISTATE = 1), and only for output on other calls.
+!! On the first call, Y must contain the vector of initial
+!! values.  On output, Y contains the computed solution vector,
+!! evaluated at T.  If desired, the Y array may be used
+!! for other purposes between calls to the solver.
 !!
-!!          When starting the problem (ISTATE = 1), TOUT may be equal
-!!          to T for one call, then should .ne. T for the next call.
-!!          For the initial T, an input value of TOUT .ne. T is used
-!!          in order to determine the direction of the integration
-!!          (i.e. the algebraic sign of the step sizes) and the rough
-!!          scale of the problem.  Integration in either direction
-!!          (forward or backward in t) is permitted.
+!! This array is passed as the Y argument in all calls to F,
+!! JAC, and PSOL. Hence its length may exceed NEQ, and locations
+!! Y(NEQ+1),... may be used to store other real data and
+!! pass it to the user-supplied subroutines.  (The DLSODPK
+!! package accesses only Y(1),...,Y(NEQ).)
 !!
-!!          If ITASK = 2 or 5 (one-step modes), TOUT is ignored after
-!!          the first call (i.e. the first call with TOUT .ne. T).
-!!          Otherwise, TOUT is required on every call.
+!! T      
 !!
-!!          If ITASK = 1, 3, or 4, the values of TOUT need not be
-!!          monotone, but a value of TOUT which backs up is limited
-!!          to the current internal T interval, whose endpoints are
-!!          TCUR - HU and TCUR (see optional outputs, below, for
-!!          TCUR and HU).
+!! : the independent variable.  On input, T is used only on the
+!! first call, as the initial point of the integration.
+!! On output, after each call, T is the value at which a
+!! computed solution y is evaluated (usually the same as TOUT).
+!! On an error return, T is the farthest point reached.
 !!
-!! ITOL   = an indicator for the type of error control.  See
-!!          description below under ATOL.  Used only for input.
+!! TOUT   
 !!
-!! RTOL   = a relative error tolerance parameter, either a scalar or
-!!          an array of length NEQ.  See description below under ATOL.
-!!          Input only.
+!! : the next value of t at which a computed solution is desired.
+!! Used only for input.
 !!
-!! ATOL   = an absolute error tolerance parameter, either a scalar or
-!!          an array of length NEQ.  Input only.
+!! When starting the problem (ISTATE = 1), TOUT may be equal
+!! to T for one call, then should .ne. T for the next call.
+!! For the initial T, an input value of TOUT .ne. T is used
+!! in order to determine the direction of the integration
+!! (i.e. the algebraic sign of the step sizes) and the rough
+!! scale of the problem.  Integration in either direction
+!! (forward or backward in t) is permitted.
 !!
-!!             The input parameters ITOL, RTOL, and ATOL determine
-!!          the error control performed by the solver.  The solver will
-!!          control the vector E = (E(i)) of estimated local errors
-!!          in y, according to an inequality of the form
-!!                      RMS-norm of ( E(i)/EWT(i) )   .le.   1,
-!!          where       EWT(i) = RTOL(i)*ABS(Y(i)) + ATOL(i),
-!!          and the RMS-norm (root-mean-square norm) here is
-!!          RMS-norm(v) = SQRT(sum v(i)**2 / NEQ).  Here EWT = (EWT(i))
-!!          is a vector of weights which must always be positive, and
-!!          the values of RTOL and ATOL should all be non-negative.
-!!          the following table gives the types (scalar/array) of
-!!          RTOL and ATOL, and the corresponding form of EWT(i).
+!! If ITASK = 2 or 5 (one-step modes), TOUT is ignored after
+!! the first call (i.e. the first call with TOUT .ne. T).
+!! Otherwise, TOUT is required on every call.
 !!
-!!             ITOL    RTOL       ATOL          EWT(i)
-!!              1     scalar     scalar     RTOL*ABS(Y(i)) + ATOL
-!!              2     scalar     array      RTOL*ABS(Y(i)) + ATOL(i)
-!!              3     array      scalar     RTOL(i)*ABS(Y(i)) + ATOL
-!!              4     array      array      RTOL(i)*ABS(Y(i)) + ATOL(i)
+!! If ITASK = 1, 3, or 4, the values of TOUT need not be
+!! monotone, but a value of TOUT which backs up is limited
+!! to the current internal T interval, whose endpoints are
+!! TCUR - HU and TCUR (see optional outputs, below, for
+!! TCUR and HU).
 !!
-!!          When either of these parameters is a scalar, it need not
-!!          be dimensioned in the user's calling program.
+!! ITOL   
 !!
-!!          If none of the above choices (with ITOL, RTOL, and ATOL
-!!          fixed throughout the problem) is suitable, more general
-!!          error controls can be obtained by substituting
-!!          user-supplied routines for the setting of EWT and/or for
-!!          the norm calculation.  See Part 4 below.
+!! : an indicator for the type of error control.  See
+!! description below under ATOL.  Used only for input.
 !!
-!!          If global errors are to be estimated by making a repeated
-!!          run on the same problem with smaller tolerances, then all
-!!          components of RTOL and ATOL (i.e. of EWT) should be scaled
-!!          down uniformly.
+!! RTOL   
+!!
+!! : a relative error tolerance parameter, either a scalar or
+!! an array of length NEQ.  See description below under ATOL.
+!! Input only.
+!!
+!! ATOL   
+!!
+!! : an absolute error tolerance parameter, either a scalar or
+!! an array of length NEQ.  Input only.
+!!
+!! The input parameters ITOL, RTOL, and ATOL determine
+!! the error control performed by the solver.  The solver will
+!! control the vector E = (E(i)) of estimated local errors
+!! in y, according to an inequality of the form
+!!```text
+!!                  RMS-norm of ( E(i)/EWT(i) )   .le.   1,
+!!      where       EWT(i) = RTOL(i)*ABS(Y(i)) + ATOL(i),
+!!```
+!! and the RMS-norm (root-mean-square norm) here is
+!! RMS-norm(v) = SQRT(sum v(i)\*\*2 / NEQ).  Here EWT = (EWT(i))
+!! is a vector of weights which must always be positive, and
+!! the values of RTOL and ATOL should all be non-negative.
+!! the following table gives the types (scalar/array) of
+!! RTOL and ATOL, and the corresponding form of EWT(i).
+!!
+!!  ITOL |  RTOL   |   ATOL   |      EWT(i)
+!!  ---- | ------- | -------- | -------------------------------
+!!   1   | scalar  |  scalar  |  RTOL\*ABS(Y(i)) + ATOL
+!!   2   | scalar  |  array   |  RTOL\*ABS(Y(i)) + ATOL(i)
+!!   3   | array   |  scalar  |  RTOL(i)\*ABS(Y(i)) + ATOL
+!!   4   | array   |  array   |  RTOL(i)\*ABS(Y(i)) + ATOL(i)
+!!
+!! When either of these parameters is a scalar, it need not
+!! be dimensioned in the user's calling program.
+!!
+!! If none of the above choices (with ITOL, RTOL, and ATOL
+!! fixed throughout the problem) is suitable, more general
+!! error controls can be obtained by substituting
+!! user-supplied routines for the setting of EWT and/or for
+!! the norm calculation.  See Part 4 below.
+!!
+!! If global errors are to be estimated by making a repeated
+!! run on the same problem with smaller tolerances, then all
+!! components of RTOL and ATOL (i.e. of EWT) should be scaled
+!! down uniformly.
 !!
 !! ITASK  = an index specifying the task to be performed.
-!!          Input only.  ITASK has the following values and meanings.
-!!          1  means normal computation of output values of y(t) at
-!!             t = TOUT (by overshooting and interpolating).
-!!          2  means take one step only and return.
-!!          3  means stop at the first internal mesh point at or
-!!             beyond t = TOUT and return.
-!!          4  means normal computation of output values of y(t) at
-!!             t = TOUT but without overshooting t = TCRIT.
-!!             TCRIT must be input as RWORK(1).  TCRIT may be equal to
-!!             or beyond TOUT, but not behind it in the direction of
-!!             integration.  This option is useful if the problem
-!!             has a singularity at or beyond t = TCRIT.
-!!          5  means take one step, without passing TCRIT, and return.
-!!             TCRIT must be input as RWORK(1).
 !!
-!!          Note:  If ITASK = 4 or 5 and the solver reaches TCRIT
-!!          (within roundoff), it will return T = TCRIT (exactly) to
-!!          indicate this (unless ITASK = 4 and TOUT comes before TCRIT,
-!!          in which case answers at t = TOUT are returned first).
+!! Input only.  ITASK has the following values and meanings.
+!!
+!!  value | description
+!!  ----- | --------------------------------------------------------------
+!!     1  | means normal computation of output values of y(t) at
+!!        | t = TOUT (by overshooting and interpolating).
+!!     2  | means take one step only and return.
+!!     3  | means stop at the first internal mesh point at or
+!!        | beyond t = TOUT and return.
+!!     4  | means normal computation of output values of y(t) at
+!!        | t = TOUT but without overshooting t = TCRIT.
+!!        | TCRIT must be input as RWORK(1).  TCRIT may be equal to
+!!        | or beyond TOUT, but not behind it in the direction of
+!!        | integration.  This option is useful if the problem
+!!        | has a singularity at or beyond t = TCRIT.
+!!     5  | means take one step, without passing TCRIT, and return.
+!!        | TCRIT must be input as RWORK(1).
+!!
+!! **Note**:  If ITASK = 4 or 5 and the solver reaches TCRIT
+!! (within roundoff), it will return T = TCRIT (exactly) to
+!! indicate this (unless ITASK = 4 and TOUT comes before TCRIT,
+!! in which case answers at t = TOUT are returned first).
 !!
 !! ISTATE = an index used for input and output to specify the
 !!          the state of the calculation.
 !!
-!!          On input, the values of ISTATE are as follows.
-!!          1  means this is the first call for the problem
-!!             (initializations will be done).  See note below.
-!!          2  means this is not the first call, and the calculation
-!!             is to continue normally, with no change in any input
-!!             parameters except possibly TOUT and ITASK.
-!!             (If ITOL, RTOL, and/or ATOL are changed between calls
-!!             with ISTATE = 2, the new values will be used but not
-!!             tested for legality.)
-!!          3  means this is not the first call, and the
-!!             calculation is to continue normally, but with
-!!             a change in input parameters other than
-!!             TOUT and ITASK.  Changes are allowed in
-!!             NEQ, ITOL, RTOL, ATOL, IOPT, LRW, LIW, MF,
-!!             and any of the optional inputs except H0.
-!!          Note:  A preliminary call with TOUT = T is not counted
-!!          as a first call here, as no initialization or checking of
-!!          input is done.  (Such a call is sometimes useful for the
-!!          purpose of outputting the initial conditions.)
-!!          Thus the first call for which TOUT .ne. T requires
-!!          ISTATE = 1 on input.
+!! On input, the values of ISTATE are as follows:
 !!
-!!          On output, ISTATE has the following values and meanings.
-!!           1  means nothing was done; TOUT = T and ISTATE = 1 on input.
-!!           2  means the integration was performed successfully.
-!!          -1  means an excessive amount of work (more than MXSTEP
-!!              steps) was done on this call, before completing the
-!!              requested task, but the integration was otherwise
-!!              successful as far as T.  (MXSTEP is an optional input
-!!              and is normally 500.)  To continue, the user may
-!!              simply reset ISTATE to a value .gt. 1 and call again
-!!              (the excess work step counter will be reset to 0).
-!!              In addition, the user may increase MXSTEP to avoid
-!!              this error return (see below on optional inputs).
-!!          -2  means too much accuracy was requested for the precision
-!!              of the machine being used.  This was detected before
-!!              completing the requested task, but the integration
-!!              was successful as far as T.  To continue, the tolerance
-!!              parameters must be reset, and ISTATE must be set
-!!              to 3.  The optional output TOLSF may be used for this
-!!              purpose.  (Note: If this condition is detected before
-!!              taking any steps, then an illegal input return
-!!              (ISTATE = -3) occurs instead.)
-!!          -3  means illegal input was detected, before taking any
-!!              integration steps.  See written message for details.
-!!              Note:  If the solver detects an infinite loop of calls
-!!              to the solver with illegal input, it will cause
-!!              the run to stop.
-!!          -4  means there were repeated error test failures on
-!!              one attempted step, before completing the requested
-!!              task, but the integration was successful as far as T.
-!!              The problem may have a singularity, or the input
-!!              may be inappropriate.
-!!          -5  means there were repeated convergence test failures on
-!!              one attempted step, before completing the requested
-!!              task, but the integration was successful as far as T.
-!!          -6  means EWT(i) became zero for some i during the
-!!              integration.  Pure relative error control (ATOL(i)=0.0)
-!!              was requested on a variable which has now vanished.
-!!              The integration was successful as far as T.
-!!          -7  means the PSOL routine returned an unrecoverable error
-!!              flag (IER .lt. 0).  The integration was successful as
-!!              far as T.
+!!  value | description
+!!  ----- | --------------------------------------------------------------
+!!     1  | means this is the first call for the problem
+!!        | (initializations will be done).  See note below.
+!!     2  | means this is not the first call, and the calculation
+!!        | is to continue normally, with no change in any input
+!!        | parameters except possibly TOUT and ITASK.
+!!        | (If ITOL, RTOL, and/or ATOL are changed between calls
+!!        | with ISTATE = 2, the new values will be used but not
+!!        | tested for legality.)
+!!     3  | means this is not the first call, and the
+!!        | calculation is to continue normally, but with
+!!        | a change in input parameters other than
+!!        | TOUT and ITASK.  Changes are allowed in
+!!        | NEQ, ITOL, RTOL, ATOL, IOPT, LRW, LIW, MF,
+!!        | and any of the optional inputs except H0.
 !!
-!!          Note:  since the normal output value of ISTATE is 2,
-!!          it does not need to be reset for normal continuation.
-!!          Also, since a negative input value of ISTATE will be
-!!          regarded as illegal, a negative output value requires the
-!!          user to change it, and possibly other inputs, before
-!!          calling the solver again.
+!! **Note**:  A preliminary call with TOUT = T is not counted
+!! as a first call here, as no initialization or checking of
+!! input is done.  (Such a call is sometimes useful for the
+!! purpose of outputting the initial conditions.)
+!! Thus the first call for which TOUT .ne. T requires
+!! ISTATE = 1 on input.
 !!
-!! IOPT   = an integer flag to specify whether or not any optional
-!!          inputs are being used on this call.  Input only.
-!!          The optional inputs are listed separately below.
-!!          IOPT = 0 means no optional inputs are being used.
-!!                   Default values will be used in all cases.
-!!          IOPT = 1 means one or more optional inputs are being used.
+!! On output, ISTATE has the following values and meanings.
 !!
-!! RWORK  = a real working array (double precision).
-!!          The length of RWORK must be at least
-!!             20 + NYH*(MAXORD + 1) + 3*NEQ + LENLS + LWP    where
-!!          NYH    = the initial value of NEQ,
-!!          MAXORD = 12 (if METH = 1) or 5 (if METH = 2) (unless a
-!!                   smaller value is given as an optional input),
-!!          LENLS = length of work space for linear system (Krylov)
-!!                  method, excluding preconditioning:
-!!            LENLS = 0                               if MITER = 0,
-!!            LENLS = NEQ*(MAXL+3) + MAXL**2          if MITER = 1,
-!!            LENLS = NEQ*(MAXL+3+MIN(1,MAXL-KMP))
-!!                 + (MAXL+3)*MAXL + 1                if MITER = 2,
-!!            LENLS = 6*NEQ                           if MITER = 3 or 4,
-!!            LENLS = 3*NEQ                           if MITER = 9.
-!!          (See the MF description for METH and MITER, and the
-!!          list of optional inputs for MAXL and KMP.)
-!!          LWP = length of real user work space for preconditioning
-!!          (see JAC/PSOL).
-!!          Thus if default values are used and NEQ is constant,
-!!          this length is:
+!!   value | description
+!!   ----- | --------------------------------------------------------------
+!!       1 | means nothing was done; TOUT = T and ISTATE = 1 on input.
+!!       2 | means the integration was performed successfully.
+!!      -1 | means an excessive amount of work (more than MXSTEP
+!!         | steps) was done on this call, before completing the
+!!         | requested task, but the integration was otherwise
+!!         | successful as far as T.  (MXSTEP is an optional input
+!!         | and is normally 500.)  To continue, the user may
+!!         | simply reset ISTATE to a value .gt. 1 and call again
+!!         | (the excess work step counter will be reset to 0).
+!!         | In addition, the user may increase MXSTEP to avoid
+!!         | this error return (see below on optional inputs).
+!!      -2 | means too much accuracy was requested for the precision
+!!         | of the machine being used.  This was detected before
+!!         | completing the requested task, but the integration
+!!         | was successful as far as T.  To continue, the tolerance
+!!         | parameters must be reset, and ISTATE must be set
+!!         | to 3.  The optional output TOLSF may be used for this
+!!         | purpose.  (Note: If this condition is detected before
+!!         | taking any steps, then an illegal input return
+!!         | (ISTATE = -3) occurs instead.)
+!!      -3 | means illegal input was detected, before taking any
+!!         | integration steps.  See written message for details.
+!!         | Note:  If the solver detects an infinite loop of calls
+!!         | to the solver with illegal input, it will cause
+!!         | the run to stop.
+!!      -4 | means there were repeated error test failures on
+!!         | one attempted step, before completing the requested
+!!         | task, but the integration was successful as far as T.
+!!         | The problem may have a singularity, or the input
+!!         | may be inappropriate.
+!!      -5 | means there were repeated convergence test failures on
+!!         | one attempted step, before completing the requested
+!!         | task, but the integration was successful as far as T.
+!!      -6 | means EWT(i) became zero for some i during the
+!!         | integration.  Pure relative error control (ATOL(i)=0.0)
+!!         | was requested on a variable which has now vanished.
+!!         | The integration was successful as far as T.
+!!      -7 | means the PSOL routine returned an unrecoverable error
+!!         | flag (IER .lt. 0).  The integration was successful as
+!!         | far as T.
+!!
+!! **Note**:  since the normal output value of ISTATE is 2,
+!! it does not need to be reset for normal continuation.
+!! Also, since a negative input value of ISTATE will be
+!! regarded as illegal, a negative output value requires the
+!! user to change it, and possibly other inputs, before
+!! calling the solver again.
+!!
+!! IOPT   
+!! : an integer flag to specify whether or not any optional
+!! inputs are being used on this call.  Input only.
+!! The optional inputs are listed separately below.
+!!
+!!      IOPT = 0 means no optional inputs are being used.
+!!               Default values will be used in all cases.
+!!      IOPT = 1 means one or more optional inputs are being used.
+!!
+!! RWORK  
+!!
+!! : a real working array (double precision).
+!!```text
+!!       The length of RWORK must be at least
+!!          20 + NYH*(MAXORD + 1) + 3*NEQ + LENLS + LWP    where
+!!       NYH    = the initial value of NEQ,
+!!       MAXORD = 12 (if METH = 1) or 5 (if METH = 2) (unless a
+!!                smaller value is given as an optional input),
+!!       LENLS = length of work space for linear system (Krylov)
+!!               method, excluding preconditioning:
+!!         LENLS = 0                               if MITER = 0,
+!!         LENLS = NEQ*(MAXL+3) + MAXL**2          if MITER = 1,
+!!         LENLS = NEQ*(MAXL+3+MIN(1,MAXL-KMP))
+!!              + (MAXL+3)*MAXL + 1                if MITER = 2,
+!!         LENLS = 6*NEQ                           if MITER = 3 or 4,
+!!         LENLS = 3*NEQ                           if MITER = 9.
+!!```
+!! (See the MF description for METH and MITER, and the
+!! list of optional inputs for MAXL and KMP.)
+!!
+!! LWP 
+!!
+!! : length of real user work space for preconditioning
+!! (see JAC/PSOL).
+!! Thus if default values are used and NEQ is constant,
+!! this length is:
+!!```text
 !!             20 + 16*NEQ           for MF = 10,
 !!             45 + 24*NEQ + LWP     FOR MF = 11,
 !!             61 + 24*NEQ + LWP     FOR MF = 12,
@@ -542,29 +657,40 @@
 !!             61 + 17*NEQ + LWP     FOR MF = 22,
 !!             20 + 15*NEQ + LWP     FOR MF = 23 OR 24,
 !!             20 + 12*NEQ + LWP     for MF = 29.
-!!          The first 20 words of RWORK are reserved for conditional
-!!          and optional inputs and optional outputs.
+!!```
+!! The first 20 words of RWORK are reserved for conditional
+!! and optional inputs and optional outputs.
 !!
-!!          The following word in RWORK is a conditional input:
-!!            RWORK(1) = TCRIT = critical value of t which the solver
-!!                       is not to overshoot.  Required if ITASK is
-!!                       4 or 5, and ignored otherwise.  (See ITASK.)
+!! The following word in RWORK is a conditional input:
+!!```text
+!!         RWORK(1) = TCRIT = critical value of t which the solver
+!!                    is not to overshoot.  Required if ITASK is
+!!                    4 or 5, and ignored otherwise.  (See ITASK.)
+!!```
 !!
-!! LRW    = the length of the array RWORK, as declared by the user.
-!!          (This will be checked by the solver.)
+!! LRW    
 !!
-!! IWORK  = an integer work array.  The length of IWORK must be at least
+!! : the length of the array RWORK, as declared by the user.
+!! (This will be checked by the solver.)
+!!
+!! IWORK  
+!!
+!! : an integer work array.  The length of IWORK must be at least
+!!
 !!             30                 if MITER = 0 (MF = 10 or 20),
 !!             30 + MAXL + LIWP   if MITER = 1 (MF = 11, 21),
 !!             30 + LIWP          if MITER = 2, 3, 4, or 9.
+!!
 !!          MAXL = 5 unless a different optional input value is given.
 !!          LIWP = length of integer user work space for preconditioning
 !!          (see conditional input list following).
-!!          The first few words of IWORK are used for conditional and
-!!          optional inputs and optional outputs.
 !!
-!!          The following 4 words in IWORK are conditional inputs,
-!!          required if MITER .ge. 1:
+!! The first few words of IWORK are used for conditional and
+!! optional inputs and optional outputs.
+!!
+!! The following 4 words in IWORK are conditional inputs,
+!! required if MITER .ge. 1:
+!!```text
 !!          IWORK(1) = LWP  = length of real array WP for use in
 !!                     preconditioning (part of RWORK array).
 !!          IWORK(2) = LIWP = length of integer array IWP for use in
@@ -583,132 +709,171 @@
 !!                     Use JACFLG = 1 if JAC computes any nonconstant
 !!                     data needed in preconditioning operations,
 !!                     such as some of the Jacobian elements.
+!!```
+!! LIW    
 !!
-!! LIW    = the length of the array IWORK, as declared by the user.
-!!          (This will be checked by the solver.)
+!! : the length of the array IWORK, as declared by the user.
+!! (This will be checked by the solver.)
 !!
 !! Note:  The work arrays must not be altered between calls to DLSODPK
 !! for the same problem, except possibly for the conditional and
-!! optional inputs, and except for the last 3*NEQ words of RWORK.
+!! optional inputs, and except for the last 3\*NEQ words of RWORK.
 !! The latter space is used for internal scratch space, and so is
 !! available for use by the user outside DLSODPK between calls, if
 !! desired (but not for use by any of the user-supplied subroutines).
 !!
-!! JAC    = the name of the user-supplied routine to compute any
-!!          Jacobian elements (or approximations) involved in the
-!!          matrix preconditioning operations (MITER .ge. 1).
-!!          It is to have the form
-!!            SUBROUTINE JAC (F, NEQ, T, Y, YSV, REWT, FTY, V,
-!!           1                HL0, WP, IWP, IER)
-!!            DOUBLE PRECISION T, Y(*),YSV(*), REWT(*), FTY(*), V(*),
-!!           1                 HL0, WP(*)
-!!            INTEGER IWP(*)
-!!          This routine must evaluate and preprocess any parts of the
-!!          Jacobian matrix df/dy used in the preconditioners P1, P2, P.
-!!          the Y and FTY arrays contain the current values of y and
-!!          f(t,y), respectively, and YSV also contains the current
-!!          value of y.  The array V is work space of length
-!!          NEQ for use by JAC.  REWT is the array of reciprocal error
-!!          weights (1/EWT).  JAC must multiply all computed Jacobian
-!!          elements by the scalar -HL0, add the identity matrix, and do
-!!          any factorization operations called for, in preparation
-!!          for solving linear systems with a coefficient matrix of
-!!          P1, P2, or P.  The matrix P1*P2 or P should be an
-!!          approximation to  identity - HL0 * (df/dy).  JAC should
-!!          return IER = 0 if successful, and IER .ne. 0 if not.
-!!          (If IER .ne. 0, a smaller time step will be tried.)
-!!          The arrays WP (of length LWP) and IWP (of length LIWP)
-!!          are for use by JAC and PSOL for work space and for storage
-!!          of data needed for the solution of the preconditioner
-!!          linear systems.  Their lengths and contents are under the
-!!          user's control.
-!!          The JAC routine may save relevant Jacobian elements (or
-!!          approximations) used in the preconditioners, along with the
-!!          value of HL0, and use these to reconstruct preconditioner
-!!          matrices later without reevaluationg those elements.
-!!          This may be cost-effective if JAC is called with HL0
-!!          considerably different from its earlier value, indicating
-!!          that a corrector convergence failure has occurred because
-!!          of the change in HL0, not because of changes in the
-!!          value of the Jacobian.  In doing this, use the saved and
-!!          current values of HL0 to decide whether to use saved
-!!          or reevaluated elements.
-!!          JAC may alter V, but may not alter Y, YSV, REWT, FTY, or HL0.
-!!          JAC must be declared External in the calling program.
-!!               Subroutine JAC may access user-defined quantities in
-!!          NEQ(2),... and/or in Y(NEQ(1)+1),... if NEQ is an array
-!!          (dimensioned in JAC) and/or Y has length exceeding NEQ(1).
-!!          See the descriptions of NEQ and Y above.
+!! JAC    
 !!
-!! PSOL   = the name of the user-supplied routine for the
-!!          solution of preconditioner linear systems.
-!!          It is to have the form
+!! : the name of the user-supplied routine to compute any
+!! Jacobian elements (or approximations) involved in the
+!! matrix preconditioning operations (MITER .ge. 1).
+!! It is to have the form
+!!```fortran
+!!            SUBROUTINE JAC (F, NEQ, T, Y, YSV, REWT, FTY, V, &
+!!           &                HL0, WP, IWP, IER)
+!!            DOUBLE PRECISION T, Y(*),YSV(*), REWT(*), FTY(*), V(*), &
+!!           &                 HL0, WP(*)
+!!            INTEGER IWP(*)
+!!```
+!! This routine must evaluate and preprocess any parts of the
+!! Jacobian matrix df/dy used in the preconditioners P1, P2, P.
+!!
+!! The Y and FTY arrays contain the current values of y and
+!! f(t,y), respectively, and YSV also contains the current
+!! value of y.  The array V is work space of length
+!! NEQ for use by JAC.  REWT is the array of reciprocal error
+!! weights (1/EWT).  JAC must multiply all computed Jacobian
+!! elements by the scalar -HL0, add the identity matrix, and do
+!! any factorization operations called for, in preparation
+!! for solving linear systems with a coefficient matrix of
+!! P1, P2, or P.  The matrix P1\*P2 or P should be an
+!! approximation to  identity - HL0 \* (df/dy).  JAC should
+!! return IER = 0 if successful, and IER .ne. 0 if not.
+!! (If IER .ne. 0, a smaller time step will be tried.)
+!! The arrays WP (of length LWP) and IWP (of length LIWP)
+!! are for use by JAC and PSOL for work space and for storage
+!! of data needed for the solution of the preconditioner
+!! linear systems.  Their lengths and contents are under the
+!! user's control.
+!!
+!! The JAC routine may save relevant Jacobian elements (or
+!! approximations) used in the preconditioners, along with the
+!! value of HL0, and use these to reconstruct preconditioner
+!! matrices later without reevaluationg those elements.
+!!
+!! This may be cost-effective if JAC is called with HL0
+!! considerably different from its earlier value, indicating
+!! that a corrector convergence failure has occurred because
+!! of the change in HL0, not because of changes in the
+!! value of the Jacobian.  In doing this, use the saved and
+!! current values of HL0 to decide whether to use saved
+!! or reevaluated elements.
+!!
+!! JAC may alter V, but may not alter Y, YSV, REWT, FTY, or HL0.
+!!
+!! JAC must be declared External in the calling program.
+!!
+!! Subroutine JAC may access user-defined quantities in
+!! NEQ(2),... and/or in Y(NEQ(1)+1),... if NEQ is an array
+!! (dimensioned in JAC) and/or Y has length exceeding NEQ(1).
+!! See the descriptions of NEQ and Y above.
+!!
+!! PSOL   
+!!
+!! : the name of the user-supplied routine for the
+!! solution of preconditioner linear systems.
+!! It is to have the form
+!!```fortran
 !!            SUBROUTINE PSOL (NEQ, T, Y, FTY, WK,HL0, WP,IWP, B, LR,IER)
 !!            DOUBLE PRECISION T, Y(*), FTY(*), WK(*), HL0, WP(*), B(*)
 !!            INTEGER IWP(*)
-!!          This routine must solve a linear system with B as right-hand
-!!          side and one of the preconditioning matrices, P1, P2, or P,
-!!          as coefficient matrix, and return the solution vector in B.
-!!          LR is a flag concerning left vs right preconditioning, input
-!!          to PSOL.  PSOL is to use P1 if LR = 1 and P2 if LR = 2.
-!!          In the case of the PCG or PCGS method, LR will be 3, and PSOL
-!!          should solve the system P*x = B with the preconditioner P.
-!!          In the case MITER = 9 (no Krylov iteration), LR will be 0,
-!!          and PSOL is to return in B the desired approximate solution
-!!          to A * x = B, where A = identity - HL0 * (df/dy).
-!!          PSOL can use data generated in the JAC routine and stored in
-!!          WP and IWP.
-!!          The Y and FTY arrays contain the current values of y and
-!!          f(t,y), respectively.  The array WK is work space of length
-!!          NEQ for use by PSOL.
-!!          The argument HL0 is the current value of the scalar appearing
-!!          in the linear system.  If the old value, as of the last
-!!          JAC call, is needed, it must have been saved by JAC in WP.
-!!          On return, PSOL should set the error flag IER as follows:
-!!            IER = 0 if PSOL was successful,
-!!            IER .gt. 0 on a recoverable error, meaning that the
-!!                   time step will be retried,
-!!            IER .lt. 0 on an unrecoverable error, meaning that the
-!!                   solver is to stop immediately.
-!!          PSOL may not alter Y, FTY, or HL0.
-!!          PSOL must be declared External in the calling program.
-!!               Subroutine PSOL may access user-defined quantities in
-!!          NEQ(2),... and Y(NEQ(1)+1),... if NEQ is an array
-!!          (dimensioned in PSOL) and/or Y has length exceeding NEQ(1).
-!!          See the descriptions of NEQ and Y above.
+!!```
+!! This routine must solve a linear system with B as right-hand
+!! side and one of the preconditioning matrices, P1, P2, or P,
+!! as coefficient matrix, and return the solution vector in B.
 !!
-!! MF     = the method flag.  Used only for input.  The legal values of
-!!          MF are 10, 11, 12, 13, 14, 19, 20, 21, 22, 23, 24, and 29.
-!!          MF has decimal digits METH and MITER: MF = 10*METH + MITER.
-!!          METH indicates the basic linear multistep method:
-!!            METH = 1 means the implicit Adams method.
-!!            METH = 2 means the method based on Backward
-!!                     Differentiation Formulas (BDFs).
-!!          MITER indicates the corrector iteration method:
-!!            MITER = 0 means functional iteration (no linear system
-!!                      is involved).
-!!            MITER = 1 means Newton iteration with Scaled Preconditioned
-!!                      Incomplete Orthogonalization Method (SPIOM)
-!!                      for the linear systems.
-!!            MITER = 2 means Newton iteration with Scaled Preconditioned
-!!                      Generalized Minimal Residual method (SPIGMR)
-!!                      for the linear systems.
-!!            MITER = 3 means Newton iteration with Preconditioned
-!!                      Conjugate Gradient method (PCG)
-!!                      for the linear systems.
-!!            MITER = 4 means Newton iteration with scaled Preconditioned
-!!                      Conjugate Gradient method (PCGS)
-!!                      for the linear systems.
-!!            MITER = 9 means Newton iteration with only the
-!!                      user-supplied PSOL routine called (no Krylov
-!!                      iteration) for the linear systems.
-!!                      JPRE is ignored, and PSOL is called with LR = 0.
-!!          See comments in the introduction about the choice of MITER.
-!!          If MITER .ge. 1, the user must supply routines JAC and PSOL
-!!          (the names are arbitrary) as described above.
-!!          For MITER = 0, dummy arguments can be used.
+!! LR is a flag concerning left vs right preconditioning, input
+!! to PSOL.  PSOL is to use P1 if LR = 1 and P2 if LR = 2.
+!!
+!! In the case of the PCG or PCGS method, LR will be 3, and PSOL
+!! should solve the system P\*x = B with the preconditioner P.
+!!
+!! In the case MITER = 9 (no Krylov iteration), LR will be 0,
+!! and PSOL is to return in B the desired approximate solution
+!! to A \* x = B, where A = identity - HL0 \* (df/dy).
+!!
+!! PSOL can use data generated in the JAC routine and stored in
+!! WP and IWP.
+!!
+!! The Y and FTY arrays contain the current values of y and
+!! f(t,y), respectively.  The array WK is work space of length
+!! NEQ for use by PSOL.
+!!
+!! The argument HL0 is the current value of the scalar appearing
+!! in the linear system.  If the old value, as of the last
+!! JAC call, is needed, it must have been saved by JAC in WP.
+!! On return, PSOL should set the error flag IER as follows:
+!!
+!!         IER = 0 if PSOL was successful,
+!!         IER .gt. 0 on a recoverable error, meaning that the
+!!                time step will be retried,
+!!         IER .lt. 0 on an unrecoverable error, meaning that the
+!!                solver is to stop immediately.
+!!
+!! PSOL may not alter Y, FTY, or HL0.
+!!
+!! PSOL must be declared External in the calling program.
+!!
+!! Subroutine PSOL may access user-defined quantities in
+!! NEQ(2),... and Y(NEQ(1)+1),... if NEQ is an array
+!! (dimensioned in PSOL) and/or Y has length exceeding NEQ(1).
+!! See the descriptions of NEQ and Y above.
+!!
+!! MF     
+!!
+!! : the method flag.  Used only for input.  The legal values of
+!! MF are 10, 11, 12, 13, 14, 19, 20, 21, 22, 23, 24, and 29.
+!!
+!! MF has decimal digits METH and MITER: MF = 10\*METH + MITER.
+!! METH indicates the basic linear multistep method:
+!!
+!!  METH  | description
+!!  ----- | -------------------------------------
+!!      1 | means the implicit Adams method.
+!!      2 | means the method based on Backward
+!!        | Differentiation Formulas (BDFs).
+!!
+!! MITER indicates the corrector iteration method:
+!!
+!!  MITER | description
+!!  ----- | --------------------------------------------------
+!!      0 | means functional iteration (no linear system
+!!        | is involved).
+!!      1 | means Newton iteration with Scaled Preconditioned
+!!        | Incomplete Orthogonalization Method (SPIOM)
+!!        | for the linear systems.
+!!      2 | means Newton iteration with Scaled Preconditioned
+!!        | Generalized Minimal Residual method (SPIGMR)
+!!        | for the linear systems.
+!!      3 | means Newton iteration with Preconditioned
+!!        | Conjugate Gradient method (PCG)
+!!        | for the linear systems.
+!!      4 | means Newton iteration with scaled Preconditioned
+!!        | Conjugate Gradient method (PCGS)
+!!        | for the linear systems.
+!!      9 | means Newton iteration with only the
+!!        | user-supplied PSOL routine called (no Krylov
+!!        | iteration) for the linear systems.
+!!        | JPRE is ignored, and PSOL is called with LR = 0.
+!!        | 
+!!
+!! See comments in the introduction about the choice of MITER.
+!! If MITER .ge. 1, the user must supply routines JAC and PSOL
+!! (the names are arbitrary) as described above.
+!! For MITER = 0, dummy arguments can be used.
+!!
 !!-----------------------------------------------------------------------
-!! Optional Inputs.
+!!### Optional Inputs.
 !!
 !! The following is a list of the optional inputs provided for in the
 !! call sequence.  (See also Part 2.)  For each such input variable,
@@ -721,50 +886,52 @@
 !! locations 5 to 10 in RWORK and IWORK to 0.0 and 0 respectively, and
 !! then set those of interest to nonzero values.
 !!
-!! Name    Location      Meaning and Default Value
+!! Name  | Location |     Meaning and Default Value
+!! ----- | -------- | ----------------------------------------------------
+!! H0    | RWORK(5) | the step size to be attempted on the first step.
+!!       |          | The default value is determined by the solver.
+!!       |          |
+!! HMAX  | RWORK(6) | the maximum absolute step size allowed.
+!!       |          | The default value is infinite.
+!!       |          |
+!! HMIN  | RWORK(7) | the minimum absolute step size allowed.
+!!       |          | The default value is 0.  (This lower bound is not
+!!       |          | enforced on the final step before reaching TCRIT
+!!       |          | when ITASK = 4 or 5.)
+!!       |          |
+!! DELT  | RWORK(8) | convergence test constant in Krylov iteration
+!!       |          | algorithm.  The default is .05.
+!!       |          |
+!! MAXORD| IWORK(5) | the maximum order to be allowed.  The default
+!!       |          | value is 12 if METH = 1, and 5 if METH = 2.
+!!       |          | If MAXORD exceeds the default value, it will
+!!       |          | be reduced to the default value.
+!!       |          | If MAXORD is changed during the problem, it may
+!!       |          | cause the current order to be reduced.
+!!       |          |
+!! MXSTEP| IWORK(6) | maximum number of (internally defined) steps
+!!       |          | allowed during one call to the solver.
+!!       |          | The default value is 500.
+!!       |          |
+!! MXHNIL| IWORK(7) | maximum number of messages printed (per problem)
+!!       |          | warning that T + H = T on a step (H = step size).
+!!       |          | This must be positive to result in a non-default
+!!       |          | value.  The default value is 10.
+!!       |          |
+!! MAXL  | IWORK(8) | maximum number of iterations in the SPIOM, SPIGMR,
+!!       |          | PCG, or PCGS algorithm (.le. NEQ).
+!!       |          | The default is MAXL = MIN(5,NEQ).
+!!       |          |
+!! KMP   | IWORK(9) | number of vectors on which orthogonalization
+!!       |          | is done in SPIOM or SPIGMR algorithm (.le. MAXL).
+!!       |          | The default is KMP = MAXL.
+!!       |          | Note:  When KMP .lt. MAXL and MF = 22, the length
+!!       |          |        of RWORK must be defined accordingly.  See
+!!       |          |        the definition of RWORK above.
+!!       |          |  
 !!
-!! H0      RWORK(5)  the step size to be attempted on the first step.
-!!                   The default value is determined by the solver.
-!!
-!! HMAX    RWORK(6)  the maximum absolute step size allowed.
-!!                   The default value is infinite.
-!!
-!! HMIN    RWORK(7)  the minimum absolute step size allowed.
-!!                   The default value is 0.  (This lower bound is not
-!!                   enforced on the final step before reaching TCRIT
-!!                   when ITASK = 4 or 5.)
-!!
-!! DELT    RWORK(8)  convergence test constant in Krylov iteration
-!!                   algorithm.  The default is .05.
-!!
-!! MAXORD  IWORK(5)  the maximum order to be allowed.  The default
-!!                   value is 12 if METH = 1, and 5 if METH = 2.
-!!                   If MAXORD exceeds the default value, it will
-!!                   be reduced to the default value.
-!!                   If MAXORD is changed during the problem, it may
-!!                   cause the current order to be reduced.
-!!
-!! MXSTEP  IWORK(6)  maximum number of (internally defined) steps
-!!                   allowed during one call to the solver.
-!!                   The default value is 500.
-!!
-!! MXHNIL  IWORK(7)  maximum number of messages printed (per problem)
-!!                   warning that T + H = T on a step (H = step size).
-!!                   This must be positive to result in a non-default
-!!                   value.  The default value is 10.
-!!
-!! MAXL    IWORK(8)  maximum number of iterations in the SPIOM, SPIGMR,
-!!                   PCG, or PCGS algorithm (.le. NEQ).
-!!                   The default is MAXL = MIN(5,NEQ).
-!!
-!! KMP     IWORK(9)  number of vectors on which orthogonalization
-!!                   is done in SPIOM or SPIGMR algorithm (.le. MAXL).
-!!                   The default is KMP = MAXL.
-!!                   Note:  When KMP .lt. MAXL and MF = 22, the length
-!!                          of RWORK must be defined accordingly.  See
-!!                          the definition of RWORK above.
 !!-----------------------------------------------------------------------
-!! Optional Outputs.
+!!#### Optional Outputs.
 !!
 !! As optional additional output from DLSODPK, the variables listed
 !! below are quantities related to the performance of DLSODPK
@@ -778,95 +945,96 @@
 !! On any error return, outputs relevant to the error will be defined,
 !! as noted below.
 !!
-!! Name    Location      Meaning
-!!
-!! HU      RWORK(11) the step size in t last used (successfully).
-!!
-!! HCUR    RWORK(12) the step size to be attempted on the next step.
-!!
-!! TCUR    RWORK(13) the current value of the independent variable
-!!                   which the solver has actually reached, i.e. the
-!!                   current internal mesh point in t.  On output, TCUR
-!!                   will always be at least as far as the argument
-!!                   T, but may be farther (if interpolation was done).
-!!
-!! TOLSF   RWORK(14) a tolerance scale factor, greater than 1.0,
-!!                   computed when a request for too much accuracy was
-!!                   detected (ISTATE = -3 if detected at the start of
-!!                   the problem, ISTATE = -2 otherwise).  If ITOL is
-!!                   left unaltered but RTOL and ATOL are uniformly
-!!                   scaled up by a factor of TOLSF for the next call,
-!!                   then the solver is deemed likely to succeed.
-!!                   (The user may also ignore TOLSF and alter the
-!!                   tolerance parameters in any other way appropriate.)
-!!
-!! NST     IWORK(11) the number of steps taken for the problem so far.
-!!
-!! NFE     IWORK(12) the number of f evaluations for the problem so far.
-!!
-!! NPE     IWORK(13) the number of calls to JAC so far (for Jacobian
-!!                   evaluation associated with preconditioning).
-!!
-!! NQU     IWORK(14) the method order last used (successfully).
-!!
-!! NQCUR   IWORK(15) the order to be attempted on the next step.
-!!
-!! IMXER   IWORK(16) the index of the component of largest magnitude in
-!!                   the weighted local error vector ( E(i)/EWT(i) ),
-!!                   on an error return with ISTATE = -4 or -5.
-!!
-!! LENRW   IWORK(17) the length of RWORK actually required.
-!!                   This is defined on normal returns and on an illegal
-!!                   input return for insufficient storage.
-!!
-!! LENIW   IWORK(18) the length of IWORK actually required.
-!!                   This is defined on normal returns and on an illegal
-!!                   input return for insufficient storage.
-!!
-!! NNI     IWORK(19) number of nonlinear iterations so far (each of
-!!                   which calls an iterative linear solver).
-!!
-!! NLI     IWORK(20) number of linear iterations so far.
-!!                   Note: A measure of the success of algorithm is
-!!                   the average number of linear iterations per
-!!                   nonlinear iteration, given by NLI/NNI.
-!!                   If this is close to MAXL, MAXL may be too small.
-!!
-!! NPS     IWORK(21) number of preconditioning solve operations
-!!                   (PSOL calls) so far.
-!!
-!! NCFN    IWORK(22) number of convergence failures of the nonlinear
-!!                   (Newton) iteration so far.
-!!                   Note: A measure of success is the overall
-!!                   rate of nonlinear convergence failures, NCFN/NST.
-!!
-!! NCFL    IWORK(23) number of convergence failures of the linear
-!!                   iteration so far.
-!!                   Note: A measure of success is the overall
-!!                   rate of linear convergence failures, NCFL/NNI.
-!!
+!! Name  | Location  |     Meaning
+!! ----- | --------- | ---------------------------------------------------
+!! HU    | RWORK(11) | the step size in t last used (successfully).
+!!       |           |                       
+!! HCUR  | RWORK(12) | the step size to be attempted on the next step.
+!!       |           |                       
+!! TCUR  | RWORK(13) | the current value of the independent variable
+!!       |           | which the solver has actually reached, i.e. the
+!!       |           | current internal mesh point in t.  On output, TCUR
+!!       |           | will always be at least as far as the argument
+!!       |           | T, but may be farther (if interpolation was done).
+!!       |           |                       
+!! TOLSF | RWORK(14) | a tolerance scale factor, greater than 1.0,
+!!       |           | computed when a request for too much accuracy was
+!!       |           | detected (ISTATE = -3 if detected at the start of
+!!       |           | the problem, ISTATE = -2 otherwise).  If ITOL is
+!!       |           | left unaltered but RTOL and ATOL are uniformly
+!!       |           | scaled up by a factor of TOLSF for the next call,
+!!       |           | then the solver is deemed likely to succeed.
+!!       |           | (The user may also ignore TOLSF and alter the
+!!       |           | tolerance parameters in any other way appropriate.)
+!!       |           |                       
+!! NST   | IWORK(11) | the number of steps taken for the problem so far.
+!!       |           |                       
+!! NFE   | IWORK(12) | the number of f evaluations for the problem so far.
+!!       |           |                       
+!! NPE   | IWORK(13) | the number of calls to JAC so far (for Jacobian
+!!       |           | evaluation associated with preconditioning).
+!!       |           |                       
+!! NQU   | IWORK(14) | the method order last used (successfully).
+!!       |           |                       
+!! NQCUR | IWORK(15) | the order to be attempted on the next step.
+!!       |           |                       
+!! IMXER | IWORK(16) | the index of the component of largest magnitude in
+!!       |           | the weighted local error vector ( E(i)/EWT(i) ),
+!!       |           | on an error return with ISTATE = -4 or -5.
+!!       |           |                       
+!! LENRW | IWORK(17) | the length of RWORK actually required.
+!!       |           | This is defined on normal returns and on an illegal
+!!       |           | input return for insufficient storage.
+!!       |           |                       
+!! LENIW | IWORK(18) | the length of IWORK actually required.
+!!       |           | This is defined on normal returns and on an illegal
+!!       |           | input return for insufficient storage.
+!!       |           |                       
+!! NNI   | IWORK(19) | number of nonlinear iterations so far (each of
+!!       |           | which calls an iterative linear solver).
+!!       |           |                       
+!! NLI   | IWORK(20) | number of linear iterations so far.
+!!       |           | Note: A measure of the success of algorithm is
+!!       |           | the average number of linear iterations per
+!!       |           | nonlinear iteration, given by NLI/NNI.
+!!       |           | If this is close to MAXL, MAXL may be too small.
+!!       |           |                       
+!! NPS   | IWORK(21) | number of preconditioning solve operations
+!!       |           | (PSOL calls) so far.
+!!       |           |                       
+!! NCFN  | IWORK(22) | number of convergence failures of the nonlinear
+!!       |           | (Newton) iteration so far.
+!!       |           | Note: A measure of success is the overall
+!!       |           | rate of nonlinear convergence failures, NCFN/NST.
+!!       |           |                       
+!! NCFL  | IWORK(23) | number of convergence failures of the linear
+!!       |           | iteration so far.
+!!       |           | Note: A measure of success is the overall
+!!       |           | rate of linear convergence failures, NCFL/NNI.
+!!                                         
+!!                                         
 !! The following two arrays are segments of the RWORK array which
 !! may also be of interest to the user as optional outputs.
 !! For each array, the table below gives its internal name,
 !! its base address in RWORK, and its description.
 !!
-!! Name    Base Address      Description
-!!
-!! YH      21             the Nordsieck history array, of size NYH by
-!!                        (NQCUR + 1), where NYH is the initial value
-!!                        of NEQ.  For j = 0,1,...,NQCUR, column j+1
-!!                        of YH contains HCUR**j/factorial(j) times
-!!                        the j-th derivative of the interpolating
-!!                        polynomial currently representing the solution,
-!!                        evaluated at t = TCUR.
-!!
-!! ACOR     LENRW-NEQ+1   array of size NEQ used for the accumulated
-!!                        corrections on each step, scaled on output
-!!                        to represent the estimated local error in y
-!!                        on the last step.  This is the vector E in
-!!                        the description of the error control.  It is
-!!                        defined only on a successful return from
-!!                        DLSODPK.
+!! Name  | Base Address  |    Description
+!! ----- | ------------- | -----------------------------------------------
+!! YH    | 21            | the Nordsieck history array, of size NYH by
+!!       |               | (NQCUR + 1), where NYH is the initial value
+!!       |               | of NEQ.  For j = 0,1,...,NQCUR, column j+1
+!!       |               | of YH contains HCUR\*\*j/factorial(j) times
+!!       |               | the j-th derivative of the interpolating
+!!       |               | polynomial currently representing the solution,
+!!       |               | evaluated at t = TCUR.
+!!       |               |
+!! ACOR  |  LENRW-NEQ+1  | array of size NEQ used for the accumulated
+!!       |               | corrections on each step, scaled on output
+!!       |               | to represent the estimated local error in y
+!!       |               | on the last step.  This is the vector E in
+!!       |               | the description of the error control.  It is
+!!       |               | defined only on a successful return from
+!!       |               | DLSODPK.
 !!
 !!-----------------------------------------------------------------------
 !! Part 2.  Other Routines Callable.
@@ -876,91 +1044,94 @@
 !! (The routines XSETUN and XSETF are designed to conform to the
 !! SLATEC error handling package.)
 !!
-!!     Form of Call                  Function
-!!   CALL XSETUN(LUN)          Set the logical unit number, LUN, for
-!!                             output of messages from DLSODPK, if
-!!                             the default is not desired.
-!!                             The default value of lun is 6.
-!!
-!!   CALL XSETF(MFLAG)         Set a flag to control the printing of
-!!                             messages by DLSODPK.
-!!                             MFLAG = 0 means do not print. (Danger:
-!!                             This risks losing valuable information.)
-!!                             MFLAG = 1 means print (the default).
-!!
-!!                             Either of the above calls may be made at
-!!                             any time and will take effect immediately.
-!!
-!!   CALL DSRCPK(RSAV,ISAV,JOB) saves and restores the contents of
-!!                             the internal Common blocks used by
-!!                             DLSODPK (see Part 3 below).
-!!                             RSAV must be a real array of length 222
-!!                             or more, and ISAV must be an integer
-!!                             array of length 50 or more.
-!!                             JOB=1 means save Common into RSAV/ISAV.
-!!                             JOB=2 means restore Common from RSAV/ISAV.
-!!                                DSRCPK is useful if one is
-!!                             interrupting a run and restarting
-!!                             later, or alternating between two or
-!!                             more problems solved with DLSODPK.
-!!
-!!   CALL DINTDY(,,,,,)        Provide derivatives of y, of various
-!!        (See below)          orders, at a specified point t, if
-!!                             desired.  It may be called only after
-!!                             a successful return from DLSODPK.
+!!  Form of Call               | Function
+!!  -------------------------- | ------------------------------------------
+!!   CALL XSETUN(LUN)          | Set the logical unit number, LUN, for
+!!                             | output of messages from DLSODPK, if
+!!                             | the default is not desired.
+!!                             | The default value of lun is 6.
+!!                             |         
+!!   CALL XSETF(MFLAG)         | Set a flag to control the printing of
+!!                             | messages by DLSODPK.
+!!                             | MFLAG = 0 means do not print. (Danger:
+!!                             | This risks losing valuable information.)
+!!                             | MFLAG = 1 means print (the default).
+!!                             |         
+!!                             | Either of the above calls may be made at
+!!                             | any time and will take effect immediately.
+!!                             |         
+!!   CALL DSRCPK(RSAV,ISAV,JOB)| saves and restores the contents of
+!!                             | the internal Common blocks used by
+!!                             | DLSODPK (see Part 3 below).
+!!                             | RSAV must be a real array of length 222
+!!                             | or more, and ISAV must be an integer
+!!                             | array of length 50 or more.
+!!                             |      JOB=1 means save Common into RSAV/ISAV.
+!!                             |      JOB=2 means restore Common from RSAV/ISAV.
+!!                             | DSRCPK is useful if one is
+!!                             | interrupting a run and restarting
+!!                             | later, or alternating between two or
+!!                             | more problems solved with DLSODPK.
+!!                             |         
+!!   CALL DINTDY(,,,,,)        | Provide derivatives of y, of various
+!!        (See below)          | orders, at a specified point t, if
+!!                             | desired.  It may be called only after
+!!                             | a successful return from DLSODPK.
 !!
 !! The detailed instructions for using DINTDY are as follows.
 !! The form of the call is:
-!!
+!!```fortran
 !!   CALL DINTDY (T, K, RWORK(21), NYH, DKY, IFLAG)
-!!
+!!```
 !! The input parameters are:
 !!
-!! T         = value of independent variable where answers are desired
-!!             (normally the same as the T last returned by DLSODPK).
-!!             for valid results, T must lie between TCUR - HU and TCUR.
-!!             (See optional outputs for TCUR and HU.)
-!! K         = integer order of the derivative desired.  K must satisfy
-!!             0 .le. K .le. NQCUR, where NQCUR is the current order
-!!             (see optional outputs).  The capability corresponding
-!!             to K = 0, i.e. computing y(T), is already provided
-!!             by DLSODPK directly.  Since NQCUR .ge. 1, the first
-!!             derivative dy/dt is always available with DINTDY.
-!! RWORK(21) = the base address of the history array YH.
-!! NYH       = column length of YH, equal to the initial value of NEQ.
+!! T         
+!!
+!! : value of independent variable where answers are desired
+!! (normally the same as the T last returned by DLSODPK).
+!! for valid results, T must lie between TCUR - HU and TCUR.
+!! (See optional outputs for TCUR and HU.)
+!! K         
+!!
+!! : integer order of the derivative desired.  K must satisfy
+!! 0 .le. K .le. NQCUR, where NQCUR is the current order
+!! (see optional outputs).  The capability corresponding
+!! to K = 0, i.e. computing y(T), is already provided
+!! by DLSODPK directly.  Since NQCUR .ge. 1, the first
+!! derivative dy/dt is always available with DINTDY.
+!!
+!! RWORK(21) 
+!!
+!! : the base address of the history array YH.
+!!
+!! NYH       
+!!
+!! : column length of YH, equal to the initial value of NEQ.
 !!
 !! The output parameters are:
 !!
-!! DKY       = a real array of length NEQ containing the computed value
-!!             of the K-th derivative of y(t).
-!! IFLAG     = integer flag, returned as 0 if K and T were legal,
-!!             -1 if K was illegal, and -2 if T was illegal.
-!!             On an error return, a message is also written.
+!! DKY       
+!!
+!! : a real array of length NEQ containing the computed value
+!! of the K-th derivative of y(t).
+!!
+!! IFLAG     
+!!
+!! : integer flag, returned as 0 if K and T were legal,
+!! -1 if K was illegal, and -2 if T was illegal.
+!! On an error return, a message is also written.
+!!
 !!-----------------------------------------------------------------------
-!! Part 3.  Common Blocks.
-!!
-!! If DLSODPK is to be used in an overlay situation, the user
-!! must declare, in the primary overlay, the variables in:
-!!   (1) the call sequence to DLSODPK, and
-!!   (2) the two internal Common blocks
-!!         /DLS001/  of length  255  (218 double precision words
-!!                      followed by 37 integer words),
-!!         /DLPK01/  of length  17  (4 double precision words
-!!                      followed by 13 integer words).
-!!
-!! If DLSODPK is used on a system in which the contents of internal
-!! Common blocks are not preserved between calls, the user should
-!! declare the above Common blocks in the calling program to insure
-!! that their contents are preserved.
+!!#### Part 3.  Save and Restore Program State
 !!
 !! If the solution of a given problem by DLSODPK is to be interrupted
 !! and then later continued, such as when restarting an interrupted run
 !! or alternating between two or more problems, the user should save,
 !! following the return from the last DLSODPK call prior to the
 !! interruption, the contents of the call sequence variables and the
-!! internal Common blocks, and later restore these values before the
-!! next DLSODPK call for that problem.  To save and restore the Common
-!! blocks, use Subroutine DSRCPK (see Part 2 above).
+!! internal state variable, and later restore these values before the
+!! next DLSODPK call for that problem.  To save and restore the values
+!! , use Subroutine DSRCPK (see Part 2 above).
 !!
 !!-----------------------------------------------------------------------
 !! Part 4.  Optionally Replaceable Solver Routines.
@@ -973,11 +1144,14 @@
 !! (Note: The means by which the package version of a routine is
 !! superseded by the user's version may be system-dependent.)
 !!
-!! (a) DEWSET.
+!!#### (a) DEWSET()
+!!
 !! The following subroutine is called just before each internal
 !! integration step, and sets the array of error weights, EWT, as
 !! described under ITOL/RTOL/ATOL above:
+!!```fortran
 !!     SUBROUTINE DEWSET (NEQ, ITOL, RTOL, ATOL, YCUR, EWT)
+!!``` 
 !! where NEQ, ITOL, RTOL, and ATOL are as in the DLSODPK call sequence,
 !! YCUR contains the current dependent variable vector, and
 !! EWT is the array of weights set by DEWSET.
@@ -994,28 +1168,35 @@
 !! are available from the history array YH, described above under
 !! optional outputs.  In DEWSET, YH is identical to the YCUR array,
 !! extended to NQ + 1 columns with a column length of NYH and scale
-!! factors of H**j/factorial(j).  On the first call for the problem,
+!! factors of H\*\*j/factorial(j).  On the first call for the problem,
 !! given by NST = 0, NQ is 1 and H is temporarily set to 1.0.
 !! NYH is the initial value of NEQ.  The quantities NQ, H, and NST
 !! can be obtained by including in DEWSET the statements:
+!!```fortran
 !!     DOUBLE PRECISION RLS
 !!     COMMON /DLS001/ RLS(218),ILS(37)
 !!     NQ = ILS(33)
 !!     NST = ILS(34)
 !!     H = RLS(212)
+!!```
 !! Thus, for example, the current value of dy/dt can be obtained as
 !! YCUR(NYH+i)/H  (i=1,...,NEQ)  (and the division by H is
 !! unnecessary when NST = 0).
 !!
-!! (b) DVNORM.
+!!#### (b) DVNORM()
+!!
 !! The following is a real function routine which computes the weighted
 !! root-mean-square norm of a vector v:
+!!```text
 !!     D = DVNORM (N, V, W)
+!!```
 !! where:
+!!```text
 !!   N = the length of the vector,
 !!   V = real array of length N containing the vector,
 !!   W = real array of length N containing weights,
 !!   D = SQRT( (1/N) * sum(V(i)*W(i))**2 ).
+!!```
 !! DVNORM is called with N = NEQ and with W(i) = 1.0/EWT(i), where
 !! EWT is as set by Subroutine DEWSET.
 !!
@@ -1023,90 +1204,114 @@
 !! value of DVNORM suitable for use in the error control in DLSODPK.
 !! None of the arguments should be altered by DVNORM.
 !! For example, a user-supplied DVNORM routine might:
-!!   -substitute a max-norm of (V(i)*W(i)) for the RMS-norm, or
-!!   -ignore some components of V in the norm, with the effect of
+
+!!  - substitute a max-norm of (V(i)\*W(i)) for the RMS-norm, or
+!!  - ignore some components of V in the norm, with the effect of
 !!    suppressing the error control on those components of y.
-!!-----------------------------------------------------------------------
-!!
-!!### REVISION HISTORY  (YYYYMMDD)
-!! 19860901  DATE WRITTEN
-!! 19861010  Numerous minor revisions to SPIOM and SPGMR routines;
-!!           minor corrections to prologues and comments.
-!! 19870114  Changed name SPGMR to SPIGMR; revised residual norm
-!!           calculation in SPIGMR (for incomplete case);
-!!           revised error return logic in SPIGMR;
-!! 19870330  Major update: corrected comments throughout;
-!!           removed TRET from Common; rewrote EWSET with 4 loops;
-!!           fixed t test in INTDY; added Cray directives in STODPK;
-!!           in STODPK, fixed DELP init. and logic around PJAC call;
-!!           combined routines to save/restore Common;
-!!           passed LEVEL = 0 in error message calls (except run abort).
-!! 19871130  Added option MITER = 9; shortened WM array by 2;
-!!           revised early return from SPIOM and SPIGMR;
-!!           replaced copy loops with SCOPY/DCOPY calls;
-!!           minor corrections/revisions to SOLPK, SPIGMR, ATV, ATP;
-!!           corrections to main prologue and internal comments.
-!! 19880304  Corrections to type declarations in SOLPK, SPIOM, USOL.
-!! 19891025  Added ISTATE = -7 return; minor revisions to USOL;
-!!           added initialization of JACFLG in main driver;
-!!           removed YH and NYH from PKSET call list;
-!!           minor revisions to SPIOM and SPIGMR;
-!!           corrections to main prologue and internal comments.
-!! 19900803  Added YSV to JAC call list; minor comment corrections.
-!! 20010425  Major update: convert source lines to upper case;
-!!           added *DECK lines; changed from 1 to * in dummy dimensions;
-!!           changed names R1MACH/D1MACH to RUMACH/DUMACH;
-!!           renamed routines for uniqueness across single/double prec.;
-!!           converted intrinsic names to generic form;
-!!           removed ILLIN and NTREP (data loaded) from Common;
-!!           removed all 'own' variables from Common;
-!!           changed error messages to quoted strings;
-!!           replaced XERRWV/XERRWD with 1993 revised version;
-!!           converted prologues, comments, error messages to mixed case;
-!!           numerous corrections to prologues and internal comments.
-!! 20010507  Converted single precision source to double precision.
-!! 20020502  Corrected declarations in descriptions of user routines.
-!! 20030603  Corrected duplicate type declaration for DUMACH.
-!! 20031105  Restored 'own' variables to Common blocks, to enable
-!!           interrupt/restart feature.
-!! 20031112  Added SAVE statements for data-loaded constants.
-!! 20031117  Changed internal name NPE to NJE.
 !!
 !!-----------------------------------------------------------------------
-!! Other routines in the DLSODPK package.
+!!### Pedigree:
 !!
-!! In addition to Subroutine DLSODPK, the DLSODPK package includes the
-!! following subroutines and function routines:
-!!  DINTDY   computes an interpolated value of the y vector at t = TOUT.
-!!  DEWSET   sets the error weight vector EWT before each step.
-!!  DVNORM   computes the weighted RMS-norm of a vector.
-!!  DSTODPK  is the core integrator, which does one step of the
-!!           integration and the associated error control.
-!!  DCFODE   sets all method coefficients and test constants.
-!!  DPKSET   interfaces between DSTODPK and the JAC routine.
-!!  DSOLPK   manages solution of linear system in Newton iteration.
-!!  DSPIOM   performs the SPIOM algorithm.
-!!  DATV     computes a scaled, preconditioned product (I-hl0*J)*v.
-!!  DORTHOG  orthogonalizes a vector against previous basis vectors.
-!!  DHEFA    generates an LU factorization of a Hessenberg matrix.
-!!  DHESL    solves a Hessenberg square linear system.
-!!  DSPIGMR  performs the SPIGMR algorithm.
-!!  DHEQR    generates a QR factorization of a Hessenberg matrix.
-!!  DHELS    finds the least squares solution of a Hessenberg system.
-!!  DPCG     performs Preconditioned Conjugate Gradient algorithm (PCG).
-!!  DPCGS    performs the PCGS algorithm.
-!!  DATP     computes the product A*p, where A = I - hl0*df/dy.
-!!  DUSOL    interfaces to the user's PSOL routine (MITER = 9).
-!!  DSRCPK   is a user-callable routine to save and restore
-!!           the contents of the internal Common blocks.
-!!  DAXPY, DCOPY, DDOT, DNRM2, and DSCAL   are basic linear
-!!           algebra modules (from the BLAS collection).
-!!  DUMACH   computes the unit roundoff in a machine-independent manner.
-!!  XERRWD, XSETUN, XSETF, and IXSAV handle the printing of all
-!!           error messages and warnings.  XERRWD is machine-dependent.
-!! Note:  DVNORM, DDOT, DNRM2, DUMACH, and IXSAV are function
-!! routines.  All the others are subroutines.
+!! DLSODE is derived from the 18 November 2003 version of
+!! Livermore Solver for Ordinary
+!! Differential Equations package ODEPACK,
 !!
+!! References:
+!!
+!! 1.  Peter N. Brown and Alan C. Hindmarsh, Reduced Storage Matrix
+!!     Methods in Stiff ODE Systems, J. Appl. Math. & Comp., 31 (1989),
+!!     pp. 40-91; also  L.L.N.L. Report UCRL-95088, Rev. 1, June 1987.
+!! 2.  Alan C. Hindmarsh,  ODEPACK, A Systematized Collection of ODE
+!!     Solvers, in Scientific Computing, R. S. Stepleman et al. (Eds.),
+!!     North-Holland, Amsterdam, 1983, pp. 55-64.
+!!
+!!-----------------------------------------------------------------------
+!!
+!! Authors:       Alan C. Hindmarsh and Peter N. Brown
+!!                Center for Applied Scientific Computing, L-561
+!!                Lawrence Livermore National Laboratory
+!!                Livermore, CA 94551
+!!
+! -----------------------------------------------------------------------
+! ### REVISION HISTORY  (YYYYMMDD)
+!  19860901  DATE WRITTEN
+!  19861010  Numerous minor revisions to SPIOM and SPGMR routines;
+!            minor corrections to prologues and comments.
+!  19870114  Changed name SPGMR to SPIGMR; revised residual norm
+!            calculation in SPIGMR (for incomplete case);
+!            revised error return logic in SPIGMR;
+!  19870330  Major update: corrected comments throughout;
+!            removed TRET from Common; rewrote EWSET with 4 loops;
+!            fixed t test in INTDY; added Cray directives in STODPK;
+!            in STODPK, fixed DELP init. and logic around PJAC call;
+!            combined routines to save/restore Common;
+!            passed LEVEL = 0 in error message calls (except run abort).
+!  19871130  Added option MITER = 9; shortened WM array by 2;
+!            revised early return from SPIOM and SPIGMR;
+!            replaced copy loops with SCOPY/DCOPY calls;
+!            minor corrections/revisions to SOLPK, SPIGMR, ATV, ATP;
+!            corrections to main prologue and internal comments.
+!  19880304  Corrections to type declarations in SOLPK, SPIOM, USOL.
+!  19891025  Added ISTATE = -7 return; minor revisions to USOL;
+!            added initialization of JACFLG in main driver;
+!            removed YH and NYH from PKSET call list;
+!            minor revisions to SPIOM and SPIGMR;
+!            corrections to main prologue and internal comments.
+!  19900803  Added YSV to JAC call list; minor comment corrections.
+!  20010425  Major update: convert source lines to upper case;
+!            added *DECK lines; changed from 1 to * in dummy dimensions;
+!            changed names R1MACH/D1MACH to RUMACH/DUMACH;
+!            renamed routines for uniqueness across single/double prec.;
+!            converted intrinsic names to generic form;
+!            removed ILLIN and NTREP (data loaded) from Common;
+!            removed all 'own' variables from Common;
+!            changed error messages to quoted strings;
+!            replaced XERRWV/XERRWD with 1993 revised version;
+!            converted prologues, comments, error messages to mixed case;
+!            numerous corrections to prologues and internal comments.
+!  20010507  Converted single precision source to double precision.
+!  20020502  Corrected declarations in descriptions of user routines.
+!  20030603  Corrected duplicate type declaration for DUMACH.
+!  20031105  Restored 'own' variables to Common blocks, to enable
+!            interrupt/restart feature.
+!  20031112  Added SAVE statements for data-loaded constants.
+!  20031117  Changed internal name NPE to NJE.
+! 
+! -----------------------------------------------------------------------
+!  Other routines in the DLSODPK package.
+! 
+!  In addition to Subroutine DLSODPK, the DLSODPK package includes the
+!  following subroutines and function routines:
+!   DINTDY   computes an interpolated value of the y vector at t = TOUT.
+!   DEWSET   sets the error weight vector EWT before each step.
+!   DVNORM   computes the weighted RMS-norm of a vector.
+!   DSTODPK  is the core integrator, which does one step of the
+!            integration and the associated error control.
+!   DCFODE   sets all method coefficients and test constants.
+!   DPKSET   interfaces between DSTODPK and the JAC routine.
+!   DSOLPK   manages solution of linear system in Newton iteration.
+!   DSPIOM   performs the SPIOM algorithm.
+!   DATV     computes a scaled, preconditioned product (I-hl0*J)*v.
+!   DORTHOG  orthogonalizes a vector against previous basis vectors.
+!   DHEFA    generates an LU factorization of a Hessenberg matrix.
+!   DHESL    solves a Hessenberg square linear system.
+!   DSPIGMR  performs the SPIGMR algorithm.
+!   DHEQR    generates a QR factorization of a Hessenberg matrix.
+!   DHELS    finds the least squares solution of a Hessenberg system.
+!   DPCG     performs Preconditioned Conjugate Gradient algorithm (PCG).
+!   DPCGS    performs the PCGS algorithm.
+!   DATP     computes the product A*p, where A = I - hl0*df/dy.
+!   DUSOL    interfaces to the user's PSOL routine (MITER = 9).
+!   DSRCPK   is a user-callable routine to save and restore
+!            the contents of the internal Common blocks.
+!   DAXPY, DCOPY, DDOT, DNRM2, and DSCAL   are basic linear
+!            algebra modules (from the BLAS collection).
+!   DUMACH   computes the unit roundoff in a machine-independent manner.
+!   XERRWD, XSETUN, XSETF, and IXSAV handle the printing of all
+!            error messages and warnings.  XERRWD is machine-dependent.
+!  Note:  DVNORM, DDOT, DNRM2, DUMACH, and IXSAV are function
+!  routines.  All the others are subroutines.
+! 
 !!-----------------------------------------------------------------------
 subroutine dlsodpk(f,Neq,Y,T,Tout,Itol,Rtol,Atol,Itask,Istate,Iopt,Rwork,Lrw,Iwork,Liw,jac,psol,Mf)
 
