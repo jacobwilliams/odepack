@@ -84,7 +84,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 6.1% of total for procedures.">631 statements</a>
+    title=" 6.1% of total for procedures.">633 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/M_odepack.f90"> Source File</a></li>
   </ul>
@@ -120,15 +120,13 @@
     
 
     <h3 id="synopsis">Synopsis</h3>
-<p><em>DLSODA</em>: Livermore Solver for Ordinary Differential Equations, with
-         Automatic method switching for stiff and nonstiff problems.</p>
-<p>based on the 12 November 2003 version in double precision.</p>
 <p><em>DLSODA</em> solves the initial value problem for stiff or nonstiff
- systems of first order ODEs,</p>
+ systems of first order ODEs of the form</p>
 <div class="codehilite"><pre><span></span><code>     dy/dt = f(t,y),  or, in component form,
      dy(i)/dt = f(i) = f(i,t,y(1),y(2),...,y(NEQ)) (i = 1,...,NEQ).
 </code></pre></div>
 
+<p>with automatic method switching for stiff and nonstiff problems.</p>
 <p>This a variant version of the <em>DLSODE</em> package.
  It switches automatically between stiff and nonstiff methods.
  This means that the user does not have to determine whether the
@@ -190,12 +188,12 @@
 <p>absolute tolerance parameter (array).
    the estimated local error in y(i) will be controlled so as
    to be less than</p>
-<div class="codehilite"><pre><span></span><code><span class="nv">EWT</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">RTOL</span><span class="o">*</span><span class="nv">ABS</span><span class="ss">(</span><span class="nv">Y</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="o">+</span> <span class="nv">ATOL</span>     <span class="k">if</span> <span class="nv">ITOL</span> <span class="o">=</span> <span class="mi">1</span>, <span class="nv">or</span>
-<span class="nv">EWT</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span> <span class="o">=</span> <span class="nv">RTOL</span><span class="o">*</span><span class="nv">ABS</span><span class="ss">(</span><span class="nv">Y</span><span class="ss">(</span><span class="nv">i</span><span class="ss">))</span> <span class="o">+</span> <span class="nv">ATOL</span><span class="ss">(</span><span class="nv">i</span><span class="ss">)</span>  <span class="k">if</span> <span class="nv">ITOL</span> <span class="o">=</span> <span class="mi">2</span>.
-</code></pre></div>
-
 </dd>
 </dl>
+<div class="codehilite"><pre><span></span><code>        EWT(i) = RTOL*ABS(Y(i)) + ATOL     if ITOL = 1, or
+        EWT(i) = RTOL*ABS(Y(i)) + ATOL(i)  if ITOL = 2.
+</code></pre></div>
+
 <p>Thus the local error test passes if, in each component,
    either the absolute error is less than ATOL (or ATOL(i)),
    or the relative error is less than RTOL.</p>
@@ -218,10 +216,12 @@
 </dd>
 <dt>RWORK</dt>
 <dd>
-<p>real work array of length at least:
-         22 + NEQ * MAX(16, NEQ + 9).</p>
+<p>real work array of length at least:</p>
 </dd>
 </dl>
+<div class="codehilite"><pre><span></span><code>         22 + NEQ * MAX(16, NEQ + 9).
+</code></pre></div>
+
 <p>See also <em>Section E</em> below.</p>
 <dl>
 <dt>LRW</dt>
@@ -483,7 +483,7 @@
 <p>The legality of input parameters will be thoroughly checked on the
  initial call for the problem, but not checked thereafter unless a
  change in input parameters is flagged by ISTATE = 3 on input.</p>
-<p>The descriptions of the call arguments are as follows.</p>
+<p>The descriptions of the call arguments are as follows:</p>
 <dl>
 <dt>F</dt>
 <dd>
@@ -585,13 +585,13 @@
 </dd>
 <dt>RTOL</dt>
 <dd>
-<p>a relative error tolerance parameter, 
+<p>a relative error tolerance parameter,
  an array of length NEQ.  See description below under ATOL.
  Input only.</p>
 </dd>
 <dt>ATOL</dt>
 <dd>
-<p>an absolute error tolerance parameter, 
+<p>an absolute error tolerance parameter,
  an array of length NEQ.  Input only.</p>
 </dd>
 </dl>
@@ -734,7 +734,7 @@
  the state of the calculation.</p>
 </dd>
 </dl>
-<p>On input, the values of ISTATE are as follows.</p>
+<p>On input, the values of ISTATE are as follows:</p>
 <table>
 <thead>
 <tr>
@@ -1023,8 +1023,8 @@
  have a static (fixed) length large enough for both methods,
  or have a dynamic (changing) length altered by the calling
  program in response to output from <em>DLSODA</em>.</p>
-<div class="codehilite"><pre><span></span><code>                --- Fixed Length Case ---
-   If the RWORK length is to be fixed, it should be at least
+<h4 id="fixed-length-case">Fixed Length Case</h4>
+<div class="codehilite"><pre><span></span><code>   If the RWORK length is to be fixed, it should be at least
         MAX (LRN, LRS),
    where LRN and LRS are the RWORK lengths required when the
    current method is nonstiff or stiff, respectively.
@@ -1050,58 +1050,55 @@
       LMAT   = (2*ML + MU + 1)*NEQ + 2 if JT = 4 or 5.
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code>            --- Dynamic Length Case ---
- If the length of RWORK is to be dynamic, then it should
+<h4 id="dynamic-length-case">Dynamic Length Case</h4>
+<p>If the length of RWORK is to be dynamic, then it should
  be at least LRN or LRS, as defined above, depending on the
- current method.  Initially, it must be at least LRN (since
- _DLSODA_ starts with the nonstiff method).  On any return
- from _DLSODA_, the optional output MCUR indicates the current
- method.  If MCUR differs from the value it had on the
- previous return, or if there has only been one call to
- _DLSODA_ and MCUR is now 2, then _DLSODA_ has switched
- methods during the last call, and the length of RWORK
- should be reset (to LRN if MCUR = 1, or to LRS if
- MCUR = 2).  (An increase in the RWORK length is required
- if _DLSODA_ returned ISTATE = -7, but not otherwise.)
- After resetting the length, call _DLSODA_ with ISTATE = 3
- to signal that change.
-
- LRW
-
- : the length of the array RWORK, as declared by the user.
- (This will be checked by the solver.)
-
- IWORK
-
- : an integer array for work space.
- As _DLSODA_ switches automatically between stiff and nonstiff
+ current method.</p>
+<p>Initially, it must be at least LRN (since
+ <em>DLSODA</em> starts with the nonstiff method).</p>
+<p>On any return from <em>DLSODA</em>, the optional output MCUR indicates the
+ current method.  If MCUR differs from the value it had on the previous
+ return, or if there has only been one call to <em>DLSODA</em> and MCUR is now 2,
+ then <em>DLSODA</em> has switched methods during the last call, and the length
+ of RWORK should be reset (to LRN if MCUR = 1, or to LRS if MCUR = 2).
+ (An increase in the RWORK length is required if <em>DLSODA</em> returned
+ ISTATE = -7, but not otherwise.)</p>
+<p>After resetting the length, call <em>DLSODA</em> with ISTATE = 3
+ to signal that change.</p>
+<dl>
+<dt>LRW</dt>
+<dd>
+<p>the length of the array RWORK, as declared by the user.
+ (This will be checked by the solver.)</p>
+</dd>
+<dt>IWORK</dt>
+<dd>
+<p>an integer array for work space.
+ As <em>DLSODA</em> switches automatically between stiff and nonstiff
  methods, the required length of IWORK can change during
  problem, between
              LIS = 20 + NEQ   and   LIN = 20,
- respectively.  Thus the IWORK array passed to _DLSODA_ can
+ respectively.  Thus the IWORK array passed to <em>DLSODA</em> can
  either have a fixed length of at least 20 + NEQ, or have a
  dynamic length of at least LIN or LIS, depending on the
  current method.  The comments on dynamic length under
  RWORK above apply here.  Initially, this length need
- only be at least LIN = 20.
-
- The first few words of IWORK are used for conditional and
- optional inputs and optional outputs.
-
- The following 2 words in IWORK are conditional inputs:
-```text
-   IWORK(1) = ML     these are the lower and upper
-   IWORK(2) = MU     half-bandwidths, respectively, of the
-              banded Jacobian, excluding the main diagonal.
-              The band is defined by the matrix locations
-              (i,j) with i-ML .le. j .le. i+MU.  ML and MU
-              must satisfy  0 .le.  ML,MU  .le. NEQ-1.
-              These are required if JT is 4 or 5, and
-              ignored otherwise.  ML and MU may in fact be
-              the band parameters for a matrix to which
-              df/dy is only approximately equal.
+ only be at least LIN = 20 .</p>
+</dd>
+</dl>
+<p>The first few words of IWORK are used for conditional and
+ optional inputs and optional outputs.</p>
+<p>The following 2 words in IWORK are conditional inputs:</p>
+<div class="codehilite"><pre><span></span><code>   IWORK(1) = ML
+   IWORK(2) = MU
 </code></pre></div>
 
+<p>These are the lower and upper half-bandwidths, respectively, of the
+ banded Jacobian, excluding the main diagonal.  The band is defined by
+ the matrix locations (i,j) with i-ML .le. j .le. i+MU.  ML and MU must
+ satisfy  0 .le.  ML,MU  .le. NEQ-1.  These are required if JT is 4 or 5,
+ and ignored otherwise.  ML and MU may in fact be the band parameters
+ for a matrix to which df/dy is only approximately equal.</p>
 <dl>
 <dt>LIW</dt>
 <dd>
@@ -1852,41 +1849,141 @@
  gain additional capabilities in conjunction with <em>DLSODA</em>.
  (The routines XSETUN and XSETF are designed to conform to the
  SLATEC error handling package.)</p>
-<div class="codehilite"><pre><span></span><code>     Form of Call                  Function
-   CALL XSETUN(LUN)          set the logical unit number, LUN, for
-                             output of messages from _DLSODA_, if
-                             the default is not desired.
-                             The default value of LUN is 6.
-
-   CALL XSETF(MFLAG)         set a flag to control the printing of
-                             messages by _DLSODA_.
-                             MFLAG = 0 means do not print. (Danger:
-                             This risks losing valuable information.)
-                             MFLAG = 1 means print (the default).
-
-                             Either of the above calls may be made at
-                             any time and will take effect immediately.
-
-   CALL DSRCMA(RSAV,ISAV,JOB) saves and restores the contents of
-                             the internal Common blocks used by
-                             _DLSODA_ (see Part 3 below).
-                             RSAV must be a real array of length 240
-                             or more, and ISAV must be an integer
-                             array of length 46 or more.
-                             JOB=1 means save Common into RSAV/ISAV.
-                             JOB=2 means restore Common from RSAV/ISAV.
-                                DSRCMA is useful if one is
-                             interrupting a run and restarting
-                             later, or alternating between two or
-                             more problems solved with _DLSODA_.
-
-   CALL DINTDY(,,,,,)        provide derivatives of y, of various
-        (see below)          orders, at a specified point t, if
-                             desired.  It may be called only after
-                             a successful return from _DLSODA_.
-</code></pre></div>
-
-<p>The detailed instructions for using DINTDY are as follows.</p>
+<table>
+<thead>
+<tr>
+<th>Form of Call</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CALL XSETUN(LUN)</td>
+<td>set the logical unit number, LUN, for</td>
+</tr>
+<tr>
+<td></td>
+<td>output of messages from <em>DLSODA</em>, if</td>
+</tr>
+<tr>
+<td></td>
+<td>the default is not desired.</td>
+</tr>
+<tr>
+<td></td>
+<td>The default value of LUN is 6.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CALL XSETF(MFLAG)</td>
+<td>set a flag to control the printing of</td>
+</tr>
+<tr>
+<td></td>
+<td>messages by <em>DLSODA</em>.</td>
+</tr>
+<tr>
+<td></td>
+<td>MFLAG = 0 means do not print. (Danger:</td>
+</tr>
+<tr>
+<td></td>
+<td>This risks losing valuable information.)</td>
+</tr>
+<tr>
+<td></td>
+<td>MFLAG = 1 means print (the default).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Either of the above calls may be made at</td>
+</tr>
+<tr>
+<td></td>
+<td>any time and will take effect immediately.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CALL DSRCMA(RSAV,ISAV,JOB)</td>
+<td>saves and restores the contents of</td>
+</tr>
+<tr>
+<td></td>
+<td>the internal Common blocks used by</td>
+</tr>
+<tr>
+<td></td>
+<td><em>DLSODA</em> (see Part 3 below).</td>
+</tr>
+<tr>
+<td></td>
+<td>RSAV must be a real array of length 240</td>
+</tr>
+<tr>
+<td></td>
+<td>or more, and ISAV must be an integer</td>
+</tr>
+<tr>
+<td></td>
+<td>array of length 46 or more.</td>
+</tr>
+<tr>
+<td></td>
+<td>JOB=1 means save Common into RSAV/ISAV.</td>
+</tr>
+<tr>
+<td></td>
+<td>JOB=2 means restore Common from RSAV/ISAV.</td>
+</tr>
+<tr>
+<td></td>
+<td>DSRCMA is useful if one is</td>
+</tr>
+<tr>
+<td></td>
+<td>interrupting a run and restarting</td>
+</tr>
+<tr>
+<td></td>
+<td>later, or alternating between two or</td>
+</tr>
+<tr>
+<td></td>
+<td>more problems solved with <em>DLSODA</em>.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CALL DINTDY(,,,,,)</td>
+<td>provide derivatives of y, of various</td>
+</tr>
+<tr>
+<td>(see below)</td>
+<td>orders, at a specified point t, if</td>
+</tr>
+<tr>
+<td></td>
+<td>desired.  It may be called only after</td>
+</tr>
+<tr>
+<td></td>
+<td>a successful return from <em>DLSODA</em>.</td>
+</tr>
+</tbody>
+</table>
+<p>The detailed instructions for using DINTDY are as follows:</p>
 <p>The form of the call is:</p>
 <div class="codehilite"><pre><span></span><code><span class="w">   </span><span class="k">CALL </span><span class="n">DINTDY</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="p">,</span><span class="w"> </span><span class="n">RWORK</span><span class="p">(</span><span class="mi">21</span><span class="p">),</span><span class="w"> </span><span class="n">NYH</span><span class="p">,</span><span class="w"> </span><span class="n">DKY</span><span class="p">,</span><span class="w"> </span><span class="n">IFLAG</span><span class="p">)</span><span class="w"></span>
 </code></pre></div>
@@ -1981,6 +2078,10 @@
  YCUR(NYH+i)/H  (i=1,&hellip;,NEQ)  (and the division by H is
  unnecessary when NST = 0).</p>
 <hr>
+<h3 id="pedigree">Pedigree:</h3>
+<p><em>DLSODA</em> is derived from the Livermore Solver for Ordinary
+ Differential Equations package ODEPACK, and is
+ based on the 12 November 2003 version in double precision.</p>
 <h3 id="authors">Authors:</h3>
 <div class="codehilite"><pre><span></span><code>    Alan C. Hindmarsh
     Center for Applied Scientific Computing, L-561
@@ -2004,6 +2105,7 @@
      Stiff and Nonstiff Systems of Ordinary Differential Equations,
      Siam J. Sci. Stat. Comput. 4 (1983), pp. 136-148.</li>
 </ol>
+<hr>
 <h4 id="other-routines-in-the-dlsoda-package">Other routines in the <em>DLSODA</em> package.</h4>
 <p>In addition to Subroutine <em>DLSODA</em>, the <em>DLSODA</em> package includes the
  following subroutines and function routines:</p>
@@ -2024,7 +2126,7 @@
 <dt>DPRJA</dt>
 <dd>
 <p>computes and preprocesses the Jacobian matrix J = df/dy
-  and the Newton iteration matrix P = I - h<em>l0</em>J.</p>
+  and the Newton iteration matrix P = I - h*l0*J.</p>
 </dd>
 <dt>DSOLSY</dt>
 <dd>
@@ -2198,133 +2300,133 @@
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~dlsoda~~CallsGraph Pages: 1 -->
-<svg id="procdlsodaCallsGraph" width="248pt" height="234pt"
- viewBox="0.00 0.00 248.00 234.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~dlsoda~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 230)">
+<svg id="procdlsodaCallsGraph" width="248pt" height="236pt"
+ viewBox="0.00 0.00 248.00 236.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dlsoda~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 232)">
 <title>proc~~dlsoda~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-230 244,-230 244,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-232 244,-232 244,4 -4,4"/>
 <!-- proc~dlsoda -->
 <g id="proc~~dlsoda~~CallsGraph_node1" class="node">
 <title>proc~dlsoda</title>
 <polygon fill="none" stroke="black" points="54,-126 0,-126 0,-102 54,-102 54,-126"/>
 <text text-anchor="middle" x="27" y="-111.6" font-family="Helvetica,sans-Serif" font-size="10.50">dlsoda</text>
 </g>
-<!-- proc~dumach -->
-<g id="proc~~dlsoda~~CallsGraph_node2" class="node">
-<title>proc~dumach</title>
-<g id="a_proc~~dlsoda~~CallsGraph_node2"><a xlink:href=".././proc/dumach.html" xlink:title="dumach">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-226 90,-226 90,-202 146,-202 146,-226"/>
-<text text-anchor="middle" x="118" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsoda&#45;&gt;proc~dumach -->
-<g id="proc~~dlsoda~~CallsGraph_edge1" class="edge">
-<title>proc~dlsoda&#45;&gt;proc~dumach</title>
-<path fill="none" stroke="#000000" d="M37.5,-126.13C49.35,-141.07 70.45,-167.05 90,-188 92.04,-190.19 94.22,-192.42 96.42,-194.63"/>
-<polygon fill="#000000" stroke="#000000" points="94.21,-197.36 103.81,-201.84 99.1,-192.35 94.21,-197.36"/>
-</g>
 <!-- proc~xerrwd -->
-<g id="proc~~dlsoda~~CallsGraph_node3" class="node">
+<g id="proc~~dlsoda~~CallsGraph_node2" class="node">
 <title>proc~xerrwd</title>
-<g id="a_proc~~dlsoda~~CallsGraph_node3"><a xlink:href=".././proc/xerrwd.html" xlink:title="xerrwd">
-<polygon fill="#d9534f" stroke="#d9534f" points="238,-167 184,-167 184,-143 238,-143 238,-167"/>
-<text text-anchor="middle" x="211" y="-152.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
+<g id="a_proc~~dlsoda~~CallsGraph_node2"><a xlink:href=".././proc/xerrwd.html" xlink:title="xerrwd">
+<polygon fill="#d9534f" stroke="#d9534f" points="238,-65 184,-65 184,-41 238,-41 238,-65"/>
+<text text-anchor="middle" x="211" y="-50.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsoda&#45;&gt;proc~xerrwd -->
-<g id="proc~~dlsoda~~CallsGraph_edge2" class="edge">
+<g id="proc~~dlsoda~~CallsGraph_edge1" class="edge">
 <title>proc~dlsoda&#45;&gt;proc~xerrwd</title>
-<path fill="none" stroke="#000000" d="M41.08,-126C52.88,-135.96 71.22,-149.35 90,-155 117.11,-163.15 149.25,-162.65 173.44,-160.38"/>
-<polygon fill="#000000" stroke="#000000" points="174.05,-163.84 183.62,-159.28 173.3,-156.88 174.05,-163.84"/>
-</g>
-<!-- proc~dintdy -->
-<g id="proc~~dlsoda~~CallsGraph_node4" class="node">
-<title>proc~dintdy</title>
-<g id="a_proc~~dlsoda~~CallsGraph_node4"><a xlink:href=".././proc/dintdy.html" xlink:title="dintdy">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-146 91,-146 91,-122 145,-122 145,-146"/>
-<text text-anchor="middle" x="118" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsoda&#45;&gt;proc~dintdy -->
-<g id="proc~~dlsoda~~CallsGraph_edge3" class="edge">
-<title>proc~dlsoda&#45;&gt;proc~dintdy</title>
-<path fill="none" stroke="#000000" d="M54.22,-119.89C62.64,-121.78 72.12,-123.91 81.11,-125.93"/>
-<polygon fill="#000000" stroke="#000000" points="80.44,-129.37 90.97,-128.15 81.98,-122.54 80.44,-129.37"/>
+<path fill="none" stroke="#000000" d="M54.28,-105.41C78.21,-97.57 114.51,-85.61 146,-75 155.16,-71.91 165.04,-68.54 174.23,-65.38"/>
+<polygon fill="#000000" stroke="#000000" points="175.55,-68.63 183.87,-62.06 173.27,-62.01 175.55,-68.63"/>
 </g>
 <!-- proc~dstoda -->
-<g id="proc~~dlsoda~~CallsGraph_node5" class="node">
+<g id="proc~~dlsoda~~CallsGraph_node3" class="node">
 <title>proc~dstoda</title>
-<g id="a_proc~~dlsoda~~CallsGraph_node5"><a xlink:href=".././proc/dstoda.html" xlink:title="dstoda">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-66 91,-66 91,-42 145,-42 145,-66"/>
-<text text-anchor="middle" x="118" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstoda</text>
+<g id="a_proc~~dlsoda~~CallsGraph_node3"><a xlink:href=".././proc/dstoda.html" xlink:title="dstoda">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-226 91,-226 91,-202 145,-202 145,-226"/>
+<text text-anchor="middle" x="118" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstoda</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsoda&#45;&gt;proc~dstoda -->
-<g id="proc~~dlsoda~~CallsGraph_edge4" class="edge">
+<g id="proc~~dlsoda~~CallsGraph_edge2" class="edge">
 <title>proc~dlsoda&#45;&gt;proc~dstoda</title>
-<path fill="none" stroke="#000000" d="M46.01,-101.86C58.8,-93.24 76.17,-81.52 90.53,-71.84"/>
-<polygon fill="#000000" stroke="#000000" points="92.68,-74.62 99.02,-66.12 88.77,-68.81 92.68,-74.62"/>
+<path fill="none" stroke="#000000" d="M37.5,-126.13C49.35,-141.07 70.45,-167.05 90,-188 92.04,-190.19 94.22,-192.42 96.42,-194.63"/>
+<polygon fill="#000000" stroke="#000000" points="94.21,-197.36 103.81,-201.84 99.1,-192.35 94.21,-197.36"/>
 </g>
-<!-- proc~dmnorm -->
-<g id="proc~~dlsoda~~CallsGraph_node6" class="node">
-<title>proc~dmnorm</title>
-<g id="a_proc~~dlsoda~~CallsGraph_node6"><a xlink:href=".././proc/dmnorm.html" xlink:title="dmnorm">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="240,-106 182,-106 182,-82 240,-82 240,-106"/>
-<text text-anchor="middle" x="211" y="-91.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dmnorm</text>
+<!-- proc~dumach -->
+<g id="proc~~dlsoda~~CallsGraph_node4" class="node">
+<title>proc~dumach</title>
+<g id="a_proc~~dlsoda~~CallsGraph_node4"><a xlink:href=".././proc/dumach.html" xlink:title="dumach">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-146 90,-146 90,-122 146,-122 146,-146"/>
+<text text-anchor="middle" x="118" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
 </a>
 </g>
 </g>
-<!-- proc~dlsoda&#45;&gt;proc~dmnorm -->
-<g id="proc~~dlsoda~~CallsGraph_edge5" class="edge">
-<title>proc~dlsoda&#45;&gt;proc~dmnorm</title>
-<path fill="none" stroke="#000000" d="M54.08,-111.13C84.94,-107.74 136.59,-102.07 171.93,-98.18"/>
-<polygon fill="#000000" stroke="#000000" points="172.32,-101.66 181.88,-97.09 171.56,-94.7 172.32,-101.66"/>
+<!-- proc~dlsoda&#45;&gt;proc~dumach -->
+<g id="proc~~dlsoda~~CallsGraph_edge3" class="edge">
+<title>proc~dlsoda&#45;&gt;proc~dumach</title>
+<path fill="none" stroke="#000000" d="M54.22,-119.89C62.26,-121.7 71.25,-123.72 79.87,-125.66"/>
+<polygon fill="#000000" stroke="#000000" points="79.21,-129.09 89.73,-127.87 80.74,-122.26 79.21,-129.09"/>
+</g>
+<!-- proc~dintdy -->
+<g id="proc~~dlsoda~~CallsGraph_node5" class="node">
+<title>proc~dintdy</title>
+<g id="a_proc~~dlsoda~~CallsGraph_node5"><a xlink:href=".././proc/dintdy.html" xlink:title="dintdy">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-24 91,-24 91,0 145,0 145,-24"/>
+<text text-anchor="middle" x="118" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoda&#45;&gt;proc~dintdy -->
+<g id="proc~~dlsoda~~CallsGraph_edge4" class="edge">
+<title>proc~dlsoda&#45;&gt;proc~dintdy</title>
+<path fill="none" stroke="#000000" d="M35.76,-101.98C46.73,-85.45 67.92,-55.25 90,-33 90.77,-32.22 91.58,-31.44 92.4,-30.67"/>
+<polygon fill="#000000" stroke="#000000" points="94.85,-33.19 100.16,-24.02 90.29,-27.87 94.85,-33.19"/>
 </g>
 <!-- proc~dewset -->
-<g id="proc~~dlsoda~~CallsGraph_node7" class="node">
+<g id="proc~~dlsoda~~CallsGraph_node6" class="node">
 <title>proc~dewset</title>
-<g id="a_proc~~dlsoda~~CallsGraph_node7"><a xlink:href=".././proc/dewset.html" xlink:title="dewset">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-24 91,-24 91,0 145,0 145,-24"/>
-<text text-anchor="middle" x="118" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
+<g id="a_proc~~dlsoda~~CallsGraph_node6"><a xlink:href=".././proc/dewset.html" xlink:title="dewset">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-66 91,-66 91,-42 145,-42 145,-66"/>
+<text text-anchor="middle" x="118" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsoda&#45;&gt;proc~dewset -->
-<g id="proc~~dlsoda~~CallsGraph_edge6" class="edge">
+<g id="proc~~dlsoda~~CallsGraph_edge5" class="edge">
 <title>proc~dlsoda&#45;&gt;proc~dewset</title>
-<path fill="none" stroke="#000000" d="M35.76,-101.98C46.73,-85.45 67.92,-55.25 90,-33 90.77,-32.22 91.58,-31.44 92.4,-30.67"/>
-<polygon fill="#000000" stroke="#000000" points="94.85,-33.19 100.16,-24.02 90.29,-27.87 94.85,-33.19"/>
+<path fill="none" stroke="#000000" d="M46.01,-101.86C58.8,-93.24 76.17,-81.52 90.53,-71.84"/>
+<polygon fill="#000000" stroke="#000000" points="92.68,-74.62 99.02,-66.12 88.77,-68.81 92.68,-74.62"/>
 </g>
-<!-- proc~dintdy&#45;&gt;proc~xerrwd -->
-<g id="proc~~dlsoda~~CallsGraph_edge7" class="edge">
-<title>proc~dintdy&#45;&gt;proc~xerrwd</title>
-<path fill="none" stroke="#000000" d="M145.32,-140.07C154.19,-142.12 164.24,-144.44 173.74,-146.63"/>
-<polygon fill="#000000" stroke="#000000" points="173.21,-150.1 183.74,-148.94 174.78,-143.28 173.21,-150.1"/>
+<!-- proc~dmnorm -->
+<g id="proc~~dlsoda~~CallsGraph_node7" class="node">
+<title>proc~dmnorm</title>
+<g id="a_proc~~dlsoda~~CallsGraph_node7"><a xlink:href=".././proc/dmnorm.html" xlink:title="dmnorm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="240,-186 182,-186 182,-162 240,-162 240,-186"/>
+<text text-anchor="middle" x="211" y="-171.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dmnorm</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoda&#45;&gt;proc~dmnorm -->
+<g id="proc~~dlsoda~~CallsGraph_edge6" class="edge">
+<title>proc~dlsoda&#45;&gt;proc~dmnorm</title>
+<path fill="none" stroke="#000000" d="M42.29,-126.04C54.26,-135.46 72.2,-148.08 90,-155 116.2,-165.18 147.65,-169.91 171.77,-172.11"/>
+<polygon fill="#000000" stroke="#000000" points="171.72,-175.61 181.96,-172.92 172.27,-168.64 171.72,-175.61"/>
 </g>
 <!-- proc~dstoda&#45;&gt;proc~dmnorm -->
-<g id="proc~~dlsoda~~CallsGraph_edge9" class="edge">
+<g id="proc~~dlsoda~~CallsGraph_edge8" class="edge">
 <title>proc~dstoda&#45;&gt;proc~dmnorm</title>
-<path fill="none" stroke="#000000" d="M145.32,-65.57C153.97,-69.37 163.75,-73.67 173.04,-77.75"/>
-<polygon fill="#000000" stroke="#000000" points="171.91,-81.08 182.47,-81.9 174.73,-74.67 171.91,-81.08"/>
+<path fill="none" stroke="#000000" d="M145.32,-202.43C153.97,-198.63 163.75,-194.33 173.04,-190.25"/>
+<polygon fill="#000000" stroke="#000000" points="174.73,-193.33 182.47,-186.1 171.91,-186.92 174.73,-193.33"/>
 </g>
 <!-- proc~dcfode -->
 <g id="proc~~dlsoda~~CallsGraph_node8" class="node">
 <title>proc~dcfode</title>
 <g id="a_proc~~dlsoda~~CallsGraph_node8"><a xlink:href=".././proc/dcfode.html" xlink:title="dcfode">
-<polygon fill="#d9534f" stroke="#d9534f" points="238,-64 184,-64 184,-40 238,-40 238,-64"/>
-<text text-anchor="middle" x="211" y="-49.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="238,-228 184,-228 184,-204 238,-204 238,-228"/>
+<text text-anchor="middle" x="211" y="-213.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
 </a>
 </g>
 </g>
 <!-- proc~dstoda&#45;&gt;proc~dcfode -->
-<g id="proc~~dlsoda~~CallsGraph_edge8" class="edge">
+<g id="proc~~dlsoda~~CallsGraph_edge7" class="edge">
 <title>proc~dstoda&#45;&gt;proc~dcfode</title>
-<path fill="none" stroke="#000000" d="M145.32,-53.42C154.19,-53.23 164.24,-53.01 173.74,-52.8"/>
-<polygon fill="#000000" stroke="#000000" points="173.82,-56.3 183.74,-52.58 173.66,-49.3 173.82,-56.3"/>
+<path fill="none" stroke="#000000" d="M145.32,-214.58C154.19,-214.77 164.24,-214.99 173.74,-215.2"/>
+<polygon fill="#000000" stroke="#000000" points="173.66,-218.7 183.74,-215.42 173.82,-211.7 173.66,-218.7"/>
+</g>
+<!-- proc~dintdy&#45;&gt;proc~xerrwd -->
+<g id="proc~~dlsoda~~CallsGraph_edge9" class="edge">
+<title>proc~dintdy&#45;&gt;proc~xerrwd</title>
+<path fill="none" stroke="#000000" d="M145.32,-23.86C154.38,-27.94 164.67,-32.58 174.34,-36.93"/>
+<polygon fill="#000000" stroke="#000000" points="173.18,-40.25 183.74,-41.17 176.06,-33.87 173.18,-40.25"/>
 </g>
 </g>
 </svg>
@@ -2424,7 +2526,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-04 17:52            </p>
+ on 2022-02-06 02:33            </p>
         </div>
       </div>
       <br>

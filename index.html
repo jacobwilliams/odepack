@@ -93,6 +93,10 @@ see more recent:
 might have test cases:
 
    https://people.sc.fsu.edu/~jburkardt/f77_src/odepack/odepack.html
+
+markdown references
+
+   https://michelf.ca/projects/php-markdown/extra
 -->
 
 <h1 id="_1"><img alt="ODEPACK" src="docs/images/odepack.png"></h1>
@@ -100,52 +104,48 @@ might have test cases:
 <p>This is a WIP(Work In Progress) to evaluate the effort required and
 feasibility of updating older Fortran code from the netlib repository
 using a combination of the commercial plusFORT/spag software and GNU
-utilities.</p>
+utilities as well as conventional manual refactoring.</p>
 <p>Many thanks to plusFORT for making an evaluation copy available for
 several months to the Fortran Community. The plusFORT tools were crucial
 to this study and unmatched in my experience for removing deprecated
 syntax from pre-f2003 code.</p>
-<p>This began with <a href="https://github.com/jacobwilliams/odepack">ODEPACK</a></p>
+<p>This began with <a href="https://computing.llnl.gov/projects/odepack">ODEPACK</a></p>
 <p>the ODEPACK package has been selected as a significant code that is well
 documented and structured for its vintage, and available on the netlib
 site and covered by a public domain license.</p>
-<div class="codehilite"><pre><span></span><code>     ODEPACK:
-     About 28 000, lines of core source files
-     (About 11 000, lines of core code excluding comments)
-     An additional 3700 lines of test cases.
-</code></pre></div>
-
 <h4 id="preliminary-targets-for-phase-i">preliminary targets for phase I:</h4>
 <ul>
 <li>remove obsolescent syntax (trying plusFORT and spag)</li>
 <li>able to build using fpm(1)  (the Fortran Package Manager)</li>
-<li>in debug mode</li>
+<li>in debug mode (ongoing)</li>
 <li>with ifort, gfortran, nvfortran</li>
-<li>text viewable in ford(1) and extractable as markup that can run through pandoc(1)</li>
+<li>text viewable in ford(1) and extractable as markup that can run through pandoc(1) (ongoing)</li>
 <li>available on github (or equivalent)</li>
 <li>no common blocks</li>
 <li>no equivalences</li>
-<li>build as a (single?) module M_odepack</li>
-<li>complete set of unit tests</li>
+<li>build as a (single?) module M_odepack (ongoing)</li>
+<li>complete set of unit tests (tests currently only use the original examples)</li>
 </ul>
-<p>In this case the originally bundled subset of BLAS/LAPACK routines are
+<p>The originally bundled subset of BLAS/LAPACK routines are
 being included in the module.  In production, this might not be done in
 order to be able to easily call external optimized versions.</p>
 <p>The biggest hinderance is some storage used for both INTEGER and DOUBLE
 PRECISION values.</p>
 <p>One take-away is how critical unit tests are to enable rapid development
- (which so far this package does not have)</p>
+(which so far this package does not have)</p>
 <p>The initial pass was done just using the original sample programs as
-unit tests. This may have allowed for introduction of errors but the
-original samples run with the same output as the original.</p>
-<p>As a proof of concept I have gleaned what I wanted from this
-effort. plusFORT was invaluable and reduced the effort by an estimated
-85 percent.</p>
+unit tests. This may have allowed for introduction of errors as this
+is a WIP but the original samples run with the same output as the original.</p>
+<p>plusFORT was invaluable and reduced the effort by an estimated 85
+percent. The results have been encouraging enough to inspire completing
+the transformation.</p>
 <h3 id="phase-ii">Phase II ?</h3>
-<p>The results of this first pass were significant enough that this project
-will hopefully continue.  I feel a complete unit test suite is required
-to allow development to proceed rapidily.</p>
-<p>Another issue is the remaining non-standard code.  Non-standard (but
+<p>Some of the goals of phase I are incomplete, but The results of this first
+pass were significant enough that this project will hopefully continue.</p>
+<p>A complete unit test suite is required to allow development to proceed
+rapidily. Contributions, especially from current ODEPACK users are
+particularly welcome.</p>
+<p>Another major issue is the remaining non-standard code.  Non-standard (but
 at the time de-facto fortran standard) such as equivalencing different
 types, creating scratch space that is used as different numeric types,
 and treating scalars as arrays and vice-versa as well as passing the same
@@ -172,20 +172,20 @@ and as an fpm(1) package with the current options:</p>
 <div class="codehilite"><pre><span></span><code> ford --css docs/local.css --extensions <span class="s1">&#39;inc&#39;</span> --extensions <span class="s1">&#39;f90&#39;</span> ford.md
 </code></pre></div>
 
-<p>As noted, a second pass needs made to restructure the code in some places
-manually, but the code is far more readable after having been refactored
-by spag(1) from the plusFORT package and hopefully as useable as the
-original.</p>
+<p>The code is far more readable after having been refactored by
+a combination of using spag(1) from the plusFORT package and manual
+editing, and is believed as useable as the original.</p>
 <p>There are a few notes in src/M_odepack.f90 concerning continuing issues.</p>
-<p>If there is interest in completing this transformation it can continue on this
-site, hopefully as a group project.</p>
-<p>We are particulary interested in current users of ODEPACK trying this version,
-and contributions of additional test suites.</p>
-<p>Although I have learned what I wanted from the project in phase I, hopefully as
-a community we can complete creating a new maintained production-quality version
-of this venerable and still-valuable package.</p>
+<p>Current users of ODEPACK are encouraged to try this version and provide
+feedback.</p>
+<p>Hopefully as a community we can complete creating a new maintained
+production-quality version of this venerable and still-valuable package.</p>
 <h3 id="documentation">Documentation</h3>
-<p>The API documentation for the current <code>master</code> branch can be found <a href="https://jacobwilliams.github.io/odepack/">here</a>.  This is generated by processing the source files with <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>.</p>
+<p>The ongoing API documentation for the current <code>master</code> branch can
+be found <a href="https://jacobwilliams.github.io/odepack/">here</a>.
+This is generated by processing the source files with
+<a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>.</p>
+<p>Here is an overview primarily from the original documentation  &hellip;</p>
 <hr>
 <h2 id="brief-description-of-odepack-a-systematized-collection-of-ode-solvers-double-precision-version">Brief Description of ODEPACK - A Systematized Collection of ODE Solvers (Double Precision Version)</h2>
 <div class="codehilite"><pre><span></span><code>Alan C. Hindmarsh
@@ -585,7 +585,7 @@ double precision version of each solver.</p>
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-04 17:52            </p>
+ on 2022-02-06 02:33            </p>
         </div>
       </div>
       <br>
