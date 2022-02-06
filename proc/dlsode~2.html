@@ -1,0 +1,2982 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
+    <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>dlsode &ndash; odepack</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link href="../css/user.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">odepack </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+     aria-expanded="false">Contents <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="../lists/files.html">Source Files</a></li>
+            <li><a href="../lists/modules.html">Modules</a></li>
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+              
+            </ul>
+        
+            </li>
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+                                       </ul>
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+  <div class="row">
+    <h1>dlsode
+      <small>Subroutine</small>
+    </h1>
+    <div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+    data-placement="bottom" data-html="true"
+    title=" 2.1% of total for procedures.">498 statements</a>
+     </li> 
+    <li><i class="fa fa-code"></i><a href="../src/dlsode.inc"> Source File</a></li>
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+     <li><a href='../sourcefile/dlsode.inc.html'>dlsode.inc</a></li>
+     <li class="active">dlsode</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    <div id="sidebar">
+  <h3>Contents</h3>
+ 
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
+  <div id="vars-0" class="panel-collapse collapse">
+    <div class="list-group">
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-atoli~4">atoli</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-ayi~4">ayi</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-big~4">big</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-ewti~4">ewti</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-h0~4">h0</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-hmax~4">hmax</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-hmx~4">hmx</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-i~9">i</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-i1~6">i1</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-i2~4">i2</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-iflag~4">iflag</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-ihit~4">ihit</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-imxer~4">imxer</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-kgo~5">kgo</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-leniw~4">leniw</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-lenrw~4">lenrw</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-lenwm~2">lenwm</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-lf0~2">lf0</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-ml~2">ml</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-mord~4">mord</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-msg~4">msg</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-mu~2">mu</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-mxhnl0~4">mxhnl0</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-mxstp0~4">mxstp0</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-rh~6">rh</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-rtoli~4">rtoli</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-size~4">size</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-sum~4">sum</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-tcrit~4">tcrit</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-tdist~4">tdist</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-tnext~4">tnext</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-tol~4">tol</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-tolsf~4">tolsf</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-tp~4">tp</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-w0~4">w0</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>subroutine dlsode(f, Neq, Y, T, Tout, Itol, Rtol, Atol, Itask, Istate, Iopt, Rwork, Lrw, Iwork, Liw, jac, Mf)</h2>
+    
+
+    <h3 id="synopsis">Synopsis</h3>
+<p><em>DLSODE</em> solves the initial-value problem for stiff or
+  nonstiff systems of first-order ODE&rsquo;s,</p>
+<div class="codehilite"><pre><span></span><code>   dy/dt = f(t,y),   or, in component form,
+   dy(i)/dt = f(i) = f(i,t,y(1),y(2),...,y(N)),  i=1,...,N.
+</code></pre></div>
+
+<p><strong>NOTE</strong>: The &ldquo;Usage&rdquo; and &ldquo;Arguments&rdquo; sections treat only a subset of
+  available options, in condensed fashion.  The options
+  covered and the information supplied will support most
+  standard uses of DLSODE.</p>
+<p>For more sophisticated uses, full details on all options are
+  given in the concluding section, headed &ldquo;Long Description.&rdquo;
+  A synopsis of the DLSODE Long Description is provided at the
+  beginning of that section; general topics covered are:</p>
+<ul>
+<li>Elements of the call sequence; optional input and output</li>
+<li>Optional supplemental routines in the DLSODE package</li>
+<li>internal COMMON block</li>
+</ul>
+<hr>
+<h3 id="usage">Usage</h3>
+<p>Communication between the user and the DLSODE package, for normal
+  situations, is summarized here.  This summary describes a subset
+  of the available options.  See &ldquo;Long Description&rdquo; for complete
+  details, including optional communication, nonstandard options,
+  and instructions for special situations.</p>
+<p>A sample program is given in the &ldquo;Examples&rdquo; section.</p>
+<p>Refer to the argument descriptions for the definitions of the
+  quantities that appear in the following sample declarations.</p>
+<p>For MF = 10,</p>
+<div class="codehilite"><pre><span></span><code><span class="w">        </span><span class="k">PARAMETER</span><span class="w">  </span><span class="p">(</span><span class="n">LRW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">16</span><span class="o">*</span><span class="n">NEQ</span><span class="p">,</span><span class="w">           </span><span class="n">LIW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>For MF = 21 or 22,</p>
+<div class="codehilite"><pre><span></span><code><span class="w">        </span><span class="k">PARAMETER</span><span class="w">  </span><span class="p">(</span><span class="n">LRW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="mi">9</span><span class="o">*</span><span class="n">NEQ</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">NEQ</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span><span class="w">  </span><span class="n">LIW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">NEQ</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>For MF = 24 or 25,</p>
+<div class="codehilite"><pre><span></span><code><span class="w">        </span><span class="k">PARAMETER</span><span class="w">  </span><span class="p">(</span><span class="n">LRW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">22</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">10</span><span class="o">*</span><span class="n">NEQ</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">ML</span><span class="o">+</span><span class="n">MU</span><span class="p">)</span><span class="o">*</span><span class="n">NEQ</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="p">&amp;</span><span class="w">                                         </span><span class="n">LIW</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">NEQ</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">EXTERNAL </span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">JAC</span><span class="w"></span>
+<span class="w">        </span><span class="kt">INTEGER  </span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">ITOL</span><span class="p">,</span><span class="w"> </span><span class="n">ITASK</span><span class="p">,</span><span class="w"> </span><span class="n">ISTATE</span><span class="p">,</span><span class="w"> </span><span class="n">IOPT</span><span class="p">,</span><span class="w"> </span><span class="n">LRW</span><span class="p">,</span><span class="w"> </span><span class="n">IWORK</span><span class="p">(</span><span class="n">LIW</span><span class="p">),</span><span class="w"></span>
+<span class="w">       </span><span class="p">&amp;</span><span class="w">         </span><span class="n">LIW</span><span class="p">,</span><span class="w"> </span><span class="n">MF</span><span class="w"></span>
+<span class="w">        </span><span class="kt">DOUBLE PRECISION </span><span class="n">Y</span><span class="p">(</span><span class="n">NEQ</span><span class="p">),</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">TOUT</span><span class="p">,</span><span class="w"> </span><span class="n">RTOL</span><span class="p">,</span><span class="w"> </span><span class="n">ATOL</span><span class="p">(</span><span class="n">ntol</span><span class="p">),</span><span class="w"> </span><span class="n">RWORK</span><span class="p">(</span><span class="n">LRW</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">        </span><span class="k">CALL </span><span class="n">DLSODE</span><span class="w"> </span><span class="p">(</span><span class="n">F</span><span class="p">,</span><span class="w"> </span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">TOUT</span><span class="p">,</span><span class="w"> </span><span class="n">ITOL</span><span class="p">,</span><span class="w"> </span><span class="n">RTOL</span><span class="p">,</span><span class="w"> </span><span class="n">ATOL</span><span class="p">,</span><span class="w"> </span><span class="n">ITASK</span><span class="p">,</span><span class="w"></span>
+<span class="w">       </span><span class="p">&amp;</span><span class="w">            </span><span class="n">ISTATE</span><span class="p">,</span><span class="w"> </span><span class="n">IOPT</span><span class="p">,</span><span class="w"> </span><span class="n">RWORK</span><span class="p">,</span><span class="w"> </span><span class="n">LRW</span><span class="p">,</span><span class="w"> </span><span class="n">IWORK</span><span class="p">,</span><span class="w"> </span><span class="n">LIW</span><span class="p">,</span><span class="w"> </span><span class="n">JAC</span><span class="p">,</span><span class="w"> </span><span class="n">MF</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<h3 id="arguments">Arguments</h3>
+<p>F (external)</p>
+<p>; Name of subroutine for right-hand-side vector f.
+ This name must be declared EXTERNAL in calling
+ program.  The form of F must be:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">     </span><span class="k">SUBROUTINE  </span><span class="n">F</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">YDOT</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="kt">INTEGER  </span><span class="n">NEQ</span><span class="w"></span>
+<span class="w">     </span><span class="kt">DOUBLE PRECISION  </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">YDOT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>The inputs are NEQ, T, Y.  F is to set</p>
+<div class="codehilite"><pre><span></span><code>      YDOT(i) = f(i,T,Y(1),Y(2),...,Y(NEQ)), i = 1, ..., NEQ .
+</code></pre></div>
+
+<dl>
+<dt>NEQ (intent IN)</dt>
+<dd>
+<p>Number of first-order ODE&rsquo;s.</p>
+</dd>
+<dt>Y (intent INOUT)  </dt>
+<dd>
+<p>Array of values of the y(t) vector, of length NEQ.</p>
+</dd>
+</dl>
+<p>Input:  For the first call, Y should contain the
+         values of y(t) at t = T. (Y is an input
+         variable only if ISTATE = 1.)</p>
+<p>Output: On return, Y will contain the values at the
+         new t-value.</p>
+<dl>
+<dt>T (intent INOUT)  </dt>
+<dd>
+<p>Value of the independent variable.  On return it
+ will be the current value of t (normally TOUT).</p>
+</dd>
+<dt>TOUT  (intent IN)     </dt>
+<dd>
+<p>Next point where output is desired (.NE. T).</p>
+</dd>
+<dt>ITOL  (intent IN)     </dt>
+<dd>
+<p>1 or 2 according as ATOL (below) is a scalar or
+ an array.</p>
+</dd>
+<dt>RTOL  (intent IN)     </dt>
+<dd>
+<p>Relative tolerance parameter (scalar).</p>
+</dd>
+<dt>ATOL  (intent IN)     </dt>
+<dd>
+<p>Absolute tolerance parameter (scalar or array).</p>
+</dd>
+</dl>
+<div class="codehilite"><pre><span></span><code>    If ITOL = 1, ATOL need not be dimensioned.
+    If ITOL = 2, ATOL must be dimensioned at least NEQ.
+</code></pre></div>
+
+<p>The estimated local error in Y(i) will be controlled
+ so as to be roughly less (in magnitude) than</p>
+<div class="codehilite"><pre><span></span><code>    EWT(i) = RTOL*ABS(Y(i)) + ATOL     if ITOL = 1, or
+    EWT(i) = RTOL*ABS(Y(i)) + ATOL(i)  if ITOL = 2.
+</code></pre></div>
+
+<p>Thus the local error test passes if, in each
+ component, either the absolute error is less than
+ ATOL (or ATOL(i)), or the relative error is less
+ than RTOL.</p>
+<p>Use RTOL = 0.0 for pure absolute error control, and
+ use ATOL = 0.0 (or ATOL(i) = 0.0) for pure relative
+ error control.  Caution:  Actual (global) errors may
+ exceed these local tolerances, so choose them
+ conservatively.</p>
+<dl>
+<dt>ITASK (intent IN)     </dt>
+<dd>
+<p>Flag indicating the task DLSODE is to perform.
+ Use ITASK = 1 for normal computation of output
+ values of y at t = TOUT.</p>
+</dd>
+<dt>ISTATE (intent INOUT)  </dt>
+<dd>
+<p>Index used for input and output to specify the state
+ of the calculation.</p>
+</dd>
+</dl>
+<p>Input:</p>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>This is the first call for a problem.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>This is a subsequent call.</td>
+</tr>
+</tbody>
+</table>
+<p>Output:</p>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Nothing was done, because TOUT was equal to T.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>DLSODE was successful (otherwise, negative).</td>
+</tr>
+<tr>
+<td></td>
+<td>Note that ISTATE need not be modified after a</td>
+</tr>
+<tr>
+<td></td>
+<td>successful return.</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>Excess work done on this call (perhaps wrong</td>
+</tr>
+<tr>
+<td></td>
+<td>MF).</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>Excess accuracy requested (tolerances too</td>
+</tr>
+<tr>
+<td></td>
+<td>small).</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>Illegal input detected (see printed message).</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>Repeated error test failures (check all</td>
+</tr>
+<tr>
+<td></td>
+<td>inputs).</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>Repeated convergence failures (perhaps bad</td>
+</tr>
+<tr>
+<td></td>
+<td>Jacobian supplied or wrong choice of MF or</td>
+</tr>
+<tr>
+<td></td>
+<td>tolerances).</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>Error weight became zero during problem</td>
+</tr>
+<tr>
+<td></td>
+<td>(solution component i vanished, and ATOL or</td>
+</tr>
+<tr>
+<td></td>
+<td>ATOL(i) = 0.).</td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>IOPT (intent IN)     </dt>
+<dd>
+<p>Flag indicating whether optional inputs are used:</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>No.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Yes.  (See &ldquo;Optional inputs&rdquo; under &ldquo;Long</td>
+</tr>
+<tr>
+<td></td>
+<td>Description,&rdquo; Part 1.)</td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>RWORK (WORK)   </dt>
+<dd>
+<p>Real work array of length at least:</p>
+</dd>
+</dl>
+<div class="codehilite"><pre><span></span><code>       20 + 16*NEQ                    for MF = 10,
+       22 +  9*NEQ + NEQ**2           for MF = 21 or 22,
+       22 + 10*NEQ + (2*ML + MU)*NEQ  for MF = 24 or 25.
+</code></pre></div>
+
+<dl>
+<dt>LRW (intent IN)     </dt>
+<dd>
+<p>Declared length of RWORK (in user&rsquo;s DIMENSION
+ statement).</p>
+</dd>
+<dt>IWORK (WORK)   </dt>
+<dd>
+<p>Integer work array of length at least:</p>
+</dd>
+</dl>
+<div class="codehilite"><pre><span></span><code>       20        for MF = 10,
+       20 + NEQ  for MF = 21, 22, 24, or 25.
+</code></pre></div>
+
+<p>If MF = 24 or 25, input in IWORK(1),IWORK(2) the
+ lower and upper Jacobian half-bandwidths ML,MU.</p>
+<p>On return, IWORK contains information that may be
+ of interest to the user:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Location</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NST</td>
+<td>IWORK(11)</td>
+<td>Number of steps taken for the problem so</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>far.</td>
+</tr>
+<tr>
+<td>NFE</td>
+<td>IWORK(12)</td>
+<td>Number of f evaluations for the problem</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>so far.</td>
+</tr>
+<tr>
+<td>NJE</td>
+<td>IWORK(13)</td>
+<td>Number of Jacobian evaluations (and of</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>matrix LU decompositions) for the problem</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>so far.</td>
+</tr>
+<tr>
+<td>NQU</td>
+<td>IWORK(14)</td>
+<td>Method order last used (successfully).</td>
+</tr>
+<tr>
+<td>LENRW</td>
+<td>IWORK(17)</td>
+<td>Length of RWORK actually required.  This</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>is defined on normal returns and on an</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>illegal input return for insufficient</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>storage.</td>
+</tr>
+<tr>
+<td>LENIW</td>
+<td>IWORK(18)</td>
+<td>Length of IWORK actually required.  This</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>is defined on normal returns and on an</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>illegal input return for insufficient</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>storage.</td>
+</tr>
+</tbody>
+</table>
+<dl>
+<dt>LIW (intent IN)     </dt>
+<dd>
+<p>Declared length of IWORK (in user&rsquo;s DIMENSION
+ statement).</p>
+</dd>
+<dt>JAC (external)    </dt>
+<dd>
+<p>Name of subroutine for Jacobian matrix (MF =
+ 21 or 24).  If used, this name must be declared
+ EXTERNAL in calling program.  If not used, pass a
+ dummy name.  The form of JAC must be:</p>
+</dd>
+</dl>
+<div class="codehilite"><pre><span></span><code><span class="w">    </span><span class="k">SUBROUTINE </span><span class="n">JAC</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">ML</span><span class="p">,</span><span class="w"> </span><span class="n">MU</span><span class="p">,</span><span class="w"> </span><span class="n">PD</span><span class="p">,</span><span class="w"> </span><span class="n">NROWPD</span><span class="p">)</span><span class="w"></span>
+<span class="w">    </span><span class="kt">INTEGER  </span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">ML</span><span class="p">,</span><span class="w"> </span><span class="n">MU</span><span class="p">,</span><span class="w"> </span><span class="n">NROWPD</span><span class="w"></span>
+<span class="w">    </span><span class="kt">DOUBLE PRECISION  </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">PD</span><span class="p">(</span><span class="n">NROWPD</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>See item c, under &ldquo;Description&rdquo; below for more
+ information about JAC.</p>
+<dl>
+<dt>MF (intent IN)     </dt>
+<dd>
+<p>Method flag.  Standard values are:</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10</td>
+<td>Nonstiff (Adams) method, no Jacobian used.</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Stiff (BDF) method, user-supplied full Jacobian.</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Stiff method, internally generated full</td>
+</tr>
+<tr>
+<td></td>
+<td>Jacobian.</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Stiff method, user-supplied banded Jacobian.</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Stiff method, internally generated banded</td>
+</tr>
+<tr>
+<td></td>
+<td>Jacobian.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="long-description">Long Description</h3>
+<p>DLSODE solves the initial value problem for stiff or nonstiff
+   systems of first-order ODE&rsquo;s,</p>
+<div class="codehilite"><pre><span></span><code>        dy/dt = f(t,y) ,
+</code></pre></div>
+
+<p>or, in component form,</p>
+<div class="codehilite"><pre><span></span><code>        dy(i)/dt = f(i) = f(i,t,y(1),y(2),...,y(NEQ))
+                                                  (i = 1, ..., NEQ) .
+</code></pre></div>
+
+<p>DLSODE is a package based on the GEAR and GEARB packages, and on
+   the October 23, 1978, version of the tentative ODEPACK user
+   interface standard, with minor modifications.</p>
+<p>The steps in solving such a problem are as follows.</p>
+<p><strong>(a)</strong> First write a subroutine of the form</p>
+<div class="codehilite"><pre><span></span><code><span class="w">           </span><span class="k">SUBROUTINE  </span><span class="n">F</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">YDOT</span><span class="p">)</span><span class="w"></span>
+<span class="w">           </span><span class="kt">INTEGER  </span><span class="n">NEQ</span><span class="w"></span>
+<span class="w">           </span><span class="kt">DOUBLE PRECISION  </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">YDOT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>which supplies the vector function f by loading YDOT(i) with
+   f(i).</p>
+<p><strong>(b)</strong> Next determine (or guess) whether or not the problem is stiff.
+   Stiffness occurs when the Jacobian matrix df/dy has an
+   eigenvalue whose real part is negative and large in magnitude
+   compared to the reciprocal of the t span of interest.  If the
+   problem is nonstiff, use method flag MF = 10.  If it is stiff,
+   there are four standard choices for MF, and DLSODE requires the
+   Jacobian matrix in some form.  This matrix is regarded either
+   as full (MF = 21 or 22), or banded (MF = 24 or 25).  In the
+   banded case, DLSODE requires two half-bandwidth parameters ML
+   and MU. These are, respectively, the widths of the lower and
+   upper parts of the band, excluding the main diagonal.  Thus the
+   band consists of the locations (i,j) with</p>
+<div class="codehilite"><pre><span></span><code>       i - ML &lt;= j &lt;= i + MU ,
+</code></pre></div>
+
+<p>and the full bandwidth is ML + MU + 1 .</p>
+<p><strong>(c)</strong> If the problem is stiff, you are encouraged to supply the
+   Jacobian directly (MF = 21 or 24), but if this is not feasible,
+   DLSODE will compute it internally by difference quotients (MF =
+   22 or 25).  If you are supplying the Jacobian, write a
+   subroutine of the form</p>
+<div class="codehilite"><pre><span></span><code><span class="w">           </span><span class="k">SUBROUTINE  </span><span class="n">JAC</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">ML</span><span class="p">,</span><span class="w"> </span><span class="n">MU</span><span class="p">,</span><span class="w"> </span><span class="n">PD</span><span class="p">,</span><span class="w"> </span><span class="n">NROWPD</span><span class="p">)</span><span class="w"></span>
+<span class="w">           </span><span class="kt">INTEGER  </span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">ML</span><span class="p">,</span><span class="w"> </span><span class="n">MU</span><span class="p">,</span><span class="w"> </span><span class="n">NRWOPD</span><span class="w"></span>
+<span class="w">           </span><span class="kt">DOUBLE PRECISION  </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">PD</span><span class="p">(</span><span class="n">NROWPD</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>which provides df/dy by loading PD as follows:
+     - For a full Jacobian (MF = 21), load PD(i,j) with df(i)/dy(j),
+       the partial derivative of f(i) with respect to y(j).  (Ignore
+       the ML and MU arguments in this case.)
+     - For a banded Jacobian (MF = 24), load PD(i-j+MU+1,j) with
+          df(i)/dy(j); i.e., load the diagonal lines of df/dy into the
+       rows of PD from the top down.
+     - In either case, only nonzero elements need be loaded.</p>
+<p><strong>(d)</strong> Write a main program that calls subroutine DLSODE once for each
+   point at which answers are desired.  This should also provide
+   for possible use of logical unit 6 for output of error messages
+   by DLSODE.</p>
+<p>Before the first call to DLSODE, set ISTATE = 1, set Y and T to
+   the initial values, and set TOUT to the first output point.  To
+   continue the integration after a successful return, simply
+   reset TOUT and call DLSODE again.  No other parameters need be
+   reset.</p>
+<h3 id="examples">Examples</h3>
+<p>The following is a simple example problem, with the coding needed
+   for its solution by DLSODE. The problem is from chemical kinetics,
+   and consists of the following three rate equations:</p>
+<div class="codehilite"><pre><span></span><code>        dy1/dt = -.04*y1 + 1.E4*y2*y3
+        dy2/dt = .04*y1 - 1.E4*y2*y3 - 3.E7*y2**2
+        dy3/dt = 3.E7*y2**2
+</code></pre></div>
+
+<p>on the interval from t = 0.0 to t = 4.E10, with initial conditions
+   y1 = 1.0, y2 = y3 = 0. The problem is stiff.</p>
+<p>The following coding solves this problem with DLSODE, using
+   MF = 21 and printing results at t = .4, 4., &hellip;, 4.E10.  It uses
+   ITOL = 2 and ATOL much smaller for y2 than for y1 or y3 because y2
+   has much smaller values.  At the end of the run, statistical
+   quantities of interest are printed.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">program </span><span class="n">dlsode_ex</span><span class="w"></span>
+<span class="k">use </span><span class="n">m_odepack</span><span class="w"></span>
+<span class="k">implicit none</span>
+<span class="k">external </span><span class="n">fex</span><span class="w"></span>
+<span class="k">external </span><span class="n">jex</span><span class="w"></span>
+
+<span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w">            </span><span class="kd">::</span><span class="w">  </span><span class="n">dp</span><span class="o">=</span><span class="nb">kind</span><span class="p">(</span><span class="mf">0.0d0</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w">  </span><span class="n">atol</span><span class="p">,</span><span class="n">y</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w">  </span><span class="n">iopt</span><span class="p">,</span><span class="n">iout</span><span class="p">,</span><span class="n">istate</span><span class="p">,</span><span class="n">itask</span><span class="p">,</span><span class="n">itol</span><span class="p">,</span><span class="n">liw</span><span class="p">,</span><span class="n">lrw</span><span class="p">,</span><span class="n">mf</span><span class="p">,</span><span class="n">neq</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span><span class="w">        </span><span class="kd">::</span><span class="w">  </span><span class="n">iwork</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">                </span><span class="kd">::</span><span class="w">  </span><span class="n">rtol</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">tout</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="mi">58</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w">  </span><span class="n">rwork</span><span class="w"></span>
+
+<span class="w">   </span><span class="n">neq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="w"></span>
+<span class="w">   </span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.D0</span><span class="w"></span>
+<span class="w">   </span><span class="n">y</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.D0</span><span class="w"></span>
+<span class="w">   </span><span class="n">y</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.D0</span><span class="w"></span>
+<span class="w">   </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.D0</span><span class="w"></span>
+<span class="w">   </span><span class="n">tout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="mi">4</span><span class="n">D0</span><span class="w"></span>
+<span class="w">   </span><span class="n">itol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">   </span><span class="n">rtol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.D-4</span><span class="w"></span>
+<span class="w">   </span><span class="n">atol</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.D-6</span><span class="w"></span>
+<span class="w">   </span><span class="n">atol</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.D-10</span><span class="w"></span>
+<span class="w">   </span><span class="n">atol</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.D-6</span><span class="w"></span>
+<span class="w">   </span><span class="n">itask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">   </span><span class="n">istate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">   </span><span class="n">iopt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">   </span><span class="n">lrw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">58</span><span class="w"></span>
+<span class="w">   </span><span class="n">liw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">23</span><span class="w"></span>
+<span class="w">   </span><span class="n">mf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">21</span><span class="w"></span>
+<span class="w">   </span><span class="k">do </span><span class="n">iout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">dlsode</span><span class="p">(</span><span class="n">fex</span><span class="p">,[</span><span class="n">neq</span><span class="p">],</span><span class="n">y</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">tout</span><span class="p">,</span><span class="n">itol</span><span class="p">,[</span><span class="n">rtol</span><span class="p">],</span><span class="n">atol</span><span class="p">,</span><span class="n">itask</span><span class="p">,</span><span class="n">istate</span><span class="p">,</span><span class="n">iopt</span><span class="p">,</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">                </span><span class="p">&amp;</span><span class="w"> </span><span class="n">rwork</span><span class="p">,</span><span class="n">lrw</span><span class="p">,</span><span class="n">iwork</span><span class="p">,</span><span class="n">liw</span><span class="p">,</span><span class="n">jex</span><span class="p">,</span><span class="n">mf</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">99010</span><span class="p">)</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="n">y</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">y</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="n">y</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="mi">99010</span><span class="w"> </span><span class="k">format</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39; At t =&#39;</span><span class="p">,</span><span class="n">d12</span><span class="p">.</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;   y =&#39;</span><span class="p">,</span><span class="mi">3</span><span class="n">D14</span><span class="p">.</span><span class="mi">6</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">istate</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">         write</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">99020</span><span class="p">)</span><span class="w"> </span><span class="n">istate</span><span class="w"></span>
+<span class="w">   </span><span class="mi">99020</span><span class="w"> </span><span class="k">format</span><span class="w"> </span><span class="p">(</span><span class="o">///</span><span class="s1">&#39; Error halt.. ISTATE =&#39;</span><span class="p">,</span><span class="n">i3</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">stop </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="k">else</span>
+<span class="k">         </span><span class="n">tout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tout</span><span class="o">*</span><span class="mi">1</span><span class="mf">0.D0</span><span class="w"></span>
+<span class="w">      </span><span class="k">endif</span>
+<span class="k">   enddo</span>
+<span class="k">   write</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">99030</span><span class="p">)</span><span class="w"> </span><span class="n">iwork</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span><span class="n">iwork</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="n">iwork</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="mi">99030</span><span class="w"> </span><span class="k">format</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="s1">&#39; No. steps =&#39;</span><span class="p">,</span><span class="n">i4</span><span class="p">,</span><span class="s1">&#39;,  No. f-s =&#39;</span><span class="p">,</span><span class="n">i4</span><span class="p">,</span><span class="s1">&#39;,  No. J-s =&#39;</span><span class="p">,</span><span class="n">i4</span><span class="p">)</span><span class="w"></span>
+
+<span class="k">end program </span><span class="n">dlsode_ex</span><span class="w"></span>
+
+<span class="k">subroutine </span><span class="n">fex</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Ydot</span><span class="p">)</span><span class="w"></span>
+<span class="k">implicit none</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w">                         </span><span class="kd">::</span><span class="w">  </span><span class="n">dp</span><span class="o">=</span><span class="nb">kind</span><span class="p">(</span><span class="mf">0.0d0</span><span class="p">)</span><span class="w"></span>
+
+<span class="kt">integer</span><span class="w">                                   </span><span class="kd">::</span><span class="w">  </span><span class="n">Neq</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">                             </span><span class="kd">::</span><span class="w">  </span><span class="n">T</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w">     </span><span class="kd">::</span><span class="w">  </span><span class="n">Y</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w">  </span><span class="n">Ydot</span><span class="w"></span>
+
+<span class="w">   </span><span class="n">Ydot</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="p">.</span><span class="mi">04</span><span class="n">D0</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1.D4</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">Ydot</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3.D7</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">Ydot</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Ydot</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Ydot</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="k">end subroutine </span><span class="n">fex</span><span class="w"></span>
+
+<span class="k">subroutine </span><span class="n">jex</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Ml</span><span class="p">,</span><span class="n">Mu</span><span class="p">,</span><span class="n">Pd</span><span class="p">,</span><span class="n">Nrpd</span><span class="p">)</span><span class="w"></span>
+<span class="k">implicit none</span>
+
+<span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w">                              </span><span class="kd">::</span><span class="w">  </span><span class="n">dp</span><span class="o">=</span><span class="nb">kind</span><span class="p">(</span><span class="mf">0.0d0</span><span class="p">)</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                                        </span><span class="kd">::</span><span class="w">  </span><span class="n">Neq</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">                                  </span><span class="kd">::</span><span class="w">  </span><span class="n">T</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w">  </span><span class="n">Y</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                                        </span><span class="kd">::</span><span class="w">  </span><span class="n">Ml</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                                        </span><span class="kd">::</span><span class="w">  </span><span class="n">Mu</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">Nrpd</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w">  </span><span class="n">Pd</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">                             </span><span class="kd">::</span><span class="w">  </span><span class="n">Nrpd</span><span class="w"></span>
+
+<span class="w">   </span><span class="n">Pd</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="p">.</span><span class="mi">04</span><span class="n">D0</span><span class="w"></span>
+<span class="w">   </span><span class="n">Pd</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.D4</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">Pd</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.D4</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">Pd</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="mi">04</span><span class="n">D0</span><span class="w"></span>
+<span class="w">   </span><span class="n">Pd</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Pd</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">Pd</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">6.D7</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">Pd</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Pd</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Pd</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="k">end subroutine </span><span class="n">jex</span><span class="w"></span>
+</code></pre></div>
+
+<p>The output from this program (on a Cray-1 in single precision)
+   is as follows.</p>
+<div class="codehilite"><pre><span></span><code>     At t =  4.0000e-01   y =  9.851726e-01  3.386406e-05  1.479357e-02
+     At t =  4.0000e+00   y =  9.055142e-01  2.240418e-05  9.446344e-02
+     At t =  4.0000e+01   y =  7.158050e-01  9.184616e-06  2.841858e-01
+     At t =  4.0000e+02   y =  4.504846e-01  3.222434e-06  5.495122e-01
+     At t =  4.0000e+03   y =  1.831701e-01  8.940379e-07  8.168290e-01
+     At t =  4.0000e+04   y =  3.897016e-02  1.621193e-07  9.610297e-01
+     At t =  4.0000e+05   y =  4.935213e-03  1.983756e-08  9.950648e-01
+     At t =  4.0000e+06   y =  5.159269e-04  2.064759e-09  9.994841e-01
+     At t =  4.0000e+07   y =  5.306413e-05  2.122677e-10  9.999469e-01
+     At t =  4.0000e+08   y =  5.494530e-06  2.197825e-11  9.999945e-01
+     At t =  4.0000e+09   y =  5.129458e-07  2.051784e-12  9.999995e-01
+     At t =  4.0000e+10   y = -7.170603e-08 -2.868241e-13  1.000000e+00
+
+     No. steps = 330,  No. f-s = 405,  No. J-s = 69
+</code></pre></div>
+
+<h4 id="accuracy">Accuracy:</h4>
+<p>The accuracy of the solution depends on the choice of tolerances
+   RTOL and ATOL.  Actual (global) errors may exceed these local
+   tolerances, so choose them conservatively.</p>
+<h4 id="cautions">Cautions:</h4>
+<p>The work arrays should not be altered between calls to DLSODE for
+   the same problem, except possibly for the conditional and optional
+   inputs.</p>
+<h4 id="portability">Portability:</h4>
+<p>Since NEQ is dimensioned inside DLSODE, some compilers may object
+   to a call to DLSODE with NEQ a scalar variable.  In this event,
+   use DIMENSION NEQ(1).  Similar remarks apply to RTOL and ATOL.</p>
+<p>Note to Cray users:
+   For maximum efficiency, use the CFT77 compiler.  Appropriate
+   compiler optimization directives have been inserted for CFT77.</p>
+<h4 id="reference">Reference:</h4>
+<p>Alan C. Hindmarsh, &ldquo;ODEPACK, A Systematized Collection of ODE
+   Solvers,&rdquo; in Scientific Computing, R. S. Stepleman, et al., Eds.
+   (North-Holland, Amsterdam, 1983), pp. 55-64.</p>
+<h3 id="long-description_1">Long Description:</h3>
+<p>The following complete description of the user interface to
+   DLSODE consists of four parts:</p>
+<ol>
+<li>
+<p>The call sequence to subroutine DLSODE, which is a driver
+       routine for the solver.  This includes descriptions of both
+       the call sequence arguments and user-supplied routines.
+       Following these descriptions is a description of optional
+       inputs available through the call sequence, and then a
+       description of optional outputs in the work arrays.</p>
+</li>
+<li>
+<p>Descriptions of other routines in the DLSODE package that may
+       be (optionally) called by the user.  These provide the ability
+       to alter error message handling, save and restore the internal
+       COMMON, and obtain specified derivatives of the solution y(t).</p>
+</li>
+<li>
+<p>Descriptions of COMMON block to be declared in overlay or
+       similar environments, or to be saved when doing an interrupt
+       of the problem and continued solution later.</p>
+</li>
+<li>
+<p>Description of two routines in the DLSODE package, either of
+       which the user may replace with his own version, if desired.
+       These relate to the measurement of errors.</p>
+</li>
+</ol>
+<h3 id="part-1-call-sequence">Part 1.  Call Sequence</h3>
+<h4 id="arguments_1">Arguments</h4>
+<p>The call sequence parameters used for input only are</p>
+<div class="codehilite"><pre><span></span><code> F, NEQ, TOUT, ITOL, RTOL, ATOL, ITASK, IOPT, LRW, LIW, JAC, MF,
+</code></pre></div>
+
+<p>and those used for both input and output are</p>
+<div class="codehilite"><pre><span></span><code> Y, T, ISTATE.
+</code></pre></div>
+
+<p>The work arrays RWORK and IWORK are also used for conditional and
+  optional inputs and optional outputs.  (The term output here
+  refers to the return from subroutine DLSODE to the user&rsquo;s calling
+  program.)</p>
+<p>The legality of input parameters will be thoroughly checked on the
+  initial call for the problem, but not checked thereafter unless a
+  change in input parameters is flagged by ISTATE = 3 on input.</p>
+<p>The descriptions of the call arguments are as follows.</p>
+<dl>
+<dt>F        </dt>
+<dd>
+<p>name of the user-supplied subroutine defining the ODE
+  system.  The system must be put in the first-order form
+  dy/dt = f(t,y), where f is a vector-valued function of
+  the scalar t and the vector y. Subroutine F is to compute
+  the function f. It is to have the form</p>
+</dd>
+</dl>
+<div class="codehilite"><pre><span></span><code><span class="w">                </span><span class="k">SUBROUTINE </span><span class="n">F</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">YDOT</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="kt">DOUBLE PRECISION  </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">YDOT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>where NEQ, T, and Y are input, and the array YDOT =
+  f(T,Y) is output.  Y and YDOT are arrays of length NEQ.
+  Subroutine F should not alter Y(1),&hellip;,Y(NEQ).  F must be
+  declared EXTERNAL in the calling program.</p>
+<p>Subroutine F may access user-defined quantities in
+  NEQ(2),&hellip; and/or in Y(NEQ(1)+1),&hellip;, if NEQ is an array
+  (dimensioned in F) and/or Y has length exceeding NEQ(1).
+  See the descriptions of NEQ and Y below.</p>
+<p>If quantities computed in the F routine are needed
+  externally to DLSODE, an extra call to F should be made
+  for this purpose, for consistent and accurate results.
+  If only the derivative dy/dt is needed, use DINTDY
+  instead.</p>
+<dl>
+<dt>NEQ      </dt>
+<dd>
+<p>size of the ODE system (number of first-order
+  ordinary differential equations).  Used only for input.
+  NEQ may be decreased, but not increased, during the
+  problem.  If NEQ is decreased (with ISTATE = 3 on input),
+  the remaining components of Y should be left undisturbed,
+  if these are to be accessed in F and/or JAC.</p>
+</dd>
+</dl>
+<p>Normally, NEQ is a scalar, and it is generally referred
+  to as a scalar in this user interface description.
+  However, NEQ may be an array, with NEQ(1) set to the
+  system size.  (The DLSODE package accesses only NEQ(1).)
+  In either case, this parameter is passed as the NEQ
+  argument in all calls to F and JAC.  Hence, if it is an
+  array, locations NEQ(2),&hellip; may be used to store other
+  integer data and pass it to F and/or JAC.  Subroutines
+  F and/or JAC must include NEQ in a DIMENSION statement
+  in that case.</p>
+<dl>
+<dt>Y        </dt>
+<dd>
+<p>real array for the vector of dependent variables, of
+  length NEQ or more.  Used for both input and output on
+  the first call (ISTATE = 1), and only for output on
+  other calls.  On the first call, Y must contain the
+  vector of initial values.  On output, Y contains the
+  computed solution vector, evaluated at T. If desired,
+  the Y array may be used for other purposes between
+  calls to the solver.</p>
+</dd>
+</dl>
+<p>This array is passed as the Y argument in all calls to F
+  and JAC.  Hence its length may exceed NEQ, and locations
+  Y(NEQ+1),&hellip; may be used to store other real data and
+  pass it to F and/or JAC.  (The DLSODE package accesses
+  only Y(1),&hellip;,Y(NEQ).)</p>
+<dl>
+<dt>T        </dt>
+<dd>
+<p>independent variable.  On input, T is used only on
+  the first call, as the initial point of the integration.
+  On output, after each call, T is the value at which a
+  computed solution Y is evaluated (usually the same as
+  TOUT).  On an error return, T is the farthest point
+  reached.</p>
+</dd>
+<dt>TOUT     </dt>
+<dd>
+<p>next value of T at which a computed solution is
+  desired.  Used only for input.</p>
+</dd>
+</dl>
+<p>When starting the problem (ISTATE = 1), TOUT may be equal
+  to T for one call, then should not equal T for the next
+  call.  For the initial T, an input value of TOUT .NE. T
+  is used in order to determine the direction of the
+  integration (i.e., the algebraic sign of the step sizes)
+  and the rough scale of the problem.  Integration in
+  either direction (forward or backward in T) is permitted.</p>
+<p>If ITASK = 2 or 5 (one-step modes), TOUT is ignored
+  after the first call (i.e., the first call with
+  TOUT .NE. T).  Otherwise, TOUT is required on every call.</p>
+<p>If ITASK = 1, 3, or 4, the values of TOUT need not be
+  monotone, but a value of TOUT which backs up is limited
+  to the current internal T interval, whose endpoints are
+  TCUR - HU and TCUR.  (See &ldquo;Optional Outputs&rdquo; below for
+  TCUR and HU.)</p>
+<dl>
+<dt>ITOL     </dt>
+<dd>
+<p>indicator for the type of error control.  See
+  description below under ATOL.  Used only for input.</p>
+</dd>
+<dt>RTOL     </dt>
+<dd>
+<p>relative error tolerance parameter, either a scalar or
+  an array of length NEQ.  See description below under
+  ATOL.  Input only.</p>
+</dd>
+<dt>ATOL     </dt>
+<dd>
+<p>absolute error tolerance parameter, either a scalar or
+  an array of length NEQ.  Input only.</p>
+</dd>
+</dl>
+<p>The input parameters ITOL, RTOL, and ATOL determine the
+  error control performed by the solver.  The solver will
+  control the vector e = (e(i)) of estimated local errors
+  in Y, according to an inequality of the form</p>
+<div class="codehilite"><pre><span></span><code>     rms-norm of ( e(i)/EWT(i) ) &lt;= 1,
+</code></pre></div>
+
+<p>where</p>
+<div class="codehilite"><pre><span></span><code>     EWT(i) = RTOL(i)\*ABS(Y(i)) + ATOL(i),
+</code></pre></div>
+
+<p>and the rms-norm (root-mean-square norm) here is</p>
+<div class="codehilite"><pre><span></span><code>     rms-norm(v) = SQRT(sum v(i)\*\*2 / NEQ).
+</code></pre></div>
+
+<p>Here EWT = (EWT(i)) is a vector of weights which must
+  always be positive, and the values of RTOL and ATOL
+  should all be nonnegative.  The following table gives the
+  types (scalar/array) of RTOL and ATOL, and the
+  corresponding form of EWT(i).</p>
+<table>
+<thead>
+<tr>
+<th>ITOL</th>
+<th>RTOL</th>
+<th>ATOL</th>
+<th>EWT(i)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>scalar</td>
+<td>scalar</td>
+<td>RTOL*ABS(Y(i)) + ATOL</td>
+</tr>
+<tr>
+<td>2</td>
+<td>scalar</td>
+<td>array</td>
+<td>RTOL*ABS(Y(i)) + ATOL(i)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>array</td>
+<td>scalar</td>
+<td>RTOL(i)*ABS(Y(i)) + ATOL</td>
+</tr>
+<tr>
+<td>4</td>
+<td>array</td>
+<td>array</td>
+<td>RTOL(i)*ABS(Y(i)) + ATOL(i)</td>
+</tr>
+</tbody>
+</table>
+<p>When either of these parameters is a scalar, it need not
+  be dimensioned in the user&rsquo;s calling program.</p>
+<p>If none of the above choices (with ITOL, RTOL, and ATOL
+  fixed throughout the problem) is suitable, more general
+  error controls can be obtained by substituting
+  user-supplied routines for the setting of EWT and/or for
+  the norm calculation.  See Part 4 below.</p>
+<p>If global errors are to be estimated by making a repeated
+  run on the same problem with smaller tolerances, then all
+  components of RTOL and ATOL (i.e., of EWT) should be
+  scaled down uniformly.</p>
+<dl>
+<dt>ITASK    </dt>
+<dd>
+<p>index specifying the task to be performed.  Input
+  only.  ITASK has the following values and meanings:</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Normal computation of output values of y(t) at</td>
+</tr>
+<tr>
+<td></td>
+<td>t = TOUT (by overshooting and interpolating).</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Take one step only and return.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Stop at the first internal mesh point at or beyond</td>
+</tr>
+<tr>
+<td></td>
+<td>t = TOUT and return.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Normal computation of output values of y(t) at</td>
+</tr>
+<tr>
+<td></td>
+<td>t = TOUT but without overshooting t = TCRIT.  TCRIT</td>
+</tr>
+<tr>
+<td></td>
+<td>must be input as RWORK(1).  TCRIT may be equal to or</td>
+</tr>
+<tr>
+<td></td>
+<td>beyond TOUT, but not behind it in the direction of</td>
+</tr>
+<tr>
+<td></td>
+<td>integration.  This option is useful if the problem</td>
+</tr>
+<tr>
+<td></td>
+<td>has a singularity at or beyond t = TCRIT.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Take one step, without passing TCRIT, and return.</td>
+</tr>
+<tr>
+<td></td>
+<td>TCRIT must be input as RWORK(1).</td>
+</tr>
+</tbody>
+</table>
+<p>Note:  If ITASK = 4 or 5 and the solver reaches TCRIT
+  (within roundoff), it will return T = TCRIT (exactly) to
+  indicate this (unless ITASK = 4 and TOUT comes before
+  TCRIT, in which case answers at T = TOUT are returned
+  first).</p>
+<dl>
+<dt>ISTATE   </dt>
+<dd>
+<p>index used for input and output to specify the state
+  of the calculation.</p>
+</dd>
+</dl>
+<p>On input, the values of ISTATE are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>This is the first call for the problem</td>
+</tr>
+<tr>
+<td></td>
+<td>(initializations will be done).  See &ldquo;Note&rdquo; below.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>This is not the first call, and the calculation is to</td>
+</tr>
+<tr>
+<td></td>
+<td>continue normally, with no change in any input</td>
+</tr>
+<tr>
+<td></td>
+<td>parameters except possibly TOUT and ITASK.  (If ITOL,</td>
+</tr>
+<tr>
+<td></td>
+<td>RTOL, and/or ATOL are changed between calls with</td>
+</tr>
+<tr>
+<td></td>
+<td>ISTATE = 2, the new values will be used but not</td>
+</tr>
+<tr>
+<td></td>
+<td>tested for legality.)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>This is not the first call, and the calculation is to</td>
+</tr>
+<tr>
+<td></td>
+<td>continue normally, but with a change in input</td>
+</tr>
+<tr>
+<td></td>
+<td>parameters other than TOUT and ITASK.  Changes are</td>
+</tr>
+<tr>
+<td></td>
+<td>allowed in NEQ, ITOL, RTOL, ATOL, IOPT, LRW, LIW, MF,</td>
+</tr>
+<tr>
+<td></td>
+<td>ML, MU, and any of the optional inputs except H0.</td>
+</tr>
+<tr>
+<td></td>
+<td>(See IWORK description for ML and MU.)</td>
+</tr>
+</tbody>
+</table>
+<p>Note:  A preliminary call with TOUT = T is not counted as
+  a first call here, as no initialization or checking of
+  input is done.  (Such a call is sometimes useful for the
+  purpose of outputting the initial conditions.)  Thus the
+  first call for which TOUT .NE. T requires ISTATE = 1 on
+  input.</p>
+<p>On output, ISTATE has the following values and meanings:</p>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Nothing was done, as TOUT was equal to T with</td>
+</tr>
+<tr>
+<td></td>
+<td>ISTATE = 1 on input.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>The integration was performed successfully.</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>An excessive amount of work (more than MXSTEP steps)</td>
+</tr>
+<tr>
+<td></td>
+<td>was done on this call, before completing the</td>
+</tr>
+<tr>
+<td></td>
+<td>requested task, but the integration was otherwise</td>
+</tr>
+<tr>
+<td></td>
+<td>successful as far as T. (MXSTEP is an optional input</td>
+</tr>
+<tr>
+<td></td>
+<td>and is normally 500.)  To continue, the user may</td>
+</tr>
+<tr>
+<td></td>
+<td>simply reset ISTATE to a value &gt;1 and call again (the</td>
+</tr>
+<tr>
+<td></td>
+<td>excess work step counter will be reset to 0).  In</td>
+</tr>
+<tr>
+<td></td>
+<td>addition, the user may increase MXSTEP to avoid this</td>
+</tr>
+<tr>
+<td></td>
+<td>error return; see &ldquo;Optional Inputs&rdquo; below.</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>Too much accuracy was requested for the precision of</td>
+</tr>
+<tr>
+<td></td>
+<td>the machine being used.  This was detected before</td>
+</tr>
+<tr>
+<td></td>
+<td>completing the requested task, but the integration</td>
+</tr>
+<tr>
+<td></td>
+<td>was successful as far as T. To continue, the</td>
+</tr>
+<tr>
+<td></td>
+<td>tolerance parameters must be reset, and ISTATE must</td>
+</tr>
+<tr>
+<td></td>
+<td>be set to 3. The optional output TOLSF may be used</td>
+</tr>
+<tr>
+<td></td>
+<td>for this purpose.  (Note:  If this condition is</td>
+</tr>
+<tr>
+<td></td>
+<td>detected before taking any steps, then an illegal</td>
+</tr>
+<tr>
+<td></td>
+<td>input return (ISTATE = -3) occurs instead.)</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>Illegal input was detected, before taking any</td>
+</tr>
+<tr>
+<td></td>
+<td>integration steps.  See written message for details.</td>
+</tr>
+<tr>
+<td></td>
+<td>(Note:  If the solver detects an infinite loop of</td>
+</tr>
+<tr>
+<td></td>
+<td>calls to the solver with illegal input, it will cause</td>
+</tr>
+<tr>
+<td></td>
+<td>the run to stop.)</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>There were repeated error-test failures on one</td>
+</tr>
+<tr>
+<td></td>
+<td>attempted step, before completing the requested task,</td>
+</tr>
+<tr>
+<td></td>
+<td>but the integration was successful as far as T.  The</td>
+</tr>
+<tr>
+<td></td>
+<td>problem may have a singularity, or the input may be</td>
+</tr>
+<tr>
+<td></td>
+<td>inappropriate.</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>There were repeated convergence-test failures on one</td>
+</tr>
+<tr>
+<td></td>
+<td>attempted step, before completing the requested task,</td>
+</tr>
+<tr>
+<td></td>
+<td>but the integration was successful as far as T. This</td>
+</tr>
+<tr>
+<td></td>
+<td>may be caused by an inaccurate Jacobian matrix, if</td>
+</tr>
+<tr>
+<td></td>
+<td>one is being used.</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>EWT(i) became zero for some i during the integration.</td>
+</tr>
+<tr>
+<td></td>
+<td>Pure relative error control (ATOL(i)=0.0) was</td>
+</tr>
+<tr>
+<td></td>
+<td>requested on a variable which has now vanished.  The</td>
+</tr>
+<tr>
+<td></td>
+<td>integration was successful as far as T.</td>
+</tr>
+</tbody>
+</table>
+<p>Note:  Since the normal output value of ISTATE is 2, it
+  does not need to be reset for normal continuation.  Also,
+  since a negative input value of ISTATE will be regarded
+  as illegal, a negative output value requires the user to
+  change it, and possibly other inputs, before calling the
+  solver again.</p>
+<dl>
+<dt>IOPT     </dt>
+<dd>
+<p>integer flag to specify whether any optional inputs
+  are being used on this call.  Input only.  The optional
+  inputs are listed under a separate heading below.
+              0   No optional inputs are being used.  Default values
+                  will be used in all cases.
+              1   One or more optional inputs are being used.</p>
+</dd>
+<dt>RWORK    </dt>
+<dd>
+<p>real working array (double precision).  The length of
+  RWORK must be at least</p>
+</dd>
+</dl>
+<div class="codehilite"><pre><span></span><code>        20 + NYH*(MAXORD + 1) + 3*NEQ + LWM
+</code></pre></div>
+
+<p>where</p>
+<div class="codehilite"><pre><span></span><code>          NYH = the initial value of NEQ,
+       MAXORD = 12 (if METH = 1) or 5 (if METH = 2) (unless a
+                smaller value is given as an optional input),
+          LWM = 0           if MITER = 0,
+          LWM = NEQ**2 + 2  if MITER = 1 or 2,
+          LWM = NEQ + 2     if MITER = 3, and
+          LWM = (2*ML + MU + 1)*NEQ + 2
+                                   if MITER = 4 or 5.
+          (See the MF description below for METH and MITER.)
+</code></pre></div>
+
+<p>Thus if MAXORD has its default value and NEQ is constant,
+  this length is:</p>
+<div class="codehilite"><pre><span></span><code>              20 + 16*NEQ                    for MF = 10,
+              22 + 16*NEQ + NEQ**2           for MF = 11 or 12,
+              22 + 17*NEQ                    for MF = 13,
+              22 + 17*NEQ + (2*ML + MU)*NEQ  for MF = 14 or 15,
+              20 +  9*NEQ                    for MF = 20,
+              22 +  9*NEQ + NEQ**2           for MF = 21 or 22,
+              22 + 10*NEQ                    for MF = 23,
+              22 + 10*NEQ + (2*ML + MU)*NEQ  for MF = 24 or 25.
+</code></pre></div>
+
+<p>The first 20 words of RWORK are reserved for conditional
+  and optional inputs and optional outputs.</p>
+<p>The following word in RWORK is a conditional input:</p>
+<p>RWORK(1) = TCRIT, the critical value of t which the
+  solver is not to overshoot.  Required if ITASK
+  is 4 or 5, and ignored otherwise.  See ITASK.</p>
+<dl>
+<dt>LRW      </dt>
+<dd>
+<p>length of the array RWORK, as declared by the user.
+  (This will be checked by the solver.)</p>
+</dd>
+<dt>IWORK    </dt>
+<dd>
+<p>integer work array.  Its length must be at least
+  20       if MITER = 0 or 3 (MF = 10, 13, 20, 23), or
+  20 + NEQ otherwise (MF = 11, 12, 14, 15, 21, 22, 24, 25).
+  (See the MF description below for MITER.)  The first few
+  words of IWORK are used for conditional and optional
+  inputs and optional outputs.</p>
+</dd>
+</dl>
+<p>The following two words in IWORK are conditional inputs:
+          IWORK(1) = ML   These are the lower and upper half-
+          IWORK(2) = MU   bandwidths, respectively, of the banded
+                          Jacobian, excluding the main diagonal.</p>
+<p>The band is defined by the matrix locations
+  (i,j) with i - ML &lt;= j &lt;= i + MU. ML and MU
+  must satisfy 0 &lt;= ML,MU &lt;= NEQ - 1. These are
+  required if MITER is 4 or 5, and ignored
+  otherwise.  ML and MU may in fact be the band
+  parameters for a matrix to which df/dy is only
+  approximately equal.</p>
+<dl>
+<dt>LIW      </dt>
+<dd>
+<p>The length of the array IWORK, as declared by the user.
+  (This will be checked by the solver.)</p>
+</dd>
+</dl>
+<p>Note:  The work arrays must not be altered between calls to DLSODE
+  for the same problem, except possibly for the conditional and
+  optional inputs, and except for the last 3*NEQ words of RWORK.
+  The latter space is used for internal scratch space, and so is
+  available for use by the user outside DLSODE between calls, if
+  desired (but not for use by F or JAC).</p>
+<dl>
+<dt>JAC      </dt>
+<dd>
+<p>The name of the user-supplied routine (MITER = 1 or 4) to
+  compute the Jacobian matrix, df/dy, as a function of the
+  scalar t and the vector y.  (See the MF description below
+  for MITER.)  It is to have the form</p>
+</dd>
+</dl>
+<div class="codehilite"><pre><span></span><code><span class="w">                 </span><span class="k">SUBROUTINE </span><span class="n">JAC</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">ML</span><span class="p">,</span><span class="w"> </span><span class="n">MU</span><span class="p">,</span><span class="w"> </span><span class="n">PD</span><span class="p">,</span><span class="w"> </span><span class="n">NROWPD</span><span class="p">)</span><span class="w"></span>
+<span class="w">                 </span><span class="kt">DOUBLE PRECISION </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">PD</span><span class="p">(</span><span class="n">NROWPD</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>where NEQ, T, Y, ML, MU, and NROWPD are input and the
+  array PD is to be loaded with partial derivatives
+  (elements of the Jacobian matrix) on output.  PD must be
+  given a first dimension of NROWPD.  T and Y have the same
+  meaning as in subroutine F.</p>
+<p>In the full matrix case (MITER = 1), ML and MU are
+  ignored, and the Jacobian is to be loaded into PD in
+  columnwise manner, with df(i)/dy(j) loaded into PD(i,j).</p>
+<p>In the band matrix case (MITER = 4), the elements within
+  the band are to be loaded into PD in columnwise manner,
+  with diagonal lines of df/dy loaded into the rows of PD.
+  Thus df(i)/dy(j) is to be loaded into PD(i-j+MU+1,j).  ML
+  and MU are the half-bandwidth parameters (see IWORK).
+  The locations in PD in the two triangular areas which
+  correspond to nonexistent matrix elements can be ignored
+  or loaded arbitrarily, as they are overwritten by DLSODE.</p>
+<p>JAC need not provide df/dy exactly. A crude approximation
+  (possibly with a smaller bandwidth) will do.</p>
+<p>In either case, PD is preset to zero by the solver, so
+  that only the nonzero elements need be loaded by JAC.
+  Each call to JAC is preceded by a call to F with the same
+  arguments NEQ, T, and Y. Thus to gain some efficiency,
+  intermediate quantities shared by both calculations may
+  be saved in a user COMMON block by F and not recomputed
+  by JAC, if desired.  Also, JAC may alter the Y array, if
+  desired.  JAC must be declared EXTERNAL in the calling
+  program.</p>
+<p>Subroutine JAC may access user-defined quantities in
+  NEQ(2),&hellip; and/or in Y(NEQ(1)+1),&hellip; if NEQ is an array
+  (dimensioned in JAC) and/or Y has length exceeding
+  NEQ(1).  See the descriptions of NEQ and Y above.</p>
+<dl>
+<dt>MF       </dt>
+<dd>
+<p>The method flag.  Used only for input.  The legal values
+  of MF are 10, 11, 12, 13, 14, 15, 20, 21, 22, 23, 24,
+  and 25.  MF has decimal digits METH and MITER:</p>
+</dd>
+</dl>
+<div class="codehilite"><pre><span></span><code>         MF = 10*METH + MITER .
+</code></pre></div>
+
+<p>METH indicates the basic linear multistep method:</p>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Implicit Adams method.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Method based on backward differentiation formulas</td>
+</tr>
+<tr>
+<td></td>
+<td>(BDF&rsquo;s).</td>
+</tr>
+</tbody>
+</table>
+<p>MITER indicates the corrector iteration method:</p>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>Functional iteration (no Jacobian matrix is</td>
+</tr>
+<tr>
+<td></td>
+<td>involved).</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Chord iteration with a user-supplied full (NEQ by</td>
+</tr>
+<tr>
+<td></td>
+<td>NEQ) Jacobian.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Chord iteration with an internally generated</td>
+</tr>
+<tr>
+<td></td>
+<td>(difference quotient) full Jacobian (using NEQ</td>
+</tr>
+<tr>
+<td></td>
+<td>extra calls to F per df/dy value).</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Chord iteration with an internally generated</td>
+</tr>
+<tr>
+<td></td>
+<td>diagonal Jacobian approximation (using one extra call</td>
+</tr>
+<tr>
+<td></td>
+<td>to F per df/dy evaluation).</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Chord iteration with a user-supplied banded Jacobian.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Chord iteration with an internally generated banded</td>
+</tr>
+<tr>
+<td></td>
+<td>Jacobian (using ML + MU + 1 extra calls to F per</td>
+</tr>
+<tr>
+<td></td>
+<td>df/dy evaluation).</td>
+</tr>
+</tbody>
+</table>
+<p>If MITER = 1 or 4, the user must supply a subroutine JAC
+  (the name is arbitrary) as described above under JAC.
+  For other values of MITER, a dummy argument can be used.</p>
+<h4 id="optional-inputs">Optional Inputs</h4>
+<p>The following is a list of the optional inputs provided for in the
+  call sequence.  (See also Part 2.)  For each such input variable,
+  this table lists its name as used in this documentation, its
+  location in the call sequence, its meaning, and the default value.
+  The use of any of these inputs requires IOPT = 1, and in that case
+  all of these inputs are examined.  A value of zero for any of
+  these optional inputs will cause the default value to be used.
+  Thus to use a subset of the optional inputs, simply preload
+  locations 5 to 10 in RWORK and IWORK to 0.0 and 0 respectively,
+  and then set those of interest to nonzero values.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Location</th>
+<th>Meaning and default value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H0</td>
+<td>RWORK(5)</td>
+<td>Step size to be attempted on the first step.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The default value is determined by the solver.</td>
+</tr>
+<tr>
+<td>HMAX</td>
+<td>RWORK(6)</td>
+<td>Maximum absolute step size allowed.  The</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>default value is infinite.</td>
+</tr>
+<tr>
+<td>HMIN</td>
+<td>RWORK(7)</td>
+<td>Minimum absolute step size allowed.  The</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>default value is 0.  (This lower bound is not</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>enforced on the final step before reaching</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>TCRIT when ITASK = 4 or 5.)</td>
+</tr>
+<tr>
+<td>MAXORD</td>
+<td>IWORK(5)</td>
+<td>Maximum order to be allowed.  The default value</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>is 12 if METH = 1, and 5 if METH = 2. (See the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>MF description above for METH.)  If MAXORD</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>exceeds the default value, it will be reduced</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>to the default value.  If MAXORD is changed</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>during the problem, it may cause the current</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>order to be reduced.</td>
+</tr>
+<tr>
+<td>MXSTEP</td>
+<td>IWORK(6)</td>
+<td>Maximum number of (internally defined) steps</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>allowed during one call to the solver.  The</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>default value is 500.</td>
+</tr>
+<tr>
+<td>MXHNIL</td>
+<td>IWORK(7)</td>
+<td>Maximum number of messages printed (per</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>problem) warning that T + H = T on a step</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>(H = step size).  This must be positive to</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>result in a nondefault value.  The default</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>value is 10.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="optional-outputs">Optional Outputs</h4>
+<p>As optional additional output from DLSODE, the variables listed
+ below are quantities related to the performance of DLSODE which
+ are available to the user.  These are communicated by way of the
+ work arrays, but also have internal mnemonic names as shown.
+ Except where stated otherwise, all of these outputs are defined on
+ any successful return from DLSODE, and on any return with ISTATE =
+ -1, -2, -4, -5, or -6.  On an illegal input return (ISTATE = -3),
+ they will be unchanged from their existing values (if any), except
+ possibly for TOLSF, LENRW, and LENIW.  On any error return,
+ outputs relevant to the error will be defined, as noted below.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Location</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HU</td>
+<td>RWORK(11)</td>
+<td>Step size in t last used (successfully).</td>
+</tr>
+<tr>
+<td>HCUR</td>
+<td>RWORK(12)</td>
+<td>Step size to be attempted on the next step.</td>
+</tr>
+<tr>
+<td>TCUR</td>
+<td>RWORK(13)</td>
+<td>Current value of the independent variable which</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>the solver has actually reached, i.e., the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>current internal mesh point in t. On output,</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>TCUR will always be at least as far as the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>argument T, but may be farther (if interpolation</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>was done).</td>
+</tr>
+<tr>
+<td>TOLSF</td>
+<td>RWORK(14)</td>
+<td>Tolerance scale factor, greater than 1.0,</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>computed when a request for too much accuracy</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>was detected (ISTATE = -3 if detected at the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>start of the problem, ISTATE = -2 otherwise).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>If ITOL is left unaltered but RTOL and ATOL are</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>uniformly scaled up by a factor of TOLSF for the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>next call, then the solver is deemed likely to</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>succeed.  (The user may also ignore TOLSF and</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>alter the tolerance parameters in any other way</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>appropriate.)</td>
+</tr>
+<tr>
+<td>NST</td>
+<td>IWORK(11)</td>
+<td>Number of steps taken for the problem so far.</td>
+</tr>
+<tr>
+<td>NFE</td>
+<td>IWORK(12)</td>
+<td>Number of F evaluations for the problem so far.</td>
+</tr>
+<tr>
+<td>NJE</td>
+<td>IWORK(13)</td>
+<td>Number of Jacobian evaluations (and of matrix LU</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>decompositions) for the problem so far.</td>
+</tr>
+<tr>
+<td>NQU</td>
+<td>IWORK(14)</td>
+<td>Method order last used (successfully).</td>
+</tr>
+<tr>
+<td>NQCUR</td>
+<td>IWORK(15)</td>
+<td>Order to be attempted on the next step.</td>
+</tr>
+<tr>
+<td>IMXER</td>
+<td>IWORK(16)</td>
+<td>Index of the component of largest magnitude in</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>the weighted local error vector ( e(i)/EWT(i) ),</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>on an error return with ISTATE = -4 or -5.</td>
+</tr>
+<tr>
+<td>LENRW</td>
+<td>IWORK(17)</td>
+<td>Length of RWORK actually required.  This is</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>defined on normal returns and on an illegal</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>input return for insufficient storage.</td>
+</tr>
+<tr>
+<td>LENIW</td>
+<td>IWORK(18)</td>
+<td>Length of IWORK actually required.  This is</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>defined on normal returns and on an illegal</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>input return for insufficient storage.</td>
+</tr>
+</tbody>
+</table>
+<p>The following two arrays are segments of the RWORK array which may
+  also be of interest to the user as optional outputs.  For each
+  array, the table below gives its internal name, its base address
+  in RWORK, and its description.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Base address</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YH</td>
+<td>21</td>
+<td>The Nordsieck history array, of size NYH by</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>(NQCUR + 1), where NYH is the initial value of</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>NEQ.  For j = 0,1,&hellip;,NQCUR, column j + 1 of</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>YH contains HCUR**j/factorial(j) times the jth</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>derivative of the interpolating polynomial</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>currently representing the solution, evaluated</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>at t = TCUR.</td>
+</tr>
+<tr>
+<td>ACOR</td>
+<td>LENRW-NEQ+1</td>
+<td>Array of size NEQ used for the accumulated</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>corrections on each step, scaled on output to</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>represent the estimated local error in Y on</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>the last step.  This is the vector e in the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>description of the error control.  It is</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>defined only on successful return from DLSODE.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="part-2-other-callable-routines">Part 2.  Other Callable Routines</h4>
+<p>The following are optional calls which the user may make to gain
+  additional capabilities in conjunction with DLSODE.</p>
+<table>
+<thead>
+<tr>
+<th>Form of call</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CALL XSETUN(LUN)</td>
+<td>Set the logical unit number, LUN, for</td>
+</tr>
+<tr>
+<td></td>
+<td>output of messages from DLSODE, if the</td>
+</tr>
+<tr>
+<td></td>
+<td>default is not desired.  The default</td>
+</tr>
+<tr>
+<td></td>
+<td>value of LUN is 6. This call may be made</td>
+</tr>
+<tr>
+<td></td>
+<td>at any time and will take effect</td>
+</tr>
+<tr>
+<td></td>
+<td>immediately.</td>
+</tr>
+<tr>
+<td>CALL XSETF(MFLAG)</td>
+<td>Set a flag to control the printing of</td>
+</tr>
+<tr>
+<td></td>
+<td>messages by DLSODE.  MFLAG = 0 means do</td>
+</tr>
+<tr>
+<td></td>
+<td>not print.  (Danger:  this risks losing</td>
+</tr>
+<tr>
+<td></td>
+<td>valuable information.)  MFLAG = 1 means</td>
+</tr>
+<tr>
+<td></td>
+<td>print (the default).  This call may be</td>
+</tr>
+<tr>
+<td></td>
+<td>made at any time and will take effect</td>
+</tr>
+<tr>
+<td></td>
+<td>immediately.</td>
+</tr>
+<tr>
+<td>CALL DSRCOM(RSAV,ISAV,JOB)</td>
+<td>Saves and restores the contents of the</td>
+</tr>
+<tr>
+<td></td>
+<td>internal COMMON blocks used by DLSODE</td>
+</tr>
+<tr>
+<td></td>
+<td>(see Part 3 below).  RSAV must be a</td>
+</tr>
+<tr>
+<td></td>
+<td>real array of length 218 or more, and</td>
+</tr>
+<tr>
+<td></td>
+<td>ISAV must be an integer array of length</td>
+</tr>
+<tr>
+<td></td>
+<td>37 or more.  JOB = 1 means save COMMON</td>
+</tr>
+<tr>
+<td></td>
+<td>into RSAV/ISAV.  JOB = 2 means restore</td>
+</tr>
+<tr>
+<td></td>
+<td>COMMON from same.  DSRCOM is useful if</td>
+</tr>
+<tr>
+<td></td>
+<td>one is interrupting a run and restarting</td>
+</tr>
+<tr>
+<td></td>
+<td>later, or alternating between two or</td>
+</tr>
+<tr>
+<td></td>
+<td>more problems solved with DLSODE.</td>
+</tr>
+<tr>
+<td>CALL DINTDY(,,,,,)</td>
+<td>Provide derivatives of y, of various</td>
+</tr>
+<tr>
+<td>(see below)</td>
+<td>orders, at a specified point t, if</td>
+</tr>
+<tr>
+<td></td>
+<td>desired.  It may be called only after a</td>
+</tr>
+<tr>
+<td></td>
+<td>successful return from DLSODE.  Detailed</td>
+</tr>
+<tr>
+<td></td>
+<td>instructions follow.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="detailed-instructions-for-using-dintdy">Detailed instructions for using DINTDY</h4>
+<p>The form of the CALL is:</p>
+<div class="codehilite"><pre><span></span><code>    CALL DINTDY (T, K, RWORK(21), NYH, DKY, IFLAG)
+</code></pre></div>
+
+<p>The input parameters are:</p>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T</td>
+<td>Value of independent variable where answers are</td>
+</tr>
+<tr>
+<td></td>
+<td>desired (normally the same as the T last returned by</td>
+</tr>
+<tr>
+<td></td>
+<td>DLSODE).  For valid results, T must lie between</td>
+</tr>
+<tr>
+<td></td>
+<td>TCUR - HU and TCUR.  (See &ldquo;Optional Outputs&rdquo; above</td>
+</tr>
+<tr>
+<td></td>
+<td>for TCUR and HU.)</td>
+</tr>
+<tr>
+<td>K</td>
+<td>Integer order of the derivative desired.  K must</td>
+</tr>
+<tr>
+<td></td>
+<td>satisfy 0 &lt;= K &lt;= NQCUR, where NQCUR is the current</td>
+</tr>
+<tr>
+<td></td>
+<td>order (see &ldquo;Optional Outputs&rdquo;).  The capability</td>
+</tr>
+<tr>
+<td></td>
+<td>corresponding to K = 0, i.e., computing y(t), is</td>
+</tr>
+<tr>
+<td></td>
+<td>already provided by DLSODE directly.  Since</td>
+</tr>
+<tr>
+<td></td>
+<td>NQCUR &gt;= 1, the first derivative dy/dt is always</td>
+</tr>
+<tr>
+<td></td>
+<td>available with DINTDY.</td>
+</tr>
+<tr>
+<td>RWORK(21)</td>
+<td>The base address of the history array YH.</td>
+</tr>
+<tr>
+<td>NYH</td>
+<td>Column length of YH, equal to the initial value of NEQ.</td>
+</tr>
+</tbody>
+</table>
+<p>The output parameters are:</p>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DKY</td>
+<td>Real array of length NEQ containing the computed value</td>
+</tr>
+<tr>
+<td></td>
+<td>of the Kth derivative of y(t).</td>
+</tr>
+<tr>
+<td>IFLAG</td>
+<td>Integer flag, returned as 0 if K and T were legal,</td>
+</tr>
+<tr>
+<td></td>
+<td>-1 if K was illegal, and -2 if T was illegal.</td>
+</tr>
+<tr>
+<td></td>
+<td>On an error return, a message is also written.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="part-3-save-and-restore-current-state">Part 3.  Save and Restore Current State</h4>
+<p>If the solution of a given problem by DLSODE is to be interrupted
+  and then later continued, as when restarting an interrupted run or
+  alternating between two or more problems, the user should save,
+  following the return from the last DLSODE call prior to the
+  interruption, the contents of the call sequence variables and the
+  internal state values, and later restore these values before the
+  next DLSODE call for that problem.   In addition, if XSETUN and/or
+  XSETF was called for non-default handling of error messages, then
+  these calls must be repeated.  To save and restore the current state
+  use subroutine DSRCOM (see Part 2 above).</p>
+<h4 id="part-4-optionally-replaceable-solver-routines">Part 4.  Optionally Replaceable Solver Routines</h4>
+<p>Below are descriptions of two routines in the DLSODE package which
+  relate to the measurement of errors.  Either routine can be
+  replaced by a user-supplied version, if desired.  However, since
+  such a replacement may have a major impact on performance, it
+  should be done only when absolutely necessary, and only with great
+  caution.  (Note:  The means by which the package version of a
+  routine is superseded by the user&rsquo;s version may be system-
+  dependent.)</p>
+<h4 id="dewset">DEWSET()</h4>
+<p>The following subroutine is called just before each internal
+  integration step, and sets the array of error weights, EWT, as
+  described under ITOL/RTOL/ATOL above:</p>
+<div class="codehilite"><pre><span></span><code>       SUBROUTINE DEWSET (NEQ, ITOL, RTOL, ATOL, YCUR, EWT)
+</code></pre></div>
+
+<p>where NEQ, ITOL, RTOL, and ATOL are as in the DLSODE call
+  sequence, YCUR contains the current dependent variable vector,
+  and EWT is the array of weights set by DEWSET.</p>
+<p>If the user supplies this subroutine, it must return in EWT(i)
+  (i = 1,&hellip;,NEQ) a positive quantity suitable for comparing errors
+  in Y(i) to.  The EWT array returned by DEWSET is passed to the
+  DVNORM routine (see below), and also used by DLSODE in the
+  computation of the optional output IMXER, the diagonal Jacobian
+  approximation, and the increments for difference quotient
+  Jacobians.</p>
+<p>In the user-supplied version of DEWSET, it may be desirable to use
+  the current values of derivatives of y. Derivatives up to order NQ
+  are available from the history array YH, described above under
+  optional outputs.  In DEWSET, YH is identical to the YCUR array,
+  extended to NQ + 1 columns with a column length of NYH and scale
+  factors of H**j/factorial(j).  On the first call for the problem,
+  given by NST = 0, NQ is 1 and H is temporarily set to 1.0.
+  NYH is the initial value of NEQ.  The quantities NQ, H, and NST
+  can be obtained by including in SEWSET the statements:</p>
+<div class="codehilite"><pre><span></span><code>       DOUBLE PRECISION RLS
+       COMMON /DLS001/ RLS(218),ILS(37)
+       NQ = ILS(33)
+       NST = ILS(34)
+       H = RLS(212)
+</code></pre></div>
+
+<p>Thus, for example, the current value of dy/dt can be obtained as
+  YCUR(NYH+i)/H (i=1,&hellip;,NEQ) (and the division by H is unnecessary
+  when NST = 0).</p>
+<h4 id="dvnorm">DVNORM()</h4>
+<p>DVNORM is a real function routine which computes the weighted
+  root-mean-square norm of a vector v:</p>
+<div class="codehilite"><pre><span></span><code>        d = DVNORM (n, v, w)
+
+     where:
+     n = the length of the vector,
+     v = real array of length n containing the vector,
+     w = real array of length n containing weights,
+     d = SQRT( (1/n) * sum(v(i)*w(i))**2 ).
+</code></pre></div>
+
+<p>DVNORM is called with n = NEQ and with w(i) = 1.0/EWT(i), where
+  EWT is as set by subroutine DEWSET.</p>
+<p>If the user supplies this function, it should return a nonnegative
+  value of DVNORM suitable for use in the error control in DLSODE.
+  None of the arguments should be altered by DVNORM.  For example, a
+  user-supplied DVNORM routine might:</p>
+<ul>
+<li>Substitute a max-norm of (v(i)*w(i)) for the rms-norm, or</li>
+<li>Ignore some components of v in the norm, with the effect of
+     suppressing the error control on those components of Y.</li>
+</ul>
+<hr>
+<h3 id="pedigree">Pedigree:</h3>
+<p>DLSODE is derived from the Livermore Solver for Ordinary
+  Differential Equations package ODEPACK,</p>
+<h4 id="author">AUTHOR</h4>
+<div class="codehilite"><pre><span></span><code>      <span class="nv">Hindmarsh</span>, <span class="nv">Alan</span> <span class="nv">C</span>., <span class="ss">(</span><span class="nv">LLNL</span><span class="ss">)</span>
+      <span class="nv">Center</span> <span class="k">for</span> <span class="nv">Applied</span> <span class="nv">Scientific</span> <span class="nv">Computing</span>, <span class="nv">L</span><span class="o">-</span><span class="mi">561</span>
+      <span class="nv">Lawrence</span> <span class="nv">Livermore</span> <span class="nv">National</span> <span class="nv">Laboratory</span>
+      <span class="nv">Livermore</span>, <span class="nv">CA</span> <span class="mi">94551</span>.
+</code></pre></div>
+
+<hr>
+
+    <h3>Arguments</h3>
+      <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" id="variable-f~4"></span>real</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>f</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-neq~9"></span>integer,</td>
+<td></td>
+  <td></td>  <td>dimension(*)</td><td>::</td>
+  <td><strong>Neq</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-y~9"></span>real(kind=dp),</td>
+<td></td>
+  <td></td>  <td>dimension(*)</td><td>::</td>
+  <td><strong>Y</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-t~5"></span>real(kind=dp),</td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>T</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tout~4"></span>real(kind=dp),</td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Tout</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-itol~4"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Itol</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-rtol~4"></span>real(kind=dp),</td>
+<td></td>
+  <td></td>  <td>dimension(*)</td><td>::</td>
+  <td><strong>Rtol</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-atol~4"></span>real(kind=dp),</td>
+<td></td>
+  <td></td>  <td>dimension(*)</td><td>::</td>
+  <td><strong>Atol</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-itask~4"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Itask</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-istate~4"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Istate</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-iopt~4"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Iopt</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-rwork~4"></span>real(kind=dp),</td>
+<td>intent(inout),</td>
+  <td></td>  <td>dimension(Lrw)</td><td>::</td>
+  <td><strong>Rwork</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-lrw~4"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Lrw</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-iwork~4"></span>integer,</td>
+<td>intent(inout),</td>
+  <td></td>  <td>dimension(Liw)</td><td>::</td>
+  <td><strong>Iwork</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-liw~4"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Liw</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-jac~8"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>jac</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-mf~4"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Mf</strong></td><td></td>
+</tr>
+</tbody>
+</table>
+
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">Calls</h3>
+      </div>
+      <div class="panel-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dlsode~2~~CallsGraph Pages: 1 -->
+<svg id="procdlsode2CallsGraph" width="339pt" height="280pt"
+ viewBox="0.00 0.00 339.00 280.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dlsode~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 276)">
+<title>proc~~dlsode~2~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-276 335,-276 335,4 -4,4"/>
+<!-- proc~dlsode~2 -->
+<g id="proc~~dlsode~2~~CallsGraph_node1" class="node">
+<title>proc~dlsode~2</title>
+<polygon fill="none" stroke="black" points="54,-171 0,-171 0,-147 54,-147 54,-171"/>
+<text text-anchor="middle" x="27" y="-156.6" font-family="Helvetica,sans-Serif" font-size="10.50">dlsode</text>
+</g>
+<!-- proc~dewset~2 -->
+<g id="proc~~dlsode~2~~CallsGraph_node2" class="node">
+<title>proc~dewset~2</title>
+<g id="a_proc~~dlsode~2~~CallsGraph_node2"><a xlink:href=".././proc/dewset~2.html" xlink:title="dewset">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-272 91,-272 91,-248 145,-248 145,-272"/>
+<text text-anchor="middle" x="118" y="-257.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsode~2&#45;&gt;proc~dewset~2 -->
+<g id="proc~~dlsode~2~~CallsGraph_edge6" class="edge">
+<title>proc~dlsode~2&#45;&gt;proc~dewset~2</title>
+<path fill="none" stroke="#000000" d="M37.26,-171.04C49.05,-186.16 70.25,-212.69 90,-234 92.03,-236.19 94.2,-238.44 96.4,-240.64"/>
+<polygon fill="#000000" stroke="#000000" points="94.19,-243.38 103.8,-247.86 99.08,-238.37 94.19,-243.38"/>
+</g>
+<!-- proc~xerrwd~2 -->
+<g id="proc~~dlsode~2~~CallsGraph_node3" class="node">
+<title>proc~xerrwd~2</title>
+<g id="a_proc~~dlsode~2~~CallsGraph_node3"><a xlink:href=".././proc/xerrwd~2.html" xlink:title="xerrwd">
+<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-191 184.5,-191 184.5,-167 238.5,-167 238.5,-191"/>
+<text text-anchor="middle" x="211.5" y="-176.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsode~2&#45;&gt;proc~xerrwd~2 -->
+<g id="proc~~dlsode~2~~CallsGraph_edge1" class="edge">
+<title>proc~dlsode~2&#45;&gt;proc~xerrwd~2</title>
+<path fill="none" stroke="#000000" d="M41.03,-171.29C52.79,-181.48 71.11,-195.2 90,-201 117.88,-209.55 150.46,-202.63 174.71,-194.36"/>
+<polygon fill="#000000" stroke="#000000" points="176.02,-197.61 184.22,-190.9 173.63,-191.03 176.02,-197.61"/>
+</g>
+<!-- proc~dvnorm~2 -->
+<g id="proc~~dlsode~2~~CallsGraph_node4" class="node">
+<title>proc~dvnorm~2</title>
+<g id="a_proc~~dlsode~2~~CallsGraph_node4"><a xlink:href=".././proc/dvnorm~2.html" xlink:title="dvnorm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="145,-192 91,-192 91,-168 145,-168 145,-192"/>
+<text text-anchor="middle" x="118" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsode~2&#45;&gt;proc~dvnorm~2 -->
+<g id="proc~~dlsode~2~~CallsGraph_edge2" class="edge">
+<title>proc~dlsode~2&#45;&gt;proc~dvnorm~2</title>
+<path fill="none" stroke="#000000" d="M54.22,-165.19C62.64,-167.17 72.12,-169.41 81.11,-171.53"/>
+<polygon fill="#000000" stroke="#000000" points="80.43,-174.97 90.97,-173.86 82.04,-168.15 80.43,-174.97"/>
+</g>
+<!-- proc~dumach~2 -->
+<g id="proc~~dlsode~2~~CallsGraph_node5" class="node">
+<title>proc~dumach~2</title>
+<g id="a_proc~~dlsode~2~~CallsGraph_node5"><a xlink:href=".././proc/dumach~2.html" xlink:title="dumach">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-108 90,-108 90,-84 146,-84 146,-108"/>
+<text text-anchor="middle" x="118" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsode~2&#45;&gt;proc~dumach~2 -->
+<g id="proc~~dlsode~2~~CallsGraph_edge4" class="edge">
+<title>proc~dlsode~2&#45;&gt;proc~dumach~2</title>
+<path fill="none" stroke="#000000" d="M45.16,-146.85C58.33,-137.53 76.73,-124.51 91.61,-113.98"/>
+<polygon fill="#000000" stroke="#000000" points="93.75,-116.74 99.89,-108.11 89.71,-111.03 93.75,-116.74"/>
+</g>
+<!-- proc~dintdy~2 -->
+<g id="proc~~dlsode~2~~CallsGraph_node6" class="node">
+<title>proc~dintdy~2</title>
+<g id="a_proc~~dlsode~2~~CallsGraph_node6"><a xlink:href=".././proc/dintdy~2.html" xlink:title="dintdy">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-150 91,-150 91,-126 145,-126 145,-150"/>
+<text text-anchor="middle" x="118" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsode~2&#45;&gt;proc~dintdy~2 -->
+<g id="proc~~dlsode~2~~CallsGraph_edge5" class="edge">
+<title>proc~dlsode~2&#45;&gt;proc~dintdy~2</title>
+<path fill="none" stroke="#000000" d="M54.22,-152.81C62.64,-150.83 72.12,-148.59 81.11,-146.47"/>
+<polygon fill="#000000" stroke="#000000" points="82.04,-149.85 90.97,-144.14 80.43,-143.03 82.04,-149.85"/>
+</g>
+<!-- proc~dstode -->
+<g id="proc~~dlsode~2~~CallsGraph_node7" class="node">
+<title>proc~dstode</title>
+<g id="a_proc~~dlsode~2~~CallsGraph_node7"><a xlink:href=".././proc/dstode.html" xlink:title="dstode">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-66 91,-66 91,-42 145,-42 145,-66"/>
+<text text-anchor="middle" x="118" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstode</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsode~2&#45;&gt;proc~dstode -->
+<g id="proc~~dlsode~2~~CallsGraph_edge3" class="edge">
+<title>proc~dlsode~2&#45;&gt;proc~dstode</title>
+<path fill="none" stroke="#000000" d="M35.49,-146.79C46.3,-129.69 67.48,-98.1 90,-75 90.65,-74.33 91.33,-73.66 92.02,-73"/>
+<polygon fill="#000000" stroke="#000000" points="94.58,-75.41 99.83,-66.21 89.99,-70.13 94.58,-75.41"/>
+</g>
+<!-- proc~ixsav~2 -->
+<g id="proc~~dlsode~2~~CallsGraph_node9" class="node">
+<title>proc~ixsav~2</title>
+<g id="a_proc~~dlsode~2~~CallsGraph_node9"><a xlink:href=".././proc/ixsav~2.html" xlink:title="ixsav">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="331,-191 277,-191 277,-167 331,-167 331,-191"/>
+<text text-anchor="middle" x="304" y="-176.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ixsav</text>
+</a>
+</g>
+</g>
+<!-- proc~xerrwd~2&#45;&gt;proc~ixsav~2 -->
+<g id="proc~~dlsode~2~~CallsGraph_edge7" class="edge">
+<title>proc~xerrwd~2&#45;&gt;proc~ixsav~2</title>
+<path fill="none" stroke="#000000" d="M238.68,-179C247.4,-179 257.28,-179 266.64,-179"/>
+<polygon fill="#000000" stroke="#000000" points="266.88,-182.5 276.88,-179 266.88,-175.5 266.88,-182.5"/>
+</g>
+<!-- none~dumsum -->
+<g id="proc~~dlsode~2~~CallsGraph_node8" class="node">
+<title>none~dumsum</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="241,-108 182,-108 182,-84 241,-84 241,-108"/>
+<text text-anchor="middle" x="211.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumsum</text>
+</g>
+<!-- proc~dumach~2&#45;&gt;none~dumsum -->
+<g id="proc~~dlsode~2~~CallsGraph_edge8" class="edge">
+<title>proc~dumach~2&#45;&gt;none~dumsum</title>
+<path fill="none" stroke="#000000" d="M146.45,-96C154.39,-96 163.2,-96 171.69,-96"/>
+<polygon fill="#000000" stroke="#000000" points="171.8,-99.5 181.8,-96 171.8,-92.5 171.8,-99.5"/>
+</g>
+<!-- proc~dintdy~2&#45;&gt;proc~xerrwd~2 -->
+<g id="proc~~dlsode~2~~CallsGraph_edge9" class="edge">
+<title>proc~dintdy~2&#45;&gt;proc~xerrwd~2</title>
+<path fill="none" stroke="#000000" d="M145.47,-149.86C154.74,-154.02 165.32,-158.76 175.21,-163.19"/>
+<polygon fill="#000000" stroke="#000000" points="173.85,-166.41 184.41,-167.31 176.72,-160.03 173.85,-166.41"/>
+</g>
+<!-- proc~dvnorm -->
+<g id="proc~~dlsode~2~~CallsGraph_node10" class="node">
+<title>proc~dvnorm</title>
+<g id="a_proc~~dlsode~2~~CallsGraph_node10"><a xlink:href=".././proc/dvnorm.html" xlink:title="dvnorm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="238.5,-66 184.5,-66 184.5,-42 238.5,-42 238.5,-66"/>
+<text text-anchor="middle" x="211.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
+</a>
+</g>
+</g>
+<!-- proc~dstode&#45;&gt;proc~dvnorm -->
+<g id="proc~~dlsode~2~~CallsGraph_edge10" class="edge">
+<title>proc~dstode&#45;&gt;proc~dvnorm</title>
+<path fill="none" stroke="#000000" d="M145.47,-54C154.46,-54 164.67,-54 174.29,-54"/>
+<polygon fill="#000000" stroke="#000000" points="174.41,-57.5 184.41,-54 174.41,-50.5 174.41,-57.5"/>
+</g>
+<!-- proc~dcfode -->
+<g id="proc~~dlsode~2~~CallsGraph_node11" class="node">
+<title>proc~dcfode</title>
+<g id="a_proc~~dlsode~2~~CallsGraph_node11"><a xlink:href=".././proc/dcfode.html" xlink:title="dcfode">
+<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-24 184.5,-24 184.5,0 238.5,0 238.5,-24"/>
+<text text-anchor="middle" x="211.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
+</a>
+</g>
+</g>
+<!-- proc~dstode&#45;&gt;proc~dcfode -->
+<g id="proc~~dlsode~2~~CallsGraph_edge11" class="edge">
+<title>proc~dstode&#45;&gt;proc~dcfode</title>
+<path fill="none" stroke="#000000" d="M145.47,-41.85C154.74,-37.59 165.32,-32.74 175.21,-28.2"/>
+<polygon fill="#000000" stroke="#000000" points="176.78,-31.33 184.41,-23.98 173.86,-24.97 176.78,-31.33"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="597pt" height="32pt"
+ viewBox="0.00 0.00 596.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 592.5,-28 592.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node4" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="388.5,-24 243.5,-24 243.5,0 388.5,0 388.5,-24"/>
+<text text-anchor="middle" x="316" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="465,-24 407,-24 407,0 465,0 465,-24"/>
+<text text-anchor="middle" x="436" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="588.5,-24 483.5,-24 483.5,0 588.5,0 588.5,-24"/>
+<text text-anchor="middle" x="536" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a procedure to one which it calls. Dashed 
+    arrows point from an interface to procedures which implement that interface.
+    This could include the module procedures in a generic interface or the
+    implementation in a submodule of an interface in a parent module.
+    </p>
+    </div></div></div></div>
+      </div>
+    </div>
+    <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      <h3>Contents</h3>
+ 
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
+  <div id="vars-1" class="panel-collapse collapse">
+    <div class="list-group">
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-atoli~4">atoli</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-ayi~4">ayi</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-big~4">big</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-ewti~4">ewti</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-h0~4">h0</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-hmax~4">hmax</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-hmx~4">hmx</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-i~9">i</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-i1~6">i1</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-i2~4">i2</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-iflag~4">iflag</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-ihit~4">ihit</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-imxer~4">imxer</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-kgo~5">kgo</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-leniw~4">leniw</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-lenrw~4">lenrw</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-lenwm~2">lenwm</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-lf0~2">lf0</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-ml~2">ml</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-mord~4">mord</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-msg~4">msg</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-mu~2">mu</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-mxhnl0~4">mxhnl0</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-mxstp0~4">mxstp0</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-rh~6">rh</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-rtoli~4">rtoli</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-size~4">size</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-sum~4">sum</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-tcrit~4">tcrit</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-tdist~4">tdist</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-tnext~4">tnext</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-tol~4">tol</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-tolsf~4">tolsf</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-tp~4">tp</a>
+      <a class="list-group-item" href="../proc/dlsode~2.html#variable-w0~4">w0</a>
+    </div>
+  </div>
+</div>
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+
+    <section>    
+      <h2>Variables</h2>
+    <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" id="variable-atoli~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>atoli</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-ayi~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>ayi</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-big~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>big</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-ewti~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>ewti</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-h0~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>h0</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-hmax~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>hmax</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-hmx~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>hmx</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-i~9"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>i</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-i1~6"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>i1</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-i2~4"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>i2</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-iflag~4"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>iflag</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-ihit~4"></span>logical,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>ihit</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-imxer~4"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>imxer</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-kgo~5"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>kgo</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-leniw~4"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>leniw</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-lenrw~4"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>lenrw</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-lenwm~2"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>lenwm</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-lf0~2"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>lf0</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-ml~2"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>ml</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-mord~4"></span>integer,</td>
+<td>public,</td>  <td>dimension(2), save</td><td>::</td>
+  <td><strong>mord</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-msg~4"></span>character(len=80),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>msg</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-mu~2"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>mu</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-mxhnl0~4"></span>integer,</td>
+<td>public,</td>  <td>save</td><td>::</td>
+  <td><strong>mxhnl0</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-mxstp0~4"></span>integer,</td>
+<td>public,</td>  <td>save</td><td>::</td>
+  <td><strong>mxstp0</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-rh~6"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>rh</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-rtoli~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>rtoli</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-size~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>size</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-sum~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>sum</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tcrit~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>tcrit</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tdist~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>tdist</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tnext~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>tnext</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tol~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>tol</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tolsf~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>tolsf</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tp~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>tp</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-w0~4"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>w0</strong></td><td></td><td></td><td></td>
+</tr>
+</tbody>
+</table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+    
+    
+    </div>
+  </div>
+
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2022 
+</p>
+        </div>
+        <div class="col-xs-6 col-md-6">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2022-02-06 02:54            </p>
+        </div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+  </body>
+</html>

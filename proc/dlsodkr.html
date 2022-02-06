@@ -15,6 +15,7 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link href="../css/user.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -49,14 +50,14 @@
               aria-haspopup="true"
      aria-expanded="false">Contents <span class="caret"></span></a>
         <ul class="dropdown-menu">
-            <li><a href="../sourcefile/m_odepack.f90.html">Source File</a></li>
+            <li><a href="../lists/files.html">Source Files</a></li>
             <li><a href="../lists/modules.html">Modules</a></li>
             <li><a href="../lists/procedures.html">Procedures</a></li>
               
             </ul>
         
             </li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../sourcefile/m_odepack.f90.html">Source File</a></li>
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
                                        </ul>
@@ -84,7 +85,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 6.1% of total for procedures.">641 statements</a>
+    title=" 2.7% of total for procedures.">641 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/M_odepack.f90"> Source File</a></li>
   </ul>
@@ -2541,127 +2542,127 @@
 <thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-f~9"></span>real</td>
+  <td><span class="anchor" id="variable-f~34"></span>real</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>f</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-neq~17"></span>integer,</td>
+  <td><span class="anchor" id="variable-neq~56"></span>integer,</td>
 <td></td>
   <td></td>  <td>dimension(*)</td><td>::</td>
   <td><strong>Neq</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-y~17"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-y~57"></span>real(kind=dp),</td>
 <td></td>
   <td></td>  <td>dimension(*)</td><td>::</td>
   <td><strong>Y</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-t~11"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-t~24"></span>real(kind=dp),</td>
 <td>intent(inout)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>T</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-tout~8"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-tout~18"></span>real(kind=dp),</td>
 <td>intent(inout)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Tout</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-itol~9"></span>integer</td>
+  <td><span class="anchor" id="variable-itol~20"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Itol</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-rtol~8"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-rtol~18"></span>real(kind=dp),</td>
 <td></td>
   <td></td>  <td>dimension(*)</td><td>::</td>
   <td><strong>Rtol</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-atol~9"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-atol~20"></span>real(kind=dp),</td>
 <td></td>
   <td></td>  <td>dimension(*)</td><td>::</td>
   <td><strong>Atol</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-itask~7"></span>integer</td>
+  <td><span class="anchor" id="variable-itask~16"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Itask</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-istate~7"></span>integer</td>
+  <td><span class="anchor" id="variable-istate~16"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Istate</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-iopt~7"></span>integer</td>
+  <td><span class="anchor" id="variable-iopt~16"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Iopt</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-rwork~9"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-rwork~20"></span>real(kind=dp),</td>
 <td>intent(inout),</td>
   <td></td>  <td>dimension(Lrw)</td><td>::</td>
   <td><strong>Rwork</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-lrw~7"></span>integer</td>
+  <td><span class="anchor" id="variable-lrw~16"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Lrw</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-iwork~7"></span>integer,</td>
+  <td><span class="anchor" id="variable-iwork~16"></span>integer,</td>
 <td>intent(inout),</td>
   <td></td>  <td>dimension(Liw)</td><td>::</td>
   <td><strong>Iwork</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-liw~7"></span>integer</td>
+  <td><span class="anchor" id="variable-liw~16"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Liw</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-jac~13"></span>integer</td>
+  <td><span class="anchor" id="variable-jac~39"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>jac</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-psol"></span>real</td>
+  <td><span class="anchor" id="variable-psol~12"></span>real</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>psol</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-mf~5"></span>integer</td>
+  <td><span class="anchor" id="variable-mf~12"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Mf</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-g~2"></span>real</td>
+  <td><span class="anchor" id="variable-g~4"></span>real</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>g</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-ng~2"></span>integer</td>
+  <td><span class="anchor" id="variable-ng~5"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Ng</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-jroot~2"></span>integer</td>
+  <td><span class="anchor" id="variable-jroot~6"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Jroot</strong>(*)</td><td></td>
@@ -2681,202 +2682,202 @@
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~dlsodkr~~CallsGraph Pages: 1 -->
-<svg id="procdlsodkrCallsGraph" width="334pt" height="333pt"
- viewBox="0.00 0.00 334.00 332.81" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~dlsodkr~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 328.81)">
+<svg id="procdlsodkrCallsGraph" width="334pt" height="352pt"
+ viewBox="0.00 0.00 334.00 352.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dlsodkr~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 348)">
 <title>proc~~dlsodkr~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-328.81 330,-328.81 330,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-348 330,-348 330,4 -4,4"/>
 <!-- proc~dlsodkr -->
 <g id="proc~~dlsodkr~~CallsGraph_node1" class="node">
 <title>proc~dlsodkr</title>
-<polygon fill="none" stroke="black" points="54,-188 0,-188 0,-164 54,-164 54,-188"/>
-<text text-anchor="middle" x="27" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50">dlsodkr</text>
-</g>
-<!-- proc~drchek -->
-<g id="proc~~dlsodkr~~CallsGraph_node2" class="node">
-<title>proc~drchek</title>
-<g id="a_proc~~dlsodkr~~CallsGraph_node2"><a xlink:href=".././proc/drchek.html" xlink:title="drchek">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-306 91,-306 91,-282 145,-282 145,-306"/>
-<text text-anchor="middle" x="118" y="-291.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">drchek</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodkr&#45;&gt;proc~drchek -->
-<g id="proc~~dlsodkr~~CallsGraph_edge2" class="edge">
-<title>proc~dlsodkr&#45;&gt;proc~drchek</title>
-<path fill="none" stroke="#000000" d="M35.07,-188.19C45.87,-206.37 67.58,-241.31 90,-268 91.88,-270.24 93.94,-272.5 96.05,-274.7"/>
-<polygon fill="#000000" stroke="#000000" points="93.68,-277.28 103.25,-281.83 98.61,-272.31 93.68,-277.28"/>
-</g>
-<!-- proc~dcopy -->
-<g id="proc~~dlsodkr~~CallsGraph_node3" class="node">
-<title>proc~dcopy</title>
-<g id="a_proc~~dlsodkr~~CallsGraph_node3"><a xlink:href=".././proc/dcopy.html" xlink:title="dcopy">
-<polygon fill="#d9534f" stroke="#d9534f" points="236,-268 182,-268 182,-244 236,-244 236,-268"/>
-<text text-anchor="middle" x="209" y="-253.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcopy</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodkr&#45;&gt;proc~dcopy -->
-<g id="proc~~dlsodkr~~CallsGraph_edge1" class="edge">
-<title>proc~dlsodkr&#45;&gt;proc~dcopy</title>
-<path fill="none" stroke="#000000" d="M38.59,-188.29C50.01,-200.73 69.35,-219.6 90,-230 115.62,-242.91 147.54,-249.45 171.72,-252.73"/>
-<polygon fill="#000000" stroke="#000000" points="171.55,-256.24 181.9,-253.99 172.41,-249.29 171.55,-256.24"/>
-</g>
-<!-- proc~dvnorm -->
-<g id="proc~~dlsodkr~~CallsGraph_node4" class="node">
-<title>proc~dvnorm</title>
-<g id="a_proc~~dlsodkr~~CallsGraph_node4"><a xlink:href=".././proc/dvnorm.html" xlink:title="dvnorm">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="236,-106 182,-106 182,-82 236,-82 236,-106"/>
-<text text-anchor="middle" x="209" y="-91.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodkr&#45;&gt;proc~dvnorm -->
-<g id="proc~~dlsodkr~~CallsGraph_edge3" class="edge">
-<title>proc~dlsodkr&#45;&gt;proc~dvnorm</title>
-<path fill="none" stroke="#000000" d="M36.25,-163.76C46.85,-149.1 66.68,-125.04 90,-113 115.22,-99.98 147.17,-95.45 171.46,-94.05"/>
-<polygon fill="#000000" stroke="#000000" points="171.85,-97.54 181.7,-93.62 171.56,-90.55 171.85,-97.54"/>
-</g>
-<!-- proc~xerrwd -->
-<g id="proc~~dlsodkr~~CallsGraph_node5" class="node">
-<title>proc~xerrwd</title>
-<g id="a_proc~~dlsodkr~~CallsGraph_node5"><a xlink:href=".././proc/xerrwd.html" xlink:title="xerrwd">
-<polygon fill="#d9534f" stroke="#d9534f" points="326,-269 272,-269 272,-245 326,-245 326,-269"/>
-<text text-anchor="middle" x="299" y="-254.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodkr&#45;&gt;proc~xerrwd -->
-<g id="proc~~dlsodkr~~CallsGraph_edge4" class="edge">
-<title>proc~dlsodkr&#45;&gt;proc~xerrwd</title>
-<path fill="none" stroke="#000000" d="M54.11,-185.31C65.13,-189.12 78.13,-193.45 90,-197 154.24,-216.21 171.9,-215.33 236,-235 244.65,-237.65 253.88,-240.77 262.5,-243.81"/>
-<polygon fill="#000000" stroke="#000000" points="261.33,-247.11 271.92,-247.18 263.69,-240.52 261.33,-247.11"/>
+<polygon fill="none" stroke="black" points="54,-182 0,-182 0,-158 54,-158 54,-182"/>
+<text text-anchor="middle" x="27" y="-167.6" font-family="Helvetica,sans-Serif" font-size="10.50">dlsodkr</text>
 </g>
 <!-- proc~dstoka -->
-<g id="proc~~dlsodkr~~CallsGraph_node6" class="node">
+<g id="proc~~dlsodkr~~CallsGraph_node2" class="node">
 <title>proc~dstoka</title>
-<g id="a_proc~~dlsodkr~~CallsGraph_node6"><a xlink:href=".././proc/dstoka.html" xlink:title="dstoka">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-24 91,-24 91,0 145,0 145,-24"/>
-<text text-anchor="middle" x="118" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstoka</text>
+<g id="a_proc~~dlsodkr~~CallsGraph_node2"><a xlink:href=".././proc/dstoka.html" xlink:title="dstoka">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-344 91,-344 91,-320 145,-320 145,-344"/>
+<text text-anchor="middle" x="118" y="-329.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstoka</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodkr&#45;&gt;proc~dstoka -->
-<g id="proc~~dlsodkr~~CallsGraph_edge5" class="edge">
+<g id="proc~~dlsodkr~~CallsGraph_edge1" class="edge">
 <title>proc~dlsodkr&#45;&gt;proc~dstoka</title>
-<path fill="none" stroke="#000000" d="M31.05,-163.83C38.04,-137.73 57.17,-75.34 90,-33 90.46,-32.4 90.95,-31.81 91.45,-31.23"/>
-<polygon fill="#000000" stroke="#000000" points="93.97,-33.66 98.71,-24.18 89.09,-28.64 93.97,-33.66"/>
+<path fill="none" stroke="#000000" d="M31.09,-182C38.16,-207.73 57.45,-269.24 90,-311 90.47,-311.6 90.95,-312.19 91.45,-312.77"/>
+<polygon fill="#000000" stroke="#000000" points="89.1,-315.36 98.72,-319.81 93.98,-310.34 89.1,-315.36"/>
 </g>
 <!-- proc~dumach -->
-<g id="proc~~dlsodkr~~CallsGraph_node7" class="node">
+<g id="proc~~dlsodkr~~CallsGraph_node3" class="node">
 <title>proc~dumach</title>
-<g id="a_proc~~dlsodkr~~CallsGraph_node7"><a xlink:href=".././proc/dumach.html" xlink:title="dumach">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-146 90,-146 90,-122 146,-122 146,-146"/>
-<text text-anchor="middle" x="118" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
+<g id="a_proc~~dlsodkr~~CallsGraph_node3"><a xlink:href=".././proc/dumach.html" xlink:title="dumach">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-302 90,-302 90,-278 146,-278 146,-302"/>
+<text text-anchor="middle" x="118" y="-287.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodkr&#45;&gt;proc~dumach -->
-<g id="proc~~dlsodkr~~CallsGraph_edge6" class="edge">
+<g id="proc~~dlsodkr~~CallsGraph_edge2" class="edge">
 <title>proc~dlsodkr&#45;&gt;proc~dumach</title>
-<path fill="none" stroke="#000000" d="M53.74,-163.85C62.6,-159.67 72.67,-154.92 82.13,-150.46"/>
-<polygon fill="#000000" stroke="#000000" points="83.77,-153.55 91.32,-146.12 80.78,-147.22 83.77,-153.55"/>
+<path fill="none" stroke="#000000" d="M34.84,-182.16C45.51,-200.67 67.25,-236.64 90,-264 91.87,-266.25 93.92,-268.52 96.03,-270.72"/>
+<polygon fill="#000000" stroke="#000000" points="93.66,-273.3 103.22,-277.86 98.59,-268.33 93.66,-273.3"/>
+</g>
+<!-- proc~drchek -->
+<g id="proc~~dlsodkr~~CallsGraph_node4" class="node">
+<title>proc~drchek</title>
+<g id="a_proc~~dlsodkr~~CallsGraph_node4"><a xlink:href=".././proc/drchek.html" xlink:title="drchek">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-142 91,-142 91,-118 145,-118 145,-142"/>
+<text text-anchor="middle" x="118" y="-127.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">drchek</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr&#45;&gt;proc~drchek -->
+<g id="proc~~dlsodkr~~CallsGraph_edge3" class="edge">
+<title>proc~dlsodkr&#45;&gt;proc~drchek</title>
+<path fill="none" stroke="#000000" d="M54.22,-158.22C62.82,-154.35 72.53,-149.99 81.69,-145.87"/>
+<polygon fill="#000000" stroke="#000000" points="83.28,-148.99 90.97,-141.7 80.41,-142.61 83.28,-148.99"/>
+</g>
+<!-- proc~dlhin -->
+<g id="proc~~dlsodkr~~CallsGraph_node5" class="node">
+<title>proc~dlhin</title>
+<g id="a_proc~~dlsodkr~~CallsGraph_node5"><a xlink:href=".././proc/dlhin.html" xlink:title="dlhin">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-222 91,-222 91,-198 145,-198 145,-222"/>
+<text text-anchor="middle" x="118" y="-207.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlhin</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr&#45;&gt;proc~dlhin -->
+<g id="proc~~dlsodkr~~CallsGraph_edge4" class="edge">
+<title>proc~dlsodkr&#45;&gt;proc~dlhin</title>
+<path fill="none" stroke="#000000" d="M54.22,-181.78C62.82,-185.65 72.53,-190.01 81.69,-194.13"/>
+<polygon fill="#000000" stroke="#000000" points="80.41,-197.39 90.97,-198.3 83.28,-191.01 80.41,-197.39"/>
+</g>
+<!-- proc~xerrwd -->
+<g id="proc~~dlsodkr~~CallsGraph_node6" class="node">
+<title>proc~xerrwd</title>
+<g id="a_proc~~dlsodkr~~CallsGraph_node6"><a xlink:href=".././proc/xerrwd.html" xlink:title="xerrwd">
+<polygon fill="#d9534f" stroke="#d9534f" points="326,-84 272,-84 272,-60 326,-60 326,-84"/>
+<text text-anchor="middle" x="299" y="-69.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr&#45;&gt;proc~xerrwd -->
+<g id="proc~~dlsodkr~~CallsGraph_edge5" class="edge">
+<title>proc~dlsodkr&#45;&gt;proc~xerrwd</title>
+<path fill="none" stroke="#000000" d="M33.68,-157.87C42.83,-139.76 62.61,-105.99 90,-89 142.59,-56.37 217.6,-59.72 261.7,-65.55"/>
+<polygon fill="#000000" stroke="#000000" points="261.28,-69.03 271.68,-66.99 262.28,-62.1 261.28,-69.03"/>
+</g>
+<!-- proc~dcopy -->
+<g id="proc~~dlsodkr~~CallsGraph_node7" class="node">
+<title>proc~dcopy</title>
+<g id="a_proc~~dlsodkr~~CallsGraph_node7"><a xlink:href=".././proc/dcopy.html" xlink:title="dcopy">
+<polygon fill="#d9534f" stroke="#d9534f" points="236,-182 182,-182 182,-158 236,-158 236,-182"/>
+<text text-anchor="middle" x="209" y="-167.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcopy</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr&#45;&gt;proc~dcopy -->
+<g id="proc~~dlsodkr~~CallsGraph_edge6" class="edge">
+<title>proc~dlsodkr&#45;&gt;proc~dcopy</title>
+<path fill="none" stroke="#000000" d="M54.17,-170C85.1,-170 136.75,-170 171.57,-170"/>
+<polygon fill="#000000" stroke="#000000" points="171.79,-173.5 181.79,-170 171.79,-166.5 171.79,-173.5"/>
 </g>
 <!-- proc~dintdy -->
 <g id="proc~~dlsodkr~~CallsGraph_node8" class="node">
 <title>proc~dintdy</title>
 <g id="a_proc~~dlsodkr~~CallsGraph_node8"><a xlink:href=".././proc/dintdy.html" xlink:title="dintdy">
-<polygon fill="#d9534f" stroke="#d9534f" points="236,-310 182,-310 182,-286 236,-286 236,-310"/>
-<text text-anchor="middle" x="209" y="-295.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="236,-104 182,-104 182,-80 236,-80 236,-104"/>
+<text text-anchor="middle" x="209" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodkr&#45;&gt;proc~dintdy -->
 <g id="proc~~dlsodkr~~CallsGraph_edge7" class="edge">
 <title>proc~dlsodkr&#45;&gt;proc~dintdy</title>
-<path fill="none" stroke="#000000" d="M29.14,-188.07C32.51,-216.2 45.23,-285.94 90,-315 115.14,-331.31 149.58,-323.74 174.77,-314.07"/>
-<polygon fill="#000000" stroke="#000000" points="176.35,-317.21 184.27,-310.17 173.69,-310.74 176.35,-317.21"/>
+<path fill="none" stroke="#000000" d="M36.5,-157.83C47.21,-143.56 67,-120.4 90,-109 115.36,-96.43 147.3,-92.44 171.55,-91.45"/>
+<polygon fill="#000000" stroke="#000000" points="171.86,-94.94 181.77,-91.19 171.68,-87.94 171.86,-94.94"/>
+</g>
+<!-- proc~dvnorm -->
+<g id="proc~~dlsodkr~~CallsGraph_node9" class="node">
+<title>proc~dvnorm</title>
+<g id="a_proc~~dlsodkr~~CallsGraph_node9"><a xlink:href=".././proc/dvnorm.html" xlink:title="dvnorm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="236,-262 182,-262 182,-238 236,-238 236,-262"/>
+<text text-anchor="middle" x="209" y="-247.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr&#45;&gt;proc~dvnorm -->
+<g id="proc~~dlsodkr~~CallsGraph_edge8" class="edge">
+<title>proc~dlsodkr&#45;&gt;proc~dvnorm</title>
+<path fill="none" stroke="#000000" d="M36.54,-182.1C47.27,-196.31 67.1,-219.41 90,-231 115.32,-243.81 147.26,-248.36 171.53,-249.81"/>
+<polygon fill="#000000" stroke="#000000" points="171.6,-253.32 181.75,-250.27 171.92,-246.33 171.6,-253.32"/>
 </g>
 <!-- proc~dewset -->
-<g id="proc~~dlsodkr~~CallsGraph_node9" class="node">
+<g id="proc~~dlsodkr~~CallsGraph_node10" class="node">
 <title>proc~dewset</title>
-<g id="a_proc~~dlsodkr~~CallsGraph_node9"><a xlink:href=".././proc/dewset.html" xlink:title="dewset">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-66 91,-66 91,-42 145,-42 145,-66"/>
-<text text-anchor="middle" x="118" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
+<g id="a_proc~~dlsodkr~~CallsGraph_node10"><a xlink:href=".././proc/dewset.html" xlink:title="dewset">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-24 91,-24 91,0 145,0 145,-24"/>
+<text text-anchor="middle" x="118" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodkr&#45;&gt;proc~dewset -->
-<g id="proc~~dlsodkr~~CallsGraph_edge8" class="edge">
-<title>proc~dlsodkr&#45;&gt;proc~dewset</title>
-<path fill="none" stroke="#000000" d="M34.62,-163.87C45.16,-145.04 66.92,-108.03 90,-80 91.86,-77.74 93.9,-75.47 96,-73.27"/>
-<polygon fill="#000000" stroke="#000000" points="98.57,-75.65 103.2,-66.12 93.63,-70.68 98.57,-75.65"/>
-</g>
-<!-- proc~dlhin -->
-<g id="proc~~dlsodkr~~CallsGraph_node10" class="node">
-<title>proc~dlhin</title>
-<g id="a_proc~~dlsodkr~~CallsGraph_node10"><a xlink:href=".././proc/dlhin.html" xlink:title="dlhin">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-188 91,-188 91,-164 145,-164 145,-188"/>
-<text text-anchor="middle" x="118" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlhin</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodkr&#45;&gt;proc~dlhin -->
 <g id="proc~~dlsodkr~~CallsGraph_edge9" class="edge">
-<title>proc~dlsodkr&#45;&gt;proc~dlhin</title>
-<path fill="none" stroke="#000000" d="M54.22,-176C62.55,-176 71.91,-176 80.82,-176"/>
-<polygon fill="#000000" stroke="#000000" points="80.97,-179.5 90.97,-176 80.97,-172.5 80.97,-179.5"/>
-</g>
-<!-- proc~drchek&#45;&gt;proc~dcopy -->
-<g id="proc~~dlsodkr~~CallsGraph_edge10" class="edge">
-<title>proc~drchek&#45;&gt;proc~dcopy</title>
-<path fill="none" stroke="#000000" d="M145.22,-282.8C153.82,-279.13 163.53,-274.99 172.69,-271.08"/>
-<polygon fill="#000000" stroke="#000000" points="174.14,-274.26 181.97,-267.12 171.39,-267.82 174.14,-274.26"/>
-</g>
-<!-- proc~drchek&#45;&gt;proc~dintdy -->
-<g id="proc~~dlsodkr~~CallsGraph_edge11" class="edge">
-<title>proc~drchek&#45;&gt;proc~dintdy</title>
-<path fill="none" stroke="#000000" d="M145.22,-295.18C153.55,-295.55 162.91,-295.97 171.82,-296.37"/>
-<polygon fill="#000000" stroke="#000000" points="171.82,-299.88 181.97,-296.83 172.13,-292.88 171.82,-299.88"/>
+<title>proc~dlsodkr&#45;&gt;proc~dewset</title>
+<path fill="none" stroke="#000000" d="M31.99,-157.92C40.32,-133.71 61.25,-78.13 90,-38 91.56,-35.82 93.31,-33.68 95.16,-31.6"/>
+<polygon fill="#000000" stroke="#000000" points="98.03,-33.68 102.53,-24.08 93.03,-28.78 98.03,-33.68"/>
 </g>
 <!-- proc~dstoka&#45;&gt;proc~dvnorm -->
-<g id="proc~~dlsodkr~~CallsGraph_edge13" class="edge">
+<g id="proc~~dlsodkr~~CallsGraph_edge10" class="edge">
 <title>proc~dstoka&#45;&gt;proc~dvnorm</title>
-<path fill="none" stroke="#000000" d="M135.24,-24.14C138.85,-26.97 142.6,-30.03 146,-33 161.1,-46.22 177.23,-62.15 189.25,-74.42"/>
-<polygon fill="#000000" stroke="#000000" points="187.03,-77.15 196.51,-81.88 192.05,-72.27 187.03,-77.15"/>
+<path fill="none" stroke="#000000" d="M135.24,-319.86C138.85,-317.03 142.6,-313.97 146,-311 161.1,-297.78 177.23,-281.85 189.25,-269.58"/>
+<polygon fill="#000000" stroke="#000000" points="192.05,-271.73 196.51,-262.12 187.03,-266.85 192.05,-271.73"/>
 </g>
 <!-- proc~dcfode -->
 <g id="proc~~dlsodkr~~CallsGraph_node11" class="node">
 <title>proc~dcfode</title>
 <g id="a_proc~~dlsodkr~~CallsGraph_node11"><a xlink:href=".././proc/dcfode.html" xlink:title="dcfode">
-<polygon fill="#d9534f" stroke="#d9534f" points="236,-24 182,-24 182,0 236,0 236,-24"/>
-<text text-anchor="middle" x="209" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="236,-344 182,-344 182,-320 236,-320 236,-344"/>
+<text text-anchor="middle" x="209" y="-329.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
 </a>
 </g>
 </g>
 <!-- proc~dstoka&#45;&gt;proc~dcfode -->
-<g id="proc~~dlsodkr~~CallsGraph_edge12" class="edge">
+<g id="proc~~dlsodkr~~CallsGraph_edge11" class="edge">
 <title>proc~dstoka&#45;&gt;proc~dcfode</title>
-<path fill="none" stroke="#000000" d="M145.22,-12C153.55,-12 162.91,-12 171.82,-12"/>
-<polygon fill="#000000" stroke="#000000" points="171.97,-15.5 181.97,-12 171.97,-8.5 171.97,-15.5"/>
+<path fill="none" stroke="#000000" d="M145.22,-332C153.55,-332 162.91,-332 171.82,-332"/>
+<polygon fill="#000000" stroke="#000000" points="171.97,-335.5 181.97,-332 171.97,-328.5 171.97,-335.5"/>
 </g>
-<!-- proc~dintdy&#45;&gt;proc~xerrwd -->
-<g id="proc~~dlsodkr~~CallsGraph_edge14" class="edge">
-<title>proc~dintdy&#45;&gt;proc~xerrwd</title>
-<path fill="none" stroke="#000000" d="M235.93,-285.92C244.36,-281.99 253.86,-277.57 262.84,-273.38"/>
-<polygon fill="#000000" stroke="#000000" points="264.37,-276.53 271.95,-269.13 261.41,-270.19 264.37,-276.53"/>
+<!-- proc~drchek&#45;&gt;proc~dcopy -->
+<g id="proc~~dlsodkr~~CallsGraph_edge12" class="edge">
+<title>proc~drchek&#45;&gt;proc~dcopy</title>
+<path fill="none" stroke="#000000" d="M145.22,-141.78C153.82,-145.65 163.53,-150.01 172.69,-154.13"/>
+<polygon fill="#000000" stroke="#000000" points="171.41,-157.39 181.97,-158.3 174.28,-151.01 171.41,-157.39"/>
+</g>
+<!-- proc~drchek&#45;&gt;proc~dintdy -->
+<g id="proc~~dlsodkr~~CallsGraph_edge13" class="edge">
+<title>proc~drchek&#45;&gt;proc~dintdy</title>
+<path fill="none" stroke="#000000" d="M145.22,-118.8C153.82,-115.13 163.53,-110.99 172.69,-107.08"/>
+<polygon fill="#000000" stroke="#000000" points="174.14,-110.26 181.97,-103.12 171.39,-103.82 174.14,-110.26"/>
 </g>
 <!-- proc~dlhin&#45;&gt;proc~dcopy -->
 <g id="proc~~dlsodkr~~CallsGraph_edge15" class="edge">
 <title>proc~dlhin&#45;&gt;proc~dcopy</title>
-<path fill="none" stroke="#000000" d="M132.52,-188.15C146.98,-201.15 170.1,-221.93 186.95,-237.08"/>
-<polygon fill="#000000" stroke="#000000" points="184.87,-239.92 194.65,-244 189.55,-234.71 184.87,-239.92"/>
+<path fill="none" stroke="#000000" d="M145.22,-198.22C153.82,-194.35 163.53,-189.99 172.69,-185.87"/>
+<polygon fill="#000000" stroke="#000000" points="174.28,-188.99 181.97,-181.7 171.41,-182.61 174.28,-188.99"/>
 </g>
 <!-- proc~dlhin&#45;&gt;proc~dvnorm -->
-<g id="proc~~dlsodkr~~CallsGraph_edge16" class="edge">
+<g id="proc~~dlsodkr~~CallsGraph_edge14" class="edge">
 <title>proc~dlhin&#45;&gt;proc~dvnorm</title>
-<path fill="none" stroke="#000000" d="M135.24,-163.86C138.85,-161.03 142.6,-157.97 146,-155 161.1,-141.78 177.23,-125.85 189.25,-113.58"/>
-<polygon fill="#000000" stroke="#000000" points="192.05,-115.73 196.51,-106.12 187.03,-110.85 192.05,-115.73"/>
+<path fill="none" stroke="#000000" d="M145.22,-221.78C153.82,-225.65 163.53,-230.01 172.69,-234.13"/>
+<polygon fill="#000000" stroke="#000000" points="171.41,-237.39 181.97,-238.3 174.28,-231.01 171.41,-237.39"/>
+</g>
+<!-- proc~dintdy&#45;&gt;proc~xerrwd -->
+<g id="proc~~dlsodkr~~CallsGraph_edge16" class="edge">
+<title>proc~dintdy&#45;&gt;proc~xerrwd</title>
+<path fill="none" stroke="#000000" d="M236.4,-86C244.48,-84.16 253.51,-82.11 262.1,-80.16"/>
+<polygon fill="#000000" stroke="#000000" points="262.94,-83.56 271.92,-77.93 261.39,-76.73 262.94,-83.56"/>
 </g>
 </g>
 </svg>
@@ -2976,7 +2977,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-06 02:33            </p>
+ on 2022-02-06 02:54            </p>
         </div>
       </div>
       <br>

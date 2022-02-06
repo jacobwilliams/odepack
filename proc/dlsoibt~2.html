@@ -1,0 +1,3238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
+    <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>dlsoibt &ndash; odepack</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link href="../css/user.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">odepack </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+     aria-expanded="false">Contents <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="../lists/files.html">Source Files</a></li>
+            <li><a href="../lists/modules.html">Modules</a></li>
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+              
+            </ul>
+        
+            </li>
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+                                       </ul>
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+  <div class="row">
+    <h1>dlsoibt
+      <small>Subroutine</small>
+    </h1>
+    <div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+    data-placement="bottom" data-html="true"
+    title=" 2.4% of total for procedures.">550 statements</a>
+     </li> 
+    <li><i class="fa fa-code"></i><a href="../src/dlsoibt.inc"> Source File</a></li>
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+     <li><a href='../sourcefile/dlsoibt.inc.html'>dlsoibt.inc</a></li>
+     <li class="active">dlsoibt</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    <div id="sidebar">
+  <h3>Contents</h3>
+ 
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
+  <div id="vars-0" class="panel-collapse collapse">
+    <div class="list-group">
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-atoli~9">atoli</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-ayi~8">ayi</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-big~9">big</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-ewti~9">ewti</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-h0~9">h0</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-hmax~9">hmax</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-hmx~9">hmx</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-i~14">i</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-i1~11">i1</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-i2~9">i2</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-ier~6">ier</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-iflag~9">iflag</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-ihit~9">ihit</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-imxer~9">imxer</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-ires~4">ires</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-kgo~10">kgo</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-leniw~9">leniw</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-lenrw~9">lenrw</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-lenwm~7">lenwm</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-lp~2">lp</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-lyd0~3">lyd0</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-mb">mb</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-mord~9">mord</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-msg~9">msg</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-mxhnl0~9">mxhnl0</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-mxstp0~9">mxstp0</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-nb">nb</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-rh~11">rh</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-rtoli~9">rtoli</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-size~9">size</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-sum~8">sum</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-tcrit~9">tcrit</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-tdist~8">tdist</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-tnext~9">tnext</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-tol~8">tol</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-tolsf~9">tolsf</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-tp~9">tp</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-w0~8">w0</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>subroutine dlsoibt(res, adda, jac, Neq, Y, Ydoti, T, Tout, Itol, Rtol, Atol, Itask, Istate, Iopt, Rwork, Lrw, Iwork, Liw, Mf)</h2>
+    
+
+    <h3 id="synopsis">Synopsis</h3>
+<p>DLSOIBT: Livermore Solver for Ordinary differential equations given
+          in Implicit form, with Block-Tridiagonal Jacobian treatment.</p>
+<p>DLSOIBT solves the initial value problem for linearly implicit
+ systems of first order ODEs,</p>
+<div class="codehilite"><pre><span></span><code>     A(t,y) * dy/dt = g(t,y),  where A(t,y) is a square matrix,
+</code></pre></div>
+
+<p>or, in component form,</p>
+<div class="codehilite"><pre><span></span><code>     ( a   * ( dy / dt ))  + ... +  ( a     * ( dy   / dt ))  =
+        i,1      1                     i,NEQ      NEQ
+
+      =   g ( t, y, y ,..., y    )   ( i = 1,...,NEQ )
+           i      1   2       NEQ
+</code></pre></div>
+
+<p>If A is singular, this is a differential-algebraic system.</p>
+<p>DLSOIBT is a variant version of the DLSODI package, for the case where
+ the matrices A, dg/dy, and d(A*s)/dy are all block-tridiagonal.</p>
+<p>This version is in double precision.</p>
+<hr>
+<h3 id="summary-of-usage">Summary of Usage.</h3>
+<p>Communication between the user and the DLSOIBT package, for normal
+ situations, is summarized here.  This summary describes only a subset
+ of the full set of options available.  See the full description for
+ details, including optional communication, nonstandard options,
+ and instructions for special situations.  See also the example
+ problem (with program and output) following this summary.</p>
+<p><strong>A.</strong> First, provide a subroutine of the form:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">               </span><span class="k">SUBROUTINE </span><span class="n">RES</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="n">IRES</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="kt">DOUBLE PRECISION </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">S</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">R</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>which computes the residual function</p>
+<div class="codehilite"><pre><span></span><code>     r = g(t,y)  -  A(t,y) * s 
+</code></pre></div>
+
+<p>as a function of t and the vectors y and s.  (s is an internally
+ generated approximation to dy/dt.)  The arrays Y and S are inputs
+ to the RES routine and should not be altered.  The residual
+ vector is to be stored in the array R.  The argument IRES should be
+ ignored for casual use of DLSOIBT.  (For uses of IRES, see the
+ paragraph on RES in the full description below.)</p>
+<p><strong>B.</strong> Next, identify the block structure of the matrices A = A(t,y) and
+ dr/dy.  DLSOIBT must deal internally with a linear combination, P, of
+ these two matrices.  The matrix P (hence both A and dr/dy) must have
+ a block-tridiagonal form with fixed structure parameters</p>
+<div class="codehilite"><pre><span></span><code>    MB = block size, MB .ge. 1, and
+    NB = number of blocks in each direction, NB .ge. 4,
+</code></pre></div>
+
+<p>with MB*NB = NEQ.  In each of the NB block-rows of the matrix P
+ (each consisting of MB consecutive rows), the nonzero elements are
+ to lie in three consecutive MB by MB blocks.  In block-rows
+ 2 through NB - 1, these are centered about the main diagonal.</p>
+<p>in block-rows 1 and NB, they are the diagonal blocks and the two
+ blocks adjacent to the diagonal block.  (Thus block positions (1,3)
+ and (NB,NB-2) can be nonzero.)</p>
+<p>Alternatively, P (hence A and dr/dy) may be only approximately
+ equal to matrices with this form, and DLSOIBT should still succeed.
+ The block-tridiagonal matrix P is described by three arrays,
+ each of size MB by MB by NB:</p>
+<div class="codehilite"><pre><span></span><code>     PA = array of diagonal blocks,
+     PB = array of superdiagonal (and one subdiagonal) blocks, and
+     PC = array of subdiagonal (and one superdiagonal) blocks.
+</code></pre></div>
+
+<p>Specifically, the three MB by MB blocks in the k-th block-row of P
+ are stored in (reading across):</p>
+<div class="codehilite"><pre><span></span><code>     PC(*,*,k) = block to the left of the diagonal block,
+     PA(*,*,k) = diagonal block, and
+     PB(*,*,k) = block to the right of the diagonal block,
+</code></pre></div>
+
+<p>except for k = 1, where the three blocks (reading across) are</p>
+<div class="codehilite"><pre><span></span><code>     PA(*,*,1) (= diagonal block), PB(*,*,1), and PC(*,*,1),
+</code></pre></div>
+
+<p>and k = NB, where they are</p>
+<div class="codehilite"><pre><span></span><code>     PB(*,*,NB), PC(*,*,NB), and PA(*,*,NB) (= diagonal block).
+</code></pre></div>
+
+<p>(Each asterisk * stands for an index that ranges from 1 to MB.)</p>
+<p><strong>C.</strong> You must also provide a subroutine of the form:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">     </span><span class="k">SUBROUTINE </span><span class="n">ADDA</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">MB</span><span class="p">,</span><span class="w"> </span><span class="n">NB</span><span class="p">,</span><span class="w"> </span><span class="n">PA</span><span class="p">,</span><span class="w"> </span><span class="n">PB</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="kt">DOUBLE PRECISION </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">PA</span><span class="p">(</span><span class="n">MB</span><span class="p">,</span><span class="n">MB</span><span class="p">,</span><span class="n">NB</span><span class="p">),</span><span class="w"> </span><span class="n">PB</span><span class="p">(</span><span class="n">MB</span><span class="p">,</span><span class="n">MB</span><span class="p">,</span><span class="n">NB</span><span class="p">),</span><span class="w"> </span><span class="n">PC</span><span class="p">(</span><span class="n">MB</span><span class="p">,</span><span class="n">MB</span><span class="p">,</span><span class="n">NB</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>which adds the nonzero blocks of the matrix A = A(t,y) to the
+ contents of the arrays PA, PB, and PC, following the structure
+ description in Paragraph B above.
+ T and the Y array are input and should not be altered.
+ Thus the affect of ADDA should be the following:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">     </span><span class="k">DO </span><span class="n">K</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">NB</span><span class="w"></span>
+<span class="w">       </span><span class="k">DO </span><span class="n">J</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">MB</span><span class="w"></span>
+<span class="w">         </span><span class="k">DO </span><span class="n">I</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">MB</span><span class="w"></span>
+<span class="w">           </span><span class="n">PA</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PA</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
+<span class="w">             </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">K</span><span class="o">-</span><span class="n">th</span><span class="w"> </span><span class="n">diagonal</span><span class="w"> </span><span class="k">block </span><span class="n">of</span><span class="w"> </span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">           </span><span class="n">PB</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PB</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
+<span class="w">             </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="k">block </span><span class="n">in</span><span class="w"> </span><span class="k">block </span><span class="n">position</span><span class="w"> </span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="nb">or </span><span class="n">in</span><span class="w"> </span><span class="k">block </span><span class="n">position</span><span class="w"> </span><span class="p">(</span><span class="n">NB</span><span class="p">,</span><span class="n">NB</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">if </span><span class="n">K</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NB</span><span class="p">)</span><span class="w"></span>
+<span class="w">           </span><span class="n">PC</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PC</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
+<span class="w">             </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="k">block </span><span class="n">in</span><span class="w"> </span><span class="k">block </span><span class="n">position</span><span class="w"> </span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"></span>
+<span class="w">             </span><span class="nb">or </span><span class="n">in</span><span class="w"> </span><span class="k">block </span><span class="n">position</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">if </span><span class="n">K</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">ENDDO</span>
+<span class="k">       ENDDO</span>
+<span class="k">     ENDDO</span><span class="w"></span>
+</code></pre></div>
+
+<p><strong>D.</strong> For the sake of efficiency, you are encouraged to supply the
+ Jacobian matrix dr/dy in closed form, where r = g(t,y) - A(t,y)*s
+ (s = a fixed vector) as above.  If dr/dy is being supplied,
+ use MF = 21, and provide a subroutine of the form:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">     </span><span class="k">SUBROUTINE </span><span class="n">JAC</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">MB</span><span class="p">,</span><span class="w"> </span><span class="n">NB</span><span class="p">,</span><span class="w"> </span><span class="n">PA</span><span class="p">,</span><span class="w"> </span><span class="n">PB</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span><span class="w"></span>
+<span class="w">     </span><span class="kt">DOUBLE PRECISION </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">S</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">PA</span><span class="p">(</span><span class="n">MB</span><span class="p">,</span><span class="n">MB</span><span class="p">,</span><span class="n">NB</span><span class="p">),</span><span class="w"> </span><span class="n">PB</span><span class="p">(</span><span class="n">MB</span><span class="p">,</span><span class="n">MB</span><span class="p">,</span><span class="n">NB</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">    </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">PC</span><span class="p">(</span><span class="n">MB</span><span class="p">,</span><span class="n">MB</span><span class="p">,</span><span class="n">NB</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>which computes dr/dy as a function of t, y, and s.  Here T, Y, and
+ S are inputs, and the routine is to load dr/dy into PA, PB, PC,
+ according to the structure description in Paragraph B above.</p>
+<p>That is, load the diagonal blocks into PA, the superdiagonal blocks
+ (and block (NB,NB-2) ) into PB, and the subdiagonal blocks (and
+ block (1,3) ) into PC.  The blocks in block-row k of dr/dy are to
+ be loaded into PA(*,*,k), PB(*,*,k), and PC(*,*,k).</p>
+<p>Only nonzero elements need be loaded, and the indexing
+ of PA, PB, and PC is the same as in the ADDA routine.</p>
+<p>Note that if A is independent of Y (or this dependence
+ is weak enough to be ignored) then JAC is to compute dg/dy.</p>
+<p>If it is not feasible to provide a JAC routine, use
+ MF = 22, and DLSOIBT will compute an approximate Jacobian
+ internally by difference quotients.</p>
+<p><strong>E.</strong> Next decide whether or not to provide the initial value of the
+ derivative vector dy/dt.  If the initial value of A(t,y) is
+ nonsingular (and not too ill-conditioned), you may let DLSOIBT compute
+ this vector (ISTATE = 0).  (DLSOIBT will solve the system A*s = g for
+ s, with initial values of A and g.)  If A(t,y) is initially
+ singular, then the system is a differential-algebraic system, and
+ you must make use of the particular form of the system to compute the
+ initial values of y and dy/dt.  In that case, use ISTATE = 1 and
+ load the initial value of dy/dt into the array YDOTI.</p>
+<p>The input array YDOTI and the initial Y array must be consistent with
+ the equations A*dy/dt = g.  This implies that the initial residual
+ r = g(t,y) - A(t,y)*YDOTI  must be approximately zero.</p>
+<p><strong>F.</strong> Write a main program which calls Subroutine DLSOIBT once for
+ each point at which answers are desired.  This should also provide
+ for possible use of logical unit 6 for output of error messages by
+ DLSOIBT.  on the first call to DLSOIBT, supply arguments as follows:</p>
+<dl>
+<dt>RES    </dt>
+<dd>
+<p>name of user subroutine for residual function r.</p>
+</dd>
+<dt>ADDA   </dt>
+<dd>
+<p>name of user subroutine for computing and adding A(t,y).</p>
+</dd>
+<dt>JAC    </dt>
+<dd>
+<p>name of user subroutine for Jacobian matrix dr/dy
+ (MF = 21).  If not used, pass a dummy name.</p>
+</dd>
+</dl>
+<p>Note: the names for the RES and ADDA routines and (if used) the
+ JAC routine must be declared External in the calling program.</p>
+<dl>
+<dt>NEQ    </dt>
+<dd>
+<p>number of scalar equations in the system.</p>
+</dd>
+<dt>Y      </dt>
+<dd>
+<p>array of initial values, of length NEQ.</p>
+</dd>
+<dt>YDOTI  </dt>
+<dd>
+<p>array of length NEQ (containing initial dy/dt if ISTATE = 1).</p>
+</dd>
+<dt>T      </dt>
+<dd>
+<p>the initial value of the independent variable.</p>
+</dd>
+<dt>TOUT   </dt>
+<dd>
+<p>first point where output is desired (.ne. T).</p>
+</dd>
+<dt>ITOL   </dt>
+<dd>
+<p>1 or 2 according as ATOL (below) is a scalar or array.</p>
+</dd>
+<dt>RTOL   </dt>
+<dd>
+<p>relative tolerance parameter (scalar).</p>
+</dd>
+<dt>ATOL   </dt>
+<dd>
+<p>absolute tolerance parameter (scalar or array).
+ the estimated local error in y(i) will be controlled so as
+ to be roughly less (in magnitude) than</p>
+</dd>
+</dl>
+<div class="codehilite"><pre><span></span><code>             EWT(i) = RTOL*ABS(Y(i)) + ATOL     if ITOL = 1, or
+             EWT(i) = RTOL*ABS(Y(i)) + ATOL(i)  if ITOL = 2.
+</code></pre></div>
+
+<p>Thus the local error test passes if, in each component,
+ either the absolute error is less than ATOL (or ATOL(i)),
+ or the relative error is less than RTOL.
+ Use RTOL = 0.0 for pure absolute error control, and
+ use ATOL = 0.0 (or ATOL(i) = 0.0) for pure relative error
+ control.  Caution: Actual (global) errors may exceed these
+ local tolerances, so choose them conservatively.</p>
+<dl>
+<dt>ITASK  </dt>
+<dd>
+<p>1 for normal computation of output values of y at t = TOUT.</p>
+</dd>
+<dt>ISTATE </dt>
+<dd>
+<p>integer flag (input and output).  Set ISTATE = 1 if the
+ initial dy/dt is supplied, and 0 otherwise.</p>
+</dd>
+<dt>IOPT   </dt>
+<dd>
+<p>0 to indicate no optional inputs used.</p>
+</dd>
+<dt>RWORK  </dt>
+<dd>
+<p>real work array of length at least:</p>
+<div class="codehilite"><pre><span></span><code>     <span class="mi">22</span> <span class="o">+</span> <span class="mi">9</span><span class="o">*</span><span class="nv">NEQ</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="nv">MB</span><span class="o">*</span><span class="nv">MB</span><span class="o">*</span><span class="nv">NB</span>        <span class="k">for</span> <span class="nv">MF</span> <span class="o">=</span> <span class="mi">21</span> <span class="nv">or</span> <span class="mi">22</span>.
+</code></pre></div>
+
+</dd>
+<dt>LRW    </dt>
+<dd>
+<p>declared length of RWORK (in user&rsquo;s dimension).</p>
+</dd>
+<dt>IWORK  </dt>
+<dd>
+<p>integer work array of length at least 20 + NEQ.
+ Input in IWORK(1) the block size MB and in IWORK(2) the
+ number NB of blocks in each direction along the matrix A.
+ These must satisfy  MB .ge. 1, NB .ge. 4, and MB*NB = NEQ.</p>
+</dd>
+<dt>LIW    </dt>
+<dd>
+<p>declared length of IWORK (in user&rsquo;s dimension).</p>
+</dd>
+<dt>MF     </dt>
+<dd>
+<p>method flag.  Standard values are:</p>
+<div class="codehilite"><pre><span></span><code>  <span class="mi">21</span> <span class="k">for</span> <span class="nv">a</span> <span class="nv">user</span><span class="o">-</span><span class="nv">supplied</span> <span class="nv">Jacobian</span>.
+  <span class="mi">22</span> <span class="k">for</span> <span class="nv">an</span> <span class="nv">internally</span> <span class="nv">generated</span> <span class="nv">Jacobian</span>.
+</code></pre></div>
+
+</dd>
+</dl>
+<p>For other choices of MF, see the paragraph on MF in
+  the full description below.</p>
+<p>Note that the main program must declare arrays Y, YDOTI, RWORK, IWORK,
+ and possibly ATOL.</p>
+<p><strong>G.</strong> The output from the first call (or any call) is:</p>
+<dl>
+<dt>Y </dt>
+<dd>
+<p>array of computed values of y(t) vector.</p>
+</dd>
+<dt>T </dt>
+<dd>
+<p>corresponding value of independent variable (normally TOUT).</p>
+</dd>
+<dt>ISTATE  </dt>
+<dd>
+<p>ISTATE values:</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2</td>
+<td>if DLSOIBT was successful, negative otherwise.</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>means excess work done on this call (check all inputs).</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>means excess accuracy requested (tolerances too small).</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>means illegal input detected (see printed message).</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>means repeated error test failures (check all inputs).</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>means repeated convergence failures (perhaps bad Jacobian</td>
+</tr>
+<tr>
+<td></td>
+<td>supplied or wrong choice of tolerances).</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>means error weight became zero during problem. (Solution</td>
+</tr>
+<tr>
+<td></td>
+<td>component i vanished, and ATOL or ATOL(i) = 0.)</td>
+</tr>
+<tr>
+<td>-7</td>
+<td>cannot occur in casual use.</td>
+</tr>
+<tr>
+<td>-8</td>
+<td>means DLSOIBT was unable to compute the initial dy/dt.</td>
+</tr>
+<tr>
+<td></td>
+<td>In casual use, this means A(t,y) is initially singular.</td>
+</tr>
+<tr>
+<td></td>
+<td>Supply YDOTI and use ISTATE = 1 on the first call.</td>
+</tr>
+</tbody>
+</table>
+<p>If DLSOIBT returns ISTATE = -1, -4, or -5, then the output of
+ DLSOIBT also includes YDOTI = array containing residual vector
+ r = g - A * dy/dt  evaluated at the current t, y, and dy/dt.</p>
+<p><strong>H.</strong> To continue the integration after a successful return, simply
+ reset TOUT and call DLSOIBT again.  No other parameters need be reset.</p>
+<hr>
+<h3 id="example-problem">Example Problem.</h3>
+<p>The following is an example problem, with the coding needed
+ for its solution by DLSOIBT.  The problem comes from the partial
+ differential equation (the Burgers equation)</p>
+<div class="codehilite"><pre><span></span><code>   du/dt  =  - u * du/dx  +  eta * d**2 u/dx**2,   eta = .05,
+ on -1 .le. x .le. 1.  The boundary conditions are
+   du/dx = 0  at x = -1 and at x = 1.
+ The initial profile is a square wave,
+   u = 1 in ABS(x) .lt. .5,  u = .5 at ABS(x) = .5,  u = 0 elsewhere.
+ The PDE is discretized in x by a simplified Galerkin method,
+ using piecewise linear basis functions, on a grid of 40 intervals.
+ The equations at x = -1 and 1 use a 3-point difference approximation
+ for the right-hand side.  The result is a system A * dy/dt = g(y),
+ of size NEQ = 41, where y(i) is the approximation to u at x = x(i),
+ with x(i) = -1 + (i-1)*delx, delx = 2/(NEQ-1) = .05.  The individual
+ equations in the system are
+   dy(1)/dt = ( y(3) - 2*y(2) + y(1) ) * eta / delx**2,
+   dy(NEQ)/dt = ( y(NEQ-2) - 2*y(NEQ-1) + y(NEQ) ) * eta / delx**2,
+ and for i = 2, 3, ..., NEQ-1,
+   (1/6) dy(i-1)/dt + (4/6) dy(i)/dt + (1/6) dy(i+1)/dt
+       = ( y(i-1)**2 - y(i+1)**2 ) / (4*delx)
+         + ( y(i+1) - 2*y(i) + y(i-1) ) * eta / delx**2.
+</code></pre></div>
+
+<p>The following coding solves the problem with MF = 21, with output
+ of solution statistics at t = .1, .2, .3, and .4, and of the
+ solution vector at t = .4.  Here the block size is just MB = 1.</p>
+<div class="codehilite"><pre><span></span><code><span class="k">program </span><span class="n">dlsoibt_ex</span><span class="w"></span>
+<span class="k">use </span><span class="n">m_odepack</span><span class="w"></span>
+<span class="k">implicit none</span>
+<span class="k">external </span><span class="n">addabt</span><span class="w"></span>
+<span class="k">external </span><span class="n">jacbt</span><span class="w"></span>
+<span class="k">external </span><span class="n">resid</span><span class="w"></span>
+
+<span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dp</span><span class="o">=</span><span class="nb">kind</span><span class="p">(</span><span class="mf">0.0d0</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">atol</span><span class="p">,</span><span class="n">rtol</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">tout</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="n">io</span><span class="p">,</span><span class="n">iopt</span><span class="p">,</span><span class="n">istate</span><span class="p">,</span><span class="n">itask</span><span class="p">,</span><span class="n">itol</span><span class="p">,</span><span class="n">liw</span><span class="p">,</span><span class="n">lrw</span><span class="p">,</span><span class="n">mf</span><span class="p">,</span><span class="n">neq</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">dimension</span><span class="p">(</span><span class="mi">61</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">iwork</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="mi">514</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">rwork</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="mi">41</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="n">ydoti</span><span class="w"></span>
+
+<span class="w">   </span><span class="n">neq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">41</span><span class="w"></span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">neq</span><span class="w"></span>
+<span class="w">      </span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   </span><span class="n">y</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="w"></span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="p">,</span><span class="mi">30</span><span class="w"></span>
+<span class="w">      </span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0</span><span class="w"></span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   </span><span class="n">y</span><span class="p">(</span><span class="mi">31</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5</span><span class="w"></span>
+<span class="w">   </span><span class="n">t</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0</span><span class="w"></span>
+<span class="w">   </span><span class="n">tout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1</span><span class="w"></span>
+<span class="w">   </span><span class="n">itol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">   </span><span class="n">rtol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D-4</span><span class="w"></span>
+<span class="w">   </span><span class="n">atol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D-5</span><span class="w"></span>
+<span class="w">   </span><span class="n">itask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">   </span><span class="n">istate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">   </span><span class="n">iopt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">   </span><span class="n">lrw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">514</span><span class="w"></span>
+<span class="w">   </span><span class="n">liw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">61</span><span class="w"></span>
+<span class="w">   </span><span class="n">iwork</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">   </span><span class="n">iwork</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">neq</span><span class="w"></span>
+<span class="w">   </span><span class="n">mf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">21</span><span class="w"></span>
+<span class="w">   </span><span class="k">do </span><span class="n">io</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">dlsoibt</span><span class="p">(</span><span class="n">resid</span><span class="p">,</span><span class="n">addabt</span><span class="p">,</span><span class="n">jacbt</span><span class="p">,[</span><span class="n">neq</span><span class="p">],</span><span class="n">y</span><span class="p">,</span><span class="n">ydoti</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">tout</span><span class="p">,</span><span class="n">itol</span><span class="p">,[</span><span class="n">rtol</span><span class="p">],</span><span class="w">    </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">                 </span><span class="p">&amp;</span><span class="w"> </span><span class="p">[</span><span class="n">atol</span><span class="p">],</span><span class="n">itask</span><span class="p">,</span><span class="n">istate</span><span class="p">,</span><span class="n">iopt</span><span class="p">,</span><span class="n">rwork</span><span class="p">,</span><span class="n">lrw</span><span class="p">,</span><span class="n">iwork</span><span class="p">,</span><span class="n">liw</span><span class="p">,</span><span class="n">mf</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">99010</span><span class="p">)</span><span class="w"> </span><span class="n">t</span><span class="p">,</span><span class="n">iwork</span><span class="p">(</span><span class="mi">11</span><span class="p">),</span><span class="n">iwork</span><span class="p">(</span><span class="mi">12</span><span class="p">),</span><span class="n">iwork</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="mi">99010</span><span class="w"> </span><span class="k">format</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39; At t =&#39;</span><span class="p">,</span><span class="n">f5</span><span class="p">.</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;   No. steps =&#39;</span><span class="p">,</span><span class="n">i4</span><span class="p">,</span><span class="s1">&#39;  No. r-s =&#39;</span><span class="p">,</span><span class="n">i4</span><span class="p">,</span><span class="w">      </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">                </span><span class="p">&amp;</span><span class="s1">&#39;  No. J-s =&#39;</span><span class="p">,</span><span class="n">i3</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">istate</span><span class="o">/=</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">         write</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">99020</span><span class="p">)</span><span class="w"> </span><span class="n">istate</span><span class="w"></span>
+<span class="w">   </span><span class="mi">99020</span><span class="w"> </span><span class="k">format</span><span class="w"> </span><span class="p">(</span><span class="o">///</span><span class="s1">&#39; Error halt.. ISTATE =&#39;</span><span class="p">,</span><span class="n">i3</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">stop </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="k">else</span>
+<span class="k">         </span><span class="n">tout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tout</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">0.1</span><span class="w"></span>
+<span class="w">      </span><span class="k">endif</span>
+<span class="k">   enddo</span>
+<span class="k">   write</span><span class="w"> </span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">99030</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">neq</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="mi">99030</span><span class="w"> </span><span class="k">format</span><span class="w"> </span><span class="p">(</span><span class="o">/</span><span class="s1">&#39; Final solution values..&#39;</span><span class="o">/</span><span class="mi">9</span><span class="p">(</span><span class="mi">5</span><span class="n">D12</span><span class="p">.</span><span class="mi">4</span><span class="o">/</span><span class="p">))</span><span class="w"></span>
+
+<span class="k">end program </span><span class="n">dlsoibt_ex</span><span class="w"></span>
+
+<span class="k">subroutine </span><span class="n">resid</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">Ires</span><span class="p">)</span><span class="w"></span>
+<span class="k">implicit none</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w">                       </span><span class="kd">::</span><span class="w">  </span><span class="n">dp</span><span class="o">=</span><span class="nb">kind</span><span class="p">(</span><span class="mf">0.0d0</span><span class="p">)</span><span class="w"></span>
+
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">                      </span><span class="kd">::</span><span class="w">  </span><span class="n">N</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">                           </span><span class="kd">::</span><span class="w">  </span><span class="n">T</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w">  </span><span class="n">Y</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w">  </span><span class="n">S</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w">  </span><span class="n">R</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                                 </span><span class="kd">::</span><span class="w">  </span><span class="n">Ires</span><span class="w"></span>
+
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">save</span><span class="w">                      </span><span class="kd">::</span><span class="w">  </span><span class="n">delx</span><span class="p">,</span><span class="n">eta</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">                           </span><span class="kd">::</span><span class="w">  </span><span class="n">eodsq</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                                 </span><span class="kd">::</span><span class="w">  </span><span class="n">i</span><span class="p">,</span><span class="n">nm1</span><span class="w"></span>
+
+<span class="k">data </span><span class="n">eta</span><span class="o">/</span><span class="mf">0.05</span><span class="o">/</span><span class="p">,</span><span class="n">delx</span><span class="o">/</span><span class="mf">0.05</span><span class="o">/</span><span class="w"></span>
+<span class="w">   </span><span class="n">eodsq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eta</span><span class="o">/</span><span class="n">delx</span><span class="o">**</span><span class="mi">2</span><span class="w"></span>
+<span class="w">   </span><span class="n">R</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eodsq</span><span class="o">*</span><span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">-</span><span class="mf">2.0</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">S</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">nm1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="n">nm1</span><span class="w"></span>
+<span class="w">      </span><span class="n">R</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mf">4.0</span><span class="o">*</span><span class="n">delx</span><span class="p">)</span><span class="w">                              </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">           </span><span class="p">&amp;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">eodsq</span><span class="o">*</span><span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="mf">2.0</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">S</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="mf">4.0</span><span class="o">*</span><span class="n">S</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">S</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span><span class="w">   </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">           </span><span class="p">&amp;</span><span class="w"> </span><span class="o">/</span><span class="mf">6.0</span><span class="w"></span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   </span><span class="n">R</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eodsq</span><span class="o">*</span><span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="mf">2.0</span><span class="o">*</span><span class="n">Y</span><span class="p">(</span><span class="n">nm1</span><span class="p">)</span><span class="o">+</span><span class="n">Y</span><span class="p">(</span><span class="n">N</span><span class="p">))</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">S</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="k">end subroutine </span><span class="n">resid</span><span class="w"></span>
+
+<span class="k">subroutine </span><span class="n">addabt</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Mb</span><span class="p">,</span><span class="n">Nb</span><span class="p">,</span><span class="n">Pa</span><span class="p">,</span><span class="n">Pb</span><span class="p">,</span><span class="n">Pc</span><span class="p">)</span><span class="w"></span>
+<span class="k">implicit                                         none</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w">                                </span><span class="kd">::</span><span class="w">    </span><span class="n">dp</span><span class="o">=</span><span class="nb">kind</span><span class="p">(</span><span class="mf">0.0d0</span><span class="p">)</span><span class="w"></span>
+
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">                               </span><span class="kd">::</span><span class="w">    </span><span class="n">N</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">                                    </span><span class="kd">::</span><span class="w">    </span><span class="n">T</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="w">                       </span><span class="kd">::</span><span class="w">    </span><span class="n">Y</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">                               </span><span class="kd">::</span><span class="w">    </span><span class="n">Mb</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">                               </span><span class="kd">::</span><span class="w">    </span><span class="n">Nb</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">Mb</span><span class="p">,</span><span class="n">Mb</span><span class="p">,</span><span class="n">Nb</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w">    </span><span class="n">Pa</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">Mb</span><span class="p">,</span><span class="n">Mb</span><span class="p">,</span><span class="n">Nb</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w">    </span><span class="n">Pb</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">Mb</span><span class="p">,</span><span class="n">Mb</span><span class="p">,</span><span class="n">Nb</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w">    </span><span class="n">Pc</span><span class="w"></span>
+
+<span class="kt">integer</span><span class="w">                                          </span><span class="kd">::</span><span class="w">    </span><span class="n">k</span><span class="p">,</span><span class="n">nm1</span><span class="w"></span>
+
+<span class="w">   </span><span class="n">Pa</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pa</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1.0</span><span class="w"></span>
+<span class="w">   </span><span class="n">nm1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">   </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="n">nm1</span><span class="w"></span>
+<span class="w">      </span><span class="n">Pa</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pa</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mf">4.0</span><span class="o">/</span><span class="mf">6.0</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">Pb</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pb</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="mf">6.0</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">Pc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0</span><span class="o">/</span><span class="mf">6.0</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   </span><span class="n">Pa</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Pa</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1.0</span><span class="w"></span>
+<span class="k">end subroutine </span><span class="n">addabt</span><span class="w"></span>
+
+<span class="k">subroutine </span><span class="n">jacbt</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">S</span><span class="p">,</span><span class="n">Mb</span><span class="p">,</span><span class="n">Nb</span><span class="p">,</span><span class="n">Pa</span><span class="p">,</span><span class="n">Pb</span><span class="p">,</span><span class="n">Pc</span><span class="p">)</span><span class="w"></span>
+<span class="k">implicit none</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w">                              </span><span class="kd">::</span><span class="w">    </span><span class="n">dp</span><span class="o">=</span><span class="nb">kind</span><span class="p">(</span><span class="mf">0.0d0</span><span class="p">)</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">                             </span><span class="kd">::</span><span class="w">    </span><span class="n">N</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">                                  </span><span class="kd">::</span><span class="w">    </span><span class="n">T</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w">    </span><span class="n">Y</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="w">                     </span><span class="kd">::</span><span class="w">    </span><span class="n">S</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">                             </span><span class="kd">::</span><span class="w">    </span><span class="n">Mb</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">                             </span><span class="kd">::</span><span class="w">    </span><span class="n">Nb</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">Mb</span><span class="p">,</span><span class="n">Mb</span><span class="p">,</span><span class="n">Nb</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w">    </span><span class="n">Pa</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">Mb</span><span class="p">,</span><span class="n">Mb</span><span class="p">,</span><span class="n">Nb</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w">    </span><span class="n">Pb</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">),</span><span class="k">dimension</span><span class="p">(</span><span class="n">Mb</span><span class="p">,</span><span class="n">Mb</span><span class="p">,</span><span class="n">Nb</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w">    </span><span class="n">Pc</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">save</span><span class="w">                             </span><span class="kd">::</span><span class="w">    </span><span class="n">delx</span><span class="p">,</span><span class="n">eta</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">                                  </span><span class="kd">::</span><span class="w">    </span><span class="n">eodsq</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                                        </span><span class="kd">::</span><span class="w">    </span><span class="n">k</span><span class="w"></span>
+
+<span class="k">data </span><span class="n">eta</span><span class="o">/</span><span class="mf">0.05</span><span class="o">/</span><span class="p">,</span><span class="n">delx</span><span class="o">/</span><span class="mf">0.05</span><span class="o">/</span><span class="w"></span>
+<span class="w">   </span><span class="n">eodsq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eta</span><span class="o">/</span><span class="n">delx</span><span class="o">**</span><span class="mi">2</span><span class="w"></span>
+<span class="w">   </span><span class="n">Pa</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eodsq</span><span class="w"></span>
+<span class="w">   </span><span class="n">Pb</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">2.0</span><span class="o">*</span><span class="n">eodsq</span><span class="w"></span>
+<span class="w">   </span><span class="n">Pc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eodsq</span><span class="w"></span>
+<span class="w">   </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="n">N</span><span class="w"></span>
+<span class="w">      </span><span class="n">Pa</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">2.0</span><span class="o">*</span><span class="n">eodsq</span><span class="w"></span>
+<span class="w">      </span><span class="n">Pb</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.5</span><span class="o">/</span><span class="n">delx</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">eodsq</span><span class="w"></span>
+<span class="w">      </span><span class="n">Pc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">0.5</span><span class="o">/</span><span class="n">delx</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">eodsq</span><span class="w"></span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   </span><span class="n">Pb</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eodsq</span><span class="w"></span>
+<span class="w">   </span><span class="n">Pc</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mf">2.0</span><span class="o">*</span><span class="n">eodsq</span><span class="w"></span>
+<span class="w">   </span><span class="n">Pa</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">eodsq</span><span class="w"></span>
+<span class="k">end subroutine </span><span class="n">jacbt</span><span class="w"></span>
+</code></pre></div>
+
+<p>The output of this program (on a CDC-7600 in single precision)
+ is as follows:</p>
+<div class="codehilite"><pre><span></span><code> At t = 0.10   No. steps =  35  No. r-s =  45  No. J-s =  9
+ At t = 0.20   No. steps =  43  No. r-s =  54  No. J-s = 10
+ At t = 0.30   No. steps =  48  No. r-s =  60  No. J-s = 11
+ At t = 0.40   No. steps =  51  No. r-s =  64  No. J-s = 12
+
+ Final solution values..
+  1.2747e-02  1.1997e-02  1.5560e-02  2.3767e-02  3.7224e-02
+  5.6646e-02  8.2645e-02  1.1557e-01  1.5541e-01  2.0177e-01
+  2.5397e-01  3.1104e-01  3.7189e-01  4.3530e-01  5.0000e-01
+  5.6472e-01  6.2816e-01  6.8903e-01  7.4612e-01  7.9829e-01
+  8.4460e-01  8.8438e-01  9.1727e-01  9.4330e-01  9.6281e-01
+  9.7632e-01  9.8426e-01  9.8648e-01  9.8162e-01  9.6617e-01
+  9.3374e-01  8.7535e-01  7.8236e-01  6.5321e-01  5.0003e-01
+  3.4709e-01  2.1876e-01  1.2771e-01  7.3671e-02  5.0642e-02
+  5.4496e-02
+</code></pre></div>
+
+<hr>
+<h4 id="full-description-of-user-interface-to-dlsoibt">Full Description of User Interface to DLSOIBT.</h4>
+<p>The user interface to DLSOIBT consists of the following parts.</p>
+<ol>
+<li>
+<p>The call sequence to Subroutine DLSOIBT, which is a driver
+      routine for the solver.  This includes descriptions of both
+      the call sequence arguments and of user-supplied routines.
+      Following these descriptions is a description of
+      optional inputs available through the call sequence, and then
+      a description of optional outputs (in the work arrays).</p>
+</li>
+<li>
+<p>Descriptions of other routines in the DLSOIBT package that may be
+      (optionally) called by the user.  These provide the ability to
+      alter error message handling, save and restore the internal
+      Common, and obtain specified derivatives of the solution y(t).</p>
+</li>
+<li>
+<p>Descriptions of Common blocks to be declared in overlay
+      or similar environments, or to be saved when doing an interrupt
+      of the problem and continued solution later.</p>
+</li>
+<li>
+<p>Description of two routines in the DLSOIBT package, either of
+      which the user may replace with his/her own version, if desired.
+      These relate to the measurement of errors.</p>
+</li>
+</ol>
+<hr>
+<h4 id="part-1-call-sequence">Part 1.  Call Sequence.</h4>
+<p>The call sequence parameters used for input only are
+     RES, ADDA, JAC, NEQ, TOUT, ITOL, RTOL, ATOL, ITASK,
+     IOPT, LRW, LIW, MF,</p>
+<p>and those used for both input and output are
+     Y, T, ISTATE, YDOTI.</p>
+<p>The work arrays RWORK and IWORK are also used for additional and
+ optional inputs and optional outputs.  (The term output here refers
+ to the return from Subroutine DLSOIBT to the user&rsquo;s calling program.)</p>
+<p>The legality of input parameters will be thoroughly checked on the
+ initial call for the problem, but not checked thereafter unless a
+ change in input parameters is flagged by ISTATE = 3 on input.</p>
+<p>The descriptions of the call arguments are as follows.</p>
+<dl>
+<dt>RES    </dt>
+<dd>
+<p>the name of the user-supplied subroutine which supplies
+ the residual vector for the ODE system, defined by</p>
+</dd>
+</dl>
+<div class="codehilite"><pre><span></span><code>            r = g(t,y) - A(t,y) * s
+</code></pre></div>
+
+<p>as a function of the scalar t and the vectors
+ s and y (s approximates dy/dt).  This subroutine
+ is to have the form</p>
+<div class="codehilite"><pre><span></span><code><span class="w">              </span><span class="k">SUBROUTINE </span><span class="n">RES</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">R</span><span class="p">,</span><span class="w"> </span><span class="n">IRES</span><span class="p">)</span><span class="w"></span>
+<span class="w">              </span><span class="kt">DOUBLE PRECISION </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">S</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">R</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>where NEQ, T, Y, S, and IRES are input, and R and
+ IRES are output. Y, S, and R are arrays of length NEQ.</p>
+<p>On input, IRES indicates how DLSOIBT will use the
+ returned array R, as follows:</p>
+<div class="codehilite"><pre><span></span><code>         IRES = 1  means that DLSOIBT needs the full residual,
+                   r = g - A\*s, exactly.
+         IRES = -1 means that DLSOIBT is using R only to compute
+                   the Jacobian dr/dy by difference quotients.
+</code></pre></div>
+
+<p>The RES routine can ignore IRES, or it can omit some terms
+ if IRES = -1.  If A does not depend on y, then RES can
+ just return R = g when IRES = -1.  If g - A*s contains other
+ additive terms that are independent of y, these can also be
+ dropped, if done consistently, when IRES = -1.</p>
+<p>The subroutine should set the flag IRES if it
+ encounters a halt condition or illegal input.
+ Otherwise, it should not reset IRES.  On output,</p>
+<p>IRES = 1 or -1 represents a normal return, and
+ DLSOIBT continues integrating the ODE.  Leave IRES
+ unchanged from its input value.</p>
+<p>IRES = 2 tells DLSOIBT to immediately return control
+ to the calling program, with ISTATE = 3.  This lets
+ the calling program change parameters of the problem
+ if necessary.</p>
+<p>IRES = 3 represents an error condition (for example, an
+ illegal value of y).  DLSOIBT tries to integrate the system
+ without getting IRES = 3 from RES.  If it cannot, DLSOIBT
+ returns with ISTATE = -7 or -1.</p>
+<p>On an DLSOIBT return with ISTATE = 3, -1, or -7, the
+ values of T and Y returned correspond to the last point
+ reached successfully without getting the flag IRES = 2 or 3.</p>
+<p>The flag values IRES = 2 and 3 should not be used to
+ handle switches or root-stop conditions.  This is better
+ done by calling DLSOIBT in a one-step mode and checking the
+ stopping function for a sign change at each step.</p>
+<p>If quantities computed in the RES routine are needed
+ externally to DLSOIBT, an extra call to RES should be made
+ for this purpose, for consistent and accurate results.
+ To get the current dy/dt for the S argument, use DINTDY.</p>
+<p>RES must be declared External in the calling
+ program. See note below for more about RES.</p>
+<dl>
+<dt>ADDA   </dt>
+<dd>
+<p>the name of the user-supplied subroutine which adds the
+ matrix A = A(t,y) to another matrix, P, stored in
+ block-tridiagonal form.  This routine is to have the form</p>
+</dd>
+</dl>
+<div class="codehilite"><pre><span></span><code><span class="w">         </span><span class="k">SUBROUTINE </span><span class="n">ADDA</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">MB</span><span class="p">,</span><span class="w"> </span><span class="n">NB</span><span class="p">,</span><span class="w"> </span><span class="n">PA</span><span class="p">,</span><span class="w"> </span><span class="n">PB</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="kt">DOUBLE PRECISION </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">PA</span><span class="p">(</span><span class="n">MB</span><span class="p">,</span><span class="n">MB</span><span class="p">,</span><span class="n">NB</span><span class="p">),</span><span class="w"> </span><span class="n">PB</span><span class="p">(</span><span class="n">MB</span><span class="p">,</span><span class="n">MB</span><span class="p">,</span><span class="n">NB</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span><span class="w"></span>
+<span class="w">        </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">PC</span><span class="p">(</span><span class="n">MB</span><span class="p">,</span><span class="n">MB</span><span class="p">,</span><span class="n">NB</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>where NEQ, T, Y, MB, NB, and the arrays PA, PB, and PC
+ are input, and the arrays PA, PB, and PC are output.
+ Y is an array of length NEQ, and the arrays PA, PB, PC
+ are all MB by MB by NB.</p>
+<p>Here a block-tridiagonal structure is assumed for A(t,y),
+ and also for the matrix P to which A is added here,
+ as described in Paragraph B of the Summary of Usage above.
+ Thus the affect of ADDA should be the following:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">         </span><span class="k">DO </span><span class="n">K</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">NB</span><span class="w"></span>
+<span class="w">           </span><span class="k">DO </span><span class="n">J</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">MB</span><span class="w"></span>
+<span class="w">             </span><span class="k">DO </span><span class="n">I</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">MB</span><span class="w"></span>
+<span class="w">               </span><span class="n">PA</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PA</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
+<span class="w">                 </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">K</span><span class="o">-</span><span class="n">th</span><span class="w"> </span><span class="n">diagonal</span><span class="w"> </span><span class="k">block </span><span class="n">of</span><span class="w"> </span><span class="n">A</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">PB</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PB</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
+<span class="w">                 </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="k">block</span><span class="w"> </span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"></span>
+<span class="w">                 </span><span class="nb">or </span><span class="k">block</span><span class="w"> </span><span class="p">(</span><span class="n">NB</span><span class="p">,</span><span class="n">NB</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">if </span><span class="n">K</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NB</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">PC</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PC</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
+<span class="w">                 </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="k">block</span><span class="w"> </span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">A</span><span class="p">,</span><span class="w"></span>
+<span class="w">                 </span><span class="nb">or </span><span class="k">block</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">if </span><span class="n">K</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">             </span><span class="k">ENDDO</span>
+<span class="k">           ENDDO</span>
+<span class="k">         ENDDO</span><span class="w"></span>
+</code></pre></div>
+
+<p>ADDA must be declared External in the calling program.
+ See note below for more information about ADDA.</p>
+<dl>
+<dt>JAC    </dt>
+<dd>
+<p>the name of the user-supplied subroutine which supplies
+ the Jacobian matrix, dr/dy, where r = g - A*s.  JAC is
+ required if MITER = 1.  Otherwise a dummy name can be
+ passed.  This subroutine is to have the form</p>
+</dd>
+</dl>
+<div class="codehilite"><pre><span></span><code><span class="w">         </span><span class="k">SUBROUTINE </span><span class="n">JAC</span><span class="w"> </span><span class="p">(</span><span class="n">NEQ</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="n">S</span><span class="p">,</span><span class="w"> </span><span class="n">MB</span><span class="p">,</span><span class="w"> </span><span class="n">NB</span><span class="p">,</span><span class="w"> </span><span class="n">PA</span><span class="p">,</span><span class="w"> </span><span class="n">PB</span><span class="p">,</span><span class="w"> </span><span class="n">PC</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="kt">DOUBLE PRECISION </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">S</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="n">PA</span><span class="p">(</span><span class="n">MB</span><span class="p">,</span><span class="n">MB</span><span class="p">,</span><span class="n">NB</span><span class="p">),</span><span class="w"></span>
+<span class="w">        </span><span class="p">&amp;</span><span class="w">                 </span><span class="n">PB</span><span class="p">(</span><span class="n">MB</span><span class="p">,</span><span class="n">MB</span><span class="p">,</span><span class="n">NB</span><span class="p">),</span><span class="w"> </span><span class="n">PC</span><span class="p">(</span><span class="n">MB</span><span class="p">,</span><span class="n">MB</span><span class="p">,</span><span class="n">NB</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>where NEQ, T, Y, S, MB, NB, and the arrays PA, PB, and PC
+ are input, and the arrays PA, PB, and PC are output.
+ Y and S are arrays of length NEQ, and the arrays PA, PB, PC
+ are all MB by MB by NB.</p>
+<p>PA, PB, and PC are to be loaded with partial derivatives
+ (elements of the Jacobian matrix) on output, in terms of the
+ block-tridiagonal structure assumed, as described
+ in Paragraph B of the Summary of Usage above.</p>
+<p>That is, load the diagonal blocks into PA, the
+ superdiagonal blocks (and block (NB,NB-2) ) into PB, and
+ the subdiagonal blocks (and block (1,3) ) into PC.</p>
+<p>The blocks in block-row k of dr/dy are to be loaded into
+ PA(*,*,k), PB(*,*,k), and PC(*,*,k).</p>
+<p>Thus the affect of JAC should be the following:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">          </span><span class="k">DO </span><span class="n">K</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">NB</span><span class="w"></span>
+<span class="w">            </span><span class="k">DO </span><span class="n">J</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">MB</span><span class="w"></span>
+<span class="w">              </span><span class="k">DO </span><span class="n">I</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">MB</span><span class="w"></span>
+<span class="w">                </span><span class="n">PA</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="n">of</span><span class="w"></span>
+<span class="w">                  </span><span class="n">K</span><span class="o">-</span><span class="n">th</span><span class="w"> </span><span class="n">diagonal</span><span class="w"> </span><span class="k">block </span><span class="n">of</span><span class="w"> </span><span class="n">dr</span><span class="o">/</span><span class="n">dy</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="n">PB</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="k">block</span><span class="w"> </span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">of</span><span class="w"> </span><span class="n">dr</span><span class="o">/</span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="nb">or </span><span class="k">block</span><span class="w"> </span><span class="p">(</span><span class="n">NB</span><span class="p">,</span><span class="n">NB</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">if </span><span class="n">K</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">NB</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="n">PC</span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">,</span><span class="n">K</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">I</span><span class="p">,</span><span class="n">J</span><span class="p">)</span><span class="w"> </span><span class="n">element</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="k">block</span><span class="w"> </span><span class="p">(</span><span class="n">K</span><span class="p">,</span><span class="n">K</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">                  </span><span class="n">of</span><span class="w"> </span><span class="n">dr</span><span class="o">/</span><span class="n">dy</span><span class="p">,</span><span class="w"> </span><span class="nb">or </span><span class="k">block</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">if </span><span class="n">K</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">              </span><span class="k">ENDDO</span>
+<span class="k">            ENDDO</span>
+<span class="k">          ENDDO</span><span class="w"></span>
+</code></pre></div>
+
+<p>PA, PB, and PC are preset to zero by the solver,
+ so that only the nonzero elements need be loaded by JAC.
+ Each call to JAC is preceded by a call to RES with the same
+ arguments NEQ, T, Y, and S.  Thus to gain some efficiency,
+ intermediate quantities shared by both calculations may be
+ saved in a user Common block by RES and not recomputed by JAC
+ if desired.  Also, JAC may alter the Y array, if desired.</p>
+<p>JAC need not provide dr/dy exactly.  A crude
+ approximation will do, so that DLSOIBT may be used when
+ A and dr/dy are not really block-tridiagonal, but are close
+ to matrices that are.</p>
+<p>JAC must be declared External in the calling program.
+ See note below for more about JAC.</p>
+<p>Note on RES, ADDA, and JAC:</p>
+<p>These subroutines may access user-defined quantities in
+ NEQ(2),&hellip; and/or in Y(NEQ(1)+1),&hellip; if NEQ is an array
+ (dimensioned in the subroutines) and/or Y has length
+ exceeding NEQ(1).  However, these routines should not alter
+ NEQ(1), Y(1),&hellip;,Y(NEQ) or any other input variables.
+ See the descriptions of NEQ and Y below.</p>
+<dl>
+<dt>NEQ    </dt>
+<dd>
+<p>the size of the system (number of first order ordinary
+ differential equations or scalar algebraic equations).
+ Used only for input.</p>
+</dd>
+</dl>
+<p>NEQ may be decreased, but not increased, during the problem.
+ If NEQ is decreased (with ISTATE = 3 on input), the
+ remaining components of Y should be left undisturbed, if
+ these are to be accessed in RES, ADDA, or JAC.</p>
+<p>Normally, NEQ is a scalar, and it is generally referred to
+ as a scalar in this user interface description.  However,
+ NEQ may be an array, with NEQ(1) set to the system size.</p>
+<p>(The DLSOIBT package accesses only NEQ(1).)  In either case,
+ this parameter is passed as the NEQ argument in all calls
+ to RES, ADDA, and JAC.  Hence, if it is an array,</p>
+<p>locations NEQ(2),&hellip; may be used to store other integer data
+ and pass it to RES, ADDA, or JAC.  Each such subroutine
+ must include NEQ in a Dimension statement in that case.</p>
+<dl>
+<dt>Y      </dt>
+<dd>
+<p>a real array for the vector of dependent variables, of
+ length NEQ or more.  Used for both input and output on the
+ first call (ISTATE = 0 or 1), and only for output on other
+ calls.  On the first call, Y must contain the vector of
+ initial values.  On output, Y contains the computed solution
+ vector, evaluated at t.  If desired, the Y array may be used
+ for other purposes between calls to the solver.</p>
+</dd>
+</dl>
+<p>This array is passed as the Y argument in all calls to RES,
+ ADDA, and JAC.  Hence its length may exceed NEQ,
+ and locations Y(NEQ+1),&hellip; may be used to store other real
+ data and pass it to RES, ADDA, or JAC.  (The DLSOIBT
+ package accesses only Y(1),&hellip;,Y(NEQ). )</p>
+<dl>
+<dt>YDOTI  </dt>
+<dd>
+<p>a real array for the initial value of the vector
+ dy/dt and for work space, of dimension at least NEQ.</p>
+</dd>
+</dl>
+<p>On input:</p>
+<p>If ISTATE = 0 then DLSOIBT will compute the initial value
+ of dy/dt, if A is nonsingular.  Thus YDOTI will
+ serve only as work space and may have any value.</p>
+<p>If ISTATE = 1 then YDOTI must contain the initial value
+ of dy/dt.</p>
+<p>If ISTATE = 2 or 3 (continuation calls) then YDOTI
+ may have any value.</p>
+<p>Note: If the initial value of A is singular, then
+ DLSOIBT cannot compute the initial value of dy/dt, so
+ it must be provided in YDOTI, with ISTATE = 1.</p>
+<p>On output, when DLSOIBT terminates abnormally with ISTATE =
+ -1, -4, or -5, YDOTI will contain the residual
+ r = g(t,y) - A(t,y)*(dy/dt).  If r is large, t is near
+ its initial value, and YDOTI is supplied with ISTATE = 1,
+ there may have been an incorrect input value of
+ YDOTI = dy/dt, or the problem (as given to DLSOIBT)
+ may not have a solution.</p>
+<p>If desired, the YDOTI array may be used for other
+ purposes between calls to the solver.</p>
+<dl>
+<dt>T      </dt>
+<dd>
+<p>the independent variable.  On input, T is used only on the
+ first call, as the initial point of the integration.</p>
+</dd>
+</dl>
+<p>On output, after each call, T is the value at which a
+ computed solution y is evaluated (usually the same as TOUT).
+ On an error return, T is the farthest point reached.</p>
+<dl>
+<dt>TOUT   </dt>
+<dd>
+<p>the next value of t at which a computed solution is desired.
+ Used only for input.</p>
+</dd>
+</dl>
+<p>When starting the problem (ISTATE = 0 or 1), TOUT may be
+ equal to T for one call, then should .ne. T for the next
+ call.  For the initial T, an input value of TOUT .ne. T is
+ used in order to determine the direction of the integration
+ (i.e. the algebraic sign of the step sizes) and the rough
+ scale of the problem.  Integration in either direction
+ (forward or backward in t) is permitted.</p>
+<p>If ITASK = 2 or 5 (one-step modes), TOUT is ignored after
+ the first call (i.e. the first call with TOUT .ne. T).
+ Otherwise, TOUT is required on every call.</p>
+<p>If ITASK = 1, 3, or 4, the values of TOUT need not be
+ monotone, but a value of TOUT which backs up is limited
+ to the current internal T interval, whose endpoints are
+ TCUR - HU and TCUR (see optional outputs, below, for
+ TCUR and HU).</p>
+<dl>
+<dt>ITOL   </dt>
+<dd>
+<p>an indicator for the type of error control.  See
+ description below under ATOL.  Used only for input.</p>
+</dd>
+<dt>RTOL   </dt>
+<dd>
+<p>a relative error tolerance parameter, either a scalar or
+ an array of length NEQ.  See description below under ATOL.
+ Input only.</p>
+</dd>
+<dt>ATOL   </dt>
+<dd>
+<p>an absolute error tolerance parameter, either a scalar or
+ an array of length NEQ.  Input only.</p>
+</dd>
+</dl>
+<p>The input parameters ITOL, RTOL, and ATOL determine
+ the error control performed by the solver.  The solver will
+ control the vector E = (E(i)) of estimated local errors
+ in y, according to an inequality of the form</p>
+<div class="codehilite"><pre><span></span><code>                      RMS-norm of ( E(i)/EWT(i) )   .le.   1,
+          where       EWT(i) = RTOL(i)*ABS(Y(i)) + ATOL(i),
+</code></pre></div>
+
+<p>and the RMS-norm (root-mean-square norm) here is
+ RMS-norm(v) = SQRT(sum v(i)**2 / NEQ).  Here EWT = (EWT(i))
+ is a vector of weights which must always be positive, and
+ the values of RTOL and ATOL should all be non-negative.
+ The following table gives the types (scalar/array) of
+ RTOL and ATOL, and the corresponding form of EWT(i).</p>
+<table>
+<thead>
+<tr>
+<th>ITOL</th>
+<th>RTOL</th>
+<th>ATOL</th>
+<th>EWT(i)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>scalar</td>
+<td>scalar</td>
+<td>RTOL*ABS(Y(i)) + ATOL</td>
+</tr>
+<tr>
+<td>2</td>
+<td>scalar</td>
+<td>array</td>
+<td>RTOL*ABS(Y(i)) + ATOL(i)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>array</td>
+<td>scalar</td>
+<td>RTOL(i)*ABS(Y(i)) + ATOL</td>
+</tr>
+<tr>
+<td>4</td>
+<td>array</td>
+<td>scalar</td>
+<td>RTOL(i)*ABS(Y(i)) + ATOL(i)</td>
+</tr>
+</tbody>
+</table>
+<p>When either of these parameters is a scalar, it need not
+ be dimensioned in the user&rsquo;s calling program.</p>
+<p>If none of the above choices (with ITOL, RTOL, and ATOL
+ fixed throughout the problem) is suitable, more general
+ error controls can be obtained by substituting
+ user-supplied routines for the setting of EWT and/or for
+ the norm calculation.  See Part 4 below.</p>
+<p>If global errors are to be estimated by making a repeated
+ run on the same problem with smaller tolerances, then all
+ components of RTOL and ATOL (i.e. of EWT) should be scaled
+ down uniformly.</p>
+<dl>
+<dt>ITASK  </dt>
+<dd>
+<p>an index specifying the task to be performed.
+ Input only.  ITASK has the following values and meanings.</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>means normal computation of output values of y(t) at</td>
+</tr>
+<tr>
+<td></td>
+<td>t = TOUT (by overshooting and interpolating).</td>
+</tr>
+<tr>
+<td>2</td>
+<td>means take one step only and return.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>means stop at the first internal mesh point at or</td>
+</tr>
+<tr>
+<td></td>
+<td>beyond t = TOUT and return.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>means normal computation of output values of y(t) at</td>
+</tr>
+<tr>
+<td></td>
+<td>t = TOUT but without overshooting t = TCRIT.</td>
+</tr>
+<tr>
+<td></td>
+<td>TCRIT must be input as RWORK(1).  TCRIT may be equal to</td>
+</tr>
+<tr>
+<td></td>
+<td>or beyond TOUT, but not behind it in the direction of</td>
+</tr>
+<tr>
+<td></td>
+<td>integration.  This option is useful if the problem</td>
+</tr>
+<tr>
+<td></td>
+<td>has a singularity at or beyond t = TCRIT.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>means take one step, without passing TCRIT, and return.</td>
+</tr>
+<tr>
+<td></td>
+<td>TCRIT must be input as RWORK(1).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note</strong>:  If ITASK = 4 or 5 and the solver reaches TCRIT
+ (within roundoff), it will return T = TCRIT (exactly) to
+ indicate this (unless ITASK = 4 and TOUT comes before TCRIT,
+ in which case answers at t = TOUT are returned first).</p>
+<dl>
+<dt>ISTATE </dt>
+<dd>
+<p>an index used for input and output to specify the
+ state of the calculation.</p>
+</dd>
+</dl>
+<p>On input, the values of ISTATE are as follows.</p>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>means this is the first call for the problem, and</td>
+</tr>
+<tr>
+<td></td>
+<td>DLSOIBT is to compute the initial value of dy/dt</td>
+</tr>
+<tr>
+<td></td>
+<td>(while doing other initializations).  See note below.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>means this is the first call for the problem, and</td>
+</tr>
+<tr>
+<td></td>
+<td>the initial value of dy/dt has been supplied in</td>
+</tr>
+<tr>
+<td></td>
+<td>YDOTI (DLSOIBT will do other initializations).</td>
+</tr>
+<tr>
+<td></td>
+<td>See note below.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>means this is not the first call, and the calculation</td>
+</tr>
+<tr>
+<td></td>
+<td>is to continue normally, with no change in any input</td>
+</tr>
+<tr>
+<td></td>
+<td>parameters except possibly TOUT and ITASK.</td>
+</tr>
+<tr>
+<td></td>
+<td>(If ITOL, RTOL, and/or ATOL are changed between calls</td>
+</tr>
+<tr>
+<td></td>
+<td>with ISTATE = 2, the new values will be used but not</td>
+</tr>
+<tr>
+<td></td>
+<td>tested for legality.)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>means this is not the first call, and the</td>
+</tr>
+<tr>
+<td></td>
+<td>calculation is to continue normally, but with</td>
+</tr>
+<tr>
+<td></td>
+<td>a change in input parameters other than</td>
+</tr>
+<tr>
+<td></td>
+<td>TOUT and ITASK.  Changes are allowed in</td>
+</tr>
+<tr>
+<td></td>
+<td>NEQ, ITOL, RTOL, ATOL, IOPT, LRW, LIW, MF, MB, NB,</td>
+</tr>
+<tr>
+<td></td>
+<td>and any of the optional inputs except H0.</td>
+</tr>
+<tr>
+<td></td>
+<td>(See IWORK description for MB and NB.)</td>
+</tr>
+</tbody>
+</table>
+<p>Note:  A preliminary call with TOUT = T is not counted
+ as a first call here, as no initialization or checking of
+ input is done.  (Such a call is sometimes useful for the
+ purpose of outputting the initial conditions.)
+ Thus the first call for which TOUT .ne. T requires
+ ISTATE = 0 or 1 on input.</p>
+<p>On output, ISTATE has the following values and meanings.</p>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>or 1  means nothing was done; TOUT = t and</td>
+</tr>
+<tr>
+<td></td>
+<td>ISTATE = 0 or 1 on input.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>means that the integration was performed successfully.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>means that the user-supplied Subroutine RES signalled</td>
+</tr>
+<tr>
+<td></td>
+<td>DLSOIBT to halt the integration and return (IRES = 2).</td>
+</tr>
+<tr>
+<td></td>
+<td>Integration as far as T was achieved with no occurrence</td>
+</tr>
+<tr>
+<td></td>
+<td>of IRES = 2, but this flag was set on attempting the</td>
+</tr>
+<tr>
+<td></td>
+<td>next step.</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>means an excessive amount of work (more than MXSTEP</td>
+</tr>
+<tr>
+<td></td>
+<td>steps) was done on this call, before completing the</td>
+</tr>
+<tr>
+<td></td>
+<td>requested task, but the integration was otherwise</td>
+</tr>
+<tr>
+<td></td>
+<td>successful as far as T.  (MXSTEP is an optional input</td>
+</tr>
+<tr>
+<td></td>
+<td>and is normally 500.)  To continue, the user may</td>
+</tr>
+<tr>
+<td></td>
+<td>simply reset ISTATE to a value .gt. 1 and call again</td>
+</tr>
+<tr>
+<td></td>
+<td>(the excess work step counter will be reset to 0).</td>
+</tr>
+<tr>
+<td></td>
+<td>In addition, the user may increase MXSTEP to avoid</td>
+</tr>
+<tr>
+<td></td>
+<td>this error return (see below on optional inputs).</td>
+</tr>
+<tr>
+<td>-2</td>
+<td>means too much accuracy was requested for the precision</td>
+</tr>
+<tr>
+<td></td>
+<td>of the machine being used.  This was detected before</td>
+</tr>
+<tr>
+<td></td>
+<td>completing the requested task, but the integration</td>
+</tr>
+<tr>
+<td></td>
+<td>was successful as far as T.  To continue, the tolerance</td>
+</tr>
+<tr>
+<td></td>
+<td>parameters must be reset, and ISTATE must be set</td>
+</tr>
+<tr>
+<td></td>
+<td>to 3.  The optional output TOLSF may be used for this</td>
+</tr>
+<tr>
+<td></td>
+<td>purpose.  (Note: If this condition is detected before</td>
+</tr>
+<tr>
+<td></td>
+<td>taking any steps, then an illegal input return</td>
+</tr>
+<tr>
+<td></td>
+<td>(ISTATE = -3) occurs instead.)</td>
+</tr>
+<tr>
+<td>-3</td>
+<td>means illegal input was detected, before taking any</td>
+</tr>
+<tr>
+<td></td>
+<td>integration steps.  See written message for details.</td>
+</tr>
+<tr>
+<td></td>
+<td>Note:  If the solver detects an infinite loop of calls</td>
+</tr>
+<tr>
+<td></td>
+<td>to the solver with illegal input, it will cause</td>
+</tr>
+<tr>
+<td></td>
+<td>the run to stop.</td>
+</tr>
+<tr>
+<td>-4</td>
+<td>means there were repeated error test failures on</td>
+</tr>
+<tr>
+<td></td>
+<td>one attempted step, before completing the requested</td>
+</tr>
+<tr>
+<td></td>
+<td>task, but the integration was successful as far as T.</td>
+</tr>
+<tr>
+<td></td>
+<td>The problem may have a singularity, or the input</td>
+</tr>
+<tr>
+<td></td>
+<td>may be inappropriate.</td>
+</tr>
+<tr>
+<td>-5</td>
+<td>means there were repeated convergence test failures on</td>
+</tr>
+<tr>
+<td></td>
+<td>one attempted step, before completing the requested</td>
+</tr>
+<tr>
+<td></td>
+<td>task, but the integration was successful as far as T.</td>
+</tr>
+<tr>
+<td></td>
+<td>This may be caused by an inaccurate Jacobian matrix.</td>
+</tr>
+<tr>
+<td>-6</td>
+<td>means EWT(i) became zero for some i during the</td>
+</tr>
+<tr>
+<td></td>
+<td>integration.  Pure relative error control (ATOL(i) = 0.0)</td>
+</tr>
+<tr>
+<td></td>
+<td>was requested on a variable which has now vanished.</td>
+</tr>
+<tr>
+<td></td>
+<td>The integration was successful as far as T.</td>
+</tr>
+<tr>
+<td>-7</td>
+<td>means that the user-supplied Subroutine RES set</td>
+</tr>
+<tr>
+<td></td>
+<td>its error flag (IRES = 3) despite repeated tries by</td>
+</tr>
+<tr>
+<td></td>
+<td>DLSOIBT to avoid that condition.</td>
+</tr>
+<tr>
+<td>-8</td>
+<td>means that ISTATE was 0 on input but DLSOIBT was unable</td>
+</tr>
+<tr>
+<td></td>
+<td>to compute the initial value of dy/dt.  See the</td>
+</tr>
+<tr>
+<td></td>
+<td>printed message for details.</td>
+</tr>
+</tbody>
+</table>
+<p>Note:  Since the normal output value of ISTATE is 2,
+ it does not need to be reset for normal continuation.
+ Similarly, ISTATE (= 3) need not be reset if RES told
+ DLSOIBT to return because the calling program must change
+ the parameters of the problem.</p>
+<p>Also, since a negative input value of ISTATE will be
+ regarded as illegal, a negative output value requires the
+ user to change it, and possibly other inputs, before
+ calling the solver again.</p>
+<dl>
+<dt>IOPT   </dt>
+<dd>
+<p>an integer flag to specify whether or not any optional
+ inputs are being used on this call.  Input only.
+ The optional inputs are listed separately below.</p>
+<p>IOPT = 0 means no optional inputs are being used.
+            Default values will be used in all cases.
+   IOPT = 1 means one or more optional inputs are being used.</p>
+</dd>
+<dt>RWORK  </dt>
+<dd>
+<p>a real working array (double precision).
+ The length of RWORK must be at least</p>
+</dd>
+</dl>
+<div class="codehilite"><pre><span></span><code>             20 + NYH*(MAXORD + 1) + 3*NEQ + LENWM    where
+          NYH    = the initial value of NEQ,
+          MAXORD = 12 (if METH = 1) or 5 (if METH = 2) (unless a
+                   smaller value is given as an optional input),
+          LENWM  = 3*MB*MB*NB + 2.
+          (See MF description for the definition of METH.)
+ Thus if MAXORD has its default value and NEQ is constant,
+ this length is
+             22 + 16*NEQ + 3*MB*MB*NB     for MF = 11 or 12,
+             22 + 9*NEQ + 3*MB*MB*NB      for MF = 21 or 22.
+```text
+ The first 20 words of RWORK are reserved for conditional
+ and optional inputs and optional outputs.
+
+ The following word in RWORK is a conditional input:
+```text
+            RWORK(1) = TCRIT = critical value of t which the solver
+                       is not to overshoot.  Required if ITASK is
+                       4 or 5, and ignored otherwise.  (See ITASK.)
+</code></pre></div>
+
+<dl>
+<dt>LRW    </dt>
+<dd>
+<p>the length of the array RWORK, as declared by the user.
+ (This will be checked by the solver.)</p>
+</dd>
+<dt>IWORK  </dt>
+<dd>
+<p>an integer work array.  The length of IWORK must be at least
+ 20 + NEQ .  The first few words of IWORK are used for
+ additional and optional inputs and optional outputs.</p>
+</dd>
+</dl>
+<p>The following 2 words in IWORK are additional required
+ inputs to DLSOIBT:
+            IWORK(1) = MB = block size
+            IWORK(2) = NB = number of blocks in the main diagonal
+ These must satisfy  MB .ge. 1, NB .ge. 4, and MB*NB = NEQ.</p>
+<dl>
+<dt>LIW    </dt>
+<dd>
+<p>the length of the array IWORK, as declared by the user.
+ (This will be checked by the solver.)</p>
+</dd>
+</dl>
+<p>Note:  The work arrays must not be altered between calls to DLSOIBT
+ for the same problem, except possibly for the additional and
+ optional inputs, and except for the last 3*NEQ words of RWORK.
+ The latter space is used for internal scratch space, and so is
+ available for use by the user outside DLSOIBT between calls, if
+ desired (but not for use by RES, ADDA, or JAC).</p>
+<dl>
+<dt>MF     </dt>
+<dd>
+<p>the method flag.  used only for input.  The legal values of
+ MF are 11, 12, 21, and 22.</p>
+</dd>
+</dl>
+<p>MF has decimal digits METH and MITER: MF = 10*METH + MITER.
+ METH indicates the basic linear multistep method:</p>
+<table>
+<thead>
+<tr>
+<th>METH</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>means the implicit Adams method.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>means the method based on Backward</td>
+</tr>
+<tr>
+<td></td>
+<td>Differentiation Formulas (BDFS).</td>
+</tr>
+</tbody>
+</table>
+<p>The BDF method is strongly preferred for stiff
+ problems, while the Adams method is preferred when the
+ problem is not stiff.  If the matrix A(t,y) is
+ nonsingular, stiffness here can be taken to mean that of
+ the explicit ODE system dy/dt = A-inverse * g.  If A is
+ singular, the concept of stiffness is not well defined.</p>
+<p>If you do not know whether the problem is stiff, we
+ recommend using METH = 2.  If it is stiff, the advantage
+ of METH = 2 over METH = 1 will be great, while if it is
+ not stiff, the advantage of METH = 1 will be slight.
+ If maximum efficiency is important, some experimentation
+ with METH may be necessary.</p>
+<p>MITER indicates the corrector iteration method:</p>
+<table>
+<thead>
+<tr>
+<th>MITER</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>means chord iteration with a user-supplied</td>
+</tr>
+<tr>
+<td></td>
+<td>block-tridiagonal Jacobian.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>means chord iteration with an internally</td>
+</tr>
+<tr>
+<td></td>
+<td>generated (difference quotient) block-</td>
+</tr>
+<tr>
+<td></td>
+<td>tridiagonal Jacobian approximation, using</td>
+</tr>
+<tr>
+<td></td>
+<td>3*MB+1 extra calls to RES per dr/dy evaluation.</td>
+</tr>
+</tbody>
+</table>
+<p>If MITER = 1, the user must supply a Subroutine JAC
+ (the name is arbitrary) as described above under JAC.</p>
+<p>For MITER = 2, a dummy argument can be used.</p>
+<hr>
+<h4 id="optional-inputs">Optional Inputs.</h4>
+<p>The following is a list of the optional inputs provided for in the
+ call sequence.  (See also Part 2.)  For each such input variable,
+ this table lists its name as used in this documentation, its
+ location in the call sequence, its meaning, and the default value.
+ The use of any of these inputs requires IOPT = 1, and in that
+ case all of these inputs are examined.  A value of zero for any
+ of these optional inputs will cause the default value to be used.
+ Thus to use a subset of the optional inputs, simply preload
+ locations 5 to 10 in RWORK and IWORK to 0.0 and 0 respectively, and
+ then set those of interest to nonzero values.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Location</th>
+<th>Meaning and Default Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H0</td>
+<td>RWORK(5)</td>
+<td>the step size to be attempted on the first step.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The default value is determined by the solver.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HMAX</td>
+<td>RWORK(6)</td>
+<td>the maximum absolute step size allowed.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The default value is infinite.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HMIN</td>
+<td>RWORK(7)</td>
+<td>the minimum absolute step size allowed.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The default value is 0.  (This lower bound is not</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>enforced on the final step before reaching TCRIT</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>when ITASK = 4 or 5.)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MAXORD</td>
+<td>IWORK(5)</td>
+<td>the maximum order to be allowed.  The default</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>value is 12 if METH = 1, and 5 if METH = 2.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>If MAXORD exceeds the default value, it will</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>be reduced to the default value.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>If MAXORD is changed during the problem, it may</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>cause the current order to be reduced.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MXSTEP</td>
+<td>IWORK(6)</td>
+<td>maximum number of (internally defined) steps</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>allowed during one call to the solver.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>The default value is 500.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>MXHNIL</td>
+<td>IWORK(7)</td>
+<td>maximum number of messages printed (per problem)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>warning that T + H = T on a step (H = step size).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>This must be positive to result in a non-default</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>value.  The default value is 10.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p>Optional Outputs.</p>
+<p>As optional additional output from DLSOIBT, the variables listed
+ below are quantities related to the performance of DLSOIBT
+ which are available to the user.  These are communicated by way of
+ the work arrays, but also have internal mnemonic names as shown.
+ Except where stated otherwise, all of these outputs are defined
+ on any successful return from DLSOIBT, and on any return with
+ ISTATE = -1, -2, -4, -5, -6, or -7.  On a return with -3 (illegal
+ input) or -8, they will be unchanged from their existing values
+ (if any), except possibly for TOLSF, LENRW, and LENIW.
+ On any error return, outputs relevant to the error will be defined,
+ as noted below.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Location</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>HU</td>
+<td>RWORK(11)</td>
+<td>the step size in t last used (successfully).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HCUR</td>
+<td>RWORK(12)</td>
+<td>the step size to be attempted on the next step.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TCUR</td>
+<td>RWORK(13)</td>
+<td>the current value of the independent variable</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>which the solver has actually reached, i.e. the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>current internal mesh point in t.  On output, TCUR</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>will always be at least as far as the argument</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>T, but may be farther (if interpolation was done).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TOLSF</td>
+<td>RWORK(14)</td>
+<td>a tolerance scale factor, greater than 1.0,</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>computed when a request for too much accuracy was</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>detected (ISTATE = -3 if detected at the start of</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>the problem, ISTATE = -2 otherwise).  If ITOL is</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>left unaltered but RTOL and ATOL are uniformly</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>scaled up by a factor of TOLSF for the next call,</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>then the solver is deemed likely to succeed.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>(The user may also ignore TOLSF and alter the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>tolerance parameters in any other way appropriate.)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NST</td>
+<td>IWORK(11)</td>
+<td>the number of steps taken for the problem so far.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NRE</td>
+<td>IWORK(12)</td>
+<td>the number of residual evaluations (RES calls)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>for the problem so far.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NJE</td>
+<td>IWORK(13)</td>
+<td>the number of Jacobian evaluations (each involving</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>an evaluation of a and dr/dy) for the problem so</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>far.  This equals the number of calls to ADDA and</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>(if MITER = 1) to JAC, and the number of matrix</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>LU decompositions.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NQU</td>
+<td>IWORK(14)</td>
+<td>the method order last used (successfully).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>NQCUR</td>
+<td>IWORK(15)</td>
+<td>the order to be attempted on the next step.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IMXER</td>
+<td>IWORK(16)</td>
+<td>the index of the component of largest magnitude in</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>the weighted local error vector ( E(i)/EWT(i) ),</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>on an error return with ISTATE = -4 or -5.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LENRW</td>
+<td>IWORK(17)</td>
+<td>the length of RWORK actually required.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>This is defined on normal returns and on an illegal</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>input return for insufficient storage.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>LENIW</td>
+<td>IWORK(18)</td>
+<td>the length of IWORK actually required.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>This is defined on normal returns and on an illegal</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>input return for insufficient storage.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The following two arrays are segments of the RWORK array which
+ may also be of interest to the user as optional outputs.
+ For each array, the table below gives its internal name,
+ its base address in RWORK, and its description.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Base Address</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>YH</td>
+<td>21</td>
+<td>the Nordsieck history array, of size NYH by</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>(NQCUR + 1), where NYH is the initial value</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>of NEQ.  For j = 0,1,&hellip;,NQCUR, column j+1</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>of YH contains HCUR**j/factorial(j) times</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>the j-th derivative of the interpolating</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>polynomial currently representing the solution,</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>evaluated at t = TCUR.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>ACOR</td>
+<td>LENRW-NEQ+1</td>
+<td>array of size NEQ used for the accumulated</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>corrections on each step, scaled on output to</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>represent the estimated local error in y on</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>the last step.  This is the vector E in the</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>description of the error control.  It is</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>defined only on a return from DLSOIBT with</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>ISTATE = 2.</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h4 id="part-2-other-routines-callable">Part 2.  Other Routines Callable.</h4>
+<p>The following are optional calls which the user may make to
+ gain additional capabilities in conjunction with DLSOIBT.
+ (The routines XSETUN and XSETF are designed to conform to the
+ SLATEC error handling package.)</p>
+<table>
+<thead>
+<tr>
+<th>Form of Call</th>
+<th>Function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CALL XSETUN(LUN)</td>
+<td>Set the logical unit number, LUN, for</td>
+</tr>
+<tr>
+<td></td>
+<td>output of messages from DLSOIBT, if</td>
+</tr>
+<tr>
+<td></td>
+<td>the default is not desired.</td>
+</tr>
+<tr>
+<td></td>
+<td>The default value of LUN is 6.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CALL XSETF(MFLAG)</td>
+<td>Set a flag to control the printing of</td>
+</tr>
+<tr>
+<td></td>
+<td>messages by DLSOIBT.</td>
+</tr>
+<tr>
+<td></td>
+<td>MFLAG = 0 means do not print. (Danger:</td>
+</tr>
+<tr>
+<td></td>
+<td>This risks losing valuable information.)</td>
+</tr>
+<tr>
+<td></td>
+<td>MFLAG = 1 means print (the default).</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>Either of the above calls may be made at</td>
+</tr>
+<tr>
+<td></td>
+<td>any time and will take effect immediately.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CALL DSRCOM(RSAV,ISAV,JOB)</td>
+<td>saves and restores the contents of</td>
+</tr>
+<tr>
+<td></td>
+<td>the internal Common blocks used by</td>
+</tr>
+<tr>
+<td></td>
+<td>DLSOIBT (see Part 3 below).</td>
+</tr>
+<tr>
+<td></td>
+<td>RSAV must be a real array of length 218</td>
+</tr>
+<tr>
+<td></td>
+<td>or more, and ISAV must be an integer</td>
+</tr>
+<tr>
+<td></td>
+<td>array of length 37 or more.</td>
+</tr>
+<tr>
+<td></td>
+<td>JOB=1 means save Common into RSAV/ISAV.</td>
+</tr>
+<tr>
+<td></td>
+<td>JOB=2 means restore Common from RSAV/ISAV.</td>
+</tr>
+<tr>
+<td></td>
+<td>DSRCOM is useful if one is</td>
+</tr>
+<tr>
+<td></td>
+<td>interrupting a run and restarting</td>
+</tr>
+<tr>
+<td></td>
+<td>later, or alternating between two or</td>
+</tr>
+<tr>
+<td></td>
+<td>more problems solved with DLSOIBT.</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>CALL DINTDY(,,,,,)</td>
+<td>Provide derivatives of y, of various</td>
+</tr>
+<tr>
+<td>(see below)</td>
+<td>orders, at a specified point t, if</td>
+</tr>
+<tr>
+<td></td>
+<td>desired.  It may be called only after</td>
+</tr>
+<tr>
+<td></td>
+<td>a successful return from DLSOIBT.</td>
+</tr>
+</tbody>
+</table>
+<p>The detailed instructions for using DINTDY are as follows.
+ The form of the call is:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">   </span><span class="k">CALL </span><span class="n">DINTDY</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">K</span><span class="p">,</span><span class="w"> </span><span class="n">RWORK</span><span class="p">(</span><span class="mi">21</span><span class="p">),</span><span class="w"> </span><span class="n">NYH</span><span class="p">,</span><span class="w"> </span><span class="n">DKY</span><span class="p">,</span><span class="w"> </span><span class="n">IFLAG</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>The input parameters are:</p>
+<dl>
+<dt>T         </dt>
+<dd>
+<p>value of independent variable where answers are desired
+ (normally the same as the t last returned by DLSOIBT).
+ For valid results, T must lie between TCUR - HU and TCUR.
+ (See optional outputs for TCUR and HU.)</p>
+</dd>
+<dt>K         </dt>
+<dd>
+<p>integer order of the derivative desired.  K must satisfy
+ 0 .le. K .le. NQCUR, where NQCUR is the current order
+ (see optional outputs).  The capability corresponding
+ to K = 0, i.e. computing y(t), is already provided
+ by DLSOIBT directly.  Since NQCUR .ge. 1, the first
+ derivative dy/dt is always available with DINTDY.</p>
+</dd>
+<dt>RWORK(21) </dt>
+<dd>
+<p>the base address of the history array YH.</p>
+</dd>
+<dt>NYH       </dt>
+<dd>
+<p>column length of YH, equal to the initial value of NEQ.</p>
+</dd>
+</dl>
+<p>The output parameters are:</p>
+<dl>
+<dt>DKY       </dt>
+<dd>
+<p>a real array of length NEQ containing the computed value
+ of the K-th derivative of y(t).
+ IFLAG     </p>
+</dd>
+<dd>
+<p>integer flag, returned as 0 if K and T were legal,
+ -1 if K was illegal, and -2 if T was illegal.
+ On an error return, a message is also written.</p>
+</dd>
+</dl>
+<hr>
+<h4 id="part-3-save-and-restore-program-state">Part 3.  Save and Restore Program State</h4>
+<p>If the solution of a given problem by DLSOIBT is to be interrupted
+ and then later continued, such as when restarting an interrupted run
+ or alternating between two or more problems, the user should save,
+ following the return from the last DLSOIBT call prior to the
+ interruption, the contents of the call sequence variables and the
+ internal state variables, and later restore these values before the
+ next DLSOIBT call for that problem.  To save and restore the values
+ , use Subroutine DSRCOM (see Part 2 above).</p>
+<hr>
+<h4 id="part-4-optionally-replaceable-solver-routines">Part 4.  Optionally Replaceable Solver Routines.</h4>
+<p>Below are descriptions of two routines in the DLSOIBT package which
+ relate to the measurement of errors.  Either routine can be
+ replaced by a user-supplied version, if desired.  However, since such
+ a replacement may have a major impact on performance, it should be
+ done only when absolutely necessary, and only with great caution.
+ (Note: The means by which the package version of a routine is
+ superseded by the user&rsquo;s version may be system-dependent.)</p>
+<h4 id="a-dewset">(a) DEWSET()</h4>
+<p>The following subroutine is called just before each internal
+ integration step, and sets the array of error weights, EWT, as
+ described under ITOL/RTOL/ATOL above:</p>
+<div class="codehilite"><pre><span></span><code>     SUBROUTINE DEWSET (NEQ, ITOL, RTOL, ATOL, YCUR, EWT)
+</code></pre></div>
+
+<p>where NEQ, ITOL, RTOL, and ATOL are as in the DLSOIBT call sequence,
+ YCUR contains the current dependent variable vector, and
+ EWT is the array of weights set by DEWSET.</p>
+<p>If the user supplies this subroutine, it must return in EWT(i)
+ (i = 1,&hellip;,NEQ) a positive quantity suitable for comparing errors
+ in y(i) to.  The EWT array returned by DEWSET is passed to the DVNORM
+ routine (see below), and also used by DLSOIBT in the computation
+ of the optional output IMXER, the diagonal Jacobian approximation,
+ and the increments for difference quotient Jacobians.</p>
+<p>In the user-supplied version of DEWSET, it may be desirable to use
+ the current values of derivatives of y.  Derivatives up to order NQ
+ are available from the history array YH, described above under
+ optional outputs.  In DEWSET, YH is identical to the YCUR array,
+ extended to NQ + 1 columns with a column length of NYH and scale
+ factors of H**j/factorial(j).  On the first call for the problem,
+ given by NST = 0, NQ is 1 and H is temporarily set to 1.0.
+ NYH is the initial value of NEQ.  The quantities NQ, H, and NST
+ can be obtained by including in DEWSET the statements:</p>
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="kt">DOUBLE PRECISION </span><span class="n">RLS</span><span class="w"></span>
+<span class="w">      </span><span class="k">COMMON</span><span class="w"> </span><span class="o">/</span><span class="n">DLS001</span><span class="o">/</span><span class="w"> </span><span class="n">RLS</span><span class="p">(</span><span class="mi">218</span><span class="p">),</span><span class="n">ILS</span><span class="p">(</span><span class="mi">37</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">NQ</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ILS</span><span class="p">(</span><span class="mi">33</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">NST</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ILS</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">H</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RLS</span><span class="p">(</span><span class="mi">212</span><span class="p">)</span><span class="w"></span>
+</code></pre></div>
+
+<p>Thus, for example, the current value of dy/dt can be obtained as
+ YCUR(NYH+i)/H  (i=1,&hellip;,NEQ)  (and the division by H is
+ unnecessary when NST = 0).</p>
+<h4 id="b-dvnorm">(b) DVNORM()</h4>
+<p>The following is a real function routine which computes the weighted
+ root-mean-square norm of a vector v:</p>
+<div class="codehilite"><pre><span></span><code>     D = DVNORM (N, V, W)
+</code></pre></div>
+
+<p>where:</p>
+<div class="codehilite"><pre><span></span><code>   N = the length of the vector,
+   V = real array of length N containing the vector,
+   W = real array of length N containing weights,
+   D = SQRT( (1/N) * sum(V(i)*W(i))**2 ).
+</code></pre></div>
+
+<p>DVNORM is called with N = NEQ and with W(i) = 1.0/EWT(i), where
+ EWT is as set by Subroutine DEWSET.</p>
+<p>If the user supplies this function, it should return a non-negative
+ value of DVNORM suitable for use in the error control in DLSOIBT.
+ None of the arguments should be altered by DVNORM.
+ For example, a user-supplied DVNORM routine might:
+  - substitute a max-norm of (V(i)*W(i)) for the RMS-norm, or
+  - ignore some components of V in the norm, with the effect of
+    suppressing the error control on those components of y.</p>
+<hr>
+<h3 id="pedigree">Pedigree:</h3>
+<p>Reference:
+     Alan C. Hindmarsh,  ODEPACK, A Systematized Collection of ODE
+     Solvers, in Scientific Computing,  R. S. Stepleman et al. (Eds.),
+     North-Holland, Amsterdam, 1983, pp. 55-64.
+ This is based on the the 18 November 2003 version of ODEPACK</p>
+<hr>
+<p>Authors:       Alan C. Hindmarsh and Jeffrey F. Painter
+                Center for Applied Scientific Computing, L-561
+                Lawrence Livermore National Laboratory
+                Livermore, CA 94551
+ and
+                Charles S. Kenney
+ formerly at:   Naval Weapons Center
+                China Lake, CA 93555</p>
+<hr>
+
+    <h3>Arguments</h3>
+      <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" id="variable-res~6"></span>real</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>res</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-adda~6"></span>real</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>adda</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-jac~13"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>jac</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-neq~14"></span>integer,</td>
+<td></td>
+  <td></td>  <td>dimension(*)</td><td>::</td>
+  <td><strong>Neq</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-y~14"></span>real(kind=dp),</td>
+<td></td>
+  <td></td>  <td>dimension(*)</td><td>::</td>
+  <td><strong>Y</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-ydoti~3"></span>real(kind=dp),</td>
+<td></td>
+  <td></td>  <td>dimension(*)</td><td>::</td>
+  <td><strong>Ydoti</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-t~10"></span>real(kind=dp),</td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>T</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tout~9"></span>real(kind=dp),</td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Tout</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-itol~9"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Itol</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-rtol~9"></span>real(kind=dp),</td>
+<td></td>
+  <td></td>  <td>dimension(*)</td><td>::</td>
+  <td><strong>Rtol</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-atol~9"></span>real(kind=dp),</td>
+<td></td>
+  <td></td>  <td>dimension(*)</td><td>::</td>
+  <td><strong>Atol</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-itask~9"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Itask</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-istate~9"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Istate</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-iopt~9"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Iopt</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-rwork~9"></span>real(kind=dp),</td>
+<td>intent(inout),</td>
+  <td></td>  <td>dimension(Lrw)</td><td>::</td>
+  <td><strong>Rwork</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-lrw~9"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Lrw</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-iwork~9"></span>integer,</td>
+<td>intent(inout),</td>
+  <td></td>  <td>dimension(Liw)</td><td>::</td>
+  <td><strong>Iwork</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-liw~9"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Liw</strong></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-mf~7"></span>integer</td>
+<td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Mf</strong></td><td></td>
+</tr>
+</tbody>
+</table>
+
+    <br>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+  <h3 class="panel-title">Calls</h3>
+      </div>
+      <div class="panel-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dlsoibt~2~~CallsGraph Pages: 1 -->
+<svg id="procdlsoibt2CallsGraph" width="429pt" height="300pt"
+ viewBox="0.00 0.00 429.00 300.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dlsoibt~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 296)">
+<title>proc~~dlsoibt~2~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-296 425,-296 425,4 -4,4"/>
+<!-- proc~dlsoibt~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node1" class="node">
+<title>proc~dlsoibt~2</title>
+<polygon fill="none" stroke="black" points="54,-150 0,-150 0,-126 54,-126 54,-150"/>
+<text text-anchor="middle" x="27" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50">dlsoibt</text>
+</g>
+<!-- proc~xerrwd~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node2" class="node">
+<title>proc~xerrwd~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node2"><a xlink:href=".././proc/xerrwd~2.html" xlink:title="xerrwd">
+<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-272 184.5,-272 184.5,-248 238.5,-248 238.5,-272"/>
+<text text-anchor="middle" x="211.5" y="-257.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoibt~2&#45;&gt;proc~xerrwd~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge1" class="edge">
+<title>proc~dlsoibt~2&#45;&gt;proc~xerrwd~2</title>
+<path fill="none" stroke="#000000" d="M37.94,-150.36C49.4,-164.04 69.33,-186.11 90,-201 116.36,-219.99 149.77,-235.8 174.72,-246.26"/>
+<polygon fill="#000000" stroke="#000000" points="173.59,-249.58 184.17,-250.14 176.25,-243.11 173.59,-249.58"/>
+</g>
+<!-- proc~daigbt~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node3" class="node">
+<title>proc~daigbt~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node3"><a xlink:href=".././proc/daigbt~2.html" xlink:title="daigbt">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-192 91,-192 91,-168 145,-168 145,-192"/>
+<text text-anchor="middle" x="118" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daigbt</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoibt~2&#45;&gt;proc~daigbt~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge2" class="edge">
+<title>proc~dlsoibt~2&#45;&gt;proc~daigbt~2</title>
+<path fill="none" stroke="#000000" d="M53.74,-150.15C62.6,-154.33 72.67,-159.08 82.13,-163.54"/>
+<polygon fill="#000000" stroke="#000000" points="80.78,-166.78 91.32,-167.88 83.77,-160.45 80.78,-166.78"/>
+</g>
+<!-- proc~dvnorm~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node4" class="node">
+<title>proc~dvnorm~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node4"><a xlink:href=".././proc/dvnorm~2.html" xlink:title="dvnorm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="145,-150 91,-150 91,-126 145,-126 145,-150"/>
+<text text-anchor="middle" x="118" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoibt~2&#45;&gt;proc~dvnorm~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge3" class="edge">
+<title>proc~dlsoibt~2&#45;&gt;proc~dvnorm~2</title>
+<path fill="none" stroke="#000000" d="M54.22,-138C62.55,-138 71.91,-138 80.82,-138"/>
+<polygon fill="#000000" stroke="#000000" points="80.97,-141.5 90.97,-138 80.97,-134.5 80.97,-141.5"/>
+</g>
+<!-- proc~dstodi -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node5" class="node">
+<title>proc~dstodi</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node5"><a xlink:href=".././proc/dstodi.html" xlink:title="dstodi">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-108 91,-108 91,-84 145,-84 145,-108"/>
+<text text-anchor="middle" x="118" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstodi</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoibt~2&#45;&gt;proc~dstodi -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge4" class="edge">
+<title>proc~dlsoibt~2&#45;&gt;proc~dstodi</title>
+<path fill="none" stroke="#000000" d="M53.74,-125.85C62.6,-121.67 72.67,-116.92 82.13,-112.46"/>
+<polygon fill="#000000" stroke="#000000" points="83.77,-115.55 91.32,-108.12 80.78,-109.22 83.77,-115.55"/>
+</g>
+<!-- proc~dumach~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node6" class="node">
+<title>proc~dumach~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node6"><a xlink:href=".././proc/dumach~2.html" xlink:title="dumach">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-66 90,-66 90,-42 146,-42 146,-66"/>
+<text text-anchor="middle" x="118" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoibt~2&#45;&gt;proc~dumach~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge5" class="edge">
+<title>proc~dlsoibt~2&#45;&gt;proc~dumach~2</title>
+<path fill="none" stroke="#000000" d="M38.98,-125.92C51.04,-112.88 71.2,-91.73 90,-75 90.95,-74.16 91.93,-73.31 92.92,-72.46"/>
+<polygon fill="#000000" stroke="#000000" points="95.19,-75.13 100.73,-66.1 90.76,-69.7 95.19,-75.13"/>
+</g>
+<!-- proc~dintdy~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node7" class="node">
+<title>proc~dintdy~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node7"><a xlink:href=".././proc/dintdy~2.html" xlink:title="dintdy">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-272 91,-272 91,-248 145,-248 145,-272"/>
+<text text-anchor="middle" x="118" y="-257.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoibt~2&#45;&gt;proc~dintdy~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge6" class="edge">
+<title>proc~dlsoibt~2&#45;&gt;proc~dintdy~2</title>
+<path fill="none" stroke="#000000" d="M34.62,-150.13C45.16,-168.96 66.92,-205.97 90,-234 91.86,-236.26 93.9,-238.53 96,-240.73"/>
+<polygon fill="#000000" stroke="#000000" points="93.63,-243.32 103.2,-247.88 98.57,-238.35 93.63,-243.32"/>
+</g>
+<!-- proc~dewset~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node8" class="node">
+<title>proc~dewset~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node8"><a xlink:href=".././proc/dewset~2.html" xlink:title="dewset">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-24 91,-24 91,0 145,0 145,-24"/>
+<text text-anchor="middle" x="118" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoibt~2&#45;&gt;proc~dewset~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge7" class="edge">
+<title>proc~dlsoibt~2&#45;&gt;proc~dewset~2</title>
+<path fill="none" stroke="#000000" d="M33.39,-125.71C42.82,-105.05 63.85,-62.72 90,-33 90.6,-32.32 91.23,-31.64 91.87,-30.97"/>
+<polygon fill="#000000" stroke="#000000" points="94.26,-33.53 99.3,-24.21 89.55,-28.35 94.26,-33.53"/>
+</g>
+<!-- proc~ixsav~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node9" class="node">
+<title>proc~ixsav~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node9"><a xlink:href=".././proc/ixsav~2.html" xlink:title="ixsav">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="331,-292 277,-292 277,-268 331,-268 331,-292"/>
+<text text-anchor="middle" x="304" y="-277.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ixsav</text>
+</a>
+</g>
+</g>
+<!-- proc~xerrwd~2&#45;&gt;proc~ixsav~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge8" class="edge">
+<title>proc~xerrwd~2&#45;&gt;proc~ixsav~2</title>
+<path fill="none" stroke="#000000" d="M238.68,-265.78C247.49,-267.73 257.49,-269.94 266.94,-272.03"/>
+<polygon fill="#000000" stroke="#000000" points="266.36,-275.49 276.88,-274.23 267.87,-268.65 266.36,-275.49"/>
+</g>
+<!-- proc~ddecbt~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node11" class="node">
+<title>proc~ddecbt~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node11"><a xlink:href=".././proc/ddecbt~2.html" xlink:title="ddecbt">
+<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-211 184.5,-211 184.5,-187 238.5,-187 238.5,-211"/>
+<text text-anchor="middle" x="211.5" y="-196.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddecbt</text>
+</a>
+</g>
+</g>
+<!-- proc~daigbt~2&#45;&gt;proc~ddecbt~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge9" class="edge">
+<title>proc~daigbt~2&#45;&gt;proc~ddecbt~2</title>
+<path fill="none" stroke="#000000" d="M145.47,-185.5C154.55,-187.38 164.88,-189.53 174.59,-191.54"/>
+<polygon fill="#000000" stroke="#000000" points="173.91,-194.98 184.41,-193.58 175.33,-188.12 173.91,-194.98"/>
+</g>
+<!-- proc~dsolbt~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node13" class="node">
+<title>proc~dsolbt~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node13"><a xlink:href=".././proc/dsolbt~2.html" xlink:title="dsolbt">
+<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-169 184.5,-169 184.5,-145 238.5,-145 238.5,-169"/>
+<text text-anchor="middle" x="211.5" y="-154.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolbt</text>
+</a>
+</g>
+</g>
+<!-- proc~daigbt~2&#45;&gt;proc~dsolbt~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge10" class="edge">
+<title>proc~daigbt~2&#45;&gt;proc~dsolbt~2</title>
+<path fill="none" stroke="#000000" d="M145.47,-173.35C154.55,-171.06 164.88,-168.47 174.59,-166.03"/>
+<polygon fill="#000000" stroke="#000000" points="175.56,-169.39 184.41,-163.56 173.86,-162.6 175.56,-169.39"/>
+</g>
+<!-- proc~dcfode -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node10" class="node">
+<title>proc~dcfode</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node10"><a xlink:href=".././proc/dcfode.html" xlink:title="dcfode">
+<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-127 184.5,-127 184.5,-103 238.5,-103 238.5,-127"/>
+<text text-anchor="middle" x="211.5" y="-112.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
+</a>
+</g>
+</g>
+<!-- proc~dstodi&#45;&gt;proc~dcfode -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge12" class="edge">
+<title>proc~dstodi&#45;&gt;proc~dcfode</title>
+<path fill="none" stroke="#000000" d="M145.47,-101.5C154.55,-103.38 164.88,-105.53 174.59,-107.54"/>
+<polygon fill="#000000" stroke="#000000" points="173.91,-110.98 184.41,-109.58 175.33,-104.12 173.91,-110.98"/>
+</g>
+<!-- proc~dvnorm -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node14" class="node">
+<title>proc~dvnorm</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node14"><a xlink:href=".././proc/dvnorm.html" xlink:title="dvnorm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="238.5,-85 184.5,-85 184.5,-61 238.5,-61 238.5,-85"/>
+<text text-anchor="middle" x="211.5" y="-70.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
+</a>
+</g>
+</g>
+<!-- proc~dstodi&#45;&gt;proc~dvnorm -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge11" class="edge">
+<title>proc~dstodi&#45;&gt;proc~dvnorm</title>
+<path fill="none" stroke="#000000" d="M145.47,-89.35C154.55,-87.06 164.88,-84.47 174.59,-82.03"/>
+<polygon fill="#000000" stroke="#000000" points="175.56,-85.39 184.41,-79.56 173.86,-78.6 175.56,-85.39"/>
+</g>
+<!-- none~dumsum -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node12" class="node">
+<title>none~dumsum</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="241,-43 182,-43 182,-19 241,-19 241,-43"/>
+<text text-anchor="middle" x="211.5" y="-28.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumsum</text>
+</g>
+<!-- proc~dumach~2&#45;&gt;none~dumsum -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge13" class="edge">
+<title>proc~dumach~2&#45;&gt;none~dumsum</title>
+<path fill="none" stroke="#000000" d="M146.45,-47.1C154.47,-45.08 163.39,-42.84 171.97,-40.69"/>
+<polygon fill="#000000" stroke="#000000" points="172.95,-44.05 181.8,-38.22 171.24,-37.26 172.95,-44.05"/>
+</g>
+<!-- proc~dintdy~2&#45;&gt;proc~xerrwd~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge14" class="edge">
+<title>proc~dintdy~2&#45;&gt;proc~xerrwd~2</title>
+<path fill="none" stroke="#000000" d="M145.47,-260C154.46,-260 164.67,-260 174.29,-260"/>
+<polygon fill="#000000" stroke="#000000" points="174.41,-263.5 184.41,-260 174.41,-256.5 174.41,-263.5"/>
+</g>
+<!-- proc~dgefa~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node15" class="node">
+<title>proc~dgefa~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node15"><a xlink:href=".././proc/dgefa~2.html" xlink:title="dgefa">
+<polygon fill="#d9534f" stroke="#d9534f" points="331,-250 277,-250 277,-226 331,-226 331,-250"/>
+<text text-anchor="middle" x="304" y="-235.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgefa</text>
+</a>
+</g>
+</g>
+<!-- proc~ddecbt~2&#45;&gt;proc~dgefa~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge15" class="edge">
+<title>proc~ddecbt~2&#45;&gt;proc~dgefa~2</title>
+<path fill="none" stroke="#000000" d="M238.68,-210.28C247.68,-214.16 257.92,-218.57 267.54,-222.72"/>
+<polygon fill="#000000" stroke="#000000" points="266.31,-226 276.88,-226.74 269.08,-219.57 266.31,-226"/>
+</g>
+<!-- proc~dgesl~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node16" class="node">
+<title>proc~dgesl~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node16"><a xlink:href=".././proc/dgesl~2.html" xlink:title="dgesl">
+<polygon fill="#d9534f" stroke="#d9534f" points="331,-170 277,-170 277,-146 331,-146 331,-170"/>
+<text text-anchor="middle" x="304" y="-155.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgesl</text>
+</a>
+</g>
+</g>
+<!-- proc~ddecbt~2&#45;&gt;proc~dgesl~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge16" class="edge">
+<title>proc~ddecbt~2&#45;&gt;proc~dgesl~2</title>
+<path fill="none" stroke="#000000" d="M238.68,-187.14C247.68,-183.06 257.92,-178.42 267.54,-174.07"/>
+<polygon fill="#000000" stroke="#000000" points="269.22,-177.15 276.88,-169.83 266.33,-170.77 269.22,-177.15"/>
+</g>
+<!-- proc~ddot~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node17" class="node">
+<title>proc~ddot~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node17"><a xlink:href=".././proc/ddot~2.html" xlink:title="ddot">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="421,-166 367,-166 367,-142 421,-142 421,-166"/>
+<text text-anchor="middle" x="394" y="-151.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddot</text>
+</a>
+</g>
+</g>
+<!-- proc~ddecbt~2&#45;&gt;proc~ddot~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge17" class="edge">
+<title>proc~ddecbt~2&#45;&gt;proc~ddot~2</title>
+<path fill="none" stroke="#000000" d="M238.75,-196.22C263,-193.27 299.88,-187.79 331,-179 339.76,-176.52 348.98,-173.22 357.55,-169.82"/>
+<polygon fill="#000000" stroke="#000000" points="358.97,-173.02 366.89,-165.99 356.31,-166.55 358.97,-173.02"/>
+</g>
+<!-- proc~dsolbt~2&#45;&gt;proc~dgesl~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge18" class="edge">
+<title>proc~dsolbt~2&#45;&gt;proc~dgesl~2</title>
+<path fill="none" stroke="#000000" d="M238.68,-157.29C247.4,-157.39 257.28,-157.49 266.64,-157.6"/>
+<polygon fill="#000000" stroke="#000000" points="266.84,-161.1 276.88,-157.71 266.92,-154.1 266.84,-161.1"/>
+</g>
+<!-- proc~dsolbt~2&#45;&gt;proc~ddot~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge19" class="edge">
+<title>proc~dsolbt~2&#45;&gt;proc~ddot~2</title>
+<path fill="none" stroke="#000000" d="M238.75,-146.9C250.3,-142.97 264.13,-138.95 277,-137 300.73,-133.41 307.21,-133.8 331,-137 339.49,-138.14 348.47,-140.13 356.87,-142.35"/>
+<polygon fill="#000000" stroke="#000000" points="356.2,-145.8 366.77,-145.14 358.09,-139.06 356.2,-145.8"/>
+</g>
+<!-- proc~dscal~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node18" class="node">
+<title>proc~dscal~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node18"><a xlink:href=".././proc/dscal~2.html" xlink:title="dscal">
+<polygon fill="#d9534f" stroke="#d9534f" points="421,-292 367,-292 367,-268 421,-268 421,-292"/>
+<text text-anchor="middle" x="394" y="-277.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscal</text>
+</a>
+</g>
+</g>
+<!-- proc~dgefa~2&#45;&gt;proc~dscal~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge20" class="edge">
+<title>proc~dgefa~2&#45;&gt;proc~dscal~2</title>
+<path fill="none" stroke="#000000" d="M330.45,-250.15C339.21,-254.33 349.17,-259.08 358.52,-263.54"/>
+<polygon fill="#000000" stroke="#000000" points="357.07,-266.73 367.6,-267.88 360.09,-260.41 357.07,-266.73"/>
+</g>
+<!-- proc~daxpy~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node19" class="node">
+<title>proc~daxpy~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node19"><a xlink:href=".././proc/daxpy~2.html" xlink:title="daxpy">
+<polygon fill="#d9534f" stroke="#d9534f" points="421,-208 367,-208 367,-184 421,-184 421,-208"/>
+<text text-anchor="middle" x="394" y="-193.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daxpy</text>
+</a>
+</g>
+</g>
+<!-- proc~dgefa~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge21" class="edge">
+<title>proc~dgefa~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M330.45,-225.85C339.21,-221.67 349.17,-216.92 358.52,-212.46"/>
+<polygon fill="#000000" stroke="#000000" points="360.09,-215.59 367.6,-208.12 357.07,-209.27 360.09,-215.59"/>
+</g>
+<!-- proc~idamax~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node20" class="node">
+<title>proc~idamax~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node20"><a xlink:href=".././proc/idamax~2.html" xlink:title="idamax">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="421,-250 367,-250 367,-226 421,-226 421,-250"/>
+<text text-anchor="middle" x="394" y="-235.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">idamax</text>
+</a>
+</g>
+</g>
+<!-- proc~dgefa~2&#45;&gt;proc~idamax~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge22" class="edge">
+<title>proc~dgefa~2&#45;&gt;proc~idamax~2</title>
+<path fill="none" stroke="#000000" d="M331.4,-238C339.39,-238 348.31,-238 356.82,-238"/>
+<polygon fill="#000000" stroke="#000000" points="356.92,-241.5 366.92,-238 356.92,-234.5 356.92,-241.5"/>
+</g>
+<!-- proc~dgesl~2&#45;&gt;proc~ddot~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge23" class="edge">
+<title>proc~dgesl~2&#45;&gt;proc~ddot~2</title>
+<path fill="none" stroke="#000000" d="M331.4,-156.8C339.39,-156.44 348.31,-156.03 356.82,-155.64"/>
+<polygon fill="#000000" stroke="#000000" points="357.09,-159.14 366.92,-155.19 356.77,-152.14 357.09,-159.14"/>
+</g>
+<!-- proc~dgesl~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge24" class="edge">
+<title>proc~dgesl~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M331.4,-169.4C339.66,-172.97 348.9,-176.96 357.66,-180.74"/>
+<polygon fill="#000000" stroke="#000000" points="356.35,-183.99 366.92,-184.74 359.13,-177.56 356.35,-183.99"/>
+</g>
+</g>
+</svg>
+</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="597pt" height="32pt"
+ viewBox="0.00 0.00 596.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 592.5,-28 592.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node4" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="388.5,-24 243.5,-24 243.5,0 388.5,0 388.5,-24"/>
+<text text-anchor="middle" x="316" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="465,-24 407,-24 407,0 465,0 465,-24"/>
+<text text-anchor="middle" x="436" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="588.5,-24 483.5,-24 483.5,0 588.5,0 588.5,-24"/>
+<text text-anchor="middle" x="536" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a procedure to one which it calls. Dashed 
+    arrows point from an interface to procedures which implement that interface.
+    This could include the module procedures in a generic interface or the
+    implementation in a submodule of an interface in a parent module.
+    </p>
+    </div></div></div></div>
+      </div>
+    </div>
+    <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      <h3>Contents</h3>
+ 
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
+  <div id="vars-1" class="panel-collapse collapse">
+    <div class="list-group">
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-atoli~9">atoli</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-ayi~8">ayi</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-big~9">big</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-ewti~9">ewti</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-h0~9">h0</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-hmax~9">hmax</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-hmx~9">hmx</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-i~14">i</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-i1~11">i1</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-i2~9">i2</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-ier~6">ier</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-iflag~9">iflag</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-ihit~9">ihit</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-imxer~9">imxer</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-ires~4">ires</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-kgo~10">kgo</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-leniw~9">leniw</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-lenrw~9">lenrw</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-lenwm~7">lenwm</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-lp~2">lp</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-lyd0~3">lyd0</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-mb">mb</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-mord~9">mord</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-msg~9">msg</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-mxhnl0~9">mxhnl0</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-mxstp0~9">mxstp0</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-nb">nb</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-rh~11">rh</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-rtoli~9">rtoli</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-size~9">size</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-sum~8">sum</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-tcrit~9">tcrit</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-tdist~8">tdist</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-tnext~9">tnext</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-tol~8">tol</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-tolsf~9">tolsf</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-tp~9">tp</a>
+      <a class="list-group-item" href="../proc/dlsoibt~2.html#variable-w0~8">w0</a>
+    </div>
+  </div>
+</div>
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+
+    <section>    
+      <h2>Variables</h2>
+    <table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+<tbody>
+<tr>
+  <td><span class="anchor" id="variable-atoli~9"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>atoli</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-ayi~8"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>ayi</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-big~9"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>big</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-ewti~9"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>ewti</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-h0~9"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>h0</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-hmax~9"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>hmax</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-hmx~9"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>hmx</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-i~14"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>i</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-i1~11"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>i1</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-i2~9"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>i2</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-ier~6"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>ier</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-iflag~9"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>iflag</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-ihit~9"></span>logical,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>ihit</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-imxer~9"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>imxer</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-ires~4"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>ires</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-kgo~10"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>kgo</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-leniw~9"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>leniw</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-lenrw~9"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>lenrw</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-lenwm~7"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>lenwm</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-lp~2"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>lp</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-lyd0~3"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>lyd0</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-mb"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>mb</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-mord~9"></span>integer,</td>
+<td>public,</td>  <td>dimension(2), save</td><td>::</td>
+  <td><strong>mord</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-msg~9"></span>character(len=60),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>msg</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-mxhnl0~9"></span>integer,</td>
+<td>public,</td>  <td>save</td><td>::</td>
+  <td><strong>mxhnl0</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-mxstp0~9"></span>integer,</td>
+<td>public,</td>  <td>save</td><td>::</td>
+  <td><strong>mxstp0</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-nb"></span>integer,</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>nb</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-rh~11"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>rh</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-rtoli~9"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>rtoli</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-size~9"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>size</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-sum~8"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>sum</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tcrit~9"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>tcrit</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tdist~8"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>tdist</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tnext~9"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>tnext</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tol~8"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>tol</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tolsf~9"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>tolsf</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tp~9"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>tp</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-w0~8"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>w0</strong></td><td></td><td></td><td></td>
+</tr>
+</tbody>
+</table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+    
+    
+    </div>
+  </div>
+
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2022 
+</p>
+        </div>
+        <div class="col-xs-6 col-md-6">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2022-02-06 02:54            </p>
+        </div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+      });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+  </body>
+</html>
