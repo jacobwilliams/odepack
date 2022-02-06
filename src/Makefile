@@ -84,7 +84,8 @@ clean:
 #-------------------------------------------------------------------------------
 .PHONY: ford
 ford: 
-	cd ..; ford --css docs/local.css --extensions 'inc' --extensions 'f90' ford.md
+	#cd ..; ford --css docs/local.css --extensions 'inc' --extensions 'f90' ford.md
+	cd ..; ford ford.md
 #-------------------------------------------------------------------------------
 .PHONY: run
 run: $(PROG)

@@ -12,9 +12,12 @@ media_dir: docs/images
 exclude_dir: archive
              FODDER
              example
+css: docs/local.css
 display: public
          protected
 source: true
+extensions: f90
+            inc
 proc_internals: true
 sort: permission-alpha
 graph: true
