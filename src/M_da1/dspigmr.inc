@@ -247,7 +247,8 @@ if ( bnrm0>Delta ) then
       rho = abs(prod*bnrm)
       if ( (ll>Kmp) .and. (Kmp<Maxl) ) then
          if ( ll==Kmp+1 ) then
-            call dcopy(N,V(1,1),1,Dl,1)
+            !X!call dcopy(N,V(1,1),1,Dl,1)
+	    Dl(1:N)=V(1:N,1)
             do i = 1 , Kmp
                ip1 = i + 1
                i2 = i*2
