@@ -342,7 +342,7 @@ integer :: mm , mx , mz
 common /pcom  / q1 , q2 , q3 , q4 , a3 , a4 , om , c3 , dz ,      &
  & hdco , vdco , haco , mx , mz , mm
 !
-real(kind=dp) , dimension(2,2,*) :: bd
+real(kind=dp) :: bd(2,2,*)
 real(kind=dp) :: c1 , c2 , czdn , czup , diag , temp , zdn , zup
 real(kind=dp) , dimension(neq) :: f0 , f1 , rewt , ysv
 real(kind=dp) :: hl0 , t
@@ -428,13 +428,13 @@ subroutine c2sum(y,mx,mz,c2tot)
 implicit none
 integer,parameter :: dp=kind(0.0d0)
 !
-real(kind=dp) , dimension(2,mx,mz) :: y
-integer :: mx
-integer :: mz
-real(kind=dp) :: c2tot
+real(kind=dp)     :: y(2,mx,mz)
+integer           :: mx
+integer           :: mz
+real(kind=dp)     :: c2tot
 !
-integer :: jx , jz
-real(kind=dp) :: sum
+integer           :: jx , jz
+real(kind=dp)     :: sum
 !
 ! Sum the c2 values.
       sum = 0.0d0
