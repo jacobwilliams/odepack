@@ -143,19 +143,22 @@ real(kind=dp) , parameter :: five=5.0d0 , half=0.5d0 , tenth=0.1d0 , zero=0.0d0
       if ( sgnchg ) then
    !  Sign change between X0 and X2, so replace X1 with X2. ----------------
          X1 = dlsr%x2
-         call dcopy(Ng,Gx,1,G1,1)
+         !X!call dcopy(Ng,Gx,1,G1,1)
+         G1(1:Ng) = Gx(1:Ng)
          dlsr%last = 1
          xroot = .false.
       elseif ( .not.zroot ) then
    !  No sign change between X0 and X2.  Replace X0 with X2. ---------------
-         call dcopy(Ng,Gx,1,G0,1)
+         !X!call dcopy(Ng,Gx,1,G0,1)
+         G0(1:Ng) = Gx(1:Ng)
          X0 = dlsr%x2
          dlsr%last = 0
          xroot = .false.
       else
    !  Zero value at X2 and no sign change in (X0,X2), so X2 is a root. -----
          X1 = dlsr%x2
-         call dcopy(Ng,Gx,1,G1,1)
+         !X!call dcopy(Ng,Gx,1,G1,1)
+         G1(1:Ng) = Gx(1:Ng)
          xroot = .true.
       endif
       if ( abs(X1-X0)<=Hmin ) xroot = .true.
@@ -188,7 +191,8 @@ real(kind=dp) , parameter :: five=5.0d0 , half=0.5d0 , tenth=0.1d0 , zero=0.0d0
             !
             !  Zero value at X1 and no sign change in (X0,X1).  Return JFLAG = 3. ---
             X = X1
-            call dcopy(Ng,G1,1,Gx,1)
+            !X!call dcopy(Ng,G1,1,Gx,1)
+            Gx(1:Ng) = G1(1:Ng)
             do i = 1 , Ng
                Jroot(i) = 0
                if ( abs(G1(i))<=zero ) Jroot(i) = 1
@@ -198,7 +202,8 @@ real(kind=dp) , parameter :: five=5.0d0 , half=0.5d0 , tenth=0.1d0 , zero=0.0d0
          endif
    !
    !  No sign changes in this interval.  Set X = X1, return JFLAG = 4. -----
-         call dcopy(Ng,G1,1,Gx,1)
+         !X!call dcopy(Ng,G1,1,Gx,1)
+         Gx(1:Ng) = G1(1:Ng)
          X = X1
          Jflag = 4
          return
@@ -216,7 +221,8 @@ real(kind=dp) , parameter :: five=5.0d0 , half=0.5d0 , tenth=0.1d0 , zero=0.0d0
    !  Return with X1 as the root.  Set JROOT.  Set X = X1 and GX = G1. -----
       Jflag = 2
       X = X1
-      call dcopy(Ng,G1,1,Gx,1)
+      !X!call dcopy(Ng,G1,1,Gx,1)
+      Gx(1:Ng) = G1(1:Ng)
       do i = 1 , Ng
          Jroot(i) = 0
          if ( abs(G1(i))>zero ) then

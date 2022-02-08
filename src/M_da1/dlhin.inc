@@ -178,7 +178,8 @@ integer       :: i, iter
     100  continue
    H0 = sign(H0,Tout-T0)
    !  Restore Y array from Y0, then exit. ----------------------------------
-   call dcopy(N,Y0,1,Y,1)
+   !X!call dcopy(N,Y0,1,Y,1)
+   Y(1:N) = Y0(1:N)
    Niter = iter
    Ier = 0
 end subroutine dlhin
