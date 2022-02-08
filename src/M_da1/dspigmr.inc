@@ -297,7 +297,8 @@ elseif ( Mnewt>0 ) then
    enddo
    return
 else
-   call dcopy(N,B,1,X,1)
+   !X!call dcopy(N,B,1,X,1)
+   X(1:N) = B(1:N)
    return
 endif
 

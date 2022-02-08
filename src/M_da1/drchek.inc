@@ -191,7 +191,8 @@ logical             :: zroot
       call droots(dlsr%ngc,hming,jflag,dlsr%t0,t1,G0,G1,Gx,x,Jroot)
       if ( jflag>1 ) then
          dlsr%t0 = x
-         call dcopy(dlsr%ngc,Gx,1,G0,1)
+         !X!call dcopy(dlsr%ngc,Gx,1,G0,1)
+         G0(1:dlsr%ngc) = Gx(1:dlsr%ngc)
          if ( jflag/=4 ) exit
          return
       else
