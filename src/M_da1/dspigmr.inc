@@ -129,43 +129,51 @@
 !!
 !! : integer error flag:
 !!
-!!                0 means convergence in LGMR iterations, LGMR .le. MAXL.
-!!                1 means the convergence test did not pass in MAXL
-!!                  iterations, but the residual norm is .lt. 1,
-!!                  or .lt. norm(b) if MNEWT = 0, and so x is computed.
-!!                2 means the convergence test did not pass in MAXL
-!!                  iterations, residual .gt. 1, and X is undefined.
-!!                3 means there was a recoverable error in PSOL
-!!                  caused by the preconditioner being out of date.
-!!               -1 means there was a nonrecoverable error in PSOL.
+!!  value | description
+!!  ----- | -----------------------------------------------------
+!!      0 | means convergence in LGMR iterations, LGMR .le. MAXL.
+!!      1 | means the convergence test did not pass in MAXL
+!!        | iterations, but the residual norm is .lt. 1,
+!!        | or .lt. norm(b) if MNEWT = 0, and so x is computed.
+!!      2 | means the convergence test did not pass in MAXL
+!!        | iterations, residual .gt. 1, and X is undefined.
+!!      3 | means there was a recoverable error in PSOL
+!!        | caused by the preconditioner being out of date.
+!!     -1 | means there was a nonrecoverable error in PSOL.
 !!
 !-----------------------------------------------------------------------
 subroutine dspigmr(Neq,Tn,Y,Savf,B,Wght,N,Maxl,Maxlp1,Kmp,Delta,Hl0,Jpre,Mnewt,f,psol,Npsl,X,V,Hes,Q,Lgmr,Wp,Iwp,Wk,Dl,Iflag)
 !
-integer , dimension(*) :: Neq
-real(kind=dp) :: Tn
-real(kind=dp) , dimension(*) :: Y
-real(kind=dp) , dimension(*) :: Savf
-real(kind=dp) , intent(inout) , dimension(*) :: B
-real(kind=dp) , dimension(*) :: Wght
-integer :: N
-integer , intent(in) :: Maxl
-integer :: Maxlp1
-integer :: Kmp
-real(kind=dp) , intent(inout) :: Delta
-real(kind=dp) :: Hl0
-integer :: Jpre
-integer , intent(in) :: Mnewt
-external :: f
-external psol
+integer                     :: Neq(*)
+real(kind=dp)               :: Tn
+real(kind=dp)               :: Y(*)
+real(kind=dp)               :: Savf(*)
+real(kind=dp),intent(inout) :: B(*)
+real(kind=dp)               :: Wght(*)
+integer                     :: N
+integer,intent(in)          :: Maxl
+integer                     :: Maxlp1
+integer                     :: Kmp
+real(kind=dp),intent(inout) :: Delta
+real(kind=dp)               :: Hl0
+integer                     :: Jpre
+integer,intent(in)          :: Mnewt
+external                    :: f
+external                    :: psol
+integer,intent(out)         :: Npsl
+real(kind=dp),intent(inout) :: X(*)
+real(kind=dp),intent(inout) :: V(N,*)
+real(kind=dp)               :: Hes(Maxlp1,*)
+real(kind=dp),intent(inout) :: Q(*)
+integer,intent(out)         :: Lgmr
+real(kind=dp),intent(inout) :: Wp(*)
+integer                     :: Iwp(*)
+real(kind=dp),intent(inout) :: Wk(*)
+real(kind=dp),intent(inout) :: Dl(*)
+integer,intent(out)         :: Iflag 
 !
 real(kind=dp) :: bnrm , bnrm0 , c , dlnrm , prod , rho , s , snormw , tem
-real(kind=dp) , intent(inout) , dimension(*) :: Dl , Q , Wk , Wp , X
-real(kind=dp) , dimension(Maxlp1,*) :: Hes
 integer :: i , i2 , ier , info , ip1 , j , k , ll , llp1
-integer,intent(out)  :: Iflag , Lgmr , Npsl
-integer :: Iwp(*)
-real(kind=dp), intent(inout), dimension(N,*) :: V
 !
 Iflag = 0
 Lgmr = 0
@@ -177,10 +185,12 @@ Npsl = 0
 do i = 1 , N
    V(i,1) = B(i)*Wght(i)
 enddo
+
 bnrm0 = dnrm2(N,V,1)
 bnrm = bnrm0
+
 if ( bnrm0>Delta ) then
-!  Apply inverse of left preconditioner to vector b. --------------------
+   !  Apply inverse of left preconditioner to vector b. --------------------
    ier = 0
    if ( Jpre/=0 .and. Jpre/=2 ) then
       call psol(Neq,Tn,Y,Savf,Wk,Hl0,Wp,Iwp,B,1,ier)
@@ -193,7 +203,7 @@ if ( bnrm0>Delta ) then
          if ( ier>0 ) Iflag = 3
          return
       endif
-!  Calculate norm of scaled vector V(*,1) and normalize it. -------------
+      !  Calculate norm of scaled vector V(*,1) and normalize it. -------------
       do i = 1 , N
          V(i,1) = B(i)*Wght(i)
       enddo
@@ -202,25 +212,25 @@ if ( bnrm0>Delta ) then
    endif
    tem = 1.0D0/bnrm
    call dscal(N,tem,V(1,1),1)
-!  Zero out the HES array. ----------------------------------------------
+   !  Zero out the HES array. ----------------------------------------------
    do j = 1 , Maxl
       do i = 1 , Maxlp1
          Hes(i,j) = 0.0D0
       enddo
    enddo
-!-----------------------------------------------------------------------
-!  Main loop to compute the vectors V(*,2) to V(*,MAXL).
-!  The running product PROD is needed for the convergence test.
-!-----------------------------------------------------------------------
+   !-----------------------------------------------------------------------
+   !  Main loop to compute the vectors V(*,2) to V(*,MAXL).
+   !  The running product PROD is needed for the convergence test.
+   !-----------------------------------------------------------------------
    prod = 1.0D0
    do ll = 1 , Maxl
       Lgmr = ll
-!-----------------------------------------------------------------------
-!  Call routine DATV to compute VNEW = Abar*v(ll), where Abar is
-!  the matrix A with scaling and inverse preconditioner factors applied.
-!  Call routine DORTHOG to orthogonalize the new vector VNEW = V(*,LL+1).
-!  Call routine DHEQR to update the factors of HES.
-!-----------------------------------------------------------------------
+      !-----------------------------------------------------------------------
+      !  Call routine DATV to compute VNEW = Abar*v(ll), where Abar is
+      !  the matrix A with scaling and inverse preconditioner factors applied.
+      !  Call routine DORTHOG to orthogonalize the new vector VNEW = V(*,LL+1).
+      !  Call routine DHEQR to update the factors of HES.
+      !-----------------------------------------------------------------------
       call datv(Neq,Y,Savf,V(1,ll),Wght,X,f,psol,V(1,ll+1),Wk,Wp,Iwp,Hl0,Jpre,ier,Npsl)
       if ( ier/=0 ) then
             !-----------------------------------------------------------------------
