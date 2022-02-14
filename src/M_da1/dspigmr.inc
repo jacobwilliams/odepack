@@ -8,23 +8,23 @@
 !!
 !!### On entry
 !!
-!! NEQ 
+!! NEQ
 !!
 !! : problem size, passed to F and PSOL (NEQ(1) = N).
 !!
-!! TN 
+!! TN
 !!
 !! : current value of t.
 !!
-!! Y 
+!! Y
 !!
 !! : array containing current dependent variable vector.
 !!
-!! SAVF 
+!! SAVF
 !!
 !! : array containing current value of f(t,y).
 !!
-!! B 
+!! B
 !!
 !! : the right hand side of the system A*x = b.
 !!
@@ -33,17 +33,17 @@
 !! the final approximation.
 !! (B is the same as V(*,MAXL+1) in the call to DSPIGMR.)
 !!
-!! WGHT 
+!! WGHT
 !!
 !! : the vector of length N containing the nonzero
 !! elements of the diagonal scaling matrix.
 !!
-!! N 
+!! N
 !!
 !! : the order of the matrix A, and the lengths
 !! of the vectors WGHT, B and X.
 !!
-!! MAXL 
+!! MAXL
 !!
 !! : the maximum allowable order of the matrix HES.
 !!
@@ -51,81 +51,81 @@
 !!
 !! : MAXLP1 = MAXL + 1, used for dynamic dimensioning of HES.
 !!
-!! KMP 
+!! KMP
 !!
 !! : the number of previous vectors the new vector VNEW
 !! must be made orthogonal to.  KMP .le. MAXL.
 !!
-!! DELTA 
+!! DELTA
 !!
 !! : tolerance on residuals b - A*x in weighted RMS-norm.
 !!
-!! HL0 
+!! HL0
 !!
 !! : current value of (step size h) * (coefficient l0).
 !!
-!! JPRE 
+!! JPRE
 !!
 !! : preconditioner type flag.
 !!
-!! MNEWT 
+!! MNEWT
 !!
 !! : Newton iteration counter (.ge. 0).
 !!
-!! WK 
+!! WK
 !!
 !! : real work array used by routine DATV and PSOL.
 !!
-!! DL 
+!! DL
 !!
 !! : real work array used for calculation of the residual
 !! norm RHO when the method is incomplete (KMP .lt. MAXL).
 !! Not needed or referenced in complete case (KMP = MAXL).
 !!
-!! WP 
+!! WP
 !!
 !! : real work array used by preconditioner PSOL.
 !!
-!! IWP 
+!! IWP
 !!
 !! : integer work array used by preconditioner PSOL.
 !!
 !!### On return
 !!
-!! X    
+!! X
 !!
 !! : the final computed approximation to the solution
 !! of the system A*x = b.
 !!
-!! LGMR 
+!! LGMR
 !!
 !! : the number of iterations performed and
 !! the current order of the upper Hessenberg
 !! matrix HES.
 !!
-!! NPSL 
+!! NPSL
 !!
 !! : the number of calls to PSOL.
 !!
-!! V    
+!! V
 !!
 !! : the N by (LGMR+1) array containing the LGMR
 !! orthogonal vectors V(*,1) to V(*,LGMR).
 !!
-!! HES  
+!! HES
 !!
 !! : the upper triangular factor of the QR decomposition
 !! of the (LGMR+1) by lgmr upper Hessenberg matrix whose
 !! entries are the scaled inner-products of A*V(*,i)
 !! and V(*,k).
 !!
-!! Q    
+!! Q
 !!
 !! : real array of length 2*MAXL containing the components
 !! of the Givens rotations used in the QR decomposition
 !! of HES.  It is loaded in DHEQR and used in DHELS.
 !!
-!! IFLAG 
+!! IFLAG
 !!
 !! : integer error flag:
 !!
@@ -170,7 +170,7 @@ real(kind=dp),intent(inout) :: Wp(*)
 integer                     :: Iwp(*)
 real(kind=dp),intent(inout) :: Wk(*)
 real(kind=dp),intent(inout) :: Dl(*)
-integer,intent(out)         :: Iflag 
+integer,intent(out)         :: Iflag
 !
 real(kind=dp) :: bnrm , bnrm0 , c , dlnrm , prod , rho , s , snormw , tem
 integer :: i , i2 , ier , info , ip1 , j , k , ll , llp1
@@ -258,7 +258,7 @@ if ( bnrm0>Delta ) then
       if ( (ll>Kmp) .and. (Kmp<Maxl) ) then
          if ( ll==Kmp+1 ) then
             !X!call dcopy(N,V(1,1),1,Dl,1)
-	    Dl(1:N)=V(1:N,1)
+            Dl(1:N)=V(1:N,1)
             do i = 1 , Kmp
                ip1 = i + 1
                i2 = i*2
