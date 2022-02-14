@@ -1,91 +1,97 @@
-!> \brief \b DNRM2
-!
-!  =========== DOCUMENTATION ===========
-!
-! Online html documentation available at
-!            http://www.netlib.org/lapack/explore-html/
-!
-!  Definition:
-!  ===========
-!
-!       DOUBLE PRECISION FUNCTION DNRM2(N,X,INCX)
-!
-!       .. Scalar Arguments ..
-!       INTEGER INCX,N
-!       ..
-!       .. Array Arguments ..
-!       DOUBLE PRECISION X(*)
-!       ..
-!
-!
-!> \par Purpose:
-!  =============
+!----------------------------------------------------------------------------------------------------------------------------------!
+!()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
+!----------------------------------------------------------------------------------------------------------------------------------!
 !>
-!> \verbatim
-!>
-!> DNRM2 returns the euclidean norm of a vector via the function
-!> name, so that
-!>
-!>    DNRM2 := sqrt( x'*x )
-!> \endverbatim
-!
-!  Arguments:
-!  ==========
-!
-!> \param[in] N
-!> \verbatim
-!>          N is INTEGER
-!>         number of elements in input vector(s)
-!> \endverbatim
-!>
-!> \param[in] X
-!> \verbatim
-!>          X is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
-!> \endverbatim
-!>
-!> \param[in] INCX
-!> \verbatim
-!>          INCX is INTEGER, storage spacing between elements of X
-!>          If INCX > 0, X(1+(i-1)*INCX) = x(i) for 1 <= i <= n
-!>          If INCX < 0, X(1-(n-i)*INCX) = x(i) for 1 <= i <= n
-!>          If INCX = 0, x isn't a vector so there is no need to call
-!>          this subroutine.  If you call it anyway, it will count x(1)
-!>          in the vector norm N times.
-!> \endverbatim
-!
+!!### NAME
+!!   dnrm2(3f) - [M_odepack::matrix] Compute the Euclidean length (L2 norm) of a vector.
+!!
+!!### SYNOPSIS
+!!      double precision function dnrm2(n,x,incx)
+!!      integer,intent(in) :: incx,n
+!!      double precision,intent(in) :: x(*)
+!!
+!!### DESCRIPTION
+!!
+!!   Euclidean norm of the N-vector stored in DX with storage
+!!   increment INCX, so that
+!!
+!!        DNRM2 := sqrt( x'*x )
+!!
+!!### INPUT
+!!
+!!  N
+!!  :   number of elements in input vector(s)
+!!
+!!  DX
+!!  :   double precision vector with N elements
+!>  dimensioned to at least ( 1 + ( N - 1 )*abs( INCX ) )
+!!
+!!  INCX
+!!  :   storage spacing between elements of DX
+!!
+!!      + If INCX > 0, X(1+(i-1)*INCX) = x(i) for 1 <= i <= n
+!!      + If INCX < 0, X(1-(n-i)*INCX) = x(i) for 1 <= i <= n
+!!      + If INCX = 0, x isn't a vector so there is no need to call
+!!        this subroutine.  If you call it anyway, it will count x(1)
+!!        in the vector norm N times.
+!!
+!!### OUTPUT
+!!
+!!  DNRM2
+!!  :   double precision result (zero if N .LE. 0)
+!-----------------------------------------------------------------------------------------------------------------------------------
+! ### REFERENCES 
+! #### B L A S  Subprogram
+!    C. L. Lawson, R. J. Hanson, D. R. Kincaid and F. T.
+!    Krogh, Basic linear algebra subprograms for Fortran
+!    usage, Algorithm No. 539, Transactions on Mathematical
+!    Software 5, 3 (September 1979), pp. 308-323.
+! 
+! ### CATEGORY  D1A3B
+! ### TYPE      DOUBLE PRECISION (SNRM2-S, DNRM2-D, SCNRM2-C)
+! ### KEYWORDS  BLAS, EUCLIDEAN LENGTH, EUCLIDEAN NORM, L2,
+!               LINEAR ALGEBRA, UNITARY, VECTOR
+! ### AUTHOR  Lawson, C. L., (JPL)
+!             Hanson, R. J., (SNLA)
+!             Kincaid, D. R., (U. of Texas)
+!             Krogh, F. T., (JPL)
+! ### ROUTINES CALLED  (NONE)
+! ### REVISION HISTORY  (YYMMDD)
+!     19791001  DATE WRITTEN
+!     19890531  Changed all specific intrinsics to generic.  (WRB)
+!     19890831  Modified array declarations.  (WRB)
+!     19890831  REVISION DATE from Version 3.2
+!     19891214  Prologue converted to Version 4.0 format.  (BAB)
+!     19920501  Reformatted the REFERENCES section.  (WRB)
+! 
 !  Authors:
 !  ========
 !
-!> \author Edward Anderson, Lockheed Martin
+!   author Edward Anderson, Lockheed Martin
+!   date August 2016
 !
-!> \date August 2016
+!   ingroup single_blas_level1
 !
-!> \ingroup single_blas_level1
-!
-!> \par Contributors:
+!  Contributors:
 !  ==================
-!>
-!> Weslley Pereira, University of Colorado Denver, USA
+! 
+!  Weslley Pereira, University of Colorado Denver, USA
 !
-!> \par Further Details:
+!  Further Details:
 !  =====================
-!>
-!> \verbatim
-!>
-!>  Anderson E. (2017)
-!>  Algorithm 978: Safe Scaling in the Level 1 BLAS
-!>  ACM Trans Math Softw 44:1--28
-!>  https://doi.org/10.1145/3061665
-!>
-!>  Blue, James L. (1978)
-!>  A Portable Fortran Program to Find the Euclidean Norm of a Vector
-!>  ACM Trans Math Softw 4:15--23
-!>  https://doi.org/10.1145/355769.355771
-!>
-!> \endverbatim
-!>
-!  =====================================================================
-function DNRM2( n, x, incx )
+! 
+!   Anderson E. (2017)
+!   Algorithm 978: Safe Scaling in the Level 1 BLAS
+!   ACM Trans Math Softw 44:1--28
+!   https://doi.org/10.1145/3061665
+! 
+!   Blue, James L. (1978)
+!   A Portable Fortran Program to Find the Euclidean Norm of a Vector
+!   ACM Trans Math Softw 4:15--23
+!   https://doi.org/10.1145/355769.355771
+! 
+!-----------------------------------------------------------------------------------------------------------------------------------
+pure function DNRM2( n, x, incx )
    real(dp) :: DNRM2
 !
 !  -- Reference BLAS level1 routine (version 3.9.1) --
@@ -109,10 +115,10 @@ function DNRM2( n, x, incx )
        (maxexponent(0._dp) - digits(0._dp) + 1) * 0.5_dp))
 !  ..
 !  .. Scalar Arguments ..
-   integer :: incx, n
+   integer,intent(in) :: incx, n
 !  ..
 !  .. Array Arguments ..
-   real(dp) :: x(*)
+   real(dp),intent(in) :: x(*)
 !  ..
 !  .. Local Scalars ..
    integer :: i, ix
@@ -196,3 +202,4 @@ function DNRM2( n, x, incx )
    DNRM2 = scl*sqrt( sumsq )
    return
 end function
+!-----------------------------------------------------------------------------------------------------------------------------------
