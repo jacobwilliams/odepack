@@ -115,10 +115,10 @@ integer :: i, ibr, ier, ipil, ipiu, iptt1, iptt2, j, k, kamax, kamin, kcmax, kcm
    if ( dlss%moss==1 .or. dlss%moss==2 ) liwk = lenwk1*dlss%lrat
    if ( dlss%ipjan+dls1%n-1>liwk ) goto 600
    if ( dlss%moss/=0 ) then
-   !
+      !
       if ( dlss%istatc/=3 ) then
-   !  ISTATE = 1 and MOSS .ne. 0.  Perturb Y for structure determination.
-   !  Initialize S with random nonzero elements for structure determination.
+         !  ISTATE = 1 and MOSS .ne. 0.  Perturb Y for structure determination.
+         !  Initialize S with random nonzero elements for structure determination.
          do i = 1, dls1%n
             erwt = 1.0D0/Ewt(i)
             fac = 1.0D0 + 1.0D0/(i+1.0D0)
@@ -137,8 +137,8 @@ integer :: i, ibr, ier, ipil, ipiu, iptt1, iptt2, j, k, kamax, kamin, kcmax, kcm
          case default
          endselect
       endif
-   !
-   !  ISTATE = 3 and MOSS .ne. 0. Load Y from YH(*,1) and S from YH(*,2). --
+      !
+      !  ISTATE = 3 and MOSS .ne. 0. Load Y from YH(*,1) and S from YH(*,2). --
       do i = 1, dls1%n
          Y(i) = Yh(i)
          S(i) = Yh(dls1%n+i)

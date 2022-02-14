@@ -85,7 +85,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 0.6% of total for procedures.">151 statements</a>
+    title=" 0.7% of total for procedures.">157 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/dspigmr.inc"> Source File</a></li>
   </ul>
@@ -156,23 +156,23 @@
  An initial guess of x = 0 is assumed.</p>
 <h3 id="on-entry">On entry</h3>
 <dl>
-<dt>NEQ </dt>
+<dt>NEQ</dt>
 <dd>
 <p>problem size, passed to F and PSOL (NEQ(1) = N).</p>
 </dd>
-<dt>TN </dt>
+<dt>TN</dt>
 <dd>
 <p>current value of t.</p>
 </dd>
-<dt>Y </dt>
+<dt>Y</dt>
 <dd>
 <p>array containing current dependent variable vector.</p>
 </dd>
-<dt>SAVF </dt>
+<dt>SAVF</dt>
 <dd>
 <p>array containing current value of f(t,y).</p>
 </dd>
-<dt>B </dt>
+<dt>B</dt>
 <dd>
 <p>the right hand side of the system A*x = b.</p>
 </dd>
@@ -181,17 +181,17 @@
 <p>the final approximation.
  (B is the same as V(*,MAXL+1) in the call to DSPIGMR.)</p>
 <dl>
-<dt>WGHT </dt>
+<dt>WGHT</dt>
 <dd>
 <p>the vector of length N containing the nonzero
  elements of the diagonal scaling matrix.</p>
 </dd>
-<dt>N </dt>
+<dt>N</dt>
 <dd>
 <p>the order of the matrix A, and the lengths
  of the vectors WGHT, B and X.</p>
 </dd>
-<dt>MAXL </dt>
+<dt>MAXL</dt>
 <dd>
 <p>the maximum allowable order of the matrix HES.</p>
 </dd>
@@ -199,107 +199,142 @@
 <dd>
 <p>MAXLP1 = MAXL + 1, used for dynamic dimensioning of HES.</p>
 </dd>
-<dt>KMP </dt>
+<dt>KMP</dt>
 <dd>
 <p>the number of previous vectors the new vector VNEW
  must be made orthogonal to.  KMP .le. MAXL.</p>
 </dd>
-<dt>DELTA </dt>
+<dt>DELTA</dt>
 <dd>
 <p>tolerance on residuals b - A*x in weighted RMS-norm.</p>
 </dd>
-<dt>HL0 </dt>
+<dt>HL0</dt>
 <dd>
 <p>current value of (step size h) * (coefficient l0).</p>
 </dd>
-<dt>JPRE </dt>
+<dt>JPRE</dt>
 <dd>
 <p>preconditioner type flag.</p>
 </dd>
-<dt>MNEWT </dt>
+<dt>MNEWT</dt>
 <dd>
 <p>Newton iteration counter (.ge. 0).</p>
 </dd>
-<dt>WK </dt>
+<dt>WK</dt>
 <dd>
 <p>real work array used by routine DATV and PSOL.</p>
 </dd>
-<dt>DL </dt>
+<dt>DL</dt>
 <dd>
 <p>real work array used for calculation of the residual
  norm RHO when the method is incomplete (KMP .lt. MAXL).
  Not needed or referenced in complete case (KMP = MAXL).</p>
 </dd>
-<dt>WP </dt>
+<dt>WP</dt>
 <dd>
 <p>real work array used by preconditioner PSOL.</p>
 </dd>
-<dt>IWP </dt>
+<dt>IWP</dt>
 <dd>
 <p>integer work array used by preconditioner PSOL.</p>
 </dd>
 </dl>
 <h3 id="on-return">On return</h3>
 <dl>
-<dt>X    </dt>
+<dt>X</dt>
 <dd>
 <p>the final computed approximation to the solution
  of the system A*x = b.</p>
 </dd>
-<dt>LGMR </dt>
+<dt>LGMR</dt>
 <dd>
 <p>the number of iterations performed and
  the current order of the upper Hessenberg
  matrix HES.</p>
 </dd>
-<dt>NPSL </dt>
+<dt>NPSL</dt>
 <dd>
 <p>the number of calls to PSOL.</p>
 </dd>
-<dt>V    </dt>
+<dt>V</dt>
 <dd>
 <p>the N by (LGMR+1) array containing the LGMR
  orthogonal vectors V(<em>,1) to V(</em>,LGMR).</p>
 </dd>
-<dt>HES  </dt>
+<dt>HES</dt>
 <dd>
 <p>the upper triangular factor of the QR decomposition
  of the (LGMR+1) by lgmr upper Hessenberg matrix whose
  entries are the scaled inner-products of A<em>V(</em>,i)
  and V(*,k).</p>
 </dd>
-<dt>Q    </dt>
+<dt>Q</dt>
 <dd>
 <p>real array of length 2*MAXL containing the components
  of the Givens rotations used in the QR decomposition
  of HES.  It is loaded in DHEQR and used in DHELS.</p>
 </dd>
-<dt>IFLAG </dt>
+<dt>IFLAG</dt>
 <dd>
 <p>integer error flag:</p>
-<div class="codehilite"><pre><span></span><code>        <span class="mi">0</span> <span class="nv">means</span> <span class="nv">convergence</span> <span class="nv">in</span> <span class="nv">LGMR</span> <span class="nv">iterations</span>, <span class="nv">LGMR</span> .<span class="nv">le</span>. <span class="nv">MAXL</span>.
-        <span class="mi">1</span> <span class="nv">means</span> <span class="nv">the</span> <span class="nv">convergence</span> <span class="nv">test</span> <span class="nv">did</span> <span class="nv">not</span> <span class="nv">pass</span> <span class="nv">in</span> <span class="nv">MAXL</span>
-          <span class="nv">iterations</span>, <span class="nv">but</span> <span class="nv">the</span> <span class="nv">residual</span> <span class="nv">norm</span> <span class="nv">is</span> .<span class="nv">lt</span>. <span class="mi">1</span>,
-          <span class="nv">or</span> .<span class="nv">lt</span>. <span class="nv">norm</span><span class="ss">(</span><span class="nv">b</span><span class="ss">)</span> <span class="k">if</span> <span class="nv">MNEWT</span> <span class="o">=</span> <span class="mi">0</span>, <span class="nv">and</span> <span class="nv">so</span> <span class="nv">x</span> <span class="nv">is</span> <span class="nv">computed</span>.
-        <span class="mi">2</span> <span class="nv">means</span> <span class="nv">the</span> <span class="nv">convergence</span> <span class="nv">test</span> <span class="nv">did</span> <span class="nv">not</span> <span class="nv">pass</span> <span class="nv">in</span> <span class="nv">MAXL</span>
-          <span class="nv">iterations</span>, <span class="nv">residual</span> .<span class="nv">gt</span>. <span class="mi">1</span>, <span class="nv">and</span> <span class="nv">X</span> <span class="nv">is</span> <span class="nv">undefined</span>.
-        <span class="mi">3</span> <span class="nv">means</span> <span class="nv">there</span> <span class="nv">was</span> <span class="nv">a</span> <span class="nv">recoverable</span> <span class="nv">error</span> <span class="nv">in</span> <span class="nv">PSOL</span>
-          <span class="nv">caused</span> <span class="nv">by</span> <span class="nv">the</span> <span class="nv">preconditioner</span> <span class="nv">being</span> <span class="nv">out</span> <span class="nv">of</span> <span class="nv">date</span>.
-       <span class="o">-</span><span class="mi">1</span> <span class="nv">means</span> <span class="nv">there</span> <span class="nv">was</span> <span class="nv">a</span> <span class="nv">nonrecoverable</span> <span class="nv">error</span> <span class="nv">in</span> <span class="nv">PSOL</span>.
-</code></pre></div>
-
 </dd>
 </dl>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>means convergence in LGMR iterations, LGMR .le. MAXL.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>means the convergence test did not pass in MAXL</td>
+</tr>
+<tr>
+<td></td>
+<td>iterations, but the residual norm is .lt. 1,</td>
+</tr>
+<tr>
+<td></td>
+<td>or .lt. norm(b) if MNEWT = 0, and so x is computed.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>means the convergence test did not pass in MAXL</td>
+</tr>
+<tr>
+<td></td>
+<td>iterations, residual .gt. 1, and X is undefined.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>means there was a recoverable error in PSOL</td>
+</tr>
+<tr>
+<td></td>
+<td>caused by the preconditioner being out of date.</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>means there was a nonrecoverable error in PSOL.</td>
+</tr>
+</tbody>
+</table>
 
     <h3>Arguments</h3>
       <table class="table table-striped varlist">
 <thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-neq~35"></span>integer,</td>
+  <td><span class="anchor" id="variable-neq~35"></span>integer</td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Neq</strong></td><td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Neq</strong>(*)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-tn~4"></span>real(kind=dp)</td>
@@ -308,28 +343,28 @@
   <td><strong>Tn</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-y~36"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-y~36"></span>real(kind=dp)</td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Y</strong></td><td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Y</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-savf~17"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-savf~17"></span>real(kind=dp)</td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Savf</strong></td><td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Savf</strong>(*)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-b~9"></span>real(kind=dp),</td>
-<td>intent(inout),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>B</strong></td><td></td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>B</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-wght~6"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-wght~6"></span>real(kind=dp)</td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Wght</strong></td><td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Wght</strong>(*)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-n~23"></span>integer</td>
@@ -399,27 +434,27 @@
 </tr>
 <tr>
   <td><span class="anchor" id="variable-x~9"></span>real(kind=dp),</td>
-<td>intent(inout),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>X</strong></td><td></td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>X</strong>(*)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-v~6"></span>real(kind=dp),</td>
-<td>intent(inout),</td>
-  <td></td>  <td>dimension(N,*)</td><td>::</td>
-  <td><strong>V</strong></td><td></td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>V</strong>(N,*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-hes"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-hes"></span>real(kind=dp)</td>
 <td></td>
-  <td></td>  <td>dimension(Maxlp1,*)</td><td>::</td>
-  <td><strong>Hes</strong></td><td></td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Hes</strong>(Maxlp1,*)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-q~5"></span>real(kind=dp),</td>
-<td>intent(inout),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Q</strong></td><td></td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Q</strong>(*)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-lgmr"></span>integer,</td>
@@ -429,9 +464,9 @@
 </tr>
 <tr>
   <td><span class="anchor" id="variable-wp~5"></span>real(kind=dp),</td>
-<td>intent(inout),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Wp</strong></td><td></td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Wp</strong>(*)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-iwp~5"></span>integer</td>
@@ -441,15 +476,15 @@
 </tr>
 <tr>
   <td><span class="anchor" id="variable-wk~10"></span>real(kind=dp),</td>
-<td>intent(inout),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Wk</strong></td><td></td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Wk</strong>(*)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-dl"></span>real(kind=dp),</td>
-<td>intent(inout),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Dl</strong></td><td></td>
+<td>intent(inout)</td>
+  <td></td>  <td></td><td>::</td>
+  <td><strong>Dl</strong>(*)</td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-iflag~5"></span>integer,</td>
@@ -472,247 +507,232 @@
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~dspigmr~2~~CallsGraph Pages: 1 -->
-<svg id="procdspigmr2CallsGraph" width="359pt" height="528pt"
- viewBox="0.00 0.00 359.00 527.52" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~dspigmr~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 523.52)">
+<svg id="procdspigmr2CallsGraph" width="359pt" height="487pt"
+ viewBox="0.00 0.00 359.00 486.87" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dspigmr~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 482.87)">
 <title>proc~~dspigmr~2~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-523.52 355,-523.52 355,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-482.87 355,-482.87 355,4 -4,4"/>
 <!-- proc~dspigmr~2 -->
 <g id="proc~~dspigmr~2~~CallsGraph_node1" class="node">
 <title>proc~dspigmr~2</title>
-<polygon fill="none" stroke="black" points="56,-395.52 0,-395.52 0,-371.52 56,-371.52 56,-395.52"/>
-<text text-anchor="middle" x="28" y="-381.12" font-family="Helvetica,sans-Serif" font-size="10.50">dspigmr</text>
-</g>
-<!-- proc~dscal~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node2" class="node">
-<title>proc~dscal~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node2"><a xlink:href=".././proc/dscal~2.html" xlink:title="dscal">
-<polygon fill="#d9534f" stroke="#d9534f" points="158.5,-519.52 104.5,-519.52 104.5,-495.52 158.5,-495.52 158.5,-519.52"/>
-<text text-anchor="middle" x="131.5" y="-505.12" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscal</text>
-</a>
-</g>
-</g>
-<!-- proc~dspigmr~2&#45;&gt;proc~dscal~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge1" class="edge">
-<title>proc~dspigmr~2&#45;&gt;proc~dscal~2</title>
-<path fill="none" stroke="#000000" d="M33.93,-395.71C42.86,-416.54 63.45,-459.36 92,-486.52 93.25,-487.71 94.58,-488.86 95.97,-489.95"/>
-<polygon fill="#000000" stroke="#000000" points="94.15,-492.95 104.37,-495.71 98.1,-487.17 94.15,-492.95"/>
-</g>
-<!-- proc~dcopy~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node3" class="node">
-<title>proc~dcopy~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node3"><a xlink:href=".././proc/dcopy~2.html" xlink:title="dcopy">
-<polygon fill="#d9534f" stroke="#d9534f" points="158.5,-477.52 104.5,-477.52 104.5,-453.52 158.5,-453.52 158.5,-477.52"/>
-<text text-anchor="middle" x="131.5" y="-463.12" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcopy</text>
-</a>
-</g>
-</g>
-<!-- proc~dspigmr~2&#45;&gt;proc~dcopy~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge2" class="edge">
-<title>proc~dspigmr~2&#45;&gt;proc~dcopy~2</title>
-<path fill="none" stroke="#000000" d="M39.77,-395.76C51.69,-408.85 71.89,-429.73 92,-444.52 93.61,-445.71 95.29,-446.87 97.02,-448"/>
-<polygon fill="#000000" stroke="#000000" points="95.5,-451.17 105.86,-453.38 99.13,-445.19 95.5,-451.17"/>
-</g>
-<!-- proc~dheqr~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node4" class="node">
-<title>proc~dheqr~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node4"><a xlink:href=".././proc/dheqr~2.html" xlink:title="dheqr">
-<polygon fill="#d9534f" stroke="#d9534f" points="158.5,-435.52 104.5,-435.52 104.5,-411.52 158.5,-411.52 158.5,-435.52"/>
-<text text-anchor="middle" x="131.5" y="-421.12" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dheqr</text>
-</a>
-</g>
-</g>
-<!-- proc~dspigmr~2&#45;&gt;proc~dheqr~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge3" class="edge">
-<title>proc~dspigmr~2&#45;&gt;proc~dheqr~2</title>
-<path fill="none" stroke="#000000" d="M56.2,-394.24C68.09,-398.92 82.19,-404.48 94.89,-409.49"/>
-<polygon fill="#000000" stroke="#000000" points="93.69,-412.78 104.28,-413.19 96.26,-406.26 93.69,-412.78"/>
-</g>
-<!-- proc~datv~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node5" class="node">
-<title>proc~datv~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node5"><a xlink:href=".././proc/datv~2.html" xlink:title="datv">
-<polygon fill="#d9534f" stroke="#d9534f" points="158.5,-355.52 104.5,-355.52 104.5,-331.52 158.5,-331.52 158.5,-355.52"/>
-<text text-anchor="middle" x="131.5" y="-341.12" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">datv</text>
-</a>
-</g>
-</g>
-<!-- proc~dspigmr~2&#45;&gt;proc~datv~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge4" class="edge">
-<title>proc~dspigmr~2&#45;&gt;proc~datv~2</title>
-<path fill="none" stroke="#000000" d="M56.2,-372.8C68.09,-368.12 82.19,-362.56 94.89,-357.55"/>
-<polygon fill="#000000" stroke="#000000" points="96.26,-360.78 104.28,-353.86 93.69,-354.27 96.26,-360.78"/>
+<polygon fill="none" stroke="black" points="56,-395 0,-395 0,-371 56,-371 56,-395"/>
+<text text-anchor="middle" x="28" y="-380.6" font-family="Helvetica,sans-Serif" font-size="10.50">dspigmr</text>
 </g>
 <!-- proc~dnrm2~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node6" class="node">
+<g id="proc~~dspigmr~2~~CallsGraph_node2" class="node">
 <title>proc~dnrm2~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node6"><a xlink:href=".././proc/dnrm2~2.html" xlink:title="dnrm2">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="261,-374.52 207,-374.52 207,-350.52 261,-350.52 261,-374.52"/>
-<text text-anchor="middle" x="234" y="-360.12" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dnrm2</text>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node2"><a xlink:href=".././proc/dnrm2~2.html" xlink:title="DNRM2">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="261,-394 207,-394 207,-370 261,-370 261,-394"/>
+<text text-anchor="middle" x="234" y="-379.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DNRM2</text>
 </a>
 </g>
 </g>
 <!-- proc~dspigmr~2&#45;&gt;proc~dnrm2~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge5" class="edge">
+<g id="proc~~dspigmr~2~~CallsGraph_edge1" class="edge">
 <title>proc~dspigmr~2&#45;&gt;proc~dnrm2~2</title>
-<path fill="none" stroke="#000000" d="M56.09,-380.73C92.21,-377.02 156.25,-370.42 196.56,-366.27"/>
-<polygon fill="#000000" stroke="#000000" points="197.18,-369.73 206.77,-365.22 196.46,-362.76 197.18,-369.73"/>
+<path fill="none" stroke="#000000" d="M33.75,-395.01C42.16,-414.36 61.67,-451.84 92,-467 123.4,-482.7 139.7,-482.91 171,-467 197.03,-453.77 214.72,-423.92 224.35,-403.37"/>
+<polygon fill="#000000" stroke="#000000" points="227.58,-404.7 228.42,-394.14 221.18,-401.87 227.58,-404.7"/>
 </g>
-<!-- none~approximate -->
-<g id="proc~~dspigmr~2~~CallsGraph_node7" class="node">
-<title>none~approximate</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="171,-147.52 92,-147.52 92,-123.52 171,-123.52 171,-147.52"/>
-<text text-anchor="middle" x="131.5" y="-133.12" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">approximate</text>
+<!-- proc~dheqr~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_node3" class="node">
+<title>proc~dheqr~2</title>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node3"><a xlink:href=".././proc/dheqr~2.html" xlink:title="dheqr">
+<polygon fill="#d9534f" stroke="#d9534f" points="158.5,-458 104.5,-458 104.5,-434 158.5,-434 158.5,-458"/>
+<text text-anchor="middle" x="131.5" y="-443.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dheqr</text>
+</a>
 </g>
-<!-- proc~dspigmr~2&#45;&gt;none~approximate -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge6" class="edge">
-<title>proc~dspigmr~2&#45;&gt;none~approximate</title>
-<path fill="none" stroke="#000000" d="M34.03,-371.22C50.24,-331.63 101.19,-207.14 121.76,-156.88"/>
-<polygon fill="#000000" stroke="#000000" points="125.01,-158.18 125.56,-147.6 118.53,-155.53 125.01,-158.18"/>
+</g>
+<!-- proc~dspigmr~2&#45;&gt;proc~dheqr~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge2" class="edge">
+<title>proc~dspigmr~2&#45;&gt;proc~dheqr~2</title>
+<path fill="none" stroke="#000000" d="M46.11,-395.01C58.64,-403.64 76.14,-415.41 92,-425 94.17,-426.31 96.42,-427.63 98.7,-428.95"/>
+<polygon fill="#000000" stroke="#000000" points="97.08,-432.05 107.51,-433.89 100.5,-425.94 97.08,-432.05"/>
+</g>
+<!-- proc~dscal~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_node4" class="node">
+<title>proc~dscal~2</title>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node4"><a xlink:href=".././proc/dscal~2.html" xlink:title="dscal">
+<polygon fill="#d9534f" stroke="#d9534f" points="158.5,-416 104.5,-416 104.5,-392 158.5,-392 158.5,-416"/>
+<text text-anchor="middle" x="131.5" y="-401.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscal</text>
+</a>
+</g>
+</g>
+<!-- proc~dspigmr~2&#45;&gt;proc~dscal~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge3" class="edge">
+<title>proc~dspigmr~2&#45;&gt;proc~dscal~2</title>
+<path fill="none" stroke="#000000" d="M56.2,-388.63C67.85,-391.04 81.63,-393.89 94.14,-396.48"/>
+<polygon fill="#000000" stroke="#000000" points="93.77,-399.98 104.28,-398.57 95.19,-393.12 93.77,-399.98"/>
 </g>
 <!-- proc~dorthog~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node8" class="node">
+<g id="proc~~dspigmr~2~~CallsGraph_node5" class="node">
 <title>proc~dorthog~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node8"><a xlink:href=".././proc/dorthog~2.html" xlink:title="dorthog">
-<polygon fill="#d9534f" stroke="#d9534f" points="159,-313.52 104,-313.52 104,-289.52 159,-289.52 159,-313.52"/>
-<text text-anchor="middle" x="131.5" y="-299.12" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dorthog</text>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node5"><a xlink:href=".././proc/dorthog~2.html" xlink:title="dorthog">
+<polygon fill="#d9534f" stroke="#d9534f" points="159,-332 104,-332 104,-308 159,-308 159,-332"/>
+<text text-anchor="middle" x="131.5" y="-317.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dorthog</text>
 </a>
 </g>
 </g>
 <!-- proc~dspigmr~2&#45;&gt;proc~dorthog~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge7" class="edge">
+<g id="proc~~dspigmr~2~~CallsGraph_edge4" class="edge">
 <title>proc~dspigmr~2&#45;&gt;proc~dorthog~2</title>
-<path fill="none" stroke="#000000" d="M39.77,-371.28C51.69,-358.19 71.89,-337.32 92,-322.52 93.61,-321.34 95.29,-320.17 97.02,-319.04"/>
-<polygon fill="#000000" stroke="#000000" points="99.13,-321.85 105.86,-313.67 95.5,-315.87 99.13,-321.85"/>
+<path fill="none" stroke="#000000" d="M46.11,-370.99C58.64,-362.36 76.14,-350.59 92,-341 94.17,-339.69 96.42,-338.37 98.7,-337.05"/>
+<polygon fill="#000000" stroke="#000000" points="100.5,-340.06 107.51,-332.11 97.08,-333.95 100.5,-340.06"/>
 </g>
-<!-- proc~datv~2&#45;&gt;proc~dnrm2~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge8" class="edge">
-<title>proc~datv~2&#45;&gt;proc~dnrm2~2</title>
-<path fill="none" stroke="#000000" d="M158.64,-348.46C170.39,-350.69 184.44,-353.34 197.15,-355.74"/>
-<polygon fill="#000000" stroke="#000000" points="196.51,-359.19 206.99,-357.6 197.81,-352.31 196.51,-359.19"/>
-</g>
-<!-- proc~daxpy~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node9" class="node">
-<title>proc~daxpy~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node9"><a xlink:href=".././proc/daxpy~2.html" xlink:title="daxpy">
-<polygon fill="#d9534f" stroke="#d9534f" points="351,-168.52 297,-168.52 297,-144.52 351,-144.52 351,-168.52"/>
-<text text-anchor="middle" x="324" y="-154.12" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daxpy</text>
+<!-- proc~datv~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_node6" class="node">
+<title>proc~datv~2</title>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node6"><a xlink:href=".././proc/datv~2.html" xlink:title="datv">
+<polygon fill="#d9534f" stroke="#d9534f" points="158.5,-374 104.5,-374 104.5,-350 158.5,-350 158.5,-374"/>
+<text text-anchor="middle" x="131.5" y="-359.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">datv</text>
 </a>
 </g>
 </g>
-<!-- none~approximate&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge9" class="edge">
-<title>none~approximate&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M135.4,-123.29C142.42,-96.82 163.07,-34.58 207,-9.52 227.85,2.37 241,3.75 261,-9.52 303.09,-37.45 316.68,-100.2 321.01,-133.97"/>
-<polygon fill="#000000" stroke="#000000" points="317.57,-134.67 322.15,-144.23 324.52,-133.9 317.57,-134.67"/>
+<!-- proc~dspigmr~2&#45;&gt;proc~datv~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge5" class="edge">
+<title>proc~dspigmr~2&#45;&gt;proc~datv~2</title>
+<path fill="none" stroke="#000000" d="M56.2,-377.37C67.85,-374.96 81.63,-372.11 94.14,-369.52"/>
+<polygon fill="#000000" stroke="#000000" points="95.19,-372.88 104.28,-367.43 93.77,-366.02 95.19,-372.88"/>
 </g>
-<!-- wght -->
-<g id="proc~~dspigmr~2~~CallsGraph_node10" class="node">
-<title>wght</title>
-<polygon fill="#777777" stroke="#777777" points="261,-126.52 207,-126.52 207,-102.52 261,-102.52 261,-126.52"/>
-<text text-anchor="middle" x="234" y="-112.12" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wght</text>
+<!-- none~approximate -->
+<g id="proc~~dspigmr~2~~CallsGraph_node7" class="node">
+<title>none~approximate</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="171,-167 92,-167 92,-143 171,-143 171,-167"/>
+<text text-anchor="middle" x="131.5" y="-152.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">approximate</text>
 </g>
-<!-- none~approximate&#45;&gt;wght -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge10" class="edge">
-<title>none~approximate&#45;&gt;wght</title>
-<path fill="none" stroke="#000000" d="M171.07,-127.46C179.57,-125.69 188.54,-123.81 196.94,-122.06"/>
-<polygon fill="#000000" stroke="#000000" points="197.75,-125.46 206.82,-119.99 196.32,-118.61 197.75,-125.46"/>
-</g>
-<!-- b -->
-<g id="proc~~dspigmr~2~~CallsGraph_node12" class="node">
-<title>b</title>
-<polygon fill="#777777" stroke="#777777" points="261,-84.52 207,-84.52 207,-60.52 261,-60.52 261,-84.52"/>
-<text text-anchor="middle" x="234" y="-70.12" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">b</text>
-</g>
-<!-- none~approximate&#45;&gt;b -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge11" class="edge">
-<title>none~approximate&#45;&gt;b</title>
-<path fill="none" stroke="#000000" d="M151.88,-123.37C166.89,-113.96 187.91,-100.78 204.79,-90.2"/>
-<polygon fill="#000000" stroke="#000000" points="207.07,-92.91 213.68,-84.63 203.35,-86.98 207.07,-92.91"/>
-</g>
-<!-- x -->
-<g id="proc~~dspigmr~2~~CallsGraph_node13" class="node">
-<title>x</title>
-<polygon fill="#777777" stroke="#777777" points="261,-42.52 207,-42.52 207,-18.52 261,-18.52 261,-42.52"/>
-<text text-anchor="middle" x="234" y="-28.12" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">x</text>
-</g>
-<!-- none~approximate&#45;&gt;x -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge12" class="edge">
-<title>none~approximate&#45;&gt;x</title>
-<path fill="none" stroke="#000000" d="M142.28,-123.27C155.99,-106.38 182.05,-75.35 207,-51.52 207.8,-50.76 208.62,-50 209.46,-49.23"/>
-<polygon fill="#000000" stroke="#000000" points="211.94,-51.72 217.24,-42.55 207.38,-46.41 211.94,-51.72"/>
-</g>
-<!-- v -->
-<g id="proc~~dspigmr~2~~CallsGraph_node14" class="node">
-<title>v</title>
-<polygon fill="#777777" stroke="#777777" points="261,-252.52 207,-252.52 207,-228.52 261,-228.52 261,-252.52"/>
-<text text-anchor="middle" x="234" y="-238.12" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">v</text>
-</g>
-<!-- none~approximate&#45;&gt;v -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge13" class="edge">
-<title>none~approximate&#45;&gt;v</title>
-<path fill="none" stroke="#000000" d="M142.28,-147.78C155.99,-164.66 182.05,-195.69 207,-219.52 207.8,-220.28 208.62,-221.05 209.46,-221.81"/>
-<polygon fill="#000000" stroke="#000000" points="207.38,-224.63 217.24,-228.49 211.94,-219.32 207.38,-224.63"/>
-</g>
-<!-- psol -->
-<g id="proc~~dspigmr~2~~CallsGraph_node15" class="node">
-<title>psol</title>
-<polygon fill="#777777" stroke="#777777" points="261,-210.52 207,-210.52 207,-186.52 261,-186.52 261,-210.52"/>
-<text text-anchor="middle" x="234" y="-196.12" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">psol</text>
-</g>
-<!-- none~approximate&#45;&gt;psol -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge14" class="edge">
-<title>none~approximate&#45;&gt;psol</title>
-<path fill="none" stroke="#000000" d="M151.88,-147.67C166.89,-157.08 187.91,-170.26 204.79,-180.84"/>
-<polygon fill="#000000" stroke="#000000" points="203.35,-184.07 213.68,-186.41 207.07,-178.13 203.35,-184.07"/>
-</g>
-<!-- proc~dhels~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node16" class="node">
-<title>proc~dhels~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node16"><a xlink:href=".././proc/dhels~2.html" xlink:title="dhels">
-<polygon fill="#d9534f" stroke="#d9534f" points="261,-168.52 207,-168.52 207,-144.52 261,-144.52 261,-168.52"/>
-<text text-anchor="middle" x="234" y="-154.12" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhels</text>
-</a>
-</g>
-</g>
-<!-- none~approximate&#45;&gt;proc~dhels~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge15" class="edge">
-<title>none~approximate&#45;&gt;proc~dhels~2</title>
-<path fill="none" stroke="#000000" d="M171.07,-143.58C179.57,-145.36 188.54,-147.23 196.94,-148.99"/>
-<polygon fill="#000000" stroke="#000000" points="196.32,-152.43 206.82,-151.05 197.75,-145.58 196.32,-152.43"/>
+<!-- proc~dspigmr~2&#45;&gt;none~approximate -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge6" class="edge">
+<title>proc~dspigmr~2&#45;&gt;none~approximate</title>
+<path fill="none" stroke="#000000" d="M34.46,-370.74C50.91,-333.77 100.2,-223.06 121.04,-176.26"/>
+<polygon fill="#000000" stroke="#000000" points="124.27,-177.6 125.14,-167.04 117.87,-174.75 124.27,-177.6"/>
 </g>
 <!-- proc~dorthog~2&#45;&gt;proc~dnrm2~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge18" class="edge">
+<g id="proc~~dspigmr~2~~CallsGraph_edge7" class="edge">
 <title>proc~dorthog~2&#45;&gt;proc~dnrm2~2</title>
-<path fill="none" stroke="#000000" d="M155.46,-313.68C160.61,-316.51 166.03,-319.57 171,-322.52 182.79,-329.53 195.55,-337.66 206.42,-344.77"/>
-<polygon fill="#000000" stroke="#000000" points="204.77,-347.86 215.04,-350.44 208.61,-342.02 204.77,-347.86"/>
-</g>
-<!-- proc~dorthog~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge16" class="edge">
-<title>proc~dorthog~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M159.06,-310.08C186.89,-317.32 230.7,-323.63 261,-303.52 303.09,-275.59 316.68,-212.85 321.01,-179.07"/>
-<polygon fill="#000000" stroke="#000000" points="324.52,-179.14 322.15,-168.82 317.57,-178.37 324.52,-179.14"/>
+<path fill="none" stroke="#000000" d="M155.48,-332.12C160.64,-334.95 166.04,-338.02 171,-341 183.13,-348.3 196.24,-356.87 207.27,-364.28"/>
+<polygon fill="#000000" stroke="#000000" points="205.37,-367.22 215.62,-369.93 209.3,-361.43 205.37,-367.22"/>
 </g>
 <!-- proc~ddot~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node11" class="node">
+<g id="proc~~dspigmr~2~~CallsGraph_node13" class="node">
 <title>proc~ddot~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node11"><a xlink:href=".././proc/ddot~2.html" xlink:title="ddot">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="261,-294.52 207,-294.52 207,-270.52 261,-270.52 261,-294.52"/>
-<text text-anchor="middle" x="234" y="-280.12" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddot</text>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node13"><a xlink:href=".././proc/ddot~2.html" xlink:title="ddot">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="261,-352 207,-352 207,-328 261,-328 261,-352"/>
+<text text-anchor="middle" x="234" y="-337.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddot</text>
 </a>
 </g>
 </g>
 <!-- proc~dorthog~2&#45;&gt;proc~ddot~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge17" class="edge">
+<g id="proc~~dspigmr~2~~CallsGraph_edge9" class="edge">
 <title>proc~dorthog~2&#45;&gt;proc~ddot~2</title>
-<path fill="none" stroke="#000000" d="M159.17,-296.48C170.71,-294.3 184.39,-291.71 196.83,-289.36"/>
-<polygon fill="#000000" stroke="#000000" points="197.73,-292.75 206.9,-287.46 196.43,-285.87 197.73,-292.75"/>
+<path fill="none" stroke="#000000" d="M159.17,-325.31C170.71,-327.6 184.39,-330.33 196.83,-332.8"/>
+<polygon fill="#000000" stroke="#000000" points="196.41,-336.29 206.9,-334.81 197.78,-329.42 196.41,-336.29"/>
+</g>
+<!-- proc~daxpy~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_node14" class="node">
+<title>proc~daxpy~2</title>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node14"><a xlink:href=".././proc/daxpy~2.html" xlink:title="daxpy">
+<polygon fill="#d9534f" stroke="#d9534f" points="351,-146 297,-146 297,-122 351,-122 351,-146"/>
+<text text-anchor="middle" x="324" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daxpy</text>
+</a>
+</g>
+</g>
+<!-- proc~dorthog~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge8" class="edge">
+<title>proc~dorthog~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M159.09,-318.45C187.57,-315.45 232.5,-306.67 261,-281 298.01,-247.67 313.61,-188.65 319.63,-156.46"/>
+<polygon fill="#000000" stroke="#000000" points="323.13,-156.73 321.37,-146.28 316.23,-155.55 323.13,-156.73"/>
+</g>
+<!-- proc~datv~2&#45;&gt;proc~dnrm2~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge10" class="edge">
+<title>proc~datv~2&#45;&gt;proc~dnrm2~2</title>
+<path fill="none" stroke="#000000" d="M158.64,-367.2C170.39,-369.54 184.44,-372.34 197.15,-374.87"/>
+<polygon fill="#000000" stroke="#000000" points="196.5,-378.3 206.99,-376.82 197.86,-371.44 196.5,-378.3"/>
+</g>
+<!-- x -->
+<g id="proc~~dspigmr~2~~CallsGraph_node8" class="node">
+<title>x</title>
+<polygon fill="#777777" stroke="#777777" points="261,-272 207,-272 207,-248 261,-248 261,-272"/>
+<text text-anchor="middle" x="234" y="-257.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">x</text>
+</g>
+<!-- none~approximate&#45;&gt;x -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge11" class="edge">
+<title>none~approximate&#45;&gt;x</title>
+<path fill="none" stroke="#000000" d="M142.28,-167.25C155.99,-184.14 182.05,-215.17 207,-239 207.8,-239.76 208.62,-240.53 209.46,-241.29"/>
+<polygon fill="#000000" stroke="#000000" points="207.38,-244.11 217.24,-247.97 211.94,-238.8 207.38,-244.11"/>
+</g>
+<!-- b -->
+<g id="proc~~dspigmr~2~~CallsGraph_node9" class="node">
+<title>b</title>
+<polygon fill="#777777" stroke="#777777" points="261,-230 207,-230 207,-206 261,-206 261,-230"/>
+<text text-anchor="middle" x="234" y="-215.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">b</text>
+</g>
+<!-- none~approximate&#45;&gt;b -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge12" class="edge">
+<title>none~approximate&#45;&gt;b</title>
+<path fill="none" stroke="#000000" d="M151.88,-167.15C166.89,-176.56 187.91,-189.74 204.79,-200.32"/>
+<polygon fill="#000000" stroke="#000000" points="203.35,-203.54 213.68,-205.89 207.07,-197.61 203.35,-203.54"/>
+</g>
+<!-- psol -->
+<g id="proc~~dspigmr~2~~CallsGraph_node10" class="node">
+<title>psol</title>
+<polygon fill="#777777" stroke="#777777" points="261,-188 207,-188 207,-164 261,-164 261,-188"/>
+<text text-anchor="middle" x="234" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">psol</text>
+</g>
+<!-- none~approximate&#45;&gt;psol -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge13" class="edge">
+<title>none~approximate&#45;&gt;psol</title>
+<path fill="none" stroke="#000000" d="M171.07,-163.06C179.57,-164.84 188.54,-166.71 196.94,-168.46"/>
+<polygon fill="#000000" stroke="#000000" points="196.32,-171.91 206.82,-170.53 197.75,-165.06 196.32,-171.91"/>
+</g>
+<!-- proc~dhels~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_node11" class="node">
+<title>proc~dhels~2</title>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node11"><a xlink:href=".././proc/dhels~2.html" xlink:title="dhels">
+<polygon fill="#d9534f" stroke="#d9534f" points="261,-146 207,-146 207,-122 261,-122 261,-146"/>
+<text text-anchor="middle" x="234" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhels</text>
+</a>
+</g>
+</g>
+<!-- none~approximate&#45;&gt;proc~dhels~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge14" class="edge">
+<title>none~approximate&#45;&gt;proc~dhels~2</title>
+<path fill="none" stroke="#000000" d="M171.07,-146.94C179.57,-145.16 188.54,-143.29 196.94,-141.54"/>
+<polygon fill="#000000" stroke="#000000" points="197.75,-144.94 206.82,-139.47 196.32,-138.09 197.75,-144.94"/>
+</g>
+<!-- wght -->
+<g id="proc~~dspigmr~2~~CallsGraph_node12" class="node">
+<title>wght</title>
+<polygon fill="#777777" stroke="#777777" points="261,-104 207,-104 207,-80 261,-80 261,-104"/>
+<text text-anchor="middle" x="234" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wght</text>
+</g>
+<!-- none~approximate&#45;&gt;wght -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge15" class="edge">
+<title>none~approximate&#45;&gt;wght</title>
+<path fill="none" stroke="#000000" d="M151.88,-142.85C166.89,-133.44 187.91,-120.26 204.79,-109.68"/>
+<polygon fill="#000000" stroke="#000000" points="207.07,-112.39 213.68,-104.11 203.35,-106.46 207.07,-112.39"/>
+</g>
+<!-- none~approximate&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge16" class="edge">
+<title>none~approximate&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M138.75,-142.93C149.59,-123.48 173.93,-85.87 207,-71 228.89,-61.16 238.86,-61.73 261,-71 281.59,-79.62 298.8,-98.79 309.82,-113.73"/>
+<polygon fill="#000000" stroke="#000000" points="306.96,-115.75 315.57,-121.92 312.69,-111.73 306.96,-115.75"/>
+</g>
+<!-- v -->
+<g id="proc~~dspigmr~2~~CallsGraph_node15" class="node">
+<title>v</title>
+<polygon fill="#777777" stroke="#777777" points="261,-24 207,-24 207,0 261,0 261,-24"/>
+<text text-anchor="middle" x="234" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">v</text>
+</g>
+<!-- none~approximate&#45;&gt;v -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge17" class="edge">
+<title>none~approximate&#45;&gt;v</title>
+<path fill="none" stroke="#000000" d="M139.09,-142.8C151.2,-120.85 178.37,-73.69 207,-38 208.68,-35.91 210.51,-33.8 212.39,-31.75"/>
+<polygon fill="#000000" stroke="#000000" points="215.28,-33.79 219.72,-24.17 210.25,-28.92 215.28,-33.79"/>
 </g>
 <!-- proc~dhels~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge19" class="edge">
+<g id="proc~~dspigmr~2~~CallsGraph_edge18" class="edge">
 <title>proc~dhels~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M261.4,-156.52C269.39,-156.52 278.31,-156.52 286.82,-156.52"/>
-<polygon fill="#000000" stroke="#000000" points="286.92,-160.02 296.92,-156.52 286.92,-153.02 286.92,-160.02"/>
+<path fill="none" stroke="#000000" d="M261.4,-134C269.39,-134 278.31,-134 286.82,-134"/>
+<polygon fill="#000000" stroke="#000000" points="286.92,-137.5 296.92,-134 286.92,-130.5 286.92,-137.5"/>
 </g>
 </g>
 </svg>
@@ -844,25 +864,10 @@
 <path fill="none" stroke="#000000" d="M144.57,-18.19C152.87,-20.16 162.2,-22.37 171.07,-24.47"/>
 <polygon fill="#000000" stroke="#000000" points="170.27,-27.88 180.81,-26.78 171.88,-21.07 170.27,-27.88"/>
 </g>
-<!-- proc~dlsodpk~2 -->
-<g id="proc~~dspigmr~2~~CalledByGraph_node5" class="node">
-<title>proc~dlsodpk~2</title>
-<g id="a_proc~~dspigmr~2~~CalledByGraph_node5"><a xlink:href=".././proc/dlsodpk~2.html" xlink:title="dlsodpk">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-66 0,-66 0,-42 54,-42 54,-66"/>
-<text text-anchor="middle" x="27" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodpk</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodpk~2&#45;&gt;proc~dstodpk~2 -->
-<g id="proc~~dspigmr~2~~CalledByGraph_edge4" class="edge">
-<title>proc~dlsodpk~2&#45;&gt;proc~dstodpk~2</title>
-<path fill="none" stroke="#000000" d="M54.07,-54C62.12,-54 71.14,-54 79.76,-54"/>
-<polygon fill="#000000" stroke="#000000" points="80,-57.5 90,-54 80,-50.5 80,-57.5"/>
-</g>
 <!-- proc~dlsodkr~2 -->
-<g id="proc~~dspigmr~2~~CalledByGraph_node6" class="node">
+<g id="proc~~dspigmr~2~~CalledByGraph_node5" class="node">
 <title>proc~dlsodkr~2</title>
-<g id="a_proc~~dspigmr~2~~CalledByGraph_node6"><a xlink:href=".././proc/dlsodkr~2.html" xlink:title="dlsodkr">
+<g id="a_proc~~dspigmr~2~~CalledByGraph_node5"><a xlink:href=".././proc/dlsodkr~2.html" xlink:title="dlsodkr">
 <polygon fill="#d9534f" stroke="#d9534f" points="54,-24 0,-24 0,0 54,0 54,-24"/>
 <text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodkr</text>
 </a>
@@ -873,6 +878,21 @@
 <title>proc~dlsodkr~2&#45;&gt;proc~dstoka~2</title>
 <path fill="none" stroke="#000000" d="M54.07,-12C62.28,-12 71.5,-12 80.28,-12"/>
 <polygon fill="#000000" stroke="#000000" points="80.31,-15.5 90.31,-12 80.31,-8.5 80.31,-15.5"/>
+</g>
+<!-- proc~dlsodpk~2 -->
+<g id="proc~~dspigmr~2~~CalledByGraph_node6" class="node">
+<title>proc~dlsodpk~2</title>
+<g id="a_proc~~dspigmr~2~~CalledByGraph_node6"><a xlink:href=".././proc/dlsodpk~2.html" xlink:title="dlsodpk">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-66 0,-66 0,-42 54,-42 54,-66"/>
+<text text-anchor="middle" x="27" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodpk</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodpk~2&#45;&gt;proc~dstodpk~2 -->
+<g id="proc~~dspigmr~2~~CalledByGraph_edge4" class="edge">
+<title>proc~dlsodpk~2&#45;&gt;proc~dstodpk~2</title>
+<path fill="none" stroke="#000000" d="M54.07,-54C62.12,-54 71.14,-54 79.76,-54"/>
+<polygon fill="#000000" stroke="#000000" points="80,-57.5 90,-54 80,-50.5 80,-57.5"/>
 </g>
 </g>
 </svg>
@@ -1116,7 +1136,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-06 03:22            </p>
+ on 2022-02-14 02:53            </p>
         </div>
       </div>
       <br>

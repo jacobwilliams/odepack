@@ -8,23 +8,23 @@
 !!
 !!### On entry
 !!
-!! NEQ 
+!! NEQ
 !!
 !! : problem size, passed to F and PSOL (NEQ(1) = N).
 !!
-!! TN 
+!! TN
 !!
 !! : current value of t.
 !!
-!! Y 
+!! Y
 !!
 !! : array containing current dependent variable vector.
 !!
-!! SAVF 
+!! SAVF
 !!
 !! : array containing current value of f(t,y).
 !!
-!! B 
+!! B
 !!
 !! : the right hand side of the system A*x = b.
 !!
@@ -33,17 +33,17 @@
 !! the final approximation.
 !! (B is the same as V(*,MAXL+1) in the call to DSPIGMR.)
 !!
-!! WGHT 
+!! WGHT
 !!
 !! : the vector of length N containing the nonzero
 !! elements of the diagonal scaling matrix.
 !!
-!! N 
+!! N
 !!
 !! : the order of the matrix A, and the lengths
 !! of the vectors WGHT, B and X.
 !!
-!! MAXL 
+!! MAXL
 !!
 !! : the maximum allowable order of the matrix HES.
 !!
@@ -51,121 +51,129 @@
 !!
 !! : MAXLP1 = MAXL + 1, used for dynamic dimensioning of HES.
 !!
-!! KMP 
+!! KMP
 !!
 !! : the number of previous vectors the new vector VNEW
 !! must be made orthogonal to.  KMP .le. MAXL.
 !!
-!! DELTA 
+!! DELTA
 !!
 !! : tolerance on residuals b - A*x in weighted RMS-norm.
 !!
-!! HL0 
+!! HL0
 !!
 !! : current value of (step size h) * (coefficient l0).
 !!
-!! JPRE 
+!! JPRE
 !!
 !! : preconditioner type flag.
 !!
-!! MNEWT 
+!! MNEWT
 !!
 !! : Newton iteration counter (.ge. 0).
 !!
-!! WK 
+!! WK
 !!
 !! : real work array used by routine DATV and PSOL.
 !!
-!! DL 
+!! DL
 !!
 !! : real work array used for calculation of the residual
 !! norm RHO when the method is incomplete (KMP .lt. MAXL).
 !! Not needed or referenced in complete case (KMP = MAXL).
 !!
-!! WP 
+!! WP
 !!
 !! : real work array used by preconditioner PSOL.
 !!
-!! IWP 
+!! IWP
 !!
 !! : integer work array used by preconditioner PSOL.
 !!
 !!### On return
 !!
-!! X    
+!! X
 !!
 !! : the final computed approximation to the solution
 !! of the system A*x = b.
 !!
-!! LGMR 
+!! LGMR
 !!
 !! : the number of iterations performed and
 !! the current order of the upper Hessenberg
 !! matrix HES.
 !!
-!! NPSL 
+!! NPSL
 !!
 !! : the number of calls to PSOL.
 !!
-!! V    
+!! V
 !!
 !! : the N by (LGMR+1) array containing the LGMR
 !! orthogonal vectors V(*,1) to V(*,LGMR).
 !!
-!! HES  
+!! HES
 !!
 !! : the upper triangular factor of the QR decomposition
 !! of the (LGMR+1) by lgmr upper Hessenberg matrix whose
 !! entries are the scaled inner-products of A*V(*,i)
 !! and V(*,k).
 !!
-!! Q    
+!! Q
 !!
 !! : real array of length 2*MAXL containing the components
 !! of the Givens rotations used in the QR decomposition
 !! of HES.  It is loaded in DHEQR and used in DHELS.
 !!
-!! IFLAG 
+!! IFLAG
 !!
 !! : integer error flag:
 !!
-!!                0 means convergence in LGMR iterations, LGMR .le. MAXL.
-!!                1 means the convergence test did not pass in MAXL
-!!                  iterations, but the residual norm is .lt. 1,
-!!                  or .lt. norm(b) if MNEWT = 0, and so x is computed.
-!!                2 means the convergence test did not pass in MAXL
-!!                  iterations, residual .gt. 1, and X is undefined.
-!!                3 means there was a recoverable error in PSOL
-!!                  caused by the preconditioner being out of date.
-!!               -1 means there was a nonrecoverable error in PSOL.
+!!  value | description
+!!  ----- | -----------------------------------------------------
+!!      0 | means convergence in LGMR iterations, LGMR .le. MAXL.
+!!      1 | means the convergence test did not pass in MAXL
+!!        | iterations, but the residual norm is .lt. 1,
+!!        | or .lt. norm(b) if MNEWT = 0, and so x is computed.
+!!      2 | means the convergence test did not pass in MAXL
+!!        | iterations, residual .gt. 1, and X is undefined.
+!!      3 | means there was a recoverable error in PSOL
+!!        | caused by the preconditioner being out of date.
+!!     -1 | means there was a nonrecoverable error in PSOL.
 !!
 !-----------------------------------------------------------------------
 subroutine dspigmr(Neq,Tn,Y,Savf,B,Wght,N,Maxl,Maxlp1,Kmp,Delta,Hl0,Jpre,Mnewt,f,psol,Npsl,X,V,Hes,Q,Lgmr,Wp,Iwp,Wk,Dl,Iflag)
 !
-integer , dimension(*) :: Neq
-real(kind=dp) :: Tn
-real(kind=dp) , dimension(*) :: Y
-real(kind=dp) , dimension(*) :: Savf
-real(kind=dp) , intent(inout) , dimension(*) :: B
-real(kind=dp) , dimension(*) :: Wght
-integer :: N
-integer , intent(in) :: Maxl
-integer :: Maxlp1
-integer :: Kmp
-real(kind=dp) , intent(inout) :: Delta
-real(kind=dp) :: Hl0
-integer :: Jpre
-integer , intent(in) :: Mnewt
-external :: f
-external psol
+integer                     :: Neq(*)
+real(kind=dp)               :: Tn
+real(kind=dp)               :: Y(*)
+real(kind=dp)               :: Savf(*)
+real(kind=dp),intent(inout) :: B(*)
+real(kind=dp)               :: Wght(*)
+integer                     :: N
+integer,intent(in)          :: Maxl
+integer                     :: Maxlp1
+integer                     :: Kmp
+real(kind=dp),intent(inout) :: Delta
+real(kind=dp)               :: Hl0
+integer                     :: Jpre
+integer,intent(in)          :: Mnewt
+external                    :: f
+external                    :: psol
+integer,intent(out)         :: Npsl
+real(kind=dp),intent(inout) :: X(*)
+real(kind=dp),intent(inout) :: V(N,*)
+real(kind=dp)               :: Hes(Maxlp1,*)
+real(kind=dp),intent(inout) :: Q(*)
+integer,intent(out)         :: Lgmr
+real(kind=dp),intent(inout) :: Wp(*)
+integer                     :: Iwp(*)
+real(kind=dp),intent(inout) :: Wk(*)
+real(kind=dp),intent(inout) :: Dl(*)
+integer,intent(out)         :: Iflag
 !
 real(kind=dp) :: bnrm , bnrm0 , c , dlnrm , prod , rho , s , snormw , tem
-real(kind=dp) , intent(inout) , dimension(*) :: Dl , Q , Wk , Wp , X
-real(kind=dp) , dimension(Maxlp1,*) :: Hes
 integer :: i , i2 , ier , info , ip1 , j , k , ll , llp1
-integer,intent(out)  :: Iflag , Lgmr , Npsl
-integer :: Iwp(*)
-real(kind=dp), intent(inout), dimension(N,*) :: V
 !
 Iflag = 0
 Lgmr = 0
@@ -177,10 +185,12 @@ Npsl = 0
 do i = 1 , N
    V(i,1) = B(i)*Wght(i)
 enddo
+
 bnrm0 = dnrm2(N,V,1)
 bnrm = bnrm0
+
 if ( bnrm0>Delta ) then
-!  Apply inverse of left preconditioner to vector b. --------------------
+   !  Apply inverse of left preconditioner to vector b. --------------------
    ier = 0
    if ( Jpre/=0 .and. Jpre/=2 ) then
       call psol(Neq,Tn,Y,Savf,Wk,Hl0,Wp,Iwp,B,1,ier)
@@ -193,7 +203,7 @@ if ( bnrm0>Delta ) then
          if ( ier>0 ) Iflag = 3
          return
       endif
-!  Calculate norm of scaled vector V(*,1) and normalize it. -------------
+      !  Calculate norm of scaled vector V(*,1) and normalize it. -------------
       do i = 1 , N
          V(i,1) = B(i)*Wght(i)
       enddo
@@ -202,25 +212,25 @@ if ( bnrm0>Delta ) then
    endif
    tem = 1.0D0/bnrm
    call dscal(N,tem,V(1,1),1)
-!  Zero out the HES array. ----------------------------------------------
+   !  Zero out the HES array. ----------------------------------------------
    do j = 1 , Maxl
       do i = 1 , Maxlp1
          Hes(i,j) = 0.0D0
       enddo
    enddo
-!-----------------------------------------------------------------------
-!  Main loop to compute the vectors V(*,2) to V(*,MAXL).
-!  The running product PROD is needed for the convergence test.
-!-----------------------------------------------------------------------
+   !-----------------------------------------------------------------------
+   !  Main loop to compute the vectors V(*,2) to V(*,MAXL).
+   !  The running product PROD is needed for the convergence test.
+   !-----------------------------------------------------------------------
    prod = 1.0D0
    do ll = 1 , Maxl
       Lgmr = ll
-!-----------------------------------------------------------------------
-!  Call routine DATV to compute VNEW = Abar*v(ll), where Abar is
-!  the matrix A with scaling and inverse preconditioner factors applied.
-!  Call routine DORTHOG to orthogonalize the new vector VNEW = V(*,LL+1).
-!  Call routine DHEQR to update the factors of HES.
-!-----------------------------------------------------------------------
+      !-----------------------------------------------------------------------
+      !  Call routine DATV to compute VNEW = Abar*v(ll), where Abar is
+      !  the matrix A with scaling and inverse preconditioner factors applied.
+      !  Call routine DORTHOG to orthogonalize the new vector VNEW = V(*,LL+1).
+      !  Call routine DHEQR to update the factors of HES.
+      !-----------------------------------------------------------------------
       call datv(Neq,Y,Savf,V(1,ll),Wght,X,f,psol,V(1,ll+1),Wk,Wp,Iwp,Hl0,Jpre,ier,Npsl)
       if ( ier/=0 ) then
             !-----------------------------------------------------------------------
@@ -247,7 +257,8 @@ if ( bnrm0>Delta ) then
       rho = abs(prod*bnrm)
       if ( (ll>Kmp) .and. (Kmp<Maxl) ) then
          if ( ll==Kmp+1 ) then
-            call dcopy(N,V(1,1),1,Dl,1)
+            !X!call dcopy(N,V(1,1),1,Dl,1)
+            Dl(1:N)=V(1:N,1)
             do i = 1 , Kmp
                ip1 = i + 1
                i2 = i*2
@@ -297,7 +308,8 @@ elseif ( Mnewt>0 ) then
    enddo
    return
 else
-   call dcopy(N,B,1,X,1)
+   !X!call dcopy(N,B,1,X,1)
+   X(1:N) = B(1:N)
    return
 endif
 

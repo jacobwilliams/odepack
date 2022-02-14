@@ -200,19 +200,19 @@ dls1%icf = 0
 delp = 0.0D0
 if ( dls1%jstart>0 ) goto 400
 if ( dls1%jstart==-1 ) then
-!-----------------------------------------------------------------------
-!  The following block handles preliminaries needed when JSTART = -1.
-!  IPUP is set to MITER to force a matrix update.
-!  If an order increase is about to be considered (IALTH = 1),
-!  IALTH is reset to 2 to postpone consideration one more step.
-!  If the caller has changed METH, DCFODE is called to reset
-!  the coefficients of the method.
-!  If the caller has changed MAXORD to a value less than the current
-!  order NQ, NQ is reduced to MAXORD, and a new H chosen accordingly.
-!  If H is to be changed, YH must be rescaled.
-!  If H or METH is being changed, IALTH is reset to L = NQ + 1
-!  to prevent further changes in H for that many steps.
-!-----------------------------------------------------------------------
+   !-----------------------------------------------------------------------
+   !  The following block handles preliminaries needed when JSTART = -1.
+   !  IPUP is set to MITER to force a matrix update.
+   !  If an order increase is about to be considered (IALTH = 1),
+   !  IALTH is reset to 2 to postpone consideration one more step.
+   !  If the caller has changed METH, DCFODE is called to reset
+   !  the coefficients of the method.
+   !  If the caller has changed MAXORD to a value less than the current
+   !  order NQ, NQ is reduced to MAXORD, and a new H chosen accordingly.
+   !  If H is to be changed, YH must be rescaled.
+   !  If H or METH is being changed, IALTH is reset to L = NQ + 1
+   !  to prevent further changes in H for that many steps.
+   !-----------------------------------------------------------------------
    dls1%ipup = dls1%miter
    dls1%lmax = dls1%maxord + 1
    if ( dls1%ialth==1 ) dls1%ialth = 2
@@ -250,14 +250,14 @@ if ( dls1%jstart==-1 ) then
    goto 300
 else
    if ( dls1%jstart==-2 ) goto 200
-!-----------------------------------------------------------------------
-!  On the first call, the order is set to 1, and other variables are
-!  initialized.  RMAX is the maximum ratio by which H can be increased
-!  in a single step.  It is initially 1.E4 to compensate for the small
-!  initial H, but then is normally equal to 10.  If a failure
-!  occurs (in corrector convergence or error test), RMAX is set at 2
-!  for the next increase.
-!-----------------------------------------------------------------------
+   !-----------------------------------------------------------------------
+   !  On the first call, the order is set to 1, and other variables are
+   !  initialized.  RMAX is the maximum ratio by which H can be increased
+   !  in a single step.  It is initially 1.E4 to compensate for the small
+   !  initial H, but then is normally equal to 10.  If a failure
+   !  occurs (in corrector convergence or error test), RMAX is set at 2
+   !  for the next increase.
+   !-----------------------------------------------------------------------
    dls1%lmax = dls1%maxord + 1
    dls1%nq = 1
    dls1%l = 2
@@ -271,11 +271,11 @@ else
    dls1%nslp = 0
    dls1%ipup = dls1%miter
    iret = 3
-!-----------------------------------------------------------------------
-!  DCFODE is called to get all the integration coefficients for the
-!  current METH.  Then the EL vector and related constants are reset
-!  whenever the order NQ is changed, or at the start of the problem.
-!-----------------------------------------------------------------------
+   !-----------------------------------------------------------------------
+   !  DCFODE is called to get all the integration coefficients for the
+   !  current METH.  Then the EL vector and related constants are reset
+   !  whenever the order NQ is changed, or at the start of the problem.
+   !-----------------------------------------------------------------------
    call dcfode(dls1%meth,dls1%elco,dls1%tesco)
 endif
  100  continue
@@ -337,7 +337,6 @@ dls1%tn = dls1%tn + dls1%h
 i1 = dls1%nqnyh + 1
 do jb = 1, dls1%nq
    i1 = i1 - Nyh
-! DIR$ IVDEP
    do i = i1, dls1%nqnyh
       Yh1(i) = Yh1(i) + Yh1(i+Nyh)
    enddo
@@ -355,11 +354,11 @@ do i = 1, dls1%n
    Y(i) = Yh(i,1)
 enddo
 if ( dls1%ipup>0 ) then
-!-----------------------------------------------------------------------
-!  If indicated, the matrix P = A - H*EL(1)*dr/dy is reevaluated and
-!  preprocessed before starting the corrector iteration.  IPUP is set
-!  to 0 as an indicator that this has been done.
-!-----------------------------------------------------------------------
+   !-----------------------------------------------------------------------
+   !  If indicated, the matrix P = A - H*EL(1)*dr/dy is reevaluated and
+   !  preprocessed before starting the corrector iteration.  IPUP is set
+   !  to 0 as an indicator that this has been done.
+   !-----------------------------------------------------------------------
    call pjac(Neq,Y,Yh,Nyh,Ewt,Acor,Savr,Savf,Wm,Iwm,res,jac,adda)
    dls1%ipup = 0
    dls1%rc = 1.0D0
@@ -393,10 +392,10 @@ do i = 1, dls1%n
    Acor(i) = 0.0D0
 enddo
 do
-!-----------------------------------------------------------------------
-!  Solve the linear system with the current residual as
-!  right-hand side and P as coefficient matrix.
-!-----------------------------------------------------------------------
+   !-----------------------------------------------------------------------
+   !  Solve the linear system with the current residual as
+   !  right-hand side and P as coefficient matrix.
+   !-----------------------------------------------------------------------
    call slvs(Wm,Iwm,Savr,Savf)
    if ( dls1%iersl<0 ) exit
    if ( dls1%iersl<=0 ) then
@@ -407,46 +406,45 @@ do
          Savf(i) = Acor(i) + Yh(i,2)/dls1%h
          Y(i) = Yh(i,1) + el1h*Acor(i)
       enddo
-   !-----------------------------------------------------------------------
-   !  Test for convergence.  If M .gt. 0, an estimate of the convergence
-   !  rate constant is stored in CRATE, and this is used in the test.
-   !-----------------------------------------------------------------------
+      !-----------------------------------------------------------------------
+      !  Test for convergence.  If M .gt. 0, an estimate of the convergence
+      !  rate constant is stored in CRATE, and this is used in the test.
+      !-----------------------------------------------------------------------
       if ( m/=0 ) dls1%crate = max(0.2D0*dls1%crate,del/delp)
       dcon = del*min(1.0D0,1.5D0*dls1%crate)/(dls1%tesco(2,dls1%nq)*dls1%conit)
       if ( dcon<=1.0D0 ) then
-      !-----------------------------------------------------------------------
-      !  The corrector has converged.  JCUR is set to 0
-      !  to signal that the Jacobian involved may need updating later.
-      !  The local error test is made and control passes to statement 500
-      !  if it fails.
-      !-----------------------------------------------------------------------
+         !-----------------------------------------------------------------------
+         !  The corrector has converged.  JCUR is set to 0
+         !  to signal that the Jacobian involved may need updating later.
+         !  The local error test is made and control passes to statement 500
+         !  if it fails.
+         !-----------------------------------------------------------------------
          dls1%jcur = 0
          if ( m==0 ) dsm = del/dls1%tesco(2,dls1%nq)
          if ( m>0 ) dsm = abs(dls1%h)*dvnorm(dls1%n,Acor,Ewt)/dls1%tesco(2,dls1%nq)
          if ( dsm>1.0D0 ) then
-         !-----------------------------------------------------------------------
-         !  The error test failed.  KFLAG keeps track of multiple failures.
-         !  restore TN and the YH array to their previous values, and prepare
-         !  to try the step again.  Compute the optimum step size for this or
-         !  one lower order.  After 2 or more failures, H is forced to decrease
-         !  by a factor of 0.1 or less.
-         !-----------------------------------------------------------------------
+            !-----------------------------------------------------------------------
+            !  The error test failed.  KFLAG keeps track of multiple failures.
+            !  restore TN and the YH array to their previous values, and prepare
+            !  to try the step again.  Compute the optimum step size for this or
+            !  one lower order.  After 2 or more failures, H is forced to decrease
+            !  by a factor of 0.1 or less.
+            !-----------------------------------------------------------------------
             dls1%kflag = dls1%kflag - 1
             dls1%tn = told
             i1 = dls1%nqnyh + 1
             do jb = 1, dls1%nq
                i1 = i1 - Nyh
-! DIR$ IVDEP
                do i = i1, dls1%nqnyh
                   Yh1(i) = Yh1(i) - Yh1(i+Nyh)
                enddo
             enddo
             dls1%rmax = 2.0D0
             if ( abs(dls1%h)<=dls1%hmin*1.00001D0 ) then
-            !-----------------------------------------------------------------------
-            !  All returns are made through this section.  H is saved in HOLD
-            !  to allow the caller to change H on the next step.
-            !-----------------------------------------------------------------------
+               !-----------------------------------------------------------------------
+               !  All returns are made through this section.  H is saved in HOLD
+               !  to allow the caller to change H on the next step.
+               !-----------------------------------------------------------------------
                dls1%kflag = -1
                goto 1300
             elseif ( dls1%kflag<=-7 ) then
@@ -458,16 +456,16 @@ do
                goto 900
             endif
          else
-!-----------------------------------------------------------------------
-!  After a successful step, update the YH array.
-!  Consider changing H if IALTH = 1.  Otherwise decrease IALTH by 1.
-!  If IALTH is then 1 and NQ .lt. MAXORD, then ACOR is saved for
-!  use in a possible order increase on the next step.
-!  If a change in H is considered, an increase or decrease in order
-!  by one is considered also.  A change in H is made only if it is by a
-!  factor of at least 1.1.  If not, IALTH is set to 3 to prevent
-!  testing for that many steps.
-!-----------------------------------------------------------------------
+            !-----------------------------------------------------------------------
+            !  After a successful step, update the YH array.
+            !  Consider changing H if IALTH = 1.  Otherwise decrease IALTH by 1.
+            !  If IALTH is then 1 and NQ .lt. MAXORD, then ACOR is saved for
+            !  use in a possible order increase on the next step.
+            !  If a change in H is considered, an increase or decrease in order
+            !  by one is considered also.  A change in H is made only if it is by a
+            !  factor of at least 1.1.  If not, IALTH is set to 3 to prevent
+            !  testing for that many steps.
+            !-----------------------------------------------------------------------
             dls1%kflag = 0
             iredo = 0
             dls1%nst = dls1%nst + 1
@@ -481,15 +479,15 @@ do
             enddo
             dls1%ialth = dls1%ialth - 1
             if ( dls1%ialth==0 ) then
-!-----------------------------------------------------------------------
-!  Regardless of the success or failure of the step, factors
-!  RHDN, RHSM, and RHUP are computed, by which H could be multiplied
-!  at order NQ - 1, order NQ, or order NQ + 1, respectively.
-!  In the case of failure, RHUP = 0.0 to avoid an order increase.
-!  The largest of these is determined and the new order chosen
-!  accordingly.  If the order is to be increased, we compute one
-!  additional scaled derivative.
-!-----------------------------------------------------------------------
+               !-----------------------------------------------------------------------
+               !  Regardless of the success or failure of the step, factors
+               !  RHDN, RHSM, and RHUP are computed, by which H could be multiplied
+               !  at order NQ - 1, order NQ, or order NQ + 1, respectively.
+               !  In the case of failure, RHUP = 0.0 to avoid an order increase.
+               !  The largest of these is determined and the new order chosen
+               !  accordingly.  If the order is to be increased, we compute one
+               !  additional scaled derivative.
+               !-----------------------------------------------------------------------
                rhup = 0.0D0
                if ( dls1%l/=dls1%lmax ) then
                   do i = 1, dls1%n
@@ -531,14 +529,14 @@ do
          endif
       endif
    endif
-!-----------------------------------------------------------------------
-!  The correctors failed to converge, or RES has returned abnormally.
-!  on a convergence failure, if the Jacobian is out of date, PJAC is
-!  called for the next try.  Otherwise the YH array is retracted to its
-!  values before prediction, and H is reduced, if possible.
-!  take an error exit if IRES = 2, or H cannot be reduced, or MXNCF
-!  failures have occurred, or a fatal error occurred in PJAC or SLVS.
-!-----------------------------------------------------------------------
+   !-----------------------------------------------------------------------
+   !  The correctors failed to converge, or RES has returned abnormally.
+   !  on a convergence failure, if the Jacobian is out of date, PJAC is
+   !  called for the next try.  Otherwise the YH array is retracted to its
+   !  values before prediction, and H is reduced, if possible.
+   !  take an error exit if IRES = 2, or H cannot be reduced, or MXNCF
+   !  failures have occurred, or a fatal error occurred in PJAC or SLVS.
+   !-----------------------------------------------------------------------
    dls1%icf = 1
    if ( dls1%jcur==1 ) exit
    dls1%ipup = dls1%miter
@@ -553,7 +551,6 @@ dls1%tn = told
 i1 = dls1%nqnyh + 1
 do jb = 1, dls1%nq
    i1 = i1 - Nyh
-! DIR$ IVDEP
    do i = i1, dls1%nqnyh
       Yh1(i) = Yh1(i) - Yh1(i+Nyh)
    enddo
@@ -617,11 +614,11 @@ if ( (dls1%kflag==0) .and. (rh<1.1D0) ) then
    goto 1200
 else
    if ( dls1%kflag<=-2 ) rh = min(rh,0.1D0)
-!-----------------------------------------------------------------------
-!  If there is a change of order, reset NQ, L, and the coefficients.
-!  In any case H is reset according to RH and the YH array is rescaled.
-!  Then exit from 690 if the step was OK, or redo the step otherwise.
-!-----------------------------------------------------------------------
+   !-----------------------------------------------------------------------
+   !  If there is a change of order, reset NQ, L, and the coefficients.
+   !  In any case H is reset according to RH and the YH array is rescaled.
+   !  Then exit from 690 if the step was OK, or redo the step otherwise.
+   !-----------------------------------------------------------------------
    if ( newq==dls1%nq ) then
       rh = max(rh,dls1%hmin/abs(dls1%h))
       goto 300
@@ -632,6 +629,7 @@ dls1%nq = newq
 dls1%l = dls1%nq + 1
 iret = 2
 goto 100
+!-----------------------------------------------------------------------------------------------------------------------------------
  1200 continue
 r = dls1%h/dls1%tesco(2,dls1%nqu)
 do i = 1, dls1%n

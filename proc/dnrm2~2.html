@@ -8,7 +8,7 @@
     <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
     <link rel="icon" href="../favicon.png">
 
-    <title>dnrm2 &ndash; odepack</title>
+    <title>DNRM2 &ndash; odepack</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -75,7 +75,7 @@
 
     <div class="container">
   <div class="row">
-    <h1>dnrm2
+    <h1>DNRM2
       <small>Function</small>
     </h1>
     <div class="row">
@@ -85,13 +85,13 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
     data-placement="bottom" data-html="true"
-    title=" 0.3% of total for procedures.">65 statements</a>
+    title=" 0.3% of total for procedures.">66 statements</a>
      </li> 
     <li><i class="fa fa-code"></i><a href="../src/dnrm2.inc"> Source File</a></li>
   </ul>
   <ol class="breadcrumb in-well text-right">
      <li><a href='../sourcefile/dnrm2.inc.html'>dnrm2.inc</a></li>
-     <li class="active">dnrm2</li>
+     <li class="active">DNRM2</li>
   </ol>
 </div>
 </div>
@@ -113,16 +113,23 @@
   <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-cuthi">cuthi</a>
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-cutlo">cutlo</a>
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-hitest">hitest</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-abig">abig</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-amed">amed</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-asml">asml</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-ax">ax</a>
       <a class="list-group-item" href="../proc/dnrm2~2.html#variable-i~70">i</a>
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-j~41">j</a>
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-next~2">next</a>
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-nn">nn</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-ix~5">ix</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-maxn">maxN</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-notbig">notbig</a>
       <a class="list-group-item" href="../proc/dnrm2~2.html#variable-one">one</a>
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-sum~15">sum</a>
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-xmax">xmax</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-sbig">sbig</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-scl">scl</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-ssml">ssml</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-sumsq">sumsq</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-tbig">tbig</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-tsml">tsml</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-ymax">ymax</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-ymin">ymin</a>
       <a class="list-group-item" href="../proc/dnrm2~2.html#variable-zero~2">zero</a>
     </div>
   </div>
@@ -133,93 +140,70 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>pure function dnrm2(n, dx, incx)</h2>
+    <h2>function DNRM2(n, x, incx)</h2>
     
 
-    <h3 id="name">NAME</h3>
-<p>dnrm2(3f) - [M_odepack::matrix] Compute the Euclidean length (L2 norm) of a vector.</p>
-<h3 id="description">DESCRIPTION</h3>
-<p>Euclidean norm of the N-vector stored in DX with storage
-   increment INCX.</p>
-<div class="codehilite"><pre><span></span><code>   <span class="k">If</span> <span class="nv">N</span> .<span class="nv">LE</span>. <span class="mi">0</span>, <span class="k">return</span> <span class="nv">with</span> <span class="nb">result</span> <span class="o">=</span> <span class="mi">0</span>.
-   <span class="k">If</span> <span class="nv">N</span> .<span class="nv">GE</span>. <span class="mi">1</span>, <span class="k">then</span> <span class="nv">INCX</span> <span class="nv">must</span> <span class="nv">be</span> .<span class="nv">GE</span>. <span class="mi">1</span>
-</code></pre></div>
-
-<p>Four phase method using two built-in constants that are
-   hopefully applicable to all machines.</p>
-<div class="codehilite"><pre><span></span><code>     CUTLO = maximum of  SQRT(U/EPS)  over all known machines.
-     CUTHI = minimum of  SQRT(V)      over all known machines.
-</code></pre></div>
-
-<p>where</p>
-<div class="codehilite"><pre><span></span><code>     EPS = smallest no. such that EPS + 1. .GT. 1.
-     U   = smallest positive no.   (underflow limit)
-     V   = largest  no.            (overflow  limit)
-</code></pre></div>
-
-<p>Brief outline of algorithm.</p>
-<div class="codehilite"><pre><span></span><code>   <span class="nv">Phase</span> <span class="mi">1</span> <span class="nv">scans</span> <span class="nv">zero</span> <span class="nv">components</span>.
-   <span class="nv">move</span> <span class="nv">to</span> <span class="nv">phase</span> <span class="mi">2</span> <span class="nv">when</span> <span class="nv">a</span> <span class="nv">component</span> <span class="nv">is</span> <span class="nv">nonzero</span> <span class="nv">and</span> .<span class="nv">LE</span>. <span class="nv">CUTLO</span>
-   <span class="nv">move</span> <span class="nv">to</span> <span class="nv">phase</span> <span class="mi">3</span> <span class="nv">when</span> <span class="nv">a</span> <span class="nv">component</span> <span class="nv">is</span> .<span class="nv">GT</span>. <span class="nv">CUTLO</span>
-   <span class="nv">move</span> <span class="nv">to</span> <span class="nv">phase</span> <span class="mi">4</span> <span class="nv">when</span> <span class="nv">a</span> <span class="nv">component</span> <span class="nv">is</span> .<span class="nv">GE</span>. <span class="nv">CUTHI</span><span class="o">/</span><span class="nv">M</span>
-   <span class="nv">where</span> <span class="nv">M</span> <span class="o">=</span> <span class="nv">N</span> <span class="k">for</span> <span class="nv">X</span><span class="ss">()</span> <span class="nv">real</span> <span class="nv">and</span> <span class="nv">M</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="nv">N</span> <span class="k">for</span> <span class="nv">complex</span>.
-</code></pre></div>
-
-<h3 id="input">INPUT</h3>
-<dl>
-<dt>N</dt>
-<dd>number of elements in input vector(s)</dd>
-<dt>DX</dt>
-<dd>double precision vector with N elements</dd>
-<dt>INCX</dt>
-<dd>storage spacing between elements of DX</dd>
-</dl>
-<h3 id="output">OUTPUT</h3>
-<dl>
-<dt>DNRM2</dt>
-<dd>double precision result (zero if N .LE. 0)</dd>
-</dl>
-<h3 id="values-for-cutlo-and-cuthi">Values for CUTLO and CUTHI.</h3>
-<p>From the environmental parameters listed in the IMSL converter
-   document the limiting values are as follows:</p>
-<div class="codehilite"><pre><span></span><code>      <span class="nv">CUTLO</span>, <span class="nv">S</span>.<span class="nv">P</span>.   <span class="nv">U</span><span class="o">/</span><span class="nv">EPS</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="ss">(</span><span class="o">-</span><span class="mi">102</span><span class="ss">)</span> <span class="k">for</span>  <span class="nv">Honeywell</span>.  <span class="nv">Close</span> <span class="nv">seconds</span> <span class="nv">are</span>
-                    <span class="nv">Univac</span> <span class="nv">and</span> <span class="nv">DEC</span> <span class="nv">at</span> <span class="mi">2</span><span class="o">**</span><span class="ss">(</span><span class="o">-</span><span class="mi">103</span><span class="ss">)</span>
-                    <span class="nv">Thus</span> <span class="nv">CUTLO</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="ss">(</span><span class="o">-</span><span class="mi">51</span><span class="ss">)</span> <span class="o">=</span> <span class="mi">4</span>.<span class="mi">44089</span><span class="nv">E</span><span class="o">-</span><span class="mi">16</span>
-      <span class="nv">CUTHI</span>, <span class="nv">S</span>.<span class="nv">P</span>.   <span class="nv">V</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">127</span> <span class="k">for</span> <span class="nv">Univac</span>, <span class="nv">Honeywell</span>, <span class="nv">and</span> <span class="nv">DEC</span>.
-                    <span class="nv">Thus</span> <span class="nv">CUTHI</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="ss">(</span><span class="mi">63</span>.<span class="mi">5</span><span class="ss">)</span> <span class="o">=</span> <span class="mi">1</span>.<span class="mi">30438</span><span class="nv">E19</span>
-      <span class="nv">CUTLO</span>, <span class="nv">D</span>.<span class="nv">P</span>.   <span class="nv">U</span><span class="o">/</span><span class="nv">EPS</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="ss">(</span><span class="o">-</span><span class="mi">67</span><span class="ss">)</span> <span class="k">for</span> <span class="nv">Honeywell</span> <span class="nv">and</span> <span class="nv">DEC</span>.
-                    <span class="nv">Thus</span> <span class="nv">CUTLO</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="ss">(</span><span class="o">-</span><span class="mi">33</span>.<span class="mi">5</span><span class="ss">)</span> <span class="o">=</span> <span class="mi">8</span>.<span class="mi">23181</span><span class="nv">D</span><span class="o">-</span><span class="mi">11</span>
-      <span class="nv">CUTHI</span>, <span class="nv">D</span>.<span class="nv">P</span>.   <span class="nv">same</span> <span class="nv">as</span> <span class="nv">S</span>.<span class="nv">P</span>.  <span class="nv">CUTHI</span> <span class="o">=</span> <span class="mi">1</span>.<span class="mi">30438</span><span class="nv">D19</span>
-      <span class="nv">DATA</span> <span class="nv">CUTLO</span>, <span class="nv">CUTHI</span> <span class="o">/</span><span class="mi">8</span>.<span class="mi">232</span><span class="nv">D</span><span class="o">-</span><span class="mi">11</span>,  <span class="mi">1</span>.<span class="mi">304</span><span class="nv">D19</span><span class="o">/</span>
-      <span class="nv">DATA</span> <span class="nv">CUTLO</span>, <span class="nv">CUTHI</span> <span class="o">/</span><span class="mi">4</span>.<span class="mi">441</span><span class="nv">E</span><span class="o">-</span><span class="mi">16</span>,  <span class="mi">1</span>.<span class="mi">304</span><span class="nv">E19</span><span class="o">/</span>
-</code></pre></div>
-
-<h3 id="references">REFERENCES</h3>
-<h4 id="b-l-a-s-subprogram">B L A S  Subprogram</h4>
-<p>C. L. Lawson, R. J. Hanson, D. R. Kincaid and F. T.
-   Krogh, Basic linear algebra subprograms for Fortran
-   usage, Algorithm No. 539, Transactions on Mathematical
-   Software 5, 3 (September 1979), pp. 308-323.</p>
+    <p>\brief \b DNRM2
+\par Purpose:</p>
+<p>\verbatim</p>
+<p>DNRM2 returns the euclidean norm of a vector via the function
+name, so that</p>
+<p>DNRM2 := sqrt( x&rsquo;*x )
+\endverbatim
+\param[in] N
+\verbatim
+         N is INTEGER
+        number of elements in input vector(s)
+\endverbatim</p>
+<p>\param[in] X
+\verbatim
+         X is DOUBLE PRECISION array, dimension ( 1 + ( N - 1 )*abs( INCX ) )
+\endverbatim</p>
+<p>\param[in] INCX
+\verbatim
+         INCX is INTEGER, storage spacing between elements of X
+         If INCX &gt; 0, X(1+(i-1)<em>INCX) = x(i) for 1 &lt;= i &lt;= n
+         If INCX &lt; 0, X(1-(n-i)</em>INCX) = x(i) for 1 &lt;= i &lt;= n
+         If INCX = 0, x isn&rsquo;t a vector so there is no need to call
+         this subroutine.  If you call it anyway, it will count x(1)
+         in the vector norm N times.
+\endverbatim
+\author Edward Anderson, Lockheed Martin
+\date August 2016
+\ingroup single_blas_level1
+\par Contributors:</p>
+<p>Weslley Pereira, University of Colorado Denver, USA
+\par Further Details:</p>
+<p>\verbatim</p>
+<p>Anderson E. (2017)
+ Algorithm 978: Safe Scaling in the Level 1 BLAS
+ ACM Trans Math Softw 44:1&ndash;28
+ https://doi.org/10.1145/3061665</p>
+<p>Blue, James L. (1978)
+ A Portable Fortran Program to Find the Euclidean Norm of a Vector
+ ACM Trans Math Softw 4:15&ndash;23
+ https://doi.org/10.1145/355769.355771</p>
+<p>\endverbatim</p>
 
     <h3>Arguments</h3>
       <table class="table table-striped varlist">
 <thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-n~5"></span>integer,</td>
-<td>intent(in)</td>
+  <td><span class="anchor" id="variable-n~5"></span>integer</td>
+<td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>n</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-dx"></span>real(kind=dp),</td>
-<td>intent(in)</td>
+  <td><span class="anchor" id="variable-x~2"></span>real(kind=dp)</td>
+<td></td>
   <td></td>  <td></td><td>::</td>
-  <td><strong>dx</strong>(*)</td><td></td>
+  <td><strong>x</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-incx"></span>integer,</td>
-<td>intent(in)</td>
+  <td><span class="anchor" id="variable-incx"></span>integer</td>
+<td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>incx</strong></td><td></td>
 </tr>
@@ -249,91 +233,91 @@
 <g id="proc~~dnrm2~2~~CalledByGraph_node1" class="node">
 <title>proc~dnrm2~2</title>
 <polygon fill="none" stroke="black" points="508,-58.09 454,-58.09 454,-34.09 508,-34.09 508,-58.09"/>
-<text text-anchor="middle" x="481" y="-43.69" font-family="Helvetica,sans-Serif" font-size="10.50">dnrm2</text>
+<text text-anchor="middle" x="481" y="-43.69" font-family="Helvetica,sans-Serif" font-size="10.50">DNRM2</text>
+</g>
+<!-- proc~dorthog~2 -->
+<g id="proc~~dnrm2~2~~CalledByGraph_node2" class="node">
+<title>proc~dorthog~2</title>
+<g id="a_proc~~dnrm2~2~~CalledByGraph_node2"><a xlink:href=".././proc/dorthog~2.html" xlink:title="dorthog">
+<polygon fill="#d9534f" stroke="#d9534f" points="418,-79.09 363,-79.09 363,-55.09 418,-55.09 418,-79.09"/>
+<text text-anchor="middle" x="390.5" y="-64.69" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dorthog</text>
+</a>
+</g>
+</g>
+<!-- proc~dorthog~2&#45;&gt;proc~dnrm2~2 -->
+<g id="proc~~dnrm2~2~~CalledByGraph_edge1" class="edge">
+<title>proc~dorthog~2&#45;&gt;proc~dnrm2~2</title>
+<path fill="none" stroke="#000000" d="M418.05,-60.79C426.18,-58.86 435.25,-56.71 443.9,-54.66"/>
+<polygon fill="#000000" stroke="#000000" points="444.85,-58.03 453.77,-52.32 443.23,-51.22 444.85,-58.03"/>
+</g>
+<!-- proc~datv~2 -->
+<g id="proc~~dnrm2~2~~CalledByGraph_node3" class="node">
+<title>proc~datv~2</title>
+<g id="a_proc~~dnrm2~2~~CalledByGraph_node3"><a xlink:href=".././proc/datv~2.html" xlink:title="datv">
+<polygon fill="#d9534f" stroke="#d9534f" points="417.5,-37.09 363.5,-37.09 363.5,-13.09 417.5,-13.09 417.5,-37.09"/>
+<text text-anchor="middle" x="390.5" y="-22.69" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">datv</text>
+</a>
+</g>
+</g>
+<!-- proc~datv~2&#45;&gt;proc~dnrm2~2 -->
+<g id="proc~~dnrm2~2~~CalledByGraph_edge2" class="edge">
+<title>proc~datv~2&#45;&gt;proc~dnrm2~2</title>
+<path fill="none" stroke="#000000" d="M417.57,-31.28C425.87,-33.25 435.2,-35.46 444.07,-37.57"/>
+<polygon fill="#000000" stroke="#000000" points="443.27,-40.97 453.81,-39.88 444.88,-34.16 443.27,-40.97"/>
 </g>
 <!-- proc~dspigmr~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_node2" class="node">
+<g id="proc~~dnrm2~2~~CalledByGraph_node4" class="node">
 <title>proc~dspigmr~2</title>
-<g id="a_proc~~dnrm2~2~~CalledByGraph_node2"><a xlink:href=".././proc/dspigmr~2.html" xlink:title="dspigmr">
+<g id="a_proc~~dnrm2~2~~CalledByGraph_node4"><a xlink:href=".././proc/dspigmr~2.html" xlink:title="dspigmr">
 <polygon fill="#d9534f" stroke="#d9534f" points="327,-79.09 271,-79.09 271,-55.09 327,-55.09 327,-79.09"/>
 <text text-anchor="middle" x="299" y="-64.69" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dspigmr</text>
 </a>
 </g>
 </g>
 <!-- proc~dspigmr~2&#45;&gt;proc~dnrm2~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_edge1" class="edge">
+<g id="proc~~dnrm2~2~~CalledByGraph_edge3" class="edge">
 <title>proc~dspigmr~2&#45;&gt;proc~dnrm2~2</title>
 <path fill="none" stroke="#000000" d="M327.15,-79.09C351.36,-88.1 387.56,-97.43 418,-88.09 433.05,-83.47 447.74,-73.82 459.04,-64.93"/>
 <polygon fill="#000000" stroke="#000000" points="461.49,-67.45 466.97,-58.38 457.03,-62.06 461.49,-67.45"/>
 </g>
-<!-- proc~datv~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_node3" class="node">
-<title>proc~datv~2</title>
-<g id="a_proc~~dnrm2~2~~CalledByGraph_node3"><a xlink:href=".././proc/datv~2.html" xlink:title="datv">
-<polygon fill="#d9534f" stroke="#d9534f" points="417.5,-79.09 363.5,-79.09 363.5,-55.09 417.5,-55.09 417.5,-79.09"/>
-<text text-anchor="middle" x="390.5" y="-64.69" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">datv</text>
-</a>
-</g>
+<!-- proc~dspigmr~2&#45;&gt;proc~dorthog~2 -->
+<g id="proc~~dnrm2~2~~CalledByGraph_edge5" class="edge">
+<title>proc~dspigmr~2&#45;&gt;proc~dorthog~2</title>
+<path fill="none" stroke="#000000" d="M327.34,-67.09C335.38,-67.09 344.31,-67.09 352.83,-67.09"/>
+<polygon fill="#000000" stroke="#000000" points="352.94,-70.59 362.94,-67.09 352.94,-63.59 352.94,-70.59"/>
 </g>
 <!-- proc~dspigmr~2&#45;&gt;proc~datv~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_edge6" class="edge">
+<g id="proc~~dnrm2~2~~CalledByGraph_edge7" class="edge">
 <title>proc~dspigmr~2&#45;&gt;proc~datv~2</title>
-<path fill="none" stroke="#000000" d="M327.34,-67.09C335.45,-67.09 344.47,-67.09 353.06,-67.09"/>
-<polygon fill="#000000" stroke="#000000" points="353.25,-70.59 363.25,-67.09 353.25,-63.59 353.25,-70.59"/>
-</g>
-<!-- proc~dorthog~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_node5" class="node">
-<title>proc~dorthog~2</title>
-<g id="a_proc~~dnrm2~2~~CalledByGraph_node5"><a xlink:href=".././proc/dorthog~2.html" xlink:title="dorthog">
-<polygon fill="#d9534f" stroke="#d9534f" points="418,-37.09 363,-37.09 363,-13.09 418,-13.09 418,-37.09"/>
-<text text-anchor="middle" x="390.5" y="-22.69" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dorthog</text>
-</a>
-</g>
-</g>
-<!-- proc~dspigmr~2&#45;&gt;proc~dorthog~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_edge9" class="edge">
-<title>proc~dspigmr~2&#45;&gt;proc~dorthog~2</title>
 <path fill="none" stroke="#000000" d="M325.89,-54.94C334.79,-50.76 344.92,-46.01 354.43,-41.55"/>
 <polygon fill="#000000" stroke="#000000" points="356.11,-44.63 363.67,-37.21 353.13,-38.29 356.11,-44.63"/>
 </g>
-<!-- proc~datv~2&#45;&gt;proc~dnrm2~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_edge2" class="edge">
-<title>proc~datv~2&#45;&gt;proc~dnrm2~2</title>
-<path fill="none" stroke="#000000" d="M417.57,-60.9C425.87,-58.94 435.2,-56.72 444.07,-54.62"/>
-<polygon fill="#000000" stroke="#000000" points="444.88,-58.02 453.81,-52.31 443.27,-51.21 444.88,-58.02"/>
-</g>
 <!-- proc~dspiom~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_node4" class="node">
+<g id="proc~~dnrm2~2~~CalledByGraph_node5" class="node">
 <title>proc~dspiom~2</title>
-<g id="a_proc~~dnrm2~2~~CalledByGraph_node4"><a xlink:href=".././proc/dspiom~2.html" xlink:title="dspiom">
+<g id="a_proc~~dnrm2~2~~CalledByGraph_node5"><a xlink:href=".././proc/dspiom~2.html" xlink:title="dspiom">
 <polygon fill="#d9534f" stroke="#d9534f" points="326,-37.09 272,-37.09 272,-13.09 326,-13.09 326,-37.09"/>
 <text text-anchor="middle" x="299" y="-22.69" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dspiom</text>
 </a>
 </g>
 </g>
 <!-- proc~dspiom~2&#45;&gt;proc~dnrm2~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_edge3" class="edge">
+<g id="proc~~dnrm2~2~~CalledByGraph_edge4" class="edge">
 <title>proc~dspiom~2&#45;&gt;proc~dnrm2~2</title>
 <path fill="none" stroke="#000000" d="M326.21,-13.45C350.41,-4.32 387.17,5.37 418,-4.09 433.05,-8.71 447.74,-18.36 459.04,-27.25"/>
 <polygon fill="#000000" stroke="#000000" points="457.03,-30.13 466.97,-33.8 461.49,-24.73 457.03,-30.13"/>
 </g>
-<!-- proc~dspiom~2&#45;&gt;proc~datv~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_edge7" class="edge">
-<title>proc~dspiom~2&#45;&gt;proc~datv~2</title>
+<!-- proc~dspiom~2&#45;&gt;proc~dorthog~2 -->
+<g id="proc~~dnrm2~2~~CalledByGraph_edge6" class="edge">
+<title>proc~dspiom~2&#45;&gt;proc~dorthog~2</title>
 <path fill="none" stroke="#000000" d="M325.89,-37.24C334.79,-41.42 344.92,-46.17 354.43,-50.63"/>
 <polygon fill="#000000" stroke="#000000" points="353.13,-53.89 363.67,-54.97 356.11,-47.55 353.13,-53.89"/>
 </g>
-<!-- proc~dspiom~2&#45;&gt;proc~dorthog~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_edge10" class="edge">
-<title>proc~dspiom~2&#45;&gt;proc~dorthog~2</title>
-<path fill="none" stroke="#000000" d="M326.37,-25.09C334.6,-25.09 343.83,-25.09 352.64,-25.09"/>
-<polygon fill="#000000" stroke="#000000" points="352.7,-28.59 362.7,-25.09 352.7,-21.59 352.7,-28.59"/>
-</g>
-<!-- proc~dorthog~2&#45;&gt;proc~dnrm2~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_edge4" class="edge">
-<title>proc~dorthog~2&#45;&gt;proc~dnrm2~2</title>
-<path fill="none" stroke="#000000" d="M418.05,-31.39C426.18,-33.32 435.25,-35.47 443.9,-37.53"/>
-<polygon fill="#000000" stroke="#000000" points="443.23,-40.96 453.77,-39.87 444.85,-34.15 443.23,-40.96"/>
+<!-- proc~dspiom~2&#45;&gt;proc~datv~2 -->
+<g id="proc~~dnrm2~2~~CalledByGraph_edge8" class="edge">
+<title>proc~dspiom~2&#45;&gt;proc~datv~2</title>
+<path fill="none" stroke="#000000" d="M326.37,-25.09C334.74,-25.09 344.16,-25.09 353.11,-25.09"/>
+<polygon fill="#000000" stroke="#000000" points="353.32,-28.59 363.32,-25.09 353.32,-21.59 353.32,-28.59"/>
 </g>
 <!-- proc~dsolpk~2 -->
 <g id="proc~~dnrm2~2~~CalledByGraph_node6" class="node">
@@ -345,13 +329,13 @@
 </g>
 </g>
 <!-- proc~dsolpk~2&#45;&gt;proc~dspigmr~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_edge5" class="edge">
+<g id="proc~~dnrm2~2~~CalledByGraph_edge9" class="edge">
 <title>proc~dsolpk~2&#45;&gt;proc~dspigmr~2</title>
 <path fill="none" stroke="#000000" d="M235.22,-52.28C243.26,-54.17 252.25,-56.3 260.87,-58.33"/>
 <polygon fill="#000000" stroke="#000000" points="260.19,-61.77 270.73,-60.66 261.8,-54.95 260.19,-61.77"/>
 </g>
 <!-- proc~dsolpk~2&#45;&gt;proc~dspiom~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_edge8" class="edge">
+<g id="proc~~dnrm2~2~~CalledByGraph_edge10" class="edge">
 <title>proc~dsolpk~2&#45;&gt;proc~dspiom~2</title>
 <path fill="none" stroke="#000000" d="M235.22,-39.9C243.64,-37.92 253.12,-35.68 262.11,-33.56"/>
 <polygon fill="#000000" stroke="#000000" points="263.04,-36.94 271.97,-31.23 261.43,-30.12 263.04,-36.94"/>
@@ -386,25 +370,10 @@
 <path fill="none" stroke="#000000" d="M144.57,-31.28C152.87,-33.25 162.2,-35.46 171.07,-37.57"/>
 <polygon fill="#000000" stroke="#000000" points="170.27,-40.97 180.81,-39.88 171.88,-34.16 170.27,-40.97"/>
 </g>
-<!-- proc~dlsodpk~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_node9" class="node">
-<title>proc~dlsodpk~2</title>
-<g id="a_proc~~dnrm2~2~~CalledByGraph_node9"><a xlink:href=".././proc/dlsodpk~2.html" xlink:title="dlsodpk">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-79.09 0,-79.09 0,-55.09 54,-55.09 54,-79.09"/>
-<text text-anchor="middle" x="27" y="-64.69" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodpk</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodpk~2&#45;&gt;proc~dstodpk~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_edge13" class="edge">
-<title>proc~dlsodpk~2&#45;&gt;proc~dstodpk~2</title>
-<path fill="none" stroke="#000000" d="M54.07,-67.09C62.12,-67.09 71.14,-67.09 79.76,-67.09"/>
-<polygon fill="#000000" stroke="#000000" points="80,-70.59 90,-67.09 80,-63.59 80,-70.59"/>
-</g>
 <!-- proc~dlsodkr~2 -->
-<g id="proc~~dnrm2~2~~CalledByGraph_node10" class="node">
+<g id="proc~~dnrm2~2~~CalledByGraph_node9" class="node">
 <title>proc~dlsodkr~2</title>
-<g id="a_proc~~dnrm2~2~~CalledByGraph_node10"><a xlink:href=".././proc/dlsodkr~2.html" xlink:title="dlsodkr">
+<g id="a_proc~~dnrm2~2~~CalledByGraph_node9"><a xlink:href=".././proc/dlsodkr~2.html" xlink:title="dlsodkr">
 <polygon fill="#d9534f" stroke="#d9534f" points="54,-37.09 0,-37.09 0,-13.09 54,-13.09 54,-37.09"/>
 <text text-anchor="middle" x="27" y="-22.69" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodkr</text>
 </a>
@@ -415,6 +384,21 @@
 <title>proc~dlsodkr~2&#45;&gt;proc~dstoka~2</title>
 <path fill="none" stroke="#000000" d="M54.07,-25.09C62.28,-25.09 71.5,-25.09 80.28,-25.09"/>
 <polygon fill="#000000" stroke="#000000" points="80.31,-28.59 90.31,-25.09 80.31,-21.59 80.31,-28.59"/>
+</g>
+<!-- proc~dlsodpk~2 -->
+<g id="proc~~dnrm2~2~~CalledByGraph_node10" class="node">
+<title>proc~dlsodpk~2</title>
+<g id="a_proc~~dnrm2~2~~CalledByGraph_node10"><a xlink:href=".././proc/dlsodpk~2.html" xlink:title="dlsodpk">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-79.09 0,-79.09 0,-55.09 54,-55.09 54,-79.09"/>
+<text text-anchor="middle" x="27" y="-64.69" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodpk</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodpk~2&#45;&gt;proc~dstodpk~2 -->
+<g id="proc~~dnrm2~2~~CalledByGraph_edge13" class="edge">
+<title>proc~dlsodpk~2&#45;&gt;proc~dstodpk~2</title>
+<path fill="none" stroke="#000000" d="M54.07,-67.09C62.12,-67.09 71.14,-67.09 79.76,-67.09"/>
+<polygon fill="#000000" stroke="#000000" points="80,-70.59 90,-67.09 80,-63.59 80,-70.59"/>
 </g>
 </g>
 </svg>
@@ -488,16 +472,23 @@
   <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-cuthi">cuthi</a>
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-cutlo">cutlo</a>
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-hitest">hitest</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-abig">abig</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-amed">amed</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-asml">asml</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-ax">ax</a>
       <a class="list-group-item" href="../proc/dnrm2~2.html#variable-i~70">i</a>
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-j~41">j</a>
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-next~2">next</a>
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-nn">nn</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-ix~5">ix</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-maxn">maxN</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-notbig">notbig</a>
       <a class="list-group-item" href="../proc/dnrm2~2.html#variable-one">one</a>
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-sum~15">sum</a>
-      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-xmax">xmax</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-sbig">sbig</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-scl">scl</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-ssml">ssml</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-sumsq">sumsq</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-tbig">tbig</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-tsml">tsml</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-ymax">ymax</a>
+      <a class="list-group-item" href="../proc/dnrm2~2.html#variable-ymin">ymin</a>
       <a class="list-group-item" href="../proc/dnrm2~2.html#variable-zero~2">zero</a>
     </div>
   </div>
@@ -513,19 +504,24 @@
 <thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-cuthi"></span>real(kind=dp),</td>
-<td>public,</td>  <td>parameter</td><td>::</td>
-  <td><strong>cuthi</strong></td><td> =</td><td>1.304d19</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-cutlo"></span>real(kind=dp),</td>
-<td>public,</td>  <td>parameter</td><td>::</td>
-  <td><strong>cutlo</strong></td><td> =</td><td>8.232d-11</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-hitest"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-abig"></span>real(kind=dp),</td>
 <td>public</td>  <td></td><td>::</td>
-  <td><strong>hitest</strong></td><td></td><td></td><td></td>
+  <td><strong>abig</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-amed"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>amed</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-asml"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>asml</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-ax"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>ax</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-i~70"></span>integer,</td>
@@ -533,39 +529,69 @@
   <td><strong>i</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-j~41"></span>integer,</td>
+  <td><span class="anchor" id="variable-ix~5"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
-  <td><strong>j</strong></td><td></td><td></td><td></td>
+  <td><strong>ix</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-next~2"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>next</strong></td><td></td><td></td><td></td>
+  <td><span class="anchor" id="variable-maxn"></span>real(kind=dp),</td>
+<td>public,</td>  <td>parameter</td><td>::</td>
+  <td><strong>maxN</strong></td><td> =</td><td>huge(0.0_dp)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-nn"></span>integer,</td>
+  <td><span class="anchor" id="variable-notbig"></span>logical,</td>
 <td>public</td>  <td></td><td>::</td>
-  <td><strong>nn</strong></td><td></td><td></td><td></td>
+  <td><strong>notbig</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-one"></span>real(kind=dp),</td>
 <td>public,</td>  <td>parameter</td><td>::</td>
-  <td><strong>one</strong></td><td> =</td><td>1.0d0</td><td></td>
+  <td><strong>one</strong></td><td> =</td><td>1.0_dp</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-sum~15"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>sum</strong></td><td></td><td></td><td></td>
+  <td><span class="anchor" id="variable-sbig"></span>real(kind=dp),</td>
+<td>public,</td>  <td>parameter</td><td>::</td>
+  <td><strong>sbig</strong></td><td> =</td><td>real(radix(0._dp), dp)**(-ceiling((maxexponent(0._dp)-digits(0._dp)+1)*0.5_dp))</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-xmax"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-scl"></span>real(kind=dp),</td>
 <td>public</td>  <td></td><td>::</td>
-  <td><strong>xmax</strong></td><td></td><td></td><td></td>
+  <td><strong>scl</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-ssml"></span>real(kind=dp),</td>
+<td>public,</td>  <td>parameter</td><td>::</td>
+  <td><strong>ssml</strong></td><td> =</td><td>real(radix(0._dp), dp)**(-floor((minexponent(0._dp)-1)*0.5_dp))</td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-sumsq"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>sumsq</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tbig"></span>real(kind=dp),</td>
+<td>public,</td>  <td>parameter</td><td>::</td>
+  <td><strong>tbig</strong></td><td> =</td><td>real(radix(0._dp), dp)**floor((maxexponent(0._dp)-digits(0._dp)+1)*0.5_dp)</td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-tsml"></span>real(kind=dp),</td>
+<td>public,</td>  <td>parameter</td><td>::</td>
+  <td><strong>tsml</strong></td><td> =</td><td>real(radix(0._dp), dp)**ceiling((minexponent(0._dp)-1)*0.5_dp)</td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-ymax"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>ymax</strong></td><td></td><td></td><td></td>
+</tr>
+<tr>
+  <td><span class="anchor" id="variable-ymin"></span>real(kind=dp),</td>
+<td>public</td>  <td></td><td>::</td>
+  <td><strong>ymin</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
   <td><span class="anchor" id="variable-zero~2"></span>real(kind=dp),</td>
 <td>public,</td>  <td>parameter</td><td>::</td>
-  <td><strong>zero</strong></td><td> =</td><td>0.0d0</td><td></td>
+  <td><strong>zero</strong></td><td> =</td><td>0.0_dp</td><td></td>
 </tr>
 </tbody>
 </table>
@@ -596,7 +622,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-06 03:22            </p>
+ on 2022-02-14 02:53            </p>
         </div>
       </div>
       <br>
