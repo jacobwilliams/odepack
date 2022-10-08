@@ -28,10 +28,17 @@ jobs:
     - name: Setup Graphviz
       uses: ts-graphviz/setup-graphviz@v1
 
+#    - name: Setup Fortran Package Manager
+#      uses: fortran-lang/setup-fpm@v3
+#      with:
+#        github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: Setup Fortran Package Manager
-      uses: fortran-lang/setup-fpm@v3
-      with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        wget https://github.com/fortran-lang/fpm/releases/download/v0.6.0/fpm-0.6.0-linux-x86_64
+        chmod u+x fpm-0.6.0-linux-x86_64
+        mkdir -p /Users/runner/bin
+        ln -s fpm-0.6.0-linux-x86_64 /Users/runner/bin/fpm
+        fpm --version
 
     - name: Install Python dependencies
       if: contains( matrix.os, 'ubuntu')
