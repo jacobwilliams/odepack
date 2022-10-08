@@ -344,10 +344,11 @@ common /pcom  / q1 , q2 , q3 , q4 , a3 , a4 , om , c3 , dz ,      &
 !
 real(kind=dp) :: bd(2,2,*)
 real(kind=dp) :: c1 , c2 , czdn , czup , diag , temp , zdn , zup
+integer :: neq
 real(kind=dp) , dimension(neq) :: f0 , f1 , rewt , ysv
 real(kind=dp) :: hl0 , t
 integer :: iblok , iblok0 , jx , jz , lenbd
-integer :: ier , jok , neq
+integer :: ier , jok 
 integer , dimension(2,*) :: ipbd
 real(kind=dp) , dimension(2,*) :: y
 external f
@@ -428,9 +429,9 @@ subroutine c2sum(y,mx,mz,c2tot)
 implicit none
 integer,parameter :: dp=kind(0.0d0)
 !
-real(kind=dp)     :: y(2,mx,mz)
 integer           :: mx
 integer           :: mz
+real(kind=dp)     :: y(2,mx,mz)
 real(kind=dp)     :: c2tot
 !
 integer           :: jx , jz

@@ -95,8 +95,8 @@
 ! 
 subroutine dgesl(A,Lda,N,Ipvt,B,Job)
 !
-real(kind=dp)               :: A(Lda,*)
 integer,intent(in)          :: Lda
+real(kind=dp)               :: A(Lda,*)
 integer,intent(in)          :: N
 integer,intent(in)          :: Ipvt(*)
 real(kind=dp),intent(inout) :: B(*)

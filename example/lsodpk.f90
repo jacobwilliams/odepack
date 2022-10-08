@@ -391,10 +391,10 @@ implicit none
 integer,parameter :: dp=kind(0.0d0)
 !
 real(kind=dp) :: t
-real(kind=dp) , dimension(ns,mx,my) :: c
 integer :: ns
 integer :: mx
 integer :: my
+real(kind=dp) , dimension(ns,mx,my) :: c
 integer :: lun
 !
 integer :: i , jx , jy
@@ -517,13 +517,14 @@ common /pcom3 / meshx , meshy , ngx , ngy , ngrp , mxmp , jgx ,   &
  & jgy , jigx , jigy , jxr , jyr
 !
 real(kind=dp) , dimension(*) :: bd
+integer :: neq
 real(kind=dp) , dimension(neq) :: ccsv , f0 , f1 , rewt
 real(kind=dp) , dimension(*) :: cc  !X! WAS DIMENSIONED TO CC(NEQ)
 real(kind=dp) :: fac , r , r0
 real(kind=dp) :: hl0 , t
 integer :: i , ibd , idiag , if0 , if00 , ig , igx , igy , iip ,  &
  & j , jj , jx , jy , n
-integer :: ier , neq
+integer :: ier 
 integer , dimension(*) :: ipbd
 external f
 !
