@@ -1240,8 +1240,8 @@ integer                     :: Istate
 integer                     :: Iopt
 integer                     :: Lrw
 real(kind=dp),intent(inout) :: Rwork(Lrw)
-integer,intent(inout)       :: Iwork(Liw)
 integer                     :: Liw
+integer,intent(inout)       :: Iwork(Liw)
 external                    :: jac
 integer                     :: Jt
 

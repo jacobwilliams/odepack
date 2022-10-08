@@ -82,8 +82,8 @@
 ! 
 subroutine dgefa(A,Lda,N,Ipvt,Info)
 !
-real(kind=dp),intent(inout) :: A(Lda,*)
 integer,intent(in)          :: Lda
+real(kind=dp),intent(inout) :: A(Lda,*)
 integer,intent(in)          :: N
 integer,intent(out)         :: Ipvt(*)
 integer,intent(out)         :: Info
