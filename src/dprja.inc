@@ -71,8 +71,8 @@ subroutine dprja(Neq,Y,Yh,Nyh,Ewt,Ftem,Savf,Wm,Iwm,f,jac)
 !
 integer, dimension(*) :: Neq
 real(kind=dp), intent(inout), dimension(*) :: Y
-real(kind=dp), intent(in), dimension(Nyh,*) :: Yh
 integer, intent(in) :: Nyh
+real(kind=dp), intent(in), dimension(Nyh,*) :: Yh
 real(kind=dp), dimension(*) :: Ewt
 real(kind=dp), dimension(*) :: Ftem
 real(kind=dp), dimension(*) :: Savf

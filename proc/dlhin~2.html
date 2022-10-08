@@ -118,20 +118,26 @@
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-pt1">PT1</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-two">TWO</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-afi">afi</a>
-      <a class="list-group-item" href="../proc/dlhin~2.html#variable-atoli~10">atoli</a>
+      <a class="list-group-item" href="../proc/dlhin~2.html#variable-atoli">atoli</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-delyi">delyi</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-hg">hg</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-hlb">hlb</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-hnew">hnew</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-hrat">hrat</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-hub">hub</a>
-      <a class="list-group-item" href="../proc/dlhin~2.html#variable-i~50">i</a>
+      <a class="list-group-item" href="../proc/dlhin~2.html#variable-i~56">i</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-iter">iter</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-t1~4">t1</a>
-      <a class="list-group-item" href="../proc/dlhin~2.html#variable-tdist~9">tdist</a>
+      <a class="list-group-item" href="../proc/dlhin~2.html#variable-tdist">tdist</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-tround">tround</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-yddnrm">yddnrm</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/dlhin~2.html#src">dlhin</a>
   </div>
 </div>
 
@@ -248,13 +254,13 @@
 <thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-neq~32"></span>integer</td>
+  <td><span class="anchor" id="variable-neq~35"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Neq</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-n~18"></span>integer</td>
+  <td><span class="anchor" id="variable-n~26"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>N</strong></td><td></td>
@@ -272,19 +278,19 @@
   <td><strong>Y0</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-ydot~3"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-ydot~5"></span>real(kind=dp),</td>
 <td>intent(in)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Ydot</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-f~20"></span>real</td>
+  <td><span class="anchor" id="variable-f~21"></span>real</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>f</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-tout~10"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-tout"></span>real(kind=dp),</td>
 <td>intent(in)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Tout</strong></td><td></td>
@@ -296,25 +302,25 @@
   <td><strong>Uround</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-ewt~14"></span>real(kind=dp)</td>
+  <td><span class="anchor" id="variable-ewt~22"></span>real(kind=dp)</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Ewt</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-itol~10"></span>integer,</td>
+  <td><span class="anchor" id="variable-itol~2"></span>integer,</td>
 <td>intent(in)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Itol</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-atol~10"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-atol~2"></span>real(kind=dp),</td>
 <td>intent(in)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Atol</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-y~33"></span>real(kind=dp)</td>
+  <td><span class="anchor" id="variable-y~36"></span>real(kind=dp)</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Y</strong>(*)</td><td></td>
@@ -338,7 +344,7 @@
   <td><strong>Niter</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-ier~6"></span>integer,</td>
+  <td><span class="anchor" id="variable-ier~8"></span>integer,</td>
 <td>intent(out)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Ier</strong></td><td></td>
@@ -561,20 +567,26 @@
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-pt1">PT1</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-two">TWO</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-afi">afi</a>
-      <a class="list-group-item" href="../proc/dlhin~2.html#variable-atoli~10">atoli</a>
+      <a class="list-group-item" href="../proc/dlhin~2.html#variable-atoli">atoli</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-delyi">delyi</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-hg">hg</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-hlb">hlb</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-hnew">hnew</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-hrat">hrat</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-hub">hub</a>
-      <a class="list-group-item" href="../proc/dlhin~2.html#variable-i~50">i</a>
+      <a class="list-group-item" href="../proc/dlhin~2.html#variable-i~56">i</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-iter">iter</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-t1~4">t1</a>
-      <a class="list-group-item" href="../proc/dlhin~2.html#variable-tdist~9">tdist</a>
+      <a class="list-group-item" href="../proc/dlhin~2.html#variable-tdist">tdist</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-tround">tround</a>
       <a class="list-group-item" href="../proc/dlhin~2.html#variable-yddnrm">yddnrm</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/dlhin~2.html#src">dlhin</a>
   </div>
 </div>
 
@@ -613,7 +625,7 @@
   <td><strong>afi</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-atoli~10"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-atoli"></span>real(kind=dp),</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>atoli</strong></td><td></td><td></td><td></td>
 </tr>
@@ -648,7 +660,7 @@
   <td><strong>hub</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-i~50"></span>integer,</td>
+  <td><span class="anchor" id="variable-i~56"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>i</strong></td><td></td><td></td><td></td>
 </tr>
@@ -663,7 +675,7 @@
   <td><strong>t1</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-tdist~9"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-tdist"></span>real(kind=dp),</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>tdist</strong></td><td></td><td></td><td></td>
 </tr>
@@ -690,6 +702,113 @@
 
 
     
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">dlhin</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">T0</span><span class="p">,</span><span class="n">Y0</span><span class="p">,</span><span class="n">Ydot</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">Tout</span><span class="p">,</span><span class="n">Uround</span><span class="p">,</span><span class="n">Ewt</span><span class="p">,</span><span class="n">Itol</span><span class="p">,</span><span class="n">Atol</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Temp</span><span class="p">,</span><span class="n">H0</span><span class="p">,</span><span class="n">Niter</span><span class="p">,</span><span class="n">Ier</span><span class="p">)</span><span class="w"></span>
+
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">HALF</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.50D0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">TWO</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0D0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">HUN</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">PT1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1D0</span><span class="w"></span>
+<span class="c">!</span>
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">Neq</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">T0</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Y0</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">Ydot</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="k">external</span><span class="w">                    </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">Tout</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">Uround</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Ewt</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">Itol</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">Atol</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Temp</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">H0</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">        </span><span class="kd">::</span><span class="w"> </span><span class="n">Niter</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">        </span><span class="kd">::</span><span class="w"> </span><span class="n">Ier</span><span class="w"></span>
+<span class="w"> </span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">afi</span><span class="p">,</span><span class="w"> </span><span class="n">atoli</span><span class="p">,</span><span class="w"> </span><span class="n">delyi</span><span class="p">,</span><span class="w"> </span><span class="n">hg</span><span class="p">,</span><span class="w"> </span><span class="n">hlb</span><span class="p">,</span><span class="w"> </span><span class="n">hnew</span><span class="p">,</span><span class="w"> </span><span class="n">hrat</span><span class="p">,</span><span class="w"> </span><span class="n">hub</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">tdist</span><span class="p">,</span><span class="w"> </span><span class="n">tround</span><span class="p">,</span><span class="w"> </span><span class="n">yddnrm</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">iter</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="n">Niter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">   </span><span class="n">tdist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">Tout</span><span class="o">-</span><span class="n">T0</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">tround</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Uround</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">T0</span><span class="p">),</span><span class="nb">abs</span><span class="p">(</span><span class="n">Tout</span><span class="p">))</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tdist</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">TWO</span><span class="o">*</span><span class="n">tround</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"></span>
+<span class="w">      </span><span class="c">!  Error return for TOUT - T0 too small. --------------------------------</span>
+<span class="w">      </span><span class="n">Ier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span>
+<span class="k">   else</span><span class="w"></span>
+<span class="w">      </span><span class="c">!</span>
+<span class="w">      </span><span class="c">!  Set a lower bound on H based on the roundoff level in T0 and TOUT. ---</span>
+<span class="w">      </span><span class="n">hlb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HUN</span><span class="o">*</span><span class="n">tround</span><span class="w"></span>
+<span class="w">      </span><span class="c">!  Set an upper bound on H based on TOUT-T0 and the initial Y and YDOT. -</span>
+<span class="w">      </span><span class="n">hub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PT1</span><span class="o">*</span><span class="n">tdist</span><span class="w"></span>
+<span class="w">      </span><span class="n">atoli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Atol</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Itol</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">Itol</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">atoli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Atol</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">delyi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">PT1</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">Y0</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">atoli</span><span class="w"></span>
+<span class="w">         </span><span class="n">afi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">Ydot</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="w"></span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">afi</span><span class="o">*</span><span class="n">hub</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">delyi</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">hub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">delyi</span><span class="o">/</span><span class="n">afi</span><span class="w"></span>
+<span class="w">      </span><span class="k">enddo</span><span class="w"></span>
+<span class="w">      </span><span class="c">!</span>
+<span class="w">      </span><span class="c">!  Set initial guess for H as geometric mean of upper and lower bounds. -</span>
+<span class="w">      </span><span class="n">iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="n">hg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">hlb</span><span class="o">*</span><span class="n">hub</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="c">!  If the bounds have crossed, exit with the mean value. ----------------</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">hub</span><span class="o">&lt;</span><span class="n">hlb</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">         </span><span class="n">H0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hg</span><span class="w"></span>
+<span class="w">      </span><span class="k">else</span>
+<span class="k">         do</span><span class="w"></span>
+<span class="w">            </span><span class="c">!</span>
+<span class="w">            </span><span class="c">!  Looping point for iteration. -----------------------------------------</span>
+<span class="w">            </span><span class="c">!  Estimate the second derivative as a difference quotient in f. --------</span>
+<span class="w">            </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hg</span><span class="w"></span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">               </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y0</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">hg</span><span class="o">*</span><span class="n">Ydot</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">enddo</span>
+<span class="k">            call </span><span class="n">f</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">t1</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Temp</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">               </span><span class="n">Temp</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Temp</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="n">Ydot</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">/</span><span class="n">hg</span><span class="w"></span>
+<span class="w">            </span><span class="k">enddo</span>
+<span class="k">            </span><span class="n">yddnrm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dvnorm</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Temp</span><span class="p">,</span><span class="n">Ewt</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="c">!  Get the corresponding new value of H. --------------------------------</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">yddnrm</span><span class="o">*</span><span class="n">hub</span><span class="o">*</span><span class="n">hub</span><span class="o">&gt;</span><span class="n">TWO</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">               </span><span class="n">hnew</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">TWO</span><span class="o">/</span><span class="n">yddnrm</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">else</span>
+<span class="k">               </span><span class="n">hnew</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">hg</span><span class="o">*</span><span class="n">hub</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">endif</span>
+<span class="k">            </span><span class="n">iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iter</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">            </span><span class="c">!  Test the stopping conditions.</span>
+<span class="w">            </span><span class="c">!  Stop if the new and previous H values differ by a factor of .lt. 2.</span>
+<span class="w">            </span><span class="c">!  Stop if four iterations have been done.  Also, stop with previous H</span>
+<span class="w">            </span><span class="c">!  if hnew/hg .gt. 2 after first iteration, as this probably means that</span>
+<span class="w">            </span><span class="c">!  the second derivative value is bad because of cancellation error.</span>
+<span class="w">            </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">iter</span><span class="o">&gt;=</span><span class="mi">4</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">exit</span>
+<span class="k">            </span><span class="n">hrat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hnew</span><span class="o">/</span><span class="n">hg</span><span class="w"></span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">hrat</span><span class="o">&gt;</span><span class="n">HALF</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">hrat</span><span class="o">&lt;</span><span class="n">TWO</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">exit</span>
+<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">iter</span><span class="o">&gt;=</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">hnew</span><span class="o">&gt;</span><span class="n">TWO</span><span class="o">*</span><span class="n">hg</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">               </span><span class="n">hnew</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hg</span><span class="w"></span>
+<span class="w">               </span><span class="k">exit</span>
+<span class="k">            endif</span>
+<span class="k">            </span><span class="n">hg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hnew</span><span class="w"></span>
+<span class="w">         </span><span class="k">enddo</span><span class="w"></span>
+<span class="w">         </span><span class="c">!</span>
+<span class="w">         </span><span class="c">!  Iteration done.  Apply bounds, bias factor, and sign. ----------------</span>
+<span class="w">         </span><span class="n">H0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hnew</span><span class="o">*</span><span class="n">HALF</span><span class="w"></span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">H0</span><span class="o">&lt;</span><span class="n">hlb</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">H0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hlb</span><span class="w"></span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">H0</span><span class="o">&gt;</span><span class="n">hub</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">H0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hub</span><span class="w"></span>
+<span class="w">      </span><span class="k">endif</span>
+<span class="k">   endif</span>
+<span class="k">   </span><span class="n">H0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sign</span><span class="p">(</span><span class="n">H0</span><span class="p">,</span><span class="n">Tout</span><span class="o">-</span><span class="n">T0</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="c">!  Restore Y array from Y0, then exit. ----------------------------------</span>
+<span class="w">   </span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y0</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">Niter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iter</span><span class="w"></span>
+<span class="w">   </span><span class="n">Ier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="k">end subroutine </span><span class="n">dlhin</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
     
     </div>
   </div>
@@ -706,7 +825,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-14 03:13            </p>
+ on 2022-10-08 01:53            </p>
         </div>
       </div>
       <br>

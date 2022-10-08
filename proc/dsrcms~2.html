@@ -113,9 +113,15 @@
   <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/dsrcms~2.html#variable-lenils~3">lenils</a>
-      <a class="list-group-item" href="../proc/dsrcms~2.html#variable-lenrls~3">lenrls</a>
+      <a class="list-group-item" href="../proc/dsrcms~2.html#variable-lenils~2">lenils</a>
+      <a class="list-group-item" href="../proc/dsrcms~2.html#variable-lenrls~2">lenrls</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/dsrcms~2.html#src">dsrcms</a>
   </div>
 </div>
 
@@ -153,19 +159,19 @@ internally by one or more ODEPACK solvers.</p>
 <thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-rsav~6"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-rsav~2"></span>real(kind=dp),</td>
 <td>intent(inout)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Rsav</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-isav~6"></span>integer,</td>
+  <td><span class="anchor" id="variable-isav~2"></span>integer,</td>
 <td>intent(inout)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Isav</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-job~8"></span>integer,</td>
+  <td><span class="anchor" id="variable-job~2"></span>integer,</td>
 <td>intent(in)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Job</strong></td><td></td>
@@ -196,41 +202,41 @@ internally by one or more ODEPACK solvers.</p>
 <polygon fill="none" stroke="black" points="54,-87 0,-87 0,-63 54,-63 54,-87"/>
 <text text-anchor="middle" x="27" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50">dsrcms</text>
 </g>
-<!-- set_dls1_int -->
+<!-- return_dls1_real -->
 <g id="proc~~dsrcms~2~~CallsGraph_node2" class="node">
-<title>set_dls1_int</title>
-<polygon fill="#777777" stroke="#777777" points="175.5,-150 101.5,-150 101.5,-126 175.5,-126 175.5,-150"/>
-<text text-anchor="middle" x="138.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">set_dls1_int</text>
+<title>return_dls1_real</title>
+<polygon fill="#777777" stroke="#777777" points="187,-150 90,-150 90,-126 187,-126 187,-150"/>
+<text text-anchor="middle" x="138.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">return_dls1_real</text>
 </g>
-<!-- proc~dsrcms~2&#45;&gt;set_dls1_int -->
+<!-- proc~dsrcms~2&#45;&gt;return_dls1_real -->
 <g id="proc~~dsrcms~2~~CallsGraph_edge1" class="edge">
-<title>proc~dsrcms~2&#45;&gt;set_dls1_int</title>
+<title>proc~dsrcms~2&#45;&gt;return_dls1_real</title>
 <path fill="none" stroke="#000000" d="M44.07,-87.06C56.3,-95.94 73.74,-107.99 90,-117 92.84,-118.57 95.82,-120.12 98.84,-121.61"/>
 <polygon fill="#000000" stroke="#000000" points="97.42,-124.81 107.96,-125.92 100.42,-118.48 97.42,-124.81"/>
 </g>
-<!-- set_dls1_real -->
+<!-- set_dls1_int -->
 <g id="proc~~dsrcms~2~~CallsGraph_node3" class="node">
+<title>set_dls1_int</title>
+<polygon fill="#777777" stroke="#777777" points="175.5,-108 101.5,-108 101.5,-84 175.5,-84 175.5,-108"/>
+<text text-anchor="middle" x="138.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">set_dls1_int</text>
+</g>
+<!-- proc~dsrcms~2&#45;&gt;set_dls1_int -->
+<g id="proc~~dsrcms~2~~CallsGraph_edge2" class="edge">
+<title>proc~dsrcms~2&#45;&gt;set_dls1_int</title>
+<path fill="none" stroke="#000000" d="M54.23,-80.03C65.31,-82.16 78.56,-84.7 91.19,-87.12"/>
+<polygon fill="#000000" stroke="#000000" points="90.66,-90.58 101.14,-89.03 91.97,-83.71 90.66,-90.58"/>
+</g>
+<!-- set_dls1_real -->
+<g id="proc~~dsrcms~2~~CallsGraph_node4" class="node">
 <title>set_dls1_real</title>
-<polygon fill="#777777" stroke="#777777" points="179,-108 98,-108 98,-84 179,-84 179,-108"/>
-<text text-anchor="middle" x="138.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">set_dls1_real</text>
+<polygon fill="#777777" stroke="#777777" points="179,-66 98,-66 98,-42 179,-42 179,-66"/>
+<text text-anchor="middle" x="138.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">set_dls1_real</text>
 </g>
 <!-- proc~dsrcms~2&#45;&gt;set_dls1_real -->
 <g id="proc~~dsrcms~2~~CallsGraph_edge3" class="edge">
 <title>proc~dsrcms~2&#45;&gt;set_dls1_real</title>
-<path fill="none" stroke="#000000" d="M54.23,-80.03C64.31,-81.96 76.18,-84.24 87.75,-86.46"/>
-<polygon fill="#000000" stroke="#000000" points="87.31,-89.94 97.79,-88.38 88.63,-83.06 87.31,-89.94"/>
-</g>
-<!-- return_dls1_real -->
-<g id="proc~~dsrcms~2~~CallsGraph_node4" class="node">
-<title>return_dls1_real</title>
-<polygon fill="#777777" stroke="#777777" points="187,-66 90,-66 90,-42 187,-42 187,-66"/>
-<text text-anchor="middle" x="138.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">return_dls1_real</text>
-</g>
-<!-- proc~dsrcms~2&#45;&gt;return_dls1_real -->
-<g id="proc~~dsrcms~2~~CallsGraph_edge2" class="edge">
-<title>proc~dsrcms~2&#45;&gt;return_dls1_real</title>
-<path fill="none" stroke="#000000" d="M54.23,-69.97C61.95,-68.49 70.72,-66.81 79.61,-65.1"/>
-<polygon fill="#000000" stroke="#000000" points="80.47,-68.5 89.64,-63.18 79.16,-61.63 80.47,-68.5"/>
+<path fill="none" stroke="#000000" d="M54.23,-69.97C64.31,-68.04 76.18,-65.76 87.75,-63.54"/>
+<polygon fill="#000000" stroke="#000000" points="88.63,-66.94 97.79,-61.62 87.31,-60.06 88.63,-66.94"/>
 </g>
 <!-- return_dls1_int -->
 <g id="proc~~dsrcms~2~~CallsGraph_node5" class="node">
@@ -316,9 +322,15 @@ internally by one or more ODEPACK solvers.</p>
   <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/dsrcms~2.html#variable-lenils~3">lenils</a>
-      <a class="list-group-item" href="../proc/dsrcms~2.html#variable-lenrls~3">lenrls</a>
+      <a class="list-group-item" href="../proc/dsrcms~2.html#variable-lenils~2">lenils</a>
+      <a class="list-group-item" href="../proc/dsrcms~2.html#variable-lenrls~2">lenrls</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/dsrcms~2.html#src">dsrcms</a>
   </div>
 </div>
 
@@ -332,12 +344,12 @@ internally by one or more ODEPACK solvers.</p>
 <thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-lenils~3"></span>integer,</td>
+  <td><span class="anchor" id="variable-lenils~2"></span>integer,</td>
 <td>public,</td>  <td>parameter</td><td>::</td>
   <td><strong>lenils</strong></td><td> =</td><td>37</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-lenrls~3"></span>integer,</td>
+  <td><span class="anchor" id="variable-lenrls~2"></span>integer,</td>
 <td>public,</td>  <td>parameter</td><td>::</td>
   <td><strong>lenrls</strong></td><td> =</td><td>218</td><td></td>
 </tr>
@@ -354,6 +366,122 @@ internally by one or more ODEPACK solvers.</p>
 
 
     
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">dsrcms</span><span class="w"> </span><span class="p">(</span><span class="n">rsav</span><span class="p">,</span><span class="w"> </span><span class="n">isav</span><span class="p">,</span><span class="w"> </span><span class="n">job</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Rsav</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">Isav</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">Job</span><span class="w"></span>
+
+<span class="kt">integer</span><span class="p">,</span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w">  </span><span class="n">lenils</span><span class="o">=</span><span class="mi">37</span><span class="p">,</span><span class="w"> </span><span class="n">lenrls</span><span class="o">=</span><span class="mi">218</span><span class="w"></span>
+
+<span class="w">   </span><span class="k">select case</span><span class="p">(</span><span class="n">job</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="k">case</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">      </span><span class="n">rsav</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">lenrls</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">return_dls1_real</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">      </span><span class="n">rsav</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenrls</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">con0</span><span class="w"></span>
+<span class="w">      </span><span class="n">rsav</span><span class="p">(</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenrls</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">conmin</span><span class="w"></span>
+<span class="w">      </span><span class="n">rsav</span><span class="p">(</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenrls</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">ccmxj</span><span class="w"></span>
+<span class="w">      </span><span class="n">rsav</span><span class="p">(</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenrls</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">psmall</span><span class="w"></span>
+<span class="w">      </span><span class="n">rsav</span><span class="p">(</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenrls</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">rbig</span><span class="w"></span>
+<span class="w">      </span><span class="n">rsav</span><span class="p">(</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenrls</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">seth</span><span class="w"></span>
+
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">return_dls1_int</span><span class="p">()</span><span class="w"></span>
+
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">iplost</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">iesp</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">istatc</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">iys</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">iba</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">ibian</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">ibjan</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">ibjgp</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipian</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipjan</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">11</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipjgp</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">12</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipigp</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">13</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipr</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">14</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipc</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">15</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipic</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">16</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipisp</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">17</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">iprsp</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">18</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipa</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">19</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">lenyh</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">20</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">lenyhm</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">21</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">lenwk</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">22</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">lreq</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">23</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">lrat</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">24</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">lrest</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">25</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">lwmin</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">26</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">moss</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">27</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">msbj</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">28</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">nslj</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">29</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">ngp</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">30</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">nlu</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">31</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">nnz</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">32</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">nsp</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">33</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">nzl</span><span class="w"></span>
+<span class="w">      </span><span class="n">isav</span><span class="p">(</span><span class="mi">34</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">nzu</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="k">case</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">set_dls1_real</span><span class="p">(</span><span class="n">rsav</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">lenrls</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">con0</span><span class="w">    </span><span class="o">=</span><span class="w">  </span><span class="n">rsav</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenrls</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">conmin</span><span class="w">  </span><span class="o">=</span><span class="w">  </span><span class="n">rsav</span><span class="p">(</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenrls</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">ccmxj</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="n">rsav</span><span class="p">(</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenrls</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">psmall</span><span class="w">  </span><span class="o">=</span><span class="w">  </span><span class="n">rsav</span><span class="p">(</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenrls</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">rbig</span><span class="w">    </span><span class="o">=</span><span class="w">  </span><span class="n">rsav</span><span class="p">(</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenrls</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">seth</span><span class="w">    </span><span class="o">=</span><span class="w">  </span><span class="n">rsav</span><span class="p">(</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenrls</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span>
+<span class="w">      </span><span class="k">call </span><span class="n">set_dls1_int</span><span class="p">(</span><span class="n">isav</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">lenils</span><span class="p">))</span><span class="w"></span>
+
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">iplost</span><span class="w">  </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">iesp</span><span class="w">    </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">istatc</span><span class="w">  </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">iys</span><span class="w">     </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">iba</span><span class="w">     </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">ibian</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">6</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">ibjan</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">7</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">ibjgp</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">8</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipian</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="w"> </span><span class="mi">9</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipjan</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">10</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipjgp</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">11</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipigp</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">12</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipr</span><span class="w">     </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">13</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipc</span><span class="w">     </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">14</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipic</span><span class="w">    </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">15</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipisp</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">16</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">iprsp</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">17</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">ipa</span><span class="w">     </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">18</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">lenyh</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">19</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">lenyhm</span><span class="w">  </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">20</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">lenwk</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">21</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">lreq</span><span class="w">    </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">22</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">lrat</span><span class="w">    </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">23</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">lrest</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">24</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">lwmin</span><span class="w">   </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">25</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">moss</span><span class="w">    </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">26</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">msbj</span><span class="w">    </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">27</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">nslj</span><span class="w">    </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">28</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">ngp</span><span class="w">     </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">29</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">nlu</span><span class="w">     </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">30</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">nnz</span><span class="w">     </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">31</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">nsp</span><span class="w">     </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">32</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">nzl</span><span class="w">     </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">33</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">dlss</span><span class="p">%</span><span class="n">nzu</span><span class="w">     </span><span class="o">=</span><span class="w">  </span><span class="n">isav</span><span class="p">(</span><span class="mi">34</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenils</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">case </span><span class="n">default</span><span class="w"></span>
+
+<span class="w">      </span><span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="s1">&#39;&lt;ERROR&gt;*dsrcms* unknown value for JOB=&#39;</span><span class="p">,</span><span class="n">job</span><span class="w"></span>
+<span class="w">      </span><span class="k">stop </span><span class="mi">1</span><span class="w"></span>
+<span class="w"> </span>
+<span class="w">   </span><span class="k">end select</span>
+<span class="k">end subroutine </span><span class="n">dsrcms</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
     
     </div>
   </div>
@@ -370,7 +498,7 @@ internally by one or more ODEPACK solvers.</p>
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-14 03:13            </p>
+ on 2022-10-08 01:53            </p>
         </div>
       </div>
       <br>

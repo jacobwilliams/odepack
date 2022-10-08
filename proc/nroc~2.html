@@ -113,13 +113,19 @@
   <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/nroc~2.html#variable-i~28">i</a>
-      <a class="list-group-item" href="../proc/nroc~2.html#variable-j~17">j</a>
-      <a class="list-group-item" href="../proc/nroc~2.html#variable-jmax~2">jmax</a>
-      <a class="list-group-item" href="../proc/nroc~2.html#variable-jmin~2">jmin</a>
-      <a class="list-group-item" href="../proc/nroc~2.html#variable-k~9">k</a>
+      <a class="list-group-item" href="../proc/nroc~2.html#variable-i~19">i</a>
+      <a class="list-group-item" href="../proc/nroc~2.html#variable-j~11">j</a>
+      <a class="list-group-item" href="../proc/nroc~2.html#variable-jmax">jmax</a>
+      <a class="list-group-item" href="../proc/nroc~2.html#variable-jmin">jmin</a>
+      <a class="list-group-item" href="../proc/nroc~2.html#variable-k~7">k</a>
       <a class="list-group-item" href="../proc/nroc~2.html#variable-newj">newj</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/nroc~2.html#src">nroc</a>
   </div>
 </div>
 
@@ -363,31 +369,31 @@ diagonal entries of the matrix d.
 <thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-n~8"></span>integer,</td>
+  <td><span class="anchor" id="variable-n~7"></span>integer,</td>
 <td>intent(in)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>N</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-ic~3"></span>integer,</td>
+  <td><span class="anchor" id="variable-ic~2"></span>integer,</td>
 <td>intent(in),</td>
   <td></td>  <td>dimension(*)</td><td>::</td>
   <td><strong>Ic</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-ia~6"></span>integer,</td>
+  <td><span class="anchor" id="variable-ia~5"></span>integer,</td>
 <td>intent(in),</td>
   <td></td>  <td>dimension(*)</td><td>::</td>
   <td><strong>Ia</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-ja~6"></span>integer,</td>
+  <td><span class="anchor" id="variable-ja~5"></span>integer,</td>
 <td>intent(inout),</td>
   <td></td>  <td>dimension(*)</td><td>::</td>
   <td><strong>Ja</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-a~4"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-a~3"></span>real(kind=dp),</td>
 <td>intent(inout),</td>
   <td></td>  <td>dimension(*)</td><td>::</td>
   <td><strong>A</strong></td><td></td>
@@ -411,7 +417,7 @@ diagonal entries of the matrix d.
   <td><strong>P</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-flag~2"></span>integer,</td>
+  <td><span class="anchor" id="variable-flag"></span>integer,</td>
 <td>intent(out)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Flag</strong></td><td></td>
@@ -457,18 +463,15 @@ diagonal entries of the matrix d.
 <path fill="none" stroke="#000000" d="M234.4,-54C242.39,-54 251.31,-54 259.82,-54"/>
 <polygon fill="#000000" stroke="#000000" points="259.92,-57.5 269.92,-54 259.92,-50.5 259.92,-57.5"/>
 </g>
-<!-- proc~dsolss~2 -->
+<!-- none~wrapup~3 -->
 <g id="proc~~nroc~2~~CalledByGraph_node3" class="node">
-<title>proc~dsolss~2</title>
-<g id="a_proc~~nroc~2~~CalledByGraph_node3"><a xlink:href=".././proc/dsolss~2.html" xlink:title="dsolss">
+<title>none~wrapup~3</title>
 <polygon fill="#d9534f" stroke="#d9534f" points="144,-108 90,-108 90,-84 144,-84 144,-108"/>
-<text text-anchor="middle" x="117" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolss</text>
-</a>
+<text text-anchor="middle" x="117" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wrapup</text>
 </g>
-</g>
-<!-- proc~dsolss~2&#45;&gt;proc~cdrv~2 -->
+<!-- none~wrapup~3&#45;&gt;proc~cdrv~2 -->
 <g id="proc~~nroc~2~~CalledByGraph_edge2" class="edge">
-<title>proc~dsolss~2&#45;&gt;proc~cdrv~2</title>
+<title>none~wrapup~3&#45;&gt;proc~cdrv~2</title>
 <path fill="none" stroke="#000000" d="M143.45,-83.85C152.21,-79.67 162.17,-74.92 171.52,-70.46"/>
 <polygon fill="#000000" stroke="#000000" points="173.09,-73.59 180.6,-66.12 170.07,-67.27 173.09,-73.59"/>
 </g>
@@ -487,15 +490,18 @@ diagonal entries of the matrix d.
 <path fill="none" stroke="#000000" d="M144.4,-54C152.39,-54 161.31,-54 169.82,-54"/>
 <polygon fill="#000000" stroke="#000000" points="169.92,-57.5 179.92,-54 169.92,-50.5 169.92,-57.5"/>
 </g>
-<!-- none~wrapup~4 -->
+<!-- proc~dsolss~2 -->
 <g id="proc~~nroc~2~~CalledByGraph_node5" class="node">
-<title>none~wrapup~4</title>
+<title>proc~dsolss~2</title>
+<g id="a_proc~~nroc~2~~CalledByGraph_node5"><a xlink:href=".././proc/dsolss~2.html" xlink:title="dsolss">
 <polygon fill="#d9534f" stroke="#d9534f" points="144,-24 90,-24 90,0 144,0 144,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wrapup</text>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolss</text>
+</a>
 </g>
-<!-- none~wrapup~4&#45;&gt;proc~cdrv~2 -->
+</g>
+<!-- proc~dsolss~2&#45;&gt;proc~cdrv~2 -->
 <g id="proc~~nroc~2~~CalledByGraph_edge4" class="edge">
-<title>none~wrapup~4&#45;&gt;proc~cdrv~2</title>
+<title>proc~dsolss~2&#45;&gt;proc~cdrv~2</title>
 <path fill="none" stroke="#000000" d="M143.45,-24.15C152.21,-28.33 162.17,-33.08 171.52,-37.54"/>
 <polygon fill="#000000" stroke="#000000" points="170.07,-40.73 180.6,-41.88 173.09,-34.41 170.07,-40.73"/>
 </g>
@@ -503,16 +509,16 @@ diagonal entries of the matrix d.
 <g id="proc~~nroc~2~~CalledByGraph_node6" class="node">
 <title>proc~dprjs~2</title>
 <g id="a_proc~~nroc~2~~CalledByGraph_node6"><a xlink:href=".././proc/dprjs~2.html" xlink:title="dprjs">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-24 0,-24 0,0 54,0 54,-24"/>
-<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprjs</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-108 0,-108 0,-84 54,-84 54,-108"/>
+<text text-anchor="middle" x="27" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprjs</text>
 </a>
 </g>
 </g>
-<!-- proc~dprjs~2&#45;&gt;none~wrapup~4 -->
+<!-- proc~dprjs~2&#45;&gt;none~wrapup~3 -->
 <g id="proc~~nroc~2~~CalledByGraph_edge5" class="edge">
-<title>proc~dprjs~2&#45;&gt;none~wrapup~4</title>
-<path fill="none" stroke="#000000" d="M54.4,-12C62.39,-12 71.31,-12 79.82,-12"/>
-<polygon fill="#000000" stroke="#000000" points="79.92,-15.5 89.92,-12 79.92,-8.5 79.92,-15.5"/>
+<title>proc~dprjs~2&#45;&gt;none~wrapup~3</title>
+<path fill="none" stroke="#000000" d="M54.4,-96C62.39,-96 71.31,-96 79.82,-96"/>
+<polygon fill="#000000" stroke="#000000" points="79.92,-99.5 89.92,-96 79.92,-92.5 79.92,-99.5"/>
 </g>
 </g>
 </svg>
@@ -586,13 +592,19 @@ diagonal entries of the matrix d.
   <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/nroc~2.html#variable-i~28">i</a>
-      <a class="list-group-item" href="../proc/nroc~2.html#variable-j~17">j</a>
-      <a class="list-group-item" href="../proc/nroc~2.html#variable-jmax~2">jmax</a>
-      <a class="list-group-item" href="../proc/nroc~2.html#variable-jmin~2">jmin</a>
-      <a class="list-group-item" href="../proc/nroc~2.html#variable-k~9">k</a>
+      <a class="list-group-item" href="../proc/nroc~2.html#variable-i~19">i</a>
+      <a class="list-group-item" href="../proc/nroc~2.html#variable-j~11">j</a>
+      <a class="list-group-item" href="../proc/nroc~2.html#variable-jmax">jmax</a>
+      <a class="list-group-item" href="../proc/nroc~2.html#variable-jmin">jmin</a>
+      <a class="list-group-item" href="../proc/nroc~2.html#variable-k~7">k</a>
       <a class="list-group-item" href="../proc/nroc~2.html#variable-newj">newj</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/nroc~2.html#src">nroc</a>
   </div>
 </div>
 
@@ -606,27 +618,27 @@ diagonal entries of the matrix d.
 <thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-i~28"></span>integer,</td>
+  <td><span class="anchor" id="variable-i~19"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>i</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-j~17"></span>integer,</td>
+  <td><span class="anchor" id="variable-j~11"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>j</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-jmax~2"></span>integer,</td>
+  <td><span class="anchor" id="variable-jmax"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>jmax</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-jmin~2"></span>integer,</td>
+  <td><span class="anchor" id="variable-jmin"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>jmin</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-k~9"></span>integer,</td>
+  <td><span class="anchor" id="variable-k~7"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>k</strong></td><td></td><td></td><td></td>
 </tr>
@@ -648,6 +660,63 @@ diagonal entries of the matrix d.
 
 
     
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">nroc</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Ic</span><span class="p">,</span><span class="n">Ia</span><span class="p">,</span><span class="n">Ja</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Jar</span><span class="p">,</span><span class="n">Ar</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Flag</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="c">!      real  a(*), ar(*)</span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ic</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ia</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ja</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">A</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Jar</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ar</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">P</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Flag</span><span class="w"></span>
+<span class="c">!</span>
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">newj</span><span class="w"></span>
+<span class="w">   </span><span class="c">!</span>
+<span class="w">   </span><span class="c">!   ******  for each nonempty row  *******************************</span>
+<span class="w">   </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">      </span><span class="n">jmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ia</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">jmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ia</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jmin</span><span class="o">&lt;=</span><span class="n">jmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">         </span><span class="n">P</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="c">!   ******  insert each element in the list  *********************</span>
+<span class="w">         </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jmax</span><span class="w"></span>
+<span class="w">            </span><span class="n">newj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ic</span><span class="p">(</span><span class="n">Ja</span><span class="p">(</span><span class="n">j</span><span class="p">))</span><span class="w"></span>
+<span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">do while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">&lt;</span><span class="n">newj</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">enddo</span>
+<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">P</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">==</span><span class="n">newj</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"></span>
+<span class="w">               </span><span class="c">!</span>
+<span class="w">               </span><span class="c">!  ** error.. duplicate entry in a</span>
+<span class="w">               </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span><span class="w"></span>
+<span class="w">            </span><span class="k">return</span>
+<span class="k">            else</span>
+<span class="k">               </span><span class="n">P</span><span class="p">(</span><span class="n">newj</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">P</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newj</span><span class="w"></span>
+<span class="w">               </span><span class="n">Jar</span><span class="p">(</span><span class="n">newj</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ja</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">Ar</span><span class="p">(</span><span class="n">newj</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="k">endif</span>
+<span class="k">         enddo</span><span class="w"></span>
+<span class="w">         </span><span class="c">!   ******  replace old row in ja and a  *************************</span>
+<span class="w">         </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jmax</span><span class="w"></span>
+<span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">P</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">Ja</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jar</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ar</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="k">enddo</span>
+<span class="k">      endif</span>
+<span class="k">   enddo</span>
+<span class="k">   </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="k">end subroutine </span><span class="n">nroc</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
     
     </div>
   </div>
@@ -664,7 +733,7 @@ diagonal entries of the matrix d.
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-14 03:13            </p>
+ on 2022-10-08 01:53            </p>
         </div>
       </div>
       <br>

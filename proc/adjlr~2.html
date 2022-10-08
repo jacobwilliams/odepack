@@ -114,12 +114,18 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       <a class="list-group-item" href="../proc/adjlr~2.html#variable-ip">ip</a>
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-jlmax~2">jlmax</a>
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-jumax~2">jumax</a>
+      <a class="list-group-item" href="../proc/adjlr~2.html#variable-jlmax">jlmax</a>
+      <a class="list-group-item" href="../proc/adjlr~2.html#variable-jumax">jumax</a>
       <a class="list-group-item" href="../proc/adjlr~2.html#variable-lnfc">lnfc</a>
       <a class="list-group-item" href="../proc/adjlr~2.html#variable-lsfc">lsfc</a>
       <a class="list-group-item" href="../proc/adjlr~2.html#variable-nzlu">nzlu</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/adjlr~2.html#src">adjlr</a>
   </div>
 </div>
 
@@ -142,13 +148,13 @@ may require more storage than the numerical LU and solution phases.</p>
 <thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-n~26"></span>integer,</td>
+  <td><span class="anchor" id="variable-n"></span>integer,</td>
 <td>intent(in)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>N</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-isp~3"></span>integer,</td>
+  <td><span class="anchor" id="variable-isp"></span>integer,</td>
 <td>intent(in)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Isp</strong>(*)</td><td></td>
@@ -172,12 +178,18 @@ may require more storage than the numerical LU and solution phases.</p>
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       <a class="list-group-item" href="../proc/adjlr~2.html#variable-ip">ip</a>
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-jlmax~2">jlmax</a>
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-jumax~2">jumax</a>
+      <a class="list-group-item" href="../proc/adjlr~2.html#variable-jlmax">jlmax</a>
+      <a class="list-group-item" href="../proc/adjlr~2.html#variable-jumax">jumax</a>
       <a class="list-group-item" href="../proc/adjlr~2.html#variable-lnfc">lnfc</a>
       <a class="list-group-item" href="../proc/adjlr~2.html#variable-lsfc">lsfc</a>
       <a class="list-group-item" href="../proc/adjlr~2.html#variable-nzlu">nzlu</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/adjlr~2.html#src">adjlr</a>
   </div>
 </div>
 
@@ -196,12 +208,12 @@ may require more storage than the numerical LU and solution phases.</p>
   <td><strong>ip</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-jlmax~2"></span>integer,</td>
+  <td><span class="anchor" id="variable-jlmax"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>jlmax</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-jumax~2"></span>integer,</td>
+  <td><span class="anchor" id="variable-jumax"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>jumax</strong></td><td></td><td></td><td></td>
 </tr>
@@ -233,6 +245,35 @@ may require more storage than the numerical LU and solution phases.</p>
 
 
     
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">adjlr</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Isp</span><span class="p">,</span><span class="n">Ldif</span><span class="p">)</span><span class="w"></span>
+<span class="w"> </span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">Isp</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ldif</span><span class="w"></span>
+<span class="w"> </span>
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ip</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jlmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jumax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lnfc</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lsfc</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nzlu</span><span class="w"></span>
+<span class="w">    </span>
+<span class="w">   </span><span class="n">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="w">   </span><span class="c">! Get JLMAX = IJL(N) and JUMAX = IJU(N) (sizes of JL and JU). -------</span>
+<span class="w">   </span><span class="c">!</span>
+<span class="w">   </span><span class="n">jlmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isp</span><span class="p">(</span><span class="n">ip</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">jumax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isp</span><span class="p">(</span><span class="n">ip</span><span class="o">+</span><span class="n">ip</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">   </span><span class="c">! NZLU = (size of L) + (size of U) = (IL(N+1)-IL(1)) + (IU(N+1)-IU(1)).</span>
+<span class="w">   </span><span class="c">!</span>
+<span class="w">   </span><span class="n">nzlu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isp</span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Isp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Isp</span><span class="p">(</span><span class="n">ip</span><span class="o">+</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Isp</span><span class="p">(</span><span class="n">ip</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">lsfc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">12</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="nb">max</span><span class="p">(</span><span class="n">jlmax</span><span class="p">,</span><span class="n">jumax</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">lnfc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">jlmax</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">jumax</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">nzlu</span><span class="w"></span>
+<span class="w">   </span><span class="n">Ldif</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">lsfc</span><span class="o">-</span><span class="n">lnfc</span><span class="p">)</span><span class="w"></span>
+
+<span class="k">end subroutine </span><span class="n">adjlr</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
     
     </div>
   </div>
@@ -249,7 +290,7 @@ may require more storage than the numerical LU and solution phases.</p>
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-14 03:13            </p>
+ on 2022-10-08 01:53            </p>
         </div>
       </div>
       <br>

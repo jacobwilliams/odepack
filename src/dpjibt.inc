@@ -70,8 +70,8 @@ subroutine dpjibt(Neq,Y,Yh,Nyh,Ewt,Rtem,Savr,S,Wm,Iwm,res,jac,adda)
 !
 integer, dimension(*) :: Neq
 real(kind=dp),intent(inout), dimension(*) :: Y
-real(kind=dp),intent(in), dimension(Nyh,*) :: Yh
 integer,intent(in) :: Nyh
+real(kind=dp),intent(in), dimension(Nyh,*) :: Yh
 real(kind=dp),intent(in), dimension(*) :: Ewt
 real(kind=dp),intent(inout), dimension(*) :: Rtem
 real(kind=dp),dimension(*) :: Savr

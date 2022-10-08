@@ -65,8 +65,8 @@
 !-----------------------------------------------------------------------
 subroutine dhefa(A,Lda,N,Ipvt,Info,Job)
 !
-real(kind=dp) , intent(inout) :: A(Lda,*)
 integer , intent(in)          :: Lda
+real(kind=dp) , intent(inout) :: A(Lda,*)
 integer , intent(in)          :: N
 integer , intent(inout)       :: Ipvt(*)
 integer , intent(out)         :: Info

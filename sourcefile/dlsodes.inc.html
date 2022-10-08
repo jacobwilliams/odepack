@@ -1658,22 +1658,22 @@
 <a id="ln-1504" name="ln-1504" href="#ln-1504"></a><span class="c">! -----------------------------------------------------------------------</span>
 <a id="ln-1505" name="ln-1505" href="#ln-1505"></a>
 <a id="ln-1506" name="ln-1506" href="#ln-1506"></a><span class="k">data </span><span class="n">mord</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">mord</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="o">/</span><span class="p">,</span><span class="w"> </span><span class="n">mxstp0</span><span class="o">/</span><span class="mi">500</span><span class="o">/</span><span class="p">,</span><span class="w"> </span><span class="n">mxhnl0</span><span class="o">/</span><span class="mi">10</span><span class="o">/</span><span class="w"></span>
-<a id="ln-1507" name="ln-1507" href="#ln-1507"></a><span class="n">ihit</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
-<a id="ln-1508" name="ln-1508" href="#ln-1508"></a><span class="c">! -----------------------------------------------------------------------</span>
-<a id="ln-1509" name="ln-1509" href="#ln-1509"></a><span class="c">!  In the Data statement below, set LENRAT equal to the ratio of</span>
-<a id="ln-1510" name="ln-1510" href="#ln-1510"></a><span class="c">!  the wordlength for a real number to that for an integer.  Usually,</span>
-<a id="ln-1511" name="ln-1511" href="#ln-1511"></a><span class="c">!  LENRAT = 1 for single precision and 2 for double precision.  If the</span>
-<a id="ln-1512" name="ln-1512" href="#ln-1512"></a><span class="c">!  true ratio is not an integer, use the next smaller integer (.ge. 1).</span>
-<a id="ln-1513" name="ln-1513" href="#ln-1513"></a><span class="c">! -----------------------------------------------------------------------</span>
-<a id="ln-1514" name="ln-1514" href="#ln-1514"></a><span class="k">data </span><span class="n">lenrat</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="w"></span>
-<a id="ln-1515" name="ln-1515" href="#ln-1515"></a><span class="c">! -----------------------------------------------------------------------</span>
-<a id="ln-1516" name="ln-1516" href="#ln-1516"></a><span class="c">!  Block A.</span>
-<a id="ln-1517" name="ln-1517" href="#ln-1517"></a><span class="c">!  This code block is executed on every call.</span>
-<a id="ln-1518" name="ln-1518" href="#ln-1518"></a><span class="c">!  It tests ISTATE and ITASK for legality and branches appropriately.</span>
-<a id="ln-1519" name="ln-1519" href="#ln-1519"></a><span class="c">!  If ISTATE .gt. 1 but the flag INIT shows that initialization has</span>
-<a id="ln-1520" name="ln-1520" href="#ln-1520"></a><span class="c">!  not yet been done, an error return occurs.</span>
-<a id="ln-1521" name="ln-1521" href="#ln-1521"></a><span class="c">!  If ISTATE = 1 and TOUT = T, return immediately.</span>
-<a id="ln-1522" name="ln-1522" href="#ln-1522"></a><span class="c">! -----------------------------------------------------------------------</span>
+<a id="ln-1507" name="ln-1507" href="#ln-1507"></a><span class="c">! -----------------------------------------------------------------------</span>
+<a id="ln-1508" name="ln-1508" href="#ln-1508"></a><span class="c">!  In the Data statement below, set LENRAT equal to the ratio of</span>
+<a id="ln-1509" name="ln-1509" href="#ln-1509"></a><span class="c">!  the wordlength for a real number to that for an integer.  Usually,</span>
+<a id="ln-1510" name="ln-1510" href="#ln-1510"></a><span class="c">!  LENRAT = 1 for single precision and 2 for double precision.  If the</span>
+<a id="ln-1511" name="ln-1511" href="#ln-1511"></a><span class="c">!  true ratio is not an integer, use the next smaller integer (.ge. 1).</span>
+<a id="ln-1512" name="ln-1512" href="#ln-1512"></a><span class="c">! -----------------------------------------------------------------------</span>
+<a id="ln-1513" name="ln-1513" href="#ln-1513"></a><span class="k">data </span><span class="n">lenrat</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="w"></span>
+<a id="ln-1514" name="ln-1514" href="#ln-1514"></a><span class="c">! -----------------------------------------------------------------------</span>
+<a id="ln-1515" name="ln-1515" href="#ln-1515"></a><span class="c">!  Block A.</span>
+<a id="ln-1516" name="ln-1516" href="#ln-1516"></a><span class="c">!  This code block is executed on every call.</span>
+<a id="ln-1517" name="ln-1517" href="#ln-1517"></a><span class="c">!  It tests ISTATE and ITASK for legality and branches appropriately.</span>
+<a id="ln-1518" name="ln-1518" href="#ln-1518"></a><span class="c">!  If ISTATE .gt. 1 but the flag INIT shows that initialization has</span>
+<a id="ln-1519" name="ln-1519" href="#ln-1519"></a><span class="c">!  not yet been done, an error return occurs.</span>
+<a id="ln-1520" name="ln-1520" href="#ln-1520"></a><span class="c">!  If ISTATE = 1 and TOUT = T, return immediately.</span>
+<a id="ln-1521" name="ln-1521" href="#ln-1521"></a><span class="c">! -----------------------------------------------------------------------</span>
+<a id="ln-1522" name="ln-1522" href="#ln-1522"></a><span class="n">ihit</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
 <a id="ln-1523" name="ln-1523" href="#ln-1523"></a><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Istate</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">Istate</span><span class="o">&gt;</span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"></span>
 <a id="ln-1524" name="ln-1524" href="#ln-1524"></a><span class="c">! -----------------------------------------------------------------------</span>
 <a id="ln-1525" name="ln-1525" href="#ln-1525"></a><span class="c">!  Block I.</span>
@@ -2487,7 +2487,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-14 03:13            </p>
+ on 2022-10-08 01:53            </p>
         </div>
       </div>
       <br>

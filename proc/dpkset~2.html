@@ -113,9 +113,15 @@
   <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/dpkset~2.html#variable-hl0~2">hl0</a>
-      <a class="list-group-item" href="../proc/dpkset~2.html#variable-ier~10">ier</a>
+      <a class="list-group-item" href="../proc/dpkset~2.html#variable-hl0~4">hl0</a>
+      <a class="list-group-item" href="../proc/dpkset~2.html#variable-ier~6">ier</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/dpkset~2.html#src">dpkset</a>
   </div>
 </div>
 
@@ -178,13 +184,13 @@ JAC returned an error flag.</p>
 <thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-neq~22"></span>integer</td>
+  <td><span class="anchor" id="variable-neq~13"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Neq</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-y~22"></span>real(kind=dp)</td>
+  <td><span class="anchor" id="variable-y~13"></span>real(kind=dp)</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Y</strong>(*)</td><td></td>
@@ -208,7 +214,7 @@ JAC returned an error flag.</p>
   <td><strong>Ftem</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-savf~10"></span>real(kind=dp)</td>
+  <td><span class="anchor" id="variable-savf~9"></span>real(kind=dp)</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Savf</strong>(*)</td><td></td>
@@ -226,13 +232,13 @@ JAC returned an error flag.</p>
   <td><strong>Iwm</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-f~14"></span>real</td>
+  <td><span class="anchor" id="variable-f~8"></span>real</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>f</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-jac~19"></span>integer</td>
+  <td><span class="anchor" id="variable-jac~9"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>jac</strong></td><td></td>
@@ -365,9 +371,15 @@ JAC returned an error flag.</p>
   <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/dpkset~2.html#variable-hl0~2">hl0</a>
-      <a class="list-group-item" href="../proc/dpkset~2.html#variable-ier~10">ier</a>
+      <a class="list-group-item" href="../proc/dpkset~2.html#variable-hl0~4">hl0</a>
+      <a class="list-group-item" href="../proc/dpkset~2.html#variable-ier~6">ier</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/dpkset~2.html#src">dpkset</a>
   </div>
 </div>
 
@@ -381,12 +393,12 @@ JAC returned an error flag.</p>
 <thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-hl0~2"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-hl0~4"></span>real(kind=dp),</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>hl0</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-ier~10"></span>integer,</td>
+  <td><span class="anchor" id="variable-ier~6"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>ier</strong></td><td></td><td></td><td></td>
 </tr>
@@ -403,6 +415,39 @@ JAC returned an error flag.</p>
 
 
     
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">dpkset</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Ysv</span><span class="p">,</span><span class="n">Ewt</span><span class="p">,</span><span class="n">Ftem</span><span class="p">,</span><span class="n">Savf</span><span class="p">,</span><span class="n">Wm</span><span class="p">,</span><span class="n">Iwm</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">jac</span><span class="p">)</span><span class="w"></span>
+
+<span class="kt">integer</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">Neq</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ysv</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ewt</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ftem</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Savf</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Wm</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">Iwm</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="k">external</span><span class="w">      </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span><span class="w"></span>
+<span class="k">external</span><span class="w">      </span><span class="kd">::</span><span class="w"> </span><span class="n">jac</span><span class="w"></span>
+
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">hl0</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">ier</span><span class="w"></span>
+
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">ierpj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">jcur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">   </span><span class="n">hl0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">el0</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="w"></span>
+<span class="w">   </span><span class="k">call </span><span class="n">jac</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Neq</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Ysv</span><span class="p">,</span><span class="n">Ewt</span><span class="p">,</span><span class="n">Savf</span><span class="p">,</span><span class="n">Ftem</span><span class="p">,</span><span class="n">hl0</span><span class="p">,</span><span class="n">Wm</span><span class="p">(</span><span class="n">dlpk</span><span class="p">%</span><span class="n">locwp</span><span class="p">),</span><span class="n">Iwm</span><span class="p">(</span><span class="n">dlpk</span><span class="p">%</span><span class="n">lociwp</span><span class="p">),</span><span class="n">ier</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">nje</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nje</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ier</span><span class="w"> </span><span class="o">/=</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="k">then</span>
+<span class="k">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">ierpj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">   </span><span class="k">endif</span>
+
+<span class="k">end subroutine </span><span class="n">dpkset</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
     
     </div>
   </div>
@@ -419,7 +464,7 @@ JAC returned an error flag.</p>
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-14 03:13            </p>
+ on 2022-10-08 01:53            </p>
         </div>
       </div>
       <br>

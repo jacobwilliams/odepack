@@ -113,14 +113,20 @@
   <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/jgroup~2.html#variable-i~23">i</a>
-      <a class="list-group-item" href="../proc/jgroup~2.html#variable-j~14">j</a>
+      <a class="list-group-item" href="../proc/jgroup~2.html#variable-i~18">i</a>
+      <a class="list-group-item" href="../proc/jgroup~2.html#variable-j~10">j</a>
       <a class="list-group-item" href="../proc/jgroup~2.html#variable-k~6">k</a>
-      <a class="list-group-item" href="../proc/jgroup~2.html#variable-kmax~4">kmax</a>
+      <a class="list-group-item" href="../proc/jgroup~2.html#variable-kmax~3">kmax</a>
       <a class="list-group-item" href="../proc/jgroup~2.html#variable-kmin~3">kmin</a>
       <a class="list-group-item" href="../proc/jgroup~2.html#variable-ncol">ncol</a>
       <a class="list-group-item" href="../proc/jgroup~2.html#variable-ng">ng</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/jgroup~2.html#src">jgroup</a>
   </div>
 </div>
 
@@ -178,19 +184,19 @@
 <thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-n~5"></span>integer,</td>
+  <td><span class="anchor" id="variable-n~6"></span>integer,</td>
 <td>intent(in)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>N</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-ia~5"></span>integer,</td>
+  <td><span class="anchor" id="variable-ia~4"></span>integer,</td>
 <td>intent(in),</td>
   <td></td>  <td>dimension(*)</td><td>::</td>
   <td><strong>Ia</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-ja~5"></span>integer,</td>
+  <td><span class="anchor" id="variable-ja~4"></span>integer,</td>
 <td>intent(in),</td>
   <td></td>  <td>dimension(*)</td><td>::</td>
   <td><strong>Ja</strong></td><td></td>
@@ -249,14 +255,20 @@
   <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/jgroup~2.html#variable-i~23">i</a>
-      <a class="list-group-item" href="../proc/jgroup~2.html#variable-j~14">j</a>
+      <a class="list-group-item" href="../proc/jgroup~2.html#variable-i~18">i</a>
+      <a class="list-group-item" href="../proc/jgroup~2.html#variable-j~10">j</a>
       <a class="list-group-item" href="../proc/jgroup~2.html#variable-k~6">k</a>
-      <a class="list-group-item" href="../proc/jgroup~2.html#variable-kmax~4">kmax</a>
+      <a class="list-group-item" href="../proc/jgroup~2.html#variable-kmax~3">kmax</a>
       <a class="list-group-item" href="../proc/jgroup~2.html#variable-kmin~3">kmin</a>
       <a class="list-group-item" href="../proc/jgroup~2.html#variable-ncol">ncol</a>
       <a class="list-group-item" href="../proc/jgroup~2.html#variable-ng">ng</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/jgroup~2.html#src">jgroup</a>
   </div>
 </div>
 
@@ -270,12 +282,12 @@
 <thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-i~23"></span>integer,</td>
+  <td><span class="anchor" id="variable-i~18"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>i</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-j~14"></span>integer,</td>
+  <td><span class="anchor" id="variable-j~10"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>j</strong></td><td></td><td></td><td></td>
 </tr>
@@ -285,7 +297,7 @@
   <td><strong>k</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-kmax~4"></span>integer,</td>
+  <td><span class="anchor" id="variable-kmax~3"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>kmax</strong></td><td></td><td></td><td></td>
 </tr>
@@ -317,6 +329,73 @@
 
 
     
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">jgroup</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Ia</span><span class="p">,</span><span class="n">Ja</span><span class="p">,</span><span class="n">Maxg</span><span class="p">,</span><span class="n">Ngrp</span><span class="p">,</span><span class="n">Igp</span><span class="p">,</span><span class="n">Jgp</span><span class="p">,</span><span class="n">Incl</span><span class="p">,</span><span class="n">Jdone</span><span class="p">,</span><span class="n">Ier</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ia</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ja</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Maxg</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ngrp</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Igp</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Jgp</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Incl</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Jdone</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ier</span><span class="w"></span>
+<span class="c">!</span>
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kmax</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ng</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">   </span><span class="n">Ier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">   </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">      </span><span class="n">Jdone</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">   </span><span class="k">do </span><span class="n">ng</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Maxg</span><span class="w"></span>
+<span class="w">      </span><span class="n">Igp</span><span class="p">(</span><span class="n">ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ncol</span><span class="w"></span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">         </span><span class="n">Incl</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">      </span><span class="k">enddo</span>
+<span class="k">      </span><span class="n">TEST</span><span class="p">:</span><span class="w"> </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="w">   </span><span class="c">! Reject column J if it is already in a group.--------------------------</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Jdone</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">/=</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            </span><span class="n">kmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ia</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">kmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ia</span><span class="p">(</span><span class="n">j</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kmax</span><span class="w"></span>
+<span class="w">   </span><span class="c">! Reject column J if it overlaps any column already in this group.------</span>
+<span class="w">               </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ja</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Incl</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">cycle </span><span class="n">TEST</span><span class="w"></span>
+<span class="w">            </span><span class="k">enddo</span><span class="w"></span>
+<span class="w">   </span><span class="c">! Accept column J into group NG.----------------------------------------</span>
+<span class="w">            </span><span class="n">Jgp</span><span class="p">(</span><span class="n">ncol</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"></span>
+<span class="w">            </span><span class="n">ncol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ncol</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="n">Jdone</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">kmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kmax</span><span class="w"></span>
+<span class="w">               </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ja</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"></span>
+<span class="w">               </span><span class="n">Incl</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">            </span><span class="k">enddo</span>
+<span class="k">         endif</span>
+<span class="k">      enddo </span><span class="n">TEST</span><span class="w"></span>
+<span class="w">   </span><span class="c">! Stop if this group is empty (grouping is complete).-------------------</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ncol</span><span class="o">==</span><span class="n">Igp</span><span class="p">(</span><span class="n">ng</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="k">then</span>
+<span class="k">         </span><span class="n">Ngrp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ng</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">         </span><span class="k">return</span>
+<span class="k">      endif</span>
+<span class="k">   enddo</span><span class="w"></span>
+<span class="w">   </span><span class="c">! Error return if not all columns were chosen (MAXG too small).---------</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ncol</span><span class="o">&lt;=</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      </span><span class="n">Ier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="k">return</span>
+<span class="k">   else</span>
+<span class="k">      </span><span class="n">ng</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Maxg</span><span class="w"></span>
+<span class="w">   </span><span class="k">endif</span>
+<span class="k">    </span>
+<span class="k">   </span><span class="n">Ngrp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ng</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="k">end subroutine </span><span class="n">jgroup</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
     
     </div>
   </div>
@@ -333,7 +412,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-14 03:13            </p>
+ on 2022-10-08 01:53            </p>
         </div>
       </div>
       <br>

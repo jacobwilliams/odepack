@@ -172,8 +172,8 @@ integer,parameter :: dp=kind(0.0d0)
 
 integer, dimension(*) :: Neq
 real(kind=dp), dimension(*) :: Y
-real(kind=dp), intent(inout), dimension(Nyh,*) :: Yh
 integer :: Nyh
+real(kind=dp), intent(inout), dimension(Nyh,*) :: Yh
 real(kind=dp), intent(inout), dimension(*) :: Yh1
 real(kind=dp), dimension(*) :: Ewt
 real(kind=dp), dimension(*) :: Savf

@@ -1745,7 +1745,6 @@ character(60) :: msg
 ! -----------------------------------------------------------------------
 !
 data mord(1), mord(2)/12, 5/, mxstp0/500/, mxhnl0/10/
-ihit=.false.
 ! -----------------------------------------------------------------------
 !  In the Data statement below, set LENRAT equal to the ratio of
 !  the wordlength for a real number to that for an integer.  Usually,
@@ -1761,6 +1760,7 @@ data lenrat/2/
 !  not yet been done, an error return occurs.
 !  If ISTATE = 0 or 1 and TOUT = T, return immediately.
 ! -----------------------------------------------------------------------
+ihit=.false.
 if ( Istate<0 .or. Istate>3 ) then
 ! -----------------------------------------------------------------------
 !  Block I.

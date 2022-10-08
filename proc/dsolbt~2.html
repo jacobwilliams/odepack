@@ -113,15 +113,21 @@
   <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-dp~8">dp</a>
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-i~36">i</a>
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-k~13">k</a>
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-kb~2">kb</a>
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-km1~3">km1</a>
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-kp1~3">kp1</a>
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-nm1~3">nm1</a>
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-nm2~2">nm2</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-dp~7">dp</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-i~26">i</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-k~12">k</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-kb~3">kb</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-km1">km1</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-kp1~2">kp1</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-nm1~2">nm1</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-nm2">nm2</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/dsolbt~2.html#src">dsolbt</a>
   </div>
 </div>
 
@@ -176,25 +182,25 @@
 <thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-m~2"></span>integer</td>
+  <td><span class="anchor" id="variable-m"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>M</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-n~13"></span>integer,</td>
+  <td><span class="anchor" id="variable-n~12"></span>integer,</td>
 <td>intent(in)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>N</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-a~6"></span>real(kind=dp)</td>
+  <td><span class="anchor" id="variable-a~4"></span>real(kind=dp)</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>A</strong>(M,M,N)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-b~5"></span>real(kind=dp)</td>
+  <td><span class="anchor" id="variable-b~7"></span>real(kind=dp)</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>B</strong>(M,M,N)</td><td></td>
@@ -206,13 +212,13 @@
   <td><strong>C</strong>(M,M,N)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-y~25"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-y~17"></span>real(kind=dp),</td>
 <td>intent(inout)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Y</strong>(M,N)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-ip~2"></span>integer</td>
+  <td><span class="anchor" id="variable-ip"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Ip</strong>(M,N)</td><td></td>
@@ -253,7 +259,7 @@
 </g>
 </g>
 <!-- proc~dsolbt~2&#45;&gt;proc~dgesl~2 -->
-<g id="proc~~dsolbt~2~~CallsGraph_edge2" class="edge">
+<g id="proc~~dsolbt~2~~CallsGraph_edge1" class="edge">
 <title>proc~dsolbt~2&#45;&gt;proc~dgesl~2</title>
 <path fill="none" stroke="#000000" d="M54.4,-28C62.48,-26.16 71.51,-24.11 80.1,-22.16"/>
 <polygon fill="#000000" stroke="#000000" points="80.94,-25.56 89.92,-19.93 79.39,-18.73 80.94,-25.56"/>
@@ -268,7 +274,7 @@
 </g>
 </g>
 <!-- proc~dsolbt~2&#45;&gt;proc~ddot~2 -->
-<g id="proc~~dsolbt~2~~CallsGraph_edge1" class="edge">
+<g id="proc~~dsolbt~2~~CallsGraph_edge2" class="edge">
 <title>proc~dsolbt~2&#45;&gt;proc~ddot~2</title>
 <path fill="none" stroke="#000000" d="M54.26,-36.95C84.85,-40.39 135.55,-46.08 169.84,-49.94"/>
 <polygon fill="#000000" stroke="#000000" points="169.59,-53.43 179.92,-51.07 170.37,-46.47 169.59,-53.43"/>
@@ -496,15 +502,21 @@
   <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-dp~8">dp</a>
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-i~36">i</a>
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-k~13">k</a>
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-kb~2">kb</a>
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-km1~3">km1</a>
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-kp1~3">kp1</a>
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-nm1~3">nm1</a>
-      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-nm2~2">nm2</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-dp~7">dp</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-i~26">i</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-k~12">k</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-kb~3">kb</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-km1">km1</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-kp1~2">kp1</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-nm1~2">nm1</a>
+      <a class="list-group-item" href="../proc/dsolbt~2.html#variable-nm2">nm2</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/dsolbt~2.html#src">dsolbt</a>
   </div>
 </div>
 
@@ -518,42 +530,42 @@
 <thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
 <tbody>
 <tr>
-  <td><span class="anchor" id="variable-dp~8"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-dp~7"></span>real(kind=dp),</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>dp</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-i~36"></span>integer,</td>
+  <td><span class="anchor" id="variable-i~26"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>i</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-k~13"></span>integer,</td>
+  <td><span class="anchor" id="variable-k~12"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>k</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-kb~2"></span>integer,</td>
+  <td><span class="anchor" id="variable-kb~3"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>kb</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-km1~3"></span>integer,</td>
+  <td><span class="anchor" id="variable-km1"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>km1</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-kp1~3"></span>integer,</td>
+  <td><span class="anchor" id="variable-kp1~2"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>kp1</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-nm1~3"></span>integer,</td>
+  <td><span class="anchor" id="variable-nm1~2"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>nm1</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-nm2~2"></span>integer,</td>
+  <td><span class="anchor" id="variable-nm2"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>nm2</strong></td><td></td><td></td><td></td>
 </tr>
@@ -570,6 +582,62 @@
 
 
     
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">dsolbt</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Ip</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">Ip</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="c">!</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dp</span><span class="w"></span>
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kb</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">km1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">kp1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nm1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nm2</span><span class="w"></span>
+<span class="c">!</span>
+<span class="w">   </span><span class="n">nm1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">   </span><span class="n">nm2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
+<span class="w">   </span><span class="c">! Forward solution sweep. ----------------------------------------------</span>
+<span class="w">   </span><span class="k">call </span><span class="n">dgesl</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">Ip</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span>
+<span class="w">   </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nm1</span><span class="w"></span>
+<span class="w">      </span><span class="n">km1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">         </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ddot</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">C</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="n">M</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">km1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dp</span><span class="w"></span>
+<span class="w">      </span><span class="k">enddo</span>
+<span class="k">      call </span><span class="n">dgesl</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="n">M</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">Ip</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   </span>
+<span class="k">   do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">      </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ddot</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">C</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">),</span><span class="n">M</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nm1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ddot</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">),</span><span class="n">M</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nm2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dp</span><span class="w"></span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   </span>
+<span class="k">   call </span><span class="n">dgesl</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">),</span><span class="n">M</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">Ip</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">),</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+
+<span class="w">   </span><span class="c">! Backward solution sweep. ---------------------------------------------</span>
+<span class="w">   </span><span class="k">do </span><span class="n">kb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nm1</span><span class="w"></span>
+<span class="w">      </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">kb</span><span class="w"></span>
+<span class="w">      </span><span class="n">kp1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">         </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ddot</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="n">M</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">kp1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dp</span><span class="w"></span>
+<span class="w">      </span><span class="k">enddo</span>
+<span class="k">   enddo</span>
+
+<span class="k">   do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
+<span class="w">      </span><span class="n">dp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ddot</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">C</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="n">M</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dp</span><span class="w"></span>
+<span class="w">   </span><span class="k">enddo</span>
+
+<span class="k">end subroutine </span><span class="n">dsolbt</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
     
     </div>
   </div>
@@ -586,7 +654,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-14 03:13            </p>
+ on 2022-10-08 01:53            </p>
         </div>
       </div>
       <br>

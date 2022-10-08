@@ -114,12 +114,18 @@
   <div id="vars-0" class="panel-collapse collapse">
     <div class="list-group">
       <a class="list-group-item" href="../proc/dorthog~2.html#variable-arg">arg</a>
-      <a class="list-group-item" href="../proc/dorthog~2.html#variable-i~65">i</a>
+      <a class="list-group-item" href="../proc/dorthog~2.html#variable-i~10">i</a>
       <a class="list-group-item" href="../proc/dorthog~2.html#variable-i0">i0</a>
       <a class="list-group-item" href="../proc/dorthog~2.html#variable-sumdsq">sumdsq</a>
-      <a class="list-group-item" href="../proc/dorthog~2.html#variable-tem~3">tem</a>
+      <a class="list-group-item" href="../proc/dorthog~2.html#variable-tem">tem</a>
       <a class="list-group-item" href="../proc/dorthog~2.html#variable-vnrm">vnrm</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/dorthog~2.html#src">dorthog</a>
   </div>
 </div>
 
@@ -200,19 +206,19 @@
   <td><strong>Vnew</strong>(*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-v~9"></span>real(kind=dp)</td>
+  <td><span class="anchor" id="variable-v~2"></span>real(kind=dp)</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>V</strong>(N,*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-hes~3"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-hes"></span>real(kind=dp),</td>
 <td>intent(inout)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Hes</strong>(Ldhes,*)</td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-n~27"></span>integer</td>
+  <td><span class="anchor" id="variable-n~2"></span>integer</td>
 <td></td>
   <td></td>  <td></td><td>::</td>
   <td><strong>N</strong></td><td></td>
@@ -230,7 +236,7 @@
   <td><strong>Ldhes</strong></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-kmp~3"></span>integer,</td>
+  <td><span class="anchor" id="variable-kmp"></span>integer,</td>
 <td>intent(in)</td>
   <td></td>  <td></td><td>::</td>
   <td><strong>Kmp</strong></td><td></td>
@@ -267,48 +273,48 @@
 <polygon fill="none" stroke="black" points="55,-66 0,-66 0,-42 55,-42 55,-66"/>
 <text text-anchor="middle" x="27.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">dorthog</text>
 </g>
-<!-- proc~daxpy~2 -->
-<g id="proc~~dorthog~2~~CallsGraph_node2" class="node">
-<title>proc~daxpy~2</title>
-<g id="a_proc~~dorthog~2~~CallsGraph_node2"><a xlink:href=".././proc/daxpy~2.html" xlink:title="daxpy">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-108 91,-108 91,-84 145,-84 145,-108"/>
-<text text-anchor="middle" x="118" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daxpy</text>
-</a>
-</g>
-</g>
-<!-- proc~dorthog~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dorthog~2~~CallsGraph_edge1" class="edge">
-<title>proc~dorthog~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M54.1,-66.15C62.9,-70.33 72.92,-75.08 82.32,-79.54"/>
-<polygon fill="#000000" stroke="#000000" points="80.92,-82.75 91.46,-83.88 83.93,-76.43 80.92,-82.75"/>
-</g>
 <!-- proc~dnrm2~2 -->
-<g id="proc~~dorthog~2~~CallsGraph_node3" class="node">
+<g id="proc~~dorthog~2~~CallsGraph_node2" class="node">
 <title>proc~dnrm2~2</title>
-<g id="a_proc~~dorthog~2~~CallsGraph_node3"><a xlink:href=".././proc/dnrm2~2.html" xlink:title="DNRM2">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="145,-66 91,-66 91,-42 145,-42 145,-66"/>
-<text text-anchor="middle" x="118" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DNRM2</text>
+<g id="a_proc~~dorthog~2~~CallsGraph_node2"><a xlink:href=".././proc/dnrm2~2.html" xlink:title="DNRM2">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="145,-108 91,-108 91,-84 145,-84 145,-108"/>
+<text text-anchor="middle" x="118" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DNRM2</text>
 </a>
 </g>
 </g>
 <!-- proc~dorthog~2&#45;&gt;proc~dnrm2~2 -->
-<g id="proc~~dorthog~2~~CallsGraph_edge2" class="edge">
+<g id="proc~~dorthog~2~~CallsGraph_edge1" class="edge">
 <title>proc~dorthog~2&#45;&gt;proc~dnrm2~2</title>
-<path fill="none" stroke="#000000" d="M55.05,-54C63.09,-54 72.06,-54 80.62,-54"/>
-<polygon fill="#000000" stroke="#000000" points="80.77,-57.5 90.77,-54 80.77,-50.5 80.77,-57.5"/>
+<path fill="none" stroke="#000000" d="M54.1,-66.15C62.9,-70.33 72.92,-75.08 82.32,-79.54"/>
+<polygon fill="#000000" stroke="#000000" points="80.92,-82.75 91.46,-83.88 83.93,-76.43 80.92,-82.75"/>
 </g>
 <!-- proc~ddot~2 -->
-<g id="proc~~dorthog~2~~CallsGraph_node4" class="node">
+<g id="proc~~dorthog~2~~CallsGraph_node3" class="node">
 <title>proc~ddot~2</title>
-<g id="a_proc~~dorthog~2~~CallsGraph_node4"><a xlink:href=".././proc/ddot~2.html" xlink:title="ddot">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="145,-24 91,-24 91,0 145,0 145,-24"/>
-<text text-anchor="middle" x="118" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddot</text>
+<g id="a_proc~~dorthog~2~~CallsGraph_node3"><a xlink:href=".././proc/ddot~2.html" xlink:title="ddot">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="145,-66 91,-66 91,-42 145,-42 145,-66"/>
+<text text-anchor="middle" x="118" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddot</text>
 </a>
 </g>
 </g>
 <!-- proc~dorthog~2&#45;&gt;proc~ddot~2 -->
-<g id="proc~~dorthog~2~~CallsGraph_edge3" class="edge">
+<g id="proc~~dorthog~2~~CallsGraph_edge2" class="edge">
 <title>proc~dorthog~2&#45;&gt;proc~ddot~2</title>
+<path fill="none" stroke="#000000" d="M55.05,-54C63.09,-54 72.06,-54 80.62,-54"/>
+<polygon fill="#000000" stroke="#000000" points="80.77,-57.5 90.77,-54 80.77,-50.5 80.77,-57.5"/>
+</g>
+<!-- proc~daxpy~2 -->
+<g id="proc~~dorthog~2~~CallsGraph_node4" class="node">
+<title>proc~daxpy~2</title>
+<g id="a_proc~~dorthog~2~~CallsGraph_node4"><a xlink:href=".././proc/daxpy~2.html" xlink:title="daxpy">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-24 91,-24 91,0 145,0 145,-24"/>
+<text text-anchor="middle" x="118" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daxpy</text>
+</a>
+</g>
+</g>
+<!-- proc~dorthog~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~dorthog~2~~CallsGraph_edge3" class="edge">
+<title>proc~dorthog~2&#45;&gt;proc~daxpy~2</title>
 <path fill="none" stroke="#000000" d="M54.1,-41.85C62.9,-37.67 72.92,-32.92 82.32,-28.46"/>
 <polygon fill="#000000" stroke="#000000" points="83.93,-31.57 91.46,-24.12 80.92,-25.25 83.93,-31.57"/>
 </g>
@@ -397,35 +403,35 @@
 <polygon fill="none" stroke="black" points="418,-45 363,-45 363,-21 418,-21 418,-45"/>
 <text text-anchor="middle" x="390.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">dorthog</text>
 </g>
-<!-- proc~dspiom~2 -->
-<g id="proc~~dorthog~2~~CalledByGraph_node2" class="node">
-<title>proc~dspiom~2</title>
-<g id="a_proc~~dorthog~2~~CalledByGraph_node2"><a xlink:href=".././proc/dspiom~2.html" xlink:title="dspiom">
-<polygon fill="#d9534f" stroke="#d9534f" points="326,-66 272,-66 272,-42 326,-42 326,-66"/>
-<text text-anchor="middle" x="299" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dspiom</text>
-</a>
-</g>
-</g>
-<!-- proc~dspiom~2&#45;&gt;proc~dorthog~2 -->
-<g id="proc~~dorthog~2~~CalledByGraph_edge1" class="edge">
-<title>proc~dspiom~2&#45;&gt;proc~dorthog~2</title>
-<path fill="none" stroke="#000000" d="M326.37,-47.81C334.69,-45.86 344.03,-43.67 352.92,-41.58"/>
-<polygon fill="#000000" stroke="#000000" points="353.76,-44.98 362.7,-39.29 352.16,-38.17 353.76,-44.98"/>
-</g>
 <!-- proc~dspigmr~2 -->
-<g id="proc~~dorthog~2~~CalledByGraph_node3" class="node">
+<g id="proc~~dorthog~2~~CalledByGraph_node2" class="node">
 <title>proc~dspigmr~2</title>
-<g id="a_proc~~dorthog~2~~CalledByGraph_node3"><a xlink:href=".././proc/dspigmr~2.html" xlink:title="dspigmr">
-<polygon fill="#d9534f" stroke="#d9534f" points="327,-24 271,-24 271,0 327,0 327,-24"/>
-<text text-anchor="middle" x="299" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dspigmr</text>
+<g id="a_proc~~dorthog~2~~CalledByGraph_node2"><a xlink:href=".././proc/dspigmr~2.html" xlink:title="dspigmr">
+<polygon fill="#d9534f" stroke="#d9534f" points="327,-66 271,-66 271,-42 327,-42 327,-66"/>
+<text text-anchor="middle" x="299" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dspigmr</text>
 </a>
 </g>
 </g>
 <!-- proc~dspigmr~2&#45;&gt;proc~dorthog~2 -->
-<g id="proc~~dorthog~2~~CalledByGraph_edge2" class="edge">
+<g id="proc~~dorthog~2~~CalledByGraph_edge1" class="edge">
 <title>proc~dspigmr~2&#45;&gt;proc~dorthog~2</title>
-<path fill="none" stroke="#000000" d="M327.34,-18.41C335.47,-20.32 344.5,-22.44 353.11,-24.46"/>
-<polygon fill="#000000" stroke="#000000" points="352.41,-27.89 362.94,-26.77 354.01,-21.08 352.41,-27.89"/>
+<path fill="none" stroke="#000000" d="M327.34,-47.59C335.47,-45.68 344.5,-43.56 353.11,-41.54"/>
+<polygon fill="#000000" stroke="#000000" points="354.01,-44.92 362.94,-39.23 352.41,-38.11 354.01,-44.92"/>
+</g>
+<!-- proc~dspiom~2 -->
+<g id="proc~~dorthog~2~~CalledByGraph_node3" class="node">
+<title>proc~dspiom~2</title>
+<g id="a_proc~~dorthog~2~~CalledByGraph_node3"><a xlink:href=".././proc/dspiom~2.html" xlink:title="dspiom">
+<polygon fill="#d9534f" stroke="#d9534f" points="326,-24 272,-24 272,0 326,0 326,-24"/>
+<text text-anchor="middle" x="299" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dspiom</text>
+</a>
+</g>
+</g>
+<!-- proc~dspiom~2&#45;&gt;proc~dorthog~2 -->
+<g id="proc~~dorthog~2~~CalledByGraph_edge2" class="edge">
+<title>proc~dspiom~2&#45;&gt;proc~dorthog~2</title>
+<path fill="none" stroke="#000000" d="M326.37,-18.19C334.69,-20.14 344.03,-22.33 352.92,-24.42"/>
+<polygon fill="#000000" stroke="#000000" points="352.16,-27.83 362.7,-26.71 353.76,-21.02 352.16,-27.83"/>
 </g>
 <!-- proc~dsolpk~2 -->
 <g id="proc~~dorthog~2~~CalledByGraph_node4" class="node">
@@ -436,77 +442,77 @@
 </a>
 </g>
 </g>
-<!-- proc~dsolpk~2&#45;&gt;proc~dspiom~2 -->
-<g id="proc~~dorthog~2~~CalledByGraph_edge3" class="edge">
-<title>proc~dsolpk~2&#45;&gt;proc~dspiom~2</title>
-<path fill="none" stroke="#000000" d="M235.22,-39.19C243.64,-41.17 253.12,-43.41 262.11,-45.53"/>
-<polygon fill="#000000" stroke="#000000" points="261.43,-48.97 271.97,-47.86 263.04,-42.15 261.43,-48.97"/>
-</g>
 <!-- proc~dsolpk~2&#45;&gt;proc~dspigmr~2 -->
-<g id="proc~~dorthog~2~~CalledByGraph_edge4" class="edge">
+<g id="proc~~dorthog~2~~CalledByGraph_edge3" class="edge">
 <title>proc~dsolpk~2&#45;&gt;proc~dspigmr~2</title>
-<path fill="none" stroke="#000000" d="M235.22,-26.81C243.26,-24.92 252.25,-22.79 260.87,-20.76"/>
-<polygon fill="#000000" stroke="#000000" points="261.8,-24.14 270.73,-18.43 260.19,-17.32 261.8,-24.14"/>
+<path fill="none" stroke="#000000" d="M235.22,-39.19C243.26,-41.08 252.25,-43.21 260.87,-45.24"/>
+<polygon fill="#000000" stroke="#000000" points="260.19,-48.68 270.73,-47.57 261.8,-41.86 260.19,-48.68"/>
 </g>
-<!-- proc~dstoka~2 -->
-<g id="proc~~dorthog~2~~CalledByGraph_node5" class="node">
-<title>proc~dstoka~2</title>
-<g id="a_proc~~dorthog~2~~CalledByGraph_node5"><a xlink:href=".././proc/dstoka~2.html" xlink:title="dstoka">
-<polygon fill="#d9534f" stroke="#d9534f" points="144.5,-66 90.5,-66 90.5,-42 144.5,-42 144.5,-66"/>
-<text text-anchor="middle" x="117.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstoka</text>
-</a>
-</g>
-</g>
-<!-- proc~dstoka~2&#45;&gt;proc~dsolpk~2 -->
-<g id="proc~~dorthog~2~~CalledByGraph_edge5" class="edge">
-<title>proc~dstoka~2&#45;&gt;proc~dsolpk~2</title>
-<path fill="none" stroke="#000000" d="M144.57,-47.81C152.87,-45.84 162.2,-43.63 171.07,-41.53"/>
-<polygon fill="#000000" stroke="#000000" points="171.88,-44.93 180.81,-39.22 170.27,-38.12 171.88,-44.93"/>
+<!-- proc~dsolpk~2&#45;&gt;proc~dspiom~2 -->
+<g id="proc~~dorthog~2~~CalledByGraph_edge4" class="edge">
+<title>proc~dsolpk~2&#45;&gt;proc~dspiom~2</title>
+<path fill="none" stroke="#000000" d="M235.22,-26.81C243.64,-24.83 253.12,-22.59 262.11,-20.47"/>
+<polygon fill="#000000" stroke="#000000" points="263.04,-23.85 271.97,-18.14 261.43,-17.03 263.04,-23.85"/>
 </g>
 <!-- proc~dstodpk~2 -->
-<g id="proc~~dorthog~2~~CalledByGraph_node6" class="node">
+<g id="proc~~dorthog~2~~CalledByGraph_node5" class="node">
 <title>proc~dstodpk~2</title>
-<g id="a_proc~~dorthog~2~~CalledByGraph_node6"><a xlink:href=".././proc/dstodpk~2.html" xlink:title="dstodpk">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-24 90,-24 90,0 145,0 145,-24"/>
-<text text-anchor="middle" x="117.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstodpk</text>
+<g id="a_proc~~dorthog~2~~CalledByGraph_node5"><a xlink:href=".././proc/dstodpk~2.html" xlink:title="dstodpk">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-66 90,-66 90,-42 145,-42 145,-66"/>
+<text text-anchor="middle" x="117.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstodpk</text>
 </a>
 </g>
 </g>
 <!-- proc~dstodpk~2&#45;&gt;proc~dsolpk~2 -->
-<g id="proc~~dorthog~2~~CalledByGraph_edge6" class="edge">
+<g id="proc~~dorthog~2~~CalledByGraph_edge5" class="edge">
 <title>proc~dstodpk~2&#45;&gt;proc~dsolpk~2</title>
-<path fill="none" stroke="#000000" d="M145.05,-18.3C153.18,-20.23 162.25,-22.38 170.9,-24.43"/>
-<polygon fill="#000000" stroke="#000000" points="170.23,-27.87 180.77,-26.78 171.85,-21.06 170.23,-27.87"/>
+<path fill="none" stroke="#000000" d="M145.05,-47.7C153.18,-45.77 162.25,-43.62 170.9,-41.57"/>
+<polygon fill="#000000" stroke="#000000" points="171.85,-44.94 180.77,-39.22 170.23,-38.13 171.85,-44.94"/>
 </g>
-<!-- proc~dlsodkr~2 -->
-<g id="proc~~dorthog~2~~CalledByGraph_node7" class="node">
-<title>proc~dlsodkr~2</title>
-<g id="a_proc~~dorthog~2~~CalledByGraph_node7"><a xlink:href=".././proc/dlsodkr~2.html" xlink:title="dlsodkr">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-66 0,-66 0,-42 54,-42 54,-66"/>
-<text text-anchor="middle" x="27" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodkr</text>
+<!-- proc~dstoka~2 -->
+<g id="proc~~dorthog~2~~CalledByGraph_node6" class="node">
+<title>proc~dstoka~2</title>
+<g id="a_proc~~dorthog~2~~CalledByGraph_node6"><a xlink:href=".././proc/dstoka~2.html" xlink:title="dstoka">
+<polygon fill="#d9534f" stroke="#d9534f" points="144.5,-24 90.5,-24 90.5,0 144.5,0 144.5,-24"/>
+<text text-anchor="middle" x="117.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstoka</text>
 </a>
 </g>
 </g>
-<!-- proc~dlsodkr~2&#45;&gt;proc~dstoka~2 -->
-<g id="proc~~dorthog~2~~CalledByGraph_edge7" class="edge">
-<title>proc~dlsodkr~2&#45;&gt;proc~dstoka~2</title>
-<path fill="none" stroke="#000000" d="M54.07,-54C62.28,-54 71.5,-54 80.28,-54"/>
-<polygon fill="#000000" stroke="#000000" points="80.31,-57.5 90.31,-54 80.31,-50.5 80.31,-57.5"/>
+<!-- proc~dstoka~2&#45;&gt;proc~dsolpk~2 -->
+<g id="proc~~dorthog~2~~CalledByGraph_edge6" class="edge">
+<title>proc~dstoka~2&#45;&gt;proc~dsolpk~2</title>
+<path fill="none" stroke="#000000" d="M144.57,-18.19C152.87,-20.16 162.2,-22.37 171.07,-24.47"/>
+<polygon fill="#000000" stroke="#000000" points="170.27,-27.88 180.81,-26.78 171.88,-21.07 170.27,-27.88"/>
 </g>
 <!-- proc~dlsodpk~2 -->
-<g id="proc~~dorthog~2~~CalledByGraph_node8" class="node">
+<g id="proc~~dorthog~2~~CalledByGraph_node7" class="node">
 <title>proc~dlsodpk~2</title>
-<g id="a_proc~~dorthog~2~~CalledByGraph_node8"><a xlink:href=".././proc/dlsodpk~2.html" xlink:title="dlsodpk">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-24 0,-24 0,0 54,0 54,-24"/>
-<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodpk</text>
+<g id="a_proc~~dorthog~2~~CalledByGraph_node7"><a xlink:href=".././proc/dlsodpk~2.html" xlink:title="dlsodpk">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-66 0,-66 0,-42 54,-42 54,-66"/>
+<text text-anchor="middle" x="27" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodpk</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodpk~2&#45;&gt;proc~dstodpk~2 -->
-<g id="proc~~dorthog~2~~CalledByGraph_edge8" class="edge">
+<g id="proc~~dorthog~2~~CalledByGraph_edge7" class="edge">
 <title>proc~dlsodpk~2&#45;&gt;proc~dstodpk~2</title>
-<path fill="none" stroke="#000000" d="M54.07,-12C62.12,-12 71.14,-12 79.76,-12"/>
-<polygon fill="#000000" stroke="#000000" points="80,-15.5 90,-12 80,-8.5 80,-15.5"/>
+<path fill="none" stroke="#000000" d="M54.07,-54C62.12,-54 71.14,-54 79.76,-54"/>
+<polygon fill="#000000" stroke="#000000" points="80,-57.5 90,-54 80,-50.5 80,-57.5"/>
+</g>
+<!-- proc~dlsodkr~2 -->
+<g id="proc~~dorthog~2~~CalledByGraph_node8" class="node">
+<title>proc~dlsodkr~2</title>
+<g id="a_proc~~dorthog~2~~CalledByGraph_node8"><a xlink:href=".././proc/dlsodkr~2.html" xlink:title="dlsodkr">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodkr</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr~2&#45;&gt;proc~dstoka~2 -->
+<g id="proc~~dorthog~2~~CalledByGraph_edge8" class="edge">
+<title>proc~dlsodkr~2&#45;&gt;proc~dstoka~2</title>
+<path fill="none" stroke="#000000" d="M54.07,-12C62.28,-12 71.5,-12 80.28,-12"/>
+<polygon fill="#000000" stroke="#000000" points="80.31,-15.5 90.31,-12 80.31,-8.5 80.31,-15.5"/>
 </g>
 </g>
 </svg>
@@ -581,12 +587,18 @@
   <div id="vars-1" class="panel-collapse collapse">
     <div class="list-group">
       <a class="list-group-item" href="../proc/dorthog~2.html#variable-arg">arg</a>
-      <a class="list-group-item" href="../proc/dorthog~2.html#variable-i~65">i</a>
+      <a class="list-group-item" href="../proc/dorthog~2.html#variable-i~10">i</a>
       <a class="list-group-item" href="../proc/dorthog~2.html#variable-i0">i0</a>
       <a class="list-group-item" href="../proc/dorthog~2.html#variable-sumdsq">sumdsq</a>
-      <a class="list-group-item" href="../proc/dorthog~2.html#variable-tem~3">tem</a>
+      <a class="list-group-item" href="../proc/dorthog~2.html#variable-tem">tem</a>
       <a class="list-group-item" href="../proc/dorthog~2.html#variable-vnrm">vnrm</a>
     </div>
+  </div>
+</div>
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../proc/dorthog~2.html#src">dorthog</a>
   </div>
 </div>
 
@@ -605,7 +617,7 @@
   <td><strong>arg</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-i~65"></span>integer,</td>
+  <td><span class="anchor" id="variable-i~10"></span>integer,</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>i</strong></td><td></td><td></td><td></td>
 </tr>
@@ -620,7 +632,7 @@
   <td><strong>sumdsq</strong></td><td></td><td></td><td></td>
 </tr>
 <tr>
-  <td><span class="anchor" id="variable-tem~3"></span>real(kind=dp),</td>
+  <td><span class="anchor" id="variable-tem"></span>real(kind=dp),</td>
 <td>public</td>  <td></td><td>::</td>
   <td><strong>tem</strong></td><td></td><td></td><td></td>
 </tr>
@@ -642,6 +654,62 @@
 
 
     
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">dorthog</span><span class="p">(</span><span class="n">Vnew</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Hes</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Ll</span><span class="p">,</span><span class="n">Ldhes</span><span class="p">,</span><span class="n">Kmp</span><span class="p">,</span><span class="n">Snormw</span><span class="p">)</span><span class="w"></span>
+
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Vnew</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">V</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">Ldhes</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Hes</span><span class="p">(</span><span class="n">Ldhes</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">Ll</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">Kmp</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Snormw</span><span class="w"></span>
+
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">arg</span><span class="p">,</span><span class="w"> </span><span class="n">sumdsq</span><span class="p">,</span><span class="w"> </span><span class="n">tem</span><span class="p">,</span><span class="w"> </span><span class="n">vnrm</span><span class="w"></span>
+<span class="kt">integer</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i0</span><span class="w"></span>
+
+<span class="w">   </span><span class="c">!  Get norm of unaltered VNEW for later use. ----------------------------</span>
+<span class="w">   </span><span class="n">vnrm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dnrm2</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Vnew</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">   </span><span class="c">!  Do modified Gram-Schmidt on VNEW = A*v(LL).</span>
+<span class="w">   </span><span class="c">!  Scaled inner products give new column of HES.</span>
+<span class="w">   </span><span class="c">!  Projections of earlier vectors are subtracted from VNEW.</span>
+<span class="w">   </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">   </span><span class="n">i0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">Ll</span><span class="o">-</span><span class="n">Kmp</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ll</span><span class="w"></span>
+<span class="w">      </span><span class="n">Hes</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">Ll</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ddot</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Vnew</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="n">tem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">Hes</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">Ll</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">call </span><span class="n">daxpy</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">tem</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Vnew</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">enddo</span><span class="w"></span>
+<span class="w">   </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">   </span><span class="c">!  Compute SNORMW = norm of VNEW.</span>
+<span class="w">   </span><span class="c">!  If VNEW is small compared to its input value (in norm), then</span>
+<span class="w">   </span><span class="c">!  reorthogonalize VNEW to V(*,1) through V(*,LL).</span>
+<span class="w">   </span><span class="c">!  Correct if relative correction exceeds 1000*(unit roundoff).</span>
+<span class="w">   </span><span class="c">!  finally, correct SNORMW using the dot products involved.</span>
+<span class="w">   </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">   </span><span class="n">Snormw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dnrm2</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Vnew</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">vnrm</span><span class="o">+</span><span class="mf">0.001D0</span><span class="o">*</span><span class="n">Snormw</span><span class="o">/=</span><span class="n">vnrm</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
+<span class="k">   </span><span class="n">sumdsq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span><span class="w"></span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ll</span><span class="w"></span>
+<span class="w">      </span><span class="n">tem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">ddot</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Vnew</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Hes</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">Ll</span><span class="p">)</span><span class="o">+</span><span class="mf">0.001D0</span><span class="o">*</span><span class="n">tem</span><span class="o">/=</span><span class="n">Hes</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">Ll</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">         </span><span class="n">Hes</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">Ll</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Hes</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">Ll</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tem</span><span class="w"></span>
+<span class="w">         </span><span class="k">call </span><span class="n">daxpy</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">tem</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">Vnew</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">         </span><span class="n">sumdsq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sumdsq</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tem</span><span class="o">**</span><span class="mi">2</span><span class="w"></span>
+<span class="w">      </span><span class="k">endif</span>
+<span class="k">   enddo</span>
+<span class="k">   if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">sumdsq</span><span class="o">==</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
+<span class="k">   </span><span class="n">arg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="mf">0.0D0</span><span class="p">,</span><span class="n">Snormw</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">sumdsq</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">Snormw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span><span class="w"></span>
+
+<span class="k">end subroutine </span><span class="n">dorthog</span><span class="w"></span>
+</pre></div>
+
+    </section>
+    <br>
     
     </div>
   </div>
@@ -658,7 +726,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-02-14 03:13            </p>
+ on 2022-10-08 01:53            </p>
         </div>
       </div>
       <br>
