@@ -37,10 +37,10 @@ jobs:
         wget https://github.com/fortran-lang/fpm/releases/download/v0.6.0/fpm-0.6.0-linux-x86_64
         chmod u+x fpm-0.6.0-linux-x86_64
         mkdir -p /home/runner/.local/bin
+        mv fpm-0.6.0-linux-x86_64 /home/runner/.local/bin/
         echo $PATH
         export PATH=$PATH:/home/runner/.local/bin
         hash -r
-        ln -s fpm-0.6.0-linux-x86_64 /home/runner/.local/bin/fpm
         ls -l /home/runner/.local/bin
         fpm --version
 
