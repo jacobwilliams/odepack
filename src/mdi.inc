@@ -18,7 +18,7 @@ integer,intent(out)   :: Last(*)
 integer,intent(inout) :: Next(*)
 integer,intent(inout) :: Mark(*)
 integer,intent(in)    :: Tag
-integer,intent(out)   :: Flag
+integer               :: Flag
 !
 integer :: dvi, j, jmax, jmin, k, kmax, lvk, nextvi, sfs, vi, vj
    !
