@@ -279,15 +279,15 @@
  for possible use of logical unit 6 for output of error messages
  by DLSODI.  On the first call to DLSODI, supply arguments as follows:</p>
 <dl>
-<dt>RES    </dt>
+<dt>RES</dt>
 <dd>
 <p>name of user subroutine for residual function r.</p>
 </dd>
-<dt>ADDA   </dt>
+<dt>ADDA</dt>
 <dd>
 <p>name of user subroutine for computing and adding A(t,y).</p>
 </dd>
-<dt>JAC    </dt>
+<dt>JAC</dt>
 <dd>
 <p>name of user subroutine for Jacobian matrix dr/dy
  (MF = 21 or 24).  If not used, pass a dummy name.</p>
@@ -296,35 +296,35 @@
 <p>Note: the names for the RES and ADDA routines and (if used) the
  JAC routine must be declared External in the calling program.</p>
 <dl>
-<dt>NEQ    </dt>
+<dt>NEQ</dt>
 <dd>
 <p>number of scalar equations in the system.</p>
 </dd>
-<dt>Y      </dt>
+<dt>Y</dt>
 <dd>
 <p>array of initial values, of length NEQ.</p>
 </dd>
-<dt>YDOTI  </dt>
+<dt>YDOTI</dt>
 <dd>
 <p>array of length NEQ (containing initial dy/dt if ISTATE = 1).</p>
 </dd>
-<dt>T      </dt>
+<dt>T</dt>
 <dd>
 <p>the initial value of the independent variable.</p>
 </dd>
-<dt>TOUT   </dt>
+<dt>TOUT</dt>
 <dd>
 <p>first point where output is desired (.ne. T).</p>
 </dd>
-<dt>ITOL   </dt>
+<dt>ITOL</dt>
 <dd>
 <p>1 or 2 according as ATOL (below) is a scalar or array.</p>
 </dd>
-<dt>RTOL   </dt>
+<dt>RTOL</dt>
 <dd>
 <p>relative tolerance parameter (scalar).</p>
 </dd>
-<dt>ATOL   </dt>
+<dt>ATOL</dt>
 <dd>
 <p>absolute tolerance parameter (scalar or array).
  the estimated local error in y(i) will be controlled so as
@@ -340,24 +340,24 @@
  or the relative error is less than RTOL.</p>
 <p>Use RTOL = 0.0 for pure absolute error control, and
  use ATOL = 0.0 (or ATOL(i) = 0.0) for pure relative error
- control. </p>
+ control.</p>
 <p><em>Caution</em>: Actual (global) errors may exceed these
  local tolerances, so choose them conservatively.</p>
 <dl>
-<dt>ITASK  </dt>
+<dt>ITASK</dt>
 <dd>
 <p>1 for normal computation of output values of y at t = TOUT.</p>
 </dd>
-<dt>ISTATE </dt>
+<dt>ISTATE</dt>
 <dd>
 <p>integer flag (input and output).  Set ISTATE = 1 if the
  initial dy/dt is supplied, and 0 otherwise.</p>
 </dd>
-<dt>IOPT   </dt>
+<dt>IOPT</dt>
 <dd>
 <p>0 to indicate no optional inputs used.</p>
 </dd>
-<dt>RWORK  </dt>
+<dt>RWORK</dt>
 <dd>
 <p>real work array of length at least:</p>
 </dd>
@@ -367,21 +367,21 @@
 </code></pre></div>
 
 <dl>
-<dt>LRW    </dt>
+<dt>LRW</dt>
 <dd>
 <p>declared length of RWORK (in user&rsquo;s dimension).</p>
 </dd>
-<dt>IWORK  </dt>
+<dt>IWORK</dt>
 <dd>
 <p>integer work array of length at least 20 + NEQ.
  If MF = 24 or 25, input in IWORK(1),IWORK(2) the lower
  and upper half-bandwidths ML,MU.</p>
 </dd>
-<dt>LIW    </dt>
+<dt>LIW</dt>
 <dd>
 <p>declared length of IWORK (in user&rsquo;s dimension).</p>
 </dd>
-<dt>MF     </dt>
+<dt>MF</dt>
 <dd>
 <p>method flag.  Standard values are:</p>
 </dd>
@@ -418,15 +418,15 @@
  and possibly ATOL.</p>
 <p><strong>G.</strong> The output from the first call (or any call) is:</p>
 <dl>
-<dt>Y </dt>
+<dt>Y</dt>
 <dd>
 <p>array of computed values of y(t) vector.</p>
 </dd>
-<dt>T </dt>
+<dt>T</dt>
 <dd>
 <p>corresponding value of independent variable (normally TOUT).</p>
 </dd>
-<dt>ISTATE </dt>
+<dt>ISTATE</dt>
 <dd>
 <p>allowed values and their descripitions:</p>
 </dd>
@@ -693,7 +693,7 @@
  change in input parameters is flagged by ISTATE = 3 on input.</p>
 <p>The descriptions of the call arguments are as follows.</p>
 <dl>
-<dt>RES    </dt>
+<dt>RES</dt>
 <dd>
 <p>the name of the user-supplied subroutine which supplies
  the residual vector for the ODE system, defined by</p>
@@ -772,7 +772,7 @@
 <p>RES must be declared External in the calling
  program.  See note below for more about RES.</p>
 <dl>
-<dt>ADDA   </dt>
+<dt>ADDA</dt>
 <dd>
 <p>the name of the user-supplied subroutine which adds the
  matrix A = A(t,y) to another matrix stored in the same form
@@ -800,7 +800,7 @@
 <p>ADDA must be declared External in the calling program.
  See note below for more information about ADDA.</p>
 <dl>
-<dt>JAC    </dt>
+<dt>JAC</dt>
 <dd>
 <p>the name of the user-supplied subroutine which supplies the
  Jacobian matrix, dr/dy, where r = g - A*s.  The form of the
@@ -849,7 +849,7 @@
  NEQ(1), Y(1),&hellip;,Y(NEQ) or any other input variables.
  See the descriptions of NEQ and Y below.</p>
 <dl>
-<dt>NEQ    </dt>
+<dt>NEQ</dt>
 <dd>
 <p>the size of the system (number of first order ordinary
  differential equations or scalar algebraic equations).
@@ -870,7 +870,7 @@
  and pass it to RES, ADDA, or JAC.  Each such subroutine
  must include NEQ in a Dimension statement in that case.</p>
 <dl>
-<dt>Y      </dt>
+<dt>Y</dt>
 <dd>
 <p>a real array for the vector of dependent variables, of
  length NEQ or more.  Used for both input and output on the
@@ -887,7 +887,7 @@
  data and pass it to RES, ADDA, or JAC.  (The DLSODI
  package accesses only Y(1),&hellip;,Y(NEQ). )</p>
 <dl>
-<dt>YDOTI  </dt>
+<dt>YDOTI</dt>
 <dd>
 <p>a real array for the initial value of the vector
  dy/dt and for work space, of dimension at least NEQ.</p>
@@ -914,7 +914,7 @@
 <p>If desired, the YDOTI array may be used for other
  purposes between calls to the solver.</p>
 <dl>
-<dt>T      </dt>
+<dt>T</dt>
 <dd>
 <p>the independent variable.  On input, T is used only on the
  first call, as the initial point of the integration.
@@ -922,7 +922,7 @@
  computed solution Y is evaluated (usually the same as TOUT).
  on an error return, T is the farthest point reached.</p>
 </dd>
-<dt>TOUT   </dt>
+<dt>TOUT</dt>
 <dd>
 <p>the next value of t at which a computed solution is desired.
  Used only for input.</p>
@@ -944,18 +944,18 @@
  TCUR - HU and TCUR (see optional outputs, below, for
  TCUR and HU).</p>
 <dl>
-<dt>ITOL   </dt>
+<dt>ITOL</dt>
 <dd>
 <p>an indicator for the type of error control.  See
  description below under ATOL.  Used only for input.</p>
 </dd>
-<dt>RTOL   </dt>
+<dt>RTOL</dt>
 <dd>
 <p>a relative error tolerance parameter, either a scalar or
  an array of length NEQ.  See description below under ATOL.
  Input only.</p>
 </dd>
-<dt>ATOL   </dt>
+<dt>ATOL</dt>
 <dd>
 <p>an absolute error tolerance parameter, either a scalar or
  an array of length NEQ.  Input only.</p>
@@ -1026,7 +1026,7 @@
  components of RTOL and ATOL (i.e. of EWT) should be scaled
  down uniformly.</p>
 <dl>
-<dt>ITASK  </dt>
+<dt>ITASK</dt>
 <dd>
 <p>an index specifying the task to be performed.
  Input only.  ITASK has the following values and meanings.</p>
@@ -1099,7 +1099,7 @@
  indicate this (unless ITASK = 4 and TOUT comes before TCRIT,
  in which case answers at t = TOUT are returned first).</p>
 <dl>
-<dt>ISTATE </dt>
+<dt>ISTATE</dt>
 <dd>
 <p>an index used for input and output to specify the
  state of the calculation.</p>
@@ -1423,7 +1423,7 @@
  user to change it, and possibly other inputs, before
  calling the solver again.</p>
 <dl>
-<dt>IOPT   </dt>
+<dt>IOPT</dt>
 <dd>
 <p>an integer flag to specify whether or not any optional
  inputs are being used on this call.  Input only.
@@ -1453,7 +1453,7 @@
 </tbody>
 </table>
 <dl>
-<dt>RWORK  </dt>
+<dt>RWORK</dt>
 <dd>
 <p>a real working array (double precision).
  The length of RWORK must be at least</p>
@@ -1485,12 +1485,12 @@
 </code></pre></div>
 
 <dl>
-<dt>LRW    </dt>
+<dt>LRW</dt>
 <dd>
 <p>the length of the array RWORK, as declared by the user.
  (This will be checked by the solver.)</p>
 </dd>
-<dt>IWORK  </dt>
+<dt>IWORK</dt>
 <dd>
 <p>an integer work array.  The length of IWORK must be at least
  20 + NEQ .  The first few words of IWORK are used for
@@ -1498,8 +1498,8 @@
 </dd>
 </dl>
 <p>The following 2 words in IWORK are conditional inputs:</p>
-<div class="codehilite"><pre><span></span><code>      IWORK(1) = ML     
-      IWORK(2) = MU  
+<div class="codehilite"><pre><span></span><code>      IWORK(1) = ML
+      IWORK(2) = MU
 </code></pre></div>
 
 <p>These are the lower and upper half-bandwidths, respectively, of the
@@ -1512,7 +1512,7 @@
 <p>ML and MU may in fact be the band parameters for matrices to which
  dr/dy and A are only approximately equal.</p>
 <dl>
-<dt>LIW    </dt>
+<dt>LIW</dt>
 <dd>
 <p>the length of the array IWORK, as declared by the user.
  (This will be checked by the solver.)</p>
@@ -1525,7 +1525,7 @@
  available for use by the user outside DLSODI between calls, if
  desired (but not for use by RES, ADDA, or JAC).</p>
 <dl>
-<dt>MF     </dt>
+<dt>MF</dt>
 <dd>
 <p>the method flag.  Used only for input.  The legal values of
  MF are 11, 12, 14, 15, 21, 22, 24, and 25.</p>
@@ -2273,14 +2273,14 @@
 
 <h4 id="the-input-parameters-are">The input parameters are:</h4>
 <dl>
-<dt>T         </dt>
+<dt>T</dt>
 <dd>
 <p>value of independent variable where answers are desired
  (normally the same as the T last returned by DLSODI).
  For valid results, T must lie between TCUR - HU and TCUR.
  (See optional outputs for TCUR and HU.)</p>
 </dd>
-<dt>K         </dt>
+<dt>K</dt>
 <dd>
 <p>integer order of the derivative desired.  K must satisfy
  0 .le. K .le. NQCUR, where NQCUR is the current order
@@ -2289,23 +2289,23 @@
  by DLSODI directly.  Since NQCUR .ge. 1, the first
  derivative dy/dt is always available with DINTDY.</p>
 </dd>
-<dt>RWORK(21) </dt>
+<dt>RWORK(21)</dt>
 <dd>
 <p>the base address of the history array YH.</p>
 </dd>
-<dt>NYH       </dt>
+<dt>NYH</dt>
 <dd>
 <p>column length of YH, equal to the initial value of NEQ.</p>
 </dd>
 </dl>
 <h4 id="the-output-parameters-are">The output parameters are:</h4>
 <dl>
-<dt>DKY       </dt>
+<dt>DKY</dt>
 <dd>
 <p>a real array of length NEQ containing the computed value
  of the K-th derivative of y(t).</p>
 </dd>
-<dt>IFLAG     </dt>
+<dt>IFLAG</dt>
 <dd>
 <p>integer flag, returned as 0 if K and T were legal,
  -1 if K was illegal, and -2 if T was illegal.
@@ -2388,7 +2388,7 @@
 </ul>
 <hr>
 <h3 id="pedigree">Pedigree:</h3>
-<p>DLSODI is a derived from the 18 November 2003 version of 
+<p>DLSODI is a derived from the 18 November 2003 version of
  &ldquo;DLSODI: Livermore Solver for Ordinary Differential Equations
  (implicit form)&rdquo;.</p>
 <hr>
@@ -2399,7 +2399,7 @@
 </code></pre></div>
 
 <hr>
-<p>Authors:    </p>
+<p>Authors:</p>
 <div class="codehilite"><pre><span></span><code>      Alan C. Hindmarsh and Jeffrey F. Painter
       Center for Applied Scientific Computing, L-561
       Lawrence Livermore National Laboratory
@@ -2541,214 +2541,214 @@
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~dlsodi~2~~CallsGraph Pages: 1 -->
-<svg id="procdlsodi2CallsGraph" width="339pt" height="345pt"
- viewBox="0.00 0.00 339.00 345.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~dlsodi~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 341)">
+<svg id="procdlsodi2CallsGraph" width="339pt" height="375pt"
+ viewBox="0.00 0.00 339.00 375.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dlsodi~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 371)">
 <title>proc~~dlsodi~2~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-341 335,-341 335,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-371 335,-371 335,4 -4,4"/>
 <!-- proc~dlsodi~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_node1" class="node">
 <title>proc~dlsodi~2</title>
 <polygon fill="none" stroke="black" points="54,-169 0,-169 0,-145 54,-145 54,-169"/>
 <text text-anchor="middle" x="27" y="-154.6" font-family="Helvetica,sans-Serif" font-size="10.50">dlsodi</text>
 </g>
-<!-- proc~dumach~2 -->
+<!-- proc~dainvg~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_node2" class="node">
-<title>proc~dumach~2</title>
-<g id="a_proc~~dlsodi~2~~CallsGraph_node2"><a xlink:href=".././proc/dumach~2.html" xlink:title="dumach">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-316 90,-316 90,-292 146,-292 146,-316"/>
-<text text-anchor="middle" x="118" y="-301.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
+<title>proc~dainvg~2</title>
+<g id="a_proc~~dlsodi~2~~CallsGraph_node2"><a xlink:href=".././proc/dainvg~2.html" xlink:title="dainvg">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-293 91,-293 91,-269 145,-269 145,-293"/>
+<text text-anchor="middle" x="118" y="-278.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dainvg</text>
 </a>
 </g>
 </g>
-<!-- proc~dlsodi~2&#45;&gt;proc~dumach~2 -->
+<!-- proc~dlsodi~2&#45;&gt;proc~dainvg~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_edge1" class="edge">
-<title>proc~dlsodi~2&#45;&gt;proc~dumach~2</title>
-<path fill="none" stroke="#000000" d="M34.92,-169.06C46.22,-188.67 69.45,-228.66 90,-262 94.32,-269 99.14,-276.58 103.5,-283.35"/>
-<polygon fill="#000000" stroke="#000000" points="100.7,-285.46 109.08,-291.95 106.58,-281.65 100.7,-285.46"/>
+<title>proc~dlsodi~2&#45;&gt;proc~dainvg~2</title>
+<path fill="none" stroke="#000000" d="M33.44,-169.05C42.95,-189.3 64.09,-230.81 90,-260 90.6,-260.68 91.23,-261.35 91.88,-262.02"/>
+<polygon fill="#000000" stroke="#000000" points="89.56,-264.65 99.32,-268.78 94.27,-259.46 89.56,-264.65"/>
 </g>
 <!-- proc~dewset~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_node3" class="node">
 <title>proc~dewset~2</title>
 <g id="a_proc~~dlsodi~2~~CallsGraph_node3"><a xlink:href=".././proc/dewset~2.html" xlink:title="dewset">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-253 91,-253 91,-229 145,-229 145,-253"/>
-<text text-anchor="middle" x="118" y="-238.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-251 91,-251 91,-227 145,-227 145,-251"/>
+<text text-anchor="middle" x="118" y="-236.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodi~2&#45;&gt;proc~dewset~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_edge3" class="edge">
 <title>proc~dlsodi~2&#45;&gt;proc~dewset~2</title>
-<path fill="none" stroke="#000000" d="M38.98,-169.08C51.04,-182.12 71.2,-203.27 90,-220 90.95,-220.84 91.93,-221.69 92.92,-222.54"/>
-<polygon fill="#000000" stroke="#000000" points="90.76,-225.3 100.73,-228.9 95.19,-219.87 90.76,-225.3"/>
-</g>
-<!-- proc~dainvg~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_node4" class="node">
-<title>proc~dainvg~2</title>
-<g id="a_proc~~dlsodi~2~~CallsGraph_node4"><a xlink:href=".././proc/dainvg~2.html" xlink:title="dainvg">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-211 91,-211 91,-187 145,-187 145,-211"/>
-<text text-anchor="middle" x="118" y="-196.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dainvg</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodi~2&#45;&gt;proc~dainvg~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_edge4" class="edge">
-<title>proc~dlsodi~2&#45;&gt;proc~dainvg~2</title>
-<path fill="none" stroke="#000000" d="M53.74,-169.15C62.6,-173.33 72.67,-178.08 82.13,-182.54"/>
-<polygon fill="#000000" stroke="#000000" points="80.78,-185.78 91.32,-186.88 83.77,-179.45 80.78,-185.78"/>
+<path fill="none" stroke="#000000" d="M39.49,-169.12C51.66,-181.74 71.6,-201.89 90,-218 90.96,-218.84 91.94,-219.68 92.94,-220.52"/>
+<polygon fill="#000000" stroke="#000000" points="90.79,-223.28 100.76,-226.86 95.2,-217.85 90.79,-223.28"/>
 </g>
 <!-- proc~xerrwd~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_node5" class="node">
+<g id="proc~~dlsodi~2~~CallsGraph_node4" class="node">
 <title>proc~xerrwd~2</title>
-<g id="a_proc~~dlsodi~2~~CallsGraph_node5"><a xlink:href=".././proc/xerrwd~2.html" xlink:title="xerrwd">
-<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-127 184.5,-127 184.5,-103 238.5,-103 238.5,-127"/>
-<text text-anchor="middle" x="211.5" y="-112.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
+<g id="a_proc~~dlsodi~2~~CallsGraph_node4"><a xlink:href=".././proc/xerrwd~2.html" xlink:title="xerrwd">
+<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-190 184.5,-190 184.5,-166 238.5,-166 238.5,-190"/>
+<text text-anchor="middle" x="211.5" y="-175.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodi~2&#45;&gt;proc~xerrwd~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_edge2" class="edge">
 <title>proc~dlsodi~2&#45;&gt;proc~xerrwd~2</title>
-<path fill="none" stroke="#000000" d="M54.28,-147.1C65.21,-143.24 78.11,-139.03 90,-136 117.96,-128.87 150.19,-123.4 174.28,-119.82"/>
-<polygon fill="#000000" stroke="#000000" points="175,-123.26 184.4,-118.36 174,-116.33 175,-123.26"/>
+<path fill="none" stroke="#000000" d="M54.15,-160.01C85.72,-163.64 139,-169.77 174.46,-173.85"/>
+<polygon fill="#000000" stroke="#000000" points="174.07,-177.33 184.4,-175 174.87,-170.38 174.07,-177.33"/>
+</g>
+<!-- proc~dumach~2 -->
+<g id="proc~~dlsodi~2~~CallsGraph_node5" class="node">
+<title>proc~dumach~2</title>
+<g id="a_proc~~dlsodi~2~~CallsGraph_node5"><a xlink:href=".././proc/dumach~2.html" xlink:title="dumach">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-129 90,-129 90,-105 146,-105 146,-129"/>
+<text text-anchor="middle" x="118" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodi~2&#45;&gt;proc~dumach~2 -->
+<g id="proc~~dlsodi~2~~CallsGraph_edge4" class="edge">
+<title>proc~dlsodi~2&#45;&gt;proc~dumach~2</title>
+<path fill="none" stroke="#000000" d="M54.22,-145.22C62.51,-141.49 71.81,-137.31 80.67,-133.33"/>
+<polygon fill="#000000" stroke="#000000" points="82.35,-136.41 90.04,-129.12 79.48,-130.02 82.35,-136.41"/>
 </g>
 <!-- proc~dvnorm~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_node6" class="node">
 <title>proc~dvnorm~2</title>
 <g id="a_proc~~dlsodi~2~~CallsGraph_node6"><a xlink:href=".././proc/dvnorm~2.html" xlink:title="dvnorm">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="145,-89 91,-89 91,-65 145,-65 145,-89"/>
-<text text-anchor="middle" x="118" y="-74.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="145,-87 91,-87 91,-63 145,-63 145,-87"/>
+<text text-anchor="middle" x="118" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodi~2&#45;&gt;proc~dvnorm~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_edge5" class="edge">
 <title>proc~dlsodi~2&#45;&gt;proc~dvnorm~2</title>
-<path fill="none" stroke="#000000" d="M41.52,-144.85C55.98,-131.85 79.1,-111.07 95.95,-95.92"/>
-<polygon fill="#000000" stroke="#000000" points="98.55,-98.29 103.65,-89 93.87,-93.08 98.55,-98.29"/>
+<path fill="none" stroke="#000000" d="M39.49,-144.88C51.66,-132.26 71.6,-112.11 90,-96 90.96,-95.16 91.94,-94.32 92.94,-93.48"/>
+<polygon fill="#000000" stroke="#000000" points="95.2,-96.15 100.76,-87.14 90.79,-90.72 95.2,-96.15"/>
 </g>
 <!-- proc~dintdy~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_node7" class="node">
 <title>proc~dintdy~2</title>
 <g id="a_proc~~dlsodi~2~~CallsGraph_node7"><a xlink:href=".././proc/dintdy~2.html" xlink:title="dintdy">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-169 91,-169 91,-145 145,-145 145,-169"/>
-<text text-anchor="middle" x="118" y="-154.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-209 91,-209 91,-185 145,-185 145,-209"/>
+<text text-anchor="middle" x="118" y="-194.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodi~2&#45;&gt;proc~dintdy~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_edge6" class="edge">
 <title>proc~dlsodi~2&#45;&gt;proc~dintdy~2</title>
-<path fill="none" stroke="#000000" d="M54.22,-157C62.55,-157 71.91,-157 80.82,-157"/>
-<polygon fill="#000000" stroke="#000000" points="80.97,-160.5 90.97,-157 80.97,-153.5 80.97,-160.5"/>
+<path fill="none" stroke="#000000" d="M54.22,-168.78C62.82,-172.65 72.53,-177.01 81.69,-181.13"/>
+<polygon fill="#000000" stroke="#000000" points="80.41,-184.39 90.97,-185.3 83.28,-178.01 80.41,-184.39"/>
 </g>
 <!-- proc~dstodi -->
 <g id="proc~~dlsodi~2~~CallsGraph_node8" class="node">
 <title>proc~dstodi</title>
 <g id="a_proc~~dlsodi~2~~CallsGraph_node8"><a xlink:href=".././proc/dstodi.html" xlink:title="dstodi">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-47 91,-47 91,-23 145,-23 145,-47"/>
-<text text-anchor="middle" x="118" y="-32.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstodi</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-45 91,-45 91,-21 145,-21 145,-45"/>
+<text text-anchor="middle" x="118" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstodi</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodi~2&#45;&gt;proc~dstodi -->
 <g id="proc~~dlsodi~2~~CallsGraph_edge7" class="edge">
 <title>proc~dlsodi~2&#45;&gt;proc~dstodi</title>
-<path fill="none" stroke="#000000" d="M33.65,-144.87C43.31,-124.91 64.48,-84.51 90,-56 90.62,-55.3 91.27,-54.61 91.94,-53.93"/>
-<polygon fill="#000000" stroke="#000000" points="94.53,-56.31 99.63,-47.01 89.85,-51.1 94.53,-56.31"/>
-</g>
-<!-- none~dumsum -->
-<g id="proc~~dlsodi~2~~CallsGraph_node9" class="node">
-<title>none~dumsum</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="241,-337 182,-337 182,-313 241,-313 241,-337"/>
-<text text-anchor="middle" x="211.5" y="-322.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumsum</text>
-</g>
-<!-- proc~dumach~2&#45;&gt;none~dumsum -->
-<g id="proc~~dlsodi~2~~CallsGraph_edge8" class="edge">
-<title>proc~dumach~2&#45;&gt;none~dumsum</title>
-<path fill="none" stroke="#000000" d="M146.45,-310.3C154.47,-312.14 163.39,-314.19 171.97,-316.16"/>
-<polygon fill="#000000" stroke="#000000" points="171.27,-319.59 181.8,-318.41 172.83,-312.76 171.27,-319.59"/>
+<path fill="none" stroke="#000000" d="M33.44,-144.95C42.95,-124.7 64.09,-83.19 90,-54 90.6,-53.32 91.23,-52.65 91.88,-51.98"/>
+<polygon fill="#000000" stroke="#000000" points="94.27,-54.54 99.32,-45.22 89.56,-49.35 94.27,-54.54"/>
 </g>
 <!-- proc~dgbfa~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_node10" class="node">
+<g id="proc~~dlsodi~2~~CallsGraph_node9" class="node">
 <title>proc~dgbfa~2</title>
-<g id="a_proc~~dlsodi~2~~CallsGraph_node10"><a xlink:href=".././proc/dgbfa~2.html" xlink:title="dgbfa">
-<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-295 184.5,-295 184.5,-271 238.5,-271 238.5,-295"/>
-<text text-anchor="middle" x="211.5" y="-280.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgbfa</text>
+<g id="a_proc~~dlsodi~2~~CallsGraph_node9"><a xlink:href=".././proc/dgbfa~2.html" xlink:title="dgbfa">
+<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-367 184.5,-367 184.5,-343 238.5,-343 238.5,-367"/>
+<text text-anchor="middle" x="211.5" y="-352.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgbfa</text>
 </a>
 </g>
 </g>
 <!-- proc~dainvg~2&#45;&gt;proc~dgbfa~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_edge9" class="edge">
+<g id="proc~~dlsodi~2~~CallsGraph_edge8" class="edge">
 <title>proc~dainvg~2&#45;&gt;proc~dgbfa~2</title>
-<path fill="none" stroke="#000000" d="M135.71,-211.15C139.22,-213.93 142.82,-216.97 146,-220 163.79,-236.97 163.99,-245.27 182,-262 182.94,-262.87 183.91,-263.74 184.91,-264.6"/>
-<polygon fill="#000000" stroke="#000000" points="182.83,-267.42 192.82,-270.94 187.21,-261.96 182.83,-267.42"/>
+<path fill="none" stroke="#000000" d="M132.8,-293.05C145.42,-303.97 164.71,-320.38 182,-334 183.18,-334.93 184.39,-335.87 185.62,-336.81"/>
+<polygon fill="#000000" stroke="#000000" points="183.69,-339.74 193.79,-342.96 187.9,-334.15 183.69,-339.74"/>
 </g>
 <!-- proc~dgefa~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_node11" class="node">
+<g id="proc~~dlsodi~2~~CallsGraph_node10" class="node">
 <title>proc~dgefa~2</title>
-<g id="a_proc~~dlsodi~2~~CallsGraph_node11"><a xlink:href=".././proc/dgefa~2.html" xlink:title="dgefa">
-<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-253 184.5,-253 184.5,-229 238.5,-229 238.5,-253"/>
-<text text-anchor="middle" x="211.5" y="-238.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgefa</text>
+<g id="a_proc~~dlsodi~2~~CallsGraph_node10"><a xlink:href=".././proc/dgefa~2.html" xlink:title="dgefa">
+<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-325 184.5,-325 184.5,-301 238.5,-301 238.5,-325"/>
+<text text-anchor="middle" x="211.5" y="-310.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgefa</text>
 </a>
 </g>
 </g>
 <!-- proc~dainvg~2&#45;&gt;proc~dgefa~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_edge11" class="edge">
-<title>proc~dainvg~2&#45;&gt;proc~dgefa~2</title>
-<path fill="none" stroke="#000000" d="M145.47,-211.15C154.74,-215.41 165.32,-220.26 175.21,-224.8"/>
-<polygon fill="#000000" stroke="#000000" points="173.86,-228.03 184.41,-229.02 176.78,-221.67 173.86,-228.03"/>
-</g>
-<!-- proc~dgbsl~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_node14" class="node">
-<title>proc~dgbsl~2</title>
-<g id="a_proc~~dlsodi~2~~CallsGraph_node14"><a xlink:href=".././proc/dgbsl~2.html" xlink:title="dgbsl">
-<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-211 184.5,-211 184.5,-187 238.5,-187 238.5,-211"/>
-<text text-anchor="middle" x="211.5" y="-196.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgbsl</text>
-</a>
-</g>
-</g>
-<!-- proc~dainvg~2&#45;&gt;proc~dgbsl~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_edge10" class="edge">
-<title>proc~dainvg~2&#45;&gt;proc~dgbsl~2</title>
-<path fill="none" stroke="#000000" d="M145.47,-199C154.46,-199 164.67,-199 174.29,-199"/>
-<polygon fill="#000000" stroke="#000000" points="174.41,-202.5 184.41,-199 174.41,-195.5 174.41,-202.5"/>
+<title>proc~dainvg~2&#45;&gt;proc~dgefa~2</title>
+<path fill="none" stroke="#000000" d="M145.47,-290.26C154.65,-293.47 165.1,-297.12 174.9,-300.55"/>
+<polygon fill="#000000" stroke="#000000" points="173.82,-303.88 184.41,-303.88 176.13,-297.27 173.82,-303.88"/>
 </g>
 <!-- proc~dgesl~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_node15" class="node">
+<g id="proc~~dlsodi~2~~CallsGraph_node14" class="node">
 <title>proc~dgesl~2</title>
-<g id="a_proc~~dlsodi~2~~CallsGraph_node15"><a xlink:href=".././proc/dgesl~2.html" xlink:title="dgesl">
-<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-169 184.5,-169 184.5,-145 238.5,-145 238.5,-169"/>
-<text text-anchor="middle" x="211.5" y="-154.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgesl</text>
+<g id="a_proc~~dlsodi~2~~CallsGraph_node14"><a xlink:href=".././proc/dgesl~2.html" xlink:title="dgesl">
+<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-283 184.5,-283 184.5,-259 238.5,-259 238.5,-283"/>
+<text text-anchor="middle" x="211.5" y="-268.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgesl</text>
 </a>
 </g>
 </g>
 <!-- proc~dainvg~2&#45;&gt;proc~dgesl~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_edge12" class="edge">
+<g id="proc~~dlsodi~2~~CallsGraph_edge9" class="edge">
 <title>proc~dainvg~2&#45;&gt;proc~dgesl~2</title>
-<path fill="none" stroke="#000000" d="M145.47,-186.85C154.74,-182.59 165.32,-177.74 175.21,-173.2"/>
-<polygon fill="#000000" stroke="#000000" points="176.78,-176.33 184.41,-168.98 173.86,-169.97 176.78,-176.33"/>
+<path fill="none" stroke="#000000" d="M145.47,-278.11C154.46,-277.12 164.67,-276.01 174.29,-274.96"/>
+<polygon fill="#000000" stroke="#000000" points="174.85,-278.42 184.41,-273.85 174.09,-271.46 174.85,-278.42"/>
+</g>
+<!-- proc~dgbsl~2 -->
+<g id="proc~~dlsodi~2~~CallsGraph_node15" class="node">
+<title>proc~dgbsl~2</title>
+<g id="a_proc~~dlsodi~2~~CallsGraph_node15"><a xlink:href=".././proc/dgbsl~2.html" xlink:title="dgbsl">
+<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-241 184.5,-241 184.5,-217 238.5,-217 238.5,-241"/>
+<text text-anchor="middle" x="211.5" y="-226.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgbsl</text>
+</a>
+</g>
+</g>
+<!-- proc~dainvg~2&#45;&gt;proc~dgbsl~2 -->
+<g id="proc~~dlsodi~2~~CallsGraph_edge11" class="edge">
+<title>proc~dainvg~2&#45;&gt;proc~dgbsl~2</title>
+<path fill="none" stroke="#000000" d="M140.22,-268.94C152.15,-262.16 167.23,-253.59 180.36,-246.13"/>
+<polygon fill="#000000" stroke="#000000" points="182.11,-249.16 189.08,-241.18 178.65,-243.07 182.11,-249.16"/>
 </g>
 <!-- proc~ixsav~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_node16" class="node">
 <title>proc~ixsav~2</title>
 <g id="a_proc~~dlsodi~2~~CallsGraph_node16"><a xlink:href=".././proc/ixsav~2.html" xlink:title="ixsav">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="331,-127 277,-127 277,-103 331,-103 331,-127"/>
-<text text-anchor="middle" x="304" y="-112.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ixsav</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="331,-190 277,-190 277,-166 331,-166 331,-190"/>
+<text text-anchor="middle" x="304" y="-175.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ixsav</text>
 </a>
 </g>
 </g>
 <!-- proc~xerrwd~2&#45;&gt;proc~ixsav~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_edge13" class="edge">
+<g id="proc~~dlsodi~2~~CallsGraph_edge12" class="edge">
 <title>proc~xerrwd~2&#45;&gt;proc~ixsav~2</title>
-<path fill="none" stroke="#000000" d="M238.68,-115C247.4,-115 257.28,-115 266.64,-115"/>
-<polygon fill="#000000" stroke="#000000" points="266.88,-118.5 276.88,-115 266.88,-111.5 266.88,-118.5"/>
+<path fill="none" stroke="#000000" d="M238.68,-178C247.4,-178 257.28,-178 266.64,-178"/>
+<polygon fill="#000000" stroke="#000000" points="266.88,-181.5 276.88,-178 266.88,-174.5 266.88,-181.5"/>
+</g>
+<!-- none~dumsum -->
+<g id="proc~~dlsodi~2~~CallsGraph_node11" class="node">
+<title>none~dumsum</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="241,-129 182,-129 182,-105 241,-105 241,-129"/>
+<text text-anchor="middle" x="211.5" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumsum</text>
+</g>
+<!-- proc~dumach~2&#45;&gt;none~dumsum -->
+<g id="proc~~dlsodi~2~~CallsGraph_edge13" class="edge">
+<title>proc~dumach~2&#45;&gt;none~dumsum</title>
+<path fill="none" stroke="#000000" d="M146.45,-117C154.39,-117 163.2,-117 171.69,-117"/>
+<polygon fill="#000000" stroke="#000000" points="171.8,-120.5 181.8,-117 171.8,-113.5 171.8,-120.5"/>
 </g>
 <!-- proc~dintdy~2&#45;&gt;proc~xerrwd~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_edge14" class="edge">
 <title>proc~dintdy~2&#45;&gt;proc~xerrwd~2</title>
-<path fill="none" stroke="#000000" d="M145.47,-144.85C154.74,-140.59 165.32,-135.74 175.21,-131.2"/>
-<polygon fill="#000000" stroke="#000000" points="176.78,-134.33 184.41,-126.98 173.86,-127.97 176.78,-134.33"/>
+<path fill="none" stroke="#000000" d="M145.47,-191.5C154.55,-189.62 164.88,-187.47 174.59,-185.46"/>
+<polygon fill="#000000" stroke="#000000" points="175.33,-188.88 184.41,-183.42 173.91,-182.02 175.33,-188.88"/>
 </g>
 <!-- proc~dcfode -->
 <g id="proc~~dlsodi~2~~CallsGraph_node12" class="node">
@@ -2762,8 +2762,8 @@
 <!-- proc~dstodi&#45;&gt;proc~dcfode -->
 <g id="proc~~dlsodi~2~~CallsGraph_edge15" class="edge">
 <title>proc~dstodi&#45;&gt;proc~dcfode</title>
-<path fill="none" stroke="#000000" d="M145.47,-40.5C154.55,-42.38 164.88,-44.53 174.59,-46.54"/>
-<polygon fill="#000000" stroke="#000000" points="173.91,-49.98 184.41,-48.58 175.33,-43.12 173.91,-49.98"/>
+<path fill="none" stroke="#000000" d="M145.47,-39.07C154.55,-41.16 164.88,-43.53 174.59,-45.76"/>
+<polygon fill="#000000" stroke="#000000" points="173.88,-49.19 184.41,-48.01 175.45,-42.36 173.88,-49.19"/>
 </g>
 <!-- proc~dvnorm -->
 <g id="proc~~dlsodi~2~~CallsGraph_node13" class="node">
@@ -2777,104 +2777,104 @@
 <!-- proc~dstodi&#45;&gt;proc~dvnorm -->
 <g id="proc~~dlsodi~2~~CallsGraph_edge16" class="edge">
 <title>proc~dstodi&#45;&gt;proc~dvnorm</title>
-<path fill="none" stroke="#000000" d="M145.47,-28.35C154.55,-26.06 164.88,-23.47 174.59,-21.03"/>
-<polygon fill="#000000" stroke="#000000" points="175.56,-24.39 184.41,-18.56 173.86,-17.6 175.56,-24.39"/>
+<path fill="none" stroke="#000000" d="M145.47,-26.93C154.55,-24.84 164.88,-22.47 174.59,-20.24"/>
+<polygon fill="#000000" stroke="#000000" points="175.45,-23.64 184.41,-17.99 173.88,-16.81 175.45,-23.64"/>
 </g>
 <!-- proc~idamax~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_node17" class="node">
 <title>proc~idamax~2</title>
 <g id="a_proc~~dlsodi~2~~CallsGraph_node17"><a xlink:href=".././proc/idamax~2.html" xlink:title="idamax">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="331,-253 277,-253 277,-229 331,-229 331,-253"/>
-<text text-anchor="middle" x="304" y="-238.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">idamax</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="331,-325 277,-325 277,-301 331,-301 331,-325"/>
+<text text-anchor="middle" x="304" y="-310.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">idamax</text>
 </a>
 </g>
 </g>
 <!-- proc~dgbfa~2&#45;&gt;proc~idamax~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_edge17" class="edge">
 <title>proc~dgbfa~2&#45;&gt;proc~idamax~2</title>
-<path fill="none" stroke="#000000" d="M238.68,-270.85C247.68,-266.67 257.92,-261.92 267.54,-257.46"/>
-<polygon fill="#000000" stroke="#000000" points="269.29,-260.51 276.88,-253.12 266.34,-254.16 269.29,-260.51"/>
-</g>
-<!-- proc~daxpy~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_node18" class="node">
-<title>proc~daxpy~2</title>
-<g id="a_proc~~dlsodi~2~~CallsGraph_node18"><a xlink:href=".././proc/daxpy~2.html" xlink:title="daxpy">
-<polygon fill="#d9534f" stroke="#d9534f" points="331,-211 277,-211 277,-187 331,-187 331,-211"/>
-<text text-anchor="middle" x="304" y="-196.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daxpy</text>
-</a>
-</g>
-</g>
-<!-- proc~dgbfa~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_edge18" class="edge">
-<title>proc~dgbfa~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M230.18,-270.94C233.88,-268.16 237.67,-265.1 241,-262 259.01,-245.27 259.36,-237.13 277,-220 277.67,-219.35 278.37,-218.69 279.07,-218.04"/>
-<polygon fill="#000000" stroke="#000000" points="281.67,-220.41 286.93,-211.21 277.09,-215.13 281.67,-220.41"/>
+<path fill="none" stroke="#000000" d="M238.68,-342.85C247.68,-338.67 257.92,-333.92 267.54,-329.46"/>
+<polygon fill="#000000" stroke="#000000" points="269.29,-332.51 276.88,-325.12 266.34,-326.16 269.29,-332.51"/>
 </g>
 <!-- proc~dscal~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_node20" class="node">
+<g id="proc~~dlsodi~2~~CallsGraph_node18" class="node">
 <title>proc~dscal~2</title>
-<g id="a_proc~~dlsodi~2~~CallsGraph_node20"><a xlink:href=".././proc/dscal~2.html" xlink:title="dscal">
-<polygon fill="#d9534f" stroke="#d9534f" points="331,-295 277,-295 277,-271 331,-271 331,-295"/>
-<text text-anchor="middle" x="304" y="-280.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscal</text>
+<g id="a_proc~~dlsodi~2~~CallsGraph_node18"><a xlink:href=".././proc/dscal~2.html" xlink:title="dscal">
+<polygon fill="#d9534f" stroke="#d9534f" points="331,-367 277,-367 277,-343 331,-343 331,-367"/>
+<text text-anchor="middle" x="304" y="-352.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscal</text>
 </a>
 </g>
 </g>
 <!-- proc~dgbfa~2&#45;&gt;proc~dscal~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_edge19" class="edge">
+<g id="proc~~dlsodi~2~~CallsGraph_edge18" class="edge">
 <title>proc~dgbfa~2&#45;&gt;proc~dscal~2</title>
-<path fill="none" stroke="#000000" d="M238.68,-283C247.4,-283 257.28,-283 266.64,-283"/>
-<polygon fill="#000000" stroke="#000000" points="266.88,-286.5 276.88,-283 266.88,-279.5 266.88,-286.5"/>
+<path fill="none" stroke="#000000" d="M238.68,-355C247.4,-355 257.28,-355 266.64,-355"/>
+<polygon fill="#000000" stroke="#000000" points="266.88,-358.5 276.88,-355 266.88,-351.5 266.88,-358.5"/>
+</g>
+<!-- proc~daxpy~2 -->
+<g id="proc~~dlsodi~2~~CallsGraph_node20" class="node">
+<title>proc~daxpy~2</title>
+<g id="a_proc~~dlsodi~2~~CallsGraph_node20"><a xlink:href=".././proc/daxpy~2.html" xlink:title="daxpy">
+<polygon fill="#d9534f" stroke="#d9534f" points="331,-283 277,-283 277,-259 331,-259 331,-283"/>
+<text text-anchor="middle" x="304" y="-268.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daxpy</text>
+</a>
+</g>
+</g>
+<!-- proc~dgbfa~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~dlsodi~2~~CallsGraph_edge19" class="edge">
+<title>proc~dgbfa~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M230.18,-342.94C233.88,-340.16 237.67,-337.1 241,-334 259.01,-317.27 259.36,-309.13 277,-292 277.67,-291.35 278.37,-290.69 279.07,-290.04"/>
+<polygon fill="#000000" stroke="#000000" points="281.67,-292.41 286.93,-283.21 277.09,-287.13 281.67,-292.41"/>
 </g>
 <!-- proc~dgefa~2&#45;&gt;proc~idamax~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_edge20" class="edge">
 <title>proc~dgefa~2&#45;&gt;proc~idamax~2</title>
-<path fill="none" stroke="#000000" d="M238.68,-241C247.4,-241 257.28,-241 266.64,-241"/>
-<polygon fill="#000000" stroke="#000000" points="266.88,-244.5 276.88,-241 266.88,-237.5 266.88,-244.5"/>
-</g>
-<!-- proc~dgefa~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_edge21" class="edge">
-<title>proc~dgefa~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M238.68,-228.85C247.68,-224.67 257.92,-219.92 267.54,-215.46"/>
-<polygon fill="#000000" stroke="#000000" points="269.29,-218.51 276.88,-211.12 266.34,-212.16 269.29,-218.51"/>
+<path fill="none" stroke="#000000" d="M238.68,-313C247.4,-313 257.28,-313 266.64,-313"/>
+<polygon fill="#000000" stroke="#000000" points="266.88,-316.5 276.88,-313 266.88,-309.5 266.88,-316.5"/>
 </g>
 <!-- proc~dgefa~2&#45;&gt;proc~dscal~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_edge22" class="edge">
+<g id="proc~~dlsodi~2~~CallsGraph_edge21" class="edge">
 <title>proc~dgefa~2&#45;&gt;proc~dscal~2</title>
-<path fill="none" stroke="#000000" d="M238.68,-253.15C247.68,-257.33 257.92,-262.08 267.54,-266.54"/>
-<polygon fill="#000000" stroke="#000000" points="266.34,-269.84 276.88,-270.88 269.29,-263.49 266.34,-269.84"/>
+<path fill="none" stroke="#000000" d="M238.68,-325.15C247.68,-329.33 257.92,-334.08 267.54,-338.54"/>
+<polygon fill="#000000" stroke="#000000" points="266.34,-341.84 276.88,-342.88 269.29,-335.49 266.34,-341.84"/>
 </g>
-<!-- proc~dgbsl~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_edge24" class="edge">
-<title>proc~dgbsl~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M238.68,-199C247.4,-199 257.28,-199 266.64,-199"/>
-<polygon fill="#000000" stroke="#000000" points="266.88,-202.5 276.88,-199 266.88,-195.5 266.88,-202.5"/>
+<!-- proc~dgefa~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~dlsodi~2~~CallsGraph_edge22" class="edge">
+<title>proc~dgefa~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M238.68,-300.85C247.68,-296.67 257.92,-291.92 267.54,-287.46"/>
+<polygon fill="#000000" stroke="#000000" points="269.29,-290.51 276.88,-283.12 266.34,-284.16 269.29,-290.51"/>
 </g>
 <!-- proc~ddot~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_node19" class="node">
 <title>proc~ddot~2</title>
 <g id="a_proc~~dlsodi~2~~CallsGraph_node19"><a xlink:href=".././proc/ddot~2.html" xlink:title="ddot">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="331,-169 277,-169 277,-145 331,-145 331,-169"/>
-<text text-anchor="middle" x="304" y="-154.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddot</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="331,-241 277,-241 277,-217 331,-217 331,-241"/>
+<text text-anchor="middle" x="304" y="-226.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddot</text>
 </a>
 </g>
 </g>
-<!-- proc~dgbsl~2&#45;&gt;proc~ddot~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_edge23" class="edge">
-<title>proc~dgbsl~2&#45;&gt;proc~ddot~2</title>
-<path fill="none" stroke="#000000" d="M238.68,-186.85C247.68,-182.67 257.92,-177.92 267.54,-173.46"/>
-<polygon fill="#000000" stroke="#000000" points="269.29,-176.51 276.88,-169.12 266.34,-170.16 269.29,-176.51"/>
+<!-- proc~dgesl~2&#45;&gt;proc~ddot~2 -->
+<g id="proc~~dlsodi~2~~CallsGraph_edge24" class="edge">
+<title>proc~dgesl~2&#45;&gt;proc~ddot~2</title>
+<path fill="none" stroke="#000000" d="M238.68,-258.85C247.68,-254.67 257.92,-249.92 267.54,-245.46"/>
+<polygon fill="#000000" stroke="#000000" points="269.29,-248.51 276.88,-241.12 266.34,-242.16 269.29,-248.51"/>
 </g>
 <!-- proc~dgesl~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dlsodi~2~~CallsGraph_edge25" class="edge">
+<g id="proc~~dlsodi~2~~CallsGraph_edge23" class="edge">
 <title>proc~dgesl~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M238.68,-169.15C247.68,-173.33 257.92,-178.08 267.54,-182.54"/>
-<polygon fill="#000000" stroke="#000000" points="266.34,-185.84 276.88,-186.88 269.29,-179.49 266.34,-185.84"/>
+<path fill="none" stroke="#000000" d="M238.68,-271C247.4,-271 257.28,-271 266.64,-271"/>
+<polygon fill="#000000" stroke="#000000" points="266.88,-274.5 276.88,-271 266.88,-267.5 266.88,-274.5"/>
 </g>
-<!-- proc~dgesl~2&#45;&gt;proc~ddot~2 -->
+<!-- proc~dgbsl~2&#45;&gt;proc~ddot~2 -->
+<g id="proc~~dlsodi~2~~CallsGraph_edge25" class="edge">
+<title>proc~dgbsl~2&#45;&gt;proc~ddot~2</title>
+<path fill="none" stroke="#000000" d="M238.68,-229C247.4,-229 257.28,-229 266.64,-229"/>
+<polygon fill="#000000" stroke="#000000" points="266.88,-232.5 276.88,-229 266.88,-225.5 266.88,-232.5"/>
+</g>
+<!-- proc~dgbsl~2&#45;&gt;proc~daxpy~2 -->
 <g id="proc~~dlsodi~2~~CallsGraph_edge26" class="edge">
-<title>proc~dgesl~2&#45;&gt;proc~ddot~2</title>
-<path fill="none" stroke="#000000" d="M238.68,-157C247.4,-157 257.28,-157 266.64,-157"/>
-<polygon fill="#000000" stroke="#000000" points="266.88,-160.5 276.88,-157 266.88,-153.5 266.88,-160.5"/>
+<title>proc~dgbsl~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M238.68,-241.15C247.68,-245.33 257.92,-250.08 267.54,-254.54"/>
+<polygon fill="#000000" stroke="#000000" points="266.34,-257.84 276.88,-258.88 269.29,-251.49 266.34,-257.84"/>
 </g>
 </g>
 </svg>
@@ -3928,7 +3928,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-08 14:08            </p>
+ on 2022-10-10 21:33            </p>
         </div>
       </div>
       <br>

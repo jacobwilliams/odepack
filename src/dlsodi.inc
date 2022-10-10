@@ -132,15 +132,15 @@
 !! for possible use of logical unit 6 for output of error messages
 !! by DLSODI.  On the first call to DLSODI, supply arguments as follows:
 !!
-!! RES    
+!! RES
 !!
 !! : name of user subroutine for residual function r.
 !!
-!! ADDA   
+!! ADDA
 !!
 !! : name of user subroutine for computing and adding A(t,y).
 !!
-!! JAC    
+!! JAC
 !!
 !! : name of user subroutine for Jacobian matrix dr/dy
 !! (MF = 21 or 24).  If not used, pass a dummy name.
@@ -148,35 +148,35 @@
 !! Note: the names for the RES and ADDA routines and (if used) the
 !! JAC routine must be declared External in the calling program.
 !!
-!! NEQ    
+!! NEQ
 !!
 !! : number of scalar equations in the system.
 !!
-!! Y      
+!! Y
 !!
 !! : array of initial values, of length NEQ.
 !!
-!! YDOTI  
+!! YDOTI
 !!
 !! : array of length NEQ (containing initial dy/dt if ISTATE = 1).
 !!
-!! T      
+!! T
 !!
 !! : the initial value of the independent variable.
 !!
-!! TOUT   
+!! TOUT
 !!
 !! : first point where output is desired (.ne. T).
 !!
-!! ITOL   
+!! ITOL
 !!
 !! : 1 or 2 according as ATOL (below) is a scalar or array.
 !!
-!! RTOL   
+!! RTOL
 !!
 !! : relative tolerance parameter (scalar).
 !!
-!! ATOL   
+!! ATOL
 !!
 !! : absolute tolerance parameter (scalar or array).
 !! the estimated local error in y(i) will be controlled so as
@@ -191,46 +191,46 @@
 !!
 !! Use RTOL = 0.0 for pure absolute error control, and
 !! use ATOL = 0.0 (or ATOL(i) = 0.0) for pure relative error
-!! control. 
+!! control.
 !!
 !! _Caution_: Actual (global) errors may exceed these
 !! local tolerances, so choose them conservatively.
 !!
-!! ITASK  
+!! ITASK
 !!
 !! : 1 for normal computation of output values of y at t = TOUT.
 !!
-!! ISTATE 
+!! ISTATE
 !!
 !! : integer flag (input and output).  Set ISTATE = 1 if the
 !! initial dy/dt is supplied, and 0 otherwise.
 !!
-!! IOPT   
+!! IOPT
 !!
 !! : 0 to indicate no optional inputs used.
 !!
-!! RWORK  
+!! RWORK
 !!
 !! : real work array of length at least:
 !!```text
 !!       22 +  9*NEQ + NEQ**2           for MF = 21 or 22,
 !!       22 + 10*NEQ + (2*ML + MU)*NEQ  for MF = 24 or 25.
 !!```
-!! LRW    
+!! LRW
 !!
 !! : declared length of RWORK (in user's dimension).
 !!
-!! IWORK  
+!! IWORK
 !!
 !! : integer work array of length at least 20 + NEQ.
 !! If MF = 24 or 25, input in IWORK(1),IWORK(2) the lower
 !! and upper half-bandwidths ML,MU.
 !!
-!! LIW    
+!! LIW
 !!
 !! : declared length of IWORK (in user's dimension).
 !!
-!! MF     
+!! MF
 !!
 !! : method flag.  Standard values are:
 !!
@@ -249,15 +249,15 @@
 !!
 !! **G.** The output from the first call (or any call) is:
 !!
-!! Y 
+!! Y
 !!
 !! : array of computed values of y(t) vector.
 !!
-!! T 
+!! T
 !!
 !! : corresponding value of independent variable (normally TOUT).
 !!
-!! ISTATE 
+!! ISTATE
 !!
 !! : allowed values and their descripitions:
 !!
@@ -485,7 +485,7 @@
 !!
 !! The descriptions of the call arguments are as follows.
 !!
-!! RES    
+!! RES
 !!
 !! : the name of the user-supplied subroutine which supplies
 !! the residual vector for the ODE system, defined by
@@ -553,7 +553,7 @@
 !! RES must be declared External in the calling
 !! program.  See note below for more about RES.
 !!
-!! ADDA   
+!! ADDA
 !!
 !! : the name of the user-supplied subroutine which adds the
 !! matrix A = A(t,y) to another matrix stored in the same form
@@ -580,7 +580,7 @@
 !! ADDA must be declared External in the calling program.
 !! See note below for more information about ADDA.
 !!
-!! JAC    
+!! JAC
 !!
 !! : the name of the user-supplied subroutine which supplies the
 !! Jacobian matrix, dr/dy, where r = g - A\*s.  The form of the
@@ -634,7 +634,7 @@
 !! NEQ(1), Y(1),...,Y(NEQ) or any other input variables.
 !! See the descriptions of NEQ and Y below.
 !!
-!! NEQ    
+!! NEQ
 !!
 !! : the size of the system (number of first order ordinary
 !! differential equations or scalar algebraic equations).
@@ -655,7 +655,7 @@
 !! and pass it to RES, ADDA, or JAC.  Each such subroutine
 !! must include NEQ in a Dimension statement in that case.
 !!
-!! Y      
+!! Y
 !!
 !! : a real array for the vector of dependent variables, of
 !! length NEQ or more.  Used for both input and output on the
@@ -671,7 +671,7 @@
 !! data and pass it to RES, ADDA, or JAC.  (The DLSODI
 !! package accesses only Y(1),...,Y(NEQ). )
 !!
-!! YDOTI  
+!! YDOTI
 !!
 !! : a real array for the initial value of the vector
 !! dy/dt and for work space, of dimension at least NEQ.
@@ -703,7 +703,7 @@
 !! If desired, the YDOTI array may be used for other
 !! purposes between calls to the solver.
 !!
-!! T      
+!! T
 !!
 !! : the independent variable.  On input, T is used only on the
 !! first call, as the initial point of the integration.
@@ -711,7 +711,7 @@
 !! computed solution Y is evaluated (usually the same as TOUT).
 !! on an error return, T is the farthest point reached.
 !!
-!! TOUT   
+!! TOUT
 !!
 !! : the next value of t at which a computed solution is desired.
 !! Used only for input.
@@ -734,18 +734,18 @@
 !! TCUR - HU and TCUR (see optional outputs, below, for
 !! TCUR and HU).
 !!
-!! ITOL   
+!! ITOL
 !!
 !! : an indicator for the type of error control.  See
 !! description below under ATOL.  Used only for input.
 !!
-!! RTOL   
+!! RTOL
 !!
 !! : a relative error tolerance parameter, either a scalar or
 !! an array of length NEQ.  See description below under ATOL.
 !! Input only.
 !!
-!! ATOL   
+!! ATOL
 !!
 !! : an absolute error tolerance parameter, either a scalar or
 !! an array of length NEQ.  Input only.
@@ -789,7 +789,7 @@
 !! components of RTOL and ATOL (i.e. of EWT) should be scaled
 !! down uniformly.
 !!
-!! ITASK  
+!! ITASK
 !!
 !! : an index specifying the task to be performed.
 !! Input only.  ITASK has the following values and meanings.
@@ -815,7 +815,7 @@
 !! indicate this (unless ITASK = 4 and TOUT comes before TCRIT,
 !! in which case answers at t = TOUT are returned first).
 !!
-!! ISTATE 
+!! ISTATE
 !!
 !! : an index used for input and output to specify the
 !! state of the calculation.
@@ -917,7 +917,7 @@
 !! user to change it, and possibly other inputs, before
 !! calling the solver again.
 !!
-!! IOPT   
+!! IOPT
 !!
 !! : an integer flag to specify whether or not any optional
 !! inputs are being used on this call.  Input only.
@@ -929,7 +929,7 @@
 !!        | Default values will be used in all cases.
 !!    1   | means one or more optional inputs are being used.
 !!
-!! RWORK  
+!! RWORK
 !!
 !! : a real working array (double precision).
 !! The length of RWORK must be at least
@@ -960,12 +960,12 @@
 !!                 is not to overshoot.  Required if ITASK is
 !!                 4 or 5, and ignored otherwise.  (See ITASK.)
 !!
-!! LRW    
+!! LRW
 !!
 !! : the length of the array RWORK, as declared by the user.
 !! (This will be checked by the solver.)
 !!
-!! IWORK  
+!! IWORK
 !!
 !! : an integer work array.  The length of IWORK must be at least
 !! 20 + NEQ .  The first few words of IWORK are used for
@@ -973,8 +973,8 @@
 !!
 !! The following 2 words in IWORK are conditional inputs:
 !!```text
-!!      IWORK(1) = ML     
-!!      IWORK(2) = MU  
+!!      IWORK(1) = ML
+!!      IWORK(2) = MU
 !!```
 !! These are the lower and upper half-bandwidths, respectively, of the
 !! matrices in the problem-- the Jacobian dr/dy and the left-hand side
@@ -988,7 +988,7 @@
 !! ML and MU may in fact be the band parameters for matrices to which
 !! dr/dy and A are only approximately equal.
 !!
-!! LIW    
+!! LIW
 !!
 !! : the length of the array IWORK, as declared by the user.
 !! (This will be checked by the solver.)
@@ -1000,7 +1000,7 @@
 !! available for use by the user outside DLSODI between calls, if
 !! desired (but not for use by RES, ADDA, or JAC).
 !!
-!! MF     
+!! MF
 !!
 !! : the method flag.  Used only for input.  The legal values of
 !! MF are 11, 12, 14, 15, 21, 22, 24, and 25.
@@ -1066,26 +1066,26 @@
 !! ----- | --------- | --------------------------------------------------
 !! H0    |  RWORK(5) | the step size to be attempted on the first step.
 !!       |           | The default value is determined by the solver.
-!!       |           |                                        
+!!       |           |
 !! HMAX  |  RWORK(6) | the maximum absolute step size allowed.
 !!       |           | The default value is infinite.
-!!       |           |                                        
+!!       |           |
 !! HMIN  |  RWORK(7) | the minimum absolute step size allowed.
 !!       |           | The default value is 0.  (This lower bound is not
 !!       |           | enforced on the final step before reaching TCRIT
 !!       |           | when ITASK = 4 or 5.)
-!!       |           |                                        
+!!       |           |
 !! MAXORD|  IWORK(5) | the maximum order to be allowed.  The default
 !!       |           | value is 12 if METH = 1, and 5 if METH = 2.
 !!       |           | If MAXORD exceeds the default value, it will
 !!       |           | be reduced to the default value.
 !!       |           | If MAXORD is changed during the problem, it may
 !!       |           | cause the current order to be reduced.
-!!       |           |                                        
+!!       |           |
 !! MXSTEP|  IWORK(6) | maximum number of (internally defined) steps
 !!       |           | allowed during one call to the solver.
 !!       |           | The default value is 500.
-!!       |           |                                        
+!!       |           |
 !! MXHNIL|  IWORK(7) | maximum number of messages printed (per problem)
 !!       |           | warning that T + H = T on a step (H = step size).
 !!       |           | This must be positive to result in a non-default
@@ -1108,17 +1108,17 @@
 !!
 !!  Name  | Location  |   Meaning
 !!  ----- | --------- | --------------------------------------------------
-!!        |           |                                        
+!!        |           |
 !!  HU    |  RWORK(11)| the step size in t last used (successfully).
-!!        |           |                                        
+!!        |           |
 !!  HCUR  |  RWORK(12)| the step size to be attempted on the next step.
-!!        |           |                                        
+!!        |           |
 !!  TCUR  |  RWORK(13)| the current value of the independent variable
 !!        |           | which the solver has actually reached, i.e. the
 !!        |           | current internal mesh point in t.  On output, TCUR
 !!        |           | will always be at least as far as the argument
 !!        |           | T, but may be farther (if interpolation was done).
-!!        |           |                                        
+!!        |           |
 !!  TOLSF |  RWORK(14)| a tolerance scale factor, greater than 1.0,
 !!        |           | computed when a request for too much accuracy was
 !!        |           | detected (ISTATE = -3 if detected at the start of
@@ -1128,30 +1128,30 @@
 !!        |           | then the solver is deemed likely to succeed.
 !!        |           | (The user may also ignore TOLSF and alter the
 !!        |           | tolerance parameters in any other way appropriate.)
-!!        |           |                                        
+!!        |           |
 !!  NST   |  IWORK(11)| the number of steps taken for the problem so far.
-!!        |           |                                        
+!!        |           |
 !!  NRE   |  IWORK(12)| the number of residual evaluations (RES calls)
 !!        |           | for the problem so far.
-!!        |           |                                        
+!!        |           |
 !!  NJE   |  IWORK(13)| the number of Jacobian evaluations (each involving
 !!        |           | an evaluation of A and dr/dy) for the problem so
 !!        |           | far.  This equals the number of calls to ADDA and
 !!        |           | (if MITER = 1 or 4) JAC, and the number of matrix
 !!        |           | LU decompositions.
-!!        |           |                                        
+!!        |           |
 !!  NQU   |  IWORK(14)| the method order last used (successfully).
-!!        |           |                                        
+!!        |           |
 !!  NQCUR |  IWORK(15)| the order to be attempted on the next step.
-!!        |           |                                        
+!!        |           |
 !!  IMXER |  IWORK(16)| the index of the component of largest magnitude in
 !!        |           | the weighted local error vector ( E(i)/EWT(i) ),
 !!        |           | on an error return with ISTATE = -4 or -5.
-!!        |           |                                        
+!!        |           |
 !!  LENRW |  IWORK(17)| the length of RWORK actually required.
 !!        |           | This is defined on normal returns and on an illegal
 !!        |           | input return for insufficient storage.
-!!        |           |                                        
+!!        |           |
 !!  LENIW |  IWORK(18)| the length of IWORK actually required.
 !!        |           | This is defined on normal returns and on an illegal
 !!        |           | input return for insufficient storage.
@@ -1170,7 +1170,7 @@
 !!        |               |  the j-th derivative of the interpolating
 !!        |               |  polynomial currently representing the solution,
 !!        |               |  evaluated at t = TCUR.
-!!        |               |                                    
+!!        |               |
 !!  ACOR  |   LENRW-NEQ+1 |  array of size NEQ used for the accumulated
 !!        |               |  corrections on each step, scaled on output to
 !!        |               |  represent the estimated local error in y on the
@@ -1192,16 +1192,16 @@
 !!                             | output of messages from DLSODI, if
 !!                             | the default is not desired.
 !!                             | The default value of LUN is 6.
-!!                             |                             
+!!                             |
 !!   CALL XSETF(MFLAG)         | Set a flag to control the printing of
 !!                             | messages by DLSODI.
 !!                             | MFLAG = 0 means do not print. (Danger:
 !!                             | This risks losing valuable information.)
 !!                             | MFLAG = 1 means print (the default).
-!!                             |                            
+!!                             |
 !!                             | Either of the above calls may be made at
 !!                             | any time and will take effect immediately.
-!!                             |                            
+!!                             |
 !!   CALL DSRCOM(RSAV,ISAV,JOB)| saves and restores the contents of
 !!                             | the internal Common blocks used by
 !!                             | DLSODI (see Part 3 below).
@@ -1210,12 +1210,12 @@
 !!                             | array of length 37 or more.
 !!                             |     JOB=1 means save Common into RSAV/ISAV.
 !!                             |     JOB=2 means restore Common from RSAV/ISAV.
-!!                             |   
+!!                             |
 !!                             | DSRCOM is useful if one is
 !!                             | interrupting a run and restarting
 !!                             | later, or alternating between two or
 !!                             | more problems solved with DLSODI.
-!!                             |                             
+!!                             |
 !!   CALL DINTDY(,,,,,)        | Provide derivatives of y, of various
 !!        (see below)          | orders, at a specified point t, if
 !!                             | desired.  It may be called only after
@@ -1229,14 +1229,14 @@
 !!```
 !!#### The input parameters are:
 !!
-!! T         
+!! T
 !!
 !! : value of independent variable where answers are desired
 !! (normally the same as the T last returned by DLSODI).
 !! For valid results, T must lie between TCUR - HU and TCUR.
 !! (See optional outputs for TCUR and HU.)
 !!
-!! K         
+!! K
 !!
 !! : integer order of the derivative desired.  K must satisfy
 !! 0 .le. K .le. NQCUR, where NQCUR is the current order
@@ -1245,22 +1245,22 @@
 !! by DLSODI directly.  Since NQCUR .ge. 1, the first
 !! derivative dy/dt is always available with DINTDY.
 !!
-!! RWORK(21) 
+!! RWORK(21)
 !!
 !! : the base address of the history array YH.
 !!
-!! NYH       
+!! NYH
 !!
 !! : column length of YH, equal to the initial value of NEQ.
 !!
 !!#### The output parameters are:
 !!
-!! DKY       
+!! DKY
 !!
 !! : a real array of length NEQ containing the computed value
 !! of the K-th derivative of y(t).
 !!
-!! IFLAG     
+!! IFLAG
 !!
 !! : integer flag, returned as 0 if K and T were legal,
 !! -1 if K was illegal, and -2 if T was illegal.
@@ -1350,7 +1350,7 @@
 !!-----------------------------------------------------------------------
 !!### Pedigree:
 !!
-!! DLSODI is a derived from the 18 November 2003 version of 
+!! DLSODI is a derived from the 18 November 2003 version of
 !! "DLSODI: Livermore Solver for Ordinary Differential Equations
 !! (implicit form)".
 !!
@@ -1362,7 +1362,7 @@
 !!     Solvers, in Scientific Computing, R. S. Stepleman et al. (Eds.),
 !!     North-Holland, Amsterdam, 1983, pp. 55-64.
 !!-----------------------------------------------------------------------
-!! Authors:    
+!! Authors:
 !!```text
 !!      Alan C. Hindmarsh and Jeffrey F. Painter
 !!      Center for Applied Scientific Computing, L-561
@@ -1421,10 +1421,10 @@
 !            interrupt/restart feature.
 !  20031112  Added SAVE statements for data-loaded constants.
 !  20031117  Changed internal names NRE, LSAVR to NFE, LSAVF resp.
-! 
+!
 !-------------------------------------------------------------------------
 !  Other routines in the DLSODI package.
-! 
+!
 !  In addition to Subroutine DLSODI, the DLSODI package includes the
 !  following subroutines and function routines:
 !   DAINVG   computes the initial value of the vector
@@ -1449,7 +1449,7 @@
 !            error messages and warnings.  XERRWD is machine-dependent.
 !  Note:  DVNORM, DUMACH, and IXSAV are function routines.
 !  All the others are subroutines.
-! 
+!
 !!-----------------------------------------------------------------------
 subroutine dlsodi(res,adda,jac,Neq,Y,Ydoti,T,Tout,Itol,Rtol,Atol,Itask,Istate,Iopt,Rwork,Lrw,Iwork,Liw,Mf)
 external adda

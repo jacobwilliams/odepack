@@ -952,8 +952,8 @@
 <a id="ln-798" name="ln-798" href="#ln-798"></a><span class="c">!!</span>
 <a id="ln-799" name="ln-799" href="#ln-799"></a><span class="c">!! The following 2 words in IWORK are conditional inputs:</span>
 <a id="ln-800" name="ln-800" href="#ln-800"></a><span class="c">!!```text</span>
-<a id="ln-801" name="ln-801" href="#ln-801"></a><span class="c">!!            IWORK(1) = ML  </span>
-<a id="ln-802" name="ln-802" href="#ln-802"></a><span class="c">!!            IWORK(2) = MU  </span>
+<a id="ln-801" name="ln-801" href="#ln-801"></a><span class="c">!!            IWORK(1) = ML</span>
+<a id="ln-802" name="ln-802" href="#ln-802"></a><span class="c">!!            IWORK(2) = MU</span>
 <a id="ln-803" name="ln-803" href="#ln-803"></a><span class="c">!!```</span>
 <a id="ln-804" name="ln-804" href="#ln-804"></a><span class="c">!! These are the lower and upper half-bandwidths, respectively, of the</span>
 <a id="ln-805" name="ln-805" href="#ln-805"></a><span class="c">!! banded Jacobian, excluding the main diagonal.  The band is defined by</span>
@@ -1173,17 +1173,17 @@
 <a id="ln-1019" name="ln-1019" href="#ln-1019"></a><span class="c">!! as noted below.</span>
 <a id="ln-1020" name="ln-1020" href="#ln-1020"></a><span class="c">!!</span>
 <a id="ln-1021" name="ln-1021" href="#ln-1021"></a><span class="c">!! Name  | Location |     Meaning</span>
-<a id="ln-1022" name="ln-1022" href="#ln-1022"></a><span class="c">!! ----- |--------- | ---------------------------------------------------                                                    </span>
+<a id="ln-1022" name="ln-1022" href="#ln-1022"></a><span class="c">!! ----- |--------- | ---------------------------------------------------</span>
 <a id="ln-1023" name="ln-1023" href="#ln-1023"></a><span class="c">!! HU    | RWORK(11)| the step size in t last used (successfully).</span>
-<a id="ln-1024" name="ln-1024" href="#ln-1024"></a><span class="c">!!       |          |                                                     </span>
+<a id="ln-1024" name="ln-1024" href="#ln-1024"></a><span class="c">!!       |          |</span>
 <a id="ln-1025" name="ln-1025" href="#ln-1025"></a><span class="c">!! HCUR  | RWORK(12)| the step size to be attempted on the next step.</span>
-<a id="ln-1026" name="ln-1026" href="#ln-1026"></a><span class="c">!!       |          |                                                     </span>
+<a id="ln-1026" name="ln-1026" href="#ln-1026"></a><span class="c">!!       |          |</span>
 <a id="ln-1027" name="ln-1027" href="#ln-1027"></a><span class="c">!! TCUR  | RWORK(13)| the current value of the independent variable</span>
 <a id="ln-1028" name="ln-1028" href="#ln-1028"></a><span class="c">!!       |          | which the solver has actually reached, i.e. the</span>
 <a id="ln-1029" name="ln-1029" href="#ln-1029"></a><span class="c">!!       |          | current internal mesh point in t.  On output, TCUR</span>
 <a id="ln-1030" name="ln-1030" href="#ln-1030"></a><span class="c">!!       |          | will always be at least as far as the argument</span>
 <a id="ln-1031" name="ln-1031" href="#ln-1031"></a><span class="c">!!       |          | T, but may be farther (if interpolation was done).</span>
-<a id="ln-1032" name="ln-1032" href="#ln-1032"></a><span class="c">!!       |          |                                                     </span>
+<a id="ln-1032" name="ln-1032" href="#ln-1032"></a><span class="c">!!       |          |</span>
 <a id="ln-1033" name="ln-1033" href="#ln-1033"></a><span class="c">!! TOLSF | RWORK(14)| a tolerance scale factor, greater than 1.0,</span>
 <a id="ln-1034" name="ln-1034" href="#ln-1034"></a><span class="c">!!       |          | computed when a request for too much accuracy was</span>
 <a id="ln-1035" name="ln-1035" href="#ln-1035"></a><span class="c">!!       |          | detected (ISTATE = -3 if detected at the start of</span>
@@ -1193,56 +1193,56 @@
 <a id="ln-1039" name="ln-1039" href="#ln-1039"></a><span class="c">!!       |          | then the solver is deemed likely to succeed.</span>
 <a id="ln-1040" name="ln-1040" href="#ln-1040"></a><span class="c">!!       |          | (The user may also ignore TOLSF and alter the</span>
 <a id="ln-1041" name="ln-1041" href="#ln-1041"></a><span class="c">!!       |          | tolerance parameters in any other way appropriate.)</span>
-<a id="ln-1042" name="ln-1042" href="#ln-1042"></a><span class="c">!!       |          |                                                     </span>
+<a id="ln-1042" name="ln-1042" href="#ln-1042"></a><span class="c">!!       |          |</span>
 <a id="ln-1043" name="ln-1043" href="#ln-1043"></a><span class="c">!! TSW   | RWORK(15)| the value of t at the time of the last method</span>
 <a id="ln-1044" name="ln-1044" href="#ln-1044"></a><span class="c">!!       |          | switch, if any.</span>
-<a id="ln-1045" name="ln-1045" href="#ln-1045"></a><span class="c">!!       |          |                                                     </span>
+<a id="ln-1045" name="ln-1045" href="#ln-1045"></a><span class="c">!!       |          |</span>
 <a id="ln-1046" name="ln-1046" href="#ln-1046"></a><span class="c">!! NGE   | IWORK(10)| the number of g evaluations for the problem so far.</span>
-<a id="ln-1047" name="ln-1047" href="#ln-1047"></a><span class="c">!!       |          |                                                     </span>
+<a id="ln-1047" name="ln-1047" href="#ln-1047"></a><span class="c">!!       |          |</span>
 <a id="ln-1048" name="ln-1048" href="#ln-1048"></a><span class="c">!! NST   | IWORK(11)| the number of steps taken for the problem so far.</span>
-<a id="ln-1049" name="ln-1049" href="#ln-1049"></a><span class="c">!!       |          |                                                     </span>
+<a id="ln-1049" name="ln-1049" href="#ln-1049"></a><span class="c">!!       |          |</span>
 <a id="ln-1050" name="ln-1050" href="#ln-1050"></a><span class="c">!! NFE   | IWORK(12)| the number of f evaluations for the problem so far.</span>
-<a id="ln-1051" name="ln-1051" href="#ln-1051"></a><span class="c">!!       |          |                                                     </span>
+<a id="ln-1051" name="ln-1051" href="#ln-1051"></a><span class="c">!!       |          |</span>
 <a id="ln-1052" name="ln-1052" href="#ln-1052"></a><span class="c">!! NJE   | IWORK(13)| the number of Jacobian evaluations (and of matrix</span>
 <a id="ln-1053" name="ln-1053" href="#ln-1053"></a><span class="c">!!       |          | LU decompositions) for the problem so far.</span>
-<a id="ln-1054" name="ln-1054" href="#ln-1054"></a><span class="c">!!       |          |                                                     </span>
+<a id="ln-1054" name="ln-1054" href="#ln-1054"></a><span class="c">!!       |          |</span>
 <a id="ln-1055" name="ln-1055" href="#ln-1055"></a><span class="c">!! NQU   | IWORK(14)| the method order last used (successfully).</span>
-<a id="ln-1056" name="ln-1056" href="#ln-1056"></a><span class="c">!!       |          |                                                     </span>
+<a id="ln-1056" name="ln-1056" href="#ln-1056"></a><span class="c">!!       |          |</span>
 <a id="ln-1057" name="ln-1057" href="#ln-1057"></a><span class="c">!! NQCUR | IWORK(15)| the order to be attempted on the next step.</span>
-<a id="ln-1058" name="ln-1058" href="#ln-1058"></a><span class="c">!!       |          |                                                     </span>
+<a id="ln-1058" name="ln-1058" href="#ln-1058"></a><span class="c">!!       |          |</span>
 <a id="ln-1059" name="ln-1059" href="#ln-1059"></a><span class="c">!! IMXER | IWORK(16)| the index of the component of largest magnitude in</span>
 <a id="ln-1060" name="ln-1060" href="#ln-1060"></a><span class="c">!!       |          | the weighted local error vector ( E(i)/EWT(i) ),</span>
 <a id="ln-1061" name="ln-1061" href="#ln-1061"></a><span class="c">!!       |          | on an error return with ISTATE = -4 or -5.</span>
-<a id="ln-1062" name="ln-1062" href="#ln-1062"></a><span class="c">!!       |          |                                                     </span>
+<a id="ln-1062" name="ln-1062" href="#ln-1062"></a><span class="c">!!       |          |</span>
 <a id="ln-1063" name="ln-1063" href="#ln-1063"></a><span class="c">!! LENRW | IWORK(17)| the length of RWORK actually required, assuming</span>
 <a id="ln-1064" name="ln-1064" href="#ln-1064"></a><span class="c">!!       |          | that the length of RWORK is to be fixed for the</span>
 <a id="ln-1065" name="ln-1065" href="#ln-1065"></a><span class="c">!!       |          | rest of the problem, and that switching may occur.</span>
 <a id="ln-1066" name="ln-1066" href="#ln-1066"></a><span class="c">!!       |          | This is defined on normal returns and on an illegal</span>
 <a id="ln-1067" name="ln-1067" href="#ln-1067"></a><span class="c">!!       |          | input return for insufficient storage.</span>
-<a id="ln-1068" name="ln-1068" href="#ln-1068"></a><span class="c">!!       |          |                                                     </span>
+<a id="ln-1068" name="ln-1068" href="#ln-1068"></a><span class="c">!!       |          |</span>
 <a id="ln-1069" name="ln-1069" href="#ln-1069"></a><span class="c">!! LENIW | IWORK(18)| the length of IWORK actually required, assuming</span>
 <a id="ln-1070" name="ln-1070" href="#ln-1070"></a><span class="c">!!       |          | that the length of IWORK is to be fixed for the</span>
 <a id="ln-1071" name="ln-1071" href="#ln-1071"></a><span class="c">!!       |          | rest of the problem, and that switching may occur.</span>
 <a id="ln-1072" name="ln-1072" href="#ln-1072"></a><span class="c">!!       |          | This is defined on normal returns and on an illegal</span>
 <a id="ln-1073" name="ln-1073" href="#ln-1073"></a><span class="c">!!       |          | input return for insufficient storage.</span>
-<a id="ln-1074" name="ln-1074" href="#ln-1074"></a><span class="c">!!       |          |                                                     </span>
+<a id="ln-1074" name="ln-1074" href="#ln-1074"></a><span class="c">!!       |          |</span>
 <a id="ln-1075" name="ln-1075" href="#ln-1075"></a><span class="c">!! MUSED | IWORK(19)| the method indicator for the last successful step:</span>
 <a id="ln-1076" name="ln-1076" href="#ln-1076"></a><span class="c">!!       |          | 1 means Adams (nonstiff), 2 means BDF (stiff).</span>
-<a id="ln-1077" name="ln-1077" href="#ln-1077"></a><span class="c">!!       |          |                                                     </span>
+<a id="ln-1077" name="ln-1077" href="#ln-1077"></a><span class="c">!!       |          |</span>
 <a id="ln-1078" name="ln-1078" href="#ln-1078"></a><span class="c">!! MCUR  | IWORK(20)| the current method indicator:</span>
 <a id="ln-1079" name="ln-1079" href="#ln-1079"></a><span class="c">!!       |          | 1 means Adams (nonstiff), 2 means BDF (stiff).</span>
 <a id="ln-1080" name="ln-1080" href="#ln-1080"></a><span class="c">!!       |          | This is the method to be attempted</span>
 <a id="ln-1081" name="ln-1081" href="#ln-1081"></a><span class="c">!!       |          | on the next step.  Thus it differs from MUSED</span>
 <a id="ln-1082" name="ln-1082" href="#ln-1082"></a><span class="c">!!       |          | only if a method switch has just been made.</span>
-<a id="ln-1083" name="ln-1083" href="#ln-1083"></a><span class="c">!!                                                                       </span>
+<a id="ln-1083" name="ln-1083" href="#ln-1083"></a><span class="c">!!</span>
 <a id="ln-1084" name="ln-1084" href="#ln-1084"></a><span class="c">!! The following two arrays are segments of the RWORK array which</span>
 <a id="ln-1085" name="ln-1085" href="#ln-1085"></a><span class="c">!! may also be of interest to the user as optional outputs.</span>
 <a id="ln-1086" name="ln-1086" href="#ln-1086"></a><span class="c">!! For each array, the table below gives its internal name,</span>
 <a id="ln-1087" name="ln-1087" href="#ln-1087"></a><span class="c">!! its base address in RWORK, and its description.</span>
 <a id="ln-1088" name="ln-1088" href="#ln-1088"></a><span class="c">!!</span>
 <a id="ln-1089" name="ln-1089" href="#ln-1089"></a><span class="c">!! Name  | Base Address |    Description</span>
-<a id="ln-1090" name="ln-1090" href="#ln-1090"></a><span class="c">!! ----- | ------------ | ---------------------------------------------------                                                    </span>
-<a id="ln-1091" name="ln-1091" href="#ln-1091"></a><span class="c">!!       |              |        </span>
+<a id="ln-1090" name="ln-1090" href="#ln-1090"></a><span class="c">!! ----- | ------------ | ---------------------------------------------------</span>
+<a id="ln-1091" name="ln-1091" href="#ln-1091"></a><span class="c">!!       |              |</span>
 <a id="ln-1092" name="ln-1092" href="#ln-1092"></a><span class="c">!! YH    | 21 + 3\*NG   |  the Nordsieck history array, of size NYH by</span>
 <a id="ln-1093" name="ln-1093" href="#ln-1093"></a><span class="c">!!       |              | (NQCUR + 1), where NYH is the initial value</span>
 <a id="ln-1094" name="ln-1094" href="#ln-1094"></a><span class="c">!!       |              | of NEQ.  For j = 0,1,...,NQCUR, column j+1</span>
@@ -1250,7 +1250,7 @@
 <a id="ln-1096" name="ln-1096" href="#ln-1096"></a><span class="c">!!       |              | the j-th derivative of the interpolating</span>
 <a id="ln-1097" name="ln-1097" href="#ln-1097"></a><span class="c">!!       |              | polynomial currently representing the solution,</span>
 <a id="ln-1098" name="ln-1098" href="#ln-1098"></a><span class="c">!!       |              | evaluated at t = TCUR.</span>
-<a id="ln-1099" name="ln-1099" href="#ln-1099"></a><span class="c">!!       |              |        </span>
+<a id="ln-1099" name="ln-1099" href="#ln-1099"></a><span class="c">!!       |              |</span>
 <a id="ln-1100" name="ln-1100" href="#ln-1100"></a><span class="c">!! ACOR  |  LACOR       | array of size NEQ used for the accumulated</span>
 <a id="ln-1101" name="ln-1101" href="#ln-1101"></a><span class="c">!!       | (from Common | corrections on each step, scaled on output</span>
 <a id="ln-1102" name="ln-1102" href="#ln-1102"></a><span class="c">!!       |   as noted)  | to represent the estimated local error in y</span>
@@ -1276,16 +1276,16 @@
 <a id="ln-1122" name="ln-1122" href="#ln-1122"></a><span class="c">!!                             | output of messages from DLSODAR, if</span>
 <a id="ln-1123" name="ln-1123" href="#ln-1123"></a><span class="c">!!                             | the default is not desired.</span>
 <a id="ln-1124" name="ln-1124" href="#ln-1124"></a><span class="c">!!                             | The default value of LUN is 6.</span>
-<a id="ln-1125" name="ln-1125" href="#ln-1125"></a><span class="c">!!                             |                                                                            </span>
+<a id="ln-1125" name="ln-1125" href="#ln-1125"></a><span class="c">!!                             |</span>
 <a id="ln-1126" name="ln-1126" href="#ln-1126"></a><span class="c">!!  CALL XSETF(MFLAG)          | Set a flag to control the printing of</span>
 <a id="ln-1127" name="ln-1127" href="#ln-1127"></a><span class="c">!!                             | messages by DLSODAR.</span>
 <a id="ln-1128" name="ln-1128" href="#ln-1128"></a><span class="c">!!                             | MFLAG = 0 means do not print. (Danger:</span>
 <a id="ln-1129" name="ln-1129" href="#ln-1129"></a><span class="c">!!                             | This risks losing valuable information.)</span>
 <a id="ln-1130" name="ln-1130" href="#ln-1130"></a><span class="c">!!                             | MFLAG = 1 means print (the default).</span>
-<a id="ln-1131" name="ln-1131" href="#ln-1131"></a><span class="c">!!                             |         </span>
+<a id="ln-1131" name="ln-1131" href="#ln-1131"></a><span class="c">!!                             |</span>
 <a id="ln-1132" name="ln-1132" href="#ln-1132"></a><span class="c">!!                             | Either of the above calls may be made at</span>
 <a id="ln-1133" name="ln-1133" href="#ln-1133"></a><span class="c">!!                             | any time and will take effect immediately.</span>
-<a id="ln-1134" name="ln-1134" href="#ln-1134"></a><span class="c">!!                             |         </span>
+<a id="ln-1134" name="ln-1134" href="#ln-1134"></a><span class="c">!!                             |</span>
 <a id="ln-1135" name="ln-1135" href="#ln-1135"></a><span class="c">!!  CALL DSRCAR(RSAV,ISAV,JOB) | saves and restores the contents of</span>
 <a id="ln-1136" name="ln-1136" href="#ln-1136"></a><span class="c">!!                             | the internal Common blocks used by</span>
 <a id="ln-1137" name="ln-1137" href="#ln-1137"></a><span class="c">!!                             | DLSODAR (see Part 3 below).</span>
@@ -1294,17 +1294,17 @@
 <a id="ln-1140" name="ln-1140" href="#ln-1140"></a><span class="c">!!                             | array of length 55 or more.</span>
 <a id="ln-1141" name="ln-1141" href="#ln-1141"></a><span class="c">!!                             | JOB=1 means save Common into RSAV/ISAV.</span>
 <a id="ln-1142" name="ln-1142" href="#ln-1142"></a><span class="c">!!                             | JOB=2 means restore Common from RSAV/ISAV.</span>
-<a id="ln-1143" name="ln-1143" href="#ln-1143"></a><span class="c">!!                             |                                                      </span>
+<a id="ln-1143" name="ln-1143" href="#ln-1143"></a><span class="c">!!                             |</span>
 <a id="ln-1144" name="ln-1144" href="#ln-1144"></a><span class="c">!!                             |    DSRCAR is useful if one is</span>
 <a id="ln-1145" name="ln-1145" href="#ln-1145"></a><span class="c">!!                             | interrupting a run and restarting</span>
 <a id="ln-1146" name="ln-1146" href="#ln-1146"></a><span class="c">!!                             | later, or alternating between two or</span>
 <a id="ln-1147" name="ln-1147" href="#ln-1147"></a><span class="c">!!                             | more problems solved with DLSODAR.</span>
-<a id="ln-1148" name="ln-1148" href="#ln-1148"></a><span class="c">!!                             |         </span>
+<a id="ln-1148" name="ln-1148" href="#ln-1148"></a><span class="c">!!                             |</span>
 <a id="ln-1149" name="ln-1149" href="#ln-1149"></a><span class="c">!!  CALL DINTDY(,,,,,)         | Provide derivatives of y, of various</span>
 <a id="ln-1150" name="ln-1150" href="#ln-1150"></a><span class="c">!!       (see below)           | orders, at a specified point t, if</span>
 <a id="ln-1151" name="ln-1151" href="#ln-1151"></a><span class="c">!!                             | desired.  It may be called only after</span>
 <a id="ln-1152" name="ln-1152" href="#ln-1152"></a><span class="c">!!                             | a successful return from DLSODAR.</span>
-<a id="ln-1153" name="ln-1153" href="#ln-1153"></a><span class="c">!!                                                                        </span>
+<a id="ln-1153" name="ln-1153" href="#ln-1153"></a><span class="c">!!</span>
 <a id="ln-1154" name="ln-1154" href="#ln-1154"></a><span class="c">!! The detailed instructions for using DINTDY are as follows.</span>
 <a id="ln-1155" name="ln-1155" href="#ln-1155"></a><span class="c">!! The form of the call is:</span>
 <a id="ln-1156" name="ln-1156" href="#ln-1156"></a><span class="c">!!```fortran</span>
@@ -1313,14 +1313,14 @@
 <a id="ln-1159" name="ln-1159" href="#ln-1159"></a><span class="c">!!```</span>
 <a id="ln-1160" name="ln-1160" href="#ln-1160"></a><span class="c">!! The input parameters are:</span>
 <a id="ln-1161" name="ln-1161" href="#ln-1161"></a><span class="c">!!</span>
-<a id="ln-1162" name="ln-1162" href="#ln-1162"></a><span class="c">!! T         </span>
+<a id="ln-1162" name="ln-1162" href="#ln-1162"></a><span class="c">!! T</span>
 <a id="ln-1163" name="ln-1163" href="#ln-1163"></a><span class="c">!!</span>
 <a id="ln-1164" name="ln-1164" href="#ln-1164"></a><span class="c">!! : value of independent variable where answers are desired</span>
 <a id="ln-1165" name="ln-1165" href="#ln-1165"></a><span class="c">!! (normally the same as the T last returned by DLSODAR).</span>
 <a id="ln-1166" name="ln-1166" href="#ln-1166"></a><span class="c">!! For valid results, T must lie between TCUR - HU and TCUR.</span>
 <a id="ln-1167" name="ln-1167" href="#ln-1167"></a><span class="c">!! (See optional outputs for TCUR and HU.)</span>
 <a id="ln-1168" name="ln-1168" href="#ln-1168"></a><span class="c">!!</span>
-<a id="ln-1169" name="ln-1169" href="#ln-1169"></a><span class="c">!! K         </span>
+<a id="ln-1169" name="ln-1169" href="#ln-1169"></a><span class="c">!! K</span>
 <a id="ln-1170" name="ln-1170" href="#ln-1170"></a><span class="c">!!</span>
 <a id="ln-1171" name="ln-1171" href="#ln-1171"></a><span class="c">!! : integer order of the derivative desired.  K must satisfy</span>
 <a id="ln-1172" name="ln-1172" href="#ln-1172"></a><span class="c">!! 0 .le. K .le. NQCUR, where NQCUR is the current order</span>
@@ -1329,22 +1329,22 @@
 <a id="ln-1175" name="ln-1175" href="#ln-1175"></a><span class="c">!! by DLSODAR directly.  Since NQCUR .ge. 1, the first</span>
 <a id="ln-1176" name="ln-1176" href="#ln-1176"></a><span class="c">!! derivative dy/dt is always available with DINTDY.</span>
 <a id="ln-1177" name="ln-1177" href="#ln-1177"></a><span class="c">!!</span>
-<a id="ln-1178" name="ln-1178" href="#ln-1178"></a><span class="c">!! LYH       </span>
+<a id="ln-1178" name="ln-1178" href="#ln-1178"></a><span class="c">!! LYH</span>
 <a id="ln-1179" name="ln-1179" href="#ln-1179"></a><span class="c">!!</span>
 <a id="ln-1180" name="ln-1180" href="#ln-1180"></a><span class="c">!! : 21 + 3\*NG = base address in RWORK of the history array YH.</span>
 <a id="ln-1181" name="ln-1181" href="#ln-1181"></a><span class="c">!!</span>
-<a id="ln-1182" name="ln-1182" href="#ln-1182"></a><span class="c">!! NYH       </span>
+<a id="ln-1182" name="ln-1182" href="#ln-1182"></a><span class="c">!! NYH</span>
 <a id="ln-1183" name="ln-1183" href="#ln-1183"></a><span class="c">!!</span>
 <a id="ln-1184" name="ln-1184" href="#ln-1184"></a><span class="c">!! : column length of YH, equal to the initial value of NEQ.</span>
 <a id="ln-1185" name="ln-1185" href="#ln-1185"></a><span class="c">!!</span>
 <a id="ln-1186" name="ln-1186" href="#ln-1186"></a><span class="c">!! The output parameters are:</span>
 <a id="ln-1187" name="ln-1187" href="#ln-1187"></a><span class="c">!!</span>
-<a id="ln-1188" name="ln-1188" href="#ln-1188"></a><span class="c">!! DKY       </span>
+<a id="ln-1188" name="ln-1188" href="#ln-1188"></a><span class="c">!! DKY</span>
 <a id="ln-1189" name="ln-1189" href="#ln-1189"></a><span class="c">!!</span>
 <a id="ln-1190" name="ln-1190" href="#ln-1190"></a><span class="c">!! : a real array of length NEQ containing the computed value</span>
 <a id="ln-1191" name="ln-1191" href="#ln-1191"></a><span class="c">!! of the K-th derivative of y(t).</span>
 <a id="ln-1192" name="ln-1192" href="#ln-1192"></a><span class="c">!!</span>
-<a id="ln-1193" name="ln-1193" href="#ln-1193"></a><span class="c">!! IFLAG     </span>
+<a id="ln-1193" name="ln-1193" href="#ln-1193"></a><span class="c">!! IFLAG</span>
 <a id="ln-1194" name="ln-1194" href="#ln-1194"></a><span class="c">!!</span>
 <a id="ln-1195" name="ln-1195" href="#ln-1195"></a><span class="c">!! : integer flag, returned as 0 if K and T were legal,</span>
 <a id="ln-1196" name="ln-1196" href="#ln-1196"></a><span class="c">!! -1 if K was illegal, and -2 if T was illegal.</span>
@@ -1358,7 +1358,7 @@
 <a id="ln-1204" name="ln-1204" href="#ln-1204"></a><span class="c">!! following the return from the last DLSODAR call prior to the</span>
 <a id="ln-1205" name="ln-1205" href="#ln-1205"></a><span class="c">!! interruption, the contents of the call sequence variables and the</span>
 <a id="ln-1206" name="ln-1206" href="#ln-1206"></a><span class="c">!! internal state variables, and later restore these values before the</span>
-<a id="ln-1207" name="ln-1207" href="#ln-1207"></a><span class="c">!! next DLSODAR call for that problem.  To save and restore, </span>
+<a id="ln-1207" name="ln-1207" href="#ln-1207"></a><span class="c">!! next DLSODAR call for that problem.  To save and restore,</span>
 <a id="ln-1208" name="ln-1208" href="#ln-1208"></a><span class="c">!! use Subroutine DSRCAR (see Part 2 above).</span>
 <a id="ln-1209" name="ln-1209" href="#ln-1209"></a><span class="c">!!</span>
 <a id="ln-1210" name="ln-1210" href="#ln-1210"></a><span class="c">!!-----------------------------------------------------------------------</span>
@@ -2397,7 +2397,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-08 14:08            </p>
+ on 2022-10-10 21:33            </p>
         </div>
       </div>
       <br>
