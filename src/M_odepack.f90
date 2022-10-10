@@ -28,11 +28,11 @@ PUBLIC  :: DSRCMS
 PUBLIC  :: DSRCOM
 PUBLIC  :: DSRCPK
 PUBLIC  :: DUMACH ! COMPUTE THE UNIT ROUNDOFF OF THE MACHINE.
-PUBLIC  :: DVNORM 
+PUBLIC  :: DVNORM
 !-PUBLIC  :: DSTODE
 
 !-- maybe private once modularized
-public :: dmnorm 
+public :: dmnorm
 public :: dpjibt
 public :: dprepj
 public :: dprepji
@@ -60,9 +60,9 @@ public :: odrv
 !-- see nothing in documentation about being public
 private :: datp
 private :: datv
-private :: dbnorm 
+private :: dbnorm
 private :: ddecbt
-private :: dfnorm 
+private :: dfnorm
 private :: dhefa
 private :: dhels
 private :: dheqr
@@ -125,37 +125,37 @@ PUBLIC :: DLSODAR
 
 type dls002
    real(kind=dp) :: stifr
-   integer       :: newt, nsfi, nslj, njev 
+   integer       :: newt, nsfi, nslj, njev
 end type dls002
 type(dls002),public,save :: dls
 
 type dlss01
-   real(kind=dp) :: con0, conmin, ccmxj, psmall, rbig, seth 
+   real(kind=dp) :: con0, conmin, ccmxj, psmall, rbig, seth
    integer       :: iplost, iesp, istatc, iys, iba, ibian, ibjan, ibjgp, ipian, ipjan, ipjgp, ipigp, ipr, ipc, ipic, ipisp, iprsp
    integer       :: ipa, lenyh, lenyhm, lenwk, lreq, lrat, lrest, lwmin, moss, msbj, nslj, ngp, nlu, nnz, nsp, nzl, nzu
 end type dlss01
 type(dlss01),public,save :: dlss
 
 type dlsa01
-   real(kind=dp) :: tsw, cm1(12), cm2(5), pdest, pdlast, ratio, pdnorm 
+   real(kind=dp) :: tsw, cm1(12), cm2(5), pdest, pdlast, ratio, pdnorm
    integer       :: insufr, insufi, ixpr, icount, irflag, jtyp, mused, mxordn, mxords
 end type dlsa01
 type(dlsa01),public,save :: dlsa
 
 type dlsr01
-   real(kind=dp) :: alpha, x2, t0, tlast, toutc 
+   real(kind=dp) :: alpha, x2, t0, tlast, toutc
    integer       :: lg0, lg1, lgx, imax, last, irfnd, itaskc, ngc, nge
 end type dlsr01
 type(dlsr01),public,save :: dlsr
 
 type dlpk01
-   real(kind=dp) :: delt, epcon, sqrtn, rsqrtn 
-   integer       :: jpre, jacflg, locwp, lociwp, lsavx, kmp, maxl, mnewt, nni, nli, nps, ncfn, ncfl 
+   real(kind=dp) :: delt, epcon, sqrtn, rsqrtn
+   integer       :: jpre, jacflg, locwp, lociwp, lsavx, kmp, maxl, mnewt, nni, nli, nps, ncfn, ncfl
    end type dlpk01
 type(dlpk01),public,save :: dlpk
 
 type dls001
-   real(kind=dp) :: conit, crate, el(13), elco(13,12), hold, rmax, tesco(3,12), ccmax, el0, h, hmin, hmxi, hu, rc, tn, uround 
+   real(kind=dp) :: conit, crate, el(13), elco(13,12), hold, rmax, tesco(3,12), ccmax, el0, h, hmin, hmxi, hu, rc, tn, uround
    integer       :: init,   mxstep,  mxhnil,  nhnil,  nslast,  nyh,   ialth,   ipup,    lmax,    meo
    integer       :: nqnyh,  nslp,    icf,     ierpj,  iersl,   jcur,  jstart,  kflag,   l,       lyh
    integer       :: lewt,   lacor,   lsavf,   lwm,    liwm,    meth,  miter,   maxord,  maxcor,  msbp

@@ -31,6 +31,12 @@ nvfortran: F90FLAGS := -C all -Mbackslash
 nvfortran: LDFLAGS :=  -g -O
 nvfortran: all
 	@echo built with $(F90)
+
+natfor: F90=nagfor
+natfor: F90FLAGS := -dusty -C -C=undefined
+natfor: LDFLAGS := 
+natfor: all
+	@echo built with $(F90)
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
 PROGFILES = \
@@ -97,7 +103,7 @@ test: $(TEST)
 #-------------------------------------------------------------------------------
 .PHONY: help
 help:
-	: 'make [gfortran|nvfortran|ifort]                            '
+	: 'make [gfortran|nvfortran|ifort|natfor]                     '
 	: '        -- build odepack and example programs              '
 	: 'clean                                                      '
 	: '        -- clean directory of object files and executables '
