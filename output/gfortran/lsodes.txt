@@ -5,6 +5,7 @@
  <INFO> C COMPILER OPTIONS:  
  <INFO> LINKER OPTIONS:  
  <INFO> INCLUDE DIRECTORIES:  []
+[100%] Project compiled successfully.
  + build/gfortran_62DBE5382F66686F/example/lsodes 
 
 Demonstration problem for the DLSODES package
@@ -20,7 +21,7 @@ Demonstration problem for the DLSODES package
 
 Run with mf =  10.     Input work lengths lrw, liw =  1000    90
 
-At t =  1.0   nst =  42   hu =   0.241D-01   nqu =  4    max. err. =  0.394D-05
+At t =  1.0   nst =  42   hu =   0.241D-01   nqu =  4    max. err. =  0.391D-05
   y array =       0.668730D+00   0.990188D+00   0.760308D+00   0.807799D+00
    0.117023D+01   0.881061D+00   0.501332D+00   0.720142D+00   0.537962D+00
 At t =  2.0   nst =  71   hu =   0.680D-01   nqu =  3    max. err. =  0.273D-04
@@ -41,7 +42,7 @@ Final statistics for this run:
 
 Run with mf =  10.     Input work lengths lrw, liw =   164    30
 
-At t =  1.0   nst =  42   hu =   0.241D-01   nqu =  4    max. err. =  0.394D-05
+At t =  1.0   nst =  42   hu =   0.241D-01   nqu =  4    max. err. =  0.391D-05
   y array =       0.668730D+00   0.990188D+00   0.760308D+00   0.807799D+00
    0.117023D+01   0.881061D+00   0.501332D+00   0.720142D+00   0.537962D+00
 

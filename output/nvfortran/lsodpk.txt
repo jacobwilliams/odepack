@@ -5,6 +5,7 @@
  <INFO> C COMPILER OPTIONS:  
  <INFO> LINKER OPTIONS:  
  <INFO> INCLUDE DIRECTORIES:  []
+[100%] Project compiled successfully.
  + build/nvfortran_BE4B9AB3BDAA5B75/example/lsodpk 
  Demonstration program for DLSODPK package
 

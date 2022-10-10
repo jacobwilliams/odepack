@@ -1,3 +1,44 @@
+[  0%]                  M_odepack.f90
+[  5%]                  M_odepack.f90  done.
+[  5%]                 libM_odepack.a
+[ 10%]                 libM_odepack.a  done.
+[ 10%]                     lsodpk.f90
+[ 15%]                     lsodpk.f90  done.
+[ 15%]                     lsodar.f90
+[ 20%]                     lsodar.f90  done.
+[ 20%]                      lsodi.f90
+[ 25%]                      lsodi.f90  done.
+[ 25%]                      lsode.f90
+[ 30%]                      lsode.f90  done.
+[ 30%]                     lsodes.f90
+[ 35%]                     lsodes.f90  done.
+[ 35%]                     lsodkr.f90
+[ 40%]                     lsodkr.f90  done.
+[ 40%]                     lsoibt.f90
+[ 45%]                     lsoibt.f90  done.
+[ 45%]                     lsodis.f90
+[ 50%]                     lsodis.f90  done.
+[ 50%]                      lsoda.f90
+[ 55%]                      lsoda.f90  done.
+[ 55%]                         lsodpk
+[ 60%]                         lsodpk  done.
+[ 60%]                         lsodar
+[ 65%]                         lsodar  done.
+[ 65%]                          lsodi
+[ 70%]                          lsodi  done.
+[ 70%]                          lsode
+[ 75%]                          lsode  done.
+[ 75%]                         lsodes
+[ 80%]                         lsodes  done.
+[ 80%]                         lsodkr
+[ 85%]                         lsodkr  done.
+[ 85%]                         lsoibt
+[ 90%]                         lsoibt  done.
+[ 90%]                         lsodis
+[ 95%]                         lsodis  done.
+[ 95%]                          lsoda
+[100%]                          lsoda  done.
+[100%] Project compiled successfully.
 
 Demonstration program for DLSODA package
 
