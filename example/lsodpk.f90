@@ -428,7 +428,7 @@ common /pcom1 / ax , ay , acoef , bcoef , dx , dy , alph , diff , &
 !
 integer       :: neq
 real(kind=dp) :: t
-real(kind=dp) :: cc(*) !X! WAS DIMENSIONED TO CC(NEQ)
+real(kind=dp) :: cc(2*neq)
 real(kind=dp) :: cdot(neq)
 !
 real(kind=dp) :: dcxli , dcxui , dcyli , dcyui , x , y
@@ -519,7 +519,7 @@ common /pcom3 / meshx , meshy , ngx , ngy , ngrp , mxmp , jgx ,   &
 real(kind=dp) , dimension(*) :: bd
 integer :: neq
 real(kind=dp) , dimension(neq) :: ccsv , f0 , f1 , rewt
-real(kind=dp) , dimension(*) :: cc  !X! WAS DIMENSIONED TO CC(NEQ)
+real(kind=dp) , dimension(2*neq) :: cc 
 real(kind=dp) :: fac , r , r0
 real(kind=dp) :: hl0 , t
 integer :: i , ibd , idiag , if0 , if00 , ig , igx , igy , iip ,  &
