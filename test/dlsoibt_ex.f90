@@ -4,7 +4,7 @@ implicit none
 external addabt
 external jacbt
 external resid
- 
+
 integer,parameter :: dp=kind(0.0d0)
 real(kind=dp) :: atol,rtol,t,tout
 integer :: i,io,iopt,istate,itask,itol,liw,lrw,mf,neq
@@ -54,22 +54,22 @@ real(kind=dp),dimension(41) :: y,ydoti
    99030 format (/' Final solution values..'/9(5D12.4/))
 
 end program dlsoibt_ex
- 
+
 subroutine resid(N,T,Y,S,R,Ires)
 implicit none
 integer,parameter                       ::  dp=kind(0.0d0)
- 
+
 integer,intent(in)                      ::  N
 real(kind=dp)                           ::  T
 real(kind=dp),intent(in),dimension(N)   ::  Y
 real(kind=dp),intent(in),dimension(N)   ::  S
 real(kind=dp),intent(out),dimension(N)  ::  R
 integer                                 ::  Ires
- 
+
 real(kind=dp),save                      ::  delx,eta
 real(kind=dp)                           ::  eodsq
 integer                                 ::  i,nm1
- 
+
 data eta/0.05/,delx/0.05/
    eodsq = eta/delx**2
    R(1) = eodsq*(Y(3)-2.0*Y(2)+Y(1)) - S(1)
@@ -81,11 +81,11 @@ data eta/0.05/,delx/0.05/
    enddo
    R(N) = eodsq*(Y(N-2)-2.0*Y(nm1)+Y(N)) - S(N)
 end subroutine resid
- 
+
 subroutine addabt(N,T,Y,Mb,Nb,Pa,Pb,Pc)
 implicit                                         none
 integer,parameter                                ::    dp=kind(0.0d0)
- 
+
 integer,intent(in)                               ::    N
 real(kind=dp)                                    ::    T
 real(kind=dp),dimension(N)                       ::    Y
@@ -94,9 +94,9 @@ integer,intent(in)                               ::    Nb
 real(kind=dp),intent(inout),dimension(Mb,Mb,Nb)  ::    Pa
 real(kind=dp),intent(inout),dimension(Mb,Mb,Nb)  ::    Pb
 real(kind=dp),intent(inout),dimension(Mb,Mb,Nb)  ::    Pc
- 
+
 integer                                          ::    k,nm1
- 
+
    Pa(1,1,1) = Pa(1,1,1) + 1.0
    nm1 = N - 1
    do k = 2,nm1
@@ -106,7 +106,7 @@ integer                                          ::    k,nm1
    enddo
    Pa(1,1,N) = Pa(1,1,N) + 1.0
 end subroutine addabt
- 
+
 subroutine jacbt(N,T,Y,S,Mb,Nb,Pa,Pb,Pc)
 implicit none
 integer,parameter                              ::    dp=kind(0.0d0)
@@ -119,16 +119,15 @@ integer,intent(in)                             ::    Nb
 real(kind=dp),intent(out),dimension(Mb,Mb,Nb)  ::    Pa
 real(kind=dp),intent(out),dimension(Mb,Mb,Nb)  ::    Pb
 real(kind=dp),intent(out),dimension(Mb,Mb,Nb)  ::    Pc
-real(kind=dp),save                             ::    delx,eta
+real(kind=dp),parameter                        ::    delx=0.05_dp,eta=0.05_dp
 real(kind=dp)                                  ::    eodsq
 integer                                        ::    k
- 
-data eta/0.05/,delx/0.05/
+
    eodsq = eta/delx**2
    Pa(1,1,1) = eodsq
    Pb(1,1,1) = -2.0*eodsq
    Pc(1,1,1) = eodsq
-   do k = 2,N
+   do k = 2,N-1
       Pa(1,1,k) = -2.0*eodsq
       Pb(1,1,k) = -Y(k+1)*(0.5/delx) + eodsq
       Pc(1,1,k) = Y(k-1)*(0.5/delx) + eodsq
