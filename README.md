@@ -97,7 +97,10 @@ and as an fpm(1) package with the current options:
 ```bash
  fpm run                     --compiler nvfortran --example '*'
  fpm run --profile release   --compiler ifort     --example '*'
- fpm run --flag -std=legacy  --compiler gfortran  --example '*'
+ # gfortran for production
+ fpm run --profile release --flag -fallow-argument-mismatch --compiler gfortran  --example '*'
+ # gfortran for debug
+ fpm run --profile debug --flag -fallow-argument-mismatch --flag -std=f2018 --compiler gfortran  --example '*' --verbose
 ```
 ### building with make(1)
 ```bash
