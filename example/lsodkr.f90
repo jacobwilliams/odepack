@@ -122,6 +122,8 @@ data dkh/4.0d-6/ , vel/0.001d0/ , dkv0/1.0d-8/ , halfda/4.32d4/ , &
 ! Loop over output points, call DLSODKR, print sample solution values.
       do iout = 1 , 13
          do
+            ! initialize jroot, as jroot is not set unless istate returns 3
+            jroot = 0 
             call dlsodkr(fdem,[neq],y,t,tout,1,[rtol],[atol],1,istate,0,rwork,&
                        & lrw,iwork,liw,jacbd,solbd,mf,gdem,1,jroot)
             write (6,99002) t , iwork(11) , iwork(14) , rwork(11)
