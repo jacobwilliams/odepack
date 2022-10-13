@@ -136,7 +136,7 @@ data dkh/4.0d-6/ , vel/0.001d0/ , dkv0/1.0d-8/ , halfda/4.32d4/ , &
                    &3d12.3/'   c2 (bot.left/middle/top rt.) =',3d12.3)
             write (6,99004) c2tot , jroot
 99004       format ('   total c2 =',d15.6,'   jroot =',                 &
-                   &i2' (1 = root found, 0 = no root)')
+                   &i2,' (1 = root found, 0 = no root)')
             if ( istate<0 ) then
                write (6,99005) istate
 99005          format ('DLSODKR returned istate = ',i3)
