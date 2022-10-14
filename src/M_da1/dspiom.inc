@@ -214,7 +214,9 @@ external psol
          call dorthog(V(1,ll+1),V,Hes,N,ll,Maxl,Kmp,snormw)
          call dhefa(Hes,Maxl,ll,Ipvt,info,ll)
          lm1 = ll - 1
-         if ( ll>1 .and. Ipvt(lm1)==lm1 ) prod = prod*Hes(ll,lm1)
+         if ( ll>1) then
+             if (Ipvt(lm1)==lm1 ) prod = prod*Hes(ll,lm1)
+         endif
          if ( info/=ll ) then
             !-----------------------------------------------------------------------
             !  Update RHO, the estimate of the norm of the residual b - A*x(l).

@@ -188,8 +188,8 @@ real(kind=dp) :: t
 real(kind=dp) , dimension(neq) :: y
 integer :: ml
 integer :: mu
-real(kind=dp) , dimension(nrowpd,neq) :: pd
 integer :: nrowpd
+real(kind=dp) , dimension(nrowpd,neq) :: pd
 !
       pd(1,1) = 0.0d0
       pd(1,2) = 1.0d0
@@ -232,8 +232,8 @@ real(kind=dp) :: t
 real(kind=dp) , dimension(neq) :: y
 integer :: ml
 integer :: mu
-real(kind=dp) , dimension(nrowpd,neq) :: pd
 integer :: nrowpd
+real(kind=dp) , dimension(nrowpd,neq) :: pd
 !
 real(kind=dp) , parameter  ::  alph1 = 1.0d0 , alph2 = 1.0d0
 integer, parameter :: ng=5

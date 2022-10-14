@@ -269,9 +269,9 @@ real(kind=dp) :: r6d
 common /par   / r6d , eodsq , ncomp , nip , nm1
 !
 real(kind=dp) :: t
+integer :: mb
 real(kind=dp) , dimension(mb,*) :: y
 real(kind=dp) , dimension(mb,*) :: g
-integer :: mb
 !
 real(kind=dp) :: cc , cl , cr , dli , dri
 integer :: i , k
@@ -320,9 +320,9 @@ integer :: ncomp , nip , nm1
 real(kind=dp) :: r6d
 common /par   / r6d , eodsq , ncomp , nip , nm1
 !
+integer :: mb
 real(kind=dp) , dimension(mb,*) :: r
 real(kind=dp) , dimension(mb,*) :: v
-integer :: mb
 !
 real(kind=dp) :: aa1 , aa4
 real(kind=dp) , save :: four , one , six
@@ -355,9 +355,9 @@ integer,parameter :: dp=kind(0.0d0)
 !
 integer :: n
 real(kind=dp) :: t
-real(kind=dp) , dimension(mb,nb) :: y
 integer :: mb
 integer :: nb
+real(kind=dp) , dimension(mb,nb) :: y
 real(kind=dp) , dimension(mb,mb,nb) :: pa
 real(kind=dp) , dimension(mb,mb,nb) :: pb
 real(kind=dp) , dimension(mb,mb,nb) :: pc
@@ -399,10 +399,10 @@ common /par   / r6d , eodsq , ncomp , nip , nm1
 !
 integer :: n
 real(kind=dp) :: t
-real(kind=dp) , dimension(mb,nb) :: y
-real(kind=dp) , dimension(n) :: s
 integer :: mb
 integer :: nb
+real(kind=dp) , dimension(mb,nb) :: y
+real(kind=dp) , dimension(n) :: s
 real(kind=dp) , dimension(mb,mb,nb) :: pa
 real(kind=dp) , dimension(mb,mb,nb) :: pb
 real(kind=dp) , dimension(mb,mb,nb) :: pc
@@ -479,9 +479,9 @@ subroutine edit(y,mb,nip,lout)
 implicit none
 integer,parameter :: dp=kind(0.0d0)
 !
-real(kind=dp) , dimension(mb,nip) :: y
 integer :: mb
 integer :: nip
+real(kind=dp) , dimension(mb,nip) :: y
 integer :: lout
 !
 integer :: i , k
@@ -492,15 +492,15 @@ integer :: i , k
 99001    format (' Values of PDE component i =',i3/15(7d12.4/))
       enddo
 !
-      end subroutine edit
+end subroutine edit
 
 subroutine maxerr(y,mb,nb,abermx)
 implicit none
 integer,parameter :: dp=kind(0.0d0)
 !
-real(kind=dp) , dimension(mb,nb) :: y
 integer :: mb
 integer :: nb
+real(kind=dp) , dimension(mb,nb) :: y
 real(kind=dp) :: abermx
 !
 real(kind=dp) :: ae1 , ae2 , ae3

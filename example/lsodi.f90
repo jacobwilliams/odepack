@@ -295,13 +295,13 @@ subroutine addabd(n,t,y,ml,mu,pa,m0)
 implicit none
 integer,parameter :: dp=kind(0.0d0)
 !
-integer :: n
 real(kind=dp) :: t
+integer :: n
 real(kind=dp) , dimension(n) :: y
 integer :: ml
 integer :: mu
-real(kind=dp) , dimension(m0,n) :: pa
 integer :: m0
+real(kind=dp) , dimension(m0,n) :: pa
 !
 real(kind=dp) :: fact1 , fact4
 real(kind=dp) , save :: four , one , six
@@ -337,8 +337,8 @@ real(kind=dp) :: t
 real(kind=dp) , dimension(n) :: y
 integer :: ml
 integer :: mu
-real(kind=dp) , dimension(m0,n) :: pa
 integer :: m0
+real(kind=dp) , dimension(m0,n) :: pa
 !
 real(kind=dp) :: fact1 , fact4
 real(kind=dp) , save :: four , one , six
@@ -378,8 +378,8 @@ real(kind=dp) , dimension(n) :: y
 real(kind=dp) , dimension(n) :: s
 integer :: ml
 integer :: mu
-real(kind=dp) , dimension(m0,n) :: pa
 integer :: m0
+real(kind=dp) , dimension(m0,n) :: pa
 !
 real(kind=dp) :: diag , r2d
 integer :: i , mup1 , mup2
@@ -439,8 +439,8 @@ real(kind=dp) , dimension(n) :: y
 real(kind=dp) , dimension(n) :: s
 integer :: ml
 integer :: mu
-real(kind=dp) , dimension(m0,n) :: pa
 integer :: m0
+real(kind=dp) , dimension(m0,n) :: pa
 !
 real(kind=dp) :: diag , r2d
 integer :: i

@@ -273,8 +273,8 @@ real(kind=dp) :: t
 real(kind=dp) , dimension(2) :: y
 integer :: ml
 integer :: mu
-real(kind=dp) , dimension(nrowpd,2) :: pd
 integer :: nrowpd
+real(kind=dp) , dimension(nrowpd,2) :: pd
 end subroutine jac_dum
 
 subroutine jac2(neq,t,y,ml,mu,pd,nrowpd)
@@ -286,8 +286,8 @@ real(kind=dp) :: t
 real(kind=dp) , dimension(2) :: y
 integer :: ml
 integer :: mu
-real(kind=dp) , dimension(nrowpd,2) :: pd
 integer :: nrowpd
+real(kind=dp) , dimension(nrowpd,2) :: pd
 !
       pd(1,1) = 0.0d0
       pd(1,2) = 1.0d0

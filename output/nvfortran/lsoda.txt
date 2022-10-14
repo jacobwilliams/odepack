@@ -5,6 +5,69 @@
  <INFO> C COMPILER OPTIONS:  
  <INFO> LINKER OPTIONS:  
  <INFO> INCLUDE DIRECTORIES:  []
+[  0%]                  M_odepack.f90
+ + nvfortran -c ./src/M_odepack.f90  -g -Mbackslash -module build/nvfortran_BE4B9AB3BDAA5B75 -Ibuild/nvfortran_BE4B9AB3BDAA5B75 -o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/src_M_odepack.f90.o
+[  5%]                  M_odepack.f90  done.
+[  5%]                 libM_odepack.a
+ + ar -rs build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/libM_odepack.a build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/src_M_odepack.f90.o
+ar: creating build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/libM_odepack.a
+[ 10%]                 libM_odepack.a  done.
+[ 10%]                     lsodpk.f90
+ + nvfortran -c example/lsodpk.f90  -g -Mbackslash -module build/nvfortran_BE4B9AB3BDAA5B75 -Ibuild/nvfortran_BE4B9AB3BDAA5B75 -o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsodpk.f90.o
+[ 15%]                     lsodpk.f90  done.
+[ 15%]                     lsodar.f90
+ + nvfortran -c example/lsodar.f90  -g -Mbackslash -module build/nvfortran_BE4B9AB3BDAA5B75 -Ibuild/nvfortran_BE4B9AB3BDAA5B75 -o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsodar.f90.o
+[ 20%]                     lsodar.f90  done.
+[ 20%]                      lsodi.f90
+ + nvfortran -c example/lsodi.f90  -g -Mbackslash -module build/nvfortran_BE4B9AB3BDAA5B75 -Ibuild/nvfortran_BE4B9AB3BDAA5B75 -o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsodi.f90.o
+[ 25%]                      lsodi.f90  done.
+[ 25%]                      lsode.f90
+ + nvfortran -c example/lsode.f90  -g -Mbackslash -module build/nvfortran_BE4B9AB3BDAA5B75 -Ibuild/nvfortran_BE4B9AB3BDAA5B75 -o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsode.f90.o
+[ 30%]                      lsode.f90  done.
+[ 30%]                     lsodes.f90
+ + nvfortran -c example/lsodes.f90  -g -Mbackslash -module build/nvfortran_BE4B9AB3BDAA5B75 -Ibuild/nvfortran_BE4B9AB3BDAA5B75 -o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsodes.f90.o
+[ 35%]                     lsodes.f90  done.
+[ 35%]                     lsodkr.f90
+ + nvfortran -c example/lsodkr.f90  -g -Mbackslash -module build/nvfortran_BE4B9AB3BDAA5B75 -Ibuild/nvfortran_BE4B9AB3BDAA5B75 -o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsodkr.f90.o
+[ 40%]                     lsodkr.f90  done.
+[ 40%]                     lsoibt.f90
+ + nvfortran -c example/lsoibt.f90  -g -Mbackslash -module build/nvfortran_BE4B9AB3BDAA5B75 -Ibuild/nvfortran_BE4B9AB3BDAA5B75 -o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsoibt.f90.o
+[ 45%]                     lsoibt.f90  done.
+[ 45%]                     lsodis.f90
+ + nvfortran -c example/lsodis.f90  -g -Mbackslash -module build/nvfortran_BE4B9AB3BDAA5B75 -Ibuild/nvfortran_BE4B9AB3BDAA5B75 -o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsodis.f90.o
+[ 50%]                     lsodis.f90  done.
+[ 50%]                      lsoda.f90
+ + nvfortran -c example/lsoda.f90  -g -Mbackslash -module build/nvfortran_BE4B9AB3BDAA5B75 -Ibuild/nvfortran_BE4B9AB3BDAA5B75 -o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsoda.f90.o
+[ 55%]                      lsoda.f90  done.
+[ 55%]                         lsodpk
+ + mkdir -p build/nvfortran_BE4B9AB3BDAA5B75/example/
+ + nvfortran  -g -Mbackslash  build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsodpk.f90.o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/libM_odepack.a -o build/nvfortran_BE4B9AB3BDAA5B75/example/lsodpk
+[ 60%]                         lsodpk  done.
+[ 60%]                         lsodar
+ + nvfortran  -g -Mbackslash  build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsodar.f90.o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/libM_odepack.a -o build/nvfortran_BE4B9AB3BDAA5B75/example/lsodar
+[ 65%]                         lsodar  done.
+[ 65%]                          lsodi
+ + nvfortran  -g -Mbackslash  build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsodi.f90.o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/libM_odepack.a -o build/nvfortran_BE4B9AB3BDAA5B75/example/lsodi
+[ 70%]                          lsodi  done.
+[ 70%]                          lsode
+ + nvfortran  -g -Mbackslash  build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsode.f90.o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/libM_odepack.a -o build/nvfortran_BE4B9AB3BDAA5B75/example/lsode
+[ 75%]                          lsode  done.
+[ 75%]                         lsodes
+ + nvfortran  -g -Mbackslash  build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsodes.f90.o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/libM_odepack.a -o build/nvfortran_BE4B9AB3BDAA5B75/example/lsodes
+[ 80%]                         lsodes  done.
+[ 80%]                         lsodkr
+ + nvfortran  -g -Mbackslash  build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsodkr.f90.o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/libM_odepack.a -o build/nvfortran_BE4B9AB3BDAA5B75/example/lsodkr
+[ 85%]                         lsodkr  done.
+[ 85%]                         lsoibt
+ + nvfortran  -g -Mbackslash  build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsoibt.f90.o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/libM_odepack.a -o build/nvfortran_BE4B9AB3BDAA5B75/example/lsoibt
+[ 90%]                         lsoibt  done.
+[ 90%]                         lsodis
+ + nvfortran  -g -Mbackslash  build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsodis.f90.o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/libM_odepack.a -o build/nvfortran_BE4B9AB3BDAA5B75/example/lsodis
+[ 95%]                         lsodis  done.
+[ 95%]                          lsoda
+ + nvfortran  -g -Mbackslash  build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/example_lsoda.f90.o build/nvfortran_BE4B9AB3BDAA5B75/M_odepack/libM_odepack.a -o build/nvfortran_BE4B9AB3BDAA5B75/example/lsoda
+[100%]                          lsoda  done.
+[100%] Project compiled successfully.
  + build/nvfortran_BE4B9AB3BDAA5B75/example/lsoda 
 
 Demonstration program for DLSODA package

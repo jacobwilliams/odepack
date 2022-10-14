@@ -71,8 +71,8 @@ real(kind=dp)                                  ::  T
 real(kind=dp),intent(in),dimension(3)          ::  Y
 integer                                        ::  Ml
 integer                                        ::  Mu
-real(kind=dp),intent(inout),dimension(Nrpd,3)  ::  Pd
 integer,intent(in)                             ::  Nrpd
+real(kind=dp),intent(inout),dimension(Nrpd,3)  ::  Pd
  
    Pd(1,1) = -.04D0
    Pd(1,2) = 1.D4*Y(3)

@@ -77,8 +77,8 @@ real(kind=dp)                                   ::  T
 real(kind=dp),dimension(3)                      ::  Y
 integer                                         ::  Ml
 integer                                         ::  Mu
-real(kind=dp),intent(inout),dimension(Nrowp,3)  ::  P
 integer,intent(in)                              ::  Nrowp
+real(kind=dp),intent(inout),dimension(Nrowp,3)  ::  P
  
    P(1,1) = P(1,1) + 1.
    P(2,2) = P(2,2) + 1.
@@ -93,8 +93,8 @@ real(kind=dp),intent(in),dimension(3)         ::  Y
 real(kind=dp),dimension(3)                    ::  S
 integer                                       ::  Ml
 integer                                       ::  Mu
-real(kind=dp),intent(out),dimension(Nrowp,3)  ::  P
 integer,intent(in)                            ::  Nrowp
+real(kind=dp),intent(out),dimension(Nrowp,3)  ::  P
  
    P(1,1) = -.04
    P(1,2) = 1.D4*Y(3)

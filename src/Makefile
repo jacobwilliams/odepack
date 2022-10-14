@@ -4,7 +4,7 @@ NULL =
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # platform-specific values you will probably change
 F90=gfortran
-F90FLAGS := -g -O
+F90FLAGS := -g -O -fallow-argument-mismatch
 LDFLAGS :=  -g
 LIBS :=
 
@@ -13,8 +13,8 @@ LIBS :=
 # (-O1 and more).
 gfortran: F90=gfortran
 gfortran: F90FLAGS := -g -O -Wall -std=f2018 -Wextra -Wno-maybe-uninitialized -Wno-uninitialized
-gfortran: F90FLAGS := -g -O -std=legacy # -Wall -Wextra
-gfortran: LDFLAGS :=  -g -std=legacy # -Wall -Wextra
+gfortran: F90FLAGS := -g -O3 -fallow-argument-mismatch 
+gfortran: LDFLAGS :=  -g -O3 -fallow-argument-mismatch
 gfortran: all
 	@echo built with $(F90)
 
@@ -30,6 +30,12 @@ nvfortran: F90FLAGS := -Minform=inform -Mbackslash -traceback
 nvfortran: F90FLAGS := -C all -Mbackslash
 nvfortran: LDFLAGS :=  -g -O
 nvfortran: all
+	@echo built with $(F90)
+
+natfor: F90=nagfor
+natfor: F90FLAGS := -dusty -C -C=undefined
+natfor: LDFLAGS := 
+natfor: all
 	@echo built with $(F90)
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 
@@ -97,18 +103,15 @@ test: $(TEST)
 #-------------------------------------------------------------------------------
 .PHONY: help
 help:
-	: 'make [gfortran|nvfortran|ifort]                            '
+	: 'make [gfortran|nvfortran|ifort|natfor]                     '
 	: '        -- build odepack and example programs              '
-	: 'clean                                                      '
-	: '        -- clean directory of object files and executables '
-	: 'ford                                                       '
-	: '        -- run ford(1) if you have it                      '
-	: 'help                                                       '
-	: '        -- display this text                               '
+	: 'run     -- run manpage demo programs and test program      '
+	: 'clean   -- clean directory of object files and executables '
+	: 'ford    -- run ford(1) if you have it                      '
+	: 'help    -- display this text                               '
 #	: 'doxygen -- run doxygen(1) if you have it                   '
 #	: 'man     -- show all manpages as text                       '
 #	: 'ship    -- rebuild archive files of manpages               '
-#	: 'run     -- run manpage demo programs and test program      '
 #	: 'test    -- run test program (requires additional modules)  '
 #-------------------------------------------------------------------------------
 #opkdmain.o : M_odepack.o

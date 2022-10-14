@@ -48,7 +48,7 @@ real(kind=dp)               :: C(M,M,N)
 real(kind=dp),intent(inout) :: Y(M,N)
 integer                     :: Ip(M,N)
 !
-real(kind=dp) :: dp
+real(kind=dp) :: dpr
 integer :: i , k , kb , km1 , kp1 , nm1 , nm2
 !
    nm1 = N - 1
@@ -59,15 +59,15 @@ integer :: i , k , kb , km1 , kp1 , nm1 , nm2
    do k = 2 , nm1
       km1 = k - 1
       do i = 1 , M
-         dp = ddot(M,C(i,1,k),M,Y(1,km1),1)
-         Y(i,k) = Y(i,k) - dp
+         dpr = ddot(M,C(i,1,k),M,Y(1,km1),1)
+         Y(i,k) = Y(i,k) - dpr
       enddo
       call dgesl(A(1,1,k),M,M,Ip(1,k),Y(1,k),0)
    enddo
 
    do i = 1 , M
-      dp = ddot(M,C(i,1,N),M,Y(1,nm1),1) + ddot(M,B(i,1,N),M,Y(1,nm2),1)
-      Y(i,N) = Y(i,N) - dp
+      dpr = ddot(M,C(i,1,N),M,Y(1,nm1),1) + ddot(M,B(i,1,N),M,Y(1,nm2),1)
+      Y(i,N) = Y(i,N) - dpr
    enddo
 
    call dgesl(A(1,1,N),M,M,Ip(1,N),Y(1,N),0)
@@ -77,14 +77,14 @@ integer :: i , k , kb , km1 , kp1 , nm1 , nm2
       k = N - kb
       kp1 = k + 1
       do i = 1 , M
-         dp = ddot(M,B(i,1,k),M,Y(1,kp1),1)
-         Y(i,k) = Y(i,k) - dp
+         dpr = ddot(M,B(i,1,k),M,Y(1,kp1),1)
+         Y(i,k) = Y(i,k) - dpr
       enddo
    enddo
 
    do i = 1 , M
-      dp = ddot(M,C(i,1,1),M,Y(1,3),1)
-      Y(i,1) = Y(i,1) - dp
+      dpr = ddot(M,C(i,1,1),M,Y(1,3),1)
+      Y(i,1) = Y(i,1) - dpr
    enddo
 
 end subroutine dsolbt

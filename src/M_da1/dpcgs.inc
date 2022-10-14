@@ -147,6 +147,7 @@ external psol
       if ( Mnewt>0 ) return
       !X!call dcopy(N,R,1,X,1)
       X(1:N) = R(1:N) !X!
+      X(1:N) = R(1:N)
       return
    endif
    !  Loop point for PCG iterations. ---------------------------------------

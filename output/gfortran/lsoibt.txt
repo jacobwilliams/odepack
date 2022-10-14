@@ -5,6 +5,7 @@
  <INFO> C COMPILER OPTIONS:  
  <INFO> LINKER OPTIONS:  
  <INFO> INCLUDE DIRECTORIES:  []
+[100%] Project compiled successfully.
  + build/gfortran_62DBE5382F66686F/example/lsoibt 
 
                      Demonstration Problem for DLSOIBT

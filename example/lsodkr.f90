@@ -122,6 +122,8 @@ data dkh/4.0d-6/ , vel/0.001d0/ , dkv0/1.0d-8/ , halfda/4.32d4/ , &
 ! Loop over output points, call DLSODKR, print sample solution values.
       do iout = 1 , 13
          do
+            ! initialize jroot, as jroot is not set unless istate returns 3
+            jroot = 0 
             call dlsodkr(fdem,[neq],y,t,tout,1,[rtol],[atol],1,istate,0,rwork,&
                        & lrw,iwork,liw,jacbd,solbd,mf,gdem,1,jroot)
             write (6,99002) t , iwork(11) , iwork(14) , rwork(11)
@@ -134,7 +136,7 @@ data dkh/4.0d-6/ , vel/0.001d0/ , dkv0/1.0d-8/ , halfda/4.32d4/ , &
                    &3d12.3/'   c2 (bot.left/middle/top rt.) =',3d12.3)
             write (6,99004) c2tot , jroot
 99004       format ('   total c2 =',d15.6,'   jroot =',                 &
-                   &i2' (1 = root found, 0 = no root)')
+                   &i2,' (1 = root found, 0 = no root)')
             if ( istate<0 ) then
                write (6,99005) istate
 99005          format ('DLSODKR returned istate = ',i3)
@@ -344,10 +346,11 @@ common /pcom  / q1 , q2 , q3 , q4 , a3 , a4 , om , c3 , dz ,      &
 !
 real(kind=dp) :: bd(2,2,*)
 real(kind=dp) :: c1 , c2 , czdn , czup , diag , temp , zdn , zup
+integer :: neq
 real(kind=dp) , dimension(neq) :: f0 , f1 , rewt , ysv
 real(kind=dp) :: hl0 , t
 integer :: iblok , iblok0 , jx , jz , lenbd
-integer :: ier , jok , neq
+integer :: ier , jok 
 integer , dimension(2,*) :: ipbd
 real(kind=dp) , dimension(2,*) :: y
 external f
@@ -428,9 +431,9 @@ subroutine c2sum(y,mx,mz,c2tot)
 implicit none
 integer,parameter :: dp=kind(0.0d0)
 !
-real(kind=dp)     :: y(2,mx,mz)
 integer           :: mx
 integer           :: mz
+real(kind=dp)     :: y(2,mx,mz)
 real(kind=dp)     :: c2tot
 !
 integer           :: jx , jz
