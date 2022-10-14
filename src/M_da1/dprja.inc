@@ -10,7 +10,7 @@
 !!
 !! J, scaled by -H*EL(1), is stored in WM.  Then the norm of J (the
 !! matrix norm consistent with the weighted max-norm on vectors given
-!! by DMNORM) is computed, and J is overwritten by P. 
+!! by DMNORM) is computed, and J is overwritten by P.
 !!
 !! P is then
 !! subjected to LU decomposition in preparation for later solution
@@ -71,8 +71,8 @@ subroutine dprja(Neq,Y,Yh,Nyh,Ewt,Ftem,Savf,Wm,Iwm,f,jac)
 !
 integer, dimension(*) :: Neq
 real(kind=dp), intent(inout), dimension(*) :: Y
-real(kind=dp), intent(in), dimension(Nyh,*) :: Yh
 integer, intent(in) :: Nyh
+real(kind=dp), intent(in), dimension(Nyh,*) :: Yh
 real(kind=dp), dimension(*) :: Ewt
 real(kind=dp), dimension(*) :: Ftem
 real(kind=dp), dimension(*) :: Savf

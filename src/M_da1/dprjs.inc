@@ -11,7 +11,7 @@
 !!
 !! if MITER = 1 or 2, and if the existing value of the Jacobian
 !! (as contained in P) is considered acceptable, then a new value of
-!! P is reconstructed from the old value. 
+!! P is reconstructed from the old value.
 !!
 !! In any case, when MITER
 !! is 1 or 2, the P matrix is subjected to LU decomposition in CDRV.

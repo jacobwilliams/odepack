@@ -153,8 +153,8 @@ subroutine dstoka(Neq,Y,Yh,Nyh,Yh1,Ewt,Savf,Savx,Acor,Wm,Iwm,f,jac,psol)
 
 integer, dimension(*) :: Neq
 real(kind=dp), dimension(*) :: Y
-real(kind=dp), intent(inout), dimension(Nyh,*) :: Yh
 integer, intent(in) :: Nyh
+real(kind=dp), intent(inout), dimension(Nyh,*) :: Yh
 real(kind=dp), intent(inout), dimension(*) :: Yh1
 real(kind=dp), dimension(*) :: Ewt
 real(kind=dp), intent(inout), dimension(*) :: Savf

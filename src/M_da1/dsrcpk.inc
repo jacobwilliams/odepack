@@ -5,15 +5,15 @@
 !! This routine saves or restores (depending on JOB) the contents of
 !! the internal types used internally by the DLSODPK solver.
 !!
-!! RSAV 
+!! RSAV
 !!
 !! : real array of length 222 or more.
 !!
-!! ISAV 
+!! ISAV
 !!
 !! : integer array of length 50 or more.
 !!
-!! JOB  
+!! JOB
 !!
 !! : flag indicating to save or restore the Common blocks:
 !!

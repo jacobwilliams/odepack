@@ -9,7 +9,7 @@
 !!### Synopsis
 !!
 !!        subroutine dlhin(Neq,N,T0,Y0,Ydot,f,Tout,Uround,Ewt,Itol,Atol,Y,Temp,H0,Niter,Ier)
-!!        
+!!
 !!        integer                     :: Neq(*)
 !!        integer                     :: N
 !!        real(kind=dp),intent(in)    :: T0
@@ -43,7 +43,7 @@
 !! Call DLHIN(NEQ,N,T0,Y0,YDOT,F,TOUT,UROUND,EWT,ITOL,ATOL,Y,TEMP &
 !! & H0,NITER,IER
 !!
-!! Subroutines called by DLHIN: F 
+!! Subroutines called by DLHIN: F
 !! Function routines called by DLHIN: DVNORM
 !!
 !!### INPUT OPTIONS
@@ -126,10 +126,10 @@ real(kind=dp)               :: Temp(*)
 real(kind=dp),intent(inout) :: H0
 integer, intent(out)        :: Niter
 integer, intent(out)        :: Ier
- 
+
 real(kind=dp) :: afi, atoli, delyi, hg, hlb, hnew, hrat, hub, t1, tdist, tround, yddnrm
 integer       :: i, iter
- 
+
    Niter = 0
    tdist = abs(Tout-T0)
    tround = Uround*max(abs(T0),abs(Tout))

@@ -18,49 +18,49 @@
 !!
 !!### INPUT
 !!
-!! M 
+!! M
 !!
 !! : order of each block.
 !!
-!! N 
+!! N
 !!
 !! : number of blocks in each direction of the matrix.
 !!   N must be 4 or more.  The complete matrix has order M*N.
 !!
-!! A 
+!! A
 !!
 !! : M by M by N array containing diagonal blocks.
 !!   A(i,j,k) contains the (i,j) element of the k-th block.
 !!
-!! B 
+!! B
 !!
 !! : M by M by N array containing the super-diagonal blocks
 !!   (in B(*,*,k) for k = 1,...,N-1) and the block in the (N,N-2)
 !!   block position (in B(*,*,N)).
 !!
-!! C 
+!! C
 !!
 !! : M by M by N array containing the subdiagonal blocks
 !!   (in C(*,*,k) for k = 2,3,...,N) and the block in the
 !!   (1,3) block position (in C(*,*,1)).
 !!
-!! IP 
+!! IP
 !!
 !! : integer array of length M*N for working storage.
 !!
 !!### OUTPUT
 !!
-!! A,B,C 
+!! A,B,C
 !!
 !! : M by M by N arrays containing the block-LU decomposition
 !!   of the input matrix.
 !!
-!! IP 
+!! IP
 !!
 !! : M by N array of pivot information.  IP(*,k) contains
 !!   information for the k-th digonal block.
 !!
-!! IER 
+!! IER
 !!
 !! : 0  if no trouble occurred, or
 !!       = -1 if the input value of M or N was illegal, or

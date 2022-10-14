@@ -11,13 +11,13 @@
 !!
 !-----------------------------------------------------------------------
 subroutine adjlr(N,Isp,Ldif)
- 
+
 integer,intent(in)  :: N
 integer,intent(in)  :: Isp(*)
 integer,intent(out) :: Ldif
- 
+
 integer :: ip , jlmax , jumax , lnfc , lsfc , nzlu
-    
+
    ip = 2*N + 1
 
    ! Get JLMAX = IJL(N) and JUMAX = IJU(N) (sizes of JL and JU). -------

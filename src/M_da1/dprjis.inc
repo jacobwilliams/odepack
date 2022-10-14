@@ -4,15 +4,15 @@
 !>
 !! DPRJIS is called to compute and process the matrix
 !! P = A - H*EL(1)*J, where J is an approximation to the Jacobian dr/dy,
-!! where r = g(t,y) - A(t,y)*s.  
+!! where r = g(t,y) - A(t,y)*s.
 !!
 !! J is computed by columns, either by
 !! the user-supplied routine JAC if MITER = 1, or by finite differencing
-!! if MITER = 2.  
+!! if MITER = 2.
 !!
 !! J is stored in WK, rescaled, and ADDA is called to
-!! generate P.  
-!! 
+!! generate P.
+!!
 !! The matrix P is subjected to LU decomposition in CDRV.
 !! P and its LU decomposition are stored separately in WK.
 !!
@@ -75,8 +75,8 @@ subroutine dprjis(Neq,Y,Yh,Nyh,Ewt,Rtem,Savr,S,Wk,Iwk,res,jac,adda)
 !
 integer, dimension(*) :: Neq
 real(kind=dp), intent(inout), dimension(*) :: Y
-real(kind=dp), intent(in), dimension(Nyh,*) :: Yh
 integer, intent(in) :: Nyh
+real(kind=dp), intent(in), dimension(Nyh,*) :: Yh
 real(kind=dp), intent(in), dimension(*) :: Ewt
 real(kind=dp), intent(inout), dimension(*) :: Rtem
 real(kind=dp), dimension(*) :: Savr

@@ -94,16 +94,16 @@ integer,intent(out) :: Irt
 real(kind=dp)       :: hming, t1, temp1, temp2, x
 integer             :: i, iflag, jflag
 logical             :: zroot
- 
+
    Irt = 0
    do i = 1, dlsr%ngc
       Jroot(i) = 0
    enddo
    hming = (abs(dls1%tn)+abs(dls1%h))*dls1%uround*100.0D0
-    
+
    select case (Job)
    case (2)
-    
+
       if ( dlsr%irfnd/=0 ) then
          !  If a root was found on the previous step, evaluate G0 = g(T0). -------
          call dintdy(dlsr%t0,0,Yh,Nyh,Y,iflag)
@@ -176,7 +176,7 @@ logical             :: zroot
             return
          endif
       endif
-    
+
       return
    endselect
    !
@@ -203,7 +203,7 @@ logical             :: zroot
       if ( jflag>1 ) then
          dlsr%t0 = x
          !X!call dcopy(dlsr%ngc,Gx,1,G0,1)
-         G0(1:dlsr%ngc) = Gx(1:dlsr%ngc)
+         G0(1:dlsr%ngc) = Gx(1:dlsr%ngc)!X!
          if ( jflag/=4 ) exit
          return
       else

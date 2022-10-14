@@ -18,12 +18,12 @@
 !!
 !!### Description of parameters.
 !!
-!! NG     
+!! NG
 !!
 !! : number of functions gi, or the number of components of
 !! the vector valued function g(x).  Input only.
 !!
-!! HMIN   
+!! HMIN
 !!
 !! : resolution parameter in X.  Input only.  When a root is
 !! found, it is located only to within an error of HMIN in X.
@@ -31,7 +31,7 @@
 !!               100 * UROUND * MAX(ABS(X0),ABS(X1)),
 !! where UROUND is the unit roundoff of the machine.
 !!
-!! JFLAG  
+!! JFLAG
 !!
 !! : integer flag for input and output communication.
 !!
@@ -56,7 +56,7 @@
 !!          JFLAG = 4 means no roots (of odd multiplicity) were
 !!                    found in (X0,X1) (no sign changes).
 !!
-!! X0,X1  
+!! X0,X1
 !!
 !! : endpoints of the interval where roots are sought.
 !! X1 and X0 are input when JFLAG = 0 (first call), and
@@ -67,19 +67,19 @@
 !! When JFLAG .ge. 2 on return, X0 and X1 are output, and
 !! are the endpoints of the relevant interval.
 !!
-!! G0,G1  
+!! G0,G1
 !!
 !! : arrays of length NG containing the vectors g(X0) and g(X1),
 !! respectively.  When JFLAG = 0, G0 and G1 are input and
 !! none of the G0(i) should be zero.
 !! When JFLAG .ge. 2 on return, G0 and G1 are output.
 !!
-!! GX     
+!! GX
 !!
 !! : array of length NG containing g(X).  GX is input
 !! when JFLAG = 1, and output when JFLAG .ge. 2.
 !!
-!! X      
+!! X
 !!
 !! : independent variable value.  Output only.
 !! When JFLAG = 1 on output, X is the point at which g(x)
@@ -89,7 +89,7 @@
 !!
 !!          When JFLAG = 4, X is the right endpoint of the interval, X1.
 !!
-!! JROOT  
+!! JROOT
 !!
 !! : integer array of length NG.  Output only.
 !! When JFLAG = 2 or 3, JROOT indicates which components
@@ -144,13 +144,13 @@ real(kind=dp) , parameter :: five=5.0d0 , half=0.5d0 , tenth=0.1d0 , zero=0.0d0
    !  Sign change between X0 and X2, so replace X1 with X2. ----------------
          X1 = dlsr%x2
          !X!call dcopy(Ng,Gx,1,G1,1)
-         G1(1:Ng) = Gx(1:Ng)
+         G1(1:Ng) = Gx(1:Ng)!X!
          dlsr%last = 1
          xroot = .false.
       elseif ( .not.zroot ) then
    !  No sign change between X0 and X2.  Replace X0 with X2. ---------------
          !X!call dcopy(Ng,Gx,1,G0,1)
-         G0(1:Ng) = Gx(1:Ng)
+         G0(1:Ng) = Gx(1:Ng)!X!
          X0 = dlsr%x2
          dlsr%last = 0
          xroot = .false.
@@ -158,7 +158,7 @@ real(kind=dp) , parameter :: five=5.0d0 , half=0.5d0 , tenth=0.1d0 , zero=0.0d0
    !  Zero value at X2 and no sign change in (X0,X2), so X2 is a root. -----
          X1 = dlsr%x2
          !X!call dcopy(Ng,Gx,1,G1,1)
-         G1(1:Ng) = Gx(1:Ng)
+         G1(1:Ng) = Gx(1:Ng)!X!
          xroot = .true.
       endif
       if ( abs(X1-X0)<=Hmin ) xroot = .true.
@@ -192,7 +192,7 @@ real(kind=dp) , parameter :: five=5.0d0 , half=0.5d0 , tenth=0.1d0 , zero=0.0d0
             !  Zero value at X1 and no sign change in (X0,X1).  Return JFLAG = 3. ---
             X = X1
             !X!call dcopy(Ng,G1,1,Gx,1)
-            Gx(1:Ng) = G1(1:Ng)
+            Gx(1:Ng) = G1(1:Ng)!X!
             do i = 1 , Ng
                Jroot(i) = 0
                if ( abs(G1(i))<=zero ) Jroot(i) = 1
@@ -203,7 +203,7 @@ real(kind=dp) , parameter :: five=5.0d0 , half=0.5d0 , tenth=0.1d0 , zero=0.0d0
    !
    !  No sign changes in this interval.  Set X = X1, return JFLAG = 4. -----
          !X!call dcopy(Ng,G1,1,Gx,1)
-         Gx(1:Ng) = G1(1:Ng)
+         Gx(1:Ng) = G1(1:Ng)!X!
          X = X1
          Jflag = 4
          return
@@ -222,7 +222,7 @@ real(kind=dp) , parameter :: five=5.0d0 , half=0.5d0 , tenth=0.1d0 , zero=0.0d0
       Jflag = 2
       X = X1
       !X!call dcopy(Ng,G1,1,Gx,1)
-      Gx(1:Ng) = G1(1:Ng)
+      Gx(1:Ng) = G1(1:Ng)!X!
       do i = 1 , Ng
          Jroot(i) = 0
          if ( abs(G1(i))>zero ) then

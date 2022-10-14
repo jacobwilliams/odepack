@@ -21,7 +21,7 @@
 !!       a - array
 !!
 !!### class - parameter
-!!        
+!!
 !!   the nonzero entries of the coefficient matrix m are stored
 !!   row-by-row in the array a.  to identify the individual nonzero
 !!   entries in each row, we need to know in which column each entry

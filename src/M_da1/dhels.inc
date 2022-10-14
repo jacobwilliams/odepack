@@ -37,10 +37,10 @@
 !-----------------------------------------------------------------------
 !    Modification of LINPACK, by Peter Brown, LLNL.
 !    Written 1/13/86.  This version dated 6/20/01.
-! 
+!
 !    BLAS called: DAXPY
 !-----------------------------------------------------------------------
- 
+
 subroutine dhels(A,Lda,N,Q,B)
 !
 integer,intent(in)          :: Lda

@@ -42,15 +42,15 @@
 !!
 !!### ON ENTRY
 !!
-!!   A   
+!!   A
 !!
 !!   :   the output from DGECO or DGEFA.
 !!
-!!   LDA 
+!!   LDA
 !!
 !!   :   the leading dimension of the array  A .
 !!
-!!   N  
+!!   N
 !!
 !!   :   the order of the matrix  A .
 !!
@@ -58,11 +58,11 @@
 !!
 !!   :   the pivot vector from DGECO or DGEFA.
 !!
-!!   B  
+!!   B
 !!
 !!   :   the right hand side vector.
 !!
-!!   JOB  
+!!   JOB
 !!   :
 !!        = 0         to solve  A*X = B ,
 !!        = nonzero   to solve  TRANS(A)*X = B  where
@@ -70,15 +70,15 @@
 !!
 !!### ON RETURN
 !!
-!!   B 
+!!   B
 !!
 !!   :   the solution vector  X .
 !!
-!!### REFERENCES  
+!!### REFERENCES
 !!   J. J. Dongarra, J. R. Bunch, C. B. Moler, and G. W.
 !!   Stewart, LINPACK Users' Guide, SIAM, 1979.
 !!
-! 
+!
 ! ### CATEGORY  D2A1
 ! ### TYPE      DOUBLE PRECISION (SGESL-S, DGESL-D, CGESL-C)
 ! ### KEYWORDS  LINEAR ALGEBRA, LINPACK, MATRIX, SOLVE
@@ -92,11 +92,11 @@
 !     19900326  Removed duplicate information from DESCRIPTION section.
 !               (WRB)
 !     19920501  Reformatted the REFERENCES section.  (WRB)
-! 
+!
 subroutine dgesl(A,Lda,N,Ipvt,B,Job)
 !
-real(kind=dp)               :: A(Lda,*)
 integer,intent(in)          :: Lda
+real(kind=dp)               :: A(Lda,*)
 integer,intent(in)          :: N
 integer,intent(in)          :: Ipvt(*)
 real(kind=dp),intent(inout) :: B(*)

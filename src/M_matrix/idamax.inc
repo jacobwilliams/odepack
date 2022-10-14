@@ -2,7 +2,7 @@
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !----------------------------------------------------------------------------------------------------------------------------------!
 !>
-!!### NAME 
+!!### NAME
 !! idamax(3f) - [M_odepack::matrix] Find the smallest index of that
 !! component of a vector having the maximum magnitude.
 !!
@@ -19,7 +19,7 @@
 !!  IDAMAX = first I, I = 1 to N, to maximize ABS(DX(IX+(I-1)*INCX)),
 !!  where IX = 1 if INCX .GE. 0, else IX = 1+(1-N)*INCX.
 !!
-!!### OPTIONS    
+!!### OPTIONS
 !!
 !!   N
 !!   :   number of elements in input vector(s)
@@ -30,12 +30,12 @@
 !!   INCX
 !!   :   storage spacing between elements of DX
 !!
-!!### RETURNS    
+!!### RETURNS
 !!
 !!   IDAMAX
 !!   :   smallest index (zero if N .LE. 0)
 !!
-!!### REFERENCES  
+!!### REFERENCES
 !!#### B L A S  Subprogram
 !!
 !!   C. L. Lawson, R. J. Hanson, D. R. Kincaid and F. T.
@@ -59,7 +59,7 @@
 !     19900821  Modified to correct problem with a negative increment.
 !               (WRB)
 !     19920501  Reformatted the REFERENCES section.  (WRB)
-! 
+!
 function idamax(N,Dx,Incx)
 !
 integer                  :: idamax

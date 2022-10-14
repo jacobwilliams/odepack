@@ -22,21 +22,21 @@
 !!
 !!### OPTIONS
 !!
-!!   A    
+!!   A
 !!
 !!   :   the matrix to be factored.
 !!
-!!   LDA   
+!!   LDA
 !!
 !!   :   the leading dimension of the array  A .
 !!
-!!   N    
+!!   N
 !!
 !!   :   the order of the matrix  A .
 !!
 !!### RETURNS
 !!
-!!   A  
+!!   A
 !!
 !!   :   an upper triangular matrix and the multipliers
 !!       which were used to obtain it.
@@ -51,9 +51,9 @@
 !!
 !!   :   an integer vector of pivot indices.
 !!
-!!   INFO 
+!!   INFO
 !!
-!!   :  
+!!   :
 !!        = 0  normal value.
 !!        = K  if  U(K,K) .EQ. 0.0 .  This is not an error
 !!             condition for this subroutine, but it does
@@ -61,7 +61,7 @@
 !!             if called.  Use  RCOND  in DGECO for a reliable
 !!             indication of singularity.
 !!
-!!### REFERENCES 
+!!### REFERENCES
 !!   J. J. Dongarra, J. R. Bunch, C. B. Moler, and G. W.
 !!   Stewart, LINPACK Users' Guide, SIAM, 1979.
 !!
@@ -79,11 +79,11 @@
 !     19900326  Removed duplicate information from DESCRIPTION section.
 !             (WRB)
 !     19920501  Reformatted the REFERENCES section.  (WRB)
-! 
+!
 subroutine dgefa(A,Lda,N,Ipvt,Info)
 !
-real(kind=dp),intent(inout) :: A(Lda,*)
 integer,intent(in)          :: Lda
+real(kind=dp),intent(inout) :: A(Lda,*)
 integer,intent(in)          :: N
 integer,intent(out)         :: Ipvt(*)
 integer,intent(out)         :: Info

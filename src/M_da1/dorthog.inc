@@ -9,35 +9,35 @@
 !!
 !!### On entry
 !!
-!! VNEW 
+!! VNEW
 !!
 !! : the vector of length N containing a scaled product
 !! of the Jacobian and the vector V(*,LL).
 !!
-!! V    
+!! V
 !!
 !! : the N x l array containing the previous LL
 !! orthogonal vectors v(*,1) to v(*,LL).
 !!
-!! HES  
+!! HES
 !!
 !! : an LL x LL upper Hessenberg matrix containing,
 !! in HES(i,k), k.lt.LL, scaled inner products of
 !! A*V(*,k) and V(*,i).
 !!
-!! LDHES 
+!! LDHES
 !!
 !! : the leading dimension of the HES array.
 !!
-!! N    
+!! N
 !!
 !! : the order of the matrix A, and the length of VNEW.
 !!
-!! LL   
+!! LL
 !!
 !! : the current order of the matrix HES.
 !!
-!! KMP 
+!! KMP
 !!
 !! : the number of previous vectors the new vector VNEW
 !! must be made orthogonal to (KMP .le. MAXL).
@@ -45,17 +45,17 @@
 !!
 !!### On return
 !!
-!! VNEW 
+!! VNEW
 !!
 !! : the new vector orthogonal to V(*,i0) to V(*,LL),
 !! where i0 = MAX(1, LL-KMP+1).
 !!
-!! HES  
+!! HES
 !!
 !! : upper Hessenberg matrix with column LL filled in with
 !! scaled inner products of A*V(*,LL) and V(*,i).
 !!
-!! SNORMW 
+!! SNORMW
 !!
 !! : L-2 norm of VNEW.
 !!

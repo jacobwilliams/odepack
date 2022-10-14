@@ -13,8 +13,8 @@ fpm run --profile release --flag -g  --compiler nvfortran
 ################################################################################
 IFORT(){
    [ -f ccout ] && rm -f ccout 
-   #fpm run --profile release --flag -g0 --compiler ifort     --verbose --example $NAME >output/ifort/$NAME.txt
-   fpm run                  --flag -cpp  --compiler ifort               --example $NAME >output/ifort/$NAME.txt
+  #fpm run --profile release --flag -g0   --compiler ifort     --verbose --example $NAME >output/ifort/$NAME.txt
+   fpm run                   --flag -cpp  --compiler ifort               --example $NAME >output/ifort/$NAME.txt
    [ -f ccount ] && mv ccout output/ifort/ccout.txt
 }
 ################################################################################

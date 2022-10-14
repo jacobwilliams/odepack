@@ -798,8 +798,8 @@
 !!
 !! The following 2 words in IWORK are conditional inputs:
 !!```text
-!!            IWORK(1) = ML  
-!!            IWORK(2) = MU  
+!!            IWORK(1) = ML
+!!            IWORK(2) = MU
 !!```
 !! These are the lower and upper half-bandwidths, respectively, of the
 !! banded Jacobian, excluding the main diagonal.  The band is defined by
@@ -1019,17 +1019,17 @@
 !! as noted below.
 !!
 !! Name  | Location |     Meaning
-!! ----- |--------- | ---------------------------------------------------                                                    
+!! ----- |--------- | ---------------------------------------------------
 !! HU    | RWORK(11)| the step size in t last used (successfully).
-!!       |          |                                                     
+!!       |          |
 !! HCUR  | RWORK(12)| the step size to be attempted on the next step.
-!!       |          |                                                     
+!!       |          |
 !! TCUR  | RWORK(13)| the current value of the independent variable
 !!       |          | which the solver has actually reached, i.e. the
 !!       |          | current internal mesh point in t.  On output, TCUR
 !!       |          | will always be at least as far as the argument
 !!       |          | T, but may be farther (if interpolation was done).
-!!       |          |                                                     
+!!       |          |
 !! TOLSF | RWORK(14)| a tolerance scale factor, greater than 1.0,
 !!       |          | computed when a request for too much accuracy was
 !!       |          | detected (ISTATE = -3 if detected at the start of
@@ -1039,56 +1039,56 @@
 !!       |          | then the solver is deemed likely to succeed.
 !!       |          | (The user may also ignore TOLSF and alter the
 !!       |          | tolerance parameters in any other way appropriate.)
-!!       |          |                                                     
+!!       |          |
 !! TSW   | RWORK(15)| the value of t at the time of the last method
 !!       |          | switch, if any.
-!!       |          |                                                     
+!!       |          |
 !! NGE   | IWORK(10)| the number of g evaluations for the problem so far.
-!!       |          |                                                     
+!!       |          |
 !! NST   | IWORK(11)| the number of steps taken for the problem so far.
-!!       |          |                                                     
+!!       |          |
 !! NFE   | IWORK(12)| the number of f evaluations for the problem so far.
-!!       |          |                                                     
+!!       |          |
 !! NJE   | IWORK(13)| the number of Jacobian evaluations (and of matrix
 !!       |          | LU decompositions) for the problem so far.
-!!       |          |                                                     
+!!       |          |
 !! NQU   | IWORK(14)| the method order last used (successfully).
-!!       |          |                                                     
+!!       |          |
 !! NQCUR | IWORK(15)| the order to be attempted on the next step.
-!!       |          |                                                     
+!!       |          |
 !! IMXER | IWORK(16)| the index of the component of largest magnitude in
 !!       |          | the weighted local error vector ( E(i)/EWT(i) ),
 !!       |          | on an error return with ISTATE = -4 or -5.
-!!       |          |                                                     
+!!       |          |
 !! LENRW | IWORK(17)| the length of RWORK actually required, assuming
 !!       |          | that the length of RWORK is to be fixed for the
 !!       |          | rest of the problem, and that switching may occur.
 !!       |          | This is defined on normal returns and on an illegal
 !!       |          | input return for insufficient storage.
-!!       |          |                                                     
+!!       |          |
 !! LENIW | IWORK(18)| the length of IWORK actually required, assuming
 !!       |          | that the length of IWORK is to be fixed for the
 !!       |          | rest of the problem, and that switching may occur.
 !!       |          | This is defined on normal returns and on an illegal
 !!       |          | input return for insufficient storage.
-!!       |          |                                                     
+!!       |          |
 !! MUSED | IWORK(19)| the method indicator for the last successful step:
 !!       |          | 1 means Adams (nonstiff), 2 means BDF (stiff).
-!!       |          |                                                     
+!!       |          |
 !! MCUR  | IWORK(20)| the current method indicator:
 !!       |          | 1 means Adams (nonstiff), 2 means BDF (stiff).
 !!       |          | This is the method to be attempted
 !!       |          | on the next step.  Thus it differs from MUSED
 !!       |          | only if a method switch has just been made.
-!!                                                                       
+!!
 !! The following two arrays are segments of the RWORK array which
 !! may also be of interest to the user as optional outputs.
 !! For each array, the table below gives its internal name,
 !! its base address in RWORK, and its description.
 !!
 !! Name  | Base Address |    Description
-!! ----- | ------------ | ---------------------------------------------------                                                    
-!!       |              |        
+!! ----- | ------------ | ---------------------------------------------------
+!!       |              |
 !! YH    | 21 + 3\*NG   |  the Nordsieck history array, of size NYH by
 !!       |              | (NQCUR + 1), where NYH is the initial value
 !!       |              | of NEQ.  For j = 0,1,...,NQCUR, column j+1
@@ -1096,7 +1096,7 @@
 !!       |              | the j-th derivative of the interpolating
 !!       |              | polynomial currently representing the solution,
 !!       |              | evaluated at t = TCUR.
-!!       |              |        
+!!       |              |
 !! ACOR  |  LACOR       | array of size NEQ used for the accumulated
 !!       | (from Common | corrections on each step, scaled on output
 !!       |   as noted)  | to represent the estimated local error in y
@@ -1122,16 +1122,16 @@
 !!                             | output of messages from DLSODAR, if
 !!                             | the default is not desired.
 !!                             | The default value of LUN is 6.
-!!                             |                                                                            
+!!                             |
 !!  CALL XSETF(MFLAG)          | Set a flag to control the printing of
 !!                             | messages by DLSODAR.
 !!                             | MFLAG = 0 means do not print. (Danger:
 !!                             | This risks losing valuable information.)
 !!                             | MFLAG = 1 means print (the default).
-!!                             |         
+!!                             |
 !!                             | Either of the above calls may be made at
 !!                             | any time and will take effect immediately.
-!!                             |         
+!!                             |
 !!  CALL DSRCAR(RSAV,ISAV,JOB) | saves and restores the contents of
 !!                             | the internal Common blocks used by
 !!                             | DLSODAR (see Part 3 below).
@@ -1140,17 +1140,17 @@
 !!                             | array of length 55 or more.
 !!                             | JOB=1 means save Common into RSAV/ISAV.
 !!                             | JOB=2 means restore Common from RSAV/ISAV.
-!!                             |                                                      
+!!                             |
 !!                             |    DSRCAR is useful if one is
 !!                             | interrupting a run and restarting
 !!                             | later, or alternating between two or
 !!                             | more problems solved with DLSODAR.
-!!                             |         
+!!                             |
 !!  CALL DINTDY(,,,,,)         | Provide derivatives of y, of various
 !!       (see below)           | orders, at a specified point t, if
 !!                             | desired.  It may be called only after
 !!                             | a successful return from DLSODAR.
-!!                                                                        
+!!
 !! The detailed instructions for using DINTDY are as follows.
 !! The form of the call is:
 !!```fortran
@@ -1159,14 +1159,14 @@
 !!```
 !! The input parameters are:
 !!
-!! T         
+!! T
 !!
 !! : value of independent variable where answers are desired
 !! (normally the same as the T last returned by DLSODAR).
 !! For valid results, T must lie between TCUR - HU and TCUR.
 !! (See optional outputs for TCUR and HU.)
 !!
-!! K         
+!! K
 !!
 !! : integer order of the derivative desired.  K must satisfy
 !! 0 .le. K .le. NQCUR, where NQCUR is the current order
@@ -1175,22 +1175,22 @@
 !! by DLSODAR directly.  Since NQCUR .ge. 1, the first
 !! derivative dy/dt is always available with DINTDY.
 !!
-!! LYH       
+!! LYH
 !!
 !! : 21 + 3\*NG = base address in RWORK of the history array YH.
 !!
-!! NYH       
+!! NYH
 !!
 !! : column length of YH, equal to the initial value of NEQ.
 !!
 !! The output parameters are:
 !!
-!! DKY       
+!! DKY
 !!
 !! : a real array of length NEQ containing the computed value
 !! of the K-th derivative of y(t).
 !!
-!! IFLAG     
+!! IFLAG
 !!
 !! : integer flag, returned as 0 if K and T were legal,
 !! -1 if K was illegal, and -2 if T was illegal.
@@ -1204,7 +1204,7 @@
 !! following the return from the last DLSODAR call prior to the
 !! interruption, the contents of the call sequence variables and the
 !! internal state variables, and later restore these values before the
-!! next DLSODAR call for that problem.  To save and restore, 
+!! next DLSODAR call for that problem.  To save and restore,
 !! use Subroutine DSRCAR (see Part 2 above).
 !!
 !!-----------------------------------------------------------------------
@@ -1645,7 +1645,8 @@ else
                   if ( Lrw>=lyhnew-1+lenyh ) then
                      i1 = 1
                      if ( lyhnew>dls1%lyh ) i1 = -1
-                     call dcopy(lenyh,Rwork(dls1%lyh),i1,Rwork(lyhnew),i1)
+                     !X!call dcopy(lenyh,Rwork(dls1%lyh),i1,Rwork(lyhnew),i1)
+                     Rwork(lyhnew:lyhnew+lenyh-1:i1)=Rwork(dls1%lyh:dls1%lyh+lenyh-1:i1) !X!
                      dls1%lyh = lyhnew
                   endif
                endif

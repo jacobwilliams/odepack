@@ -7,23 +7,23 @@
 !! arising from chord iteration.
 !! Communication with DSLSBT uses the following variables:
 !!
-!! WM    
+!! WM
 !!
 !! : real work space containing the LU decomposition,
 !! starting at WM(3).
 !!
-!! IWM   
+!! IWM
 !!
 !! : integer work space containing pivot information, starting at
 !! IWM(21).  IWM also contains block structure parameters
 !! MB = IWM(1) and NB = IWM(2).
 !!
-!! X     
+!! X
 !!
 !! : the right-hand side vector on input, and the solution vector
 !! on output, of length N.
 !!
-!! TEM   
+!! TEM
 !!
 !! : vector of work space of length N, not used in this version.
 !-----------------------------------------------------------------------

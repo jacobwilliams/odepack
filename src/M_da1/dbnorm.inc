@@ -1,16 +1,16 @@
 !----------------------------------------------------------------------------------------------------------------------------------!
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !----------------------------------------------------------------------------------------------------------------------------------!
-!> 
+!>
 !! This function computes the norm of a banded N by N matrix,
 !! stored in the array A, that is consistent with the weighted max-norm
 !! on vectors, with weights stored in the array W.
 !! ML and MU are the lower and upper half-bandwidths of the matrix.
 !! NRA is the first dimension of the A array, NRA .ge. ML+MU+1.
 !! In terms of the matrix elements a(i,j), the norm is given by:
-!!   
+!!
 !!     DBNORM = MAX(i=1,...,N) ( W(i) * Sum(j=1,...,N) ABS(a(i,j))/W(j) )
-!!   
+!!
 !-----------------------------------------------------------------------
 pure function dbnorm (n, a, nra, ml, mu, w)
 integer,intent(in)       :: n

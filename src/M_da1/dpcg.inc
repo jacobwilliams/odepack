@@ -9,86 +9,86 @@
 !!
 !!### On entry
 !!
-!! NEQ 
+!! NEQ
 !!
 !! : problem size, passed to F and PSOL (NEQ(1) = N).
 !!
-!! TN 
+!! TN
 !!
 !! : current value of t.
 !!
-!! Y 
+!! Y
 !!
 !! : array containing current dependent variable vector.
 !!
-!! SAVF 
+!! SAVF
 !!
 !! : array containing current value of f(t,y).
 !!
-!! R 
+!! R
 !!
 !! : the right hand side of the system A*x = b.
 !!
-!! WGHT 
+!! WGHT
 !!
 !! : array of length N containing scale factors.
 !! 1/WGHT(i) are the diagonal elements of the diagonal
 !! scaling matrix D.
 !!
-!! N 
+!! N
 !!
 !! : the order of the matrix A, and the lengths
 !! of the vectors Y, SAVF, R, WGHT, P, W, Z, WK, and X.
 !!
-!! MAXL 
+!! MAXL
 !!
 !! : the maximum allowable number of iterates.
 !!
-!! DELTA 
+!! DELTA
 !!
 !! : tolerance on residuals b - A*x in weighted RMS-norm.
 !!
-!! HL0 
+!! HL0
 !!
 !! : current value of (step size h) * (coefficient l0).
 !!
-!! JPRE 
+!! JPRE
 !!
 !! : preconditioner type flag.
 !!
-!! MNEWT 
+!! MNEWT
 !!
 !! : Newton iteration counter (.ge. 0).
 !!
-!! WK 
+!! WK
 !!
 !! : real work array used by routine DATP.
 !!
-!! WP 
+!! WP
 !!
 !! : real work array used by preconditioner PSOL.
 !!
-!! IWP 
+!! IWP
 !!
 !! : integer work array used by preconditioner PSOL.
 !!
 !!#### On return
 !!
-!! X    
+!! X
 !!
 !! : the final computed approximation to the solution
 !! of the system A*x = b.
 !!
-!! LPCG 
+!! LPCG
 !!
 !! : the number of iterations performed, and current
 !! order of the upper Hessenberg matrix HES.
 !!
-!! NPSL 
+!! NPSL
 !!
 !! : the number of calls to PSOL.
 !!
-!! IFLAG 
+!! IFLAG
 !!
 !! : integer error flag:
 !!
@@ -123,15 +123,15 @@ integer,intent(in)           :: Mnewt
 external                     :: f
 external                     :: psol
 integer,intent(out)          :: Npsl
-real(kind=dp),intent(inout)  :: X(*) 
-real(kind=dp),intent(inout)  :: P(*) 
-real(kind=dp),intent(inout)  :: W(*) 
+real(kind=dp),intent(inout)  :: X(*)
+real(kind=dp),intent(inout)  :: P(*)
+real(kind=dp),intent(inout)  :: W(*)
 real(kind=dp),intent(inout)  :: Z(*)
-integer,intent(out)          :: Lpcg 
-real(kind=dp),intent(inout)  :: Wp(*) 
+integer,intent(out)          :: Lpcg
+real(kind=dp),intent(inout)  :: Wp(*)
 integer                      :: Iwp(*)
-real(kind=dp),intent(inout)  :: Wk(*) 
-integer,intent(out)          :: Iflag 
+real(kind=dp),intent(inout)  :: Wk(*)
+integer,intent(out)          :: Iflag
 !
 real(kind=dp) :: alpha , beta , bnrm , ptw , rnrm , ztr , ztr0
 integer :: i , ier
@@ -150,14 +150,14 @@ integer :: i , ier
    else
       if ( Mnewt>0 ) return
       !X!call dcopy(N,R,1,X,1)
-      X(1:N) = R(1:N)
+      X(1:N) = R(1:N)!X!
       return
    endif
    !  Loop point for PCG iterations. ---------------------------------------
    INFINITE: do
       Lpcg = Lpcg + 1
       !X!call dcopy(N,R,1,Z,1)
-      Z(1:N) = R(1:N)
+      Z(1:N) = R(1:N)!X!
       ier = 0
       if ( Jpre/=0 ) then
          call psol(Neq,Tn,Y,Savf,Wk,Hl0,Wp,Iwp,Z,3,ier)
@@ -175,7 +175,7 @@ integer :: i , ier
       ztr = ddot(N,Z,1,R,1)
       if ( Lpcg==1 ) then
          !X!call dcopy(N,Z,1,P,1)
-         P(1:N) = Z(1:N)
+         P(1:N) = Z(1:N)!X!
       elseif ( ztr0==0.0D0 ) then
       !-----------------------------------------------------------------------
       !  This block handles division by zero errors.

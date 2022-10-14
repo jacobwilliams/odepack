@@ -18,7 +18,7 @@
 !!
 !!  Communication with DSOLSY uses the following variables:
 !!
-!!  WM    
+!!  WM
 !!
 !!  : real work space containing the inverse diagonal matrix if
 !!  MITER = 3 and the LU decomposition of the matrix otherwise.
@@ -28,28 +28,28 @@
 !!          WM(1) = SQRT(UROUND) (not used here),
 !!          WM(2) = HL0, the previous value of h*EL0, used if MITER = 3.
 !!
-!!  IWM   
+!!  IWM
 !!
 !!  : integer work space containing pivot information, starting at
-!!  IWM(21), if MITER is 1, 2, 4, or 5. 
+!!  IWM(21), if MITER is 1, 2, 4, or 5.
 !!
-!!  IWM also contains band parameters ML = IWM(1) 
+!!  IWM also contains band parameters ML = IWM(1)
 !!  and MU = IWM(2) if MITER is 4 or 5.
 !!
-!!  X     
+!!  X
 !!
 !!  : the right-hand side vector on input, and the solution vector
 !!  on output, of length N.
 !!
-!!  TEM   
+!!  TEM
 !!
 !!  : vector of work space of length N, not used in this version.
 !!
-!!  IERSL 
+!!  IERSL
 !!
 !!  : output flag (in COMMON).  IERSL = 0 if no trouble occurred.
 !!
-!!  IERSL 
+!!  IERSL
 !!
 !!  : 1 if a singular matrix arose with MITER = 3.
 !!

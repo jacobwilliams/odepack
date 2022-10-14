@@ -8,31 +8,31 @@
 !! Written by A. C. Hindmarsh.
 !!### Input
 !!
-!! M 
+!! M
 !!
 !! : order of each block.
 !!
-!! N 
+!! N
 !!
 !! : number of blocks in each direction of matrix.
 !!
-!! A,B,C 
+!! A,B,C
 !!
 !! : M by M by N arrays containing block LU decomposition
 !! of coefficient matrix from DDECBT.
 !!
-!! IP 
+!! IP
 !!
 !! : M by N integer array of pivot information from DDECBT.
 !!
-!! Y 
+!! Y
 !!
 !! : array of length M*N containg the right-hand side vector
 !! (treated as an M by N array here).
 !!
 !!### Output
 !!
-!! Y 
+!! Y
 !!
 !! : solution vector, of length M*N.
 !!
@@ -55,7 +55,7 @@ integer :: i , k , kb , km1 , kp1 , nm1 , nm2
    nm2 = N - 2
    ! Forward solution sweep. ----------------------------------------------
    call dgesl(A,M,M,Ip,Y,0)
-   
+
    do k = 2 , nm1
       km1 = k - 1
       do i = 1 , M
@@ -64,12 +64,12 @@ integer :: i , k , kb , km1 , kp1 , nm1 , nm2
       enddo
       call dgesl(A(1,1,k),M,M,Ip(1,k),Y(1,k),0)
    enddo
-   
+
    do i = 1 , M
       dp = ddot(M,C(i,1,N),M,Y(1,nm1),1) + ddot(M,B(i,1,N),M,Y(1,nm2),1)
       Y(i,N) = Y(i,N) - dp
    enddo
-   
+
    call dgesl(A(1,1,N),M,M,Ip(1,N),Y(1,N),0)
 
    ! Backward solution sweep. ---------------------------------------------
