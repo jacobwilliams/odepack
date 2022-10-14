@@ -387,33 +387,33 @@
 <path fill="none" stroke="#000000" d="M134.97,-87.15C147.99,-96.47 166.18,-109.49 180.89,-120.02"/>
 <polygon fill="#000000" stroke="#000000" points="178.92,-122.91 189.08,-125.89 182.99,-117.22 178.92,-122.91"/>
 </g>
-<!-- proc~mdm~2 -->
-<g id="proc~~odrv~2~~CallsGraph_node5" class="node">
-<title>proc~mdm~2</title>
-<g id="a_proc~~odrv~2~~CallsGraph_node5"><a xlink:href=".././proc/mdm~2.html" xlink:title="mdm">
-<polygon fill="#d9534f" stroke="#d9534f" points="234,-108 180,-108 180,-84 234,-84 234,-108"/>
-<text text-anchor="middle" x="207" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mdm</text>
-</a>
-</g>
-</g>
-<!-- proc~md~2&#45;&gt;proc~mdm~2 -->
-<g id="proc~~odrv~2~~CallsGraph_edge4" class="edge">
-<title>proc~md~2&#45;&gt;proc~mdm~2</title>
-<path fill="none" stroke="#000000" d="M144.4,-81.3C152.48,-83.23 161.51,-85.38 170.1,-87.43"/>
-<polygon fill="#000000" stroke="#000000" points="169.38,-90.86 179.92,-89.78 171,-84.05 169.38,-90.86"/>
-</g>
 <!-- proc~mdp~2 -->
-<g id="proc~~odrv~2~~CallsGraph_node6" class="node">
+<g id="proc~~odrv~2~~CallsGraph_node5" class="node">
 <title>proc~mdp~2</title>
-<g id="a_proc~~odrv~2~~CallsGraph_node6"><a xlink:href=".././proc/mdp~2.html" xlink:title="mdp">
-<polygon fill="#d9534f" stroke="#d9534f" points="234,-66 180,-66 180,-42 234,-42 234,-66"/>
-<text text-anchor="middle" x="207" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mdp</text>
+<g id="a_proc~~odrv~2~~CallsGraph_node5"><a xlink:href=".././proc/mdp~2.html" xlink:title="mdp">
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-108 180,-108 180,-84 234,-84 234,-108"/>
+<text text-anchor="middle" x="207" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mdp</text>
 </a>
 </g>
 </g>
 <!-- proc~md~2&#45;&gt;proc~mdp~2 -->
-<g id="proc~~odrv~2~~CallsGraph_edge5" class="edge">
+<g id="proc~~odrv~2~~CallsGraph_edge4" class="edge">
 <title>proc~md~2&#45;&gt;proc~mdp~2</title>
+<path fill="none" stroke="#000000" d="M144.4,-81.3C152.48,-83.23 161.51,-85.38 170.1,-87.43"/>
+<polygon fill="#000000" stroke="#000000" points="169.38,-90.86 179.92,-89.78 171,-84.05 169.38,-90.86"/>
+</g>
+<!-- proc~mdm~2 -->
+<g id="proc~~odrv~2~~CallsGraph_node6" class="node">
+<title>proc~mdm~2</title>
+<g id="a_proc~~odrv~2~~CallsGraph_node6"><a xlink:href=".././proc/mdm~2.html" xlink:title="mdm">
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-66 180,-66 180,-42 234,-42 234,-66"/>
+<text text-anchor="middle" x="207" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">mdm</text>
+</a>
+</g>
+</g>
+<!-- proc~md~2&#45;&gt;proc~mdm~2 -->
+<g id="proc~~odrv~2~~CallsGraph_edge5" class="edge">
+<title>proc~md~2&#45;&gt;proc~mdm~2</title>
 <path fill="none" stroke="#000000" d="M144.4,-68.7C152.48,-66.77 161.51,-64.62 170.1,-62.57"/>
 <polygon fill="#000000" stroke="#000000" points="171,-65.95 179.92,-60.22 169.38,-59.14 171,-65.95"/>
 </g>
@@ -587,7 +587,7 @@
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
     <div class="highlight"><pre><span></span><span class="k">subroutine </span><span class="n">odrv</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Ia</span><span class="p">,</span><span class="n">Ja</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">Ip</span><span class="p">,</span><span class="n">Nsp</span><span class="p">,</span><span class="n">Isp</span><span class="p">,</span><span class="n">Path</span><span class="p">,</span><span class="n">Flag</span><span class="p">)</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="kt">integer</span><span class="w">                        </span><span class="kd">::</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
 <span class="kt">integer</span><span class="p">,</span><span class="w">        </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">Ia</span><span class="w"></span>
 <span class="kt">integer</span><span class="p">,</span><span class="w">        </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">Ja</span><span class="w"></span>
@@ -598,7 +598,7 @@
 <span class="kt">integer</span><span class="p">,</span><span class="w">        </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">Isp</span><span class="w"></span>
 <span class="kt">integer</span><span class="p">,</span><span class="w">        </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">     </span><span class="kd">::</span><span class="w"> </span><span class="n">Path</span><span class="w"></span>
 <span class="kt">integer</span><span class="p">,</span><span class="w">        </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">Flag</span><span class="w"></span>
-<span class="w"> </span>
+
 <span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dflag</span><span class="w"></span>
 <span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">head</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w"> </span><span class="nb">max</span><span class="p">,</span><span class="w"> </span><span class="n">next</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"></span>
 
@@ -612,7 +612,7 @@
 <span class="w">      </span><span class="k">return</span>
 
 <span class="k">   else</span><span class="w"></span>
-<span class="w">     </span>
+
 <span class="w">      </span><span class="c">!----allocate storage and find minimum degree ordering</span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">Path</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Path</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Path</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="k">         </span><span class="nb">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Nsp</span><span class="o">-</span><span class="n">N</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="w"></span>
@@ -624,13 +624,13 @@
 <span class="k">            </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 <span class="w">            </span><span class="k">return</span>
 <span class="k">         endif</span>
-<span class="k">     </span>
+
 <span class="k">         call </span><span class="n">md</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Ia</span><span class="p">,</span><span class="n">Ja</span><span class="p">,</span><span class="nb">max</span><span class="p">,</span><span class="n">Isp</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">l</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">head</span><span class="p">),</span><span class="n">P</span><span class="p">,</span><span class="n">Ip</span><span class="p">,</span><span class="n">Isp</span><span class="p">(</span><span class="n">v</span><span class="p">),</span><span class="n">Flag</span><span class="p">)</span><span class="w"></span>
-<span class="w">     </span>
+
 <span class="w">         </span><span class="c">!  ** error -- error detected in md</span>
 <span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Flag</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
 <span class="k">      endif</span><span class="w"></span>
-<span class="w">     </span>
+
 <span class="w">      </span><span class="c">!----allocate storage and symmetrically reorder matrix</span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">Path</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Path</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Path</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Path</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="k">         </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Nsp</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
@@ -639,11 +639,11 @@
 <span class="k">            </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 <span class="w">            </span><span class="k">return</span>
 <span class="k">         endif</span>
-<span class="k">     </span>
+
 <span class="k">         </span><span class="n">dflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Path</span><span class="o">==</span><span class="mi">4</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">Path</span><span class="o">==</span><span class="mi">5</span><span class="w"></span>
 <span class="w">         </span><span class="k">call </span><span class="n">sro</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Ip</span><span class="p">,</span><span class="n">Ia</span><span class="p">,</span><span class="n">Ja</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Isp</span><span class="p">(</span><span class="n">tmp</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="n">dflag</span><span class="p">)</span><span class="w"></span>
 <span class="w">      </span><span class="k">endif</span>
-<span class="k">     </span>
+
 <span class="k">      return</span>
 <span class="k">   endif</span><span class="w"></span>
 
@@ -671,7 +671,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-13 19:58            </p>
+ on 2022-10-14 02:22            </p>
         </div>
       </div>
       <br>

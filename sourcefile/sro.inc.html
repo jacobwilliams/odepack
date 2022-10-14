@@ -175,16 +175,16 @@
 <a id="ln-21" name="ln-21" href="#ln-21"></a><span class="c">!!</span>
 <a id="ln-22" name="ln-22" href="#ln-22"></a><span class="c">!!### additional parameters</span>
 <a id="ln-23" name="ln-23" href="#ln-23"></a><span class="c">!!</span>
-<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="c">!!   q     </span>
+<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="c">!!   q</span>
 <a id="ln-25" name="ln-25" href="#ln-25"></a><span class="c">!!</span>
 <a id="ln-26" name="ln-26" href="#ln-26"></a><span class="c">!!   : integer one-dimensional work array.  dimension = n</span>
 <a id="ln-27" name="ln-27" href="#ln-27"></a><span class="c">!!</span>
-<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="c">!!   r     </span>
+<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="c">!!   r</span>
 <a id="ln-29" name="ln-29" href="#ln-29"></a><span class="c">!!</span>
 <a id="ln-30" name="ln-30" href="#ln-30"></a><span class="c">!!   : integer one-dimensional work array.  dimension = number of</span>
 <a id="ln-31" name="ln-31" href="#ln-31"></a><span class="c">!!   nonzero entries in the upper triangle of m</span>
 <a id="ln-32" name="ln-32" href="#ln-32"></a><span class="c">!!</span>
-<a id="ln-33" name="ln-33" href="#ln-33"></a><span class="c">!!   dflag </span>
+<a id="ln-33" name="ln-33" href="#ln-33"></a><span class="c">!!   dflag</span>
 <a id="ln-34" name="ln-34" href="#ln-34"></a><span class="c">!!</span>
 <a id="ln-35" name="ln-35" href="#ln-35"></a><span class="c">!!   : logical variable.  if dflag = .true., then store nonzero</span>
 <a id="ln-36" name="ln-36" href="#ln-36"></a><span class="c">!!   diagonal elements at the beginning of the row</span>
@@ -224,14 +224,14 @@
 <a id="ln-70" name="ln-70" href="#ln-70"></a><span class="w">      </span><span class="k">enddo</span>
 <a id="ln-71" name="ln-71" href="#ln-71"></a><span class="k">   endif</span>
 <a id="ln-72" name="ln-72" href="#ln-72"></a><span class="k">enddo</span><span class="w"></span>
-<a id="ln-73" name="ln-73" href="#ln-73"></a><span class="c">! </span>
+<a id="ln-73" name="ln-73" href="#ln-73"></a><span class="c">!</span>
 <a id="ln-74" name="ln-74" href="#ln-74"></a><span class="c">!--phase 2 -- find new ia and permutation to apply to (ja,a)</span>
 <a id="ln-75" name="ln-75" href="#ln-75"></a><span class="c">!----determine pointers to delimit rows in permuted (ja,a)</span>
 <a id="ln-76" name="ln-76" href="#ln-76"></a><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span><span class="w"></span>
 <a id="ln-77" name="ln-77" href="#ln-77"></a><span class="w">   </span><span class="n">Ia</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ia</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
 <a id="ln-78" name="ln-78" href="#ln-78"></a><span class="w">   </span><span class="n">Q</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ia</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
 <a id="ln-79" name="ln-79" href="#ln-79"></a><span class="k">enddo</span><span class="w"></span>
-<a id="ln-80" name="ln-80" href="#ln-80"></a><span class="c">! </span>
+<a id="ln-80" name="ln-80" href="#ln-80"></a><span class="c">!</span>
 <a id="ln-81" name="ln-81" href="#ln-81"></a><span class="c">!----determine where each (ja(j),a(j)) is stored in permuted (ja,a)</span>
 <a id="ln-82" name="ln-82" href="#ln-82"></a><span class="c">!----for each nonzero element (in reverse order)</span>
 <a id="ln-83" name="ln-83" href="#ln-83"></a><span class="n">ilast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
@@ -241,20 +241,20 @@
 <a id="ln-87" name="ln-87" href="#ln-87"></a><span class="k">do </span><span class="n">jdummy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jmax</span><span class="w"></span>
 <a id="ln-88" name="ln-88" href="#ln-88"></a><span class="w">   </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">R</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"></span>
 <a id="ln-89" name="ln-89" href="#ln-89"></a><span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">not</span><span class="p">.</span><span class="n">Dflag</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">Ja</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">/=</span><span class="n">i</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">i</span><span class="o">==</span><span class="n">ilast</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"></span>
-<a id="ln-90" name="ln-90" href="#ln-90"></a><span class="c">! </span>
+<a id="ln-90" name="ln-90" href="#ln-90"></a><span class="c">!</span>
 <a id="ln-91" name="ln-91" href="#ln-91"></a><span class="c">!------put (off-diagonal) nonzero in last unused location in row</span>
 <a id="ln-92" name="ln-92" href="#ln-92"></a><span class="w">      </span><span class="n">Q</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 <a id="ln-93" name="ln-93" href="#ln-93"></a><span class="w">      </span><span class="n">R</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
 <a id="ln-94" name="ln-94" href="#ln-94"></a><span class="w">   </span><span class="k">else</span><span class="w"></span>
-<a id="ln-95" name="ln-95" href="#ln-95"></a><span class="c">! </span>
+<a id="ln-95" name="ln-95" href="#ln-95"></a><span class="c">!</span>
 <a id="ln-96" name="ln-96" href="#ln-96"></a><span class="c">!------if dflag, then put diagonal nonzero at beginning of row</span>
 <a id="ln-97" name="ln-97" href="#ln-97"></a><span class="w">      </span><span class="n">R</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ia</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"></span>
 <a id="ln-98" name="ln-98" href="#ln-98"></a><span class="w">      </span><span class="n">ilast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"></span>
 <a id="ln-99" name="ln-99" href="#ln-99"></a><span class="w">   </span><span class="k">endif</span><span class="w"></span>
-<a id="ln-100" name="ln-100" href="#ln-100"></a><span class="c">! </span>
+<a id="ln-100" name="ln-100" href="#ln-100"></a><span class="c">!</span>
 <a id="ln-101" name="ln-101" href="#ln-101"></a><span class="w">   </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 <a id="ln-102" name="ln-102" href="#ln-102"></a><span class="k">enddo</span><span class="w"></span>
-<a id="ln-103" name="ln-103" href="#ln-103"></a><span class="c">! </span>
+<a id="ln-103" name="ln-103" href="#ln-103"></a><span class="c">!</span>
 <a id="ln-104" name="ln-104" href="#ln-104"></a><span class="c">!--phase 3 -- permute (ja,a) to upper triangular form (wrt new ordering)</span>
 <a id="ln-105" name="ln-105" href="#ln-105"></a><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jmin</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jmax</span><span class="w"></span>
 <a id="ln-106" name="ln-106" href="#ln-106"></a><span class="w">   </span><span class="k">do while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">R</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">/=</span><span class="n">j</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
@@ -269,7 +269,7 @@
 <a id="ln-115" name="ln-115" href="#ln-115"></a><span class="w">      </span><span class="n">A</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ak</span><span class="w"></span>
 <a id="ln-116" name="ln-116" href="#ln-116"></a><span class="w">   </span><span class="k">enddo</span>
 <a id="ln-117" name="ln-117" href="#ln-117"></a><span class="k">enddo</span><span class="w"></span>
-<a id="ln-118" name="ln-118" href="#ln-118"></a><span class="c">! </span>
+<a id="ln-118" name="ln-118" href="#ln-118"></a><span class="c">!</span>
 <a id="ln-119" name="ln-119" href="#ln-119"></a><span class="k">end subroutine </span><span class="n">sro</span><span class="w"></span>
 </pre></div>
 
@@ -289,7 +289,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-13 19:58            </p>
+ on 2022-10-14 02:22            </p>
         </div>
       </div>
       <br>

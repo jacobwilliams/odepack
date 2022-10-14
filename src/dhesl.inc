@@ -32,7 +32,7 @@
 !-----------------------------------------------------------------------
 !    Modification of LINPACK, by Peter Brown, LLNL.
 !    Written 7/20/83.  This version dated 6/20/01.
-! 
+!
 !    BLAS called: DAXPY
 !-----------------------------------------------------------------------
 subroutine dhesl(A,Lda,N,Ipvt,B)
@@ -46,12 +46,12 @@ real(kind=dp),intent(inout)  :: B(*)
 integer :: k , kb , l , nm1
 real(kind=dp) :: t
 !
-! 
+!
 nm1 = N - 1
-! 
+!
 !         Solve  A * x = b
 !         First solve  L*y = b
-! 
+!
 if ( nm1>=1 ) then
    do k = 1 , nm1
       l = Ipvt(k)
@@ -63,9 +63,9 @@ if ( nm1>=1 ) then
       B(k+1) = B(k+1) + t*A(k+1,k)
    enddo
 endif
-! 
+!
 !         Now solve  U*x = y
-! 
+!
 do kb = 1 , N
    k = N + 1 - kb
    B(k) = B(k)/A(k,k)

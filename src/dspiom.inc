@@ -8,110 +8,110 @@
 !!
 !!### On entry
 !!
-!! NEQ 
+!! NEQ
 !!
 !! : problem size, passed to F and PSOL (NEQ(1) = N).
 !!
-!! TN 
+!! TN
 !!
 !! : current value of t.
 !!
-!! Y 
+!! Y
 !!
 !! : array containing current dependent variable vector.
 !!
-!! SAVF 
+!! SAVF
 !!
 !! : array containing current value of f(t,y).
 !!
-!! B    
+!! B
 !!
 !! : the right hand side of the system A*x = b.
 !! B is also used as work space when computing the
 !! final approximation.
 !! (B is the same as V(*,MAXL+1) in the call to DSPIOM.)
 !!
-!! WGHT 
+!! WGHT
 !!
 !! : array of length N containing scale factors.
 !! 1/WGHT(i) are the diagonal elements of the diagonal
 !! scaling matrix D.
 !!
-!! N    
+!! N
 !!
 !! : the order of the matrix A, and the lengths
 !! of the vectors Y, SAVF, B, WGHT, and X.
 !!
-!! MAXL 
+!! MAXL
 !!
 !! : the maximum allowable order of the matrix HES.
 !!
-!! KMP 
+!! KMP
 !!
 !! : the number of previous vectors the new vector VNEW
 !! must be made orthogonal to.  KMP .le. MAXL.
 !!
-!! DELTA 
+!! DELTA
 !!
 !! : tolerance on residuals b - A*x in weighted RMS-norm.
 !!
-!! HL0 
+!! HL0
 !!
 !! : current value of (step size h) * (coefficient l0).
 !!
-!! JPRE 
+!! JPRE
 !!
 !! : preconditioner type flag.
 !!
-!! MNEWT 
+!! MNEWT
 !!
 !! : Newton iteration counter (.ge. 0).
 !!
-!! WK 
+!! WK
 !!
 !! : real work array of length N used by DATV and PSOL.
 !!
-!! WP 
+!! WP
 !!
 !! : real work array used by preconditioner PSOL.
 !!
-!! IWP 
+!! IWP
 !!
 !! : integer work array used by preconditioner PSOL.
 !!
 !!### On return
 !!
-!! X    
+!! X
 !!
 !! : the final computed approximation to the solution
 !! of the system A*x = b.
 !!
-!! V    
+!! V
 !!
 !! : the N by (LIOM+1) array containing the LIOM
 !! orthogonal vectors V(*,1) to V(*,LIOM).
 !!
-!! HES  
+!! HES
 !!
 !! : the LU factorization of the LIOM by LIOM upper
 !! Hessenberg matrix whose entries are the
 !! scaled inner products of A*V(*,k) and V(*,i).
 !!
-!! IPVT 
+!! IPVT
 !!
 !! : an integer array containg pivoting information.
 !! It is loaded in DHEFA and used in DHESL.
 !!
-!! LIOM 
+!! LIOM
 !!
 !! : the number of iterations performed, and current
 !! order of the upper Hessenberg matrix HES.
 !!
-!! NPSL 
+!! NPSL
 !!
 !! : the number of calls to PSOL.
 !!
-!! IFLAG 
+!! IFLAG
 !!
 !! : integer error flag:
 !!

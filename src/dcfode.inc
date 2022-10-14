@@ -2,7 +2,7 @@
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !----------------------------------------------------------------------------------------------------------------------------------!
 !>
-!!### NAME  
+!!### NAME
 !!   dcfode(3f) - [M_odepack] Set ODE integrator coefficients.
 !!
 !!### SYNOPSIS
@@ -13,7 +13,7 @@
 !!
 !!### DESCRIPTION
 !!   DCFODE is called by the integrator routine to set coefficients
-!!   needed there.  
+!!   needed there.
 !!
 !!   DCFODE is called once at the beginning of the problem,
 !!   and is not called again unless and until METH is changed.
@@ -38,7 +38,7 @@
 !!       dl/dx = (x+1)*(x+2)*...*(x+nq-1)/factorial(nq-1),    l(-1) = 0.
 !!   For the BDF methods, l(x) is given by
 !!       l(x) = (x+1)*(x+2)* ... *(x+nq)/K,
-!!   where 
+!!   where
 !!       K = factorial(nq)*(1 + 1/2 + ... + 1/nq).
 !!
 !!   TESCO

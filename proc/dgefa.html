@@ -136,22 +136,22 @@
    (Time for DGECO) = (1 + 9/N)*(Time for DGEFA) .</p>
 <h3 id="options">OPTIONS</h3>
 <dl>
-<dt>A    </dt>
+<dt>A</dt>
 <dd>
 <p>the matrix to be factored.</p>
 </dd>
-<dt>LDA   </dt>
+<dt>LDA</dt>
 <dd>
 <p>the leading dimension of the array  A .</p>
 </dd>
-<dt>N    </dt>
+<dt>N</dt>
 <dd>
 <p>the order of the matrix  A .</p>
 </dd>
 </dl>
 <h3 id="returns">RETURNS</h3>
 <dl>
-<dt>A  </dt>
+<dt>A</dt>
 <dd>
 <p>an upper triangular matrix and the multipliers
    which were used to obtain it.
@@ -166,18 +166,15 @@
 <dd>
 <p>an integer vector of pivot indices.</p>
 </dd>
-<dt>INFO </dt>
-<dd>
-<div class="codehilite"><pre><span></span><code><span class="o">=</span> <span class="mi">0</span>  <span class="nv">normal</span> <span class="nv">value</span>.
-<span class="o">=</span> <span class="nv">K</span>  <span class="k">if</span>  <span class="nv">U</span><span class="ss">(</span><span class="nv">K</span>,<span class="nv">K</span><span class="ss">)</span> .<span class="nv">EQ</span>. <span class="mi">0</span>.<span class="mi">0</span> .  <span class="nv">This</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">an</span> <span class="nv">error</span>
-     <span class="nv">condition</span> <span class="k">for</span> <span class="nv">this</span> <span class="nv">subroutine</span>, <span class="nv">but</span> <span class="nv">it</span> <span class="nv">does</span>
-     <span class="nv">indicate</span> <span class="nv">that</span> <span class="nv">DGESL</span> <span class="nv">or</span> <span class="nv">DGEDI</span> <span class="nv">will</span> <span class="nv">divide</span> <span class="nv">by</span> <span class="nv">zero</span>
-     <span class="k">if</span> <span class="nv">called</span>.  <span class="nv">Use</span>  <span class="nv">RCOND</span>  <span class="nv">in</span> <span class="nv">DGECO</span> <span class="k">for</span> <span class="nv">a</span> <span class="nv">reliable</span>
-     <span class="nv">indication</span> <span class="nv">of</span> <span class="nv">singularity</span>.
-</code></pre></div>
-
-</dd>
 </dl>
+<p>INFO</p>
+<p>:
+        = 0  normal value.
+        = K  if  U(K,K) .EQ. 0.0 .  This is not an error
+             condition for this subroutine, but it does
+             indicate that DGESL or DGEDI will divide by zero
+             if called.  Use  RCOND  in DGECO for a reliable
+             indication of singularity.</p>
 <h3 id="references">REFERENCES</h3>
 <p>J. J. Dongarra, J. R. Bunch, C. B. Moler, and G. W.
    Stewart, LINPACK Users&rsquo; Guide, SIAM, 1979.</p>
@@ -372,18 +369,18 @@
 <path fill="none" stroke="#000000" d="M134.97,-125.85C147.99,-116.53 166.18,-103.51 180.89,-92.98"/>
 <polygon fill="#000000" stroke="#000000" points="182.99,-95.78 189.08,-87.11 178.92,-90.09 182.99,-95.78"/>
 </g>
-<!-- proc~dprepji -->
+<!-- proc~dprepj -->
 <g id="proc~~dgefa~~CalledByGraph_node3" class="node">
-<title>proc~dprepji</title>
-<g id="a_proc~~dgefa~~CalledByGraph_node3"><a xlink:href=".././proc/dprepji.html" xlink:title="dprepji">
+<title>proc~dprepj</title>
+<g id="a_proc~~dgefa~~CalledByGraph_node3"><a xlink:href=".././proc/dprepj.html" xlink:title="dprepj">
 <polygon fill="#d9534f" stroke="#d9534f" points="144,-108 90,-108 90,-84 144,-84 144,-108"/>
-<text text-anchor="middle" x="117" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprepji</text>
+<text text-anchor="middle" x="117" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprepj</text>
 </a>
 </g>
 </g>
-<!-- proc~dprepji&#45;&gt;proc~dgefa -->
-<g id="proc~~dgefa~~CalledByGraph_edge2" class="edge">
-<title>proc~dprepji&#45;&gt;proc~dgefa</title>
+<!-- proc~dprepj&#45;&gt;proc~dgefa -->
+<g id="proc~~dgefa~~CalledByGraph_edge4" class="edge">
+<title>proc~dprepj&#45;&gt;proc~dgefa</title>
 <path fill="none" stroke="#000000" d="M144.4,-89.7C152.48,-87.77 161.51,-85.62 170.1,-83.57"/>
 <polygon fill="#000000" stroke="#000000" points="171,-86.95 179.92,-81.22 169.38,-80.14 171,-86.95"/>
 </g>
@@ -402,18 +399,18 @@
 <path fill="none" stroke="#000000" d="M144.4,-60.3C152.48,-62.23 161.51,-64.38 170.1,-66.43"/>
 <polygon fill="#000000" stroke="#000000" points="169.38,-69.86 179.92,-68.78 171,-63.05 169.38,-69.86"/>
 </g>
-<!-- proc~dprepj -->
+<!-- proc~dprepji -->
 <g id="proc~~dgefa~~CalledByGraph_node5" class="node">
-<title>proc~dprepj</title>
-<g id="a_proc~~dgefa~~CalledByGraph_node5"><a xlink:href=".././proc/dprepj.html" xlink:title="dprepj">
+<title>proc~dprepji</title>
+<g id="a_proc~~dgefa~~CalledByGraph_node5"><a xlink:href=".././proc/dprepji.html" xlink:title="dprepji">
 <polygon fill="#d9534f" stroke="#d9534f" points="144,-24 90,-24 90,0 144,0 144,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprepj</text>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprepji</text>
 </a>
 </g>
 </g>
-<!-- proc~dprepj&#45;&gt;proc~dgefa -->
-<g id="proc~~dgefa~~CalledByGraph_edge4" class="edge">
-<title>proc~dprepj&#45;&gt;proc~dgefa</title>
+<!-- proc~dprepji&#45;&gt;proc~dgefa -->
+<g id="proc~~dgefa~~CalledByGraph_edge2" class="edge">
+<title>proc~dprepji&#45;&gt;proc~dgefa</title>
 <path fill="none" stroke="#000000" d="M134.97,-24.15C147.99,-33.47 166.18,-46.49 180.89,-57.02"/>
 <polygon fill="#000000" stroke="#000000" points="178.92,-59.91 189.08,-62.89 182.99,-54.22 178.92,-59.91"/>
 </g>
@@ -530,7 +527,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-13 19:58            </p>
+ on 2022-10-14 02:22            </p>
         </div>
       </div>
       <br>

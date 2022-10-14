@@ -8,7 +8,7 @@
 !!
 !! This is needed to compute the storage requirements for the
 !! sparse matrix reordering operation in ODRV.
- 
+
 !-----------------------------------------------------------------------
 subroutine cntnzu(N,Ia,Ja,Nzsut)
 !

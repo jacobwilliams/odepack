@@ -15,9 +15,9 @@ integer,intent(inout) :: Head(*)
 integer,intent(inout) :: Last(*)
 integer,intent(inout) :: Next(*)
 integer,intent(inout) :: Mark(*)
- 
+
 integer :: b, blp, blpmax, dvi, es, evi, i, ilp, ilpmax, s, tag, vb, vi, vs
- 
+
 equivalence (vs,es)
    !
    !----initialize tag
@@ -101,5 +101,5 @@ equivalence (vs,es)
    !
       enddo MAIN
    endif
-    
+
 end subroutine mdu

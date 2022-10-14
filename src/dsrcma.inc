@@ -32,9 +32,9 @@ integer,intent(in)          :: Job
 !
 select case (Job)
 case (1)
- 
+
    Rsav(1:LENRLS) = return_dls1_real()
- 
+
    Rsav(LENRLS+1)             =  dlsa%tsw
    Rsav(LENRLS+2:LENRLS+13)   =  dlsa%cm1(1:12)
    Rsav(LENRLS+14:LENRLS+18)  =  dlsa%cm2(1:5)
@@ -42,7 +42,7 @@ case (1)
    Rsav(LENRLS+20)            =  dlsa%pdlast
    Rsav(LENRLS+21)            =  dlsa%ratio
    Rsav(LENRLS+22)            =  dlsa%pdnorm
- 
+
    Isav(1:LENILS) = return_dls1_int()
 
    Isav(LENILS+1) = dlsa%insufr
@@ -54,11 +54,11 @@ case (1)
    Isav(LENILS+7) = dlsa%mused
    Isav(LENILS+8) = dlsa%mxordn
    Isav(LENILS+9) = dlsa%mxords
- 
+
 case (2)
- 
+
    call set_dls1_real(Rsav(1:LENRLS))
- 
+
    dlsa%tsw        =  Rsav(LENRLS+1)
    dlsa%cm1(1:12)  =  Rsav(LENRLS+2:LENRLS+13)
    dlsa%cm2(1:5)   =  Rsav(LENRLS+14:LENRLS+18)
@@ -66,7 +66,7 @@ case (2)
    dlsa%pdlast     =  Rsav(LENRLS+20)
    dlsa%ratio      =  Rsav(LENRLS+21)
    dlsa%pdnorm     =  Rsav(LENRLS+22)
- 
+
    call set_dls1_int(Isav(1:LENILS))
 
    dlsa%insufr  =  Isav(LENILS+1)
@@ -85,5 +85,5 @@ case default
    stop 1
 
 endselect
- 
+
 end subroutine dsrcma

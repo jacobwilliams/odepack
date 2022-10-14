@@ -203,7 +203,7 @@
 </code></pre></div>
 
 <p>which computes the residual function</p>
-<div class="codehilite"><pre><span></span><code>     r = g(t,y)  -  A(t,y) * s 
+<div class="codehilite"><pre><span></span><code>     r = g(t,y)  -  A(t,y) * s
 </code></pre></div>
 
 <p>as a function of t and the vectors y and s.  (s is an internally
@@ -318,15 +318,15 @@
  for possible use of logical unit 6 for output of error messages by
  DLSOIBT.  on the first call to DLSOIBT, supply arguments as follows:</p>
 <dl>
-<dt>RES    </dt>
+<dt>RES</dt>
 <dd>
 <p>name of user subroutine for residual function r.</p>
 </dd>
-<dt>ADDA   </dt>
+<dt>ADDA</dt>
 <dd>
 <p>name of user subroutine for computing and adding A(t,y).</p>
 </dd>
-<dt>JAC    </dt>
+<dt>JAC</dt>
 <dd>
 <p>name of user subroutine for Jacobian matrix dr/dy
  (MF = 21).  If not used, pass a dummy name.</p>
@@ -335,35 +335,35 @@
 <p>Note: the names for the RES and ADDA routines and (if used) the
  JAC routine must be declared External in the calling program.</p>
 <dl>
-<dt>NEQ    </dt>
+<dt>NEQ</dt>
 <dd>
 <p>number of scalar equations in the system.</p>
 </dd>
-<dt>Y      </dt>
+<dt>Y</dt>
 <dd>
 <p>array of initial values, of length NEQ.</p>
 </dd>
-<dt>YDOTI  </dt>
+<dt>YDOTI</dt>
 <dd>
 <p>array of length NEQ (containing initial dy/dt if ISTATE = 1).</p>
 </dd>
-<dt>T      </dt>
+<dt>T</dt>
 <dd>
 <p>the initial value of the independent variable.</p>
 </dd>
-<dt>TOUT   </dt>
+<dt>TOUT</dt>
 <dd>
 <p>first point where output is desired (.ne. T).</p>
 </dd>
-<dt>ITOL   </dt>
+<dt>ITOL</dt>
 <dd>
 <p>1 or 2 according as ATOL (below) is a scalar or array.</p>
 </dd>
-<dt>RTOL   </dt>
+<dt>RTOL</dt>
 <dd>
 <p>relative tolerance parameter (scalar).</p>
 </dd>
-<dt>ATOL   </dt>
+<dt>ATOL</dt>
 <dd>
 <p>absolute tolerance parameter (scalar or array).
  the estimated local error in y(i) will be controlled so as
@@ -382,42 +382,42 @@
  control.  Caution: Actual (global) errors may exceed these
  local tolerances, so choose them conservatively.</p>
 <dl>
-<dt>ITASK  </dt>
+<dt>ITASK</dt>
 <dd>
 <p>1 for normal computation of output values of y at t = TOUT.</p>
 </dd>
-<dt>ISTATE </dt>
+<dt>ISTATE</dt>
 <dd>
 <p>integer flag (input and output).  Set ISTATE = 1 if the
  initial dy/dt is supplied, and 0 otherwise.</p>
 </dd>
-<dt>IOPT   </dt>
+<dt>IOPT</dt>
 <dd>
 <p>0 to indicate no optional inputs used.</p>
 </dd>
-<dt>RWORK  </dt>
+<dt>RWORK</dt>
 <dd>
 <p>real work array of length at least:</p>
 <div class="codehilite"><pre><span></span><code>     <span class="mi">22</span> <span class="o">+</span> <span class="mi">9</span><span class="o">*</span><span class="nv">NEQ</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="nv">MB</span><span class="o">*</span><span class="nv">MB</span><span class="o">*</span><span class="nv">NB</span>        <span class="k">for</span> <span class="nv">MF</span> <span class="o">=</span> <span class="mi">21</span> <span class="nv">or</span> <span class="mi">22</span>.
 </code></pre></div>
 
 </dd>
-<dt>LRW    </dt>
+<dt>LRW</dt>
 <dd>
 <p>declared length of RWORK (in user&rsquo;s dimension).</p>
 </dd>
-<dt>IWORK  </dt>
+<dt>IWORK</dt>
 <dd>
 <p>integer work array of length at least 20 + NEQ.
  Input in IWORK(1) the block size MB and in IWORK(2) the
  number NB of blocks in each direction along the matrix A.
  These must satisfy  MB .ge. 1, NB .ge. 4, and MB*NB = NEQ.</p>
 </dd>
-<dt>LIW    </dt>
+<dt>LIW</dt>
 <dd>
 <p>declared length of IWORK (in user&rsquo;s dimension).</p>
 </dd>
-<dt>MF     </dt>
+<dt>MF</dt>
 <dd>
 <p>method flag.  Standard values are:</p>
 <div class="codehilite"><pre><span></span><code>  <span class="mi">21</span> <span class="k">for</span> <span class="nv">a</span> <span class="nv">user</span><span class="o">-</span><span class="nv">supplied</span> <span class="nv">Jacobian</span>.
@@ -432,15 +432,15 @@
  and possibly ATOL.</p>
 <p><strong>G.</strong> The output from the first call (or any call) is:</p>
 <dl>
-<dt>Y </dt>
+<dt>Y</dt>
 <dd>
 <p>array of computed values of y(t) vector.</p>
 </dd>
-<dt>T </dt>
+<dt>T</dt>
 <dd>
 <p>corresponding value of independent variable (normally TOUT).</p>
 </dd>
-<dt>ISTATE  </dt>
+<dt>ISTATE</dt>
 <dd>
 <p>ISTATE values:</p>
 </dd>
@@ -742,7 +742,7 @@
  change in input parameters is flagged by ISTATE = 3 on input.</p>
 <p>The descriptions of the call arguments are as follows.</p>
 <dl>
-<dt>RES    </dt>
+<dt>RES</dt>
 <dd>
 <p>the name of the user-supplied subroutine which supplies
  the residual vector for the ODE system, defined by</p>
@@ -801,7 +801,7 @@
 <p>RES must be declared External in the calling
  program. See note below for more about RES.</p>
 <dl>
-<dt>ADDA   </dt>
+<dt>ADDA</dt>
 <dd>
 <p>the name of the user-supplied subroutine which adds the
  matrix A = A(t,y) to another matrix, P, stored in
@@ -840,7 +840,7 @@
 <p>ADDA must be declared External in the calling program.
  See note below for more information about ADDA.</p>
 <dl>
-<dt>JAC    </dt>
+<dt>JAC</dt>
 <dd>
 <p>the name of the user-supplied subroutine which supplies
  the Jacobian matrix, dr/dy, where r = g - A*s.  JAC is
@@ -902,7 +902,7 @@
  NEQ(1), Y(1),&hellip;,Y(NEQ) or any other input variables.
  See the descriptions of NEQ and Y below.</p>
 <dl>
-<dt>NEQ    </dt>
+<dt>NEQ</dt>
 <dd>
 <p>the size of the system (number of first order ordinary
  differential equations or scalar algebraic equations).
@@ -923,7 +923,7 @@
  and pass it to RES, ADDA, or JAC.  Each such subroutine
  must include NEQ in a Dimension statement in that case.</p>
 <dl>
-<dt>Y      </dt>
+<dt>Y</dt>
 <dd>
 <p>a real array for the vector of dependent variables, of
  length NEQ or more.  Used for both input and output on the
@@ -940,7 +940,7 @@
  data and pass it to RES, ADDA, or JAC.  (The DLSOIBT
  package accesses only Y(1),&hellip;,Y(NEQ). )</p>
 <dl>
-<dt>YDOTI  </dt>
+<dt>YDOTI</dt>
 <dd>
 <p>a real array for the initial value of the vector
  dy/dt and for work space, of dimension at least NEQ.</p>
@@ -967,7 +967,7 @@
 <p>If desired, the YDOTI array may be used for other
  purposes between calls to the solver.</p>
 <dl>
-<dt>T      </dt>
+<dt>T</dt>
 <dd>
 <p>the independent variable.  On input, T is used only on the
  first call, as the initial point of the integration.</p>
@@ -977,7 +977,7 @@
  computed solution y is evaluated (usually the same as TOUT).
  On an error return, T is the farthest point reached.</p>
 <dl>
-<dt>TOUT   </dt>
+<dt>TOUT</dt>
 <dd>
 <p>the next value of t at which a computed solution is desired.
  Used only for input.</p>
@@ -999,18 +999,18 @@
  TCUR - HU and TCUR (see optional outputs, below, for
  TCUR and HU).</p>
 <dl>
-<dt>ITOL   </dt>
+<dt>ITOL</dt>
 <dd>
 <p>an indicator for the type of error control.  See
  description below under ATOL.  Used only for input.</p>
 </dd>
-<dt>RTOL   </dt>
+<dt>RTOL</dt>
 <dd>
 <p>a relative error tolerance parameter, either a scalar or
  an array of length NEQ.  See description below under ATOL.
  Input only.</p>
 </dd>
-<dt>ATOL   </dt>
+<dt>ATOL</dt>
 <dd>
 <p>an absolute error tolerance parameter, either a scalar or
  an array of length NEQ.  Input only.</p>
@@ -1078,7 +1078,7 @@
  components of RTOL and ATOL (i.e. of EWT) should be scaled
  down uniformly.</p>
 <dl>
-<dt>ITASK  </dt>
+<dt>ITASK</dt>
 <dd>
 <p>an index specifying the task to be performed.
  Input only.  ITASK has the following values and meanings.</p>
@@ -1151,7 +1151,7 @@
  indicate this (unless ITASK = 4 and TOUT comes before TCRIT,
  in which case answers at t = TOUT are returned first).</p>
 <dl>
-<dt>ISTATE </dt>
+<dt>ISTATE</dt>
 <dd>
 <p>an index used for input and output to specify the
  state of the calculation.</p>
@@ -1475,7 +1475,7 @@
  user to change it, and possibly other inputs, before
  calling the solver again.</p>
 <dl>
-<dt>IOPT   </dt>
+<dt>IOPT</dt>
 <dd>
 <p>an integer flag to specify whether or not any optional
  inputs are being used on this call.  Input only.
@@ -1484,7 +1484,7 @@
             Default values will be used in all cases.
    IOPT = 1 means one or more optional inputs are being used.</p>
 </dd>
-<dt>RWORK  </dt>
+<dt>RWORK</dt>
 <dd>
 <p>a real working array (double precision).
  The length of RWORK must be at least</p>
@@ -1512,12 +1512,12 @@
 </code></pre></div>
 
 <dl>
-<dt>LRW    </dt>
+<dt>LRW</dt>
 <dd>
 <p>the length of the array RWORK, as declared by the user.
  (This will be checked by the solver.)</p>
 </dd>
-<dt>IWORK  </dt>
+<dt>IWORK</dt>
 <dd>
 <p>an integer work array.  The length of IWORK must be at least
  20 + NEQ .  The first few words of IWORK are used for
@@ -1530,7 +1530,7 @@
             IWORK(2) = NB = number of blocks in the main diagonal
  These must satisfy  MB .ge. 1, NB .ge. 4, and MB*NB = NEQ.</p>
 <dl>
-<dt>LIW    </dt>
+<dt>LIW</dt>
 <dd>
 <p>the length of the array IWORK, as declared by the user.
  (This will be checked by the solver.)</p>
@@ -1543,7 +1543,7 @@
  available for use by the user outside DLSOIBT between calls, if
  desired (but not for use by RES, ADDA, or JAC).</p>
 <dl>
-<dt>MF     </dt>
+<dt>MF</dt>
 <dd>
 <p>the method flag.  used only for input.  The legal values of
  MF are 11, 12, 21, and 22.</p>
@@ -2276,14 +2276,14 @@
 
 <p>The input parameters are:</p>
 <dl>
-<dt>T         </dt>
+<dt>T</dt>
 <dd>
 <p>value of independent variable where answers are desired
  (normally the same as the t last returned by DLSOIBT).
  For valid results, T must lie between TCUR - HU and TCUR.
  (See optional outputs for TCUR and HU.)</p>
 </dd>
-<dt>K         </dt>
+<dt>K</dt>
 <dd>
 <p>integer order of the derivative desired.  K must satisfy
  0 .le. K .le. NQCUR, where NQCUR is the current order
@@ -2292,22 +2292,22 @@
  by DLSOIBT directly.  Since NQCUR .ge. 1, the first
  derivative dy/dt is always available with DINTDY.</p>
 </dd>
-<dt>RWORK(21) </dt>
+<dt>RWORK(21)</dt>
 <dd>
 <p>the base address of the history array YH.</p>
 </dd>
-<dt>NYH       </dt>
+<dt>NYH</dt>
 <dd>
 <p>column length of YH, equal to the initial value of NEQ.</p>
 </dd>
 </dl>
 <p>The output parameters are:</p>
 <dl>
-<dt>DKY       </dt>
+<dt>DKY</dt>
 <dd>
 <p>a real array of length NEQ containing the computed value
  of the K-th derivative of y(t).
- IFLAG     </p>
+ IFLAG</p>
 </dd>
 <dd>
 <p>integer flag, returned as 0 if K and T were legal,
@@ -2542,328 +2542,328 @@
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~dlsoibt~2~~CallsGraph Pages: 1 -->
-<svg id="procdlsoibt2CallsGraph" width="429pt" height="280pt"
- viewBox="0.00 0.00 429.00 280.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~dlsoibt~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 276)">
+<svg id="procdlsoibt2CallsGraph" width="429pt" height="282pt"
+ viewBox="0.00 0.00 429.00 282.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dlsoibt~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 278)">
 <title>proc~~dlsoibt~2~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-276 425,-276 425,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-278 425,-278 425,4 -4,4"/>
 <!-- proc~dlsoibt~2 -->
 <g id="proc~~dlsoibt~2~~CallsGraph_node1" class="node">
 <title>proc~dlsoibt~2</title>
-<polygon fill="none" stroke="black" points="54,-150 0,-150 0,-126 54,-126 54,-150"/>
-<text text-anchor="middle" x="27" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50">dlsoibt</text>
+<polygon fill="none" stroke="black" points="54,-152 0,-152 0,-128 54,-128 54,-152"/>
+<text text-anchor="middle" x="27" y="-137.6" font-family="Helvetica,sans-Serif" font-size="10.50">dlsoibt</text>
 </g>
 <!-- proc~xerrwd~2 -->
 <g id="proc~~dlsoibt~2~~CallsGraph_node2" class="node">
 <title>proc~xerrwd~2</title>
 <g id="a_proc~~dlsoibt~2~~CallsGraph_node2"><a xlink:href=".././proc/xerrwd~2.html" xlink:title="xerrwd">
-<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-253 184.5,-253 184.5,-229 238.5,-229 238.5,-253"/>
-<text text-anchor="middle" x="211.5" y="-238.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-274 184.5,-274 184.5,-250 238.5,-250 238.5,-274"/>
+<text text-anchor="middle" x="211.5" y="-259.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsoibt~2&#45;&gt;proc~xerrwd~2 -->
 <g id="proc~~dlsoibt~2~~CallsGraph_edge1" class="edge">
 <title>proc~dlsoibt~2&#45;&gt;proc~xerrwd~2</title>
-<path fill="none" stroke="#000000" d="M37.18,-150.38C48.25,-164.5 68.12,-187.37 90,-201 115.98,-217.18 149.24,-227.58 174.22,-233.7"/>
-<polygon fill="#000000" stroke="#000000" points="173.51,-237.13 184.04,-236 175.1,-230.31 173.51,-237.13"/>
-</g>
-<!-- proc~dewset~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_node3" class="node">
-<title>proc~dewset~2</title>
-<g id="a_proc~~dlsoibt~2~~CallsGraph_node3"><a xlink:href=".././proc/dewset~2.html" xlink:title="dewset">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-192 91,-192 91,-168 145,-168 145,-192"/>
-<text text-anchor="middle" x="118" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsoibt~2&#45;&gt;proc~dewset~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge2" class="edge">
-<title>proc~dlsoibt~2&#45;&gt;proc~dewset~2</title>
-<path fill="none" stroke="#000000" d="M53.74,-150.15C62.6,-154.33 72.67,-159.08 82.13,-163.54"/>
-<polygon fill="#000000" stroke="#000000" points="80.78,-166.78 91.32,-167.88 83.77,-160.45 80.78,-166.78"/>
+<path fill="none" stroke="#000000" d="M37.94,-152.36C49.4,-166.04 69.33,-188.11 90,-203 116.36,-221.99 149.77,-237.8 174.72,-248.26"/>
+<polygon fill="#000000" stroke="#000000" points="173.59,-251.58 184.17,-252.14 176.25,-245.11 173.59,-251.58"/>
 </g>
 <!-- proc~dstodi -->
-<g id="proc~~dlsoibt~2~~CallsGraph_node4" class="node">
+<g id="proc~~dlsoibt~2~~CallsGraph_node3" class="node">
 <title>proc~dstodi</title>
-<g id="a_proc~~dlsoibt~2~~CallsGraph_node4"><a xlink:href=".././proc/dstodi.html" xlink:title="dstodi">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-150 91,-150 91,-126 145,-126 145,-150"/>
-<text text-anchor="middle" x="118" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstodi</text>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node3"><a xlink:href=".././proc/dstodi.html" xlink:title="dstodi">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-194 91,-194 91,-170 145,-170 145,-194"/>
+<text text-anchor="middle" x="118" y="-179.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstodi</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsoibt~2&#45;&gt;proc~dstodi -->
 <g id="proc~~dlsoibt~2~~CallsGraph_edge4" class="edge">
 <title>proc~dlsoibt~2&#45;&gt;proc~dstodi</title>
-<path fill="none" stroke="#000000" d="M54.22,-138C62.55,-138 71.91,-138 80.82,-138"/>
-<polygon fill="#000000" stroke="#000000" points="80.97,-141.5 90.97,-138 80.97,-134.5 80.97,-141.5"/>
-</g>
-<!-- proc~dintdy~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_node5" class="node">
-<title>proc~dintdy~2</title>
-<g id="a_proc~~dlsoibt~2~~CallsGraph_node5"><a xlink:href=".././proc/dintdy~2.html" xlink:title="dintdy">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-272 91,-272 91,-248 145,-248 145,-272"/>
-<text text-anchor="middle" x="118" y="-257.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsoibt~2&#45;&gt;proc~dintdy~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge3" class="edge">
-<title>proc~dlsoibt~2&#45;&gt;proc~dintdy~2</title>
-<path fill="none" stroke="#000000" d="M34.62,-150.13C45.16,-168.96 66.92,-205.97 90,-234 91.86,-236.26 93.9,-238.53 96,-240.73"/>
-<polygon fill="#000000" stroke="#000000" points="93.63,-243.32 103.2,-247.88 98.57,-238.35 93.63,-243.32"/>
-</g>
-<!-- proc~daigbt~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_node6" class="node">
-<title>proc~daigbt~2</title>
-<g id="a_proc~~dlsoibt~2~~CallsGraph_node6"><a xlink:href=".././proc/daigbt~2.html" xlink:title="daigbt">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-108 91,-108 91,-84 145,-84 145,-108"/>
-<text text-anchor="middle" x="118" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daigbt</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsoibt~2&#45;&gt;proc~daigbt~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge5" class="edge">
-<title>proc~dlsoibt~2&#45;&gt;proc~daigbt~2</title>
-<path fill="none" stroke="#000000" d="M53.74,-125.85C62.6,-121.67 72.67,-116.92 82.13,-112.46"/>
-<polygon fill="#000000" stroke="#000000" points="83.77,-115.55 91.32,-108.12 80.78,-109.22 83.77,-115.55"/>
+<path fill="none" stroke="#000000" d="M53.74,-152.15C62.6,-156.33 72.67,-161.08 82.13,-165.54"/>
+<polygon fill="#000000" stroke="#000000" points="80.78,-168.78 91.32,-169.88 83.77,-162.45 80.78,-168.78"/>
 </g>
 <!-- proc~dvnorm~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_node7" class="node">
+<g id="proc~~dlsoibt~2~~CallsGraph_node4" class="node">
 <title>proc~dvnorm~2</title>
-<g id="a_proc~~dlsoibt~2~~CallsGraph_node7"><a xlink:href=".././proc/dvnorm~2.html" xlink:title="dvnorm">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="145,-66 91,-66 91,-42 145,-42 145,-66"/>
-<text text-anchor="middle" x="118" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node4"><a xlink:href=".././proc/dvnorm~2.html" xlink:title="dvnorm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="145,-152 91,-152 91,-128 145,-128 145,-152"/>
+<text text-anchor="middle" x="118" y="-137.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsoibt~2&#45;&gt;proc~dvnorm~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge6" class="edge">
+<g id="proc~~dlsoibt~2~~CallsGraph_edge3" class="edge">
 <title>proc~dlsoibt~2&#45;&gt;proc~dvnorm~2</title>
-<path fill="none" stroke="#000000" d="M38.98,-125.92C51.04,-112.88 71.2,-91.73 90,-75 90.95,-74.16 91.93,-73.31 92.92,-72.46"/>
-<polygon fill="#000000" stroke="#000000" points="95.19,-75.13 100.73,-66.1 90.76,-69.7 95.19,-75.13"/>
+<path fill="none" stroke="#000000" d="M54.22,-140C62.55,-140 71.91,-140 80.82,-140"/>
+<polygon fill="#000000" stroke="#000000" points="80.97,-143.5 90.97,-140 80.97,-136.5 80.97,-143.5"/>
+</g>
+<!-- proc~daigbt~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node5" class="node">
+<title>proc~daigbt~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node5"><a xlink:href=".././proc/daigbt~2.html" xlink:title="daigbt">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-110 91,-110 91,-86 145,-86 145,-110"/>
+<text text-anchor="middle" x="118" y="-95.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daigbt</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoibt~2&#45;&gt;proc~daigbt~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge2" class="edge">
+<title>proc~dlsoibt~2&#45;&gt;proc~daigbt~2</title>
+<path fill="none" stroke="#000000" d="M53.74,-127.85C62.6,-123.67 72.67,-118.92 82.13,-114.46"/>
+<polygon fill="#000000" stroke="#000000" points="83.77,-117.55 91.32,-110.12 80.78,-111.22 83.77,-117.55"/>
 </g>
 <!-- proc~dumach~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_node8" class="node">
+<g id="proc~~dlsoibt~2~~CallsGraph_node6" class="node">
 <title>proc~dumach~2</title>
-<g id="a_proc~~dlsoibt~2~~CallsGraph_node8"><a xlink:href=".././proc/dumach~2.html" xlink:title="dumach">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 90,-24 90,0 146,0 146,-24"/>
-<text text-anchor="middle" x="118" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node6"><a xlink:href=".././proc/dumach~2.html" xlink:title="dumach">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-68 90,-68 90,-44 146,-44 146,-68"/>
+<text text-anchor="middle" x="118" y="-53.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsoibt~2&#45;&gt;proc~dumach~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge7" class="edge">
+<g id="proc~~dlsoibt~2~~CallsGraph_edge5" class="edge">
 <title>proc~dlsoibt~2&#45;&gt;proc~dumach~2</title>
-<path fill="none" stroke="#000000" d="M33.39,-125.71C42.82,-105.05 63.85,-62.72 90,-33 90.6,-32.32 91.23,-31.64 91.87,-30.97"/>
-<polygon fill="#000000" stroke="#000000" points="94.26,-33.53 99.3,-24.21 89.55,-28.35 94.26,-33.53"/>
+<path fill="none" stroke="#000000" d="M38.98,-127.92C51.04,-114.88 71.2,-93.73 90,-77 90.95,-76.16 91.93,-75.31 92.92,-74.46"/>
+<polygon fill="#000000" stroke="#000000" points="95.19,-77.13 100.73,-68.1 90.76,-71.7 95.19,-77.13"/>
+</g>
+<!-- proc~dewset~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node7" class="node">
+<title>proc~dewset~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node7"><a xlink:href=".././proc/dewset~2.html" xlink:title="dewset">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-26 91,-26 91,-2 145,-2 145,-26"/>
+<text text-anchor="middle" x="118" y="-11.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoibt~2&#45;&gt;proc~dewset~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge6" class="edge">
+<title>proc~dlsoibt~2&#45;&gt;proc~dewset~2</title>
+<path fill="none" stroke="#000000" d="M33.39,-127.71C42.82,-107.05 63.85,-64.72 90,-35 90.6,-34.32 91.23,-33.64 91.87,-32.97"/>
+<polygon fill="#000000" stroke="#000000" points="94.26,-35.53 99.3,-26.21 89.55,-30.35 94.26,-35.53"/>
+</g>
+<!-- proc~dintdy~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node8" class="node">
+<title>proc~dintdy~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node8"><a xlink:href=".././proc/dintdy~2.html" xlink:title="dintdy">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-274 91,-274 91,-250 145,-250 145,-274"/>
+<text text-anchor="middle" x="118" y="-259.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoibt~2&#45;&gt;proc~dintdy~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge7" class="edge">
+<title>proc~dlsoibt~2&#45;&gt;proc~dintdy~2</title>
+<path fill="none" stroke="#000000" d="M34.62,-152.13C45.16,-170.96 66.92,-207.97 90,-236 91.86,-238.26 93.9,-240.53 96,-242.73"/>
+<polygon fill="#000000" stroke="#000000" points="93.63,-245.32 103.2,-249.88 98.57,-240.35 93.63,-245.32"/>
 </g>
 <!-- proc~ixsav~2 -->
 <g id="proc~~dlsoibt~2~~CallsGraph_node9" class="node">
 <title>proc~ixsav~2</title>
 <g id="a_proc~~dlsoibt~2~~CallsGraph_node9"><a xlink:href=".././proc/ixsav~2.html" xlink:title="ixsav">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="331,-253 277,-253 277,-229 331,-229 331,-253"/>
-<text text-anchor="middle" x="304" y="-238.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ixsav</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="331,-274 277,-274 277,-250 331,-250 331,-274"/>
+<text text-anchor="middle" x="304" y="-259.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ixsav</text>
 </a>
 </g>
 </g>
 <!-- proc~xerrwd~2&#45;&gt;proc~ixsav~2 -->
 <g id="proc~~dlsoibt~2~~CallsGraph_edge8" class="edge">
 <title>proc~xerrwd~2&#45;&gt;proc~ixsav~2</title>
-<path fill="none" stroke="#000000" d="M238.68,-241C247.4,-241 257.28,-241 266.64,-241"/>
-<polygon fill="#000000" stroke="#000000" points="266.88,-244.5 276.88,-241 266.88,-237.5 266.88,-244.5"/>
+<path fill="none" stroke="#000000" d="M238.68,-262C247.4,-262 257.28,-262 266.64,-262"/>
+<polygon fill="#000000" stroke="#000000" points="266.88,-265.5 276.88,-262 266.88,-258.5 266.88,-265.5"/>
 </g>
 <!-- proc~dcfode -->
-<g id="proc~~dlsoibt~2~~CallsGraph_node10" class="node">
+<g id="proc~~dlsoibt~2~~CallsGraph_node12" class="node">
 <title>proc~dcfode</title>
-<g id="a_proc~~dlsoibt~2~~CallsGraph_node10"><a xlink:href=".././proc/dcfode.html" xlink:title="dcfode">
-<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-192 184.5,-192 184.5,-168 238.5,-168 238.5,-192"/>
-<text text-anchor="middle" x="211.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node12"><a xlink:href=".././proc/dcfode.html" xlink:title="dcfode">
+<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-232 184.5,-232 184.5,-208 238.5,-208 238.5,-232"/>
+<text text-anchor="middle" x="211.5" y="-217.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
 </a>
 </g>
 </g>
 <!-- proc~dstodi&#45;&gt;proc~dcfode -->
 <g id="proc~~dlsoibt~2~~CallsGraph_edge9" class="edge">
 <title>proc~dstodi&#45;&gt;proc~dcfode</title>
-<path fill="none" stroke="#000000" d="M145.47,-150.15C154.74,-154.41 165.32,-159.26 175.21,-163.8"/>
-<polygon fill="#000000" stroke="#000000" points="173.86,-167.03 184.41,-168.02 176.78,-160.67 173.86,-167.03"/>
+<path fill="none" stroke="#000000" d="M145.47,-192.99C154.65,-196.81 165.1,-201.15 174.9,-205.22"/>
+<polygon fill="#000000" stroke="#000000" points="173.83,-208.56 184.41,-209.16 176.52,-202.1 173.83,-208.56"/>
 </g>
 <!-- proc~dvnorm -->
-<g id="proc~~dlsoibt~2~~CallsGraph_node14" class="node">
+<g id="proc~~dlsoibt~2~~CallsGraph_node13" class="node">
 <title>proc~dvnorm</title>
-<g id="a_proc~~dlsoibt~2~~CallsGraph_node14"><a xlink:href=".././proc/dvnorm.html" xlink:title="dvnorm">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="238.5,-150 184.5,-150 184.5,-126 238.5,-126 238.5,-150"/>
-<text text-anchor="middle" x="211.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node13"><a xlink:href=".././proc/dvnorm.html" xlink:title="dvnorm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="238.5,-190 184.5,-190 184.5,-166 238.5,-166 238.5,-190"/>
+<text text-anchor="middle" x="211.5" y="-175.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
 </a>
 </g>
 </g>
 <!-- proc~dstodi&#45;&gt;proc~dvnorm -->
 <g id="proc~~dlsoibt~2~~CallsGraph_edge10" class="edge">
 <title>proc~dstodi&#45;&gt;proc~dvnorm</title>
-<path fill="none" stroke="#000000" d="M145.47,-138C154.46,-138 164.67,-138 174.29,-138"/>
-<polygon fill="#000000" stroke="#000000" points="174.41,-141.5 184.41,-138 174.41,-134.5 174.41,-141.5"/>
-</g>
-<!-- proc~dintdy~2&#45;&gt;proc~xerrwd~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge11" class="edge">
-<title>proc~dintdy~2&#45;&gt;proc~xerrwd~2</title>
-<path fill="none" stroke="#000000" d="M145.47,-254.5C154.55,-252.62 164.88,-250.47 174.59,-248.46"/>
-<polygon fill="#000000" stroke="#000000" points="175.33,-251.88 184.41,-246.42 173.91,-245.02 175.33,-251.88"/>
-</g>
-<!-- proc~ddecbt~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_node12" class="node">
-<title>proc~ddecbt~2</title>
-<g id="a_proc~~dlsoibt~2~~CallsGraph_node12"><a xlink:href=".././proc/ddecbt~2.html" xlink:title="ddecbt">
-<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-108 184.5,-108 184.5,-84 238.5,-84 238.5,-108"/>
-<text text-anchor="middle" x="211.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddecbt</text>
-</a>
-</g>
-</g>
-<!-- proc~daigbt~2&#45;&gt;proc~ddecbt~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge12" class="edge">
-<title>proc~daigbt~2&#45;&gt;proc~ddecbt~2</title>
-<path fill="none" stroke="#000000" d="M145.47,-96C154.46,-96 164.67,-96 174.29,-96"/>
-<polygon fill="#000000" stroke="#000000" points="174.41,-99.5 184.41,-96 174.41,-92.5 174.41,-99.5"/>
+<path fill="none" stroke="#000000" d="M145.47,-180.84C154.46,-180.45 164.67,-180 174.29,-179.58"/>
+<polygon fill="#000000" stroke="#000000" points="174.57,-183.07 184.41,-179.14 174.27,-176.08 174.57,-183.07"/>
 </g>
 <!-- proc~dsolbt~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_node13" class="node">
+<g id="proc~~dlsoibt~2~~CallsGraph_node10" class="node">
 <title>proc~dsolbt~2</title>
-<g id="a_proc~~dlsoibt~2~~CallsGraph_node13"><a xlink:href=".././proc/dsolbt~2.html" xlink:title="dsolbt">
-<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-66 184.5,-66 184.5,-42 238.5,-42 238.5,-66"/>
-<text text-anchor="middle" x="211.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolbt</text>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node10"><a xlink:href=".././proc/dsolbt~2.html" xlink:title="dsolbt">
+<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-148 184.5,-148 184.5,-124 238.5,-124 238.5,-148"/>
+<text text-anchor="middle" x="211.5" y="-133.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolbt</text>
 </a>
 </g>
 </g>
 <!-- proc~daigbt~2&#45;&gt;proc~dsolbt~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge13" class="edge">
+<g id="proc~~dlsoibt~2~~CallsGraph_edge12" class="edge">
 <title>proc~daigbt~2&#45;&gt;proc~dsolbt~2</title>
-<path fill="none" stroke="#000000" d="M145.47,-83.85C154.74,-79.59 165.32,-74.74 175.21,-70.2"/>
-<polygon fill="#000000" stroke="#000000" points="176.78,-73.33 184.41,-65.98 173.86,-66.97 176.78,-73.33"/>
+<path fill="none" stroke="#000000" d="M145.47,-108.99C154.65,-112.81 165.1,-117.15 174.9,-121.22"/>
+<polygon fill="#000000" stroke="#000000" points="173.83,-124.56 184.41,-125.16 176.52,-118.1 173.83,-124.56"/>
 </g>
-<!-- none~dumsum -->
+<!-- proc~ddecbt~2 -->
 <g id="proc~~dlsoibt~2~~CallsGraph_node11" class="node">
-<title>none~dumsum</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="241,-24 182,-24 182,0 241,0 241,-24"/>
-<text text-anchor="middle" x="211.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumsum</text>
-</g>
-<!-- proc~dumach~2&#45;&gt;none~dumsum -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge14" class="edge">
-<title>proc~dumach~2&#45;&gt;none~dumsum</title>
-<path fill="none" stroke="#000000" d="M146.45,-12C154.39,-12 163.2,-12 171.69,-12"/>
-<polygon fill="#000000" stroke="#000000" points="171.8,-15.5 181.8,-12 171.8,-8.5 171.8,-15.5"/>
-</g>
-<!-- proc~dgefa~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_node15" class="node">
-<title>proc~dgefa~2</title>
-<g id="a_proc~~dlsoibt~2~~CallsGraph_node15"><a xlink:href=".././proc/dgefa~2.html" xlink:title="dgefa">
-<polygon fill="#d9534f" stroke="#d9534f" points="331,-148 277,-148 277,-124 331,-124 331,-148"/>
-<text text-anchor="middle" x="304" y="-133.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgefa</text>
+<title>proc~ddecbt~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node11"><a xlink:href=".././proc/ddecbt~2.html" xlink:title="ddecbt">
+<polygon fill="#d9534f" stroke="#d9534f" points="238.5,-106 184.5,-106 184.5,-82 238.5,-82 238.5,-106"/>
+<text text-anchor="middle" x="211.5" y="-91.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddecbt</text>
 </a>
 </g>
 </g>
-<!-- proc~ddecbt~2&#45;&gt;proc~dgefa~2 -->
+<!-- proc~daigbt~2&#45;&gt;proc~ddecbt~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge11" class="edge">
+<title>proc~daigbt~2&#45;&gt;proc~ddecbt~2</title>
+<path fill="none" stroke="#000000" d="M145.47,-96.84C154.46,-96.45 164.67,-96 174.29,-95.58"/>
+<polygon fill="#000000" stroke="#000000" points="174.57,-99.07 184.41,-95.14 174.27,-92.08 174.57,-99.07"/>
+</g>
+<!-- none~dumsum -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node14" class="node">
+<title>none~dumsum</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="241,-64 182,-64 182,-40 241,-40 241,-64"/>
+<text text-anchor="middle" x="211.5" y="-49.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumsum</text>
+</g>
+<!-- proc~dumach~2&#45;&gt;none~dumsum -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge13" class="edge">
+<title>proc~dumach~2&#45;&gt;none~dumsum</title>
+<path fill="none" stroke="#000000" d="M146.45,-54.8C154.39,-54.45 163.2,-54.07 171.69,-53.7"/>
+<polygon fill="#000000" stroke="#000000" points="171.96,-57.19 181.8,-53.25 171.65,-50.19 171.96,-57.19"/>
+</g>
+<!-- proc~dintdy~2&#45;&gt;proc~xerrwd~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge14" class="edge">
+<title>proc~dintdy~2&#45;&gt;proc~xerrwd~2</title>
+<path fill="none" stroke="#000000" d="M145.47,-262C154.46,-262 164.67,-262 174.29,-262"/>
+<polygon fill="#000000" stroke="#000000" points="174.41,-265.5 184.41,-262 174.41,-258.5 174.41,-265.5"/>
+</g>
+<!-- proc~dgesl~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node15" class="node">
+<title>proc~dgesl~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node15"><a xlink:href=".././proc/dgesl~2.html" xlink:title="dgesl">
+<polygon fill="#d9534f" stroke="#d9534f" points="331,-146 277,-146 277,-122 331,-122 331,-146"/>
+<text text-anchor="middle" x="304" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgesl</text>
+</a>
+</g>
+</g>
+<!-- proc~dsolbt~2&#45;&gt;proc~dgesl~2 -->
 <g id="proc~~dlsoibt~2~~CallsGraph_edge15" class="edge">
-<title>proc~ddecbt~2&#45;&gt;proc~dgefa~2</title>
-<path fill="none" stroke="#000000" d="M238.68,-107.57C247.68,-111.55 257.92,-116.08 267.54,-120.33"/>
-<polygon fill="#000000" stroke="#000000" points="266.32,-123.61 276.88,-124.46 269.15,-117.21 266.32,-123.61"/>
+<title>proc~dsolbt~2&#45;&gt;proc~dgesl~2</title>
+<path fill="none" stroke="#000000" d="M238.68,-135.42C247.4,-135.23 257.28,-135.01 266.64,-134.8"/>
+<polygon fill="#000000" stroke="#000000" points="266.96,-138.3 276.88,-134.58 266.81,-131.3 266.96,-138.3"/>
 </g>
 <!-- proc~ddot~2 -->
 <g id="proc~~dlsoibt~2~~CallsGraph_node16" class="node">
 <title>proc~ddot~2</title>
 <g id="a_proc~~dlsoibt~2~~CallsGraph_node16"><a xlink:href=".././proc/ddot~2.html" xlink:title="ddot">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="421,-64 367,-64 367,-40 421,-40 421,-64"/>
-<text text-anchor="middle" x="394" y="-49.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddot</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="421,-150 367,-150 367,-126 421,-126 421,-150"/>
+<text text-anchor="middle" x="394" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddot</text>
 </a>
 </g>
-</g>
-<!-- proc~ddecbt~2&#45;&gt;proc~ddot~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge16" class="edge">
-<title>proc~ddecbt~2&#45;&gt;proc~ddot~2</title>
-<path fill="none" stroke="#000000" d="M238.75,-93.5C263.01,-90.79 299.88,-85.65 331,-77 339.77,-74.56 348.99,-71.27 357.56,-67.87"/>
-<polygon fill="#000000" stroke="#000000" points="358.98,-71.08 366.9,-64.04 356.32,-64.6 358.98,-71.08"/>
-</g>
-<!-- proc~dgesl~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_node17" class="node">
-<title>proc~dgesl~2</title>
-<g id="a_proc~~dlsoibt~2~~CallsGraph_node17"><a xlink:href=".././proc/dgesl~2.html" xlink:title="dgesl">
-<polygon fill="#d9534f" stroke="#d9534f" points="331,-68 277,-68 277,-44 331,-44 331,-68"/>
-<text text-anchor="middle" x="304" y="-53.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgesl</text>
-</a>
-</g>
-</g>
-<!-- proc~ddecbt~2&#45;&gt;proc~dgesl~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge17" class="edge">
-<title>proc~ddecbt~2&#45;&gt;proc~dgesl~2</title>
-<path fill="none" stroke="#000000" d="M238.68,-84.43C247.68,-80.45 257.92,-75.92 267.54,-71.67"/>
-<polygon fill="#000000" stroke="#000000" points="269.15,-74.79 276.88,-67.54 266.32,-68.39 269.15,-74.79"/>
 </g>
 <!-- proc~dsolbt~2&#45;&gt;proc~ddot~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge19" class="edge">
+<g id="proc~~dlsoibt~2~~CallsGraph_edge16" class="edge">
 <title>proc~dsolbt~2&#45;&gt;proc~ddot~2</title>
-<path fill="none" stroke="#000000" d="M238.79,-44.4C250.35,-40.67 264.17,-36.85 277,-35 300.75,-31.57 307.21,-31.8 331,-35 339.49,-36.14 348.47,-38.13 356.87,-40.35"/>
-<polygon fill="#000000" stroke="#000000" points="356.2,-43.8 366.77,-43.14 358.09,-37.06 356.2,-43.8"/>
+<path fill="none" stroke="#000000" d="M238.79,-145.6C250.35,-149.33 264.17,-153.15 277,-155 300.75,-158.43 307.21,-158.2 331,-155 339.49,-153.86 348.47,-151.87 356.87,-149.65"/>
+<polygon fill="#000000" stroke="#000000" points="358.09,-152.94 366.77,-146.86 356.2,-146.2 358.09,-152.94"/>
 </g>
-<!-- proc~dsolbt~2&#45;&gt;proc~dgesl~2 -->
+<!-- proc~ddecbt~2&#45;&gt;proc~dgesl~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge19" class="edge">
+<title>proc~ddecbt~2&#45;&gt;proc~dgesl~2</title>
+<path fill="none" stroke="#000000" d="M238.68,-105.57C247.68,-109.55 257.92,-114.08 267.54,-118.33"/>
+<polygon fill="#000000" stroke="#000000" points="266.32,-121.61 276.88,-122.46 269.15,-115.21 266.32,-121.61"/>
+</g>
+<!-- proc~ddecbt~2&#45;&gt;proc~ddot~2 -->
 <g id="proc~~dlsoibt~2~~CallsGraph_edge18" class="edge">
-<title>proc~dsolbt~2&#45;&gt;proc~dgesl~2</title>
-<path fill="none" stroke="#000000" d="M238.68,-54.58C247.4,-54.77 257.28,-54.99 266.64,-55.2"/>
-<polygon fill="#000000" stroke="#000000" points="266.81,-58.7 276.88,-55.42 266.96,-51.7 266.81,-58.7"/>
+<title>proc~ddecbt~2&#45;&gt;proc~ddot~2</title>
+<path fill="none" stroke="#000000" d="M238.75,-96.5C263.01,-99.21 299.88,-104.35 331,-113 339.77,-115.44 348.99,-118.73 357.56,-122.13"/>
+<polygon fill="#000000" stroke="#000000" points="356.32,-125.4 366.9,-125.96 358.98,-118.92 356.32,-125.4"/>
+</g>
+<!-- proc~dgefa~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node17" class="node">
+<title>proc~dgefa~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node17"><a xlink:href=".././proc/dgefa~2.html" xlink:title="dgefa">
+<polygon fill="#d9534f" stroke="#d9534f" points="331,-66 277,-66 277,-42 331,-42 331,-66"/>
+<text text-anchor="middle" x="304" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgefa</text>
+</a>
+</g>
+</g>
+<!-- proc~ddecbt~2&#45;&gt;proc~dgefa~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge17" class="edge">
+<title>proc~ddecbt~2&#45;&gt;proc~dgefa~2</title>
+<path fill="none" stroke="#000000" d="M238.68,-82.43C247.68,-78.45 257.92,-73.92 267.54,-69.67"/>
+<polygon fill="#000000" stroke="#000000" points="269.15,-72.79 276.88,-65.54 266.32,-66.39 269.15,-72.79"/>
+</g>
+<!-- proc~dgesl~2&#45;&gt;proc~ddot~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge21" class="edge">
+<title>proc~dgesl~2&#45;&gt;proc~ddot~2</title>
+<path fill="none" stroke="#000000" d="M331.4,-135.2C339.39,-135.56 348.31,-135.97 356.82,-136.36"/>
+<polygon fill="#000000" stroke="#000000" points="356.77,-139.86 366.92,-136.81 357.09,-132.86 356.77,-139.86"/>
+</g>
+<!-- proc~daxpy~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_node18" class="node">
+<title>proc~daxpy~2</title>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node18"><a xlink:href=".././proc/daxpy~2.html" xlink:title="daxpy">
+<polygon fill="#d9534f" stroke="#d9534f" points="421,-108 367,-108 367,-84 421,-84 421,-108"/>
+<text text-anchor="middle" x="394" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daxpy</text>
+</a>
+</g>
+</g>
+<!-- proc~dgesl~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge20" class="edge">
+<title>proc~dgesl~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M331.4,-122.6C339.66,-119.03 348.9,-115.04 357.66,-111.26"/>
+<polygon fill="#000000" stroke="#000000" points="359.13,-114.44 366.92,-107.26 356.35,-108.01 359.13,-114.44"/>
+</g>
+<!-- proc~dgefa~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~dlsoibt~2~~CallsGraph_edge23" class="edge">
+<title>proc~dgefa~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M330.45,-66.15C339.21,-70.33 349.17,-75.08 358.52,-79.54"/>
+<polygon fill="#000000" stroke="#000000" points="357.07,-82.73 367.6,-83.88 360.09,-76.41 357.07,-82.73"/>
 </g>
 <!-- proc~idamax~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_node18" class="node">
+<g id="proc~~dlsoibt~2~~CallsGraph_node19" class="node">
 <title>proc~idamax~2</title>
-<g id="a_proc~~dlsoibt~2~~CallsGraph_node18"><a xlink:href=".././proc/idamax~2.html" xlink:title="idamax">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="421,-190 367,-190 367,-166 421,-166 421,-190"/>
-<text text-anchor="middle" x="394" y="-175.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">idamax</text>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node19"><a xlink:href=".././proc/idamax~2.html" xlink:title="idamax">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="421,-66 367,-66 367,-42 421,-42 421,-66"/>
+<text text-anchor="middle" x="394" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">idamax</text>
 </a>
 </g>
 </g>
 <!-- proc~dgefa~2&#45;&gt;proc~idamax~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge20" class="edge">
+<g id="proc~~dlsoibt~2~~CallsGraph_edge22" class="edge">
 <title>proc~dgefa~2&#45;&gt;proc~idamax~2</title>
-<path fill="none" stroke="#000000" d="M330.45,-148.15C339.21,-152.33 349.17,-157.08 358.52,-161.54"/>
-<polygon fill="#000000" stroke="#000000" points="357.07,-164.73 367.6,-165.88 360.09,-158.41 357.07,-164.73"/>
+<path fill="none" stroke="#000000" d="M331.4,-54C339.39,-54 348.31,-54 356.82,-54"/>
+<polygon fill="#000000" stroke="#000000" points="356.92,-57.5 366.92,-54 356.92,-50.5 356.92,-57.5"/>
 </g>
 <!-- proc~dscal~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_node19" class="node">
+<g id="proc~~dlsoibt~2~~CallsGraph_node20" class="node">
 <title>proc~dscal~2</title>
-<g id="a_proc~~dlsoibt~2~~CallsGraph_node19"><a xlink:href=".././proc/dscal~2.html" xlink:title="dscal">
-<polygon fill="#d9534f" stroke="#d9534f" points="421,-148 367,-148 367,-124 421,-124 421,-148"/>
-<text text-anchor="middle" x="394" y="-133.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscal</text>
+<g id="a_proc~~dlsoibt~2~~CallsGraph_node20"><a xlink:href=".././proc/dscal~2.html" xlink:title="dscal">
+<polygon fill="#d9534f" stroke="#d9534f" points="421,-24 367,-24 367,0 421,0 421,-24"/>
+<text text-anchor="middle" x="394" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscal</text>
 </a>
 </g>
 </g>
 <!-- proc~dgefa~2&#45;&gt;proc~dscal~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge21" class="edge">
-<title>proc~dgefa~2&#45;&gt;proc~dscal~2</title>
-<path fill="none" stroke="#000000" d="M331.4,-136C339.39,-136 348.31,-136 356.82,-136"/>
-<polygon fill="#000000" stroke="#000000" points="356.92,-139.5 366.92,-136 356.92,-132.5 356.92,-139.5"/>
-</g>
-<!-- proc~daxpy~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_node20" class="node">
-<title>proc~daxpy~2</title>
-<g id="a_proc~~dlsoibt~2~~CallsGraph_node20"><a xlink:href=".././proc/daxpy~2.html" xlink:title="daxpy">
-<polygon fill="#d9534f" stroke="#d9534f" points="421,-106 367,-106 367,-82 421,-82 421,-106"/>
-<text text-anchor="middle" x="394" y="-91.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daxpy</text>
-</a>
-</g>
-</g>
-<!-- proc~dgefa~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge22" class="edge">
-<title>proc~dgefa~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M330.45,-123.85C339.21,-119.67 349.17,-114.92 358.52,-110.46"/>
-<polygon fill="#000000" stroke="#000000" points="360.09,-113.59 367.6,-106.12 357.07,-107.27 360.09,-113.59"/>
-</g>
-<!-- proc~dgesl~2&#45;&gt;proc~ddot~2 -->
 <g id="proc~~dlsoibt~2~~CallsGraph_edge24" class="edge">
-<title>proc~dgesl~2&#45;&gt;proc~ddot~2</title>
-<path fill="none" stroke="#000000" d="M331.4,-54.8C339.39,-54.44 348.31,-54.03 356.82,-53.64"/>
-<polygon fill="#000000" stroke="#000000" points="357.09,-57.14 366.92,-53.19 356.77,-50.14 357.09,-57.14"/>
-</g>
-<!-- proc~dgesl~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dlsoibt~2~~CallsGraph_edge23" class="edge">
-<title>proc~dgesl~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M331.4,-67.4C339.66,-70.97 348.9,-74.96 357.66,-78.74"/>
-<polygon fill="#000000" stroke="#000000" points="356.35,-81.99 366.92,-82.74 359.13,-75.56 356.35,-81.99"/>
+<title>proc~dgefa~2&#45;&gt;proc~dscal~2</title>
+<path fill="none" stroke="#000000" d="M330.45,-41.85C339.21,-37.67 349.17,-32.92 358.52,-28.46"/>
+<polygon fill="#000000" stroke="#000000" points="360.09,-31.59 367.6,-24.12 357.07,-25.27 360.09,-31.59"/>
 </g>
 </g>
 </svg>
@@ -3910,7 +3910,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-13 19:58            </p>
+ on 2022-10-14 02:22            </p>
         </div>
       </div>
       <br>

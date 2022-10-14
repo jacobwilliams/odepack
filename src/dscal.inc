@@ -61,7 +61,7 @@
 !     19900821  Modified to correct problem with a negative increment.
 !               (WRB)
 !     19920501  Reformatted the REFERENCES section.  (WRB)
-! 
+!
 subroutine dscal(N,Da,Dx,Incx)
 !
 integer,intent(in)          :: N

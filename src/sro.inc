@@ -21,16 +21,16 @@
 !!
 !!### additional parameters
 !!
-!!   q     
+!!   q
 !!
 !!   : integer one-dimensional work array.  dimension = n
 !!
-!!   r     
+!!   r
 !!
 !!   : integer one-dimensional work array.  dimension = number of
 !!   nonzero entries in the upper triangle of m
 !!
-!!   dflag 
+!!   dflag
 !!
 !!   : logical variable.  if dflag = .true., then store nonzero
 !!   diagonal elements at the beginning of the row
@@ -70,14 +70,14 @@ do i = 1 , N
       enddo
    endif
 enddo
-! 
+!
 !--phase 2 -- find new ia and permutation to apply to (ja,a)
 !----determine pointers to delimit rows in permuted (ja,a)
 do i = 1 , N
    Ia(i+1) = Ia(i) + Q(i)
    Q(i) = Ia(i+1)
 enddo
-! 
+!
 !----determine where each (ja(j),a(j)) is stored in permuted (ja,a)
 !----for each nonzero element (in reverse order)
 ilast = 0
@@ -87,20 +87,20 @@ j = jmax
 do jdummy = jmin , jmax
    i = R(j)
    if ( .not.Dflag .or. Ja(j)/=i .or. i==ilast ) then
-! 
+!
 !------put (off-diagonal) nonzero in last unused location in row
       Q(i) = Q(i) - 1
       R(j) = Q(i)
    else
-! 
+!
 !------if dflag, then put diagonal nonzero at beginning of row
       R(j) = Ia(i)
       ilast = i
    endif
-! 
+!
    j = j - 1
 enddo
-! 
+!
 !--phase 3 -- permute (ja,a) to upper triangular form (wrt new ordering)
 do j = jmin , jmax
    do while ( R(j)/=j )
@@ -115,5 +115,5 @@ do j = jmin , jmax
       A(j) = ak
    enddo
 enddo
-! 
+!
 end subroutine sro

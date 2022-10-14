@@ -194,13 +194,13 @@
 <a id="ln-40" name="ln-40" href="#ln-40"></a><span class="c">!!  DNRM2</span>
 <a id="ln-41" name="ln-41" href="#ln-41"></a><span class="c">!!  :   double precision result (zero if N .LE. 0)</span>
 <a id="ln-42" name="ln-42" href="#ln-42"></a><span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
-<a id="ln-43" name="ln-43" href="#ln-43"></a><span class="c">! ### REFERENCES </span>
+<a id="ln-43" name="ln-43" href="#ln-43"></a><span class="c">! ### REFERENCES</span>
 <a id="ln-44" name="ln-44" href="#ln-44"></a><span class="c">! #### B L A S  Subprogram</span>
 <a id="ln-45" name="ln-45" href="#ln-45"></a><span class="c">!    C. L. Lawson, R. J. Hanson, D. R. Kincaid and F. T.</span>
 <a id="ln-46" name="ln-46" href="#ln-46"></a><span class="c">!    Krogh, Basic linear algebra subprograms for Fortran</span>
 <a id="ln-47" name="ln-47" href="#ln-47"></a><span class="c">!    usage, Algorithm No. 539, Transactions on Mathematical</span>
 <a id="ln-48" name="ln-48" href="#ln-48"></a><span class="c">!    Software 5, 3 (September 1979), pp. 308-323.</span>
-<a id="ln-49" name="ln-49" href="#ln-49"></a><span class="c">! </span>
+<a id="ln-49" name="ln-49" href="#ln-49"></a><span class="c">!</span>
 <a id="ln-50" name="ln-50" href="#ln-50"></a><span class="c">! ### CATEGORY  D1A3B</span>
 <a id="ln-51" name="ln-51" href="#ln-51"></a><span class="c">! ### TYPE      DOUBLE PRECISION (SNRM2-S, DNRM2-D, SCNRM2-C)</span>
 <a id="ln-52" name="ln-52" href="#ln-52"></a><span class="c">! ### KEYWORDS  BLAS, EUCLIDEAN LENGTH, EUCLIDEAN NORM, L2,</span>
@@ -217,7 +217,7 @@
 <a id="ln-63" name="ln-63" href="#ln-63"></a><span class="c">!     19890831  REVISION DATE from Version 3.2</span>
 <a id="ln-64" name="ln-64" href="#ln-64"></a><span class="c">!     19891214  Prologue converted to Version 4.0 format.  (BAB)</span>
 <a id="ln-65" name="ln-65" href="#ln-65"></a><span class="c">!     19920501  Reformatted the REFERENCES section.  (WRB)</span>
-<a id="ln-66" name="ln-66" href="#ln-66"></a><span class="c">! </span>
+<a id="ln-66" name="ln-66" href="#ln-66"></a><span class="c">!</span>
 <a id="ln-67" name="ln-67" href="#ln-67"></a><span class="c">!  Authors:</span>
 <a id="ln-68" name="ln-68" href="#ln-68"></a><span class="c">!  ========</span>
 <a id="ln-69" name="ln-69" href="#ln-69"></a><span class="c">!</span>
@@ -228,22 +228,22 @@
 <a id="ln-74" name="ln-74" href="#ln-74"></a><span class="c">!</span>
 <a id="ln-75" name="ln-75" href="#ln-75"></a><span class="c">!  Contributors:</span>
 <a id="ln-76" name="ln-76" href="#ln-76"></a><span class="c">!  ==================</span>
-<a id="ln-77" name="ln-77" href="#ln-77"></a><span class="c">! </span>
+<a id="ln-77" name="ln-77" href="#ln-77"></a><span class="c">!</span>
 <a id="ln-78" name="ln-78" href="#ln-78"></a><span class="c">!  Weslley Pereira, University of Colorado Denver, USA</span>
 <a id="ln-79" name="ln-79" href="#ln-79"></a><span class="c">!</span>
 <a id="ln-80" name="ln-80" href="#ln-80"></a><span class="c">!  Further Details:</span>
 <a id="ln-81" name="ln-81" href="#ln-81"></a><span class="c">!  =====================</span>
-<a id="ln-82" name="ln-82" href="#ln-82"></a><span class="c">! </span>
+<a id="ln-82" name="ln-82" href="#ln-82"></a><span class="c">!</span>
 <a id="ln-83" name="ln-83" href="#ln-83"></a><span class="c">!   Anderson E. (2017)</span>
 <a id="ln-84" name="ln-84" href="#ln-84"></a><span class="c">!   Algorithm 978: Safe Scaling in the Level 1 BLAS</span>
 <a id="ln-85" name="ln-85" href="#ln-85"></a><span class="c">!   ACM Trans Math Softw 44:1--28</span>
 <a id="ln-86" name="ln-86" href="#ln-86"></a><span class="c">!   https://doi.org/10.1145/3061665</span>
-<a id="ln-87" name="ln-87" href="#ln-87"></a><span class="c">! </span>
+<a id="ln-87" name="ln-87" href="#ln-87"></a><span class="c">!</span>
 <a id="ln-88" name="ln-88" href="#ln-88"></a><span class="c">!   Blue, James L. (1978)</span>
 <a id="ln-89" name="ln-89" href="#ln-89"></a><span class="c">!   A Portable Fortran Program to Find the Euclidean Norm of a Vector</span>
 <a id="ln-90" name="ln-90" href="#ln-90"></a><span class="c">!   ACM Trans Math Softw 4:15--23</span>
 <a id="ln-91" name="ln-91" href="#ln-91"></a><span class="c">!   https://doi.org/10.1145/355769.355771</span>
-<a id="ln-92" name="ln-92" href="#ln-92"></a><span class="c">! </span>
+<a id="ln-92" name="ln-92" href="#ln-92"></a><span class="c">!</span>
 <a id="ln-93" name="ln-93" href="#ln-93"></a><span class="c">!-----------------------------------------------------------------------------------------------------------------------------------</span>
 <a id="ln-94" name="ln-94" href="#ln-94"></a><span class="k">pure function </span><span class="n">DNRM2</span><span class="p">(</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">incx</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
 <a id="ln-95" name="ln-95" href="#ln-95"></a><span class="w">   </span><span class="kt">real</span><span class="p">(</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">DNRM2</span><span class="w"></span>
@@ -375,7 +375,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-13 19:58            </p>
+ on 2022-10-14 02:22            </p>
         </div>
       </div>
       <br>

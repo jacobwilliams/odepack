@@ -4,7 +4,7 @@
 !>
 !! DPJIBT is called by DSTODI to compute and process the matrix
 !! P = A - H*EL(1)*J, where J is an approximation to the Jacobian dr/dy,
-!! and r = g(t,y) - A(t,y)*s. 
+!! and r = g(t,y) - A(t,y)*s.
 !!
 !! Here J is computed by the user-supplied
 !! routine JAC if MITER = 1, or by finite differencing if MITER = 2.

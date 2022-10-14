@@ -961,16 +961,16 @@
 !!                              | output of messages from _DLSODA_, if
 !!                              | the default is not desired.
 !!                              | The default value of LUN is 6.
-!!                              |                                   
+!!                              |
 !!  CALL XSETF(MFLAG)           | set a flag to control the printing of
 !!                              | messages by _DLSODA_.
 !!                              | MFLAG = 0 means do not print. (Danger:
 !!                              | This risks losing valuable information.)
 !!                              | MFLAG = 1 means print (the default).
-!!                              |                                   
+!!                              |
 !!                              | Either of the above calls may be made at
 !!                              | any time and will take effect immediately.
-!!                              |                                   
+!!                              |
 !!  CALL DSRCMA(RSAV,ISAV,JOB)  | saves and restores the contents of
 !!                              | the internal Common blocks used by
 !!                              | _DLSODA_ (see Part 3 below).
@@ -983,12 +983,12 @@
 !!                              | interrupting a run and restarting
 !!                              | later, or alternating between two or
 !!                              | more problems solved with _DLSODA_.
-!!                              |                                   
+!!                              |
 !!  CALL DINTDY(,,,,,)          | provide derivatives of y, of various
 !!       (see below)            | orders, at a specified point t, if
 !!                              | desired.  It may be called only after
 !!                              | a successful return from _DLSODA_.
-!!                                                              
+!!
 !!
 !! The detailed instructions for using DINTDY are as follows:
 !!

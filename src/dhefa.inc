@@ -23,11 +23,11 @@
 !!
 !!   : the leading dimension of the array  A .
 !!
-!!   N 
+!!   N
 !!
 !!   : the order of the matrix  A .
 !!
-!!   JOB 
+!!   JOB
 !!
 !!       JOB = 1    means that a fresh factorization of the
 !!                  matrix A is desired.
@@ -60,7 +60,7 @@
 !-----------------------------------------------------------------------
 !      Modification of LINPACK, by Peter Brown, LLNL.
 !      Written 7/20/83.  This version dated 6/20/2001.
-! 
+!
 !      BLAS called: DAXPY, IDAMAX
 !-----------------------------------------------------------------------
 subroutine dhefa(A,Lda,N,Ipvt,Info,Job)

@@ -14,41 +14,41 @@
 !!
 !!### additional parameters
 !!
-!!    MAX  
+!!    MAX
 !!
 !!    : declared dimension of the one-dimensional arrays v and l.
 !!    max must be at least  n+2k,  where k is the number of
 !!    nonzeroes in the strict upper triangle of m + m-transpose
 !!
-!!    V    
+!!    V
 !!
 !!    : integer one-dimensional work array.  dimension = max
 !!
-!!    L    
+!!    L
 !!
 !!    : integer one-dimensional work array.  dimension = max
 !!
-!!    HEAD 
+!!    HEAD
 !!
 !!    : integer one-dimensional work array.  dimension = n
 !!
-!!    LAST 
+!!    LAST
 !!
 !!    : integer one-dimensional array used to return the permutation
 !!    of the rows and columns of m corresponding to the minimum
 !!    degree ordering.  dimension = n
 !!
-!!    NEXT 
+!!    NEXT
 !!
 !!    : integer one-dimensional array used to return the inverse of
 !!    the permutation returned in last.  dimension = n
 !!
-!!    MARK 
+!!    MARK
 !!
 !!    : integer one-dimensional work array (may be the same as v).
 !!    dimension = n
 !!
-!!    FLAG 
+!!    FLAG
 !!
 !!    : integer error flag.  values and their meanings are -
 !!
@@ -101,7 +101,7 @@
 !!
 !-----------------------------------------------------------------------
 subroutine md(N,Ia,Ja,Max,V,L,Head,Last,Next,Mark,Flag)
- 
+
 integer               :: N
 integer               :: Ia(*)
 integer               :: Ja(*)
@@ -113,11 +113,11 @@ integer,intent(inout) :: Last(*)
 integer,intent(inout) :: Next(*)
 integer               :: Mark(*)
 integer               :: Flag
- 
+
 integer :: dmin, ek, k, tag, tail, vk
- 
+
 equivalence (vk,ek)
- 
+
    !----initialization
    tag = 0
    call mdi(N,Ia,Ja,Max,V,L,Head,Last,Next,Mark,tag,Flag)
@@ -162,5 +162,5 @@ equivalence (vk,ek)
       Next(k) = -Next(k)
       Last(Next(k)) = k
    enddo
- 
+
 end subroutine md

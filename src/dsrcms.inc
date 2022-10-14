@@ -6,15 +6,15 @@
 !! the Common blocks DLS001, DLSS01, which are used
 !! internally by one or more ODEPACK solvers.
 !!
-!! RSAV 
+!! RSAV
 !!
 !! : real array of length 224 or more.
 !!
-!! ISAV 
+!! ISAV
 !!
 !! : integer array of length 71 or more.
 !!
-!! JOB  
+!! JOB
 !!
 !! : flag indicating to save or restore the Common blocks:
 !!
@@ -30,7 +30,7 @@ integer,intent(in)          :: Job
 integer,parameter ::  lenils=37, lenrls=218
 
    select case(job)
- 
+
    case(1)
 
       rsav(1:lenrls) = return_dls1_real()
@@ -78,7 +78,7 @@ integer,parameter ::  lenils=37, lenrls=218
       isav(32 + lenils) = dlss%nsp
       isav(33 + lenils) = dlss%nzl
       isav(34 + lenils) = dlss%nzu
- 
+
    case(2)
       call set_dls1_real(rsav(1:lenrls))
 
@@ -88,7 +88,7 @@ integer,parameter ::  lenils=37, lenrls=218
       dlss%psmall  =  rsav( 4 + lenrls)
       dlss%rbig    =  rsav( 5 + lenrls)
       dlss%seth    =  rsav( 6 + lenrls)
-      
+
       call set_dls1_int(isav(1:lenils))
 
       dlss%iplost  =  isav( 1 + lenils)
@@ -129,6 +129,6 @@ integer,parameter ::  lenils=37, lenrls=218
 
       write(*,*)'<ERROR>*dsrcms* unknown value for JOB=',job
       stop 1
- 
+
    end select
 end subroutine dsrcms

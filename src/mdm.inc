@@ -6,7 +6,7 @@
 !!
 !-----------------------------------------------------------------------
 subroutine mdm(Vk,Tail,V,L,Last,Next,Mark)
- 
+
 integer,intent(in)    :: Vk
 integer,intent(inout) :: Tail
 integer,intent(in)    :: V(*)
@@ -14,9 +14,9 @@ integer,intent(inout) :: L(*)
 integer,intent(in)    :: Last(*)
 integer,intent(in)    :: Next(*)
 integer,intent(inout) :: Mark(*)
- 
+
 integer :: b, blp, blpmax, es, lb, ls, s, tag, vb, vs
- 
+
 equivalence (vs,es)
    !
    !----initialize tag and list of uneliminated neighbors
@@ -68,5 +68,5 @@ equivalence (vs,es)
          endif
       endif
    enddo
- 
+
 end subroutine mdm

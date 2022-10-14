@@ -154,7 +154,7 @@
 </code></pre></div>
 
 <p>which computes the residual function</p>
-<div class="codehilite"><pre><span></span><code>     r = g(t,y)  -  A(t,y) * s 
+<div class="codehilite"><pre><span></span><code>     r = g(t,y)  -  A(t,y) * s
 </code></pre></div>
 
 <p>as a function of t and the vectors y and s.  (s is an internally
@@ -269,15 +269,15 @@
  for possible use of logical unit 6 for output of error messages by
  DLSOIBT.  on the first call to DLSOIBT, supply arguments as follows:</p>
 <dl>
-<dt>RES    </dt>
+<dt>RES</dt>
 <dd>
 <p>name of user subroutine for residual function r.</p>
 </dd>
-<dt>ADDA   </dt>
+<dt>ADDA</dt>
 <dd>
 <p>name of user subroutine for computing and adding A(t,y).</p>
 </dd>
-<dt>JAC    </dt>
+<dt>JAC</dt>
 <dd>
 <p>name of user subroutine for Jacobian matrix dr/dy
  (MF = 21).  If not used, pass a dummy name.</p>
@@ -286,35 +286,35 @@
 <p>Note: the names for the RES and ADDA routines and (if used) the
  JAC routine must be declared External in the calling program.</p>
 <dl>
-<dt>NEQ    </dt>
+<dt>NEQ</dt>
 <dd>
 <p>number of scalar equations in the system.</p>
 </dd>
-<dt>Y      </dt>
+<dt>Y</dt>
 <dd>
 <p>array of initial values, of length NEQ.</p>
 </dd>
-<dt>YDOTI  </dt>
+<dt>YDOTI</dt>
 <dd>
 <p>array of length NEQ (containing initial dy/dt if ISTATE = 1).</p>
 </dd>
-<dt>T      </dt>
+<dt>T</dt>
 <dd>
 <p>the initial value of the independent variable.</p>
 </dd>
-<dt>TOUT   </dt>
+<dt>TOUT</dt>
 <dd>
 <p>first point where output is desired (.ne. T).</p>
 </dd>
-<dt>ITOL   </dt>
+<dt>ITOL</dt>
 <dd>
 <p>1 or 2 according as ATOL (below) is a scalar or array.</p>
 </dd>
-<dt>RTOL   </dt>
+<dt>RTOL</dt>
 <dd>
 <p>relative tolerance parameter (scalar).</p>
 </dd>
-<dt>ATOL   </dt>
+<dt>ATOL</dt>
 <dd>
 <p>absolute tolerance parameter (scalar or array).
  the estimated local error in y(i) will be controlled so as
@@ -333,42 +333,42 @@
  control.  Caution: Actual (global) errors may exceed these
  local tolerances, so choose them conservatively.</p>
 <dl>
-<dt>ITASK  </dt>
+<dt>ITASK</dt>
 <dd>
 <p>1 for normal computation of output values of y at t = TOUT.</p>
 </dd>
-<dt>ISTATE </dt>
+<dt>ISTATE</dt>
 <dd>
 <p>integer flag (input and output).  Set ISTATE = 1 if the
  initial dy/dt is supplied, and 0 otherwise.</p>
 </dd>
-<dt>IOPT   </dt>
+<dt>IOPT</dt>
 <dd>
 <p>0 to indicate no optional inputs used.</p>
 </dd>
-<dt>RWORK  </dt>
+<dt>RWORK</dt>
 <dd>
 <p>real work array of length at least:</p>
 <div class="codehilite"><pre><span></span><code>     <span class="mi">22</span> <span class="o">+</span> <span class="mi">9</span><span class="o">*</span><span class="nv">NEQ</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="nv">MB</span><span class="o">*</span><span class="nv">MB</span><span class="o">*</span><span class="nv">NB</span>        <span class="k">for</span> <span class="nv">MF</span> <span class="o">=</span> <span class="mi">21</span> <span class="nv">or</span> <span class="mi">22</span>.
 </code></pre></div>
 
 </dd>
-<dt>LRW    </dt>
+<dt>LRW</dt>
 <dd>
 <p>declared length of RWORK (in user&rsquo;s dimension).</p>
 </dd>
-<dt>IWORK  </dt>
+<dt>IWORK</dt>
 <dd>
 <p>integer work array of length at least 20 + NEQ.
  Input in IWORK(1) the block size MB and in IWORK(2) the
  number NB of blocks in each direction along the matrix A.
  These must satisfy  MB .ge. 1, NB .ge. 4, and MB*NB = NEQ.</p>
 </dd>
-<dt>LIW    </dt>
+<dt>LIW</dt>
 <dd>
 <p>declared length of IWORK (in user&rsquo;s dimension).</p>
 </dd>
-<dt>MF     </dt>
+<dt>MF</dt>
 <dd>
 <p>method flag.  Standard values are:</p>
 <div class="codehilite"><pre><span></span><code>  <span class="mi">21</span> <span class="k">for</span> <span class="nv">a</span> <span class="nv">user</span><span class="o">-</span><span class="nv">supplied</span> <span class="nv">Jacobian</span>.
@@ -383,15 +383,15 @@
  and possibly ATOL.</p>
 <p><strong>G.</strong> The output from the first call (or any call) is:</p>
 <dl>
-<dt>Y </dt>
+<dt>Y</dt>
 <dd>
 <p>array of computed values of y(t) vector.</p>
 </dd>
-<dt>T </dt>
+<dt>T</dt>
 <dd>
 <p>corresponding value of independent variable (normally TOUT).</p>
 </dd>
-<dt>ISTATE  </dt>
+<dt>ISTATE</dt>
 <dd>
 <p>ISTATE values:</p>
 </dd>
@@ -693,7 +693,7 @@
  change in input parameters is flagged by ISTATE = 3 on input.</p>
 <p>The descriptions of the call arguments are as follows.</p>
 <dl>
-<dt>RES    </dt>
+<dt>RES</dt>
 <dd>
 <p>the name of the user-supplied subroutine which supplies
  the residual vector for the ODE system, defined by</p>
@@ -752,7 +752,7 @@
 <p>RES must be declared External in the calling
  program. See note below for more about RES.</p>
 <dl>
-<dt>ADDA   </dt>
+<dt>ADDA</dt>
 <dd>
 <p>the name of the user-supplied subroutine which adds the
  matrix A = A(t,y) to another matrix, P, stored in
@@ -791,7 +791,7 @@
 <p>ADDA must be declared External in the calling program.
  See note below for more information about ADDA.</p>
 <dl>
-<dt>JAC    </dt>
+<dt>JAC</dt>
 <dd>
 <p>the name of the user-supplied subroutine which supplies
  the Jacobian matrix, dr/dy, where r = g - A*s.  JAC is
@@ -853,7 +853,7 @@
  NEQ(1), Y(1),&hellip;,Y(NEQ) or any other input variables.
  See the descriptions of NEQ and Y below.</p>
 <dl>
-<dt>NEQ    </dt>
+<dt>NEQ</dt>
 <dd>
 <p>the size of the system (number of first order ordinary
  differential equations or scalar algebraic equations).
@@ -874,7 +874,7 @@
  and pass it to RES, ADDA, or JAC.  Each such subroutine
  must include NEQ in a Dimension statement in that case.</p>
 <dl>
-<dt>Y      </dt>
+<dt>Y</dt>
 <dd>
 <p>a real array for the vector of dependent variables, of
  length NEQ or more.  Used for both input and output on the
@@ -891,7 +891,7 @@
  data and pass it to RES, ADDA, or JAC.  (The DLSOIBT
  package accesses only Y(1),&hellip;,Y(NEQ). )</p>
 <dl>
-<dt>YDOTI  </dt>
+<dt>YDOTI</dt>
 <dd>
 <p>a real array for the initial value of the vector
  dy/dt and for work space, of dimension at least NEQ.</p>
@@ -918,7 +918,7 @@
 <p>If desired, the YDOTI array may be used for other
  purposes between calls to the solver.</p>
 <dl>
-<dt>T      </dt>
+<dt>T</dt>
 <dd>
 <p>the independent variable.  On input, T is used only on the
  first call, as the initial point of the integration.</p>
@@ -928,7 +928,7 @@
  computed solution y is evaluated (usually the same as TOUT).
  On an error return, T is the farthest point reached.</p>
 <dl>
-<dt>TOUT   </dt>
+<dt>TOUT</dt>
 <dd>
 <p>the next value of t at which a computed solution is desired.
  Used only for input.</p>
@@ -950,18 +950,18 @@
  TCUR - HU and TCUR (see optional outputs, below, for
  TCUR and HU).</p>
 <dl>
-<dt>ITOL   </dt>
+<dt>ITOL</dt>
 <dd>
 <p>an indicator for the type of error control.  See
  description below under ATOL.  Used only for input.</p>
 </dd>
-<dt>RTOL   </dt>
+<dt>RTOL</dt>
 <dd>
 <p>a relative error tolerance parameter, either a scalar or
  an array of length NEQ.  See description below under ATOL.
  Input only.</p>
 </dd>
-<dt>ATOL   </dt>
+<dt>ATOL</dt>
 <dd>
 <p>an absolute error tolerance parameter, either a scalar or
  an array of length NEQ.  Input only.</p>
@@ -1029,7 +1029,7 @@
  components of RTOL and ATOL (i.e. of EWT) should be scaled
  down uniformly.</p>
 <dl>
-<dt>ITASK  </dt>
+<dt>ITASK</dt>
 <dd>
 <p>an index specifying the task to be performed.
  Input only.  ITASK has the following values and meanings.</p>
@@ -1102,7 +1102,7 @@
  indicate this (unless ITASK = 4 and TOUT comes before TCRIT,
  in which case answers at t = TOUT are returned first).</p>
 <dl>
-<dt>ISTATE </dt>
+<dt>ISTATE</dt>
 <dd>
 <p>an index used for input and output to specify the
  state of the calculation.</p>
@@ -1426,7 +1426,7 @@
  user to change it, and possibly other inputs, before
  calling the solver again.</p>
 <dl>
-<dt>IOPT   </dt>
+<dt>IOPT</dt>
 <dd>
 <p>an integer flag to specify whether or not any optional
  inputs are being used on this call.  Input only.
@@ -1435,7 +1435,7 @@
             Default values will be used in all cases.
    IOPT = 1 means one or more optional inputs are being used.</p>
 </dd>
-<dt>RWORK  </dt>
+<dt>RWORK</dt>
 <dd>
 <p>a real working array (double precision).
  The length of RWORK must be at least</p>
@@ -1463,12 +1463,12 @@
 </code></pre></div>
 
 <dl>
-<dt>LRW    </dt>
+<dt>LRW</dt>
 <dd>
 <p>the length of the array RWORK, as declared by the user.
  (This will be checked by the solver.)</p>
 </dd>
-<dt>IWORK  </dt>
+<dt>IWORK</dt>
 <dd>
 <p>an integer work array.  The length of IWORK must be at least
  20 + NEQ .  The first few words of IWORK are used for
@@ -1481,7 +1481,7 @@
             IWORK(2) = NB = number of blocks in the main diagonal
  These must satisfy  MB .ge. 1, NB .ge. 4, and MB*NB = NEQ.</p>
 <dl>
-<dt>LIW    </dt>
+<dt>LIW</dt>
 <dd>
 <p>the length of the array IWORK, as declared by the user.
  (This will be checked by the solver.)</p>
@@ -1494,7 +1494,7 @@
  available for use by the user outside DLSOIBT between calls, if
  desired (but not for use by RES, ADDA, or JAC).</p>
 <dl>
-<dt>MF     </dt>
+<dt>MF</dt>
 <dd>
 <p>the method flag.  used only for input.  The legal values of
  MF are 11, 12, 21, and 22.</p>
@@ -2227,14 +2227,14 @@
 
 <p>The input parameters are:</p>
 <dl>
-<dt>T         </dt>
+<dt>T</dt>
 <dd>
 <p>value of independent variable where answers are desired
  (normally the same as the t last returned by DLSOIBT).
  For valid results, T must lie between TCUR - HU and TCUR.
  (See optional outputs for TCUR and HU.)</p>
 </dd>
-<dt>K         </dt>
+<dt>K</dt>
 <dd>
 <p>integer order of the derivative desired.  K must satisfy
  0 .le. K .le. NQCUR, where NQCUR is the current order
@@ -2243,22 +2243,22 @@
  by DLSOIBT directly.  Since NQCUR .ge. 1, the first
  derivative dy/dt is always available with DINTDY.</p>
 </dd>
-<dt>RWORK(21) </dt>
+<dt>RWORK(21)</dt>
 <dd>
 <p>the base address of the history array YH.</p>
 </dd>
-<dt>NYH       </dt>
+<dt>NYH</dt>
 <dd>
 <p>column length of YH, equal to the initial value of NEQ.</p>
 </dd>
 </dl>
 <p>The output parameters are:</p>
 <dl>
-<dt>DKY       </dt>
+<dt>DKY</dt>
 <dd>
 <p>a real array of length NEQ containing the computed value
  of the K-th derivative of y(t).
- IFLAG     </p>
+ IFLAG</p>
 </dd>
 <dd>
 <p>integer flag, returned as 0 if K and T were legal,
@@ -2493,148 +2493,148 @@
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~dlsoibt~~CallsGraph Pages: 1 -->
-<svg id="procdlsoibtCallsGraph" width="244pt" height="276pt"
- viewBox="0.00 0.00 244.00 276.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~dlsoibt~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 272)">
+<svg id="procdlsoibtCallsGraph" width="244pt" height="259pt"
+ viewBox="0.00 0.00 244.00 258.91" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dlsoibt~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 254.91)">
 <title>proc~~dlsoibt~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-272 240,-272 240,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-254.91 240,-254.91 240,4 -4,4"/>
 <!-- proc~dlsoibt -->
 <g id="proc~~dlsoibt~~CallsGraph_node1" class="node">
 <title>proc~dlsoibt</title>
-<polygon fill="none" stroke="black" points="54,-146 0,-146 0,-122 54,-122 54,-146"/>
-<text text-anchor="middle" x="27" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50">dlsoibt</text>
+<polygon fill="none" stroke="black" points="54,-128.91 0,-128.91 0,-104.91 54,-104.91 54,-128.91"/>
+<text text-anchor="middle" x="27" y="-114.51" font-family="Helvetica,sans-Serif" font-size="10.50">dlsoibt</text>
 </g>
 <!-- proc~dumach -->
 <g id="proc~~dlsoibt~~CallsGraph_node2" class="node">
 <title>proc~dumach</title>
 <g id="a_proc~~dlsoibt~~CallsGraph_node2"><a xlink:href=".././proc/dumach.html" xlink:title="dumach">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-268 90,-268 90,-244 146,-244 146,-268"/>
-<text text-anchor="middle" x="118" y="-253.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-250.91 90,-250.91 90,-226.91 146,-226.91 146,-250.91"/>
+<text text-anchor="middle" x="118" y="-236.51" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsoibt&#45;&gt;proc~dumach -->
 <g id="proc~~dlsoibt~~CallsGraph_edge1" class="edge">
 <title>proc~dlsoibt&#45;&gt;proc~dumach</title>
-<path fill="none" stroke="#000000" d="M34.62,-146.13C45.16,-164.96 66.92,-201.97 90,-230 91.86,-232.26 93.9,-234.53 96,-236.73"/>
-<polygon fill="#000000" stroke="#000000" points="93.63,-239.32 103.2,-243.88 98.57,-234.35 93.63,-239.32"/>
+<path fill="none" stroke="#000000" d="M34.62,-129.04C45.16,-147.87 66.92,-184.88 90,-212.91 91.86,-215.17 93.9,-217.44 96,-219.65"/>
+<polygon fill="#000000" stroke="#000000" points="93.63,-222.23 103.2,-226.79 98.57,-217.26 93.63,-222.23"/>
+</g>
+<!-- proc~dintdy -->
+<g id="proc~~dlsoibt~~CallsGraph_node3" class="node">
+<title>proc~dintdy</title>
+<g id="a_proc~~dlsoibt~~CallsGraph_node3"><a xlink:href=".././proc/dintdy.html" xlink:title="dintdy">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-170.91 91,-170.91 91,-146.91 145,-146.91 145,-170.91"/>
+<text text-anchor="middle" x="118" y="-156.51" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoibt&#45;&gt;proc~dintdy -->
+<g id="proc~~dlsoibt~~CallsGraph_edge2" class="edge">
+<title>proc~dlsoibt&#45;&gt;proc~dintdy</title>
+<path fill="none" stroke="#000000" d="M53.74,-129.06C62.6,-133.24 72.67,-137.99 82.13,-142.45"/>
+<polygon fill="#000000" stroke="#000000" points="80.78,-145.69 91.32,-146.79 83.77,-139.36 80.78,-145.69"/>
 </g>
 <!-- proc~dstodi -->
-<g id="proc~~dlsoibt~~CallsGraph_node3" class="node">
+<g id="proc~~dlsoibt~~CallsGraph_node4" class="node">
 <title>proc~dstodi</title>
-<g id="a_proc~~dlsoibt~~CallsGraph_node3"><a xlink:href=".././proc/dstodi.html" xlink:title="dstodi">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-188 91,-188 91,-164 145,-164 145,-188"/>
-<text text-anchor="middle" x="118" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstodi</text>
+<g id="a_proc~~dlsoibt~~CallsGraph_node4"><a xlink:href=".././proc/dstodi.html" xlink:title="dstodi">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-86.91 91,-86.91 91,-62.91 145,-62.91 145,-86.91"/>
+<text text-anchor="middle" x="118" y="-72.51" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstodi</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsoibt&#45;&gt;proc~dstodi -->
-<g id="proc~~dlsoibt~~CallsGraph_edge2" class="edge">
+<g id="proc~~dlsoibt~~CallsGraph_edge3" class="edge">
 <title>proc~dlsoibt&#45;&gt;proc~dstodi</title>
-<path fill="none" stroke="#000000" d="M53.74,-146.15C62.6,-150.33 72.67,-155.08 82.13,-159.54"/>
-<polygon fill="#000000" stroke="#000000" points="80.78,-162.78 91.32,-163.88 83.77,-156.45 80.78,-162.78"/>
-</g>
-<!-- proc~dvnorm -->
-<g id="proc~~dlsoibt~~CallsGraph_node4" class="node">
-<title>proc~dvnorm</title>
-<g id="a_proc~~dlsoibt~~CallsGraph_node4"><a xlink:href=".././proc/dvnorm.html" xlink:title="dvnorm">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="236,-228 182,-228 182,-204 236,-204 236,-228"/>
-<text text-anchor="middle" x="209" y="-213.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsoibt&#45;&gt;proc~dvnorm -->
-<g id="proc~~dlsoibt~~CallsGraph_edge4" class="edge">
-<title>proc~dlsoibt&#45;&gt;proc~dvnorm</title>
-<path fill="none" stroke="#000000" d="M36.25,-146.24C46.85,-160.9 66.68,-184.96 90,-197 115.22,-210.02 147.17,-214.55 171.46,-215.95"/>
-<polygon fill="#000000" stroke="#000000" points="171.56,-219.45 181.7,-216.38 171.85,-212.46 171.56,-219.45"/>
+<path fill="none" stroke="#000000" d="M53.74,-104.76C62.6,-100.58 72.67,-95.83 82.13,-91.37"/>
+<polygon fill="#000000" stroke="#000000" points="83.77,-94.46 91.32,-87.03 80.78,-88.13 83.77,-94.46"/>
 </g>
 <!-- proc~dewset -->
 <g id="proc~~dlsoibt~~CallsGraph_node5" class="node">
 <title>proc~dewset</title>
 <g id="a_proc~~dlsoibt~~CallsGraph_node5"><a xlink:href=".././proc/dewset.html" xlink:title="dewset">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-146 91,-146 91,-122 145,-122 145,-146"/>
-<text text-anchor="middle" x="118" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-128.91 91,-128.91 91,-104.91 145,-104.91 145,-128.91"/>
+<text text-anchor="middle" x="118" y="-114.51" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsoibt&#45;&gt;proc~dewset -->
 <g id="proc~~dlsoibt~~CallsGraph_edge5" class="edge">
 <title>proc~dlsoibt&#45;&gt;proc~dewset</title>
-<path fill="none" stroke="#000000" d="M54.22,-134C62.55,-134 71.91,-134 80.82,-134"/>
-<polygon fill="#000000" stroke="#000000" points="80.97,-137.5 90.97,-134 80.97,-130.5 80.97,-137.5"/>
+<path fill="none" stroke="#000000" d="M54.22,-116.91C62.55,-116.91 71.91,-116.91 80.82,-116.91"/>
+<polygon fill="#000000" stroke="#000000" points="80.97,-120.41 90.97,-116.91 80.97,-113.41 80.97,-120.41"/>
 </g>
 <!-- proc~xerrwd -->
 <g id="proc~~dlsoibt~~CallsGraph_node6" class="node">
 <title>proc~xerrwd</title>
 <g id="a_proc~~dlsoibt~~CallsGraph_node6"><a xlink:href=".././proc/xerrwd.html" xlink:title="xerrwd">
-<polygon fill="#d9534f" stroke="#d9534f" points="236,-65 182,-65 182,-41 236,-41 236,-65"/>
-<text text-anchor="middle" x="209" y="-50.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="236,-190.91 182,-190.91 182,-166.91 236,-166.91 236,-190.91"/>
+<text text-anchor="middle" x="209" y="-176.51" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsoibt&#45;&gt;proc~xerrwd -->
-<g id="proc~~dlsoibt~~CallsGraph_edge3" class="edge">
+<g id="proc~~dlsoibt~~CallsGraph_edge4" class="edge">
 <title>proc~dlsoibt&#45;&gt;proc~xerrwd</title>
-<path fill="none" stroke="#000000" d="M54.17,-122.22C85.37,-108.18 137.64,-84.66 172.47,-68.99"/>
-<polygon fill="#000000" stroke="#000000" points="174.11,-72.09 181.79,-64.79 171.24,-65.7 174.11,-72.09"/>
+<path fill="none" stroke="#000000" d="M35.43,-128.99C45.58,-144.2 65.37,-169.59 90,-179.91 115.68,-190.67 147.34,-189.72 171.41,-186.47"/>
+<polygon fill="#000000" stroke="#000000" points="172.2,-189.89 181.54,-184.9 171.13,-182.97 172.2,-189.89"/>
 </g>
 <!-- proc~daigbt -->
 <g id="proc~~dlsoibt~~CallsGraph_node7" class="node">
 <title>proc~daigbt</title>
 <g id="a_proc~~dlsoibt~~CallsGraph_node7"><a xlink:href=".././proc/daigbt.html" xlink:title="daigbt">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-66 91,-66 91,-42 145,-42 145,-66"/>
-<text text-anchor="middle" x="118" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daigbt</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-44.91 91,-44.91 91,-20.91 145,-20.91 145,-44.91"/>
+<text text-anchor="middle" x="118" y="-30.51" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daigbt</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsoibt&#45;&gt;proc~daigbt -->
 <g id="proc~~dlsoibt~~CallsGraph_edge6" class="edge">
 <title>proc~dlsoibt&#45;&gt;proc~daigbt</title>
-<path fill="none" stroke="#000000" d="M41.52,-121.85C55.98,-108.85 79.1,-88.07 95.95,-72.92"/>
-<polygon fill="#000000" stroke="#000000" points="98.55,-75.29 103.65,-66 93.87,-70.08 98.55,-75.29"/>
+<path fill="none" stroke="#000000" d="M38.98,-104.83C51.04,-91.79 71.2,-70.64 90,-53.91 90.95,-53.07 91.93,-52.22 92.92,-51.37"/>
+<polygon fill="#000000" stroke="#000000" points="95.19,-54.04 100.73,-45.01 90.76,-48.61 95.19,-54.04"/>
 </g>
-<!-- proc~dintdy -->
+<!-- proc~dvnorm -->
 <g id="proc~~dlsoibt~~CallsGraph_node8" class="node">
-<title>proc~dintdy</title>
-<g id="a_proc~~dlsoibt~~CallsGraph_node8"><a xlink:href=".././proc/dintdy.html" xlink:title="dintdy">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-24 91,-24 91,0 145,0 145,-24"/>
-<text text-anchor="middle" x="118" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
+<title>proc~dvnorm</title>
+<g id="a_proc~~dlsoibt~~CallsGraph_node8"><a xlink:href=".././proc/dvnorm.html" xlink:title="dvnorm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="236,-24.91 182,-24.91 182,-0.91 236,-0.91 236,-24.91"/>
+<text text-anchor="middle" x="209" y="-10.51" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
 </a>
 </g>
 </g>
-<!-- proc~dlsoibt&#45;&gt;proc~dintdy -->
+<!-- proc~dlsoibt&#45;&gt;proc~dvnorm -->
 <g id="proc~~dlsoibt~~CallsGraph_edge7" class="edge">
-<title>proc~dlsoibt&#45;&gt;proc~dintdy</title>
-<path fill="none" stroke="#000000" d="M33.65,-121.87C43.31,-101.91 64.48,-61.51 90,-33 90.62,-32.3 91.27,-31.61 91.94,-30.93"/>
-<polygon fill="#000000" stroke="#000000" points="94.53,-33.31 99.63,-24.01 89.85,-28.1 94.53,-33.31"/>
+<title>proc~dlsoibt&#45;&gt;proc~dvnorm</title>
+<path fill="none" stroke="#000000" d="M30.97,-104.64C37.3,-81.56 54.52,-32.17 90,-11.91 114.6,2.13 147.04,0.71 171.68,-3.56"/>
+<polygon fill="#000000" stroke="#000000" points="171.23,-7.04 181.72,-5.53 172.58,-0.17 171.23,-7.04"/>
+</g>
+<!-- proc~dintdy&#45;&gt;proc~xerrwd -->
+<g id="proc~~dlsoibt~~CallsGraph_edge8" class="edge">
+<title>proc~dintdy&#45;&gt;proc~xerrwd</title>
+<path fill="none" stroke="#000000" d="M145.22,-164.8C153.64,-166.7 163.12,-168.82 172.11,-170.84"/>
+<polygon fill="#000000" stroke="#000000" points="171.44,-174.28 181.97,-173.06 172.98,-167.45 171.44,-174.28"/>
 </g>
 <!-- proc~dstodi&#45;&gt;proc~dvnorm -->
-<g id="proc~~dlsoibt~~CallsGraph_edge9" class="edge">
+<g id="proc~~dlsoibt~~CallsGraph_edge10" class="edge">
 <title>proc~dstodi&#45;&gt;proc~dvnorm</title>
-<path fill="none" stroke="#000000" d="M145.22,-187.78C153.82,-191.65 163.53,-196.01 172.69,-200.13"/>
-<polygon fill="#000000" stroke="#000000" points="171.41,-203.39 181.97,-204.3 174.28,-197.01 171.41,-203.39"/>
+<path fill="none" stroke="#000000" d="M136.58,-62.66C149.59,-53.6 167.51,-41.12 182.14,-30.92"/>
+<polygon fill="#000000" stroke="#000000" points="184.55,-33.51 190.76,-24.92 180.55,-27.77 184.55,-33.51"/>
 </g>
 <!-- proc~dcfode -->
 <g id="proc~~dlsoibt~~CallsGraph_node9" class="node">
 <title>proc~dcfode</title>
 <g id="a_proc~~dlsoibt~~CallsGraph_node9"><a xlink:href=".././proc/dcfode.html" xlink:title="dcfode">
-<polygon fill="#d9534f" stroke="#d9534f" points="236,-186 182,-186 182,-162 236,-162 236,-186"/>
-<text text-anchor="middle" x="209" y="-171.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="236,-86.91 182,-86.91 182,-62.91 236,-62.91 236,-86.91"/>
+<text text-anchor="middle" x="209" y="-72.51" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
 </a>
 </g>
 </g>
 <!-- proc~dstodi&#45;&gt;proc~dcfode -->
-<g id="proc~~dlsoibt~~CallsGraph_edge8" class="edge">
+<g id="proc~~dlsoibt~~CallsGraph_edge9" class="edge">
 <title>proc~dstodi&#45;&gt;proc~dcfode</title>
-<path fill="none" stroke="#000000" d="M145.22,-175.41C153.55,-175.22 162.91,-175.01 171.82,-174.81"/>
-<polygon fill="#000000" stroke="#000000" points="172.05,-178.31 181.97,-174.59 171.89,-171.31 172.05,-178.31"/>
-</g>
-<!-- proc~dintdy&#45;&gt;proc~xerrwd -->
-<g id="proc~~dlsoibt~~CallsGraph_edge10" class="edge">
-<title>proc~dintdy&#45;&gt;proc~xerrwd</title>
-<path fill="none" stroke="#000000" d="M145.22,-24.08C153.82,-28.04 163.53,-32.51 172.69,-36.73"/>
-<polygon fill="#000000" stroke="#000000" points="171.42,-40 181.97,-41.01 174.35,-33.64 171.42,-40"/>
+<path fill="none" stroke="#000000" d="M145.22,-74.91C153.55,-74.91 162.91,-74.91 171.82,-74.91"/>
+<polygon fill="#000000" stroke="#000000" points="171.97,-78.41 181.97,-74.91 171.97,-71.41 171.97,-78.41"/>
 </g>
 </g>
 </svg>
@@ -2734,7 +2734,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-13 19:58            </p>
+ on 2022-10-14 02:22            </p>
         </div>
       </div>
       <br>

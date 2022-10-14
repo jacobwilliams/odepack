@@ -162,31 +162,31 @@
 <a id="ln-8" name="ln-8" href="#ln-8"></a><span class="c">!! Written by A. C. Hindmarsh.</span>
 <a id="ln-9" name="ln-9" href="#ln-9"></a><span class="c">!!### Input</span>
 <a id="ln-10" name="ln-10" href="#ln-10"></a><span class="c">!!</span>
-<a id="ln-11" name="ln-11" href="#ln-11"></a><span class="c">!! M </span>
+<a id="ln-11" name="ln-11" href="#ln-11"></a><span class="c">!! M</span>
 <a id="ln-12" name="ln-12" href="#ln-12"></a><span class="c">!!</span>
 <a id="ln-13" name="ln-13" href="#ln-13"></a><span class="c">!! : order of each block.</span>
 <a id="ln-14" name="ln-14" href="#ln-14"></a><span class="c">!!</span>
-<a id="ln-15" name="ln-15" href="#ln-15"></a><span class="c">!! N </span>
+<a id="ln-15" name="ln-15" href="#ln-15"></a><span class="c">!! N</span>
 <a id="ln-16" name="ln-16" href="#ln-16"></a><span class="c">!!</span>
 <a id="ln-17" name="ln-17" href="#ln-17"></a><span class="c">!! : number of blocks in each direction of matrix.</span>
 <a id="ln-18" name="ln-18" href="#ln-18"></a><span class="c">!!</span>
-<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="c">!! A,B,C </span>
+<a id="ln-19" name="ln-19" href="#ln-19"></a><span class="c">!! A,B,C</span>
 <a id="ln-20" name="ln-20" href="#ln-20"></a><span class="c">!!</span>
 <a id="ln-21" name="ln-21" href="#ln-21"></a><span class="c">!! : M by M by N arrays containing block LU decomposition</span>
 <a id="ln-22" name="ln-22" href="#ln-22"></a><span class="c">!! of coefficient matrix from DDECBT.</span>
 <a id="ln-23" name="ln-23" href="#ln-23"></a><span class="c">!!</span>
-<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="c">!! IP </span>
+<a id="ln-24" name="ln-24" href="#ln-24"></a><span class="c">!! IP</span>
 <a id="ln-25" name="ln-25" href="#ln-25"></a><span class="c">!!</span>
 <a id="ln-26" name="ln-26" href="#ln-26"></a><span class="c">!! : M by N integer array of pivot information from DDECBT.</span>
 <a id="ln-27" name="ln-27" href="#ln-27"></a><span class="c">!!</span>
-<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="c">!! Y </span>
+<a id="ln-28" name="ln-28" href="#ln-28"></a><span class="c">!! Y</span>
 <a id="ln-29" name="ln-29" href="#ln-29"></a><span class="c">!!</span>
 <a id="ln-30" name="ln-30" href="#ln-30"></a><span class="c">!! : array of length M*N containg the right-hand side vector</span>
 <a id="ln-31" name="ln-31" href="#ln-31"></a><span class="c">!! (treated as an M by N array here).</span>
 <a id="ln-32" name="ln-32" href="#ln-32"></a><span class="c">!!</span>
 <a id="ln-33" name="ln-33" href="#ln-33"></a><span class="c">!!### Output</span>
 <a id="ln-34" name="ln-34" href="#ln-34"></a><span class="c">!!</span>
-<a id="ln-35" name="ln-35" href="#ln-35"></a><span class="c">!! Y </span>
+<a id="ln-35" name="ln-35" href="#ln-35"></a><span class="c">!! Y</span>
 <a id="ln-36" name="ln-36" href="#ln-36"></a><span class="c">!!</span>
 <a id="ln-37" name="ln-37" href="#ln-37"></a><span class="c">!! : solution vector, of length M*N.</span>
 <a id="ln-38" name="ln-38" href="#ln-38"></a><span class="c">!!</span>
@@ -209,7 +209,7 @@
 <a id="ln-55" name="ln-55" href="#ln-55"></a><span class="w">   </span><span class="n">nm2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
 <a id="ln-56" name="ln-56" href="#ln-56"></a><span class="w">   </span><span class="c">! Forward solution sweep. ----------------------------------------------</span>
 <a id="ln-57" name="ln-57" href="#ln-57"></a><span class="w">   </span><span class="k">call </span><span class="n">dgesl</span><span class="p">(</span><span class="n">A</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">Ip</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
-<a id="ln-58" name="ln-58" href="#ln-58"></a><span class="w">   </span>
+<a id="ln-58" name="ln-58" href="#ln-58"></a>
 <a id="ln-59" name="ln-59" href="#ln-59"></a><span class="w">   </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">nm1</span><span class="w"></span>
 <a id="ln-60" name="ln-60" href="#ln-60"></a><span class="w">      </span><span class="n">km1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 <a id="ln-61" name="ln-61" href="#ln-61"></a><span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
@@ -218,12 +218,12 @@
 <a id="ln-64" name="ln-64" href="#ln-64"></a><span class="w">      </span><span class="k">enddo</span>
 <a id="ln-65" name="ln-65" href="#ln-65"></a><span class="k">      call </span><span class="n">dgesl</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="n">M</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">Ip</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">k</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
 <a id="ln-66" name="ln-66" href="#ln-66"></a><span class="w">   </span><span class="k">enddo</span>
-<a id="ln-67" name="ln-67" href="#ln-67"></a><span class="k">   </span>
+<a id="ln-67" name="ln-67" href="#ln-67"></a>
 <a id="ln-68" name="ln-68" href="#ln-68"></a><span class="k">   do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">M</span><span class="w"></span>
 <a id="ln-69" name="ln-69" href="#ln-69"></a><span class="w">      </span><span class="n">dpr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ddot</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">C</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">),</span><span class="n">M</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nm1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ddot</span><span class="p">(</span><span class="n">M</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">),</span><span class="n">M</span><span class="p">,</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nm2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
 <a id="ln-70" name="ln-70" href="#ln-70"></a><span class="w">      </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dpr</span><span class="w"></span>
 <a id="ln-71" name="ln-71" href="#ln-71"></a><span class="w">   </span><span class="k">enddo</span>
-<a id="ln-72" name="ln-72" href="#ln-72"></a><span class="k">   </span>
+<a id="ln-72" name="ln-72" href="#ln-72"></a>
 <a id="ln-73" name="ln-73" href="#ln-73"></a><span class="k">   call </span><span class="n">dgesl</span><span class="p">(</span><span class="n">A</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">),</span><span class="n">M</span><span class="p">,</span><span class="n">M</span><span class="p">,</span><span class="n">Ip</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">),</span><span class="n">Y</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">N</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
 <a id="ln-74" name="ln-74" href="#ln-74"></a>
 <a id="ln-75" name="ln-75" href="#ln-75"></a><span class="w">   </span><span class="c">! Backward solution sweep. ---------------------------------------------</span>
@@ -260,7 +260,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-13 19:58            </p>
+ on 2022-10-14 02:22            </p>
         </div>
       </div>
       <br>

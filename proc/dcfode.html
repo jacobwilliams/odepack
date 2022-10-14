@@ -131,7 +131,7 @@
 
 <h3 id="description">DESCRIPTION</h3>
 <p>DCFODE is called by the integrator routine to set coefficients
-   needed there.  </p>
+   needed there.</p>
 <p>DCFODE is called once at the beginning of the problem,
    and is not called again unless and until METH is changed.</p>
 <h3 id="options">OPTIONS</h3>
@@ -154,7 +154,7 @@
        dl/dx = (x+1)</em>(x+2)</em>&hellip;<em>(x+nq-1)/factorial(nq-1),    l(-1) = 0.
    For the BDF methods, l(x) is given by
        l(x) = (x+1)</em>(x+2)<em> &hellip; </em>(x+nq)/K,
-   where 
+   where
        K = factorial(nq)*(1 + 1/2 + &hellip; + 1/nq).</p>
 </dd>
 <dt>TESCO</dt>
@@ -212,8 +212,8 @@
 <!-- proc~dcfode -->
 <g id="proc~~dcfode~~CalledByGraph_node1" class="node">
 <title>proc~dcfode</title>
-<polygon fill="none" stroke="black" points="235,-318 181,-318 181,-294 235,-294 235,-318"/>
-<text text-anchor="middle" x="208" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50">dcfode</text>
+<polygon fill="none" stroke="black" points="235,-234 181,-234 181,-210 235,-210 235,-234"/>
+<text text-anchor="middle" x="208" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50">dcfode</text>
 </g>
 <!-- proc~dstodi -->
 <g id="proc~~dcfode~~CalledByGraph_node2" class="node">
@@ -227,238 +227,253 @@
 <!-- proc~dstodi&#45;&gt;proc~dcfode -->
 <g id="proc~~dcfode~~CalledByGraph_edge1" class="edge">
 <title>proc~dstodi&#45;&gt;proc~dcfode</title>
-<path fill="none" stroke="#000000" d="M135.59,-419.99C138.91,-417.24 142.22,-414.19 145,-411 167.56,-385.12 186.42,-349.9 197.21,-327.55"/>
-<polygon fill="#000000" stroke="#000000" points="200.49,-328.81 201.59,-318.27 194.16,-325.82 200.49,-328.81"/>
-</g>
-<!-- proc~dstodi~2 -->
-<g id="proc~~dcfode~~CalledByGraph_node3" class="node">
-<title>proc~dstodi~2</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node3"><a xlink:href=".././proc/dstodi~2.html" xlink:title="dstodi">
-<polygon fill="#d9534f" stroke="#d9534f" points="144.5,-402 90.5,-402 90.5,-378 144.5,-378 144.5,-402"/>
-<text text-anchor="middle" x="117.5" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstodi</text>
-</a>
-</g>
-</g>
-<!-- proc~dstodi~2&#45;&gt;proc~dcfode -->
-<g id="proc~~dcfode~~CalledByGraph_edge2" class="edge">
-<title>proc~dstodi~2&#45;&gt;proc~dcfode</title>
-<path fill="none" stroke="#000000" d="M134.46,-377.87C138,-375.04 141.68,-371.98 145,-369 160.51,-355.07 177.01,-338.19 189.09,-325.41"/>
-<polygon fill="#000000" stroke="#000000" points="191.71,-327.74 195.99,-318.05 186.6,-322.95 191.71,-327.74"/>
-</g>
-<!-- proc~dstode~2 -->
-<g id="proc~~dcfode~~CalledByGraph_node4" class="node">
-<title>proc~dstode~2</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node4"><a xlink:href=".././proc/dstode~2.html" xlink:title="dstode">
-<polygon fill="#d9534f" stroke="#d9534f" points="144.5,-360 90.5,-360 90.5,-336 144.5,-336 144.5,-360"/>
-<text text-anchor="middle" x="117.5" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstode</text>
-</a>
-</g>
-</g>
-<!-- proc~dstode~2&#45;&gt;proc~dcfode -->
-<g id="proc~~dcfode~~CalledByGraph_edge3" class="edge">
-<title>proc~dstode~2&#45;&gt;proc~dcfode</title>
-<path fill="none" stroke="#000000" d="M144.1,-335.85C152.9,-331.67 162.92,-326.92 172.32,-322.46"/>
-<polygon fill="#000000" stroke="#000000" points="173.93,-325.57 181.46,-318.12 170.92,-319.25 173.93,-325.57"/>
-</g>
-<!-- proc~dstodpk -->
-<g id="proc~~dcfode~~CalledByGraph_node5" class="node">
-<title>proc~dstodpk</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node5"><a xlink:href=".././proc/dstodpk.html" xlink:title="dstodpk">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-318 90,-318 90,-294 145,-294 145,-318"/>
-<text text-anchor="middle" x="117.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstodpk</text>
-</a>
-</g>
-</g>
-<!-- proc~dstodpk&#45;&gt;proc~dcfode -->
-<g id="proc~~dcfode~~CalledByGraph_edge5" class="edge">
-<title>proc~dstodpk&#45;&gt;proc~dcfode</title>
-<path fill="none" stroke="#000000" d="M145.05,-306C153.09,-306 162.06,-306 170.62,-306"/>
-<polygon fill="#000000" stroke="#000000" points="170.77,-309.5 180.77,-306 170.77,-302.5 170.77,-309.5"/>
+<path fill="none" stroke="#000000" d="M123.64,-419.8C138.12,-385.44 179.39,-287.5 197.87,-243.67"/>
+<polygon fill="#000000" stroke="#000000" points="201.19,-244.81 201.85,-234.23 194.74,-242.09 201.19,-244.81"/>
 </g>
 <!-- proc~dstoka -->
-<g id="proc~~dcfode~~CalledByGraph_node6" class="node">
+<g id="proc~~dcfode~~CalledByGraph_node3" class="node">
 <title>proc~dstoka</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node6"><a xlink:href=".././proc/dstoka.html" xlink:title="dstoka">
-<polygon fill="#d9534f" stroke="#d9534f" points="144.5,-276 90.5,-276 90.5,-252 144.5,-252 144.5,-276"/>
-<text text-anchor="middle" x="117.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstoka</text>
+<g id="a_proc~~dcfode~~CalledByGraph_node3"><a xlink:href=".././proc/dstoka.html" xlink:title="dstoka">
+<polygon fill="#d9534f" stroke="#d9534f" points="144.5,-318 90.5,-318 90.5,-294 144.5,-294 144.5,-318"/>
+<text text-anchor="middle" x="117.5" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstoka</text>
 </a>
 </g>
 </g>
 <!-- proc~dstoka&#45;&gt;proc~dcfode -->
 <g id="proc~~dcfode~~CalledByGraph_edge4" class="edge">
 <title>proc~dstoka&#45;&gt;proc~dcfode</title>
-<path fill="none" stroke="#000000" d="M144.1,-276.15C152.9,-280.33 162.92,-285.08 172.32,-289.54"/>
-<polygon fill="#000000" stroke="#000000" points="170.92,-292.75 181.46,-293.88 173.93,-286.43 170.92,-292.75"/>
+<path fill="none" stroke="#000000" d="M134.46,-293.87C138,-291.04 141.68,-287.98 145,-285 160.51,-271.07 177.01,-254.19 189.09,-241.41"/>
+<polygon fill="#000000" stroke="#000000" points="191.71,-243.74 195.99,-234.05 186.6,-238.95 191.71,-243.74"/>
 </g>
-<!-- proc~dstode -->
-<g id="proc~~dcfode~~CalledByGraph_node7" class="node">
-<title>proc~dstode</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node7"><a xlink:href=".././proc/dstode.html" xlink:title="dstode">
-<polygon fill="#d9534f" stroke="#d9534f" points="144.5,-192 90.5,-192 90.5,-168 144.5,-168 144.5,-192"/>
-<text text-anchor="middle" x="117.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstode</text>
+<!-- proc~dstodpk -->
+<g id="proc~~dcfode~~CalledByGraph_node4" class="node">
+<title>proc~dstodpk</title>
+<g id="a_proc~~dcfode~~CalledByGraph_node4"><a xlink:href=".././proc/dstodpk.html" xlink:title="dstodpk">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-276 90,-276 90,-252 145,-252 145,-276"/>
+<text text-anchor="middle" x="117.5" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstodpk</text>
 </a>
 </g>
 </g>
-<!-- proc~dstode&#45;&gt;proc~dcfode -->
-<g id="proc~~dcfode~~CalledByGraph_edge6" class="edge">
-<title>proc~dstode&#45;&gt;proc~dcfode</title>
-<path fill="none" stroke="#000000" d="M126.99,-192.08C142.14,-213.66 174.03,-259.06 192.65,-285.57"/>
-<polygon fill="#000000" stroke="#000000" points="189.8,-287.6 198.41,-293.77 195.53,-283.58 189.8,-287.6"/>
+<!-- proc~dstodpk&#45;&gt;proc~dcfode -->
+<g id="proc~~dcfode~~CalledByGraph_edge5" class="edge">
+<title>proc~dstodpk&#45;&gt;proc~dcfode</title>
+<path fill="none" stroke="#000000" d="M144.1,-251.85C152.9,-247.67 162.92,-242.92 172.32,-238.46"/>
+<polygon fill="#000000" stroke="#000000" points="173.93,-241.57 181.46,-234.12 170.92,-235.25 173.93,-241.57"/>
+</g>
+<!-- proc~dstode~2 -->
+<g id="proc~~dcfode~~CalledByGraph_node5" class="node">
+<title>proc~dstode~2</title>
+<g id="a_proc~~dcfode~~CalledByGraph_node5"><a xlink:href=".././proc/dstode~2.html" xlink:title="dstode">
+<polygon fill="#d9534f" stroke="#d9534f" points="144.5,-234 90.5,-234 90.5,-210 144.5,-210 144.5,-234"/>
+<text text-anchor="middle" x="117.5" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstode</text>
+</a>
+</g>
+</g>
+<!-- proc~dstode~2&#45;&gt;proc~dcfode -->
+<g id="proc~~dcfode~~CalledByGraph_edge3" class="edge">
+<title>proc~dstode~2&#45;&gt;proc~dcfode</title>
+<path fill="none" stroke="#000000" d="M144.57,-222C152.78,-222 162,-222 170.78,-222"/>
+<polygon fill="#000000" stroke="#000000" points="170.81,-225.5 180.81,-222 170.81,-218.5 170.81,-225.5"/>
 </g>
 <!-- proc~dstoda -->
-<g id="proc~~dcfode~~CalledByGraph_node8" class="node">
+<g id="proc~~dcfode~~CalledByGraph_node6" class="node">
 <title>proc~dstoda</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node8"><a xlink:href=".././proc/dstoda.html" xlink:title="dstoda">
-<polygon fill="#d9534f" stroke="#d9534f" points="144.5,-66 90.5,-66 90.5,-42 144.5,-42 144.5,-66"/>
-<text text-anchor="middle" x="117.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstoda</text>
+<g id="a_proc~~dcfode~~CalledByGraph_node6"><a xlink:href=".././proc/dstoda.html" xlink:title="dstoda">
+<polygon fill="#d9534f" stroke="#d9534f" points="144.5,-192 90.5,-192 90.5,-168 144.5,-168 144.5,-192"/>
+<text text-anchor="middle" x="117.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstoda</text>
 </a>
 </g>
 </g>
 <!-- proc~dstoda&#45;&gt;proc~dcfode -->
-<g id="proc~~dcfode~~CalledByGraph_edge7" class="edge">
+<g id="proc~~dcfode~~CalledByGraph_edge2" class="edge">
 <title>proc~dstoda&#45;&gt;proc~dcfode</title>
-<path fill="none" stroke="#000000" d="M122.77,-66.15C136.76,-105.99 181.36,-232.98 199.36,-284.24"/>
-<polygon fill="#000000" stroke="#000000" points="196.16,-285.69 202.77,-293.97 202.76,-283.37 196.16,-285.69"/>
+<path fill="none" stroke="#000000" d="M144.1,-192.15C152.9,-196.33 162.92,-201.08 172.32,-205.54"/>
+<polygon fill="#000000" stroke="#000000" points="170.92,-208.75 181.46,-209.88 173.93,-202.43 170.92,-208.75"/>
 </g>
-<!-- proc~dlsoibt~2 -->
-<g id="proc~~dcfode~~CalledByGraph_node9" class="node">
-<title>proc~dlsoibt~2</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node9"><a xlink:href=".././proc/dlsoibt~2.html" xlink:title="dlsoibt">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-570 0,-570 0,-546 54,-546 54,-570"/>
-<text text-anchor="middle" x="27" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsoibt</text>
+<!-- proc~dstodi~2 -->
+<g id="proc~~dcfode~~CalledByGraph_node7" class="node">
+<title>proc~dstodi~2</title>
+<g id="a_proc~~dcfode~~CalledByGraph_node7"><a xlink:href=".././proc/dstodi~2.html" xlink:title="dstodi">
+<polygon fill="#d9534f" stroke="#d9534f" points="144.5,-150 90.5,-150 90.5,-126 144.5,-126 144.5,-150"/>
+<text text-anchor="middle" x="117.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstodi</text>
 </a>
 </g>
 </g>
-<!-- proc~dlsoibt~2&#45;&gt;proc~dstodi -->
-<g id="proc~~dcfode~~CalledByGraph_edge8" class="edge">
-<title>proc~dlsoibt~2&#45;&gt;proc~dstodi</title>
-<path fill="none" stroke="#000000" d="M44.75,-545.94C48.01,-543.2 51.26,-540.16 54,-537 76.53,-511 95.6,-475.81 106.55,-453.5"/>
-<polygon fill="#000000" stroke="#000000" points="109.82,-454.77 110.99,-444.24 103.51,-451.74 109.82,-454.77"/>
+<!-- proc~dstodi~2&#45;&gt;proc~dcfode -->
+<g id="proc~~dcfode~~CalledByGraph_edge6" class="edge">
+<title>proc~dstodi~2&#45;&gt;proc~dcfode</title>
+<path fill="none" stroke="#000000" d="M134.46,-150.13C138,-152.96 141.68,-156.02 145,-159 160.51,-172.93 177.01,-189.81 189.09,-202.59"/>
+<polygon fill="#000000" stroke="#000000" points="186.6,-205.05 195.99,-209.95 191.71,-200.26 186.6,-205.05"/>
 </g>
-<!-- proc~dlsodi~2 -->
-<g id="proc~~dcfode~~CalledByGraph_node10" class="node">
-<title>proc~dlsodi~2</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node10"><a xlink:href=".././proc/dlsodi~2.html" xlink:title="dlsodi">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-528 0,-528 0,-504 54,-504 54,-528"/>
-<text text-anchor="middle" x="27" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodi</text>
+<!-- proc~dstode -->
+<g id="proc~~dcfode~~CalledByGraph_node8" class="node">
+<title>proc~dstode</title>
+<g id="a_proc~~dcfode~~CalledByGraph_node8"><a xlink:href=".././proc/dstode.html" xlink:title="dstode">
+<polygon fill="#d9534f" stroke="#d9534f" points="144.5,-108 90.5,-108 90.5,-84 144.5,-84 144.5,-108"/>
+<text text-anchor="middle" x="117.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstode</text>
 </a>
 </g>
 </g>
-<!-- proc~dlsodi~2&#45;&gt;proc~dstodi -->
-<g id="proc~~dcfode~~CalledByGraph_edge9" class="edge">
-<title>proc~dlsodi~2&#45;&gt;proc~dstodi</title>
-<path fill="none" stroke="#000000" d="M43.63,-503.84C47.11,-501.01 50.73,-497.96 54,-495 69.53,-480.98 86.17,-464.1 98.38,-451.35"/>
-<polygon fill="#000000" stroke="#000000" points="101.01,-453.66 105.35,-444 95.93,-448.84 101.01,-453.66"/>
+<!-- proc~dstode&#45;&gt;proc~dcfode -->
+<g id="proc~~dcfode~~CalledByGraph_edge7" class="edge">
+<title>proc~dstode&#45;&gt;proc~dcfode</title>
+<path fill="none" stroke="#000000" d="M135.59,-108.01C138.91,-110.76 142.22,-113.81 145,-117 167.56,-142.88 186.42,-178.1 197.21,-200.45"/>
+<polygon fill="#000000" stroke="#000000" points="194.16,-202.18 201.59,-209.73 200.49,-199.19 194.16,-202.18"/>
 </g>
 <!-- proc~dlsodis -->
-<g id="proc~~dcfode~~CalledByGraph_node11" class="node">
+<g id="proc~~dcfode~~CalledByGraph_node9" class="node">
 <title>proc~dlsodis</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node11"><a xlink:href=".././proc/dlsodis.html" xlink:title="dlsodis">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-486 0,-486 0,-462 54,-462 54,-486"/>
-<text text-anchor="middle" x="27" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodis</text>
+<g id="a_proc~~dcfode~~CalledByGraph_node9"><a xlink:href=".././proc/dlsodis.html" xlink:title="dlsodis">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-570 0,-570 0,-546 54,-546 54,-570"/>
+<text text-anchor="middle" x="27" y="-555.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodis</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodis&#45;&gt;proc~dstodi -->
-<g id="proc~~dcfode~~CalledByGraph_edge10" class="edge">
+<g id="proc~~dcfode~~CalledByGraph_edge8" class="edge">
 <title>proc~dlsodis&#45;&gt;proc~dstodi</title>
-<path fill="none" stroke="#000000" d="M53.6,-461.85C62.4,-457.67 72.42,-452.92 81.82,-448.46"/>
-<polygon fill="#000000" stroke="#000000" points="83.43,-451.57 90.96,-444.12 80.42,-445.25 83.43,-451.57"/>
+<path fill="none" stroke="#000000" d="M44.75,-545.94C48.01,-543.2 51.26,-540.16 54,-537 76.53,-511 95.6,-475.81 106.55,-453.5"/>
+<polygon fill="#000000" stroke="#000000" points="109.82,-454.77 110.99,-444.24 103.51,-451.74 109.82,-454.77"/>
 </g>
-<!-- proc~dlsodis~2 -->
-<g id="proc~~dcfode~~CalledByGraph_node12" class="node">
-<title>proc~dlsodis~2</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node12"><a xlink:href=".././proc/dlsodis~2.html" xlink:title="dlsodis">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-444 0,-444 0,-420 54,-420 54,-444"/>
-<text text-anchor="middle" x="27" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodis</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodis~2&#45;&gt;proc~dstodi -->
-<g id="proc~~dcfode~~CalledByGraph_edge11" class="edge">
-<title>proc~dlsodis~2&#45;&gt;proc~dstodi</title>
-<path fill="none" stroke="#000000" d="M54.07,-432C62.28,-432 71.5,-432 80.28,-432"/>
-<polygon fill="#000000" stroke="#000000" points="80.31,-435.5 90.31,-432 80.31,-428.5 80.31,-435.5"/>
-</g>
-<!-- proc~dlsodpk -->
-<g id="proc~~dcfode~~CalledByGraph_node13" class="node">
-<title>proc~dlsodpk</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node13"><a xlink:href=".././proc/dlsodpk.html" xlink:title="dlsodpk">
+<!-- proc~dlsodkr -->
+<g id="proc~~dcfode~~CalledByGraph_node10" class="node">
+<title>proc~dlsodkr</title>
+<g id="a_proc~~dcfode~~CalledByGraph_node10"><a xlink:href=".././proc/dlsodkr.html" xlink:title="dlsodkr">
 <polygon fill="#d9534f" stroke="#d9534f" points="54,-318 0,-318 0,-294 54,-294 54,-318"/>
-<text text-anchor="middle" x="27" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodpk</text>
+<text text-anchor="middle" x="27" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodkr</text>
 </a>
 </g>
 </g>
-<!-- proc~dlsodpk&#45;&gt;proc~dstodpk -->
+<!-- proc~dlsodkr&#45;&gt;proc~dstoka -->
 <g id="proc~~dcfode~~CalledByGraph_edge14" class="edge">
-<title>proc~dlsodpk&#45;&gt;proc~dstodpk</title>
-<path fill="none" stroke="#000000" d="M54.07,-306C62.12,-306 71.14,-306 79.76,-306"/>
-<polygon fill="#000000" stroke="#000000" points="80,-309.5 90,-306 80,-302.5 80,-309.5"/>
+<title>proc~dlsodkr&#45;&gt;proc~dstoka</title>
+<path fill="none" stroke="#000000" d="M54.07,-306C62.28,-306 71.5,-306 80.28,-306"/>
+<polygon fill="#000000" stroke="#000000" points="80.31,-309.5 90.31,-306 80.31,-302.5 80.31,-309.5"/>
+</g>
+<!-- proc~dlsoda -->
+<g id="proc~~dcfode~~CalledByGraph_node11" class="node">
+<title>proc~dlsoda</title>
+<g id="a_proc~~dcfode~~CalledByGraph_node11"><a xlink:href=".././proc/dlsoda.html" xlink:title="dlsoda">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-234 0,-234 0,-210 54,-210 54,-234"/>
+<text text-anchor="middle" x="27" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsoda</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoda&#45;&gt;proc~dstoda -->
+<g id="proc~~dcfode~~CalledByGraph_edge16" class="edge">
+<title>proc~dlsoda&#45;&gt;proc~dstoda</title>
+<path fill="none" stroke="#000000" d="M53.6,-209.85C62.4,-205.67 72.42,-200.92 81.82,-196.46"/>
+<polygon fill="#000000" stroke="#000000" points="83.43,-199.57 90.96,-192.12 80.42,-193.25 83.43,-199.57"/>
+</g>
+<!-- proc~dlsode~2 -->
+<g id="proc~~dcfode~~CalledByGraph_node12" class="node">
+<title>proc~dlsode~2</title>
+<g id="a_proc~~dcfode~~CalledByGraph_node12"><a xlink:href=".././proc/dlsode~2.html" xlink:title="dlsode">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-150 0,-150 0,-126 54,-126 54,-150"/>
+<text text-anchor="middle" x="27" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsode</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsode~2&#45;&gt;proc~dstode -->
+<g id="proc~~dcfode~~CalledByGraph_edge18" class="edge">
+<title>proc~dlsode~2&#45;&gt;proc~dstode</title>
+<path fill="none" stroke="#000000" d="M53.6,-125.85C62.4,-121.67 72.42,-116.92 81.82,-112.46"/>
+<polygon fill="#000000" stroke="#000000" points="83.43,-115.57 90.96,-108.12 80.42,-109.25 83.43,-115.57"/>
 </g>
 <!-- proc~dlsodes -->
-<g id="proc~~dcfode~~CalledByGraph_node14" class="node">
+<g id="proc~~dcfode~~CalledByGraph_node13" class="node">
 <title>proc~dlsodes</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node14"><a xlink:href=".././proc/dlsodes.html" xlink:title="dlsodes">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-234 0,-234 0,-210 54,-210 54,-234"/>
-<text text-anchor="middle" x="27" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodes</text>
+<g id="a_proc~~dcfode~~CalledByGraph_node13"><a xlink:href=".././proc/dlsodes.html" xlink:title="dlsodes">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-108 0,-108 0,-84 54,-84 54,-108"/>
+<text text-anchor="middle" x="27" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodes</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodes&#45;&gt;proc~dstode -->
-<g id="proc~~dcfode~~CalledByGraph_edge17" class="edge">
+<g id="proc~~dcfode~~CalledByGraph_edge19" class="edge">
 <title>proc~dlsodes&#45;&gt;proc~dstode</title>
-<path fill="none" stroke="#000000" d="M53.6,-209.85C62.4,-205.67 72.42,-200.92 81.82,-196.46"/>
-<polygon fill="#000000" stroke="#000000" points="83.43,-199.57 90.96,-192.12 80.42,-193.25 83.43,-199.57"/>
+<path fill="none" stroke="#000000" d="M54.07,-96C62.28,-96 71.5,-96 80.28,-96"/>
+<polygon fill="#000000" stroke="#000000" points="80.31,-99.5 90.31,-96 80.31,-92.5 80.31,-99.5"/>
 </g>
 <!-- proc~dlsode -->
-<g id="proc~~dcfode~~CalledByGraph_node15" class="node">
+<g id="proc~~dcfode~~CalledByGraph_node14" class="node">
 <title>proc~dlsode</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node15"><a xlink:href=".././proc/dlsode.html" xlink:title="dlsode">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-192 0,-192 0,-168 54,-168 54,-192"/>
-<text text-anchor="middle" x="27" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsode</text>
+<g id="a_proc~~dcfode~~CalledByGraph_node14"><a xlink:href=".././proc/dlsode.html" xlink:title="dlsode">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-66 0,-66 0,-42 54,-42 54,-66"/>
+<text text-anchor="middle" x="27" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsode</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsode&#45;&gt;proc~dstode -->
-<g id="proc~~dcfode~~CalledByGraph_edge18" class="edge">
+<g id="proc~~dcfode~~CalledByGraph_edge21" class="edge">
 <title>proc~dlsode&#45;&gt;proc~dstode</title>
-<path fill="none" stroke="#000000" d="M54.07,-180C62.28,-180 71.5,-180 80.28,-180"/>
-<polygon fill="#000000" stroke="#000000" points="80.31,-183.5 90.31,-180 80.31,-176.5 80.31,-183.5"/>
+<path fill="none" stroke="#000000" d="M53.6,-66.15C62.4,-70.33 72.42,-75.08 81.82,-79.54"/>
+<polygon fill="#000000" stroke="#000000" points="80.42,-82.75 90.96,-83.88 83.43,-76.43 80.42,-82.75"/>
 </g>
-<!-- proc~dlsodar -->
-<g id="proc~~dcfode~~CalledByGraph_node16" class="node">
-<title>proc~dlsodar</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node16"><a xlink:href=".././proc/dlsodar.html" xlink:title="dlsodar">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-66 0,-66 0,-42 54,-42 54,-66"/>
-<text text-anchor="middle" x="27" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodar</text>
+<!-- proc~dlsodis~2 -->
+<g id="proc~~dcfode~~CalledByGraph_node15" class="node">
+<title>proc~dlsodis~2</title>
+<g id="a_proc~~dcfode~~CalledByGraph_node15"><a xlink:href=".././proc/dlsodis~2.html" xlink:title="dlsodis">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-528 0,-528 0,-504 54,-504 54,-528"/>
+<text text-anchor="middle" x="27" y="-513.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodis</text>
 </a>
 </g>
 </g>
-<!-- proc~dlsodar&#45;&gt;proc~dstoda -->
-<g id="proc~~dcfode~~CalledByGraph_edge21" class="edge">
-<title>proc~dlsodar&#45;&gt;proc~dstoda</title>
-<path fill="none" stroke="#000000" d="M54.07,-54C62.28,-54 71.5,-54 80.28,-54"/>
-<polygon fill="#000000" stroke="#000000" points="80.31,-57.5 90.31,-54 80.31,-50.5 80.31,-57.5"/>
+<!-- proc~dlsodis~2&#45;&gt;proc~dstodi -->
+<g id="proc~~dcfode~~CalledByGraph_edge10" class="edge">
+<title>proc~dlsodis~2&#45;&gt;proc~dstodi</title>
+<path fill="none" stroke="#000000" d="M43.63,-503.84C47.11,-501.01 50.73,-497.96 54,-495 69.53,-480.98 86.17,-464.1 98.38,-451.35"/>
+<polygon fill="#000000" stroke="#000000" points="101.01,-453.66 105.35,-444 95.93,-448.84 101.01,-453.66"/>
 </g>
 <!-- proc~dlsodi -->
-<g id="proc~~dcfode~~CalledByGraph_node17" class="node">
+<g id="proc~~dcfode~~CalledByGraph_node16" class="node">
 <title>proc~dlsodi</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node17"><a xlink:href=".././proc/dlsodi.html" xlink:title="dlsodi">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-402 0,-402 0,-378 54,-378 54,-402"/>
-<text text-anchor="middle" x="27" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodi</text>
+<g id="a_proc~~dcfode~~CalledByGraph_node16"><a xlink:href=".././proc/dlsodi.html" xlink:title="dlsodi">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-486 0,-486 0,-462 54,-462 54,-486"/>
+<text text-anchor="middle" x="27" y="-471.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodi</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodi&#45;&gt;proc~dstodi -->
-<g id="proc~~dcfode~~CalledByGraph_edge12" class="edge">
+<g id="proc~~dcfode~~CalledByGraph_edge11" class="edge">
 <title>proc~dlsodi&#45;&gt;proc~dstodi</title>
+<path fill="none" stroke="#000000" d="M53.6,-461.85C62.4,-457.67 72.42,-452.92 81.82,-448.46"/>
+<polygon fill="#000000" stroke="#000000" points="83.43,-451.57 90.96,-444.12 80.42,-445.25 83.43,-451.57"/>
+</g>
+<!-- proc~dlsodi~2 -->
+<g id="proc~~dcfode~~CalledByGraph_node17" class="node">
+<title>proc~dlsodi~2</title>
+<g id="a_proc~~dcfode~~CalledByGraph_node17"><a xlink:href=".././proc/dlsodi~2.html" xlink:title="dlsodi">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-444 0,-444 0,-420 54,-420 54,-444"/>
+<text text-anchor="middle" x="27" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodi</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodi~2&#45;&gt;proc~dstodi -->
+<g id="proc~~dcfode~~CalledByGraph_edge12" class="edge">
+<title>proc~dlsodi~2&#45;&gt;proc~dstodi</title>
+<path fill="none" stroke="#000000" d="M54.07,-432C62.28,-432 71.5,-432 80.28,-432"/>
+<polygon fill="#000000" stroke="#000000" points="80.31,-435.5 90.31,-432 80.31,-428.5 80.31,-435.5"/>
+</g>
+<!-- proc~dlsoibt~2 -->
+<g id="proc~~dcfode~~CalledByGraph_node18" class="node">
+<title>proc~dlsoibt~2</title>
+<g id="a_proc~~dcfode~~CalledByGraph_node18"><a xlink:href=".././proc/dlsoibt~2.html" xlink:title="dlsoibt">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-402 0,-402 0,-378 54,-378 54,-402"/>
+<text text-anchor="middle" x="27" y="-387.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsoibt</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoibt~2&#45;&gt;proc~dstodi -->
+<g id="proc~~dcfode~~CalledByGraph_edge9" class="edge">
+<title>proc~dlsoibt~2&#45;&gt;proc~dstodi</title>
 <path fill="none" stroke="#000000" d="M53.6,-402.15C62.4,-406.33 72.42,-411.08 81.82,-415.54"/>
 <polygon fill="#000000" stroke="#000000" points="80.42,-418.75 90.96,-419.88 83.43,-412.43 80.42,-418.75"/>
 </g>
 <!-- proc~dlsoibt -->
-<g id="proc~~dcfode~~CalledByGraph_node18" class="node">
+<g id="proc~~dcfode~~CalledByGraph_node19" class="node">
 <title>proc~dlsoibt</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node18"><a xlink:href=".././proc/dlsoibt.html" xlink:title="dlsoibt">
+<g id="a_proc~~dcfode~~CalledByGraph_node19"><a xlink:href=".././proc/dlsoibt.html" xlink:title="dlsoibt">
 <polygon fill="#d9534f" stroke="#d9534f" points="54,-360 0,-360 0,-336 54,-336 54,-360"/>
 <text text-anchor="middle" x="27" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsoibt</text>
 </a>
@@ -467,68 +482,53 @@
 <!-- proc~dlsoibt&#45;&gt;proc~dstodi -->
 <g id="proc~~dcfode~~CalledByGraph_edge13" class="edge">
 <title>proc~dlsoibt&#45;&gt;proc~dstodi</title>
-<path fill="none" stroke="#000000" d="M44.07,-360.21C47.45,-362.99 50.92,-366.01 54,-369 71.64,-386.13 72.28,-393.95 90,-411 90.78,-411.75 91.59,-412.51 92.42,-413.26"/>
-<polygon fill="#000000" stroke="#000000" points="90.23,-415.99 100.11,-419.82 94.77,-410.67 90.23,-415.99"/>
+<path fill="none" stroke="#000000" d="M43.63,-360.16C47.11,-362.99 50.73,-366.04 54,-369 69.53,-383.02 86.17,-399.9 98.38,-412.65"/>
+<polygon fill="#000000" stroke="#000000" points="95.93,-415.16 105.35,-420 101.01,-410.34 95.93,-415.16"/>
 </g>
-<!-- proc~dlsodkr -->
-<g id="proc~~dcfode~~CalledByGraph_node19" class="node">
-<title>proc~dlsodkr</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node19"><a xlink:href=".././proc/dlsodkr.html" xlink:title="dlsodkr">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-276 0,-276 0,-252 54,-252 54,-276"/>
-<text text-anchor="middle" x="27" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodkr</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodkr&#45;&gt;proc~dstoka -->
-<g id="proc~~dcfode~~CalledByGraph_edge15" class="edge">
-<title>proc~dlsodkr&#45;&gt;proc~dstoka</title>
-<path fill="none" stroke="#000000" d="M54.07,-264C62.28,-264 71.5,-264 80.28,-264"/>
-<polygon fill="#000000" stroke="#000000" points="80.31,-267.5 90.31,-264 80.31,-260.5 80.31,-267.5"/>
-</g>
-<!-- proc~dlsode~2 -->
+<!-- proc~dlsodpk -->
 <g id="proc~~dcfode~~CalledByGraph_node20" class="node">
-<title>proc~dlsode~2</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node20"><a xlink:href=".././proc/dlsode~2.html" xlink:title="dlsode">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-150 0,-150 0,-126 54,-126 54,-150"/>
-<text text-anchor="middle" x="27" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsode</text>
+<title>proc~dlsodpk</title>
+<g id="a_proc~~dcfode~~CalledByGraph_node20"><a xlink:href=".././proc/dlsodpk.html" xlink:title="dlsodpk">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-276 0,-276 0,-252 54,-252 54,-276"/>
+<text text-anchor="middle" x="27" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodpk</text>
 </a>
 </g>
 </g>
-<!-- proc~dlsode~2&#45;&gt;proc~dstode -->
-<g id="proc~~dcfode~~CalledByGraph_edge16" class="edge">
-<title>proc~dlsode~2&#45;&gt;proc~dstode</title>
-<path fill="none" stroke="#000000" d="M53.6,-150.15C62.4,-154.33 72.42,-159.08 81.82,-163.54"/>
-<polygon fill="#000000" stroke="#000000" points="80.42,-166.75 90.96,-167.88 83.43,-160.43 80.42,-166.75"/>
+<!-- proc~dlsodpk&#45;&gt;proc~dstodpk -->
+<g id="proc~~dcfode~~CalledByGraph_edge15" class="edge">
+<title>proc~dlsodpk&#45;&gt;proc~dstodpk</title>
+<path fill="none" stroke="#000000" d="M54.07,-264C62.12,-264 71.14,-264 79.76,-264"/>
+<polygon fill="#000000" stroke="#000000" points="80,-267.5 90,-264 80,-260.5 80,-267.5"/>
+</g>
+<!-- proc~dlsodar -->
+<g id="proc~~dcfode~~CalledByGraph_node21" class="node">
+<title>proc~dlsodar</title>
+<g id="a_proc~~dcfode~~CalledByGraph_node21"><a xlink:href=".././proc/dlsodar.html" xlink:title="dlsodar">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-192 0,-192 0,-168 54,-168 54,-192"/>
+<text text-anchor="middle" x="27" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodar</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodar&#45;&gt;proc~dstoda -->
+<g id="proc~~dcfode~~CalledByGraph_edge17" class="edge">
+<title>proc~dlsodar&#45;&gt;proc~dstoda</title>
+<path fill="none" stroke="#000000" d="M54.07,-180C62.28,-180 71.5,-180 80.28,-180"/>
+<polygon fill="#000000" stroke="#000000" points="80.31,-183.5 90.31,-180 80.31,-176.5 80.31,-183.5"/>
 </g>
 <!-- proc~dlsodes~2 -->
-<g id="proc~~dcfode~~CalledByGraph_node21" class="node">
+<g id="proc~~dcfode~~CalledByGraph_node22" class="node">
 <title>proc~dlsodes~2</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node21"><a xlink:href=".././proc/dlsodes~2.html" xlink:title="dlsodes">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-108 0,-108 0,-84 54,-84 54,-108"/>
-<text text-anchor="middle" x="27" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodes</text>
+<g id="a_proc~~dcfode~~CalledByGraph_node22"><a xlink:href=".././proc/dlsodes~2.html" xlink:title="dlsodes">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-24 0,-24 0,0 54,0 54,-24"/>
+<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodes</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodes~2&#45;&gt;proc~dstode -->
-<g id="proc~~dcfode~~CalledByGraph_edge19" class="edge">
-<title>proc~dlsodes~2&#45;&gt;proc~dstode</title>
-<path fill="none" stroke="#000000" d="M43.63,-108.16C47.11,-110.99 50.73,-114.04 54,-117 69.53,-131.02 86.17,-147.9 98.38,-160.65"/>
-<polygon fill="#000000" stroke="#000000" points="95.93,-163.16 105.35,-168 101.01,-158.34 95.93,-163.16"/>
-</g>
-<!-- proc~dlsoda -->
-<g id="proc~~dcfode~~CalledByGraph_node22" class="node">
-<title>proc~dlsoda</title>
-<g id="a_proc~~dcfode~~CalledByGraph_node22"><a xlink:href=".././proc/dlsoda.html" xlink:title="dlsoda">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-24 0,-24 0,0 54,0 54,-24"/>
-<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsoda</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsoda&#45;&gt;proc~dstoda -->
 <g id="proc~~dcfode~~CalledByGraph_edge20" class="edge">
-<title>proc~dlsoda&#45;&gt;proc~dstoda</title>
-<path fill="none" stroke="#000000" d="M53.6,-24.15C62.4,-28.33 72.42,-33.08 81.82,-37.54"/>
-<polygon fill="#000000" stroke="#000000" points="80.42,-40.75 90.96,-41.88 83.43,-34.43 80.42,-40.75"/>
+<title>proc~dlsodes~2&#45;&gt;proc~dstode</title>
+<path fill="none" stroke="#000000" d="M43.63,-24.16C47.11,-26.99 50.73,-30.04 54,-33 69.53,-47.02 86.17,-63.9 98.38,-76.65"/>
+<polygon fill="#000000" stroke="#000000" points="95.93,-79.16 105.35,-84 101.01,-74.34 95.93,-79.16"/>
 </g>
 </g>
 </svg>
@@ -628,7 +628,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-13 19:58            </p>
+ on 2022-10-14 02:22            </p>
         </div>
       </div>
       <br>

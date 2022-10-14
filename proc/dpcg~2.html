@@ -146,87 +146,87 @@
  matrix M are symmetric positive definite or nearly so.</p>
 <h3 id="on-entry">On entry</h3>
 <dl>
-<dt>NEQ </dt>
+<dt>NEQ</dt>
 <dd>
 <p>problem size, passed to F and PSOL (NEQ(1) = N).</p>
 </dd>
-<dt>TN </dt>
+<dt>TN</dt>
 <dd>
 <p>current value of t.</p>
 </dd>
-<dt>Y </dt>
+<dt>Y</dt>
 <dd>
 <p>array containing current dependent variable vector.</p>
 </dd>
-<dt>SAVF </dt>
+<dt>SAVF</dt>
 <dd>
 <p>array containing current value of f(t,y).</p>
 </dd>
-<dt>R </dt>
+<dt>R</dt>
 <dd>
 <p>the right hand side of the system A*x = b.</p>
 </dd>
-<dt>WGHT </dt>
+<dt>WGHT</dt>
 <dd>
 <p>array of length N containing scale factors.
  1/WGHT(i) are the diagonal elements of the diagonal
  scaling matrix D.</p>
 </dd>
-<dt>N </dt>
+<dt>N</dt>
 <dd>
 <p>the order of the matrix A, and the lengths
  of the vectors Y, SAVF, R, WGHT, P, W, Z, WK, and X.</p>
 </dd>
-<dt>MAXL </dt>
+<dt>MAXL</dt>
 <dd>
 <p>the maximum allowable number of iterates.</p>
 </dd>
-<dt>DELTA </dt>
+<dt>DELTA</dt>
 <dd>
 <p>tolerance on residuals b - A*x in weighted RMS-norm.</p>
 </dd>
-<dt>HL0 </dt>
+<dt>HL0</dt>
 <dd>
 <p>current value of (step size h) * (coefficient l0).</p>
 </dd>
-<dt>JPRE </dt>
+<dt>JPRE</dt>
 <dd>
 <p>preconditioner type flag.</p>
 </dd>
-<dt>MNEWT </dt>
+<dt>MNEWT</dt>
 <dd>
 <p>Newton iteration counter (.ge. 0).</p>
 </dd>
-<dt>WK </dt>
+<dt>WK</dt>
 <dd>
 <p>real work array used by routine DATP.</p>
 </dd>
-<dt>WP </dt>
+<dt>WP</dt>
 <dd>
 <p>real work array used by preconditioner PSOL.</p>
 </dd>
-<dt>IWP </dt>
+<dt>IWP</dt>
 <dd>
 <p>integer work array used by preconditioner PSOL.</p>
 </dd>
 </dl>
 <h4 id="on-return">On return</h4>
 <dl>
-<dt>X    </dt>
+<dt>X</dt>
 <dd>
 <p>the final computed approximation to the solution
  of the system A*x = b.</p>
 </dd>
-<dt>LPCG </dt>
+<dt>LPCG</dt>
 <dd>
 <p>the number of iterations performed, and current
  order of the upper Hessenberg matrix HES.</p>
 </dd>
-<dt>NPSL </dt>
+<dt>NPSL</dt>
 <dd>
 <p>the number of calls to PSOL.</p>
 </dd>
-<dt>IFLAG </dt>
+<dt>IFLAG</dt>
 <dd>
 <p>integer error flag:</p>
 <div class="codehilite"><pre><span></span><code>        <span class="mi">0</span> <span class="nv">means</span> <span class="nv">convergence</span> <span class="nv">in</span> <span class="nv">LPCG</span> <span class="nv">iterations</span>, <span class="nv">LPCG</span> .<span class="nv">le</span>. <span class="nv">MAXL</span>.
@@ -823,15 +823,15 @@
 <span class="k">external</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span><span class="w"></span>
 <span class="k">external</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">psol</span><span class="w"></span>
 <span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">Npsl</span><span class="w"></span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">P</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">W</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">P</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">W</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
 <span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
-<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">Lpcg</span><span class="w"> </span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">Wp</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">Lpcg</span><span class="w"></span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">Wp</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
 <span class="kt">integer</span><span class="w">                      </span><span class="kd">::</span><span class="w"> </span><span class="n">Iwp</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">Wk</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span>
-<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">Iflag</span><span class="w"> </span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">Wk</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"></span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">Iflag</span><span class="w"></span>
 <span class="c">!</span>
 <span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">alpha</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">beta</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">bnrm</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ptw</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">rnrm</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ztr</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ztr0</span><span class="w"></span>
 <span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ier</span><span class="w"></span>
@@ -932,7 +932,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-13 19:58            </p>
+ on 2022-10-14 02:22            </p>
         </div>
       </div>
       <br>

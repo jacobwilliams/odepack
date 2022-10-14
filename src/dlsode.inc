@@ -66,21 +66,21 @@
 !! ; Name of subroutine for right-hand-side vector f.
 !! This name must be declared EXTERNAL in calling
 !! program.  The form of F must be:
-!!```fortran                                   
+!!```fortran
 !!     SUBROUTINE  F (NEQ, T, Y, YDOT)
 !!     INTEGER  NEQ
 !!     DOUBLE PRECISION  T, Y(*), YDOT(*)
-!!```                                     
+!!```
 !! The inputs are NEQ, T, Y.  F is to set
-!!```text                                     
+!!```text
 !!      YDOT(i) = f(i,T,Y(1),Y(2),...,Y(NEQ)), i = 1, ..., NEQ .
 !!```
 !!
 !! NEQ (intent IN)
 !!
 !! : Number of first-order ODE's.
-!!                                     
-!! Y (intent INOUT)  
+!!
+!! Y (intent INOUT)
 !!
 !! : Array of values of the y(t) vector, of length NEQ.
 !!
@@ -90,58 +90,58 @@
 !!
 !! Output: On return, Y will contain the values at the
 !!         new t-value.
-!!                                     
-!! T (intent INOUT)  
+!!
+!! T (intent INOUT)
 !!
 !! : Value of the independent variable.  On return it
 !! will be the current value of t (normally TOUT).
-!!                                     
-!! TOUT  (intent IN)     
+!!
+!! TOUT  (intent IN)
 !!
 !! : Next point where output is desired (.NE. T).
-!!                                     
-!! ITOL  (intent IN)     
+!!
+!! ITOL  (intent IN)
 !!
 !! : 1 or 2 according as ATOL (below) is a scalar or
 !! an array.
-!!                                     
-!! RTOL  (intent IN)     
+!!
+!! RTOL  (intent IN)
 !!
 !! : Relative tolerance parameter (scalar).
-!!                                     
-!! ATOL  (intent IN)     
+!!
+!! ATOL  (intent IN)
 !!
 !! : Absolute tolerance parameter (scalar or array).
 !!```text
 !!    If ITOL = 1, ATOL need not be dimensioned.
 !!    If ITOL = 2, ATOL must be dimensioned at least NEQ.
 !!```
-!!                                     
+!!
 !! The estimated local error in Y(i) will be controlled
 !! so as to be roughly less (in magnitude) than
-!!```text                                    
+!!```text
 !!    EWT(i) = RTOL*ABS(Y(i)) + ATOL     if ITOL = 1, or
 !!    EWT(i) = RTOL*ABS(Y(i)) + ATOL(i)  if ITOL = 2.
 !!```
-!!                                     
+!!
 !! Thus the local error test passes if, in each
 !! component, either the absolute error is less than
 !! ATOL (or ATOL(i)), or the relative error is less
 !! than RTOL.
-!! 
+!!
 !! Use RTOL = 0.0 for pure absolute error control, and
 !! use ATOL = 0.0 (or ATOL(i) = 0.0) for pure relative
 !! error control.  Caution:  Actual (global) errors may
 !! exceed these local tolerances, so choose them
 !! conservatively.
-!!                                     
-!! ITASK (intent IN)     
+!!
+!! ITASK (intent IN)
 !!
 !! : Flag indicating the task DLSODE is to perform.
 !! Use ITASK = 1 for normal computation of output
 !! values of y at t = TOUT.
-!!                                     
-!! ISTATE (intent INOUT)  
+!!
+!! ISTATE (intent INOUT)
 !!
 !! : Index used for input and output to specify the state
 !! of the calculation.
@@ -174,8 +174,8 @@
 !!     -6 | Error weight became zero during problem
 !!        | (solution component i vanished, and ATOL or
 !!        | ATOL(i) = 0.).
-!!                                     
-!! IOPT (intent IN)     
+!!
+!! IOPT (intent IN)
 !!
 !! : Flag indicating whether optional inputs are used:
 !!
@@ -184,8 +184,8 @@
 !!      0 | No.
 !!      1 | Yes.  (See "Optional inputs" under "Long
 !!        | Description," Part 1.)
-!!                                     
-!! RWORK (WORK)   
+!!
+!! RWORK (WORK)
 !!
 !! : Real work array of length at least:
 !!```text
@@ -193,26 +193,26 @@
 !!       22 +  9*NEQ + NEQ**2           for MF = 21 or 22,
 !!       22 + 10*NEQ + (2*ML + MU)*NEQ  for MF = 24 or 25.
 !!```
-!!                                     
-!! LRW (intent IN)     
+!!
+!! LRW (intent IN)
 !!
 !! : Declared length of RWORK (in user's DIMENSION
 !! statement).
-!!                                     
-!! IWORK (WORK)   
+!!
+!! IWORK (WORK)
 !!
 !! : Integer work array of length at least:
 !!```text
 !!       20        for MF = 10,
 !!       20 + NEQ  for MF = 21, 22, 24, or 25.
 !!```
-!!                                     
+!!
 !! If MF = 24 or 25, input in IWORK(1),IWORK(2) the
 !! lower and upper Jacobian half-bandwidths ML,MU.
-!!                                     
+!!
 !! On return, IWORK contains information that may be
 !! of interest to the user:
-!!                                     
+!!
 !!  Name  | Location  | Meaning
 !!  ----- | --------- | -----------------------------------------
 !!  NST   | IWORK(11) | Number of steps taken for the problem so
@@ -231,28 +231,28 @@
 !!        |           | is defined on normal returns and on an
 !!        |           | illegal input return for insufficient
 !!        |           | storage.
-!!                                     
-!! LIW (intent IN)     
+!!
+!! LIW (intent IN)
 !!
 !! : Declared length of IWORK (in user's DIMENSION
 !! statement).
-!!                                     
-!! JAC (external)    
+!!
+!! JAC (external)
 !!
 !! : Name of subroutine for Jacobian matrix (MF =
 !! 21 or 24).  If used, this name must be declared
 !! EXTERNAL in calling program.  If not used, pass a
 !! dummy name.  The form of JAC must be:
-!!```fortran                                     
+!!```fortran
 !!    SUBROUTINE JAC (NEQ, T, Y, ML, MU, PD, NROWPD)
 !!    INTEGER  NEQ, ML, MU, NROWPD
 !!    DOUBLE PRECISION  T, Y(*), PD(NROWPD,*)
 !!```
-!!                                     
+!!
 !! See item c, under "Description" below for more
 !! information about JAC.
-!!                                     
-!! MF (intent IN)     
+!!
+!! MF (intent IN)
 !!
 !! : Method flag.  Standard values are:
 !!
@@ -265,7 +265,7 @@
 !!      24 | Stiff method, user-supplied banded Jacobian.
 !!      25 | Stiff method, internally generated banded
 !!         | Jacobian.
-!!                                     
+!!
 !!### Long Description
 !!   DLSODE solves the initial value problem for stiff or nonstiff
 !!   systems of first-order ODE's,
@@ -363,7 +363,7 @@
 !!implicit none
 !!external fex
 !!external jex
-!! 
+!!
 !!integer,parameter            ::  dp=kind(0.0d0)
 !!real(kind=dp),dimension(3)   ::  atol,y
 !!integer                      ::  iopt,iout,istate,itask,itol,liw,lrw,mf,neq
@@ -405,24 +405,24 @@
 !!   99030 format (/' No. steps =',i4,',  No. f-s =',i4,',  No. J-s =',i4)
 !!
 !!end program dlsode_ex
-!! 
+!!
 !!subroutine fex(Neq,T,Y,Ydot)
 !!implicit none
 !!integer,parameter                         ::  dp=kind(0.0d0)
-!! 
+!!
 !!integer                                   ::  Neq
 !!real(kind=dp)                             ::  T
 !!real(kind=dp),intent(in),dimension(3)     ::  Y
 !!real(kind=dp),intent(inout),dimension(3)  ::  Ydot
-!! 
+!!
 !!   Ydot(1) = -.04D0*Y(1) + 1.D4*Y(2)*Y(3)
 !!   Ydot(3) = 3.D7*Y(2)*Y(2)
 !!   Ydot(2) = -Ydot(1) - Ydot(3)
 !!end subroutine fex
-!! 
+!!
 !!subroutine jex(Neq,T,Y,Ml,Mu,Pd,Nrpd)
 !!implicit none
-!! 
+!!
 !!integer,parameter                              ::  dp=kind(0.0d0)
 !!integer                                        ::  Neq
 !!real(kind=dp)                                  ::  T
@@ -431,7 +431,7 @@
 !!integer                                        ::  Mu
 !!real(kind=dp),intent(inout),dimension(Nrpd,3)  ::  Pd
 !!integer,intent(in)                             ::  Nrpd
-!! 
+!!
 !!   Pd(1,1) = -.04D0
 !!   Pd(1,2) = 1.D4*Y(3)
 !!   Pd(1,3) = 1.D4*Y(2)
@@ -513,7 +513,7 @@
 !!### Part 1.  Call Sequence
 !!
 !!#### Arguments
-!! 
+!!
 !!  The call sequence parameters used for input only are
 !!
 !!     F, NEQ, TOUT, ITOL, RTOL, ATOL, ITASK, IOPT, LRW, LIW, JAC, MF,
@@ -533,7 +533,7 @@
 !!
 !!  The descriptions of the call arguments are as follows.
 !!
-!!  F        
+!!  F
 !!
 !!  : name of the user-supplied subroutine defining the ODE
 !!  system.  The system must be put in the first-order form
@@ -560,7 +560,7 @@
 !!  If only the derivative dy/dt is needed, use DINTDY
 !!  instead.
 !!
-!!  NEQ      
+!!  NEQ
 !!
 !!  : size of the ODE system (number of first-order
 !!  ordinary differential equations).  Used only for input.
@@ -580,7 +580,7 @@
 !!  F and/or JAC must include NEQ in a DIMENSION statement
 !!  in that case.
 !!
-!!  Y        
+!!  Y
 !!
 !!  : real array for the vector of dependent variables, of
 !!  length NEQ or more.  Used for both input and output on
@@ -597,7 +597,7 @@
 !!  pass it to F and/or JAC.  (The DLSODE package accesses
 !!  only Y(1),...,Y(NEQ).)
 !!
-!!  T        
+!!  T
 !!
 !!  : independent variable.  On input, T is used only on
 !!  the first call, as the initial point of the integration.
@@ -606,7 +606,7 @@
 !!  TOUT).  On an error return, T is the farthest point
 !!  reached.
 !!
-!!  TOUT     
+!!  TOUT
 !!
 !!  : next value of T at which a computed solution is
 !!  desired.  Used only for input.
@@ -630,18 +630,18 @@
 !!  TCUR and HU.)
 !!
 !!
-!!  ITOL     
+!!  ITOL
 !!
 !!  : indicator for the type of error control.  See
 !!  description below under ATOL.  Used only for input.
 !!
-!!  RTOL     
+!!  RTOL
 !!
 !!  : relative error tolerance parameter, either a scalar or
 !!  an array of length NEQ.  See description below under
 !!  ATOL.  Input only.
 !!
-!!  ATOL     
+!!  ATOL
 !!
 !!  : absolute error tolerance parameter, either a scalar or
 !!  an array of length NEQ.  Input only.
@@ -688,13 +688,13 @@
 !!  components of RTOL and ATOL (i.e., of EWT) should be
 !!  scaled down uniformly.
 !!
-!!  ITASK    
+!!  ITASK
 !!
 !!  : index specifying the task to be performed.  Input
 !!  only.  ITASK has the following values and meanings:
 !!
-!!   value  | description 
-!!   ------ | ----------- 
+!!   value  | description
+!!   ------ | -----------
 !!        1 | Normal computation of output values of y(t) at
 !!          | t = TOUT (by overshooting and interpolating).
 !!        2 | Take one step only and return.
@@ -715,15 +715,15 @@
 !!  TCRIT, in which case answers at T = TOUT are returned
 !!  first).
 !!
-!!  ISTATE   
+!!  ISTATE
 !!
 !!  : index used for input and output to specify the state
 !!  of the calculation.
 !!
 !!  On input, the values of ISTATE are as follows:
 !!
-!!   value  | description 
-!!   ------ | ----------- 
+!!   value  | description
+!!   ------ | -----------
 !!        1 | This is the first call for the problem
 !!          | (initializations will be done).  See "Note" below.
 !!        2 | This is not the first call, and the calculation is to
@@ -748,8 +748,8 @@
 !!
 !!  On output, ISTATE has the following values and meanings:
 !!
-!!   value  | description 
-!!   ------ | ----------- 
+!!   value  | description
+!!   ------ | -----------
 !!        1 | Nothing was done, as TOUT was equal to T with
 !!          | ISTATE = 1 on input.
 !!        2 | The integration was performed successfully.
@@ -798,7 +798,7 @@
 !!  change it, and possibly other inputs, before calling the
 !!  solver again.
 !!
-!!  IOPT     
+!!  IOPT
 !!
 !!  : integer flag to specify whether any optional inputs
 !!  are being used on this call.  Input only.  The optional
@@ -807,7 +807,7 @@
 !!                  will be used in all cases.
 !!              1   One or more optional inputs are being used.
 !!
-!!  RWORK    
+!!  RWORK
 !!
 !!  : real working array (double precision).  The length of
 !!  RWORK must be at least
@@ -849,12 +849,12 @@
 !!  solver is not to overshoot.  Required if ITASK
 !!  is 4 or 5, and ignored otherwise.  See ITASK.
 !!
-!!  LRW      
+!!  LRW
 !!
 !!  : length of the array RWORK, as declared by the user.
 !!  (This will be checked by the solver.)
 !!
-!!  IWORK    
+!!  IWORK
 !!
 !!  : integer work array.  Its length must be at least
 !!  20       if MITER = 0 or 3 (MF = 10, 13, 20, 23), or
@@ -877,7 +877,7 @@
 !!  parameters for a matrix to which df/dy is only
 !!  approximately equal.
 !!
-!!  LIW      
+!!  LIW
 !!
 !!  : The length of the array IWORK, as declared by the user.
 !!  (This will be checked by the solver.)
@@ -889,7 +889,7 @@
 !!  available for use by the user outside DLSODE between calls, if
 !!  desired (but not for use by F or JAC).
 !!
-!!  JAC      
+!!  JAC
 !!
 !!  : The name of the user-supplied routine (MITER = 1 or 4) to
 !!  compute the Jacobian matrix, df/dy, as a function of the
@@ -936,7 +936,7 @@
 !!  (dimensioned in JAC) and/or Y has length exceeding
 !!  NEQ(1).  See the descriptions of NEQ and Y above.
 !!
-!!  MF       
+!!  MF
 !!
 !!  : The method flag.  Used only for input.  The legal values
 !!  of MF are 10, 11, 12, 13, 14, 15, 20, 21, 22, 23, 24,
@@ -946,16 +946,16 @@
 !!```
 !!  METH indicates the basic linear multistep method:
 !!
-!!   value  | description 
-!!   ------ | ----------- 
+!!   value  | description
+!!   ------ | -----------
 !!        1 | Implicit Adams method.
 !!        2 | Method based on backward differentiation formulas
 !!          | (BDF's).
 !!
 !!  MITER indicates the corrector iteration method:
 !!
-!!   value  | description 
-!!   ------ | ----------- 
+!!   value  | description
+!!   ------ | -----------
 !!        0 | Functional iteration (no Jacobian matrix is
 !!          | involved).
 !!        1 | Chord iteration with a user-supplied full (NEQ by
@@ -976,7 +976,7 @@
 !!  For other values of MITER, a dummy argument can be used.
 !!
 !!#### Optional Inputs
-!!   
+!!
 !!  The following is a list of the optional inputs provided for in the
 !!  call sequence.  (See also Part 2.)  For each such input variable,
 !!  this table lists its name as used in this documentation, its
@@ -1015,7 +1015,7 @@
 !!         |          | value is 10.
 !!
 !!#### Optional Outputs
-!!   
+!!
 !! As optional additional output from DLSODE, the variables listed
 !! below are quantities related to the performance of DLSODE which
 !! are available to the user.  These are communicated by way of the
@@ -1122,7 +1122,7 @@
 !!                             | instructions follow.
 !!
 !!#### Detailed instructions for using DINTDY
-!!   
+!!
 !!  The form of the CALL is:
 !!
 !!        CALL DINTDY (T, K, RWORK(21), NYH, DKY, IFLAG)
@@ -1182,7 +1182,7 @@
 !!  dependent.)
 !!
 !!#### DEWSET()
-!! 
+!!
 !!  The following subroutine is called just before each internal
 !!  integration step, and sets the array of error weights, EWT, as
 !!  described under ITOL/RTOL/ATOL above:
@@ -1221,7 +1221,7 @@
 !!  when NST = 0).
 !!
 !!#### DVNORM()
-!!   
+!!
 !!  DVNORM is a real function routine which computes the weighted
 !!  root-mean-square norm of a vector v:
 !!```text
@@ -1251,7 +1251,7 @@
 !!  DLSODE is derived from the Livermore Solver for Ordinary
 !!  Differential Equations package ODEPACK,
 !!
-!!#### AUTHOR  
+!!#### AUTHOR
 !!          Hindmarsh, Alan C., (LLNL)
 !!          Center for Applied Scientific Computing, L-561
 !!          Lawrence Livermore National Laboratory
@@ -1317,13 +1317,13 @@
 !  20031105  Restored 'own' variables to Common block /DLS001/, to
 !            enable interrupt/restart feature. (ACH)
 !  20031112  Added SAVE statements for data-loaded constants.
-! 
+!
 ! ### END PROLOGUE  DLSODE
-! 
+!
 ! *Internal Notes:
-! 
+!
 !  Other Routines in the DLSODE Package.
-! 
+!
 !  In addition to Subroutine DLSODE, the DLSODE package includes the
 !  following subroutines and function routines:
 !   DINTDY   computes an interpolated value of the y vector at t = TOUT.
@@ -1346,9 +1346,9 @@
 !            error messages and warnings.  XERRWD is machine-dependent.
 !  Note: DVNORM, DUMACH, and IXSAV are function routines.
 !  All the others are subroutines.
-! 
+!
 ! **End
-! 
+!
 subroutine dlsode(f,Neq,Y,T,Tout,Itol,Rtol,Atol,Itask,Istate,Iopt,Rwork,Lrw,Iwork,Liw,jac,Mf)
 !
 real(kind=dp), dimension(*) :: Atol, Rtol, Y
@@ -1401,7 +1401,7 @@ if ( Istate<1 .or. Istate>3 ) then
    msg = 'DLSODE-  ISTATE (=I1) illegal '
    call xerrwd(msg,30,1,0,1,Istate,0,0,0.0D0,0.0D0)
    if ( Istate>=0 ) goto 1100
- 
+
    msg = 'DLSODE-  Run aborted.. apparent infinite loop     '
    call xerrwd(msg,50,303,2,0,0,0,0,0.0D0,0.0D0)
    goto 99999

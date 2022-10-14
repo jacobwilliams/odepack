@@ -176,7 +176,7 @@
 <a id="ln-22" name="ln-22" href="#ln-22"></a><span class="c">!!     DGBSL solves the double precision band system</span>
 <a id="ln-23" name="ln-23" href="#ln-23"></a><span class="c">!!</span>
 <a id="ln-24" name="ln-24" href="#ln-24"></a><span class="c">!!          A * X = B  or  TRANS(A) * X = B</span>
-<a id="ln-25" name="ln-25" href="#ln-25"></a><span class="c">!! </span>
+<a id="ln-25" name="ln-25" href="#ln-25"></a><span class="c">!!</span>
 <a id="ln-26" name="ln-26" href="#ln-26"></a><span class="c">!!     using the factors computed by DGBCO or DGBFA.</span>
 <a id="ln-27" name="ln-27" href="#ln-27"></a><span class="c">!!</span>
 <a id="ln-28" name="ln-28" href="#ln-28"></a><span class="c">!!     To compute  INVERSE(A) * C  where  C  is a matrix</span>
@@ -199,7 +199,7 @@
 <a id="ln-45" name="ln-45" href="#ln-45"></a><span class="c">!!</span>
 <a id="ln-46" name="ln-46" href="#ln-46"></a><span class="c">!!### ON ENTRY</span>
 <a id="ln-47" name="ln-47" href="#ln-47"></a><span class="c">!!</span>
-<a id="ln-48" name="ln-48" href="#ln-48"></a><span class="c">!!   ABD </span>
+<a id="ln-48" name="ln-48" href="#ln-48"></a><span class="c">!!   ABD</span>
 <a id="ln-49" name="ln-49" href="#ln-49"></a><span class="c">!!</span>
 <a id="ln-50" name="ln-50" href="#ln-50"></a><span class="c">!!   :   the output from DGBCO(3f) or DGBFA(3f).</span>
 <a id="ln-51" name="ln-51" href="#ln-51"></a><span class="c">!!</span>
@@ -207,15 +207,15 @@
 <a id="ln-53" name="ln-53" href="#ln-53"></a><span class="c">!!</span>
 <a id="ln-54" name="ln-54" href="#ln-54"></a><span class="c">!!   :   the leading dimension of the array ABD .</span>
 <a id="ln-55" name="ln-55" href="#ln-55"></a><span class="c">!!</span>
-<a id="ln-56" name="ln-56" href="#ln-56"></a><span class="c">!!   N </span>
+<a id="ln-56" name="ln-56" href="#ln-56"></a><span class="c">!!   N</span>
 <a id="ln-57" name="ln-57" href="#ln-57"></a><span class="c">!!</span>
 <a id="ln-58" name="ln-58" href="#ln-58"></a><span class="c">!!   :   the order of the original matrix.</span>
 <a id="ln-59" name="ln-59" href="#ln-59"></a><span class="c">!!</span>
-<a id="ln-60" name="ln-60" href="#ln-60"></a><span class="c">!!   ML </span>
+<a id="ln-60" name="ln-60" href="#ln-60"></a><span class="c">!!   ML</span>
 <a id="ln-61" name="ln-61" href="#ln-61"></a><span class="c">!!</span>
 <a id="ln-62" name="ln-62" href="#ln-62"></a><span class="c">!!   :   number of diagonals below the main diagonal.</span>
 <a id="ln-63" name="ln-63" href="#ln-63"></a><span class="c">!!</span>
-<a id="ln-64" name="ln-64" href="#ln-64"></a><span class="c">!!   MU </span>
+<a id="ln-64" name="ln-64" href="#ln-64"></a><span class="c">!!   MU</span>
 <a id="ln-65" name="ln-65" href="#ln-65"></a><span class="c">!!</span>
 <a id="ln-66" name="ln-66" href="#ln-66"></a><span class="c">!!   :   number of diagonals above the main diagonal.</span>
 <a id="ln-67" name="ln-67" href="#ln-67"></a><span class="c">!!</span>
@@ -223,11 +223,11 @@
 <a id="ln-69" name="ln-69" href="#ln-69"></a><span class="c">!!</span>
 <a id="ln-70" name="ln-70" href="#ln-70"></a><span class="c">!!   :   the pivot vector from DGBCO(3f) or DGBFA(3f).</span>
 <a id="ln-71" name="ln-71" href="#ln-71"></a><span class="c">!!</span>
-<a id="ln-72" name="ln-72" href="#ln-72"></a><span class="c">!!   B  </span>
+<a id="ln-72" name="ln-72" href="#ln-72"></a><span class="c">!!   B</span>
 <a id="ln-73" name="ln-73" href="#ln-73"></a><span class="c">!!</span>
 <a id="ln-74" name="ln-74" href="#ln-74"></a><span class="c">!!   :   the right hand side vector.</span>
 <a id="ln-75" name="ln-75" href="#ln-75"></a><span class="c">!!</span>
-<a id="ln-76" name="ln-76" href="#ln-76"></a><span class="c">!!   JOB </span>
+<a id="ln-76" name="ln-76" href="#ln-76"></a><span class="c">!!   JOB</span>
 <a id="ln-77" name="ln-77" href="#ln-77"></a><span class="c">!!   :</span>
 <a id="ln-78" name="ln-78" href="#ln-78"></a><span class="c">!!        = 0         to solve  A*X = B ,</span>
 <a id="ln-79" name="ln-79" href="#ln-79"></a><span class="c">!!        = nonzero   to solve  TRANS(A)*X = B , where</span>
@@ -239,7 +239,7 @@
 <a id="ln-85" name="ln-85" href="#ln-85"></a><span class="c">!!</span>
 <a id="ln-86" name="ln-86" href="#ln-86"></a><span class="c">!!   :   the solution vector  X .</span>
 <a id="ln-87" name="ln-87" href="#ln-87"></a><span class="c">!!</span>
-<a id="ln-88" name="ln-88" href="#ln-88"></a><span class="c">!!### REFERENCES </span>
+<a id="ln-88" name="ln-88" href="#ln-88"></a><span class="c">!!### REFERENCES</span>
 <a id="ln-89" name="ln-89" href="#ln-89"></a><span class="c">!!   J. J. Dongarra, J. R. Bunch, C. B. Moler, and G. W.</span>
 <a id="ln-90" name="ln-90" href="#ln-90"></a><span class="c">!!   Stewart, LINPACK Users&#39; Guide, SIAM, 1979.</span>
 <a id="ln-91" name="ln-91" href="#ln-91"></a><span class="c">!!</span>
@@ -259,7 +259,7 @@
 <a id="ln-105" name="ln-105" href="#ln-105"></a><span class="c">!     19900326  Removed duplicate information from DESCRIPTION section.</span>
 <a id="ln-106" name="ln-106" href="#ln-106"></a><span class="c">!               (WRB)</span>
 <a id="ln-107" name="ln-107" href="#ln-107"></a><span class="c">!     19920501  Reformatted the REFERENCES section.  (WRB)</span>
-<a id="ln-108" name="ln-108" href="#ln-108"></a><span class="c">! </span>
+<a id="ln-108" name="ln-108" href="#ln-108"></a><span class="c">!</span>
 <a id="ln-109" name="ln-109" href="#ln-109"></a><span class="k">subroutine </span><span class="n">dgbsl</span><span class="p">(</span><span class="n">Abd</span><span class="p">,</span><span class="n">Lda</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Ml</span><span class="p">,</span><span class="n">Mu</span><span class="p">,</span><span class="n">Ipvt</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Job</span><span class="p">)</span><span class="w"></span>
 <a id="ln-110" name="ln-110" href="#ln-110"></a><span class="c">!</span>
 <a id="ln-111" name="ln-111" href="#ln-111"></a><span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">Lda</span><span class="w"></span>
@@ -356,7 +356,7 @@
           <p class="text-right">
             Documentation generated by 
             <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-13 19:58            </p>
+ on 2022-10-14 02:22            </p>
         </div>
       </div>
       <br>
