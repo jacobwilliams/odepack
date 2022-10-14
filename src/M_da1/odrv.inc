@@ -126,7 +126,7 @@
 !!
 !-----------------------------------------------------------------------
 subroutine odrv(N,Ia,Ja,A,P,Ip,Nsp,Isp,Path,Flag)
- 
+
 integer                        :: N
 integer,        dimension(*)   :: Ia
 integer,        dimension(*)   :: Ja
@@ -137,7 +137,7 @@ integer,        intent(in)     :: Nsp
 integer,        dimension(*)   :: Isp
 integer,        intent(in)     :: Path
 integer,        intent(inout)  :: Flag
- 
+
 logical :: dflag
 integer :: head, l, max, next, q, tmp, v
 
@@ -151,7 +151,7 @@ integer :: head, l, max, next, q, tmp, v
       return
 
    else
-     
+
       !----allocate storage and find minimum degree ordering
       if ( (Path-1)*(Path-2)*(Path-4)==0 ) then
          max = (Nsp-N)/2
@@ -163,13 +163,13 @@ integer :: head, l, max, next, q, tmp, v
             Flag = 10*N + 1
             return
          endif
-     
+
          call md(N,Ia,Ja,max,Isp(v),Isp(l),Isp(head),P,Ip,Isp(v),Flag)
-     
+
          !  ** error -- error detected in md
          if ( Flag/=0 ) return
       endif
-     
+
       !----allocate storage and symmetrically reorder matrix
       if ( (Path-2)*(Path-3)*(Path-4)*(Path-5)==0 ) then
          tmp = (Nsp+1) - N
@@ -178,11 +178,11 @@ integer :: head, l, max, next, q, tmp, v
             Flag = 10*N + 1
             return
          endif
-     
+
          dflag = Path==4 .or. Path==5
          call sro(N,Ip,Ia,Ja,A,Isp(tmp),Isp(q),dflag)
       endif
-     
+
       return
    endif
 

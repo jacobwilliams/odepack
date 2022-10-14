@@ -49,7 +49,7 @@
 !!
 !!   :   copy of vector DX (unchanged if N .LE. 0)
 !!
-!!### REFERENCES 
+!!### REFERENCES
 !!#### B L A S  Subprogram
 !!    C. L. Lawson, R. J. Hanson, D. R. Kincaid and F. T.
 !!    Krogh, Basic linear algebra subprograms for Fortran

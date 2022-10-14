@@ -22,7 +22,7 @@
 !!     DGBSL solves the double precision band system
 !!
 !!          A * X = B  or  TRANS(A) * X = B
-!! 
+!!
 !!     using the factors computed by DGBCO or DGBFA.
 !!
 !!     To compute  INVERSE(A) * C  where  C  is a matrix
@@ -45,7 +45,7 @@
 !!
 !!### ON ENTRY
 !!
-!!   ABD 
+!!   ABD
 !!
 !!   :   the output from DGBCO(3f) or DGBFA(3f).
 !!
@@ -53,15 +53,15 @@
 !!
 !!   :   the leading dimension of the array ABD .
 !!
-!!   N 
+!!   N
 !!
 !!   :   the order of the original matrix.
 !!
-!!   ML 
+!!   ML
 !!
 !!   :   number of diagonals below the main diagonal.
 !!
-!!   MU 
+!!   MU
 !!
 !!   :   number of diagonals above the main diagonal.
 !!
@@ -69,11 +69,11 @@
 !!
 !!   :   the pivot vector from DGBCO(3f) or DGBFA(3f).
 !!
-!!   B  
+!!   B
 !!
 !!   :   the right hand side vector.
 !!
-!!   JOB 
+!!   JOB
 !!   :
 !!        = 0         to solve  A*X = B ,
 !!        = nonzero   to solve  TRANS(A)*X = B , where
@@ -85,7 +85,7 @@
 !!
 !!   :   the solution vector  X .
 !!
-!!### REFERENCES 
+!!### REFERENCES
 !!   J. J. Dongarra, J. R. Bunch, C. B. Moler, and G. W.
 !!   Stewart, LINPACK Users' Guide, SIAM, 1979.
 !!
@@ -105,7 +105,7 @@
 !     19900326  Removed duplicate information from DESCRIPTION section.
 !               (WRB)
 !     19920501  Reformatted the REFERENCES section.  (WRB)
-! 
+!
 subroutine dgbsl(Abd,Lda,N,Ml,Mu,Ipvt,B,Job)
 !
 integer,intent(in)          :: Lda

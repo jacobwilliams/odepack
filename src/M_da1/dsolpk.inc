@@ -38,7 +38,7 @@
 !! LOCWP, LOCIWP.
 !-----------------------------------------------------------------------
 subroutine dsolpk(Neq,Y,Savf,X,Ewt,Wm,Iwm,f,psol)
- 
+
 integer        :: Neq(*)
 real(kind=dp)  :: Y(*)
 real(kind=dp)  :: Savf(*)
@@ -48,10 +48,10 @@ real(kind=dp)  :: Wm(*)
 integer        :: Iwm(*)
 external       :: f
 external       :: psol
- 
+
 real(kind=dp) :: delta, hl0
 integer :: iflag, lb, ldl, lgmr, lhes, liom, lp, lpcg, lq, lr, lv, lw, lwk, lz, maxlp1, npsl
- 
+
    dls1%iersl = 0
    hl0 = dls1%h*dls1%el0
    delta = dlpk%delt*dlpk%epcon
@@ -157,7 +157,7 @@ integer :: iflag, lb, ldl, lgmr, lhes, liom, lp, lpcg, lq, lr, lv, lw, lwk, lz, 
       if ( iflag/=0 ) dlpk%ncfl = dlpk%ncfl + 1
       if ( iflag>=2 ) dls1%iersl = 1
       if ( iflag<0 ) dls1%iersl = -1
-   
+
    endselect
 
 end subroutine dsolpk

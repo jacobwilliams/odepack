@@ -11,7 +11,7 @@
 !! matrix, and then computes the solution.
 !! communication with DSOLSS uses the following variables:
 !!
-!! WK    
+!! WK
 !!
 !! : real work space containing the inverse diagonal matrix if
 !! MITER = 3 and the LU decomposition of the matrix otherwise.
@@ -21,22 +21,22 @@
 !!         WK(1) = SQRT(UROUND) (not used here),
 !!         WK(2) = HL0, the previous value of H*EL0, used if MITER = 3.
 !!
-!! IWK   
+!! IWK
 !!
 !! : integer work space for matrix-related data, assumed to
 !! be equivalenced to WK.  In addition, WK(IPRSP) and IWK(IPISP)
 !! are assumed to have identical locations.
 !!
-!! X     
+!! X
 !!
 !! : the right-hand side vector on input, and the solution vector
 !! on output, of length N.
 !!
-!! TEM   
+!! TEM
 !!
 !! : vector of work space of length N, not used in this version.
 !!
-!! IERSL 
+!! IERSL
 !!
 !! : output flag (in Common).
 !!

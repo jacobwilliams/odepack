@@ -8,34 +8,34 @@
 !!
 !!### Input:
 !!
-!! N      
+!! N
 !!
 !! : the order of the matrix.
 !!
-!! IA,JA  
+!! IA,JA
 !!
 !! : sparse structure descriptors of the matrix by rows.
 !!
-!! MAXG   
+!! MAXG
 !!
 !! : length of available storage in the IGP array.
 !!
 !!### Output:
 !!
-!! NGRP   
+!! NGRP
 !!
 !! : number of groups.
 !!
-!! JGP    
+!! JGP
 !!
 !! : array of length N containing the column indices by groups.
 !!
-!! IGP    
+!! IGP
 !!
 !! : pointer array of length NGRP + 1 to the locations in JGP
 !! of the beginning of each group.
 !!
-!! IER    
+!! IER
 !!
 !! : error indicator.  IER = 0 if no error occurred, or 1 if
 !! MAXG was insufficient.
@@ -100,6 +100,6 @@ integer :: i , j , k , kmax , kmin , ncol , ng
    else
       ng = Maxg
    endif
-    
+
    Ngrp = ng - 1
 end subroutine jgroup

@@ -40,13 +40,13 @@
 !!  DNRM2
 !!  :   double precision result (zero if N .LE. 0)
 !-----------------------------------------------------------------------------------------------------------------------------------
-! ### REFERENCES 
+! ### REFERENCES
 ! #### B L A S  Subprogram
 !    C. L. Lawson, R. J. Hanson, D. R. Kincaid and F. T.
 !    Krogh, Basic linear algebra subprograms for Fortran
 !    usage, Algorithm No. 539, Transactions on Mathematical
 !    Software 5, 3 (September 1979), pp. 308-323.
-! 
+!
 ! ### CATEGORY  D1A3B
 ! ### TYPE      DOUBLE PRECISION (SNRM2-S, DNRM2-D, SCNRM2-C)
 ! ### KEYWORDS  BLAS, EUCLIDEAN LENGTH, EUCLIDEAN NORM, L2,
@@ -63,7 +63,7 @@
 !     19890831  REVISION DATE from Version 3.2
 !     19891214  Prologue converted to Version 4.0 format.  (BAB)
 !     19920501  Reformatted the REFERENCES section.  (WRB)
-! 
+!
 !  Authors:
 !  ========
 !
@@ -74,22 +74,22 @@
 !
 !  Contributors:
 !  ==================
-! 
+!
 !  Weslley Pereira, University of Colorado Denver, USA
 !
 !  Further Details:
 !  =====================
-! 
+!
 !   Anderson E. (2017)
 !   Algorithm 978: Safe Scaling in the Level 1 BLAS
 !   ACM Trans Math Softw 44:1--28
 !   https://doi.org/10.1145/3061665
-! 
+!
 !   Blue, James L. (1978)
 !   A Portable Fortran Program to Find the Euclidean Norm of a Vector
 !   ACM Trans Math Softw 4:15--23
 !   https://doi.org/10.1145/355769.355771
-! 
+!
 !-----------------------------------------------------------------------------------------------------------------------------------
 pure function DNRM2( n, x, incx )
    real(dp) :: DNRM2

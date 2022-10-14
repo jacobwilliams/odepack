@@ -24,7 +24,7 @@
 !!
 !!### On Entry
 !!
-!!   ABD  
+!!   ABD
 !!
 !!   :   contains the matrix in band storage.  The columns
 !!   of the matrix are stored in the columns of  ABD  and
@@ -32,21 +32,21 @@
 !!   ML+1 through 2*ML+MU+1 of  ABD .
 !!   See the comments below for details.
 !!
-!!   LDA 
+!!   LDA
 !!
 !!   :   the leading dimension of the array  ABD .
 !!   LDA must be .GE. 2*ML + MU + 1 .
 !!
-!!   N    
+!!   N
 !!
 !!   :   the order of the original matrix.
 !!
-!!   ML   
+!!   ML
 !!
 !!   :   number of diagonals below the main diagonal.
 !!   0 .LE. ML .LT.  N .
 !!
-!!   MU  
+!!   MU
 !!
 !!   :   number of diagonals above the main diagonal.
 !!   0 .LE. MU .LT.  N .
@@ -99,7 +99,7 @@
 !!   The ML+MU by ML+MU upper left triangle and the
 !!   ML by ML lower right triangle are not referenced.
 !!
-!!### REFERENCES  
+!!### REFERENCES
 !!   J. J. Dongarra, J. R. Bunch, C. B. Moler, and G. W.
 !!   Stewart, LINPACK Users' Guide, SIAM, 1979.
 !!
@@ -117,7 +117,7 @@
 !     19900326  Removed duplicate information from DESCRIPTION section.
 !               (WRB)
 !     19920501  Reformatted the REFERENCES section.  (WRB)
-! 
+!
 subroutine dgbfa(Abd,Lda,N,Ml,Mu,Ipvt,Info)
 !
 integer , intent(in) :: Lda

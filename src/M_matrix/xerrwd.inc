@@ -7,7 +7,7 @@
 !!
 ! ### SYNOPSIS
 !!      subroutine xerrwd(Msg,Nmes,Nerr,Level,Ni,I1,I2,Nr,R1,R2)
-!!      
+!!
 !!      character(len=*),intent(in) :: Msg
 !!      integer                     :: Nmes
 !!      integer                     :: Nerr
@@ -28,37 +28,37 @@
 !!### OPTIONS
 !!  All arguments are input arguments.
 !!
-!!   MSG    
+!!   MSG
 !!
 !!   :   The message (character array).
 !!
-!!   NMES   
+!!   NMES
 !!
 !!   :   The length of MSG (number of characters).
 !!
-!!   NERR   
+!!   NERR
 !!
 !!   :   The error number (not used).
 !!
-!!   LEVEL  
+!!   LEVEL
 !!
 !!   :   The error level..
 !!            0 or 1 means recoverable (control returns to caller).
 !!            2 means fatal (run is aborted--see note below).
 !!
-!!   NI     
+!!   NI
 !!
 !!   :   Number of integers (0, 1, or 2) to be printed with message.
 !!
-!!   I1,I2  
+!!   I1,I2
 !!
 !!   :   Integers to be printed, depending on NI.
 !!
-!!   NR     
+!!   NR
 !!
 !!   :   Number of reals (0, 1, or 2) to be printed with message.
 !!
-!!   R1,R2  
+!!   R1,R2
 !!
 !!   :   Reals to be printed, depending on NR.
 !!

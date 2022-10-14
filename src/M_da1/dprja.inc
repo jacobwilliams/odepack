@@ -10,7 +10,7 @@
 !!
 !! J, scaled by -H*EL(1), is stored in WM.  Then the norm of J (the
 !! matrix norm consistent with the weighted max-norm on vectors given
-!! by DMNORM) is computed, and J is overwritten by P. 
+!! by DMNORM) is computed, and J is overwritten by P.
 !!
 !! P is then
 !! subjected to LU decomposition in preparation for later solution

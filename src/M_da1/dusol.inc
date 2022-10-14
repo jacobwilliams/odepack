@@ -10,72 +10,72 @@
 !!
 !!### On entry
 !!
-!! NEQ 
+!! NEQ
 !!
 !! : problem size, passed to F and PSOL (NEQ(1) = N).
 !!
-!! TN 
+!! TN
 !!
 !! : current value of t.
 !!
-!! Y 
+!! Y
 !!
 !! : array containing current dependent variable vector.
 !!
-!! SAVF 
+!! SAVF
 !!
 !! : array containing current value of f(t,y).
 !!
-!! B 
+!! B
 !!
 !! : the right hand side of the system A*x = b.
 !!
-!! WGHT 
+!! WGHT
 !!
 !! : the vector of length N containing the nonzero
 !! elements of the diagonal scaling matrix.
 !!
-!! N 
+!! N
 !!
 !! : the order of the matrix A, and the lengths
 !! of the vectors WGHT, B and X.
 !!
-!! DELTA 
+!! DELTA
 !!
 !! : tolerance on residuals b - A*x in weighted RMS-norm.
 !!
-!! HL0 
+!! HL0
 !!
 !! : current value of (step size h) * (coefficient l0).
 !!
-!! MNEWT 
+!! MNEWT
 !!
 !! : Newton iteration counter (.ge. 0).
 !!
-!! WK 
+!! WK
 !!
 !! : real work array used by PSOL.
 !!
-!! WP 
+!! WP
 !!
 !! : real work array used by preconditioner PSOL.
 !!
-!! IWP 
+!! IWP
 !!
 !! : integer work array used by preconditioner PSOL.
 !!
 !!### On return
 !!
-!! X    
+!! X
 !!
 !! : the final computed approximation to the solution
 !! of the system A*x = b.
 !!
-!! NPSL 
+!! NPSL
 !!
 !! : the number of calls to PSOL.
 !!
-!! IFLAG 
+!! IFLAG
 !!
 !! : integer error flag:
 !!

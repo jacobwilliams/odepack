@@ -20,7 +20,7 @@
 !!   It uses unrolled loops for increments equal to one.
 !!
 !!   Overwrite double precision DY with double precision DA*DX + DY.
-!!   For I = 0 to N-1, replace  DY(LY+I*INCY) with 
+!!   For I = 0 to N-1, replace  DY(LY+I*INCY) with
 !!   DA*DX(LX+I*INCX) + DY(LY+I*INCY),
 !!
 !!   where LX = 1 if INCX .GE. 0, else LX = 1+(1-N)*INCX, and LY is
@@ -96,11 +96,11 @@ if ( N<=0 .or. Da==0.0D0 ) return
 if ( Incx==Incy ) then
    if ( Incx<1 ) then
    elseif ( Incx==1 ) then
-! 
+!
 !      Code for both increments equal to 1.
-! 
+!
 !      Clean-up loop so remaining vector length is a multiple of 4.
-! 
+!
       m = mod(N,4)
       if ( m/=0 ) then
          do i = 1 , m
@@ -117,9 +117,9 @@ if ( Incx==Incy ) then
       enddo
       return
    else
-! 
+!
 !      Code for equal, positive, non-unit increments.
-! 
+!
       ns = N*Incx
       do i = 1 , ns , Incx
          Dy(i) = Da*Dx(i) + Dy(i)
@@ -127,9 +127,9 @@ if ( Incx==Incy ) then
       return
    endif
 endif
-! 
+!
 !      Code for unequal or nonpositive increments.
-! 
+!
 ix = 1
 iy = 1
 if ( Incx<0 ) ix = (-N+1)*Incx + 1

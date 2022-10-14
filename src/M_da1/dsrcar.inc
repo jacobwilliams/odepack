@@ -36,9 +36,9 @@ integer :: ioff
 !
    select case(Job)
    case(1)
-    
+
       Rsav(1:LENRLS) = return_dls1_real()
-       
+
       Rsav(LENRLS+1) = dlsa%tsw
       Rsav(LENRLS+2:LENRLS+13) = dlsa%cm1(1:12)
       Rsav(LENRLS+14:LENRLS+18) = dlsa%cm2(1:5)
@@ -46,7 +46,7 @@ integer :: ioff
       Rsav(LENRLS+20) = dlsa%pdlast
       Rsav(LENRLS+21) = dlsa%ratio
       Rsav(LENRLS+22) = dlsa%pdnorm
-       
+
       Isav(1:LENILS) = return_dls1_int()
 
       Isav(LENILS+1) = dlsa%insufr
@@ -58,14 +58,14 @@ integer :: ioff
       Isav(LENILS+7) = dlsa%mused
       Isav(LENILS+8) = dlsa%mxordn
       Isav(LENILS+9) = dlsa%mxords
-       
+
       ioff = LENRLS + 22
       Rsav(ioff+1) = dlsr%alpha
       Rsav(ioff+2) = dlsr%x2
       Rsav(ioff+3) = dlsr%t0
       Rsav(ioff+4) = dlsr%tlast
       Rsav(ioff+5) = dlsr%toutc
-       
+
       ioff = LENILS + 9
       Isav(ioff+1) = dlsr%lg0
       Isav(ioff+2) = dlsr%lg1
@@ -76,11 +76,11 @@ integer :: ioff
       Isav(ioff+7) = dlsr%itaskc
       Isav(ioff+8) = dlsr%ngc
       Isav(ioff+9) = dlsr%nge
-    
+
    case(2)
-    
+
       call set_dls1_real(Rsav(1:LENRLS))
-    
+
       dlsa%tsw = Rsav(LENRLS+1)
       dlsa%cm1(1:12) = Rsav(LENRLS+2:LENRLS+13)
       dlsa%cm2(1:5) = Rsav(LENRLS+14:LENRLS+18)
@@ -88,7 +88,7 @@ integer :: ioff
       dlsa%pdlast = Rsav(LENRLS+20)
       dlsa%ratio = Rsav(LENRLS+21)
       dlsa%pdnorm = Rsav(LENRLS+22)
-    
+
       dlsa%insufr = Isav(LENILS+1)
       dlsa%insufi = Isav(LENILS+2)
       dlsa%ixpr = Isav(LENILS+3)
@@ -98,14 +98,14 @@ integer :: ioff
       dlsa%mused = Isav(LENILS+7)
       dlsa%mxordn = Isav(LENILS+8)
       dlsa%mxords = Isav(LENILS+9)
-    
+
       ioff = LENRLS + 22
       dlsr%alpha = Rsav(ioff+1)
       dlsr%x2 = Rsav(ioff+2)
       dlsr%t0 = Rsav(ioff+3)
       dlsr%tlast = Rsav(ioff+4)
       dlsr%toutc = Rsav(ioff+5)
-    
+
       ioff = LENILS + 9
       dlsr%lg0 = Isav(ioff+1)
       dlsr%lg1 = Isav(ioff+2)
@@ -116,7 +116,7 @@ integer :: ioff
       dlsr%itaskc = Isav(ioff+7)
       dlsr%ngc = Isav(ioff+8)
       dlsr%nge = Isav(ioff+9)
-    
+
       call set_dls1_int(Isav(1:LENILS))
 
    case default
@@ -125,5 +125,5 @@ integer :: ioff
       stop 1
 
    end select
- 
+
 end subroutine dsrcar
