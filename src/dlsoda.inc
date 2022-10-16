@@ -1182,16 +1182,12 @@
 !!  : are routines from LINPACK for solving banded
 !!  linear systems.
 !!
-!!  DUMACH
-!!
-!!  : computes the unit roundoff in a machine-independent manner.
-!!
 !!  XERRWD, XSETUN, XSETF, and IXSAV
 !!
 !!  : handle the printing of all
 !!   error messages and warnings.  XERRWD is machine-dependent.
 !!
-!! *Note*:  _DMNORM_, _DFNORM_, _DBNORM_, _DUMACH_, and _IXSAV_ are
+!! *Note*:  _DMNORM_, _DFNORM_, _DBNORM_, and _IXSAV_ are
 !! function routines.  All the others are subroutines.
 !!
 !!-----------------------------------------------------------------------
@@ -1548,7 +1544,7 @@ if ( Istate==1 ) then
    !  and the calculation of the initial step size.
    !  The error weights in EWT are inverted after being loaded.
    ! -----------------------------------------------------------------------
-   dls1%uround = dumach()
+   dls1%uround = epsilon(0.0d0)
    dls1%tn = T
    dlsa%tsw = T
    dls1%maxord = dlsa%mxordn
