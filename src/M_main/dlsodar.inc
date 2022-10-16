@@ -1351,16 +1351,12 @@
 !!
 !!  : is one of the basic linear algebra modules (BLAS).
 !!
-!!  DUMACH
-!!
-!!  : computes the unit roundoff in a machine-independent manner.
-!!
 !!  XERRWD, XSETUN, XSETF, and IXSAV
 !!
 !!  : handle the printing of all
 !!  error messages and warnings.  XERRWD is machine-dependent.
 !!
-!! Note:  DMNORM, DFNORM, DBNORM, DUMACH, and IXSAV are
+!! Note:  DMNORM, DFNORM, DBNORM, and IXSAV are
 !! function routines.  All the others are subroutines.
 !!
 !!-----------------------------------------------------------------------
@@ -1730,7 +1726,7 @@ else
 !  and the calculation of the initial step size.
 !  The error weights in EWT are inverted after being loaded.
 ! -----------------------------------------------------------------------
-                     dls1%uround = dumach()
+                     dls1%uround = epsilon(0.0d0)
                      dls1%tn = T
                      dlsa%tsw = T
                      dls1%maxord = dlsa%mxordn

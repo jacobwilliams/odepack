@@ -113,7 +113,7 @@ external fweb , jacbg , solsbg
 data lrw/5213/ , liw/67/
 !
       !open (unit=6, file='lsodpk.out', status='new')
-      open (unit=8,file='ccout',status='new')
+      open (unit=8,file='ccout',status='replace')
 !
       ax = 1.0d0
       ay = 1.0d0
@@ -153,7 +153,7 @@ data lrw/5213/ , liw/67/
       mp = ns
       mq = mx*my
       mpsq = ns*ns
-      uround = dumach()
+      uround = epsilon(0.0d0)
       srur = sqrt(uround)
       meshx = mx
       meshy = my
@@ -276,7 +276,7 @@ data lrw/5213/ , liw/67/
 !
       enddo
 !------  end of main program for DLSODPK demonstration program ----------
-end program lsodpk
+contains
 
 subroutine setpar
 implicit none
@@ -304,6 +304,8 @@ integer :: i , j , np
       dpred = 0.5d0
       alph = 1.0d0
       ns = 2*np
+      !x! daxpy needs DX(:) defined to 2*np
+      !x!acoef(1:2*np,1:2*np) = 0.0d0
       do j = 1 , np
          do i = 1 , np
             acoef(np+i,j) = ee
@@ -414,6 +416,11 @@ integer :: i , jx , jy
       enddo
 !
 end subroutine outweb
+
+end program lsodpk
+
+!external fweb , jacbg , solsbg
+!external f
 
 subroutine fweb(neq,t,cc,cdot)
 implicit none

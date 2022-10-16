@@ -33,3 +33,5 @@ docs/fpm-ford
 
 # misc
 .DS_Store
+
+FODDER/*
