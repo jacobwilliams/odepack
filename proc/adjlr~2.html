@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
+      <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
     <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
     <link rel="icon" href="../favicon.png">
 
@@ -14,17 +14,17 @@
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    <link href="../css/user.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="../js/jquery-2.1.3.min.js"></script>
-    <script src="../js/svg-pan-zoom.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+         <script src="../js/jquery-2.1.3.min.js"></script>
+         <script src="../js/svg-pan-zoom.min.js"></script>
 
   </head>
 
@@ -46,29 +46,35 @@
           <ul class="nav navbar-nav">
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
-              data-toggle="dropdown" role="button"
-              aria-haspopup="true"
-     aria-expanded="false">Contents <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="../lists/files.html">Source Files</a></li>
-            <li><a href="../lists/modules.html">Modules</a></li>
-            <li><a href="../lists/procedures.html">Procedures</a></li>
-              
-            </ul>
-        
+                 data-toggle="dropdown" role="button"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                 Contents <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                    <li><a href="../lists/files.html">Source Files</a></li>
+                  <li><a href="../lists/modules.html">Modules</a></li>
+                  <li><a href="../lists/procedures.html">Procedures</a></li>
+              </ul>
             </li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-                                       </ul>
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
-        </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
+                <li class="visible-xs hidden-sm visible-lg">
+                  <a href="../lists/files.html">Source Files</a>
+                </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/modules.html">Modules</a>
+              </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/procedures.html">Procedures</a>
+              </li>
+          </ul>
+            <form action="../search.html" class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+              </div>
+              <!--
+                  <button type="submit" class="btn btn-default">Submit</button>
+                  -->
+            </form>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -77,64 +83,94 @@
   <div class="row">
     <h1>adjlr
       <small>Subroutine</small>
+      
     </h1>
-    <div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title=" 0.1% of total for procedures.">13 statements</a>
-     </li> 
-    <li><i class="fa fa-code"></i><a href="../src/adjlr.inc"> Source File</a></li>
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-     <li><a href='../sourcefile/adjlr.inc.html'>adjlr.inc</a></li>
-     <li class="active">adjlr</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="row" id="info-bar">
+    <div class="col-lg-12">
+      <div class="well well-sm">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+          <li id="statements"><i class="fa fa-list-ol"></i>
+            <a data-toggle="tooltip"
+               data-placement="bottom" data-html="true"
+               title=" 0.1% of total for procedures.">13 statements</a>
+          </li>
+
+            <li id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/adjlr.inc"> Source File</a>
+            </li>
+        </ul>
+        <ol class="breadcrumb in-well text-right">
+              <li><a href='../sourcefile/adjlr.inc.html'>adjlr.inc</a></li>
+          <li class="active">adjlr</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 
   </div>
   
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    <div id="sidebar">
-  <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
-  <div id="vars-0" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-ip">ip</a>
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-jlmax">jlmax</a>
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-jumax">jumax</a>
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-lnfc">lnfc</a>
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-lsfc">lsfc</a>
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-nzlu">nzlu</a>
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-0">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/adjlr~2.html#variable-ip">ip</a>
+            <a class="list-group-item" href="../proc/adjlr~2.html#variable-jlmax~2">jlmax</a>
+            <a class="list-group-item" href="../proc/adjlr~2.html#variable-jumax~2">jumax</a>
+            <a class="list-group-item" href="../proc/adjlr~2.html#variable-lnfc">lnfc</a>
+            <a class="list-group-item" href="../proc/adjlr~2.html#variable-lsfc">lsfc</a>
+            <a class="list-group-item" href="../proc/adjlr~2.html#variable-nzlu">nzlu</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../proc/adjlr~2.html#src">adjlr</a>
-  </div>
-</div>
 
-</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/adjlr~2.html#src">adjlr</a>
+      </div>
+    </div>
+
+
+  </div>
 
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>subroutine adjlr(N, Isp, Ldif)</h2>
+    <h2> subroutine adjlr(N, Isp, Ldif)  
+</h2>
     
 
     <p>This routine computes an adjustment, LDIF, to the required
@@ -144,54 +180,111 @@ This is to account for the possibility that the symbolic LU phase
 may require more storage than the numerical LU and solution phases.</p>
 
     <h3>Arguments</h3>
-      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-n"></span>integer,</td>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~16"></span>
+              integer,
+            </td>
 <td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>N</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-isp"></span>integer,</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-isp~3"></span>
+              integer,
+            </td>
 <td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Isp</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ldif"></span>integer,</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Isp</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ldif"></span>
+              integer,
+            </td>
 <td>intent(out)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Ldif</strong></td><td></td>
-</tr>
-</tbody>
-</table>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ldif</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     <br>
 
     <section class="visible-xs visible-sm hidden-md">
-      <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
-  <div id="vars-1" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-ip">ip</a>
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-jlmax">jlmax</a>
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-jumax">jumax</a>
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-lnfc">lnfc</a>
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-lsfc">lsfc</a>
-      <a class="list-group-item" href="../proc/adjlr~2.html#variable-nzlu">nzlu</a>
+        <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-1">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/adjlr~2.html#variable-ip">ip</a>
+            <a class="list-group-item" href="../proc/adjlr~2.html#variable-jlmax~2">jlmax</a>
+            <a class="list-group-item" href="../proc/adjlr~2.html#variable-jumax~2">jumax</a>
+            <a class="list-group-item" href="../proc/adjlr~2.html#variable-lnfc">lnfc</a>
+            <a class="list-group-item" href="../proc/adjlr~2.html#variable-lsfc">lsfc</a>
+            <a class="list-group-item" href="../proc/adjlr~2.html#variable-nzlu">nzlu</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../proc/adjlr~2.html#src">adjlr</a>
-  </div>
-</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/adjlr~2.html#src">adjlr</a>
+      </div>
+    </div>
+
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
@@ -199,41 +292,120 @@ may require more storage than the numerical LU and solution phases.</p>
 
     <section>    
       <h2>Variables</h2>
-    <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-ip"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ip</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-jlmax"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>jlmax</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-jumax"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>jumax</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lnfc"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>lnfc</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lsfc"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>lsfc</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-nzlu"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>nzlu</strong></td><td></td><td></td><td></td>
-</tr>
-</tbody>
-</table>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Visibility</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+<th></th><th>Initial</th>        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ip"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ip</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jlmax~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jlmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jumax~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jumax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lnfc"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lnfc</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lsfc"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lsfc</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nzlu"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nzlu</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     </section>
     <br>
@@ -278,50 +450,50 @@ may require more storage than the numerical LU and solution phases.</p>
     </div>
   </div>
 
-    <hr>    
+      <hr>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2022 
+        <div class="row">
+          <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2023 
 </p>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <p class="text-right">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2023-04-17 10:19              </p>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-          <p class="text-right">
-            Documentation generated by 
-            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-16 16:30            </p>
-        </div>
-      </div>
-      <br>
-      </div> <!-- /container -->    
+        <br>
+      </div> <!-- /container -->
     </footer>
 
     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-<!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
--->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+         ================================================== -->
+         <!-- Placed at the end of the document so the pages load faster -->
+    <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- MathJax JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
+        <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
   </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
+      <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
     <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
     <link rel="icon" href="../favicon.png">
 
@@ -14,17 +14,17 @@
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    <link href="../css/user.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="../js/jquery-2.1.3.min.js"></script>
-    <script src="../js/svg-pan-zoom.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+         <script src="../js/jquery-2.1.3.min.js"></script>
+         <script src="../js/svg-pan-zoom.min.js"></script>
 
   </head>
 
@@ -46,29 +46,35 @@
           <ul class="nav navbar-nav">
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
-              data-toggle="dropdown" role="button"
-              aria-haspopup="true"
-     aria-expanded="false">Contents <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="../lists/files.html">Source Files</a></li>
-            <li><a href="../lists/modules.html">Modules</a></li>
-            <li><a href="../lists/procedures.html">Procedures</a></li>
-              
-            </ul>
-        
+                 data-toggle="dropdown" role="button"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                 Contents <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                    <li><a href="../lists/files.html">Source Files</a></li>
+                  <li><a href="../lists/modules.html">Modules</a></li>
+                  <li><a href="../lists/procedures.html">Procedures</a></li>
+              </ul>
             </li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-                                       </ul>
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
-        </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
+                <li class="visible-xs hidden-sm visible-lg">
+                  <a href="../lists/files.html">Source Files</a>
+                </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/modules.html">Modules</a>
+              </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/procedures.html">Procedures</a>
+              </li>
+          </ul>
+            <form action="../search.html" class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+              </div>
+              <!--
+                  <button type="submit" class="btn btn-default">Submit</button>
+                  -->
+            </form>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -77,88 +83,118 @@
   <div class="row">
     <h1>dstoka
       <small>Subroutine</small>
+      
     </h1>
-    <div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title=" 1.7% of total for procedures.">404 statements</a>
-     </li> 
-    <li><i class="fa fa-code"></i><a href="../src/dstoka.inc"> Source File</a></li>
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-     <li><a href='../sourcefile/dstoka.inc.html'>dstoka.inc</a></li>
-     <li class="active">dstoka</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="row" id="info-bar">
+    <div class="col-lg-12">
+      <div class="well well-sm">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+          <li id="statements"><i class="fa fa-list-ol"></i>
+            <a data-toggle="tooltip"
+               data-placement="bottom" data-html="true"
+               title=" 1.7% of total for procedures.">404 statements</a>
+          </li>
+
+            <li id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dstoka.inc"> Source File</a>
+            </li>
+        </ul>
+        <ol class="breadcrumb in-well text-right">
+              <li><a href='../sourcefile/dstoka.inc.html'>dstoka.inc</a></li>
+          <li class="active">dstoka</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 
   </div>
   
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    <div id="sidebar">
-  <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
-  <div id="vars-0" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-dcon~7">dcon</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-ddn~7">ddn</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-del~7">del</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-delp~7">delp</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-dfnrm">dfnrm</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-drc">drc</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-dsm~7">dsm</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-dup~7">dup</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-exdn~7">exdn</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-exsm~7">exsm</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-exup~7">exup</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-i~51">i</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-i1~13">i1</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-iredo~7">iredo</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-iret~7">iret</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-j~35">j</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-jb~8">jb</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-jok~2">jok</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-m~8">m</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-ncf~7">ncf</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-newq~7">newq</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-nslow">nslow</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-r~13">r</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-rh~7">rh</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-rhdn~7">rhdn</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-rhsm~7">rhsm</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-rhup~7">rhup</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-roc">roc</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-stiff">stiff</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-told~7">told</a>
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-0">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-dcon~3">dcon</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-ddn~3">ddn</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-del~3">del</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-delp~3">delp</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-dfnrm">dfnrm</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-drc">drc</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-dsm~3">dsm</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-dup~3">dup</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-exdn~3">exdn</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-exsm~3">exsm</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-exup~3">exup</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-i~11">i</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-i1~3">i1</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-iredo~3">iredo</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-iret~3">iret</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-j~8">j</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-jb~4">jb</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-jok">jok</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-m~3">m</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-ncf~3">ncf</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-newq~3">newq</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-nslow">nslow</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-r~4">r</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-rh~3">rh</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-rhdn~3">rhdn</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-rhsm~3">rhsm</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-rhup~3">rhup</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-roc">roc</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-stiff">stiff</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-told~3">told</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../proc/dstoka~2.html#src">dstoka</a>
-  </div>
-</div>
 
-</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dstoka~2.html#src">dstoka</a>
+      </div>
+    </div>
+
+
+  </div>
 
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>subroutine dstoka(Neq, Y, Yh, Nyh, Yh1, Ewt, Savf, Savx, Acor, Wm, Iwm, f, jac, psol)</h2>
+    <h2> subroutine dstoka(Neq, Y, Yh, Nyh, Yh1, Ewt, Savf, Savx, Acor, Wm, Iwm, f, jac, psol)  
+</h2>
     
 
     <p>DSTOKA performs one step of the integration of an initial value
@@ -310,95 +346,228 @@ METH/MITER = the method flags.  See description in driver.</p>
 </dl>
 
     <h3>Arguments</h3>
-      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-neq~32"></span>integer,</td>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-neq~11"></span>
+              integer,
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Neq</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-y~33"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Neq</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y~12"></span>
+              real(kind=dp),
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Y</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-yh~18"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Y</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-yh~6"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout),</td>
-  <td></td>  <td>dimension(Nyh,*)</td><td>::</td>
-  <td><strong>Yh</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-nyh~14"></span>integer,</td>
+              <td></td>            <td>
+              dimension(Nyh,*)
+            </td>
+            <td>::</td>
+            <td><strong>Yh</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nyh~4"></span>
+              integer,
+            </td>
 <td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Nyh</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-yh1~7"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Nyh</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-yh1~3"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Yh1</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ewt~20"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Yh1</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ewt~7"></span>
+              real(kind=dp),
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Ewt</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-savf~21"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Ewt</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-savf~9"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Savf</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-savx~2"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Savf</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-savx"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Savx</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-acor~7"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Savx</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-acor~3"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Acor</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-wm~15"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Acor</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wm~5"></span>
+              real(kind=dp),
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Wm</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iwm~15"></span>integer,</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Wm</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwm~5"></span>
+              integer,
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Iwm</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-f~19"></span>real</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Iwm</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f~7"></span>
+              real
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>f</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-jac~20"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>f</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jac~7"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>jac</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-psol~8"></span>real</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jac</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-psol~4"></span>
+              real
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>psol</strong></td><td></td>
-</tr>
-</tbody>
-</table>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>psol</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     <br>
     <div class="panel panel-default">
@@ -412,571 +581,581 @@ METH/MITER = the method flags.  See description in driver.</p>
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~dstoka~2~~CallsGraph Pages: 1 -->
-<svg id="procdstoka2CallsGraph" width="539pt" height="915pt"
- viewBox="0.00 0.00 539.00 915.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~dstoka~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 911)">
+<svg id="procdstoka2CallsGraph" width="539pt" height="860pt"
+ viewBox="0.00 0.00 539.00 860.47" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dstoka~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 856.47)">
 <title>proc~~dstoka~2~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-911 535,-911 535,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-856.47 535,-856.47 535,4 -4,4"/>
 <!-- proc~dstoka~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_node1" class="node">
 <title>proc~dstoka~2</title>
-<polygon fill="none" stroke="black" points="54,-768 0,-768 0,-744 54,-744 54,-768"/>
-<text text-anchor="middle" x="27" y="-753.6" font-family="Helvetica,sans-Serif" font-size="10.50">dstoka</text>
+<polygon fill="none" stroke="black" points="54,-790.47 0,-790.47 0,-766.47 54,-766.47 54,-790.47"/>
+<text text-anchor="middle" x="27" y="-776.07" font-family="Helvetica,sans-Serif" font-size="10.50">dstoka</text>
 </g>
 <!-- proc~dcfode~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_node2" class="node">
 <title>proc~dcfode~2</title>
 <g id="a_proc~~dstoka~2~~CallsGraph_node2"><a xlink:href=".././proc/dcfode~2.html" xlink:title="dcfode">
-<polygon fill="#d9534f" stroke="#d9534f" points="144,-907 90,-907 90,-883 144,-883 144,-907"/>
-<text text-anchor="middle" x="117" y="-892.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="144,-852.47 90,-852.47 90,-828.47 144,-828.47 144,-852.47"/>
+<text text-anchor="middle" x="117" y="-838.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
 </a>
 </g>
 </g>
 <!-- proc~dstoka~2&#45;&gt;proc~dcfode~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_edge1" class="edge">
 <title>proc~dstoka~2&#45;&gt;proc~dcfode~2</title>
-<path fill="none" stroke="#000000" d="M33.3,-768.22C42.92,-789.7 64.62,-835.17 90,-869 91.61,-871.14 93.39,-873.29 95.24,-875.37"/>
-<polygon fill="#000000" stroke="#000000" points="93.09,-878.18 102.54,-882.97 98.14,-873.33 93.09,-878.18"/>
-</g>
-<!-- proc~dvnorm~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node3" class="node">
-<title>proc~dvnorm~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node3"><a xlink:href=".././proc/dvnorm~2.html" xlink:title="dvnorm">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="441,-751 387,-751 387,-727 441,-727 441,-751"/>
-<text text-anchor="middle" x="414" y="-736.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
-</a>
-</g>
-</g>
-<!-- proc~dstoka~2&#45;&gt;proc~dvnorm~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge4" class="edge">
-<title>proc~dstoka~2&#45;&gt;proc~dvnorm~2</title>
-<path fill="none" stroke="#000000" d="M54.24,-763.64C110.17,-778.63 244.69,-807.81 351,-776 364.65,-771.92 378.39,-764.17 389.46,-756.81"/>
-<polygon fill="#000000" stroke="#000000" points="391.5,-759.66 397.71,-751.08 387.5,-753.91 391.5,-759.66"/>
-</g>
-<!-- proc~dsolpk~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node4" class="node">
-<title>proc~dsolpk~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node4"><a xlink:href=".././proc/dsolpk~2.html" xlink:title="dsolpk">
-<polygon fill="#d9534f" stroke="#d9534f" points="144,-690 90,-690 90,-666 144,-666 144,-690"/>
-<text text-anchor="middle" x="117" y="-675.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolpk</text>
-</a>
-</g>
-</g>
-<!-- proc~dstoka~2&#45;&gt;proc~dsolpk~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge3" class="edge">
-<title>proc~dstoka~2&#45;&gt;proc~dsolpk~2</title>
-<path fill="none" stroke="#000000" d="M41.75,-743.81C55.96,-731.22 78.32,-711.4 94.79,-696.8"/>
-<polygon fill="#000000" stroke="#000000" points="97.18,-699.35 102.35,-690.1 92.54,-694.12 97.18,-699.35"/>
+<path fill="none" stroke="#000000" d="M45.39,-790.72C58.24,-799.78 75.96,-812.26 90.43,-822.45"/>
+<polygon fill="#000000" stroke="#000000" points="88.76,-825.56 98.95,-828.45 92.79,-819.83 88.76,-825.56"/>
 </g>
 <!-- proc~dsetpk~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node5" class="node">
+<g id="proc~~dstoka~2~~CallsGraph_node3" class="node">
 <title>proc~dsetpk~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node5"><a xlink:href=".././proc/dsetpk~2.html" xlink:title="dsetpk">
-<polygon fill="#d9534f" stroke="#d9534f" points="144,-648 90,-648 90,-624 144,-624 144,-648"/>
-<text text-anchor="middle" x="117" y="-633.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsetpk</text>
+<g id="a_proc~~dstoka~2~~CallsGraph_node3"><a xlink:href=".././proc/dsetpk~2.html" xlink:title="dsetpk">
+<polygon fill="#d9534f" stroke="#d9534f" points="144,-810.47 90,-810.47 90,-786.47 144,-786.47 144,-810.47"/>
+<text text-anchor="middle" x="117" y="-796.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsetpk</text>
 </a>
 </g>
 </g>
 <!-- proc~dstoka~2&#45;&gt;proc~dsetpk~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_edge2" class="edge">
 <title>proc~dstoka~2&#45;&gt;proc~dsetpk~2</title>
-<path fill="none" stroke="#000000" d="M33.92,-743.86C43.81,-724.27 65.11,-685.07 90,-657 90.61,-656.32 91.24,-655.64 91.89,-654.96"/>
-<polygon fill="#000000" stroke="#000000" points="94.34,-657.46 99.31,-648.11 89.59,-652.32 94.34,-657.46"/>
+<path fill="none" stroke="#000000" d="M54.4,-784.47C62.48,-786.3 71.51,-788.35 80.1,-790.31"/>
+<polygon fill="#000000" stroke="#000000" points="79.39,-793.74 89.92,-792.54 80.94,-786.91 79.39,-793.74"/>
 </g>
-<!-- proc~dscal~2 -->
+<!-- proc~dsolpk~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_node4" class="node">
+<title>proc~dsolpk~2</title>
+<g id="a_proc~~dstoka~2~~CallsGraph_node4"><a xlink:href=".././proc/dsolpk~2.html" xlink:title="dsolpk">
+<polygon fill="#d9534f" stroke="#d9534f" points="144,-565.47 90,-565.47 90,-541.47 144,-541.47 144,-565.47"/>
+<text text-anchor="middle" x="117" y="-551.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolpk</text>
+</a>
+</g>
+</g>
+<!-- proc~dstoka~2&#45;&gt;proc~dsolpk~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge3" class="edge">
+<title>proc~dstoka~2&#45;&gt;proc~dsolpk~2</title>
+<path fill="none" stroke="#000000" d="M32.73,-766.37C46.94,-730.05 89.35,-621.59 107.55,-575.06"/>
+<polygon fill="#000000" stroke="#000000" points="110.86,-576.21 111.25,-565.62 104.34,-573.66 110.86,-576.21"/>
+</g>
+<!-- proc~dvnorm~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_node5" class="node">
+<title>proc~dvnorm~2</title>
+<g id="a_proc~~dstoka~2~~CallsGraph_node5"><a xlink:href=".././proc/dvnorm~2.html" xlink:title="dvnorm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="441,-694.47 387,-694.47 387,-670.47 441,-670.47 441,-694.47"/>
+<text text-anchor="middle" x="414" y="-680.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
+</a>
+</g>
+</g>
+<!-- proc~dstoka~2&#45;&gt;proc~dvnorm~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge4" class="edge">
+<title>proc~dstoka~2&#45;&gt;proc~dvnorm~2</title>
+<path fill="none" stroke="#000000" d="M54.08,-775.16C109.7,-767.66 243.67,-747.16 351,-711.47 361.15,-708.09 371.82,-703.51 381.4,-698.98"/>
+<polygon fill="#000000" stroke="#000000" points="383.1,-702.04 390.55,-694.52 380.03,-695.75 383.1,-702.04"/>
+</g>
+<!-- proc~dpcgs~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_node6" class="node">
-<title>proc~dscal~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node6"><a xlink:href=".././proc/dscal~2.html" xlink:title="dscal">
-<polygon fill="#d9534f" stroke="#d9534f" points="338.5,-515 284.5,-515 284.5,-491 338.5,-491 338.5,-515"/>
-<text text-anchor="middle" x="311.5" y="-500.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscal</text>
+<title>proc~dpcgs~2</title>
+<g id="a_proc~~dstoka~2~~CallsGraph_node6"><a xlink:href=".././proc/dpcgs~2.html" xlink:title="dpcgs">
+<polygon fill="#d9534f" stroke="#d9534f" points="235,-625.47 181,-625.47 181,-601.47 235,-601.47 235,-625.47"/>
+<text text-anchor="middle" x="208" y="-611.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dpcgs</text>
 </a>
 </g>
 </g>
-<!-- proc~dsolpk~2&#45;&gt;proc~dscal~2 -->
+<!-- proc~dsolpk~2&#45;&gt;proc~dpcgs~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_edge5" class="edge">
-<title>proc~dsolpk~2&#45;&gt;proc~dscal~2</title>
-<path fill="none" stroke="#000000" d="M133.66,-665.87C137.14,-663.04 140.75,-659.98 144,-657 204.47,-601.56 206.79,-573.78 272,-524 273.59,-522.79 275.26,-521.6 276.97,-520.45"/>
-<polygon fill="#000000" stroke="#000000" points="279.1,-523.25 285.77,-515.03 275.42,-517.3 279.1,-523.25"/>
-</g>
-<!-- proc~dspiom~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node7" class="node">
-<title>proc~dspiom~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node7"><a xlink:href=".././proc/dspiom~2.html" xlink:title="dspiom">
-<polygon fill="#d9534f" stroke="#d9534f" points="235,-393 181,-393 181,-369 235,-369 235,-393"/>
-<text text-anchor="middle" x="208" y="-378.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dspiom</text>
-</a>
-</g>
-</g>
-<!-- proc~dsolpk~2&#45;&gt;proc~dspiom~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge8" class="edge">
-<title>proc~dsolpk~2&#45;&gt;proc~dspiom~2</title>
-<path fill="none" stroke="#000000" d="M136.52,-665.93C139.41,-663.31 142.07,-660.31 144,-657 193.24,-572.55 151.41,-533.49 180,-440 183.93,-427.13 190.08,-413.43 195.51,-402.47"/>
-<polygon fill="#000000" stroke="#000000" points="198.77,-403.78 200.21,-393.28 192.54,-400.59 198.77,-403.78"/>
+<title>proc~dsolpk~2&#45;&gt;proc~dpcgs~2</title>
+<path fill="none" stroke="#000000" d="M136.01,-565.61C148.8,-574.23 166.17,-585.94 180.53,-595.62"/>
+<polygon fill="#000000" stroke="#000000" points="178.77,-598.66 189.02,-601.34 182.68,-592.85 178.77,-598.66"/>
 </g>
 <!-- proc~dpcg~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node8" class="node">
+<g id="proc~~dstoka~2~~CallsGraph_node7" class="node">
 <title>proc~dpcg~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node8"><a xlink:href=".././proc/dpcg~2.html" xlink:title="dpcg">
-<polygon fill="#d9534f" stroke="#d9534f" points="235,-669 181,-669 181,-645 235,-645 235,-669"/>
-<text text-anchor="middle" x="208" y="-654.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dpcg</text>
+<g id="a_proc~~dstoka~2~~CallsGraph_node7"><a xlink:href=".././proc/dpcg~2.html" xlink:title="dpcg">
+<polygon fill="#d9534f" stroke="#d9534f" points="235,-565.47 181,-565.47 181,-541.47 235,-541.47 235,-565.47"/>
+<text text-anchor="middle" x="208" y="-551.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dpcg</text>
 </a>
 </g>
 </g>
 <!-- proc~dsolpk~2&#45;&gt;proc~dpcg~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_edge6" class="edge">
 <title>proc~dsolpk~2&#45;&gt;proc~dpcg~2</title>
-<path fill="none" stroke="#000000" d="M144.22,-671.81C152.64,-669.83 162.12,-667.59 171.11,-665.47"/>
-<polygon fill="#000000" stroke="#000000" points="172.04,-668.85 180.97,-663.14 170.43,-662.03 172.04,-668.85"/>
+<path fill="none" stroke="#000000" d="M144.22,-553.47C152.55,-553.47 161.91,-553.47 170.82,-553.47"/>
+<polygon fill="#000000" stroke="#000000" points="170.97,-556.97 180.97,-553.47 170.97,-549.97 170.97,-556.97"/>
+</g>
+<!-- proc~dscal~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_node8" class="node">
+<title>proc~dscal~2</title>
+<g id="a_proc~~dstoka~2~~CallsGraph_node8"><a xlink:href=".././proc/dscal~2.html" xlink:title="dscal">
+<polygon fill="#d9534f" stroke="#d9534f" points="338.5,-170.47 284.5,-170.47 284.5,-146.47 338.5,-146.47 338.5,-170.47"/>
+<text text-anchor="middle" x="311.5" y="-156.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscal</text>
+</a>
+</g>
+</g>
+<!-- proc~dsolpk~2&#45;&gt;proc~dscal~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge7" class="edge">
+<title>proc~dsolpk~2&#45;&gt;proc~dscal~2</title>
+<path fill="none" stroke="#000000" d="M118.02,-541.22C118.6,-499.42 124.8,-359.71 180,-263.47 202.75,-223.8 246.78,-193.25 277.37,-175.58"/>
+<polygon fill="#000000" stroke="#000000" points="279.39,-178.46 286.4,-170.52 275.96,-172.36 279.39,-178.46"/>
 </g>
 <!-- proc~dspigmr~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_node9" class="node">
 <title>proc~dspigmr~2</title>
 <g id="a_proc~~dstoka~2~~CallsGraph_node9"><a xlink:href=".././proc/dspigmr~2.html" xlink:title="dspigmr">
-<polygon fill="#d9534f" stroke="#d9534f" points="236,-473 180,-473 180,-449 236,-449 236,-473"/>
-<text text-anchor="middle" x="208" y="-458.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dspigmr</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="236,-296.47 180,-296.47 180,-272.47 236,-272.47 236,-296.47"/>
+<text text-anchor="middle" x="208" y="-282.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dspigmr</text>
 </a>
 </g>
 </g>
 <!-- proc~dsolpk~2&#45;&gt;proc~dspigmr~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge7" class="edge">
+<g id="proc~~dstoka~2~~CallsGraph_edge8" class="edge">
 <title>proc~dsolpk~2&#45;&gt;proc~dspigmr~2</title>
-<path fill="none" stroke="#000000" d="M135.86,-665.92C138.89,-663.26 141.77,-660.25 144,-657 145.28,-655.13 183.99,-533.47 200.08,-482.79"/>
-<polygon fill="#000000" stroke="#000000" points="203.46,-483.71 203.15,-473.12 196.79,-481.59 203.46,-483.71"/>
+<path fill="none" stroke="#000000" d="M120.91,-541.43C128.9,-508.98 152.42,-417.16 180,-343.47 184.72,-330.87 190.91,-317.18 196.17,-306.17"/>
+<polygon fill="#000000" stroke="#000000" points="199.45,-307.43 200.68,-296.91 193.16,-304.37 199.45,-307.43"/>
+</g>
+<!-- proc~dspiom~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_node10" class="node">
+<title>proc~dspiom~2</title>
+<g id="a_proc~~dstoka~2~~CallsGraph_node10"><a xlink:href=".././proc/dspiom~2.html" xlink:title="dspiom">
+<polygon fill="#d9534f" stroke="#d9534f" points="235,-376.47 181,-376.47 181,-352.47 235,-352.47 235,-376.47"/>
+<text text-anchor="middle" x="208" y="-362.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dspiom</text>
+</a>
+</g>
+</g>
+<!-- proc~dsolpk~2&#45;&gt;proc~dspiom~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge9" class="edge">
+<title>proc~dsolpk~2&#45;&gt;proc~dspiom~2</title>
+<path fill="none" stroke="#000000" d="M123.7,-541.36C138.49,-509.96 178.2,-425.63 196.94,-385.82"/>
+<polygon fill="#000000" stroke="#000000" points="200.14,-387.26 201.23,-376.72 193.8,-384.28 200.14,-387.26"/>
 </g>
 <!-- proc~dusol~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node10" class="node">
+<g id="proc~~dstoka~2~~CallsGraph_node11" class="node">
 <title>proc~dusol~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node10"><a xlink:href=".././proc/dusol~2.html" xlink:title="dusol">
-<polygon fill="#d9534f" stroke="#d9534f" points="235,-711 181,-711 181,-687 235,-687 235,-711"/>
-<text text-anchor="middle" x="208" y="-696.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dusol</text>
+<g id="a_proc~~dstoka~2~~CallsGraph_node11"><a xlink:href=".././proc/dusol~2.html" xlink:title="dusol">
+<polygon fill="#d9534f" stroke="#d9534f" points="235,-699.47 181,-699.47 181,-675.47 235,-675.47 235,-699.47"/>
+<text text-anchor="middle" x="208" y="-685.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dusol</text>
 </a>
 </g>
 </g>
 <!-- proc~dsolpk~2&#45;&gt;proc~dusol~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge9" class="edge">
-<title>proc~dsolpk~2&#45;&gt;proc~dusol~2</title>
-<path fill="none" stroke="#000000" d="M144.22,-684.19C152.64,-686.17 162.12,-688.41 171.11,-690.53"/>
-<polygon fill="#000000" stroke="#000000" points="170.43,-693.97 180.97,-692.86 172.04,-687.15 170.43,-693.97"/>
-</g>
-<!-- proc~dpcgs~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node11" class="node">
-<title>proc~dpcgs~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node11"><a xlink:href=".././proc/dpcgs~2.html" xlink:title="dpcgs">
-<polygon fill="#d9534f" stroke="#d9534f" points="235,-772 181,-772 181,-748 235,-748 235,-772"/>
-<text text-anchor="middle" x="208" y="-757.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dpcgs</text>
-</a>
-</g>
-</g>
-<!-- proc~dsolpk~2&#45;&gt;proc~dpcgs~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_edge10" class="edge">
-<title>proc~dsolpk~2&#45;&gt;proc~dpcgs~2</title>
-<path fill="none" stroke="#000000" d="M131.13,-690.1C145.59,-703.42 169.05,-725.03 186.05,-740.7"/>
-<polygon fill="#000000" stroke="#000000" points="184.09,-743.65 193.81,-747.85 188.83,-738.5 184.09,-743.65"/>
+<title>proc~dsolpk~2&#45;&gt;proc~dusol~2</title>
+<path fill="none" stroke="#000000" d="M126.21,-565.83C141.51,-588.87 174.52,-638.56 193.26,-666.78"/>
+<polygon fill="#000000" stroke="#000000" points="190.36,-668.74 198.81,-675.13 196.19,-664.86 190.36,-668.74"/>
 </g>
-<!-- proc~dspiom~2&#45;&gt;proc~dscal~2 -->
+<!-- proc~dpcgs~2&#45;&gt;proc~dvnorm~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_edge13" class="edge">
-<title>proc~dspiom~2&#45;&gt;proc~dscal~2</title>
-<path fill="none" stroke="#000000" d="M214.14,-393.28C223.23,-413.81 243.89,-455.48 272,-482 273.26,-483.19 274.59,-484.33 275.98,-485.42"/>
-<polygon fill="#000000" stroke="#000000" points="274.17,-488.42 284.4,-491.17 278.11,-482.64 274.17,-488.42"/>
+<title>proc~dpcgs~2&#45;&gt;proc~dvnorm~2</title>
+<path fill="none" stroke="#000000" d="M220.26,-625.6C231.97,-637.37 251.44,-654.72 272,-663.47 305.6,-677.77 347.42,-681.89 376.76,-682.82"/>
+<polygon fill="#000000" stroke="#000000" points="376.89,-686.32 386.96,-683.03 377.04,-679.32 376.89,-686.32"/>
 </g>
-<!-- proc~dnrm2~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node12" class="node">
-<title>proc~dnrm2~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node12"><a xlink:href=".././proc/dnrm2~2.html" xlink:title="DNRM2">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="441,-474 387,-474 387,-450 441,-450 441,-474"/>
-<text text-anchor="middle" x="414" y="-459.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DNRM2</text>
-</a>
-</g>
-</g>
-<!-- proc~dspiom~2&#45;&gt;proc~dnrm2~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge11" class="edge">
-<title>proc~dspiom~2&#45;&gt;proc~dnrm2~2</title>
-<path fill="none" stroke="#000000" d="M231.84,-368.9C261.62,-354.95 314.25,-336.75 351,-360 382.58,-379.99 365.47,-405.45 387,-436 388.51,-438.15 390.21,-440.27 391.99,-442.33"/>
-<polygon fill="#000000" stroke="#000000" points="389.68,-444.98 399.09,-449.83 394.76,-440.17 389.68,-444.98"/>
-</g>
-<!-- proc~dorthog~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node13" class="node">
-<title>proc~dorthog~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node13"><a xlink:href=".././proc/dorthog~2.html" xlink:title="dorthog">
-<polygon fill="#d9534f" stroke="#d9534f" points="339,-473 284,-473 284,-449 339,-449 339,-473"/>
-<text text-anchor="middle" x="311.5" y="-458.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dorthog</text>
-</a>
-</g>
-</g>
-<!-- proc~dspiom~2&#45;&gt;proc~dorthog~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge14" class="edge">
-<title>proc~dspiom~2&#45;&gt;proc~dorthog~2</title>
-<path fill="none" stroke="#000000" d="M224.42,-393.15C241.13,-406.32 268,-427.5 287.27,-442.69"/>
-<polygon fill="#000000" stroke="#000000" points="285.25,-445.56 295.27,-449 289.58,-440.06 285.25,-445.56"/>
-</g>
-<!-- proc~datv~2 -->
+<!-- proc~datp~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_node14" class="node">
-<title>proc~datv~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node14"><a xlink:href=".././proc/datv~2.html" xlink:title="datv">
-<polygon fill="#d9534f" stroke="#d9534f" points="338.5,-393 284.5,-393 284.5,-369 338.5,-369 338.5,-393"/>
-<text text-anchor="middle" x="311.5" y="-378.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">datv</text>
+<title>proc~datp~2</title>
+<g id="a_proc~~dstoka~2~~CallsGraph_node14"><a xlink:href=".././proc/datp~2.html" xlink:title="datp">
+<polygon fill="#d9534f" stroke="#d9534f" points="338.5,-654.47 284.5,-654.47 284.5,-630.47 338.5,-630.47 338.5,-654.47"/>
+<text text-anchor="middle" x="311.5" y="-640.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">datp</text>
 </a>
 </g>
 </g>
-<!-- proc~dspiom~2&#45;&gt;proc~datv~2 -->
+<!-- proc~dpcgs~2&#45;&gt;proc~datp~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge11" class="edge">
+<title>proc~dpcgs~2&#45;&gt;proc~datp~2</title>
+<path fill="none" stroke="#000000" d="M235.14,-620.94C247.21,-624.39 261.74,-628.54 274.81,-632.27"/>
+<polygon fill="#000000" stroke="#000000" points="273.87,-635.64 284.45,-635.02 275.8,-628.91 273.87,-635.64"/>
+</g>
+<!-- proc~daxpy~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_node16" class="node">
+<title>proc~daxpy~2</title>
+<g id="a_proc~~dstoka~2~~CallsGraph_node16"><a xlink:href=".././proc/daxpy~2.html" xlink:title="daxpy">
+<polygon fill="#d9534f" stroke="#d9534f" points="531,-376.47 477,-376.47 477,-352.47 531,-352.47 531,-376.47"/>
+<text text-anchor="middle" x="504" y="-362.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daxpy</text>
+</a>
+</g>
+</g>
+<!-- proc~dpcgs~2&#45;&gt;proc~daxpy~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_edge12" class="edge">
-<title>proc~dspiom~2&#45;&gt;proc~datv~2</title>
-<path fill="none" stroke="#000000" d="M235.14,-381C247.1,-381 261.46,-381 274.42,-381"/>
-<polygon fill="#000000" stroke="#000000" points="274.45,-384.5 284.45,-381 274.45,-377.5 274.45,-384.5"/>
-</g>
-<!-- none~approximate~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node15" class="node">
-<title>none~approximate~2</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="351,-247 272,-247 272,-223 351,-223 351,-247"/>
-<text text-anchor="middle" x="311.5" y="-232.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">approximate</text>
-</g>
-<!-- proc~dspiom~2&#45;&gt;none~approximate~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge15" class="edge">
-<title>proc~dspiom~2&#45;&gt;none~approximate~2</title>
-<path fill="none" stroke="#000000" d="M215.51,-368.81C226.26,-349.05 248.85,-309.11 272,-278 277.85,-270.14 284.84,-262.01 291.26,-254.97"/>
-<polygon fill="#000000" stroke="#000000" points="294.16,-256.98 298.41,-247.28 289.04,-252.21 294.16,-256.98"/>
-</g>
-<!-- proc~dhefa~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node17" class="node">
-<title>proc~dhefa~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node17"><a xlink:href=".././proc/dhefa~2.html" xlink:title="dhefa">
-<polygon fill="#d9534f" stroke="#d9534f" points="338.5,-64 284.5,-64 284.5,-40 338.5,-40 338.5,-64"/>
-<text text-anchor="middle" x="311.5" y="-49.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhefa</text>
-</a>
-</g>
-</g>
-<!-- proc~dspiom~2&#45;&gt;proc~dhefa~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge16" class="edge">
-<title>proc~dspiom~2&#45;&gt;proc~dhefa~2</title>
-<path fill="none" stroke="#000000" d="M212.73,-368.9C227.78,-320.13 284.1,-137.58 303.71,-74"/>
-<polygon fill="#000000" stroke="#000000" points="307.13,-74.8 306.73,-64.21 300.44,-72.73 307.13,-74.8"/>
+<title>proc~dpcgs~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M235.05,-613.59C289.04,-613.29 410.63,-609.66 441,-583.47 471.11,-557.49 492.2,-436.98 499.84,-386.65"/>
+<polygon fill="#000000" stroke="#000000" points="503.34,-386.91 501.34,-376.5 496.41,-385.88 503.34,-386.91"/>
 </g>
 <!-- proc~dpcg~2&#45;&gt;proc~dvnorm~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_edge17" class="edge">
 <title>proc~dpcg~2&#45;&gt;proc~dvnorm~2</title>
-<path fill="none" stroke="#000000" d="M235.1,-663C264.14,-670.15 312.09,-683.38 351,-701 363.49,-706.65 376.54,-714.35 387.43,-721.34"/>
-<polygon fill="#000000" stroke="#000000" points="385.73,-724.41 396,-726.98 389.57,-718.56 385.73,-724.41"/>
+<path fill="none" stroke="#000000" d="M235.01,-562.9C264.59,-574.3 313.64,-595.24 351,-621.47 367.63,-633.14 383.9,-649.39 395.6,-662.18"/>
+<polygon fill="#000000" stroke="#000000" points="393.32,-664.88 402.59,-670.01 398.54,-660.22 393.32,-664.88"/>
+</g>
+<!-- proc~dpcg~2&#45;&gt;proc~datp~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge14" class="edge">
+<title>proc~dpcg~2&#45;&gt;proc~datp~2</title>
+<path fill="none" stroke="#000000" d="M222.69,-565.47C239.71,-580.4 268.98,-606.06 289.01,-623.62"/>
+<polygon fill="#000000" stroke="#000000" points="286.88,-626.41 296.7,-630.37 291.49,-621.15 286.88,-626.41"/>
+</g>
+<!-- proc~dpcg~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge15" class="edge">
+<title>proc~dpcg~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M220.88,-541.28C232.76,-529.8 252.1,-512.98 272,-503.47 341.46,-470.26 378.37,-510.24 441,-465.47 468.58,-445.75 486.34,-409.58 495.5,-386.29"/>
+<polygon fill="#000000" stroke="#000000" points="498.89,-387.2 499.1,-376.61 492.33,-384.76 498.89,-387.2"/>
 </g>
 <!-- proc~ddot~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node18" class="node">
+<g id="proc~~dstoka~2~~CallsGraph_node17" class="node">
 <title>proc~ddot~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node18"><a xlink:href=".././proc/ddot~2.html" xlink:title="ddot">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="441,-575 387,-575 387,-551 441,-551 441,-575"/>
-<text text-anchor="middle" x="414" y="-560.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddot</text>
+<g id="a_proc~~dstoka~2~~CallsGraph_node17"><a xlink:href=".././proc/ddot~2.html" xlink:title="ddot">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="441,-456.47 387,-456.47 387,-432.47 441,-432.47 441,-456.47"/>
+<text text-anchor="middle" x="414" y="-442.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddot</text>
 </a>
 </g>
 </g>
 <!-- proc~dpcg~2&#45;&gt;proc~ddot~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge18" class="edge">
+<g id="proc~~dstoka~2~~CallsGraph_edge16" class="edge">
 <title>proc~dpcg~2&#45;&gt;proc~ddot~2</title>
-<path fill="none" stroke="#000000" d="M222.1,-644.9C234.26,-634.21 253.25,-618.84 272,-609 305.76,-591.29 347.62,-578.68 376.93,-571.19"/>
-<polygon fill="#000000" stroke="#000000" points="377.88,-574.56 386.74,-568.76 376.19,-567.77 377.88,-574.56"/>
-</g>
-<!-- proc~datp~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node19" class="node">
-<title>proc~datp~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node19"><a xlink:href=".././proc/datp~2.html" xlink:title="datp">
-<polygon fill="#d9534f" stroke="#d9534f" points="338.5,-751 284.5,-751 284.5,-727 338.5,-727 338.5,-751"/>
-<text text-anchor="middle" x="311.5" y="-736.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">datp</text>
-</a>
-</g>
-</g>
-<!-- proc~dpcg~2&#45;&gt;proc~datp~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge19" class="edge">
-<title>proc~dpcg~2&#45;&gt;proc~datp~2</title>
-<path fill="none" stroke="#000000" d="M224.76,-669.15C228.46,-672.03 232.38,-675.11 236,-678 253.58,-692.03 273.27,-708.17 287.99,-720.32"/>
-<polygon fill="#000000" stroke="#000000" points="286.09,-723.29 296.03,-726.97 290.55,-717.9 286.09,-723.29"/>
-</g>
-<!-- proc~daxpy~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node20" class="node">
-<title>proc~daxpy~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node20"><a xlink:href=".././proc/daxpy~2.html" xlink:title="daxpy">
-<polygon fill="#d9534f" stroke="#d9534f" points="531,-414 477,-414 477,-390 531,-390 531,-414"/>
-<text text-anchor="middle" x="504" y="-399.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daxpy</text>
-</a>
-</g>
-</g>
-<!-- proc~dpcg~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge20" class="edge">
-<title>proc~dpcg~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M235.12,-656.17C282.56,-653.25 383.31,-640.35 441,-584 485.99,-540.06 498.34,-462.22 501.72,-424.18"/>
-<polygon fill="#000000" stroke="#000000" points="505.22,-424.38 502.49,-414.14 498.24,-423.85 505.22,-424.38"/>
+<path fill="none" stroke="#000000" d="M214.57,-541.3C223.73,-522.78 243.81,-487.83 272,-470.47 303.76,-450.91 346.64,-445.34 376.75,-444.08"/>
+<polygon fill="#000000" stroke="#000000" points="376.93,-447.58 386.83,-443.8 376.73,-440.58 376.93,-447.58"/>
 </g>
 <!-- proc~dspigmr~2&#45;&gt;proc~dscal~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_edge23" class="edge">
 <title>proc~dspigmr~2&#45;&gt;proc~dscal~2</title>
-<path fill="none" stroke="#000000" d="M236.2,-472.26C248.09,-477.17 262.19,-483.01 274.89,-488.27"/>
-<polygon fill="#000000" stroke="#000000" points="273.7,-491.56 284.28,-492.15 276.37,-485.09 273.7,-491.56"/>
-</g>
-<!-- proc~dspigmr~2&#45;&gt;proc~dnrm2~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge21" class="edge">
-<title>proc~dspigmr~2&#45;&gt;proc~dnrm2~2</title>
-<path fill="none" stroke="#000000" d="M236.12,-449.84C247.06,-445.89 259.94,-441.96 272,-440 306.66,-434.38 316.4,-434.04 351,-440 359.74,-441.5 368.88,-444.12 377.37,-447.03"/>
-<polygon fill="#000000" stroke="#000000" points="376.39,-450.4 386.98,-450.54 378.79,-443.82 376.39,-450.4"/>
-</g>
-<!-- proc~dspigmr~2&#45;&gt;proc~dorthog~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge24" class="edge">
-<title>proc~dspigmr~2&#45;&gt;proc~dorthog~2</title>
-<path fill="none" stroke="#000000" d="M236.2,-461C247.76,-461 261.42,-461 273.85,-461"/>
-<polygon fill="#000000" stroke="#000000" points="273.93,-464.5 283.93,-461 273.93,-457.5 273.93,-464.5"/>
-</g>
-<!-- proc~dspigmr~2&#45;&gt;proc~datv~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge22" class="edge">
-<title>proc~dspigmr~2&#45;&gt;proc~datv~2</title>
-<path fill="none" stroke="#000000" d="M222.15,-448.95C234.64,-437.7 254.13,-420.62 272,-407 275.63,-404.23 279.55,-401.41 283.43,-398.7"/>
-<polygon fill="#000000" stroke="#000000" points="285.5,-401.53 291.79,-393.01 281.55,-395.75 285.5,-401.53"/>
+<path fill="none" stroke="#000000" d="M213.73,-272.37C222.49,-251.26 243.01,-207.29 272,-179.47 273.25,-178.27 274.57,-177.12 275.96,-176.02"/>
+<polygon fill="#000000" stroke="#000000" points="278.09,-178.8 284.35,-170.25 274.13,-173.03 278.09,-178.8"/>
 </g>
 <!-- none~approximate -->
-<g id="proc~~dstoka~2~~CallsGraph_node16" class="node">
+<g id="proc~~dstoka~2~~CallsGraph_node12" class="node">
 <title>none~approximate</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="351,-311 272,-311 272,-287 351,-287 351,-311"/>
-<text text-anchor="middle" x="311.5" y="-296.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">approximate</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="351,-212.47 272,-212.47 272,-188.47 351,-188.47 351,-212.47"/>
+<text text-anchor="middle" x="311.5" y="-198.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">approximate</text>
 </g>
 <!-- proc~dspigmr~2&#45;&gt;none~approximate -->
-<g id="proc~~dstoka~2~~CallsGraph_edge25" class="edge">
+<g id="proc~~dstoka~2~~CallsGraph_edge18" class="edge">
 <title>proc~dspigmr~2&#45;&gt;none~approximate</title>
-<path fill="none" stroke="#000000" d="M216.54,-448.86C228.34,-429.88 251.9,-392.04 272,-360 280.4,-346.61 289.88,-331.59 297.33,-319.8"/>
-<polygon fill="#000000" stroke="#000000" points="300.42,-321.46 302.81,-311.14 294.51,-317.72 300.42,-321.46"/>
+<path fill="none" stroke="#000000" d="M219.26,-272.29C231.05,-258.77 251.44,-236.85 272,-221.47 273.6,-220.27 275.28,-219.1 277,-217.96"/>
+<polygon fill="#000000" stroke="#000000" points="279.12,-220.76 285.82,-212.56 275.46,-214.79 279.12,-220.76"/>
+</g>
+<!-- proc~datv~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_node15" class="node">
+<title>proc~datv~2</title>
+<g id="a_proc~~dstoka~2~~CallsGraph_node15"><a xlink:href=".././proc/datv~2.html" xlink:title="datv">
+<polygon fill="#d9534f" stroke="#d9534f" points="338.5,-336.47 284.5,-336.47 284.5,-312.47 338.5,-312.47 338.5,-336.47"/>
+<text text-anchor="middle" x="311.5" y="-322.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">datv</text>
+</a>
+</g>
+</g>
+<!-- proc~dspigmr~2&#45;&gt;proc~datv~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge19" class="edge">
+<title>proc~dspigmr~2&#45;&gt;proc~datv~2</title>
+<path fill="none" stroke="#000000" d="M236.2,-295.19C248.09,-299.87 262.19,-305.43 274.89,-310.43"/>
+<polygon fill="#000000" stroke="#000000" points="273.69,-313.72 284.28,-314.13 276.26,-307.21 273.69,-313.72"/>
 </g>
 <!-- proc~dheqr~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node21" class="node">
+<g id="proc~~dstoka~2~~CallsGraph_node19" class="node">
 <title>proc~dheqr~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node21"><a xlink:href=".././proc/dheqr~2.html" xlink:title="dheqr">
-<polygon fill="#d9534f" stroke="#d9534f" points="338.5,-557 284.5,-557 284.5,-533 338.5,-533 338.5,-557"/>
-<text text-anchor="middle" x="311.5" y="-542.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dheqr</text>
+<g id="a_proc~~dstoka~2~~CallsGraph_node19"><a xlink:href=".././proc/dheqr~2.html" xlink:title="dheqr">
+<polygon fill="#d9534f" stroke="#d9534f" points="338.5,-128.47 284.5,-128.47 284.5,-104.47 338.5,-104.47 338.5,-128.47"/>
+<text text-anchor="middle" x="311.5" y="-114.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dheqr</text>
 </a>
 </g>
 </g>
 <!-- proc~dspigmr~2&#45;&gt;proc~dheqr~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge26" class="edge">
+<g id="proc~~dstoka~2~~CallsGraph_edge20" class="edge">
 <title>proc~dspigmr~2&#45;&gt;proc~dheqr~2</title>
-<path fill="none" stroke="#000000" d="M219.26,-473.18C231.05,-486.69 251.44,-508.62 272,-524 273.6,-525.2 275.28,-526.37 277,-527.51"/>
-<polygon fill="#000000" stroke="#000000" points="275.46,-530.67 285.82,-532.91 279.12,-524.7 275.46,-530.67"/>
+<path fill="none" stroke="#000000" d="M211.36,-272.34C217.2,-245.16 234.63,-178.54 272,-137.47 273.2,-136.15 274.5,-134.9 275.87,-133.71"/>
+<polygon fill="#000000" stroke="#000000" points="278.27,-136.3 284.34,-127.61 274.18,-130.62 278.27,-136.3"/>
+</g>
+<!-- proc~dnrm2~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_node20" class="node">
+<title>proc~dnrm2~2</title>
+<g id="a_proc~~dstoka~2~~CallsGraph_node20"><a xlink:href=".././proc/dnrm2~2.html" xlink:title="DNRM2">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="441,-376.47 387,-376.47 387,-352.47 441,-352.47 441,-376.47"/>
+<text text-anchor="middle" x="414" y="-362.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DNRM2</text>
+</a>
+</g>
+</g>
+<!-- proc~dspigmr~2&#45;&gt;proc~dnrm2~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge21" class="edge">
+<title>proc~dspigmr~2&#45;&gt;proc~dnrm2~2</title>
+<path fill="none" stroke="#000000" d="M236.1,-283.12C265.8,-282.75 314.14,-285.43 351,-303.47 352.35,-304.13 376.01,-327.57 393.71,-345.2"/>
+<polygon fill="#000000" stroke="#000000" points="391.29,-347.73 400.84,-352.31 396.23,-342.77 391.29,-347.73"/>
+</g>
+<!-- proc~dorthog~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_node21" class="node">
+<title>proc~dorthog~2</title>
+<g id="a_proc~~dstoka~2~~CallsGraph_node21"><a xlink:href=".././proc/dorthog~2.html" xlink:title="dorthog">
+<polygon fill="#d9534f" stroke="#d9534f" points="339,-416.47 284,-416.47 284,-392.47 339,-392.47 339,-416.47"/>
+<text text-anchor="middle" x="311.5" y="-402.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dorthog</text>
+</a>
+</g>
+</g>
+<!-- proc~dspigmr~2&#45;&gt;proc~dorthog~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge22" class="edge">
+<title>proc~dspigmr~2&#45;&gt;proc~dorthog~2</title>
+<path fill="none" stroke="#000000" d="M219.48,-296.86C237.05,-317.62 272.57,-359.63 293.67,-384.57"/>
+<polygon fill="#000000" stroke="#000000" points="291.1,-386.95 300.23,-392.32 296.44,-382.43 291.1,-386.95"/>
+</g>
+<!-- proc~dspiom~2&#45;&gt;proc~dscal~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge29" class="edge">
+<title>proc~dspiom~2&#45;&gt;proc~dscal~2</title>
+<path fill="none" stroke="#000000" d="M215.35,-352.04C221.22,-340.25 229.91,-321.95 236,-305.47 256.18,-250.83 235.61,-224.94 272,-179.47 273.25,-177.91 274.65,-176.45 276.15,-175.08"/>
+<polygon fill="#000000" stroke="#000000" points="278.38,-177.79 284.34,-169.03 274.21,-172.16 278.38,-177.79"/>
+</g>
+<!-- none~approximate~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_node13" class="node">
+<title>none~approximate~2</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="351,-254.47 272,-254.47 272,-230.47 351,-230.47 351,-254.47"/>
+<text text-anchor="middle" x="311.5" y="-240.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">approximate</text>
+</g>
+<!-- proc~dspiom~2&#45;&gt;none~approximate~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge24" class="edge">
+<title>proc~dspiom~2&#45;&gt;none~approximate~2</title>
+<path fill="none" stroke="#000000" d="M219.1,-352.32C236.58,-331.31 272.63,-287.99 293.86,-262.47"/>
+<polygon fill="#000000" stroke="#000000" points="296.73,-264.49 300.44,-254.56 291.35,-260.01 296.73,-264.49"/>
+</g>
+<!-- proc~dspiom~2&#45;&gt;proc~datv~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge25" class="edge">
+<title>proc~dspiom~2&#45;&gt;proc~datv~2</title>
+<path fill="none" stroke="#000000" d="M235.14,-354.17C247.21,-349.41 261.74,-343.68 274.81,-338.53"/>
+<polygon fill="#000000" stroke="#000000" points="276.43,-341.66 284.45,-334.73 273.86,-335.14 276.43,-341.66"/>
+</g>
+<!-- proc~dhefa~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_node18" class="node">
+<title>proc~dhefa~2</title>
+<g id="a_proc~~dstoka~2~~CallsGraph_node18"><a xlink:href=".././proc/dhefa~2.html" xlink:title="dhefa">
+<polygon fill="#d9534f" stroke="#d9534f" points="338.5,-536.47 284.5,-536.47 284.5,-512.47 338.5,-512.47 338.5,-536.47"/>
+<text text-anchor="middle" x="311.5" y="-522.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhefa</text>
+</a>
+</g>
+</g>
+<!-- proc~dspiom~2&#45;&gt;proc~dhefa~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge26" class="edge">
+<title>proc~dspiom~2&#45;&gt;proc~dhefa~2</title>
+<path fill="none" stroke="#000000" d="M216.63,-376.49C233.82,-403.6 275.77,-469.72 297.29,-503.65"/>
+<polygon fill="#000000" stroke="#000000" points="294.47,-505.73 302.78,-512.3 300.38,-501.98 294.47,-505.73"/>
+</g>
+<!-- proc~dspiom~2&#45;&gt;proc~dnrm2~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge27" class="edge">
+<title>proc~dspiom~2&#45;&gt;proc~dnrm2~2</title>
+<path fill="none" stroke="#000000" d="M235.25,-364.47C271.29,-364.47 336.21,-364.47 376.83,-364.47"/>
+<polygon fill="#000000" stroke="#000000" points="376.85,-367.97 386.85,-364.47 376.85,-360.97 376.85,-367.97"/>
+</g>
+<!-- proc~dspiom~2&#45;&gt;proc~dorthog~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge28" class="edge">
+<title>proc~dspiom~2&#45;&gt;proc~dorthog~2</title>
+<path fill="none" stroke="#000000" d="M235.14,-374.77C247.03,-379.45 261.29,-385.08 274.2,-390.16"/>
+<polygon fill="#000000" stroke="#000000" points="273.16,-393.51 283.74,-393.92 275.72,-387 273.16,-393.51"/>
 </g>
 <!-- proc~dusol~2&#45;&gt;proc~dvnorm~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge27" class="edge">
-<title>proc~dusol~2&#45;&gt;proc~dvnorm~2</title>
-<path fill="none" stroke="#000000" d="M235.19,-700.97C263.89,-703.49 311.16,-708.68 351,-718 359.59,-720.01 368.67,-722.73 377.16,-725.55"/>
-<polygon fill="#000000" stroke="#000000" points="376.18,-728.91 386.78,-728.86 378.46,-722.3 376.18,-728.91"/>
-</g>
-<!-- proc~dpcgs~2&#45;&gt;proc~dvnorm~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge28" class="edge">
-<title>proc~dpcgs~2&#45;&gt;proc~dvnorm~2</title>
-<path fill="none" stroke="#000000" d="M235.12,-762.53C263.76,-764.71 310.99,-766.59 351,-760 359.7,-758.57 368.83,-756.07 377.32,-753.29"/>
-<polygon fill="#000000" stroke="#000000" points="378.64,-756.54 386.94,-749.94 376.34,-749.93 378.64,-756.54"/>
-</g>
-<!-- proc~dpcgs~2&#45;&gt;proc~datp~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge29" class="edge">
-<title>proc~dpcgs~2&#45;&gt;proc~datp~2</title>
-<path fill="none" stroke="#000000" d="M235.14,-754.59C247.1,-752.12 261.46,-749.15 274.42,-746.46"/>
-<polygon fill="#000000" stroke="#000000" points="275.37,-749.84 284.45,-744.39 273.95,-742.99 275.37,-749.84"/>
-</g>
-<!-- proc~dpcgs~2&#45;&gt;proc~daxpy~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_edge30" class="edge">
-<title>proc~dpcgs~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M235.02,-770.28C283.22,-787.4 386.44,-814.8 441,-760 488.52,-712.26 499.9,-495 502.37,-424.31"/>
-<polygon fill="#000000" stroke="#000000" points="505.87,-424.37 502.7,-414.27 498.87,-424.15 505.87,-424.37"/>
+<title>proc~dusol~2&#45;&gt;proc~dvnorm~2</title>
+<path fill="none" stroke="#000000" d="M235.27,-692.07C246.54,-693.82 259.88,-695.61 272,-696.47 307.02,-698.96 316.11,-700.36 351,-696.47 359.5,-695.52 368.53,-693.86 377,-692.01"/>
+<polygon fill="#000000" stroke="#000000" points="378.02,-695.37 386.97,-689.7 376.44,-688.55 378.02,-695.37"/>
 </g>
-<!-- proc~dorthog~2&#45;&gt;proc~dnrm2~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge31" class="edge">
-<title>proc~dorthog~2&#45;&gt;proc~dnrm2~2</title>
-<path fill="none" stroke="#000000" d="M339.17,-461.27C350.71,-461.38 364.39,-461.52 376.83,-461.64"/>
-<polygon fill="#000000" stroke="#000000" points="376.87,-465.14 386.9,-461.74 376.94,-458.14 376.87,-465.14"/>
-</g>
-<!-- proc~dorthog~2&#45;&gt;proc~ddot~2 -->
+<!-- none~approximate&#45;&gt;proc~daxpy~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_edge32" class="edge">
-<title>proc~dorthog~2&#45;&gt;proc~ddot~2</title>
-<path fill="none" stroke="#000000" d="M338.34,-473.13C342.78,-475.75 347.18,-478.73 351,-482 371.2,-499.3 389.04,-524.18 400.33,-541.79"/>
-<polygon fill="#000000" stroke="#000000" points="397.65,-544.1 405.91,-550.74 403.59,-540.4 397.65,-544.1"/>
-</g>
-<!-- proc~dorthog~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge33" class="edge">
-<title>proc~dorthog~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M336.01,-473.2C362.75,-485.28 407.11,-499.74 441,-483 465.99,-470.66 483.69,-442.87 493.62,-423.3"/>
-<polygon fill="#000000" stroke="#000000" points="496.81,-424.72 497.98,-414.19 490.5,-421.7 496.81,-424.72"/>
-</g>
-<!-- proc~datv~2&#45;&gt;proc~dnrm2~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge34" class="edge">
-<title>proc~datv~2&#45;&gt;proc~dnrm2~2</title>
-<path fill="none" stroke="#000000" d="M331.65,-393.21C337.94,-397.41 344.88,-402.25 351,-407 365.41,-418.18 380.75,-431.77 392.57,-442.65"/>
-<polygon fill="#000000" stroke="#000000" points="390.42,-445.43 400.13,-449.68 395.19,-440.31 390.42,-445.43"/>
-</g>
-<!-- none~approximate~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge40" class="edge">
-<title>none~approximate~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M318.75,-222.93C329.59,-203.48 353.93,-165.87 387,-151 408.89,-141.16 422.1,-136.2 441,-151 477.29,-179.41 495.25,-323.75 500.94,-379.75"/>
-<polygon fill="#000000" stroke="#000000" points="497.49,-380.39 501.94,-390 504.45,-379.71 497.49,-380.39"/>
+<title>none~approximate&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M341.61,-188.3C345.17,-185.81 348.45,-182.88 351,-179.47 396.68,-118.28 327.62,-59.47 387,-11.47 405.66,3.62 422.62,3.97 441,-11.47 491.89,-54.19 501.02,-271.32 502.65,-342.12"/>
+<polygon fill="#000000" stroke="#000000" points="499.15,-342.24 502.85,-352.17 506.15,-342.1 499.15,-342.24"/>
 </g>
 <!-- b -->
 <g id="proc~~dstoka~2~~CallsGraph_node22" class="node">
 <title>b</title>
-<polygon fill="#777777" stroke="#777777" points="441,-310 387,-310 387,-286 441,-286 441,-310"/>
-<text text-anchor="middle" x="414" y="-295.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">b</text>
+<polygon fill="#777777" stroke="#777777" points="441,-254.47 387,-254.47 387,-230.47 441,-230.47 441,-254.47"/>
+<text text-anchor="middle" x="414" y="-240.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">b</text>
 </g>
-<!-- none~approximate~2&#45;&gt;b -->
+<!-- none~approximate&#45;&gt;b -->
+<g id="proc~~dstoka~2~~CallsGraph_edge31" class="edge">
+<title>none~approximate&#45;&gt;b</title>
+<path fill="none" stroke="#000000" d="M341.3,-212.5C352.65,-217.25 365.8,-222.74 377.71,-227.72"/>
+<polygon fill="#000000" stroke="#000000" points="376.37,-230.95 386.94,-231.58 379.07,-224.49 376.37,-230.95"/>
+</g>
+<!-- proc~dhels~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_node23" class="node">
+<title>proc~dhels~2</title>
+<g id="a_proc~~dstoka~2~~CallsGraph_node23"><a xlink:href=".././proc/dhels~2.html" xlink:title="dhels">
+<polygon fill="#d9534f" stroke="#d9534f" points="441,-44.47 387,-44.47 387,-20.47 441,-20.47 441,-44.47"/>
+<text text-anchor="middle" x="414" y="-30.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhels</text>
+</a>
+</g>
+</g>
+<!-- none~approximate&#45;&gt;proc~dhels~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge33" class="edge">
+<title>none~approximate&#45;&gt;proc~dhels~2</title>
+<path fill="none" stroke="#000000" d="M341.02,-188.4C344.76,-185.88 348.24,-182.91 351,-179.47 387.39,-133.99 354.85,-102.03 387,-53.47 387.34,-52.95 387.7,-52.45 388.07,-51.94"/>
+<polygon fill="#000000" stroke="#000000" points="390.77,-54.18 395.05,-44.49 385.66,-49.39 390.77,-54.18"/>
+</g>
+<!-- psol -->
+<g id="proc~~dstoka~2~~CallsGraph_node26" class="node">
+<title>psol</title>
+<polygon fill="#777777" stroke="#777777" points="441,-170.47 387,-170.47 387,-146.47 441,-146.47 441,-170.47"/>
+<text text-anchor="middle" x="414" y="-156.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">psol</text>
+</g>
+<!-- none~approximate&#45;&gt;psol -->
+<g id="proc~~dstoka~2~~CallsGraph_edge34" class="edge">
+<title>none~approximate&#45;&gt;psol</title>
+<path fill="none" stroke="#000000" d="M341.3,-188.43C352.65,-183.69 365.8,-178.19 377.71,-173.21"/>
+<polygon fill="#000000" stroke="#000000" points="379.07,-176.44 386.94,-169.36 376.37,-169.98 379.07,-176.44"/>
+</g>
+<!-- v -->
+<g id="proc~~dstoka~2~~CallsGraph_node27" class="node">
+<title>v</title>
+<polygon fill="#777777" stroke="#777777" points="441,-128.47 387,-128.47 387,-104.47 441,-104.47 441,-128.47"/>
+<text text-anchor="middle" x="414" y="-114.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">v</text>
+</g>
+<!-- none~approximate&#45;&gt;v -->
 <g id="proc~~dstoka~2~~CallsGraph_edge35" class="edge">
-<title>none~approximate~2&#45;&gt;b</title>
-<path fill="none" stroke="#000000" d="M331.88,-247.15C346.89,-256.56 367.91,-269.74 384.79,-280.32"/>
-<polygon fill="#000000" stroke="#000000" points="383.35,-283.54 393.68,-285.89 387.07,-277.61 383.35,-283.54"/>
+<title>none~approximate&#45;&gt;v</title>
+<path fill="none" stroke="#000000" d="M337.78,-188.4C342.37,-185.73 346.98,-182.73 351,-179.47 370.11,-163.99 369.36,-154.6 387,-137.47 387.67,-136.81 388.37,-136.16 389.07,-135.5"/>
+<polygon fill="#000000" stroke="#000000" points="391.67,-137.88 396.93,-128.68 387.09,-132.59 391.67,-137.88"/>
 </g>
 <!-- wght -->
-<g id="proc~~dstoka~2~~CallsGraph_node23" class="node">
+<g id="proc~~dstoka~2~~CallsGraph_node28" class="node">
 <title>wght</title>
-<polygon fill="#777777" stroke="#777777" points="441,-268 387,-268 387,-244 441,-244 441,-268"/>
-<text text-anchor="middle" x="414" y="-253.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wght</text>
+<polygon fill="#777777" stroke="#777777" points="441,-86.47 387,-86.47 387,-62.47 441,-62.47 441,-86.47"/>
+<text text-anchor="middle" x="414" y="-72.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wght</text>
 </g>
-<!-- none~approximate~2&#45;&gt;wght -->
+<!-- none~approximate&#45;&gt;wght -->
+<g id="proc~~dstoka~2~~CallsGraph_edge36" class="edge">
+<title>none~approximate&#45;&gt;wght</title>
+<path fill="none" stroke="#000000" d="M340.24,-188.33C344.18,-185.79 347.93,-182.85 351,-179.47 378.33,-149.42 362.48,-127.85 387,-95.47 387.46,-94.86 387.94,-94.26 388.44,-93.67"/>
+<polygon fill="#000000" stroke="#000000" points="391.03,-96.02 395.65,-86.49 386.1,-91.06 391.03,-96.02"/>
+</g>
+<!-- x -->
+<g id="proc~~dstoka~2~~CallsGraph_node29" class="node">
+<title>x</title>
+<polygon fill="#777777" stroke="#777777" points="441,-212.47 387,-212.47 387,-188.47 441,-188.47 441,-212.47"/>
+<text text-anchor="middle" x="414" y="-198.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">x</text>
+</g>
+<!-- none~approximate&#45;&gt;x -->
 <g id="proc~~dstoka~2~~CallsGraph_edge37" class="edge">
-<title>none~approximate~2&#45;&gt;wght</title>
-<path fill="none" stroke="#000000" d="M351.07,-243.06C359.57,-244.84 368.54,-246.71 376.94,-248.46"/>
-<polygon fill="#000000" stroke="#000000" points="376.32,-251.91 386.82,-250.53 377.75,-245.06 376.32,-251.91"/>
+<title>none~approximate&#45;&gt;x</title>
+<path fill="none" stroke="#000000" d="M351.07,-200.47C359.48,-200.47 368.34,-200.47 376.66,-200.47"/>
+<polygon fill="#000000" stroke="#000000" points="376.82,-203.97 386.82,-200.47 376.82,-196.97 376.82,-203.97"/>
+</g>
+<!-- none~approximate~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge39" class="edge">
+<title>none~approximate~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M324.96,-254.58C339.21,-268.04 363.58,-289.91 387,-305.47 412.64,-322.5 443.84,-338.11 467.42,-348.99"/>
+<polygon fill="#000000" stroke="#000000" points="466.15,-352.26 476.7,-353.21 469.05,-345.88 466.15,-352.26"/>
+</g>
+<!-- none~approximate~2&#45;&gt;b -->
+<g id="proc~~dstoka~2~~CallsGraph_edge38" class="edge">
+<title>none~approximate~2&#45;&gt;b</title>
+<path fill="none" stroke="#000000" d="M351.07,-242.47C359.48,-242.47 368.34,-242.47 376.66,-242.47"/>
+<polygon fill="#000000" stroke="#000000" points="376.82,-245.97 386.82,-242.47 376.82,-238.97 376.82,-245.97"/>
 </g>
 <!-- proc~dhesl~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_node24" class="node">
 <title>proc~dhesl~2</title>
 <g id="a_proc~~dstoka~2~~CallsGraph_node24"><a xlink:href=".././proc/dhesl~2.html" xlink:title="dhesl">
-<polygon fill="#d9534f" stroke="#d9534f" points="441,-104 387,-104 387,-80 441,-80 441,-104"/>
-<text text-anchor="middle" x="414" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhesl</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="441,-296.47 387,-296.47 387,-272.47 441,-272.47 441,-296.47"/>
+<text text-anchor="middle" x="414" y="-282.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhesl</text>
 </a>
 </g>
 </g>
 <!-- none~approximate~2&#45;&gt;proc~dhesl~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge36" class="edge">
+<g id="proc~~dstoka~2~~CallsGraph_edge40" class="edge">
 <title>none~approximate~2&#45;&gt;proc~dhesl~2</title>
-<path fill="none" stroke="#000000" d="M319.09,-222.8C331.2,-200.85 358.37,-153.69 387,-118 388.68,-115.91 390.51,-113.8 392.39,-111.75"/>
-<polygon fill="#000000" stroke="#000000" points="395.28,-113.79 399.72,-104.17 390.25,-108.92 395.28,-113.79"/>
-</g>
-<!-- x -->
-<g id="proc~~dstoka~2~~CallsGraph_node26" class="node">
-<title>x</title>
-<polygon fill="#777777" stroke="#777777" points="441,-226 387,-226 387,-202 441,-202 441,-226"/>
-<text text-anchor="middle" x="414" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">x</text>
-</g>
-<!-- none~approximate~2&#45;&gt;x -->
-<g id="proc~~dstoka~2~~CallsGraph_edge38" class="edge">
-<title>none~approximate~2&#45;&gt;x</title>
-<path fill="none" stroke="#000000" d="M351.07,-226.94C359.57,-225.16 368.54,-223.29 376.94,-221.54"/>
-<polygon fill="#000000" stroke="#000000" points="377.75,-224.94 386.82,-219.47 376.32,-218.09 377.75,-224.94"/>
-</g>
-<!-- v -->
-<g id="proc~~dstoka~2~~CallsGraph_node27" class="node">
-<title>v</title>
-<polygon fill="#777777" stroke="#777777" points="441,-184 387,-184 387,-160 441,-160 441,-184"/>
-<text text-anchor="middle" x="414" y="-169.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">v</text>
-</g>
-<!-- none~approximate~2&#45;&gt;v -->
-<g id="proc~~dstoka~2~~CallsGraph_edge39" class="edge">
-<title>none~approximate~2&#45;&gt;v</title>
-<path fill="none" stroke="#000000" d="M331.88,-222.85C346.89,-213.44 367.91,-200.26 384.79,-189.68"/>
-<polygon fill="#000000" stroke="#000000" points="387.07,-192.39 393.68,-184.11 383.35,-186.46 387.07,-192.39"/>
-</g>
-<!-- psol -->
-<g id="proc~~dstoka~2~~CallsGraph_node28" class="node">
-<title>psol</title>
-<polygon fill="#777777" stroke="#777777" points="441,-352 387,-352 387,-328 441,-328 441,-352"/>
-<text text-anchor="middle" x="414" y="-337.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">psol</text>
+<path fill="none" stroke="#000000" d="M341.3,-254.5C352.65,-259.25 365.8,-264.74 377.71,-269.72"/>
+<polygon fill="#000000" stroke="#000000" points="376.37,-272.95 386.94,-273.58 379.07,-266.49 376.37,-272.95"/>
 </g>
 <!-- none~approximate~2&#45;&gt;psol -->
 <g id="proc~~dstoka~2~~CallsGraph_edge41" class="edge">
 <title>none~approximate~2&#45;&gt;psol</title>
-<path fill="none" stroke="#000000" d="M323.32,-247.02C331.05,-255.63 341.69,-267.5 351,-278 367.09,-296.14 369.5,-302.21 387,-319 387.8,-319.76 388.62,-320.53 389.45,-321.29"/>
-<polygon fill="#000000" stroke="#000000" points="387.37,-324.12 397.23,-327.98 391.93,-318.81 387.37,-324.12"/>
+<path fill="none" stroke="#000000" d="M337.78,-230.4C342.37,-227.73 346.98,-224.73 351,-221.47 370.11,-205.99 369.36,-196.6 387,-179.47 387.67,-178.81 388.37,-178.16 389.07,-177.5"/>
+<polygon fill="#000000" stroke="#000000" points="391.67,-179.88 396.93,-170.68 387.09,-174.59 391.67,-179.88"/>
 </g>
-<!-- none~approximate&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge47" class="edge">
-<title>none~approximate&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M323.84,-311.17C331.82,-319.98 342.55,-332.35 351,-344 369.04,-368.86 360.21,-387.96 387,-403 411.13,-416.54 442.76,-415.26 466.9,-411.17"/>
-<polygon fill="#000000" stroke="#000000" points="467.58,-414.6 476.74,-409.28 466.26,-407.73 467.58,-414.6"/>
-</g>
-<!-- none~approximate&#45;&gt;b -->
+<!-- none~approximate~2&#45;&gt;v -->
 <g id="proc~~dstoka~2~~CallsGraph_edge42" class="edge">
-<title>none~approximate&#45;&gt;b</title>
-<path fill="none" stroke="#000000" d="M351.07,-298.62C359.48,-298.53 368.34,-298.44 376.66,-298.36"/>
-<polygon fill="#000000" stroke="#000000" points="376.86,-301.86 386.82,-298.26 376.79,-294.86 376.86,-301.86"/>
+<title>none~approximate~2&#45;&gt;v</title>
+<path fill="none" stroke="#000000" d="M340.24,-230.33C344.18,-227.79 347.93,-224.85 351,-221.47 378.33,-191.42 362.48,-169.85 387,-137.47 387.46,-136.86 387.94,-136.26 388.44,-135.67"/>
+<polygon fill="#000000" stroke="#000000" points="391.03,-138.02 395.65,-128.49 386.1,-133.06 391.03,-138.02"/>
 </g>
-<!-- none~approximate&#45;&gt;wght -->
-<g id="proc~~dstoka~2~~CallsGraph_edge44" class="edge">
-<title>none~approximate&#45;&gt;wght</title>
-<path fill="none" stroke="#000000" d="M340.76,-286.91C352.12,-282.05 365.35,-276.39 377.36,-271.25"/>
-<polygon fill="#000000" stroke="#000000" points="378.86,-274.42 386.67,-267.26 376.1,-267.98 378.86,-274.42"/>
-</g>
-<!-- proc~dhels~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node25" class="node">
-<title>proc~dhels~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node25"><a xlink:href=".././proc/dhels~2.html" xlink:title="dhels">
-<polygon fill="#d9534f" stroke="#d9534f" points="441,-394 387,-394 387,-370 441,-370 441,-394"/>
-<text text-anchor="middle" x="414" y="-379.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhels</text>
-</a>
-</g>
-</g>
-<!-- none~approximate&#45;&gt;proc~dhels~2 -->
+<!-- none~approximate~2&#45;&gt;wght -->
 <g id="proc~~dstoka~2~~CallsGraph_edge43" class="edge">
-<title>none~approximate&#45;&gt;proc~dhels~2</title>
-<path fill="none" stroke="#000000" d="M330.11,-311.09C336.79,-315.86 344.39,-321.51 351,-327 367.93,-341.06 370.43,-346.52 387,-361 387.96,-361.84 388.94,-362.69 389.94,-363.54"/>
-<polygon fill="#000000" stroke="#000000" points="387.78,-366.29 397.71,-369.98 392.25,-360.9 387.78,-366.29"/>
+<title>none~approximate~2&#45;&gt;wght</title>
+<path fill="none" stroke="#000000" d="M341.02,-230.4C344.76,-227.88 348.24,-224.91 351,-221.47 387.39,-175.99 354.85,-144.03 387,-95.47 387.34,-94.95 387.7,-94.45 388.07,-93.94"/>
+<polygon fill="#000000" stroke="#000000" points="390.77,-96.18 395.05,-86.49 385.66,-91.39 390.77,-96.18"/>
 </g>
-<!-- none~approximate&#45;&gt;x -->
+<!-- none~approximate~2&#45;&gt;x -->
+<g id="proc~~dstoka~2~~CallsGraph_edge44" class="edge">
+<title>none~approximate~2&#45;&gt;x</title>
+<path fill="none" stroke="#000000" d="M341.3,-230.43C352.65,-225.69 365.8,-220.19 377.71,-215.21"/>
+<polygon fill="#000000" stroke="#000000" points="379.07,-218.44 386.94,-211.36 376.37,-211.98 379.07,-218.44"/>
+</g>
+<!-- proc~datp~2&#45;&gt;proc~dvnorm~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_edge45" class="edge">
-<title>none~approximate&#45;&gt;x</title>
-<path fill="none" stroke="#000000" d="M326.4,-286.84C341.28,-273.87 365.65,-252.79 387,-235 387.98,-234.19 388.98,-233.36 389.99,-232.52"/>
-<polygon fill="#000000" stroke="#000000" points="392.28,-235.17 397.81,-226.14 387.85,-229.75 392.28,-235.17"/>
+<title>proc~datp~2&#45;&gt;proc~dvnorm~2</title>
+<path fill="none" stroke="#000000" d="M338.64,-652.87C350.51,-657.59 364.72,-663.25 377.53,-668.35"/>
+<polygon fill="#000000" stroke="#000000" points="376.4,-671.67 386.99,-672.11 378.99,-665.16 376.4,-671.67"/>
 </g>
-<!-- none~approximate&#45;&gt;v -->
+<!-- proc~datv~2&#45;&gt;proc~dnrm2~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_edge46" class="edge">
-<title>none~approximate&#45;&gt;v</title>
-<path fill="none" stroke="#000000" d="M324.69,-286.8C332.66,-278.5 343.03,-267.05 351,-256 369.86,-229.84 366.1,-217.56 387,-193 387.59,-192.3 388.21,-191.61 388.85,-190.93"/>
-<polygon fill="#000000" stroke="#000000" points="391.32,-193.42 396.21,-184.02 386.52,-188.31 391.32,-193.42"/>
-</g>
-<!-- none~approximate&#45;&gt;psol -->
-<g id="proc~~dstoka~2~~CallsGraph_edge48" class="edge">
-<title>none~approximate&#45;&gt;psol</title>
-<path fill="none" stroke="#000000" d="M342.11,-311.08C353.15,-315.58 365.79,-320.74 377.32,-325.44"/>
-<polygon fill="#000000" stroke="#000000" points="376.1,-328.72 386.68,-329.26 378.74,-322.24 376.1,-328.72"/>
+<title>proc~datv~2&#45;&gt;proc~dnrm2~2</title>
+<path fill="none" stroke="#000000" d="M338.64,-334.87C350.51,-339.59 364.72,-345.25 377.53,-350.35"/>
+<polygon fill="#000000" stroke="#000000" points="376.4,-353.67 386.99,-354.11 378.99,-347.16 376.4,-353.67"/>
 </g>
 <!-- proc~dhefa~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge50" class="edge">
+<g id="proc~~dstoka~2~~CallsGraph_edge47" class="edge">
 <title>proc~dhefa~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M338.72,-47.8C367.73,-44.76 413.94,-44.96 441,-71 485.6,-113.92 498.84,-312.3 502.08,-379.6"/>
-<polygon fill="#000000" stroke="#000000" points="498.6,-380.07 502.55,-389.91 505.59,-379.76 498.6,-380.07"/>
+<path fill="none" stroke="#000000" d="M338.75,-525.77C366.94,-525.79 411.62,-521.68 441,-498.47 476.65,-470.31 492.66,-416.91 499.13,-386.72"/>
+<polygon fill="#000000" stroke="#000000" points="502.6,-387.22 501.1,-376.74 495.73,-385.87 502.6,-387.22"/>
 </g>
 <!-- proc~idamax~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_node29" class="node">
+<g id="proc~~dstoka~2~~CallsGraph_node25" class="node">
 <title>proc~idamax~2</title>
-<g id="a_proc~~dstoka~2~~CallsGraph_node29"><a xlink:href=".././proc/idamax~2.html" xlink:title="idamax">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="441,-24 387,-24 387,0 441,0 441,-24"/>
-<text text-anchor="middle" x="414" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">idamax</text>
+<g id="a_proc~~dstoka~2~~CallsGraph_node25"><a xlink:href=".././proc/idamax~2.html" xlink:title="idamax">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="441,-574.47 387,-574.47 387,-550.47 441,-550.47 441,-574.47"/>
+<text text-anchor="middle" x="414" y="-560.07" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">idamax</text>
 </a>
 </g>
 </g>
 <!-- proc~dhefa~2&#45;&gt;proc~idamax~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge49" class="edge">
+<g id="proc~~dstoka~2~~CallsGraph_edge48" class="edge">
 <title>proc~dhefa~2&#45;&gt;proc~idamax~2</title>
-<path fill="none" stroke="#000000" d="M338.64,-41.59C350.51,-36.87 364.72,-31.22 377.53,-26.12"/>
-<polygon fill="#000000" stroke="#000000" points="378.99,-29.3 386.99,-22.35 376.4,-22.8 378.99,-29.3"/>
+<path fill="none" stroke="#000000" d="M338.64,-534.35C350.51,-538.84 364.72,-544.21 377.53,-549.06"/>
+<polygon fill="#000000" stroke="#000000" points="376.4,-552.37 386.99,-552.63 378.87,-545.82 376.4,-552.37"/>
 </g>
-<!-- proc~datp~2&#45;&gt;proc~dvnorm~2 -->
+<!-- proc~dorthog~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge49" class="edge">
+<title>proc~dorthog~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M339.35,-401.92C365.53,-399.1 406.36,-393.82 441,-385.47 449.58,-383.4 458.65,-380.65 467.14,-377.83"/>
+<polygon fill="#000000" stroke="#000000" points="468.44,-381.09 476.76,-374.52 466.16,-374.47 468.44,-381.09"/>
+</g>
+<!-- proc~dorthog~2&#45;&gt;proc~ddot~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge50" class="edge">
+<title>proc~dorthog~2&#45;&gt;proc~ddot~2</title>
+<path fill="none" stroke="#000000" d="M339.17,-415.08C350.94,-419.77 364.94,-425.34 377.57,-430.37"/>
+<polygon fill="#000000" stroke="#000000" points="376.32,-433.63 386.9,-434.08 378.91,-427.13 376.32,-433.63"/>
+</g>
+<!-- proc~dorthog~2&#45;&gt;proc~dnrm2~2 -->
 <g id="proc~~dstoka~2~~CallsGraph_edge51" class="edge">
-<title>proc~datp~2&#45;&gt;proc~dvnorm~2</title>
-<path fill="none" stroke="#000000" d="M338.64,-739C350.27,-739 364.17,-739 376.77,-739"/>
-<polygon fill="#000000" stroke="#000000" points="376.99,-742.5 386.99,-739 376.99,-735.5 376.99,-742.5"/>
-</g>
-<!-- proc~dhesl~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge52" class="edge">
-<title>proc~dhesl~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M430.14,-104.26C434.21,-108.25 438.24,-112.96 441,-118 489.38,-206.52 500.01,-329.94 502.34,-379.8"/>
-<polygon fill="#000000" stroke="#000000" points="498.85,-379.95 502.74,-389.81 505.84,-379.67 498.85,-379.95"/>
+<title>proc~dorthog~2&#45;&gt;proc~dnrm2~2</title>
+<path fill="none" stroke="#000000" d="M339.17,-393.85C350.94,-389.17 364.94,-383.59 377.57,-378.57"/>
+<polygon fill="#000000" stroke="#000000" points="378.91,-381.8 386.9,-374.85 376.32,-375.3 378.91,-381.8"/>
 </g>
 <!-- proc~dhels~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dstoka~2~~CallsGraph_edge53" class="edge">
+<g id="proc~~dstoka~2~~CallsGraph_edge52" class="edge">
 <title>proc~dhels~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M441.4,-388C449.48,-389.84 458.51,-391.89 467.1,-393.84"/>
-<polygon fill="#000000" stroke="#000000" points="466.39,-397.27 476.92,-396.07 467.94,-390.44 466.39,-397.27"/>
+<path fill="none" stroke="#000000" d="M433.43,-44.58C436.33,-47.21 439.02,-50.19 441,-53.47 498.87,-149.12 503.94,-288.7 503.57,-342.34"/>
+<polygon fill="#000000" stroke="#000000" points="500.07,-342.38 503.42,-352.43 507.06,-342.48 500.07,-342.38"/>
+</g>
+<!-- proc~dhesl~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~dstoka~2~~CallsGraph_edge53" class="edge">
+<title>proc~dhesl~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M428.37,-296.62C442.66,-309.61 465.53,-330.4 482.18,-345.54"/>
+<polygon fill="#000000" stroke="#000000" points="480.04,-348.33 489.8,-352.46 484.75,-343.15 480.04,-348.33"/>
 </g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -1026,13 +1205,15 @@ METH/MITER = the method flags.  See description in driver.</p>
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a procedure to one which it calls. Dashed 
-    arrows point from an interface to procedures which implement that interface.
-    This could include the module procedures in a generic interface or the
-    implementation in a submodule of an interface in a parent module.
-    </p>
-    </div></div></div></div>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -1074,9 +1255,19 @@ METH/MITER = the method flags.  See description in driver.</p>
 </g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -1126,63 +1317,88 @@ METH/MITER = the method flags.  See description in driver.</p>
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a procedure to one which it calls. Dashed 
-    arrows point from an interface to procedures which implement that interface.
-    This could include the module procedures in a generic interface or the
-    implementation in a submodule of an interface in a parent module.
-    </p>
-    </div></div></div></div>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <br>
 
     <section class="visible-xs visible-sm hidden-md">
-      <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
-  <div id="vars-1" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-dcon~7">dcon</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-ddn~7">ddn</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-del~7">del</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-delp~7">delp</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-dfnrm">dfnrm</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-drc">drc</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-dsm~7">dsm</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-dup~7">dup</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-exdn~7">exdn</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-exsm~7">exsm</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-exup~7">exup</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-i~51">i</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-i1~13">i1</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-iredo~7">iredo</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-iret~7">iret</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-j~35">j</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-jb~8">jb</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-jok~2">jok</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-m~8">m</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-ncf~7">ncf</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-newq~7">newq</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-nslow">nslow</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-r~13">r</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-rh~7">rh</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-rhdn~7">rhdn</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-rhsm~7">rhsm</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-rhup~7">rhup</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-roc">roc</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-stiff">stiff</a>
-      <a class="list-group-item" href="../proc/dstoka~2.html#variable-told~7">told</a>
+        <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-1">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-dcon~3">dcon</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-ddn~3">ddn</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-del~3">del</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-delp~3">delp</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-dfnrm">dfnrm</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-drc">drc</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-dsm~3">dsm</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-dup~3">dup</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-exdn~3">exdn</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-exsm~3">exsm</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-exup~3">exup</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-i~11">i</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-i1~3">i1</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-iredo~3">iredo</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-iret~3">iret</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-j~8">j</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-jb~4">jb</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-jok">jok</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-m~3">m</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-ncf~3">ncf</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-newq~3">newq</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-nslow">nslow</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-r~4">r</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-rh~3">rh</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-rhdn~3">rhdn</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-rhsm~3">rhsm</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-rhup~3">rhup</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-roc">roc</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-stiff">stiff</a>
+            <a class="list-group-item" href="../proc/dstoka~2.html#variable-told~3">told</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../proc/dstoka~2.html#src">dstoka</a>
-  </div>
-</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dstoka~2.html#src">dstoka</a>
+      </div>
+    </div>
+
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
@@ -1190,161 +1406,528 @@ METH/MITER = the method flags.  See description in driver.</p>
 
     <section>    
       <h2>Variables</h2>
-    <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-dcon~7"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>dcon</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ddn~7"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ddn</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-del~7"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>del</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-delp~7"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>delp</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-dfnrm"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>dfnrm</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-drc"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>drc</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-dsm~7"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>dsm</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-dup~7"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>dup</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-exdn~7"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>exdn</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-exsm~7"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>exsm</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-exup~7"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>exup</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-i~51"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>i</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-i1~13"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>i1</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iredo~7"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>iredo</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iret~7"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>iret</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-j~35"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>j</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-jb~8"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>jb</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-jok~2"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>jok</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-m~8"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>m</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ncf~7"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ncf</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-newq~7"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>newq</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-nslow"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>nslow</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-r~13"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>r</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rh~7"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>rh</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rhdn~7"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>rhdn</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rhsm~7"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>rhsm</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rhup~7"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>rhup</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-roc"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>roc</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-stiff"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>stiff</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-told~7"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>told</strong></td><td></td><td></td><td></td>
-</tr>
-</tbody>
-</table>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Visibility</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+<th></th><th>Initial</th>        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dcon~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dcon</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ddn~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ddn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-del~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>del</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delp~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>delp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dfnrm"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dfnrm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-drc"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>drc</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dsm~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dsm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dup~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dup</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exdn~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>exdn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exsm~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>exsm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exup~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>exup</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~11"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i1~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iredo~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iredo</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iret~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iret</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~8"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jb~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jb</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jok"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jok</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ncf~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ncf</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-newq~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>newq</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nslow"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nslow</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r~4"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rh~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rh</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhdn~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhdn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhsm~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhsm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhup~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhup</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-roc"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>roc</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-stiff"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>stiff</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-told~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>told</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     </section>
     <br>
@@ -1914,50 +2497,50 @@ METH/MITER = the method flags.  See description in driver.</p>
     </div>
   </div>
 
-    <hr>    
+      <hr>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2022 
+        <div class="row">
+          <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2023 
 </p>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <p class="text-right">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2023-04-17 10:19              </p>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-          <p class="text-right">
-            Documentation generated by 
-            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-16 16:30            </p>
-        </div>
-      </div>
-      <br>
-      </div> <!-- /container -->    
+        <br>
+      </div> <!-- /container -->
     </footer>
 
     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-<!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
--->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+         ================================================== -->
+         <!-- Placed at the end of the document so the pages load faster -->
+    <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- MathJax JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
+        <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
   </body>
 </html>

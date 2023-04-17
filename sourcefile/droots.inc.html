@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
+      <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
     <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
     <link rel="icon" href="../favicon.png">
 
@@ -14,17 +14,17 @@
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    <link href="../css/user.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="../js/jquery-2.1.3.min.js"></script>
-    <script src="../js/svg-pan-zoom.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+         <script src="../js/jquery-2.1.3.min.js"></script>
+         <script src="../js/svg-pan-zoom.min.js"></script>
 
   </head>
 
@@ -46,29 +46,35 @@
           <ul class="nav navbar-nav">
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
-              data-toggle="dropdown" role="button"
-              aria-haspopup="true"
-     aria-expanded="false">Contents <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="../lists/files.html">Source Files</a></li>
-            <li><a href="../lists/modules.html">Modules</a></li>
-            <li><a href="../lists/procedures.html">Procedures</a></li>
-              
-            </ul>
-        
+                 data-toggle="dropdown" role="button"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                 Contents <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                    <li><a href="../lists/files.html">Source Files</a></li>
+                  <li><a href="../lists/modules.html">Modules</a></li>
+                  <li><a href="../lists/procedures.html">Procedures</a></li>
+              </ul>
             </li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-                                       </ul>
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
-        </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
+                <li class="visible-xs hidden-sm visible-lg">
+                  <a href="../lists/files.html">Source Files</a>
+                </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/modules.html">Modules</a>
+              </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/procedures.html">Procedures</a>
+              </li>
+          </ul>
+            <form action="../search.html" class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+              </div>
+              <!--
+                  <button type="submit" class="btn btn-default">Submit</button>
+                  -->
+            </form>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -76,53 +82,82 @@
     <div class="container">
   <div class="row">
     <h1>droots.inc
-    <small>Source File</small>
+      <small>Source File</small>
+      
     </h1>
-    <div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title=" 0.5% of total for source files.">132 statements</a>
-     </li> 
-    <li><i class="fa fa-code"></i><a href="../src/droots.inc"> Source File</a></li>
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-     <li class="active">droots.inc</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="row" id="info-bar">
+    <div class="col-lg-12">
+      <div class="well well-sm">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+          <li id="statements"><i class="fa fa-list-ol"></i>
+            <a data-toggle="tooltip"
+               data-placement="bottom" data-html="true"
+               title=" 0.5% of total for source files.">132 statements</a>
+          </li>
+
+            <li id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/droots.inc"> Source File</a>
+            </li>
+        </ul>
+        <ol class="breadcrumb in-well text-right">
+          <li class="active">droots.inc</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 
   </div>
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    <div id="sidebar">
-  <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
-  <div class="list-group">
-    <div id="subs-0" class="panel-collapse collapse">
-      <a class="list-group-item" href="../proc/droots~2.html">droots</a>
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#subs-0">Subroutines</a>
+        </h3>
+      </div>
+      <div id="subs-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/droots~2.html">droots</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../sourcefile/droots.inc.html#src">droots.inc</a>
-  </div>
-</div>
 
-</div>
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../sourcefile/droots.inc.html#src">droots.inc</a>
+      </div>
+    </div>
+
+
+  </div>
 
     </div>
     <div class="col-md-9" id='text'>
@@ -130,22 +165,45 @@
       <br>
 
     <section class="visible-xs visible-sm hidden-md">
-      <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
-  <div class="list-group">
-    <div id="subs-1" class="panel-collapse collapse">
-      <a class="list-group-item" href="../proc/droots~2.html">droots</a>
+        <h3>Contents</h3>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#subs-1">Subroutines</a>
+        </h3>
+      </div>
+      <div id="subs-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/droots~2.html">droots</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../sourcefile/droots.inc.html#src">droots.inc</a>
-  </div>
-</div>
+
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../sourcefile/droots.inc.html#src">droots.inc</a>
+      </div>
+    </div>
+
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
@@ -298,13 +356,13 @@
 <a id="ln-144" name="ln-144" href="#ln-144"></a><span class="w">   </span><span class="c">!  Sign change between X0 and X2, so replace X1 with X2. ----------------</span>
 <a id="ln-145" name="ln-145" href="#ln-145"></a><span class="w">         </span><span class="n">X1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">x2</span><span class="w"></span>
 <a id="ln-146" name="ln-146" href="#ln-146"></a><span class="w">         </span><span class="c">!X!call dcopy(Ng,Gx,1,G1,1)</span>
-<a id="ln-147" name="ln-147" href="#ln-147"></a><span class="w">         </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"></span>
+<a id="ln-147" name="ln-147" href="#ln-147"></a><span class="w">         </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="c">!X!</span>
 <a id="ln-148" name="ln-148" href="#ln-148"></a><span class="w">         </span><span class="n">dlsr</span><span class="p">%</span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 <a id="ln-149" name="ln-149" href="#ln-149"></a><span class="w">         </span><span class="n">xroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
 <a id="ln-150" name="ln-150" href="#ln-150"></a><span class="w">      </span><span class="n">elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">not</span><span class="p">.</span><span class="n">zroot</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"></span>
 <a id="ln-151" name="ln-151" href="#ln-151"></a><span class="w">   </span><span class="c">!  No sign change between X0 and X2.  Replace X0 with X2. ---------------</span>
 <a id="ln-152" name="ln-152" href="#ln-152"></a><span class="w">         </span><span class="c">!X!call dcopy(Ng,Gx,1,G0,1)</span>
-<a id="ln-153" name="ln-153" href="#ln-153"></a><span class="w">         </span><span class="n">G0</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"></span>
+<a id="ln-153" name="ln-153" href="#ln-153"></a><span class="w">         </span><span class="n">G0</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="c">!X!</span>
 <a id="ln-154" name="ln-154" href="#ln-154"></a><span class="w">         </span><span class="n">X0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">x2</span><span class="w"></span>
 <a id="ln-155" name="ln-155" href="#ln-155"></a><span class="w">         </span><span class="n">dlsr</span><span class="p">%</span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 <a id="ln-156" name="ln-156" href="#ln-156"></a><span class="w">         </span><span class="n">xroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span><span class="w"></span>
@@ -312,7 +370,7 @@
 <a id="ln-158" name="ln-158" href="#ln-158"></a><span class="w">   </span><span class="c">!  Zero value at X2 and no sign change in (X0,X2), so X2 is a root. -----</span>
 <a id="ln-159" name="ln-159" href="#ln-159"></a><span class="w">         </span><span class="n">X1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">x2</span><span class="w"></span>
 <a id="ln-160" name="ln-160" href="#ln-160"></a><span class="w">         </span><span class="c">!X!call dcopy(Ng,Gx,1,G1,1)</span>
-<a id="ln-161" name="ln-161" href="#ln-161"></a><span class="w">         </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"></span>
+<a id="ln-161" name="ln-161" href="#ln-161"></a><span class="w">         </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="c">!X!</span>
 <a id="ln-162" name="ln-162" href="#ln-162"></a><span class="w">         </span><span class="n">xroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"></span>
 <a id="ln-163" name="ln-163" href="#ln-163"></a><span class="w">      </span><span class="k">endif</span>
 <a id="ln-164" name="ln-164" href="#ln-164"></a><span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">X1</span><span class="o">-</span><span class="n">X0</span><span class="p">)</span><span class="o">&lt;=</span><span class="n">Hmin</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">xroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span><span class="w"></span>
@@ -346,7 +404,7 @@
 <a id="ln-192" name="ln-192" href="#ln-192"></a><span class="w">            </span><span class="c">!  Zero value at X1 and no sign change in (X0,X1).  Return JFLAG = 3. ---</span>
 <a id="ln-193" name="ln-193" href="#ln-193"></a><span class="w">            </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X1</span><span class="w"></span>
 <a id="ln-194" name="ln-194" href="#ln-194"></a><span class="w">            </span><span class="c">!X!call dcopy(Ng,G1,1,Gx,1)</span>
-<a id="ln-195" name="ln-195" href="#ln-195"></a><span class="w">            </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"></span>
+<a id="ln-195" name="ln-195" href="#ln-195"></a><span class="w">            </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="c">!X!</span>
 <a id="ln-196" name="ln-196" href="#ln-196"></a><span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ng</span><span class="w"></span>
 <a id="ln-197" name="ln-197" href="#ln-197"></a><span class="w">               </span><span class="n">Jroot</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 <a id="ln-198" name="ln-198" href="#ln-198"></a><span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">G1</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">&lt;=</span><span class="n">zero</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Jroot</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
@@ -357,7 +415,7 @@
 <a id="ln-203" name="ln-203" href="#ln-203"></a><span class="w">   </span><span class="c">!</span>
 <a id="ln-204" name="ln-204" href="#ln-204"></a><span class="w">   </span><span class="c">!  No sign changes in this interval.  Set X = X1, return JFLAG = 4. -----</span>
 <a id="ln-205" name="ln-205" href="#ln-205"></a><span class="w">         </span><span class="c">!X!call dcopy(Ng,G1,1,Gx,1)</span>
-<a id="ln-206" name="ln-206" href="#ln-206"></a><span class="w">         </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"></span>
+<a id="ln-206" name="ln-206" href="#ln-206"></a><span class="w">         </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="c">!X!</span>
 <a id="ln-207" name="ln-207" href="#ln-207"></a><span class="w">         </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X1</span><span class="w"></span>
 <a id="ln-208" name="ln-208" href="#ln-208"></a><span class="w">         </span><span class="n">Jflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span><span class="w"></span>
 <a id="ln-209" name="ln-209" href="#ln-209"></a><span class="w">         </span><span class="k">return</span>
@@ -376,7 +434,7 @@
 <a id="ln-222" name="ln-222" href="#ln-222"></a><span class="w">      </span><span class="n">Jflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="w"></span>
 <a id="ln-223" name="ln-223" href="#ln-223"></a><span class="w">      </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X1</span><span class="w"></span>
 <a id="ln-224" name="ln-224" href="#ln-224"></a><span class="w">      </span><span class="c">!X!call dcopy(Ng,G1,1,Gx,1)</span>
-<a id="ln-225" name="ln-225" href="#ln-225"></a><span class="w">      </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"></span>
+<a id="ln-225" name="ln-225" href="#ln-225"></a><span class="w">      </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="c">!X!</span>
 <a id="ln-226" name="ln-226" href="#ln-226"></a><span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ng</span><span class="w"></span>
 <a id="ln-227" name="ln-227" href="#ln-227"></a><span class="w">         </span><span class="n">Jroot</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
 <a id="ln-228" name="ln-228" href="#ln-228"></a><span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">G1</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">&gt;</span><span class="n">zero</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
@@ -419,50 +477,50 @@
     </div>
   </div>
 
-    <hr>    
+      <hr>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2022 
+        <div class="row">
+          <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2023 
 </p>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <p class="text-right">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2023-04-17 10:19              </p>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-          <p class="text-right">
-            Documentation generated by 
-            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-16 16:30            </p>
-        </div>
-      </div>
-      <br>
-      </div> <!-- /container -->    
+        <br>
+      </div> <!-- /container -->
     </footer>
 
     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-<!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
--->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+         ================================================== -->
+         <!-- Placed at the end of the document so the pages load faster -->
+    <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- MathJax JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
+        <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
   </body>
 </html>

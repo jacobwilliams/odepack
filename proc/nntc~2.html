@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
+      <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
     <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
     <link rel="icon" href="../favicon.png">
 
@@ -14,17 +14,17 @@
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    <link href="../css/user.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="../js/jquery-2.1.3.min.js"></script>
-    <script src="../js/svg-pan-zoom.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+         <script src="../js/jquery-2.1.3.min.js"></script>
+         <script src="../js/svg-pan-zoom.min.js"></script>
 
   </head>
 
@@ -46,29 +46,35 @@
           <ul class="nav navbar-nav">
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
-              data-toggle="dropdown" role="button"
-              aria-haspopup="true"
-     aria-expanded="false">Contents <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="../lists/files.html">Source Files</a></li>
-            <li><a href="../lists/modules.html">Modules</a></li>
-            <li><a href="../lists/procedures.html">Procedures</a></li>
-              
-            </ul>
-        
+                 data-toggle="dropdown" role="button"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                 Contents <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                    <li><a href="../lists/files.html">Source Files</a></li>
+                  <li><a href="../lists/modules.html">Modules</a></li>
+                  <li><a href="../lists/procedures.html">Procedures</a></li>
+              </ul>
             </li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-                                       </ul>
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
-        </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
+                <li class="visible-xs hidden-sm visible-lg">
+                  <a href="../lists/files.html">Source Files</a>
+                </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/modules.html">Modules</a>
+              </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/procedures.html">Procedures</a>
+              </li>
+          </ul>
+            <form action="../search.html" class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+              </div>
+              <!--
+                  <button type="submit" class="btn btn-default">Submit</button>
+                  -->
+            </form>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -77,67 +83,97 @@
   <div class="row">
     <h1>nntc
       <small>Subroutine</small>
+      
     </h1>
-    <div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title=" 0.2% of total for procedures.">48 statements</a>
-     </li> 
-    <li><i class="fa fa-code"></i><a href="../src/nntc.inc"> Source File</a></li>
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-     <li><a href='../sourcefile/nntc.inc.html'>nntc.inc</a></li>
-     <li class="active">nntc</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="row" id="info-bar">
+    <div class="col-lg-12">
+      <div class="well well-sm">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+          <li id="statements"><i class="fa fa-list-ol"></i>
+            <a data-toggle="tooltip"
+               data-placement="bottom" data-html="true"
+               title=" 0.2% of total for procedures.">48 statements</a>
+          </li>
+
+            <li id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/nntc.inc"> Source File</a>
+            </li>
+        </ul>
+        <ol class="breadcrumb in-well text-right">
+              <li><a href='../sourcefile/nntc.inc.html'>nntc.inc</a></li>
+          <li class="active">nntc</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 
   </div>
   
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    <div id="sidebar">
-  <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
-  <div id="vars-0" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-i~23">i</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-j~15">j</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-jmax~4">jmax</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-jmin~4">jmin</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-k~10">k</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-ml~4">ml</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-mu~4">mu</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-sum~4">sum</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-tmpk~2">tmpk</a>
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-0">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-i~30">i</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-j~20">j</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-jmax~6">jmax</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-jmin~6">jmin</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-k~13">k</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-ml~2">ml</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-mu~2">mu</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-sum~3">sum</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-tmpk~2">tmpk</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../proc/nntc~2.html#src">nntc</a>
-  </div>
-</div>
 
-</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/nntc~2.html#src">nntc</a>
+      </div>
+    </div>
+
+
+  </div>
 
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>subroutine nntc(N, R, C, Il, Jl, Ijl, L, D, Iu, Ju, Iju, U, Z, B, Tmp)</h2>
+    <h2> subroutine nntc(N, R, C, Il, Jl, Ijl, L, D, Iu, Ju, Iju, U, Z, B, Tmp)  
+</h2>
     
 
     <h3 id="subroutine-nntc">subroutine nntc</h3>
@@ -160,101 +196,243 @@
       u or l  to be used.</p>
 
     <h3>Arguments</h3>
-      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-n~10"></span>integer,</td>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~15"></span>
+              integer,
+            </td>
 <td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>N</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-r~3"></span>integer,</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r~7"></span>
+              integer,
+            </td>
 <td>intent(in),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>R</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-c~2"></span>integer,</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>R</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c~5"></span>
+              integer,
+            </td>
 <td>intent(in),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>C</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-il~3"></span>integer,</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>C</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-il~3"></span>
+              integer,
+            </td>
 <td>intent(in),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Il</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-jl~3"></span>integer,</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Il</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jl~3"></span>
+              integer,
+            </td>
 <td>intent(in),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Jl</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ijl~3"></span>integer,</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Jl</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ijl~3"></span>
+              integer,
+            </td>
 <td>intent(in),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Ijl</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-l~4"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Ijl</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l~4"></span>
+              real(kind=dp),
+            </td>
 <td>intent(in),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>L</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-d~2"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>L</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d~2"></span>
+              real(kind=dp),
+            </td>
 <td>intent(in),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>D</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iu~3"></span>integer,</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>D</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iu~3"></span>
+              integer,
+            </td>
 <td>intent(in),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Iu</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ju~3"></span>integer,</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Iu</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ju~3"></span>
+              integer,
+            </td>
 <td>intent(in),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Ju</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iju~3"></span>integer,</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Ju</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iju~3"></span>
+              integer,
+            </td>
 <td>intent(in),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Iju</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-u~2"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Iju</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-u~2"></span>
+              real(kind=dp),
+            </td>
 <td>intent(in),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>U</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-z~2"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>U</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-z~5"></span>
+              real(kind=dp),
+            </td>
 <td>intent(out),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Z</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-b~5"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Z</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~7"></span>
+              real(kind=dp),
+            </td>
 <td>intent(in),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>B</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-tmp~2"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>B</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tmp~2"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Tmp</strong></td><td></td>
-</tr>
-</tbody>
-</table>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Tmp</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     <br>
     <div class="panel panel-default">
@@ -316,7 +494,7 @@
 </g>
 </g>
 <!-- proc~dprjis~2&#45;&gt;proc~cdrv~2 -->
-<g id="proc~~nntc~2~~CalledByGraph_edge4" class="edge">
+<g id="proc~~nntc~2~~CalledByGraph_edge3" class="edge">
 <title>proc~dprjis~2&#45;&gt;proc~cdrv~2</title>
 <path fill="none" stroke="#000000" d="M144.4,-54C152.39,-54 161.31,-54 169.82,-54"/>
 <polygon fill="#000000" stroke="#000000" points="169.92,-57.5 179.92,-54 169.92,-50.5 169.92,-57.5"/>
@@ -331,7 +509,7 @@
 </g>
 </g>
 <!-- proc~dsolss~2&#45;&gt;proc~cdrv~2 -->
-<g id="proc~~nntc~2~~CalledByGraph_edge3" class="edge">
+<g id="proc~~nntc~2~~CalledByGraph_edge4" class="edge">
 <title>proc~dsolss~2&#45;&gt;proc~cdrv~2</title>
 <path fill="none" stroke="#000000" d="M143.45,-24.15C152.21,-28.33 162.17,-33.08 171.52,-37.54"/>
 <polygon fill="#000000" stroke="#000000" points="170.07,-40.73 180.6,-41.88 173.09,-34.41 170.07,-40.73"/>
@@ -353,9 +531,19 @@
 </g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -405,42 +593,67 @@
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a procedure to one which it calls. Dashed 
-    arrows point from an interface to procedures which implement that interface.
-    This could include the module procedures in a generic interface or the
-    implementation in a submodule of an interface in a parent module.
-    </p>
-    </div></div></div></div>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <br>
 
     <section class="visible-xs visible-sm hidden-md">
-      <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
-  <div id="vars-1" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-i~23">i</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-j~15">j</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-jmax~4">jmax</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-jmin~4">jmin</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-k~10">k</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-ml~4">ml</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-mu~4">mu</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-sum~4">sum</a>
-      <a class="list-group-item" href="../proc/nntc~2.html#variable-tmpk~2">tmpk</a>
+        <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-1">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-i~30">i</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-j~20">j</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-jmax~6">jmax</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-jmin~6">jmin</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-k~13">k</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-ml~2">ml</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-mu~2">mu</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-sum~3">sum</a>
+            <a class="list-group-item" href="../proc/nntc~2.html#variable-tmpk~2">tmpk</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../proc/nntc~2.html#src">nntc</a>
-  </div>
-</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/nntc~2.html#src">nntc</a>
+      </div>
+    </div>
+
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
@@ -448,56 +661,171 @@
 
     <section>    
       <h2>Variables</h2>
-    <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-i~23"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>i</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-j~15"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>j</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-jmax~4"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>jmax</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-jmin~4"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>jmin</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-k~10"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>k</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ml~4"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ml</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-mu~4"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>mu</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-sum~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>sum</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-tmpk~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>tmpk</strong></td><td></td><td></td><td></td>
-</tr>
-</tbody>
-</table>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Visibility</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+<th></th><th>Initial</th>        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~30"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~20"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jmax~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jmin~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jmin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~13"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ml~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ml</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mu~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mu</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sum~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>sum</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tmpk~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tmpk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     </section>
     <br>
@@ -574,50 +902,50 @@
     </div>
   </div>
 
-    <hr>    
+      <hr>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2022 
+        <div class="row">
+          <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2023 
 </p>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <p class="text-right">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2023-04-17 10:19              </p>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-          <p class="text-right">
-            Documentation generated by 
-            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-16 16:30            </p>
-        </div>
-      </div>
-      <br>
-      </div> <!-- /container -->    
+        <br>
+      </div> <!-- /container -->
     </footer>
 
     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-<!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
--->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+         ================================================== -->
+         <!-- Placed at the end of the document so the pages load faster -->
+    <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- MathJax JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
+        <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
   </body>
 </html>

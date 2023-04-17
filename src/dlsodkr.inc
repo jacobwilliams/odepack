@@ -1660,7 +1660,8 @@ else
                   if ( Lrw>=lyhnew-1+lenyh ) then
                      i1 = 1
                      if ( lyhnew>dls1%lyh ) i1 = -1
-                     call dcopy(lenyh,Rwork(dls1%lyh),i1,Rwork(lyhnew),i1)
+                     !X!call dcopy(lenyh,Rwork(dls1%lyh),i1,Rwork(lyhnew),i1)
+                     Rwork(lyhnew:lyhnew+lenyh-1:i1)=Rwork(dls1%lyh:dls1%lyh+lenyh-1:i1) !X!
                      dls1%lyh = lyhnew
                   endif
                endif

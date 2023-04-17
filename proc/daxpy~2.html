@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
+      <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
     <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
     <link rel="icon" href="../favicon.png">
 
@@ -14,17 +14,17 @@
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    <link href="../css/user.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="../js/jquery-2.1.3.min.js"></script>
-    <script src="../js/svg-pan-zoom.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+         <script src="../js/jquery-2.1.3.min.js"></script>
+         <script src="../js/svg-pan-zoom.min.js"></script>
 
   </head>
 
@@ -46,29 +46,35 @@
           <ul class="nav navbar-nav">
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
-              data-toggle="dropdown" role="button"
-              aria-haspopup="true"
-     aria-expanded="false">Contents <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="../lists/files.html">Source Files</a></li>
-            <li><a href="../lists/modules.html">Modules</a></li>
-            <li><a href="../lists/procedures.html">Procedures</a></li>
-              
-            </ul>
-        
+                 data-toggle="dropdown" role="button"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                 Contents <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                    <li><a href="../lists/files.html">Source Files</a></li>
+                  <li><a href="../lists/modules.html">Modules</a></li>
+                  <li><a href="../lists/procedures.html">Procedures</a></li>
+              </ul>
             </li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-                                       </ul>
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
-        </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
+                <li class="visible-xs hidden-sm visible-lg">
+                  <a href="../lists/files.html">Source Files</a>
+                </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/modules.html">Modules</a>
+              </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/procedures.html">Procedures</a>
+              </li>
+          </ul>
+            <form action="../search.html" class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+              </div>
+              <!--
+                  <button type="submit" class="btn btn-default">Submit</button>
+                  -->
+            </form>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -77,64 +83,94 @@
   <div class="row">
     <h1>daxpy
       <small>Subroutine</small>
+      
     </h1>
-    <div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title=" 0.2% of total for procedures.">45 statements</a>
-     </li> 
-    <li><i class="fa fa-code"></i><a href="../src/daxpy.inc"> Source File</a></li>
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-     <li><a href='../sourcefile/daxpy.inc.html'>daxpy.inc</a></li>
-     <li class="active">daxpy</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="row" id="info-bar">
+    <div class="col-lg-12">
+      <div class="well well-sm">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+          <li id="statements"><i class="fa fa-list-ol"></i>
+            <a data-toggle="tooltip"
+               data-placement="bottom" data-html="true"
+               title=" 0.2% of total for procedures.">45 statements</a>
+          </li>
+
+            <li id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/daxpy.inc"> Source File</a>
+            </li>
+        </ul>
+        <ol class="breadcrumb in-well text-right">
+              <li><a href='../sourcefile/daxpy.inc.html'>daxpy.inc</a></li>
+          <li class="active">daxpy</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 
   </div>
   
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    <div id="sidebar">
-  <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
-  <div id="vars-0" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/daxpy~2.html#variable-i~59">i</a>
-      <a class="list-group-item" href="../proc/daxpy~2.html#variable-ix~2">ix</a>
-      <a class="list-group-item" href="../proc/daxpy~2.html#variable-iy">iy</a>
-      <a class="list-group-item" href="../proc/daxpy~2.html#variable-m~12">m</a>
-      <a class="list-group-item" href="../proc/daxpy~2.html#variable-mp1~2">mp1</a>
-      <a class="list-group-item" href="../proc/daxpy~2.html#variable-ns">ns</a>
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-0">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/daxpy~2.html#variable-i~69">i</a>
+            <a class="list-group-item" href="../proc/daxpy~2.html#variable-ix~4">ix</a>
+            <a class="list-group-item" href="../proc/daxpy~2.html#variable-iy~2">iy</a>
+            <a class="list-group-item" href="../proc/daxpy~2.html#variable-m~12">m</a>
+            <a class="list-group-item" href="../proc/daxpy~2.html#variable-mp1~3">mp1</a>
+            <a class="list-group-item" href="../proc/daxpy~2.html#variable-ns~2">ns</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../proc/daxpy~2.html#src">daxpy</a>
-  </div>
-</div>
 
-</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/daxpy~2.html#src">daxpy</a>
+      </div>
+    </div>
+
+
+  </div>
 
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>subroutine daxpy(N, Da, Dx, Incx, Dy, Incy)</h2>
+    <h2> subroutine daxpy(N, Da, Dx, Incx, Dy, Incy)  
+</h2>
     
 
     <h3 id="name">NAME</h3>
@@ -199,47 +235,108 @@ integer,intent(in)          :: Incy
    Software 5, 3 (September 1979), pp. 308-323.</p>
 
     <h3>Arguments</h3>
-      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-n~33"></span>integer,</td>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~33"></span>
+              integer,
+            </td>
 <td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>N</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-da~2"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-da~2"></span>
+              real(kind=dp),
+            </td>
 <td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Da</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-dx~2"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Da</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dx~4"></span>
+              real(kind=dp),
+            </td>
 <td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Dx</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-incx~2"></span>integer,</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Dx</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-incx~4"></span>
+              integer,
+            </td>
 <td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Incx</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-dy"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Incx</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dy~2"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Dy</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-incy"></span>integer,</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Dy</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-incy~2"></span>
+              integer,
+            </td>
 <td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Incy</strong></td><td></td>
-</tr>
-</tbody>
-</table>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Incy</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     <br>
     <div class="panel panel-default">
@@ -253,619 +350,629 @@ integer,intent(in)          :: Incy
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~daxpy~2~~CalledByGraph Pages: 1 -->
-<svg id="procdaxpy2CalledByGraph" width="630pt" height="677pt"
- viewBox="0.00 0.00 630.00 677.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~daxpy~2~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 673)">
+<svg id="procdaxpy2CalledByGraph" width="630pt" height="658pt"
+ viewBox="0.00 0.00 630.00 657.95" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~daxpy~2~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 653.95)">
 <title>proc~~daxpy~2~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-673 626,-673 626,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-653.95 626,-653.95 626,4 -4,4"/>
 <!-- proc~daxpy~2 -->
 <g id="proc~~daxpy~2~~CalledByGraph_node1" class="node">
 <title>proc~daxpy~2</title>
-<polygon fill="none" stroke="black" points="622,-244 568,-244 568,-220 622,-220 622,-244"/>
-<text text-anchor="middle" x="595" y="-229.6" font-family="Helvetica,sans-Serif" font-size="10.50">daxpy</text>
-</g>
-<!-- proc~dgefa~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node2" class="node">
-<title>proc~dgefa~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node2"><a xlink:href=".././proc/dgefa~2.html" xlink:title="dgefa">
-<polygon fill="#d9534f" stroke="#d9534f" points="532,-451 478,-451 478,-427 532,-427 532,-451"/>
-<text text-anchor="middle" x="505" y="-436.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgefa</text>
-</a>
-</g>
-</g>
-<!-- proc~dgefa~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge1" class="edge">
-<title>proc~dgefa~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M514.93,-426.81C520.33,-419.1 527.09,-408.77 532,-399 557.09,-349.1 577.63,-286.5 587.56,-253.95"/>
-<polygon fill="#000000" stroke="#000000" points="590.99,-254.71 590.51,-244.12 584.28,-252.69 590.99,-254.71"/>
-</g>
-<!-- proc~dpcg~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node3" class="node">
-<title>proc~dpcg~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node3"><a xlink:href=".././proc/dpcg~2.html" xlink:title="dpcg">
-<polygon fill="#d9534f" stroke="#d9534f" points="532,-264 478,-264 478,-240 532,-240 532,-264"/>
-<text text-anchor="middle" x="505" y="-249.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dpcg</text>
-</a>
-</g>
-</g>
-<!-- proc~dpcg~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge5" class="edge">
-<title>proc~dpcg~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M532.4,-246C540.48,-244.16 549.51,-242.11 558.1,-240.16"/>
-<polygon fill="#000000" stroke="#000000" points="558.94,-243.56 567.92,-237.93 557.39,-236.73 558.94,-243.56"/>
-</g>
-<!-- proc~dorthog~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node4" class="node">
-<title>proc~dorthog~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node4"><a xlink:href=".././proc/dorthog~2.html" xlink:title="dorthog">
-<polygon fill="#d9534f" stroke="#d9534f" points="430,-143 375,-143 375,-119 430,-119 430,-143"/>
-<text text-anchor="middle" x="402.5" y="-128.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dorthog</text>
-</a>
-</g>
-</g>
-<!-- proc~dorthog~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge2" class="edge">
-<title>proc~dorthog~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M430.03,-129.55C457.45,-129.27 500.55,-132.32 532,-151 555.6,-165.02 573.35,-191.75 583.68,-210.66"/>
-<polygon fill="#000000" stroke="#000000" points="580.68,-212.48 588.4,-219.73 586.89,-209.25 580.68,-212.48"/>
-</g>
-<!-- proc~dhels~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node5" class="node">
-<title>proc~dhels~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node5"><a xlink:href=".././proc/dhels~2.html" xlink:title="dhels">
-<polygon fill="#d9534f" stroke="#d9534f" points="532,-184 478,-184 478,-160 532,-160 532,-184"/>
-<text text-anchor="middle" x="505" y="-169.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhels</text>
-</a>
-</g>
-</g>
-<!-- proc~dhels~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge3" class="edge">
-<title>proc~dhels~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M523.81,-184.14C536.45,-192.76 553.63,-204.48 567.83,-214.16"/>
-<polygon fill="#000000" stroke="#000000" points="565.98,-217.13 576.22,-219.88 569.93,-211.35 565.98,-217.13"/>
+<polygon fill="none" stroke="black" points="622,-448 568,-448 568,-424 622,-424 622,-448"/>
+<text text-anchor="middle" x="595" y="-433.6" font-family="Helvetica,sans-Serif" font-size="10.50">daxpy</text>
 </g>
 <!-- none~approximate -->
-<g id="proc~~daxpy~2~~CalledByGraph_node6" class="node">
+<g id="proc~~daxpy~2~~CalledByGraph_node2" class="node">
 <title>none~approximate</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="442,-185 363,-185 363,-161 442,-161 442,-185"/>
-<text text-anchor="middle" x="402.5" y="-170.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">approximate</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="442,-630 363,-630 363,-606 442,-606 442,-630"/>
+<text text-anchor="middle" x="402.5" y="-615.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">approximate</text>
 </g>
 <!-- none~approximate&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge4" class="edge">
+<g id="proc~~daxpy~2~~CalledByGraph_edge1" class="edge">
 <title>none~approximate&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M442.05,-184.94C475.94,-195.44 524.9,-210.6 558,-220.85"/>
-<polygon fill="#000000" stroke="#000000" points="557.15,-224.25 567.74,-223.87 559.22,-217.56 557.15,-224.25"/>
+<path fill="none" stroke="#000000" d="M424.88,-630.03C452.4,-643.72 500.41,-661.35 532,-638 589.28,-595.67 595.34,-501.36 594.92,-458.26"/>
+<polygon fill="#000000" stroke="#000000" points="598.41,-457.93 594.69,-448.01 591.42,-458.09 598.41,-457.93"/>
+</g>
+<!-- proc~dhels~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node9" class="node">
+<title>proc~dhels~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node9"><a xlink:href=".././proc/dhels~2.html" xlink:title="dhels">
+<polygon fill="#d9534f" stroke="#d9534f" points="532,-629 478,-629 478,-605 532,-605 532,-629"/>
+<text text-anchor="middle" x="505" y="-614.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhels</text>
+</a>
+</g>
 </g>
 <!-- none~approximate&#45;&gt;proc~dhels~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge21" class="edge">
+<g id="proc~~daxpy~2~~CalledByGraph_edge31" class="edge">
 <title>none~approximate&#45;&gt;proc~dhels~2</title>
-<path fill="none" stroke="#000000" d="M442.07,-172.62C450.48,-172.53 459.34,-172.44 467.66,-172.36"/>
-<polygon fill="#000000" stroke="#000000" points="467.86,-175.86 477.82,-172.26 467.79,-168.86 467.86,-175.86"/>
-</g>
-<!-- proc~dhesl~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node7" class="node">
-<title>proc~dhesl~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node7"><a xlink:href=".././proc/dhesl~2.html" xlink:title="dhesl">
-<polygon fill="#d9534f" stroke="#d9534f" points="532,-104 478,-104 478,-80 532,-80 532,-104"/>
-<text text-anchor="middle" x="505" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhesl</text>
-</a>
-</g>
-</g>
-<!-- proc~dhesl~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge6" class="edge">
-<title>proc~dhesl~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M519.47,-104.02C523.76,-108.21 528.33,-113.09 532,-118 554.3,-147.85 573.66,-186.7 584.58,-210.48"/>
-<polygon fill="#000000" stroke="#000000" points="581.42,-211.99 588.72,-219.67 587.8,-209.12 581.42,-211.99"/>
+<path fill="none" stroke="#000000" d="M442.07,-617.62C450.48,-617.53 459.34,-617.44 467.66,-617.36"/>
+<polygon fill="#000000" stroke="#000000" points="467.86,-620.86 477.82,-617.26 467.79,-613.86 467.86,-620.86"/>
 </g>
 <!-- none~approximate~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node8" class="node">
+<g id="proc~~daxpy~2~~CalledByGraph_node3" class="node">
 <title>none~approximate~2</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="442,-101 363,-101 363,-77 442,-77 442,-101"/>
-<text text-anchor="middle" x="402.5" y="-86.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">approximate</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="442,-546 363,-546 363,-522 442,-522 442,-546"/>
+<text text-anchor="middle" x="402.5" y="-531.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">approximate</text>
 </g>
 <!-- none~approximate~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge7" class="edge">
+<g id="proc~~daxpy~2~~CalledByGraph_edge2" class="edge">
 <title>none~approximate~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M426.57,-76.93C454.12,-64.38 500.43,-49.33 532,-71 578.1,-102.65 589.93,-173.76 592.96,-209.94"/>
-<polygon fill="#000000" stroke="#000000" points="589.48,-210.23 593.65,-219.97 596.46,-209.75 589.48,-210.23"/>
+<path fill="none" stroke="#000000" d="M442.25,-537.63C469.14,-538.36 504.86,-535.6 532,-520 556.73,-505.78 574.49,-477.29 584.5,-457.45"/>
+<polygon fill="#000000" stroke="#000000" points="587.75,-458.78 588.91,-448.25 581.43,-455.76 587.75,-458.78"/>
 </g>
-<!-- none~approximate~2&#45;&gt;proc~dhesl~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge23" class="edge">
-<title>none~approximate~2&#45;&gt;proc~dhesl~2</title>
-<path fill="none" stroke="#000000" d="M442.07,-90.15C450.48,-90.4 459.34,-90.67 467.66,-90.92"/>
-<polygon fill="#000000" stroke="#000000" points="467.72,-94.42 477.82,-91.22 467.93,-87.42 467.72,-94.42"/>
-</g>
-<!-- proc~dgbsl~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node9" class="node">
-<title>proc~dgbsl~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node9"><a xlink:href=".././proc/dgbsl~2.html" xlink:title="dgbsl">
-<polygon fill="#d9534f" stroke="#d9534f" points="532,-390 478,-390 478,-366 532,-366 532,-390"/>
-<text text-anchor="middle" x="505" y="-375.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgbsl</text>
+<!-- proc~dhesl~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node10" class="node">
+<title>proc~dhesl~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node10"><a xlink:href=".././proc/dhesl~2.html" xlink:title="dhesl">
+<polygon fill="#d9534f" stroke="#d9534f" points="532,-511 478,-511 478,-487 532,-487 532,-511"/>
+<text text-anchor="middle" x="505" y="-496.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhesl</text>
 </a>
 </g>
 </g>
-<!-- proc~dgbsl~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge8" class="edge">
-<title>proc~dgbsl~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M523.21,-365.87C526.36,-363.17 529.46,-360.17 532,-357 557.82,-324.8 576.74,-280.09 586.5,-253.79"/>
-<polygon fill="#000000" stroke="#000000" points="589.8,-254.95 589.9,-244.36 583.21,-252.58 589.8,-254.95"/>
+<!-- none~approximate~2&#45;&gt;proc~dhesl~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge32" class="edge">
+<title>none~approximate~2&#45;&gt;proc~dhesl~2</title>
+<path fill="none" stroke="#000000" d="M438.09,-521.95C447.88,-518.54 458.56,-514.83 468.41,-511.39"/>
+<polygon fill="#000000" stroke="#000000" points="469.63,-514.68 477.92,-508.08 467.33,-508.06 469.63,-514.68"/>
 </g>
 <!-- proc~dgbfa~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node10" class="node">
+<g id="proc~~daxpy~2~~CalledByGraph_node4" class="node">
 <title>proc~dgbfa~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node10"><a xlink:href=".././proc/dgbfa~2.html" xlink:title="dgbfa">
-<polygon fill="#d9534f" stroke="#d9534f" points="532,-547 478,-547 478,-523 532,-523 532,-547"/>
-<text text-anchor="middle" x="505" y="-532.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgbfa</text>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node4"><a xlink:href=".././proc/dgbfa~2.html" xlink:title="dgbfa">
+<polygon fill="#d9534f" stroke="#d9534f" points="532,-184 478,-184 478,-160 532,-160 532,-184"/>
+<text text-anchor="middle" x="505" y="-169.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgbfa</text>
 </a>
 </g>
 </g>
 <!-- proc~dgbfa~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge9" class="edge">
+<g id="proc~~daxpy~2~~CalledByGraph_edge3" class="edge">
 <title>proc~dgbfa~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M510.49,-522.87C515.89,-508.11 525.09,-482.38 532,-460 555.12,-385.17 578.24,-295.13 588.5,-254.19"/>
-<polygon fill="#000000" stroke="#000000" points="591.91,-254.99 590.93,-244.44 585.12,-253.3 591.91,-254.99"/>
+<path fill="none" stroke="#000000" d="M515.77,-184.04C521.2,-191.22 527.7,-200.72 532,-210 564.82,-280.82 583.27,-372.43 590.45,-413.88"/>
+<polygon fill="#000000" stroke="#000000" points="587,-414.46 592.11,-423.75 593.91,-413.3 587,-414.46"/>
 </g>
-<!-- proc~dpcgs~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node11" class="node">
-<title>proc~dpcgs~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node11"><a xlink:href=".././proc/dpcgs~2.html" xlink:title="dpcgs">
-<polygon fill="#d9534f" stroke="#d9534f" points="532,-306 478,-306 478,-282 532,-282 532,-306"/>
-<text text-anchor="middle" x="505" y="-291.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dpcgs</text>
+<!-- proc~dgbsl~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node5" class="node">
+<title>proc~dgbsl~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node5"><a xlink:href=".././proc/dgbsl~2.html" xlink:title="dgbsl">
+<polygon fill="#d9534f" stroke="#d9534f" points="532,-301 478,-301 478,-277 532,-277 532,-301"/>
+<text text-anchor="middle" x="505" y="-286.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgbsl</text>
 </a>
 </g>
 </g>
-<!-- proc~dpcgs~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge10" class="edge">
-<title>proc~dpcgs~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M523.39,-281.75C536.24,-272.69 553.96,-260.21 568.43,-250.01"/>
-<polygon fill="#000000" stroke="#000000" points="570.79,-252.63 576.95,-244.01 566.76,-246.91 570.79,-252.63"/>
+<!-- proc~dgbsl~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge4" class="edge">
+<title>proc~dgbsl~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M523.22,-301.12C526.37,-303.82 529.46,-306.83 532,-310 558.07,-342.62 577.01,-387.98 586.69,-414.45"/>
+<polygon fill="#000000" stroke="#000000" points="583.4,-415.66 590.05,-423.91 590,-413.31 583.4,-415.66"/>
 </g>
-<!-- proc~dhefa~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node12" class="node">
-<title>proc~dhefa~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node12"><a xlink:href=".././proc/dhefa~2.html" xlink:title="dhefa">
-<polygon fill="#d9534f" stroke="#d9534f" points="532,-24 478,-24 478,0 532,0 532,-24"/>
-<text text-anchor="middle" x="505" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhefa</text>
+<!-- proc~dgefa~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node6" class="node">
+<title>proc~dgefa~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node6"><a xlink:href=".././proc/dgefa~2.html" xlink:title="dgefa">
+<polygon fill="#d9534f" stroke="#d9534f" points="532,-243 478,-243 478,-219 532,-219 532,-243"/>
+<text text-anchor="middle" x="505" y="-228.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgefa</text>
 </a>
 </g>
 </g>
-<!-- proc~dhefa~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge11" class="edge">
-<title>proc~dhefa~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M520.58,-24.17C524.73,-28.22 528.94,-32.99 532,-38 566.5,-94.61 583.72,-172.36 590.47,-209.92"/>
-<polygon fill="#000000" stroke="#000000" points="587.02,-210.54 592.17,-219.81 593.92,-209.36 587.02,-210.54"/>
+<!-- proc~dgefa~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge5" class="edge">
+<title>proc~dgefa~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M515.75,-243.16C521.04,-250.14 527.41,-259.24 532,-268 558.08,-317.72 578.22,-380.89 587.82,-413.8"/>
+<polygon fill="#000000" stroke="#000000" points="584.55,-415.08 590.66,-423.73 591.27,-413.15 584.55,-415.08"/>
 </g>
 <!-- proc~dgesl~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node13" class="node">
+<g id="proc~~daxpy~2~~CalledByGraph_node7" class="node">
 <title>proc~dgesl~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node13"><a xlink:href=".././proc/dgesl~2.html" xlink:title="dgesl">
-<polygon fill="#d9534f" stroke="#d9534f" points="532,-348 478,-348 478,-324 532,-324 532,-348"/>
-<text text-anchor="middle" x="505" y="-333.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgesl</text>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node7"><a xlink:href=".././proc/dgesl~2.html" xlink:title="dgesl">
+<polygon fill="#d9534f" stroke="#d9534f" points="532,-343 478,-343 478,-319 532,-319 532,-343"/>
+<text text-anchor="middle" x="505" y="-328.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgesl</text>
 </a>
 </g>
 </g>
 <!-- proc~dgesl~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge12" class="edge">
+<g id="proc~~daxpy~2~~CalledByGraph_edge6" class="edge">
 <title>proc~dgesl~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M522.22,-323.94C525.59,-321.15 529.02,-318.09 532,-315 550.8,-295.47 568.96,-270.17 580.71,-252.66"/>
-<polygon fill="#000000" stroke="#000000" points="583.65,-254.56 586.24,-244.28 577.81,-250.7 583.65,-254.56"/>
+<path fill="none" stroke="#000000" d="M522.24,-343.05C525.61,-345.84 529.03,-348.9 532,-352 551,-371.85 569.24,-397.64 580.95,-415.38"/>
+<polygon fill="#000000" stroke="#000000" points="578.07,-417.37 586.45,-423.85 583.94,-413.56 578.07,-417.37"/>
 </g>
-<!-- proc~dprja~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node14" class="node">
-<title>proc~dprja~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node14"><a xlink:href=".././proc/dprja~2.html" xlink:title="dprja">
-<polygon fill="#d9534f" stroke="#d9534f" points="326,-639 272,-639 272,-615 326,-615 326,-639"/>
-<text text-anchor="middle" x="299" y="-624.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprja</text>
+<!-- proc~dhefa~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node8" class="node">
+<title>proc~dhefa~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node8"><a xlink:href=".././proc/dhefa~2.html" xlink:title="dhefa">
+<polygon fill="#d9534f" stroke="#d9534f" points="532,-469 478,-469 478,-445 532,-445 532,-469"/>
+<text text-anchor="middle" x="505" y="-454.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhefa</text>
 </a>
 </g>
 </g>
-<!-- proc~dprja~2&#45;&gt;proc~dgefa~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge13" class="edge">
-<title>proc~dprja~2&#45;&gt;proc~dgefa~2</title>
-<path fill="none" stroke="#000000" d="M326.23,-628.71C357.4,-629.31 409.29,-625.56 442,-598 447.55,-593.33 480.89,-502.74 496.26,-460.43"/>
-<polygon fill="#000000" stroke="#000000" points="499.55,-461.62 499.67,-451.03 492.97,-459.24 499.55,-461.62"/>
+<!-- proc~dhefa~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge7" class="edge">
+<title>proc~dhefa~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M532.4,-450.7C540.48,-448.77 549.51,-446.62 558.1,-444.57"/>
+<polygon fill="#000000" stroke="#000000" points="559,-447.95 567.92,-442.22 557.38,-441.14 559,-447.95"/>
+</g>
+<!-- proc~dhels~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge8" class="edge">
+<title>proc~dhels~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M520.09,-604.96C524.31,-600.85 528.7,-596.01 532,-591 560.54,-547.71 579.47,-489.23 588.28,-457.93"/>
+<polygon fill="#000000" stroke="#000000" points="591.72,-458.63 590.98,-448.06 584.97,-456.78 591.72,-458.63"/>
+</g>
+<!-- proc~dhesl~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge9" class="edge">
+<title>proc~dhesl~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M522.97,-486.85C535.99,-477.53 554.18,-464.51 568.89,-453.98"/>
+<polygon fill="#000000" stroke="#000000" points="570.99,-456.78 577.08,-448.11 566.92,-451.09 570.99,-456.78"/>
+</g>
+<!-- proc~dorthog~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node11" class="node">
+<title>proc~dorthog~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node11"><a xlink:href=".././proc/dorthog~2.html" xlink:title="dorthog">
+<polygon fill="#d9534f" stroke="#d9534f" points="430,-588 375,-588 375,-564 430,-564 430,-588"/>
+<text text-anchor="middle" x="402.5" y="-573.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dorthog</text>
+</a>
+</g>
+</g>
+<!-- proc~dorthog~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge10" class="edge">
+<title>proc~dorthog~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M430.2,-574.81C458.15,-572.33 502.06,-564.77 532,-542 560.24,-520.53 577.96,-482.19 586.91,-457.98"/>
+<polygon fill="#000000" stroke="#000000" points="590.31,-458.86 590.31,-448.26 583.7,-456.55 590.31,-458.86"/>
+</g>
+<!-- proc~dpcgs~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node12" class="node">
+<title>proc~dpcgs~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node12"><a xlink:href=".././proc/dpcgs~2.html" xlink:title="dpcgs">
+<polygon fill="#d9534f" stroke="#d9534f" points="532,-427 478,-427 478,-403 532,-403 532,-427"/>
+<text text-anchor="middle" x="505" y="-412.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dpcgs</text>
+</a>
+</g>
+</g>
+<!-- proc~dpcgs~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge11" class="edge">
+<title>proc~dpcgs~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M532.4,-421.3C540.48,-423.23 549.51,-425.38 558.1,-427.43"/>
+<polygon fill="#000000" stroke="#000000" points="557.38,-430.86 567.92,-429.78 559,-424.05 557.38,-430.86"/>
+</g>
+<!-- proc~dpcg~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node13" class="node">
+<title>proc~dpcg~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node13"><a xlink:href=".././proc/dpcg~2.html" xlink:title="dpcg">
+<polygon fill="#d9534f" stroke="#d9534f" points="532,-385 478,-385 478,-361 532,-361 532,-385"/>
+<text text-anchor="middle" x="505" y="-370.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dpcg</text>
+</a>
+</g>
+</g>
+<!-- proc~dpcg~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge12" class="edge">
+<title>proc~dpcg~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M522.97,-385.15C535.99,-394.47 554.18,-407.49 568.89,-418.02"/>
+<polygon fill="#000000" stroke="#000000" points="566.92,-420.91 577.08,-423.89 570.99,-415.22 566.92,-420.91"/>
 </g>
 <!-- none~wrapup -->
-<g id="proc~~daxpy~2~~CalledByGraph_node23" class="node">
+<g id="proc~~daxpy~2~~CalledByGraph_node14" class="node">
 <title>none~wrapup</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="429.5,-669 375.5,-669 375.5,-645 429.5,-645 429.5,-669"/>
-<text text-anchor="middle" x="402.5" y="-654.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wrapup</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="429.5,-24 375.5,-24 375.5,0 429.5,0 429.5,-24"/>
+<text text-anchor="middle" x="402.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wrapup</text>
 </g>
-<!-- proc~dprja~2&#45;&gt;none~wrapup -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge44" class="edge">
-<title>proc~dprja~2&#45;&gt;none~wrapup</title>
-<path fill="none" stroke="#000000" d="M326.14,-634.73C338.21,-638.3 352.74,-642.59 365.81,-646.45"/>
-<polygon fill="#000000" stroke="#000000" points="364.87,-649.82 375.45,-649.3 366.85,-643.11 364.87,-649.82"/>
-</g>
-<!-- proc~dprepji~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node15" class="node">
-<title>proc~dprepji~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node15"><a xlink:href=".././proc/dprepji~2.html" xlink:title="dprepji">
-<polygon fill="#d9534f" stroke="#d9534f" points="326,-579 272,-579 272,-555 326,-555 326,-579"/>
-<text text-anchor="middle" x="299" y="-564.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprepji</text>
-</a>
-</g>
-</g>
-<!-- proc~dprepji~2&#45;&gt;proc~dgefa~2 -->
+<!-- none~wrapup&#45;&gt;proc~dgbfa~2 -->
 <g id="proc~~daxpy~2~~CalledByGraph_edge15" class="edge">
-<title>proc~dprepji~2&#45;&gt;proc~dgefa~2</title>
-<path fill="none" stroke="#000000" d="M312.26,-554.99C324.43,-543.5 343.97,-526.16 363,-514 395.67,-493.12 407.86,-495.38 442,-477 453.72,-470.69 466.31,-463.13 477.06,-456.42"/>
-<polygon fill="#000000" stroke="#000000" points="479.01,-459.33 485.6,-451.03 475.27,-453.41 479.01,-459.33"/>
+<title>none~wrapup&#45;&gt;proc~dgbfa~2</title>
+<path fill="none" stroke="#000000" d="M429.61,-23.19C434.13,-25.93 438.49,-29.2 442,-33 473.61,-67.24 491.09,-120.26 498.91,-149.95"/>
+<polygon fill="#000000" stroke="#000000" points="495.54,-150.9 501.36,-159.75 502.33,-149.2 495.54,-150.9"/>
 </g>
 <!-- none~wrapup~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node25" class="node">
+<g id="proc~~daxpy~2~~CalledByGraph_node15" class="node">
 <title>none~wrapup~2</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="429.5,-589 375.5,-589 375.5,-565 429.5,-565 429.5,-589"/>
-<text text-anchor="middle" x="402.5" y="-574.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wrapup</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="429.5,-66 375.5,-66 375.5,-42 429.5,-42 429.5,-66"/>
+<text text-anchor="middle" x="402.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wrapup</text>
 </g>
-<!-- proc~dprepji~2&#45;&gt;none~wrapup~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge46" class="edge">
-<title>proc~dprepji~2&#45;&gt;none~wrapup~2</title>
-<path fill="none" stroke="#000000" d="M326.14,-569.58C338.1,-570.75 352.46,-572.17 365.42,-573.45"/>
-<polygon fill="#000000" stroke="#000000" points="365.15,-576.94 375.45,-574.43 365.84,-569.97 365.15,-576.94"/>
+<!-- none~wrapup~2&#45;&gt;proc~dgbfa~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge16" class="edge">
+<title>none~wrapup~2&#45;&gt;proc~dgbfa~2</title>
+<path fill="none" stroke="#000000" d="M424.6,-66.14C430.59,-70.13 436.87,-74.86 442,-80 463.41,-101.43 481.91,-131.25 493,-151.06"/>
+<polygon fill="#000000" stroke="#000000" points="489.96,-152.81 497.83,-159.91 496.11,-149.45 489.96,-152.81"/>
 </g>
-<!-- proc~dprepj~2 -->
+<!-- none~wrapup~4 -->
 <g id="proc~~daxpy~2~~CalledByGraph_node16" class="node">
-<title>proc~dprepj~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node16"><a xlink:href=".././proc/dprepj~2.html" xlink:title="dprepj">
-<polygon fill="#d9534f" stroke="#d9534f" points="326,-500 272,-500 272,-476 326,-476 326,-500"/>
-<text text-anchor="middle" x="299" y="-485.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprepj</text>
+<title>none~wrapup~4</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="429.5,-184 375.5,-184 375.5,-160 429.5,-160 429.5,-184"/>
+<text text-anchor="middle" x="402.5" y="-169.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wrapup</text>
+</g>
+<!-- none~wrapup~4&#45;&gt;proc~dgbfa~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge17" class="edge">
+<title>none~wrapup~4&#45;&gt;proc~dgbfa~2</title>
+<path fill="none" stroke="#000000" d="M429.64,-172C441.27,-172 455.17,-172 467.77,-172"/>
+<polygon fill="#000000" stroke="#000000" points="467.99,-175.5 477.99,-172 467.99,-168.5 467.99,-175.5"/>
+</g>
+<!-- proc~dainvg~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node17" class="node">
+<title>proc~dainvg~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node17"><a xlink:href=".././proc/dainvg~2.html" xlink:title="dainvg">
+<polygon fill="#d9534f" stroke="#d9534f" points="429.5,-264 375.5,-264 375.5,-240 429.5,-240 429.5,-264"/>
+<text text-anchor="middle" x="402.5" y="-249.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dainvg</text>
 </a>
 </g>
 </g>
-<!-- proc~dprepj~2&#45;&gt;proc~dgefa~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge14" class="edge">
-<title>proc~dprepj~2&#45;&gt;proc~dgefa~2</title>
-<path fill="none" stroke="#000000" d="M326.25,-481.69C362.36,-473.02 427.49,-457.38 468.09,-447.63"/>
-<polygon fill="#000000" stroke="#000000" points="468.94,-451.02 477.85,-445.28 467.31,-444.21 468.94,-451.02"/>
+<!-- proc~dainvg~2&#45;&gt;proc~dgbfa~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge18" class="edge">
+<title>proc~dainvg~2&#45;&gt;proc~dgbfa~2</title>
+<path fill="none" stroke="#000000" d="M418.76,-239.85C435.31,-226.68 461.92,-205.5 481,-190.31"/>
+<polygon fill="#000000" stroke="#000000" points="483.28,-192.97 488.92,-184 478.92,-187.49 483.28,-192.97"/>
 </g>
-<!-- none~wrapup~4 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node24" class="node">
-<title>none~wrapup~4</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="429.5,-547 375.5,-547 375.5,-523 429.5,-523 429.5,-547"/>
-<text text-anchor="middle" x="402.5" y="-532.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wrapup</text>
+<!-- proc~dainvg~2&#45;&gt;proc~dgbsl~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge19" class="edge">
+<title>proc~dainvg~2&#45;&gt;proc~dgbsl~2</title>
+<path fill="none" stroke="#000000" d="M429.64,-261.62C441.51,-265.99 455.72,-271.23 468.53,-275.94"/>
+<polygon fill="#000000" stroke="#000000" points="467.39,-279.25 477.99,-279.42 469.81,-272.68 467.39,-279.25"/>
 </g>
-<!-- proc~dprepj~2&#45;&gt;none~wrapup~4 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge45" class="edge">
-<title>proc~dprepj~2&#45;&gt;none~wrapup~4</title>
-<path fill="none" stroke="#000000" d="M326.14,-500.1C338.33,-505.75 353.03,-512.56 366.19,-518.65"/>
-<polygon fill="#000000" stroke="#000000" points="364.9,-521.91 375.45,-522.94 367.85,-515.56 364.9,-521.91"/>
+<!-- proc~dainvg~2&#45;&gt;proc~dgefa~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge21" class="edge">
+<title>proc~dainvg~2&#45;&gt;proc~dgefa~2</title>
+<path fill="none" stroke="#000000" d="M429.64,-246.54C441.39,-244.08 455.44,-241.15 468.15,-238.49"/>
+<polygon fill="#000000" stroke="#000000" points="468.92,-241.91 477.99,-236.44 467.48,-235.05 468.92,-241.91"/>
+</g>
+<!-- proc~dainvg~2&#45;&gt;proc~dgesl~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge26" class="edge">
+<title>proc~dainvg~2&#45;&gt;proc~dgesl~2</title>
+<path fill="none" stroke="#000000" d="M428.22,-264.05C432.95,-266.75 437.75,-269.78 442,-273 460.28,-286.87 461.05,-294.54 478,-310 478.81,-310.74 479.65,-311.49 480.5,-312.24"/>
+<polygon fill="#000000" stroke="#000000" points="478.45,-315.08 488.35,-318.86 482.96,-309.74 478.45,-315.08"/>
 </g>
 <!-- proc~ddecbt~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node17" class="node">
+<g id="proc~~daxpy~2~~CalledByGraph_node18" class="node">
 <title>proc~ddecbt~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node17"><a xlink:href=".././proc/ddecbt~2.html" xlink:title="ddecbt">
-<polygon fill="#d9534f" stroke="#d9534f" points="429.5,-387 375.5,-387 375.5,-363 429.5,-363 429.5,-387"/>
-<text text-anchor="middle" x="402.5" y="-372.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddecbt</text>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node18"><a xlink:href=".././proc/ddecbt~2.html" xlink:title="ddecbt">
+<polygon fill="#d9534f" stroke="#d9534f" points="429.5,-306 375.5,-306 375.5,-282 429.5,-282 429.5,-306"/>
+<text text-anchor="middle" x="402.5" y="-291.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddecbt</text>
 </a>
 </g>
 </g>
 <!-- proc~ddecbt~2&#45;&gt;proc~dgefa~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge16" class="edge">
+<g id="proc~~daxpy~2~~CalledByGraph_edge22" class="edge">
 <title>proc~ddecbt~2&#45;&gt;proc~dgefa~2</title>
-<path fill="none" stroke="#000000" d="M426.53,-387.04C431.68,-389.88 437.08,-392.96 442,-396 454.49,-403.71 467.92,-412.91 479.08,-420.81"/>
-<polygon fill="#000000" stroke="#000000" points="477.31,-423.85 487.48,-426.82 481.39,-418.16 477.31,-423.85"/>
+<path fill="none" stroke="#000000" d="M426.51,-281.92C431.66,-279.09 437.06,-276.01 442,-273 454.35,-265.47 467.68,-256.55 478.8,-248.88"/>
+<polygon fill="#000000" stroke="#000000" points="480.98,-251.62 487.18,-243.04 476.98,-245.88 480.98,-251.62"/>
 </g>
 <!-- proc~ddecbt~2&#45;&gt;proc~dgesl~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge36" class="edge">
-<title>proc~ddecbt~2&#45;&gt;proc~dgesl~2</title>
-<path fill="none" stroke="#000000" d="M429.64,-364.86C441.51,-360.25 455.72,-354.73 468.53,-349.76"/>
-<polygon fill="#000000" stroke="#000000" points="469.93,-352.97 477.99,-346.09 467.4,-346.45 469.93,-352.97"/>
-</g>
-<!-- proc~dsolpk~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node18" class="node">
-<title>proc~dsolpk~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node18"><a xlink:href=".././proc/dsolpk~2.html" xlink:title="dsolpk">
-<polygon fill="#d9534f" stroke="#d9534f" points="235,-205 181,-205 181,-181 235,-181 235,-205"/>
-<text text-anchor="middle" x="208" y="-190.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolpk</text>
-</a>
-</g>
-</g>
-<!-- proc~dsolpk~2&#45;&gt;proc~dpcg~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge18" class="edge">
-<title>proc~dsolpk~2&#45;&gt;proc~dpcg~2</title>
-<path fill="none" stroke="#000000" d="M235.29,-197.52C278.54,-205.05 367.35,-220.93 442,-237 450.39,-238.81 459.38,-240.89 467.84,-242.93"/>
-<polygon fill="#000000" stroke="#000000" points="467.28,-246.39 477.82,-245.35 468.93,-239.59 467.28,-246.39"/>
-</g>
-<!-- proc~dsolpk~2&#45;&gt;proc~dpcgs~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge31" class="edge">
-<title>proc~dsolpk~2&#45;&gt;proc~dpcgs~2</title>
-<path fill="none" stroke="#000000" d="M232.46,-205.08C243.9,-210.69 257.97,-217.16 271,-222 345,-249.48 367.11,-245.06 442,-270 450.67,-272.89 459.91,-276.29 468.54,-279.6"/>
-<polygon fill="#000000" stroke="#000000" points="467.37,-282.9 477.96,-283.28 469.91,-276.38 467.37,-282.9"/>
-</g>
-<!-- proc~dspigmr~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node19" class="node">
-<title>proc~dspigmr~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node19"><a xlink:href=".././proc/dspigmr~2.html" xlink:title="dspigmr">
-<polygon fill="#d9534f" stroke="#d9534f" points="327,-185 271,-185 271,-161 327,-161 327,-185"/>
-<text text-anchor="middle" x="299" y="-170.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dspigmr</text>
-</a>
-</g>
-</g>
-<!-- proc~dsolpk~2&#45;&gt;proc~dspigmr~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge41" class="edge">
-<title>proc~dsolpk~2&#45;&gt;proc~dspigmr~2</title>
-<path fill="none" stroke="#000000" d="M235.22,-187.11C243.26,-185.3 252.25,-183.28 260.87,-181.34"/>
-<polygon fill="#000000" stroke="#000000" points="261.74,-184.74 270.73,-179.13 260.21,-177.91 261.74,-184.74"/>
-</g>
-<!-- proc~dspiom~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node20" class="node">
-<title>proc~dspiom~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node20"><a xlink:href=".././proc/dspiom~2.html" xlink:title="dspiom">
-<polygon fill="#d9534f" stroke="#d9534f" points="326,-122 272,-122 272,-98 326,-98 326,-122"/>
-<text text-anchor="middle" x="299" y="-107.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dspiom</text>
-</a>
-</g>
-</g>
-<!-- proc~dsolpk~2&#45;&gt;proc~dspiom~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge42" class="edge">
-<title>proc~dsolpk~2&#45;&gt;proc~dspiom~2</title>
-<path fill="none" stroke="#000000" d="M222.13,-180.75C236.68,-167.19 260.31,-145.14 277.34,-129.26"/>
-<polygon fill="#000000" stroke="#000000" points="280.18,-131.41 285.1,-122.03 275.4,-126.29 280.18,-131.41"/>
-</g>
-<!-- proc~dspigmr~2&#45;&gt;proc~dorthog~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge19" class="edge">
-<title>proc~dspigmr~2&#45;&gt;proc~dorthog~2</title>
-<path fill="none" stroke="#000000" d="M327.2,-161.74C338.99,-156.87 352.96,-151.08 365.59,-145.86"/>
-<polygon fill="#000000" stroke="#000000" points="367.03,-149.05 374.93,-142 364.35,-142.59 367.03,-149.05"/>
-</g>
-<!-- proc~dspigmr~2&#45;&gt;none~approximate -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge22" class="edge">
-<title>proc~dspigmr~2&#45;&gt;none~approximate</title>
-<path fill="none" stroke="#000000" d="M327.2,-173C335.05,-173 343.87,-173 352.61,-173"/>
-<polygon fill="#000000" stroke="#000000" points="352.78,-176.5 362.78,-173 352.78,-169.5 352.78,-176.5"/>
-</g>
-<!-- proc~dspiom~2&#45;&gt;proc~dorthog~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge20" class="edge">
-<title>proc~dspiom~2&#45;&gt;proc~dorthog~2</title>
-<path fill="none" stroke="#000000" d="M326.14,-115.41C337.91,-117.84 352.01,-120.76 364.82,-123.41"/>
-<polygon fill="#000000" stroke="#000000" points="364.24,-126.87 374.74,-125.46 365.66,-120.01 364.24,-126.87"/>
-</g>
-<!-- proc~dspiom~2&#45;&gt;none~approximate~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge24" class="edge">
-<title>proc~dspiom~2&#45;&gt;none~approximate~2</title>
-<path fill="none" stroke="#000000" d="M326.14,-104.59C334.33,-102.9 343.66,-100.97 352.89,-99.06"/>
-<polygon fill="#000000" stroke="#000000" points="353.73,-102.46 362.81,-97 352.31,-95.6 353.73,-102.46"/>
-</g>
-<!-- proc~dspiom~2&#45;&gt;proc~dhefa~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge32" class="edge">
-<title>proc~dspiom~2&#45;&gt;proc~dhefa~2</title>
-<path fill="none" stroke="#000000" d="M316,-97.97C328.4,-88.98 346.24,-76.79 363,-68 397.43,-49.94 439.03,-34.09 468.08,-23.91"/>
-<polygon fill="#000000" stroke="#000000" points="469.5,-27.12 477.81,-20.55 467.21,-20.51 469.5,-27.12"/>
-</g>
-<!-- proc~dainvg~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node21" class="node">
-<title>proc~dainvg~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node21"><a xlink:href=".././proc/dainvg~2.html" xlink:title="dainvg">
-<polygon fill="#d9534f" stroke="#d9534f" points="429.5,-429 375.5,-429 375.5,-405 429.5,-405 429.5,-429"/>
-<text text-anchor="middle" x="402.5" y="-414.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dainvg</text>
-</a>
-</g>
-</g>
-<!-- proc~dainvg~2&#45;&gt;proc~dgefa~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge17" class="edge">
-<title>proc~dainvg~2&#45;&gt;proc~dgefa~2</title>
-<path fill="none" stroke="#000000" d="M429.64,-422.72C441.39,-425.29 455.44,-428.37 468.15,-431.15"/>
-<polygon fill="#000000" stroke="#000000" points="467.47,-434.59 477.99,-433.31 468.97,-427.75 467.47,-434.59"/>
-</g>
-<!-- proc~dainvg~2&#45;&gt;proc~dgbsl~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge25" class="edge">
-<title>proc~dainvg~2&#45;&gt;proc~dgbsl~2</title>
-<path fill="none" stroke="#000000" d="M429.64,-406.86C441.51,-402.25 455.72,-396.73 468.53,-391.76"/>
-<polygon fill="#000000" stroke="#000000" points="469.93,-394.97 477.99,-388.09 467.4,-388.45 469.93,-394.97"/>
-</g>
-<!-- proc~dainvg~2&#45;&gt;proc~dgbfa~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge28" class="edge">
-<title>proc~dainvg~2&#45;&gt;proc~dgbfa~2</title>
-<path fill="none" stroke="#000000" d="M413.88,-429.18C431.18,-449.5 466.08,-490.48 487.01,-515.05"/>
-<polygon fill="#000000" stroke="#000000" points="484.38,-517.36 493.53,-522.71 489.71,-512.82 484.38,-517.36"/>
-</g>
-<!-- proc~dainvg~2&#45;&gt;proc~dgesl~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge35" class="edge">
-<title>proc~dainvg~2&#45;&gt;proc~dgesl~2</title>
-<path fill="none" stroke="#000000" d="M428.69,-404.81C433.29,-402.16 437.92,-399.18 442,-396 460.6,-381.49 460.78,-373.12 478,-357 478.8,-356.25 479.63,-355.49 480.48,-354.73"/>
-<polygon fill="#000000" stroke="#000000" points="482.95,-357.23 488.29,-348.08 478.41,-351.9 482.95,-357.23"/>
-</g>
-<!-- proc~dsolsy~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node22" class="node">
-<title>proc~dsolsy~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node22"><a xlink:href=".././proc/dsolsy~2.html" xlink:title="dsolsy">
-<polygon fill="#d9534f" stroke="#d9534f" points="429.5,-345 375.5,-345 375.5,-321 429.5,-321 429.5,-345"/>
-<text text-anchor="middle" x="402.5" y="-330.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolsy</text>
-</a>
-</g>
-</g>
-<!-- proc~dsolsy~2&#45;&gt;proc~dgbsl~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge26" class="edge">
-<title>proc~dsolsy~2&#45;&gt;proc~dgbsl~2</title>
-<path fill="none" stroke="#000000" d="M429.64,-344.71C441.51,-350.02 455.72,-356.38 468.53,-362.12"/>
-<polygon fill="#000000" stroke="#000000" points="467.43,-365.46 477.99,-366.35 470.29,-359.07 467.43,-365.46"/>
-</g>
-<!-- proc~dsolsy~2&#45;&gt;proc~dgesl~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge34" class="edge">
-<title>proc~dsolsy~2&#45;&gt;proc~dgesl~2</title>
-<path fill="none" stroke="#000000" d="M429.64,-333.78C441.27,-334.13 455.17,-334.54 467.77,-334.92"/>
-<polygon fill="#000000" stroke="#000000" points="467.89,-338.42 477.99,-335.22 468.1,-331.43 467.89,-338.42"/>
-</g>
-<!-- none~wrapup&#45;&gt;proc~dgbfa~2 -->
 <g id="proc~~daxpy~2~~CalledByGraph_edge27" class="edge">
-<title>none~wrapup&#45;&gt;proc~dgbfa~2</title>
-<path fill="none" stroke="#000000" d="M424.66,-644.92C430.65,-640.94 436.92,-636.19 442,-631 464.17,-608.37 482.81,-576.61 493.7,-555.92"/>
-<polygon fill="#000000" stroke="#000000" points="496.82,-557.5 498.27,-547.01 490.59,-554.31 496.82,-557.5"/>
+<title>proc~ddecbt~2&#45;&gt;proc~dgesl~2</title>
+<path fill="none" stroke="#000000" d="M429.64,-303.62C441.51,-307.99 455.72,-313.23 468.53,-317.94"/>
+<polygon fill="#000000" stroke="#000000" points="467.39,-321.25 477.99,-321.42 469.81,-314.68 467.39,-321.25"/>
 </g>
-<!-- none~wrapup~4&#45;&gt;proc~dgbfa~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge29" class="edge">
-<title>none~wrapup~4&#45;&gt;proc~dgbfa~2</title>
-<path fill="none" stroke="#000000" d="M429.64,-535C441.27,-535 455.17,-535 467.77,-535"/>
-<polygon fill="#000000" stroke="#000000" points="467.99,-538.5 477.99,-535 467.99,-531.5 467.99,-538.5"/>
+<!-- proc~dprepji~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node19" class="node">
+<title>proc~dprepji~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node19"><a xlink:href=".././proc/dprepji~2.html" xlink:title="dprepji">
+<polygon fill="#d9534f" stroke="#d9534f" points="326,-125 272,-125 272,-101 326,-101 326,-125"/>
+<text text-anchor="middle" x="299" y="-110.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprepji</text>
+</a>
 </g>
-<!-- none~wrapup~2&#45;&gt;proc~dgbfa~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge30" class="edge">
-<title>none~wrapup~2&#45;&gt;proc~dgbfa~2</title>
-<path fill="none" stroke="#000000" d="M429.64,-566.07C441.51,-561.12 455.72,-555.18 468.53,-549.82"/>
-<polygon fill="#000000" stroke="#000000" points="470.11,-552.96 477.99,-545.87 467.41,-546.5 470.11,-552.96"/>
+</g>
+<!-- proc~dprepji~2&#45;&gt;proc~dgefa~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge23" class="edge">
+<title>proc~dprepji~2&#45;&gt;proc~dgefa~2</title>
+<path fill="none" stroke="#000000" d="M326.14,-114.97C356.3,-118.32 406.29,-127.27 442,-151 448.14,-155.08 472.85,-188.16 489.16,-210.48"/>
+<polygon fill="#000000" stroke="#000000" points="486.43,-212.68 495.15,-218.71 492.09,-208.57 486.43,-212.68"/>
+</g>
+<!-- proc~dprepji~2&#45;&gt;none~wrapup~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge38" class="edge">
+<title>proc~dprepji~2&#45;&gt;none~wrapup~2</title>
+<path fill="none" stroke="#000000" d="M321.03,-100.78C335.83,-92.17 355.83,-80.55 372.19,-71.04"/>
+<polygon fill="#000000" stroke="#000000" points="373.96,-74.06 380.84,-66.01 370.44,-68.01 373.96,-74.06"/>
+</g>
+<!-- proc~dprepj~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node20" class="node">
+<title>proc~dprepj~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node20"><a xlink:href=".././proc/dprepj~2.html" xlink:title="dprepj">
+<polygon fill="#d9534f" stroke="#d9534f" points="326,-44 272,-44 272,-20 326,-20 326,-44"/>
+<text text-anchor="middle" x="299" y="-29.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprepj</text>
+</a>
+</g>
+</g>
+<!-- proc~dprepj~2&#45;&gt;proc~dgefa~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge24" class="edge">
+<title>proc~dprepj~2&#45;&gt;proc~dgefa~2</title>
+<path fill="none" stroke="#000000" d="M316.81,-44.15C329.33,-53.03 346.96,-65.19 363,-75 397.11,-95.85 414.46,-89.02 442,-118 467.47,-144.8 459.51,-160.98 478,-193 481.41,-198.91 485.44,-205.09 489.29,-210.72"/>
+<polygon fill="#000000" stroke="#000000" points="486.47,-212.81 495.08,-218.98 492.2,-208.79 486.47,-212.81"/>
+</g>
+<!-- proc~dprepj~2&#45;&gt;none~wrapup -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge37" class="edge">
+<title>proc~dprepj~2&#45;&gt;none~wrapup</title>
+<path fill="none" stroke="#000000" d="M326.14,-26.85C338.1,-24.49 352.46,-21.66 365.42,-19.11"/>
+<polygon fill="#000000" stroke="#000000" points="366.32,-22.5 375.45,-17.13 364.96,-15.63 366.32,-22.5"/>
+</g>
+<!-- proc~dprja~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node21" class="node">
+<title>proc~dprja~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node21"><a xlink:href=".././proc/dprja~2.html" xlink:title="dprja">
+<polygon fill="#d9534f" stroke="#d9534f" points="326,-203 272,-203 272,-179 326,-179 326,-203"/>
+<text text-anchor="middle" x="299" y="-188.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprja</text>
+</a>
+</g>
+</g>
+<!-- proc~dprja~2&#45;&gt;proc~dgefa~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge25" class="edge">
+<title>proc~dprja~2&#45;&gt;proc~dgefa~2</title>
+<path fill="none" stroke="#000000" d="M326.25,-196.15C362.29,-203.21 427.21,-215.94 467.83,-223.91"/>
+<polygon fill="#000000" stroke="#000000" points="467.36,-227.38 477.85,-225.87 468.71,-220.51 467.36,-227.38"/>
+</g>
+<!-- proc~dprja~2&#45;&gt;none~wrapup~4 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge39" class="edge">
+<title>proc~dprja~2&#45;&gt;none~wrapup~4</title>
+<path fill="none" stroke="#000000" d="M326.14,-186.11C338.1,-183.87 352.46,-181.18 365.42,-178.75"/>
+<polygon fill="#000000" stroke="#000000" points="366.26,-182.16 375.45,-176.88 364.98,-175.28 366.26,-182.16"/>
 </g>
 <!-- proc~dsolbt~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node26" class="node">
+<g id="proc~~daxpy~2~~CalledByGraph_node22" class="node">
 <title>proc~dsolbt~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node26"><a xlink:href=".././proc/dsolbt~2.html" xlink:title="dsolbt">
-<polygon fill="#d9534f" stroke="#d9534f" points="429.5,-303 375.5,-303 375.5,-279 429.5,-279 429.5,-303"/>
-<text text-anchor="middle" x="402.5" y="-288.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolbt</text>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node22"><a xlink:href=".././proc/dsolbt~2.html" xlink:title="dsolbt">
+<polygon fill="#d9534f" stroke="#d9534f" points="429.5,-390 375.5,-390 375.5,-366 429.5,-366 429.5,-390"/>
+<text text-anchor="middle" x="402.5" y="-375.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolbt</text>
 </a>
 </g>
 </g>
 <!-- proc~dsolbt~2&#45;&gt;proc~dgesl~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge33" class="edge">
+<g id="proc~~daxpy~2~~CalledByGraph_edge28" class="edge">
 <title>proc~dsolbt~2&#45;&gt;proc~dgesl~2</title>
-<path fill="none" stroke="#000000" d="M429.64,-302.71C441.51,-308.02 455.72,-314.38 468.53,-320.12"/>
-<polygon fill="#000000" stroke="#000000" points="467.43,-323.46 477.99,-324.35 470.29,-317.07 467.43,-323.46"/>
+<path fill="none" stroke="#000000" d="M429.38,-365.9C441.46,-360.25 456.01,-353.44 469.04,-347.35"/>
+<polygon fill="#000000" stroke="#000000" points="470.63,-350.47 478.21,-343.06 467.67,-344.13 470.63,-350.47"/>
 </g>
-<!-- proc~dpjibt~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node27" class="node">
-<title>proc~dpjibt~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node27"><a xlink:href=".././proc/dpjibt~2.html" xlink:title="dpjibt">
-<polygon fill="#d9534f" stroke="#d9534f" points="326,-387 272,-387 272,-363 326,-363 326,-387"/>
-<text text-anchor="middle" x="299" y="-372.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dpjibt</text>
+<!-- proc~dsolpk~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node23" class="node">
+<title>proc~dsolpk~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node23"><a xlink:href=".././proc/dsolpk~2.html" xlink:title="dsolpk">
+<polygon fill="#d9534f" stroke="#d9534f" points="235,-497 181,-497 181,-473 235,-473 235,-497"/>
+<text text-anchor="middle" x="208" y="-482.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolpk</text>
 </a>
 </g>
 </g>
-<!-- proc~dpjibt~2&#45;&gt;proc~ddecbt~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge37" class="edge">
-<title>proc~dpjibt~2&#45;&gt;proc~ddecbt~2</title>
-<path fill="none" stroke="#000000" d="M326.14,-375C338.1,-375 352.46,-375 365.42,-375"/>
-<polygon fill="#000000" stroke="#000000" points="365.45,-378.5 375.45,-375 365.45,-371.5 365.45,-378.5"/>
+<!-- proc~dsolpk~2&#45;&gt;proc~dpcgs~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge35" class="edge">
+<title>proc~dsolpk~2&#45;&gt;proc~dpcgs~2</title>
+<path fill="none" stroke="#000000" d="M235.3,-479.41C278.55,-470.14 367.36,-450.71 442,-432 450.48,-429.87 459.58,-427.46 468.12,-425.13"/>
+<polygon fill="#000000" stroke="#000000" points="469.11,-428.48 477.82,-422.45 467.25,-421.74 469.11,-428.48"/>
+</g>
+<!-- proc~dsolpk~2&#45;&gt;proc~dpcg~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge36" class="edge">
+<title>proc~dsolpk~2&#45;&gt;proc~dpcg~2</title>
+<path fill="none" stroke="#000000" d="M231.93,-473C243.48,-467.18 257.8,-460.33 271,-455 345.16,-425.07 367.06,-426.93 442,-399 450.66,-395.77 459.9,-392.05 468.52,-388.46"/>
+<polygon fill="#000000" stroke="#000000" points="470.09,-391.59 477.94,-384.48 467.37,-385.14 470.09,-391.59"/>
+</g>
+<!-- proc~dspigmr~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node25" class="node">
+<title>proc~dspigmr~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node25"><a xlink:href=".././proc/dspigmr~2.html" xlink:title="dspigmr">
+<polygon fill="#d9534f" stroke="#d9534f" points="327,-588 271,-588 271,-564 327,-564 327,-588"/>
+<text text-anchor="middle" x="299" y="-573.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dspigmr</text>
+</a>
+</g>
+</g>
+<!-- proc~dsolpk~2&#45;&gt;proc~dspigmr~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge47" class="edge">
+<title>proc~dsolpk~2&#45;&gt;proc~dspigmr~2</title>
+<path fill="none" stroke="#000000" d="M221,-497.27C235.82,-512.42 261.19,-538.36 278.74,-556.31"/>
+<polygon fill="#000000" stroke="#000000" points="276.69,-559.22 286.19,-563.92 281.7,-554.33 276.69,-559.22"/>
+</g>
+<!-- proc~dspiom~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node26" class="node">
+<title>proc~dspiom~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node26"><a xlink:href=".././proc/dspiom~2.html" xlink:title="dspiom">
+<polygon fill="#d9534f" stroke="#d9534f" points="326,-527 272,-527 272,-503 326,-503 326,-527"/>
+<text text-anchor="middle" x="299" y="-512.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dspiom</text>
+</a>
+</g>
+</g>
+<!-- proc~dsolpk~2&#45;&gt;proc~dspiom~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge48" class="edge">
+<title>proc~dsolpk~2&#45;&gt;proc~dspiom~2</title>
+<path fill="none" stroke="#000000" d="M235.22,-493.84C243.73,-496.71 253.32,-499.94 262.4,-503"/>
+<polygon fill="#000000" stroke="#000000" points="261.37,-506.35 271.97,-506.22 263.61,-499.71 261.37,-506.35"/>
+</g>
+<!-- proc~dsolsy~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node24" class="node">
+<title>proc~dsolsy~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node24"><a xlink:href=".././proc/dsolsy~2.html" xlink:title="dsolsy">
+<polygon fill="#d9534f" stroke="#d9534f" points="429.5,-348 375.5,-348 375.5,-324 429.5,-324 429.5,-348"/>
+<text text-anchor="middle" x="402.5" y="-333.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolsy</text>
+</a>
+</g>
+</g>
+<!-- proc~dsolsy~2&#45;&gt;proc~dgbsl~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge20" class="edge">
+<title>proc~dsolsy~2&#45;&gt;proc~dgbsl~2</title>
+<path fill="none" stroke="#000000" d="M429.38,-323.9C441.46,-318.25 456.01,-311.44 469.04,-305.35"/>
+<polygon fill="#000000" stroke="#000000" points="470.63,-308.47 478.21,-301.06 467.67,-302.13 470.63,-308.47"/>
+</g>
+<!-- proc~dsolsy~2&#45;&gt;proc~dgesl~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge29" class="edge">
+<title>proc~dsolsy~2&#45;&gt;proc~dgesl~2</title>
+<path fill="none" stroke="#000000" d="M429.64,-334.7C441.27,-334.12 455.17,-333.43 467.77,-332.8"/>
+<polygon fill="#000000" stroke="#000000" points="468.17,-336.29 477.99,-332.29 467.83,-329.3 468.17,-336.29"/>
+</g>
+<!-- proc~dspigmr~2&#45;&gt;none~approximate -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge13" class="edge">
+<title>proc~dspigmr~2&#45;&gt;none~approximate</title>
+<path fill="none" stroke="#000000" d="M327.2,-587.26C338.23,-591.82 351.16,-597.17 363.12,-602.12"/>
+<polygon fill="#000000" stroke="#000000" points="361.87,-605.39 372.45,-605.98 364.54,-598.92 361.87,-605.39"/>
+</g>
+<!-- proc~dspigmr~2&#45;&gt;proc~dorthog~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge33" class="edge">
+<title>proc~dspigmr~2&#45;&gt;proc~dorthog~2</title>
+<path fill="none" stroke="#000000" d="M327.2,-576C338.76,-576 352.42,-576 364.85,-576"/>
+<polygon fill="#000000" stroke="#000000" points="364.93,-579.5 374.93,-576 364.93,-572.5 364.93,-579.5"/>
+</g>
+<!-- proc~dspiom~2&#45;&gt;none~approximate~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge14" class="edge">
+<title>proc~dspiom~2&#45;&gt;none~approximate~2</title>
+<path fill="none" stroke="#000000" d="M326.14,-519.89C334.33,-521.43 343.66,-523.17 352.89,-524.9"/>
+<polygon fill="#000000" stroke="#000000" points="352.34,-528.36 362.81,-526.76 353.63,-521.48 352.34,-528.36"/>
+</g>
+<!-- proc~dspiom~2&#45;&gt;proc~dhefa~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge30" class="edge">
+<title>proc~dspiom~2&#45;&gt;proc~dhefa~2</title>
+<path fill="none" stroke="#000000" d="M326.25,-507.54C362.36,-497.27 427.49,-478.75 468.09,-467.21"/>
+<polygon fill="#000000" stroke="#000000" points="469.19,-470.54 477.85,-464.44 467.27,-463.8 469.19,-470.54"/>
+</g>
+<!-- proc~dspiom~2&#45;&gt;proc~dorthog~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge34" class="edge">
+<title>proc~dspiom~2&#45;&gt;proc~dorthog~2</title>
+<path fill="none" stroke="#000000" d="M318.27,-527.05C330.74,-535.17 347.71,-545.99 363,-555 365.18,-556.29 367.44,-557.59 369.73,-558.89"/>
+<polygon fill="#000000" stroke="#000000" points="368.12,-562 378.56,-563.81 371.53,-555.88 368.12,-562"/>
 </g>
 <!-- proc~daigbt~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node28" class="node">
+<g id="proc~~daxpy~2~~CalledByGraph_node27" class="node">
 <title>proc~daigbt~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node28"><a xlink:href=".././proc/daigbt~2.html" xlink:title="daigbt">
-<polygon fill="#d9534f" stroke="#d9534f" points="326,-345 272,-345 272,-321 326,-321 326,-345"/>
-<text text-anchor="middle" x="299" y="-330.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daigbt</text>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node27"><a xlink:href=".././proc/daigbt~2.html" xlink:title="daigbt">
+<polygon fill="#d9534f" stroke="#d9534f" points="326,-348 272,-348 272,-324 326,-324 326,-348"/>
+<text text-anchor="middle" x="299" y="-333.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daigbt</text>
 </a>
 </g>
 </g>
 <!-- proc~daigbt~2&#45;&gt;proc~ddecbt~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge38" class="edge">
+<g id="proc~~daxpy~2~~CalledByGraph_edge41" class="edge">
 <title>proc~daigbt~2&#45;&gt;proc~ddecbt~2</title>
-<path fill="none" stroke="#000000" d="M326.14,-343.82C338.33,-348.86 353.03,-354.94 366.19,-360.39"/>
-<polygon fill="#000000" stroke="#000000" points="364.87,-363.63 375.45,-364.22 367.55,-357.16 364.87,-363.63"/>
+<path fill="none" stroke="#000000" d="M326.14,-325.18C338.33,-320.14 353.03,-314.06 366.19,-308.61"/>
+<polygon fill="#000000" stroke="#000000" points="367.55,-311.84 375.45,-304.78 364.87,-305.37 367.55,-311.84"/>
 </g>
 <!-- proc~daigbt~2&#45;&gt;proc~dsolbt~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge48" class="edge">
+<g id="proc~~daxpy~2~~CalledByGraph_edge43" class="edge">
 <title>proc~daigbt~2&#45;&gt;proc~dsolbt~2</title>
-<path fill="none" stroke="#000000" d="M326.14,-322.18C338.33,-317.14 353.03,-311.06 366.19,-305.61"/>
-<polygon fill="#000000" stroke="#000000" points="367.55,-308.84 375.45,-301.78 364.87,-302.37 367.55,-308.84"/>
+<path fill="none" stroke="#000000" d="M326.14,-346.82C338.33,-351.86 353.03,-357.94 366.19,-363.39"/>
+<polygon fill="#000000" stroke="#000000" points="364.87,-366.63 375.45,-367.22 367.55,-360.16 364.87,-366.63"/>
 </g>
 <!-- proc~dlsodi~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node29" class="node">
+<g id="proc~~daxpy~2~~CalledByGraph_node28" class="node">
 <title>proc~dlsodi~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node29"><a xlink:href=".././proc/dlsodi~2.html" xlink:title="dlsodi">
-<polygon fill="#d9534f" stroke="#d9534f" points="326,-429 272,-429 272,-405 326,-405 326,-429"/>
-<text text-anchor="middle" x="299" y="-414.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodi</text>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node28"><a xlink:href=".././proc/dlsodi~2.html" xlink:title="dlsodi">
+<polygon fill="#d9534f" stroke="#d9534f" points="326,-264 272,-264 272,-240 326,-240 326,-264"/>
+<text text-anchor="middle" x="299" y="-249.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodi</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodi~2&#45;&gt;proc~dainvg~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge43" class="edge">
+<g id="proc~~daxpy~2~~CalledByGraph_edge40" class="edge">
 <title>proc~dlsodi~2&#45;&gt;proc~dainvg~2</title>
-<path fill="none" stroke="#000000" d="M326.14,-417C338.1,-417 352.46,-417 365.42,-417"/>
-<polygon fill="#000000" stroke="#000000" points="365.45,-420.5 375.45,-417 365.45,-413.5 365.45,-420.5"/>
+<path fill="none" stroke="#000000" d="M326.14,-252C338.1,-252 352.46,-252 365.42,-252"/>
+<polygon fill="#000000" stroke="#000000" points="365.45,-255.5 375.45,-252 365.45,-248.5 365.45,-255.5"/>
+</g>
+<!-- proc~dpjibt~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node29" class="node">
+<title>proc~dpjibt~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node29"><a xlink:href=".././proc/dpjibt~2.html" xlink:title="dpjibt">
+<polygon fill="#d9534f" stroke="#d9534f" points="326,-306 272,-306 272,-282 326,-282 326,-306"/>
+<text text-anchor="middle" x="299" y="-291.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dpjibt</text>
+</a>
+</g>
+</g>
+<!-- proc~dpjibt~2&#45;&gt;proc~ddecbt~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge42" class="edge">
+<title>proc~dpjibt~2&#45;&gt;proc~ddecbt~2</title>
+<path fill="none" stroke="#000000" d="M326.14,-294C338.1,-294 352.46,-294 365.42,-294"/>
+<polygon fill="#000000" stroke="#000000" points="365.45,-297.5 375.45,-294 365.45,-290.5 365.45,-297.5"/>
 </g>
 <!-- proc~dslsbt~2 -->
 <g id="proc~~daxpy~2~~CalledByGraph_node30" class="node">
 <title>proc~dslsbt~2</title>
 <g id="a_proc~~daxpy~2~~CalledByGraph_node30"><a xlink:href=".././proc/dslsbt~2.html" xlink:title="dslsbt">
-<polygon fill="#d9534f" stroke="#d9534f" points="326,-303 272,-303 272,-279 326,-279 326,-303"/>
-<text text-anchor="middle" x="299" y="-288.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dslsbt</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="326,-390 272,-390 272,-366 326,-366 326,-390"/>
+<text text-anchor="middle" x="299" y="-375.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dslsbt</text>
 </a>
 </g>
 </g>
 <!-- proc~dslsbt~2&#45;&gt;proc~dsolbt~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge47" class="edge">
+<g id="proc~~daxpy~2~~CalledByGraph_edge44" class="edge">
 <title>proc~dslsbt~2&#45;&gt;proc~dsolbt~2</title>
-<path fill="none" stroke="#000000" d="M326.14,-291C338.1,-291 352.46,-291 365.42,-291"/>
-<polygon fill="#000000" stroke="#000000" points="365.45,-294.5 375.45,-291 365.45,-287.5 365.45,-294.5"/>
-</g>
-<!-- proc~dstoka~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node31" class="node">
-<title>proc~dstoka~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node31"><a xlink:href=".././proc/dstoka~2.html" xlink:title="dstoka">
-<polygon fill="#d9534f" stroke="#d9534f" points="144.5,-226 90.5,-226 90.5,-202 144.5,-202 144.5,-226"/>
-<text text-anchor="middle" x="117.5" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstoka</text>
-</a>
-</g>
-</g>
-<!-- proc~dstoka~2&#45;&gt;proc~dsolpk~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge40" class="edge">
-<title>proc~dstoka~2&#45;&gt;proc~dsolpk~2</title>
-<path fill="none" stroke="#000000" d="M144.57,-207.81C152.87,-205.84 162.2,-203.63 171.07,-201.53"/>
-<polygon fill="#000000" stroke="#000000" points="171.88,-204.93 180.81,-199.22 170.27,-198.12 171.88,-204.93"/>
+<path fill="none" stroke="#000000" d="M326.14,-378C338.1,-378 352.46,-378 365.42,-378"/>
+<polygon fill="#000000" stroke="#000000" points="365.45,-381.5 375.45,-378 365.45,-374.5 365.45,-381.5"/>
 </g>
 <!-- proc~dstodpk~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node32" class="node">
+<g id="proc~~daxpy~2~~CalledByGraph_node31" class="node">
 <title>proc~dstodpk~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node32"><a xlink:href=".././proc/dstodpk~2.html" xlink:title="dstodpk">
-<polygon fill="#d9534f" stroke="#d9534f" points="145,-184 90,-184 90,-160 145,-160 145,-184"/>
-<text text-anchor="middle" x="117.5" y="-169.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstodpk</text>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node31"><a xlink:href=".././proc/dstodpk~2.html" xlink:title="dstodpk">
+<polygon fill="#d9534f" stroke="#d9534f" points="145,-518 90,-518 90,-494 145,-494 145,-518"/>
+<text text-anchor="middle" x="117.5" y="-503.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstodpk</text>
 </a>
 </g>
 </g>
 <!-- proc~dstodpk~2&#45;&gt;proc~dsolpk~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge39" class="edge">
+<g id="proc~~daxpy~2~~CalledByGraph_edge45" class="edge">
 <title>proc~dstodpk~2&#45;&gt;proc~dsolpk~2</title>
-<path fill="none" stroke="#000000" d="M145.05,-178.3C153.18,-180.23 162.25,-182.38 170.9,-184.43"/>
-<polygon fill="#000000" stroke="#000000" points="170.23,-187.87 180.77,-186.78 171.85,-181.06 170.23,-187.87"/>
+<path fill="none" stroke="#000000" d="M145.05,-499.7C153.18,-497.77 162.25,-495.62 170.9,-493.57"/>
+<polygon fill="#000000" stroke="#000000" points="171.85,-496.94 180.77,-491.22 170.23,-490.13 171.85,-496.94"/>
+</g>
+<!-- proc~dstoka~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node32" class="node">
+<title>proc~dstoka~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node32"><a xlink:href=".././proc/dstoka~2.html" xlink:title="dstoka">
+<polygon fill="#d9534f" stroke="#d9534f" points="144.5,-476 90.5,-476 90.5,-452 144.5,-452 144.5,-476"/>
+<text text-anchor="middle" x="117.5" y="-461.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstoka</text>
+</a>
+</g>
+</g>
+<!-- proc~dstoka~2&#45;&gt;proc~dsolpk~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge46" class="edge">
+<title>proc~dstoka~2&#45;&gt;proc~dsolpk~2</title>
+<path fill="none" stroke="#000000" d="M144.57,-470.19C152.87,-472.16 162.2,-474.37 171.07,-476.47"/>
+<polygon fill="#000000" stroke="#000000" points="170.27,-479.88 180.81,-478.78 171.88,-473.07 170.27,-479.88"/>
+</g>
+<!-- proc~dlsodkr~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node33" class="node">
+<title>proc~dlsodkr~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node33"><a xlink:href=".././proc/dlsodkr~2.html" xlink:title="dlsodkr">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-476 0,-476 0,-452 54,-452 54,-476"/>
+<text text-anchor="middle" x="27" y="-461.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodkr</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr~2&#45;&gt;proc~dstoka~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge51" class="edge">
+<title>proc~dlsodkr~2&#45;&gt;proc~dstoka~2</title>
+<path fill="none" stroke="#000000" d="M54.07,-464C62.28,-464 71.5,-464 80.28,-464"/>
+<polygon fill="#000000" stroke="#000000" points="80.31,-467.5 90.31,-464 80.31,-460.5 80.31,-467.5"/>
+</g>
+<!-- proc~dlsodpk~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_node34" class="node">
+<title>proc~dlsodpk~2</title>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node34"><a xlink:href=".././proc/dlsodpk~2.html" xlink:title="dlsodpk">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-518 0,-518 0,-494 54,-494 54,-518"/>
+<text text-anchor="middle" x="27" y="-503.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodpk</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodpk~2&#45;&gt;proc~dstodpk~2 -->
+<g id="proc~~daxpy~2~~CalledByGraph_edge50" class="edge">
+<title>proc~dlsodpk~2&#45;&gt;proc~dstodpk~2</title>
+<path fill="none" stroke="#000000" d="M54.07,-506C62.12,-506 71.14,-506 79.76,-506"/>
+<polygon fill="#000000" stroke="#000000" points="80,-509.5 90,-506 80,-502.5 80,-509.5"/>
 </g>
 <!-- proc~dlsoibt~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node33" class="node">
+<g id="proc~~daxpy~2~~CalledByGraph_node35" class="node">
 <title>proc~dlsoibt~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node33"><a xlink:href=".././proc/dlsoibt~2.html" xlink:title="dlsoibt">
-<polygon fill="#d9534f" stroke="#d9534f" points="235,-345 181,-345 181,-321 235,-321 235,-345"/>
-<text text-anchor="middle" x="208" y="-330.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsoibt</text>
+<g id="a_proc~~daxpy~2~~CalledByGraph_node35"><a xlink:href=".././proc/dlsoibt~2.html" xlink:title="dlsoibt">
+<polygon fill="#d9534f" stroke="#d9534f" points="235,-348 181,-348 181,-324 235,-324 235,-348"/>
+<text text-anchor="middle" x="208" y="-333.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsoibt</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsoibt~2&#45;&gt;proc~daigbt~2 -->
 <g id="proc~~daxpy~2~~CalledByGraph_edge49" class="edge">
 <title>proc~dlsoibt~2&#45;&gt;proc~daigbt~2</title>
-<path fill="none" stroke="#000000" d="M235.22,-333C243.55,-333 252.91,-333 261.82,-333"/>
-<polygon fill="#000000" stroke="#000000" points="261.97,-336.5 271.97,-333 261.97,-329.5 261.97,-336.5"/>
-</g>
-<!-- proc~dlsodpk~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node34" class="node">
-<title>proc~dlsodpk~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node34"><a xlink:href=".././proc/dlsodpk~2.html" xlink:title="dlsodpk">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-184 0,-184 0,-160 54,-160 54,-184"/>
-<text text-anchor="middle" x="27" y="-169.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodpk</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodpk~2&#45;&gt;proc~dstodpk~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge51" class="edge">
-<title>proc~dlsodpk~2&#45;&gt;proc~dstodpk~2</title>
-<path fill="none" stroke="#000000" d="M54.07,-172C62.12,-172 71.14,-172 79.76,-172"/>
-<polygon fill="#000000" stroke="#000000" points="80,-175.5 90,-172 80,-168.5 80,-175.5"/>
-</g>
-<!-- proc~dlsodkr~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_node35" class="node">
-<title>proc~dlsodkr~2</title>
-<g id="a_proc~~daxpy~2~~CalledByGraph_node35"><a xlink:href=".././proc/dlsodkr~2.html" xlink:title="dlsodkr">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-226 0,-226 0,-202 54,-202 54,-226"/>
-<text text-anchor="middle" x="27" y="-211.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodkr</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodkr~2&#45;&gt;proc~dstoka~2 -->
-<g id="proc~~daxpy~2~~CalledByGraph_edge50" class="edge">
-<title>proc~dlsodkr~2&#45;&gt;proc~dstoka~2</title>
-<path fill="none" stroke="#000000" d="M54.07,-214C62.28,-214 71.5,-214 80.28,-214"/>
-<polygon fill="#000000" stroke="#000000" points="80.31,-217.5 90.31,-214 80.31,-210.5 80.31,-217.5"/>
+<path fill="none" stroke="#000000" d="M235.22,-336C243.55,-336 252.91,-336 261.82,-336"/>
+<polygon fill="#000000" stroke="#000000" points="261.97,-339.5 271.97,-336 261.97,-332.5 261.97,-339.5"/>
 </g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -915,39 +1022,64 @@ integer,intent(in)          :: Incy
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a procedure to one which it calls. Dashed 
-    arrows point from an interface to procedures which implement that interface.
-    This could include the module procedures in a generic interface or the
-    implementation in a submodule of an interface in a parent module.
-    </p>
-    </div></div></div></div>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <br>
 
     <section class="visible-xs visible-sm hidden-md">
-      <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
-  <div id="vars-1" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/daxpy~2.html#variable-i~59">i</a>
-      <a class="list-group-item" href="../proc/daxpy~2.html#variable-ix~2">ix</a>
-      <a class="list-group-item" href="../proc/daxpy~2.html#variable-iy">iy</a>
-      <a class="list-group-item" href="../proc/daxpy~2.html#variable-m~12">m</a>
-      <a class="list-group-item" href="../proc/daxpy~2.html#variable-mp1~2">mp1</a>
-      <a class="list-group-item" href="../proc/daxpy~2.html#variable-ns">ns</a>
+        <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-1">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/daxpy~2.html#variable-i~69">i</a>
+            <a class="list-group-item" href="../proc/daxpy~2.html#variable-ix~4">ix</a>
+            <a class="list-group-item" href="../proc/daxpy~2.html#variable-iy~2">iy</a>
+            <a class="list-group-item" href="../proc/daxpy~2.html#variable-m~12">m</a>
+            <a class="list-group-item" href="../proc/daxpy~2.html#variable-mp1~3">mp1</a>
+            <a class="list-group-item" href="../proc/daxpy~2.html#variable-ns~2">ns</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../proc/daxpy~2.html#src">daxpy</a>
-  </div>
-</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/daxpy~2.html#src">daxpy</a>
+      </div>
+    </div>
+
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
@@ -955,41 +1087,120 @@ integer,intent(in)          :: Incy
 
     <section>    
       <h2>Variables</h2>
-    <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-i~59"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>i</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ix~2"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ix</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iy"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>iy</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-m~12"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>m</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-mp1~2"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>mp1</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ns"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ns</strong></td><td></td><td></td><td></td>
-</tr>
-</tbody>
-</table>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Visibility</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+<th></th><th>Initial</th>        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~69"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ix~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ix</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iy~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iy</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~12"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mp1~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mp1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ns~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ns</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     </section>
     <br>
@@ -1070,50 +1281,50 @@ integer,intent(in)          :: Incy
     </div>
   </div>
 
-    <hr>    
+      <hr>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2022 
+        <div class="row">
+          <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2023 
 </p>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <p class="text-right">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2023-04-17 10:19              </p>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-          <p class="text-right">
-            Documentation generated by 
-            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-16 16:30            </p>
-        </div>
-      </div>
-      <br>
-      </div> <!-- /container -->    
+        <br>
+      </div> <!-- /container -->
     </footer>
 
     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-<!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
--->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+         ================================================== -->
+         <!-- Placed at the end of the document so the pages load faster -->
+    <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- MathJax JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
+        <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
   </body>
 </html>

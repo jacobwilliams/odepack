@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
+      <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
     <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
     <link rel="icon" href="../favicon.png">
 
@@ -14,17 +14,17 @@
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    <link href="../css/user.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="../js/jquery-2.1.3.min.js"></script>
-    <script src="../js/svg-pan-zoom.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+         <script src="../js/jquery-2.1.3.min.js"></script>
+         <script src="../js/svg-pan-zoom.min.js"></script>
 
   </head>
 
@@ -46,29 +46,35 @@
           <ul class="nav navbar-nav">
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
-              data-toggle="dropdown" role="button"
-              aria-haspopup="true"
-     aria-expanded="false">Contents <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="../lists/files.html">Source Files</a></li>
-            <li><a href="../lists/modules.html">Modules</a></li>
-            <li><a href="../lists/procedures.html">Procedures</a></li>
-              
-            </ul>
-        
+                 data-toggle="dropdown" role="button"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                 Contents <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                    <li><a href="../lists/files.html">Source Files</a></li>
+                  <li><a href="../lists/modules.html">Modules</a></li>
+                  <li><a href="../lists/procedures.html">Procedures</a></li>
+              </ul>
             </li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-                                       </ul>
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
-        </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
+                <li class="visible-xs hidden-sm visible-lg">
+                  <a href="../lists/files.html">Source Files</a>
+                </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/modules.html">Modules</a>
+              </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/procedures.html">Procedures</a>
+              </li>
+          </ul>
+            <form action="../search.html" class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+              </div>
+              <!--
+                  <button type="submit" class="btn btn-default">Submit</button>
+                  -->
+            </form>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -77,93 +83,123 @@
   <div class="row">
     <h1>dstodi
       <small>Subroutine</small>
+      
     </h1>
-    <div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title=" 1.5% of total for procedures.">361 statements</a>
-     </li> 
-    <li><i class="fa fa-code"></i><a href="../src/M_odepack.f90"> Source File</a></li>
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-     <li><a href='../sourcefile/m_odepack.f90.html'>M_odepack.f90</a></li>
-     <li class="active">dstodi</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="row" id="info-bar">
+    <div class="col-lg-12">
+      <div class="well well-sm">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+          <li id="statements"><i class="fa fa-list-ol"></i>
+            <a data-toggle="tooltip"
+               data-placement="bottom" data-html="true"
+               title=" 1.5% of total for procedures.">361 statements</a>
+          </li>
+
+            <li id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/M_odepack.f90"> Source File</a>
+            </li>
+        </ul>
+        <ol class="breadcrumb in-well text-right">
+              <li><a href='../sourcefile/m_odepack.f90.html'>M_odepack.f90</a></li>
+          <li class="active">dstodi</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 
   </div>
   
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    <div id="sidebar">
-  <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
-  <div id="vars-0" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/dstodi.html#variable-dcon">dcon</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-ddn">ddn</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-del">del</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-delp">delp</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-dp~4">dp</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-dsm">dsm</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-dup">dup</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-el1h">el1h</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-eljh">eljh</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-exdn">exdn</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-exsm">exsm</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-exup">exup</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-i~4">i</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-i1">i1</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-iredo">iredo</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-ires">ires</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-iret">iret</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-j~4">j</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-jb">jb</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-kgo">kgo</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-m">m</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-ncf">ncf</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-newq">newq</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-r">r</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-rh">rh</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-rhdn">rhdn</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-rhsm">rhsm</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-rhup">rhup</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-told">told</a>
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-0">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dstodi.html#variable-dcon">dcon</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-ddn">ddn</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-del">del</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-delp">delp</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-dp~4">dp</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-dsm">dsm</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-dup">dup</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-el1h">el1h</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-eljh">eljh</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-exdn">exdn</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-exsm">exsm</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-exup">exup</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-i~4">i</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-i1">i1</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-iredo">iredo</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-ires">ires</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-iret">iret</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-j~4">j</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-jb">jb</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-kgo">kgo</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-m">m</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-ncf">ncf</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-newq">newq</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-r">r</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-rh">rh</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-rhdn">rhdn</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-rhsm">rhsm</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-rhup">rhup</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-told">told</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
 
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>subroutine dstodi(Neq, Y, Yh, Nyh, Yh1, Ewt, Savf, Savr, Acor, Wm, Iwm, res, adda, jac, pjac, slvs)</h2>
+    <h2> subroutine dstodi(Neq, Y, Yh, Nyh, Yh1, Ewt, Savf, Savr, Acor, Wm, Iwm, res, adda, jac, pjac, slvs)  
+</h2>
         <div class="panel panel-default">
       <div class="panel-heading">
-  <h3 class="panel-title">Uses</h3>
+        <h3 class="panel-title">Uses</h3>
       </div>
       <ul class="list-group">
-      <li class="list-group-item">
-  <ul class="list-inline">
-    <li><a href='../module/m_odepack.html'>M_odepack</a></li>
-  </ul>
-      </li>
-      <li class="list-group-item">
-  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+          <li class="list-group-item">
+            <ul class="list-inline">
+                <li><a href='../module/m_odepack.html'>M_odepack</a></li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -197,9 +233,19 @@
 </g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -249,13 +295,15 @@
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a submodule to the (sub)module which it is
-    descended from. Dashed arrows point from a module or program unit to 
-    modules which it uses.
-    </p>
-    </div></div></div></div>
-      </li>
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+          </li>
       </ul>
     </div>
 
@@ -428,107 +476,258 @@ METH/MITER = the method flags.  See description in driver.</p>
 </dl>
 
     <h3>Arguments</h3>
-      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-neq~4"></span>integer,</td>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-neq~4"></span>
+              integer,
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Neq</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-y~4"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Neq</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y~4"></span>
+              real(kind=dp),
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Y</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-yh~3"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Y</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-yh~3"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout),</td>
-  <td></td>  <td>dimension(Nyh,*)</td><td>::</td>
-  <td><strong>Yh</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-nyh"></span>integer</td>
+              <td></td>            <td>
+              dimension(Nyh,*)
+            </td>
+            <td>::</td>
+            <td><strong>Yh</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nyh"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Nyh</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-yh1"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Nyh</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-yh1"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Yh1</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ewt~3"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Yh1</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ewt~3"></span>
+              real(kind=dp),
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Ewt</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-savf~2"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Ewt</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-savf~2"></span>
+              real(kind=dp),
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Savf</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-savr~2"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Savf</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-savr~2"></span>
+              real(kind=dp),
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Savr</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-acor"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Savr</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-acor"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout),</td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Acor</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-wm"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Acor</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wm"></span>
+              real(kind=dp),
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Wm</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iwm"></span>integer,</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Wm</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwm"></span>
+              integer,
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Iwm</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-res~3"></span>real</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Iwm</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-res~3"></span>
+              real
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>res</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-adda~3"></span>real</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>res</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-adda~3"></span>
+              real
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>adda</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-jac~3"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>adda</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jac~3"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>jac</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-pjac"></span>real</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jac</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pjac"></span>
+              real
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>pjac</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-slvs"></span>real</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>pjac</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-slvs"></span>
+              real
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>slvs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>slvs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     <br>
     <div class="panel panel-default">
@@ -585,9 +784,19 @@ METH/MITER = the method flags.  See description in driver.</p>
 </g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -637,13 +846,15 @@ METH/MITER = the method flags.  See description in driver.</p>
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a procedure to one which it calls. Dashed 
-    arrows point from an interface to procedures which implement that interface.
-    This could include the module procedures in a generic interface or the
-    implementation in a submodule of an interface in a parent module.
-    </p>
-    </div></div></div></div>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -668,101 +879,111 @@ METH/MITER = the method flags.  See description in driver.</p>
 <polygon fill="none" stroke="black" points="144,-129 90,-129 90,-105 144,-105 144,-129"/>
 <text text-anchor="middle" x="117" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50">dstodi</text>
 </g>
-<!-- proc~dlsodis -->
-<g id="proc~~dstodi~~CalledByGraph_node2" class="node">
-<title>proc~dlsodis</title>
-<g id="a_proc~~dstodi~~CalledByGraph_node2"><a xlink:href=".././proc/dlsodis.html" xlink:title="dlsodis">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-234 0,-234 0,-210 54,-210 54,-234"/>
-<text text-anchor="middle" x="27" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodis</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodis&#45;&gt;proc~dstodi -->
-<g id="proc~~dstodi~~CalledByGraph_edge1" class="edge">
-<title>proc~dlsodis&#45;&gt;proc~dstodi</title>
-<path fill="none" stroke="#000000" d="M44.24,-209.95C47.61,-207.16 51.03,-204.1 54,-201 73,-181.15 91.24,-155.36 102.95,-137.62"/>
-<polygon fill="#000000" stroke="#000000" points="105.94,-139.44 108.45,-129.15 100.07,-135.63 105.94,-139.44"/>
-</g>
-<!-- proc~dlsodi~2 -->
-<g id="proc~~dstodi~~CalledByGraph_node3" class="node">
-<title>proc~dlsodi~2</title>
-<g id="a_proc~~dstodi~~CalledByGraph_node3"><a xlink:href=".././proc/dlsodi~2.html" xlink:title="dlsodi">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-192 0,-192 0,-168 54,-168 54,-192"/>
-<text text-anchor="middle" x="27" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodi</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodi~2&#45;&gt;proc~dstodi -->
-<g id="proc~~dstodi~~CalledByGraph_edge2" class="edge">
-<title>proc~dlsodi~2&#45;&gt;proc~dstodi</title>
-<path fill="none" stroke="#000000" d="M44.97,-167.85C57.99,-158.53 76.18,-145.51 90.89,-134.98"/>
-<polygon fill="#000000" stroke="#000000" points="92.99,-137.78 99.08,-129.11 88.92,-132.09 92.99,-137.78"/>
-</g>
-<!-- proc~dlsoibt~2 -->
-<g id="proc~~dstodi~~CalledByGraph_node4" class="node">
-<title>proc~dlsoibt~2</title>
-<g id="a_proc~~dstodi~~CalledByGraph_node4"><a xlink:href=".././proc/dlsoibt~2.html" xlink:title="dlsoibt">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-150 0,-150 0,-126 54,-126 54,-150"/>
-<text text-anchor="middle" x="27" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsoibt</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsoibt~2&#45;&gt;proc~dstodi -->
-<g id="proc~~dstodi~~CalledByGraph_edge3" class="edge">
-<title>proc~dlsoibt~2&#45;&gt;proc~dstodi</title>
-<path fill="none" stroke="#000000" d="M54.4,-131.7C62.48,-129.77 71.51,-127.62 80.1,-125.57"/>
-<polygon fill="#000000" stroke="#000000" points="81,-128.95 89.92,-123.22 79.38,-122.14 81,-128.95"/>
-</g>
-<!-- proc~dlsodis~2 -->
-<g id="proc~~dstodi~~CalledByGraph_node5" class="node">
-<title>proc~dlsodis~2</title>
-<g id="a_proc~~dstodi~~CalledByGraph_node5"><a xlink:href=".././proc/dlsodis~2.html" xlink:title="dlsodis">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-108 0,-108 0,-84 54,-84 54,-108"/>
-<text text-anchor="middle" x="27" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodis</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodis~2&#45;&gt;proc~dstodi -->
-<g id="proc~~dstodi~~CalledByGraph_edge4" class="edge">
-<title>proc~dlsodis~2&#45;&gt;proc~dstodi</title>
-<path fill="none" stroke="#000000" d="M54.4,-102.3C62.48,-104.23 71.51,-106.38 80.1,-108.43"/>
-<polygon fill="#000000" stroke="#000000" points="79.38,-111.86 89.92,-110.78 81,-105.05 79.38,-111.86"/>
-</g>
 <!-- proc~dlsodi -->
-<g id="proc~~dstodi~~CalledByGraph_node6" class="node">
+<g id="proc~~dstodi~~CalledByGraph_node2" class="node">
 <title>proc~dlsodi</title>
-<g id="a_proc~~dstodi~~CalledByGraph_node6"><a xlink:href=".././proc/dlsodi.html" xlink:title="dlsodi">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-66 0,-66 0,-42 54,-42 54,-66"/>
-<text text-anchor="middle" x="27" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodi</text>
+<g id="a_proc~~dstodi~~CalledByGraph_node2"><a xlink:href=".././proc/dlsodi.html" xlink:title="dlsodi">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-234 0,-234 0,-210 54,-210 54,-234"/>
+<text text-anchor="middle" x="27" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodi</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodi&#45;&gt;proc~dstodi -->
-<g id="proc~~dstodi~~CalledByGraph_edge5" class="edge">
+<g id="proc~~dstodi~~CalledByGraph_edge1" class="edge">
 <title>proc~dlsodi&#45;&gt;proc~dstodi</title>
+<path fill="none" stroke="#000000" d="M44.24,-209.95C47.61,-207.16 51.03,-204.1 54,-201 73,-181.15 91.24,-155.36 102.95,-137.62"/>
+<polygon fill="#000000" stroke="#000000" points="105.94,-139.44 108.45,-129.15 100.07,-135.63 105.94,-139.44"/>
+</g>
+<!-- proc~dlsodis -->
+<g id="proc~~dstodi~~CalledByGraph_node3" class="node">
+<title>proc~dlsodis</title>
+<g id="a_proc~~dstodi~~CalledByGraph_node3"><a xlink:href=".././proc/dlsodis.html" xlink:title="dlsodis">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-192 0,-192 0,-168 54,-168 54,-192"/>
+<text text-anchor="middle" x="27" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodis</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodis&#45;&gt;proc~dstodi -->
+<g id="proc~~dstodi~~CalledByGraph_edge2" class="edge">
+<title>proc~dlsodis&#45;&gt;proc~dstodi</title>
+<path fill="none" stroke="#000000" d="M44.97,-167.85C57.99,-158.53 76.18,-145.51 90.89,-134.98"/>
+<polygon fill="#000000" stroke="#000000" points="92.99,-137.78 99.08,-129.11 88.92,-132.09 92.99,-137.78"/>
+</g>
+<!-- proc~dlsodis~2 -->
+<g id="proc~~dstodi~~CalledByGraph_node4" class="node">
+<title>proc~dlsodis~2</title>
+<g id="a_proc~~dstodi~~CalledByGraph_node4"><a xlink:href=".././proc/dlsodis~2.html" xlink:title="dlsodis">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-150 0,-150 0,-126 54,-126 54,-150"/>
+<text text-anchor="middle" x="27" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodis</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodis~2&#45;&gt;proc~dstodi -->
+<g id="proc~~dstodi~~CalledByGraph_edge3" class="edge">
+<title>proc~dlsodis~2&#45;&gt;proc~dstodi</title>
+<path fill="none" stroke="#000000" d="M54.4,-131.7C62.48,-129.77 71.51,-127.62 80.1,-125.57"/>
+<polygon fill="#000000" stroke="#000000" points="81,-128.95 89.92,-123.22 79.38,-122.14 81,-128.95"/>
+</g>
+<!-- proc~dlsodi~2 -->
+<g id="proc~~dstodi~~CalledByGraph_node5" class="node">
+<title>proc~dlsodi~2</title>
+<g id="a_proc~~dstodi~~CalledByGraph_node5"><a xlink:href=".././proc/dlsodi~2.html" xlink:title="dlsodi">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-108 0,-108 0,-84 54,-84 54,-108"/>
+<text text-anchor="middle" x="27" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodi</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodi~2&#45;&gt;proc~dstodi -->
+<g id="proc~~dstodi~~CalledByGraph_edge4" class="edge">
+<title>proc~dlsodi~2&#45;&gt;proc~dstodi</title>
+<path fill="none" stroke="#000000" d="M54.4,-102.3C62.48,-104.23 71.51,-106.38 80.1,-108.43"/>
+<polygon fill="#000000" stroke="#000000" points="79.38,-111.86 89.92,-110.78 81,-105.05 79.38,-111.86"/>
+</g>
+<!-- proc~dlsoibt -->
+<g id="proc~~dstodi~~CalledByGraph_node6" class="node">
+<title>proc~dlsoibt</title>
+<g id="a_proc~~dstodi~~CalledByGraph_node6"><a xlink:href=".././proc/dlsoibt.html" xlink:title="dlsoibt">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-66 0,-66 0,-42 54,-42 54,-66"/>
+<text text-anchor="middle" x="27" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsoibt</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsoibt&#45;&gt;proc~dstodi -->
+<g id="proc~~dstodi~~CalledByGraph_edge5" class="edge">
+<title>proc~dlsoibt&#45;&gt;proc~dstodi</title>
 <path fill="none" stroke="#000000" d="M44.97,-66.15C57.99,-75.47 76.18,-88.49 90.89,-99.02"/>
 <polygon fill="#000000" stroke="#000000" points="88.92,-101.91 99.08,-104.89 92.99,-96.22 88.92,-101.91"/>
 </g>
-<!-- proc~dlsoibt -->
+<!-- proc~dlsoibt~2 -->
 <g id="proc~~dstodi~~CalledByGraph_node7" class="node">
-<title>proc~dlsoibt</title>
-<g id="a_proc~~dstodi~~CalledByGraph_node7"><a xlink:href=".././proc/dlsoibt.html" xlink:title="dlsoibt">
+<title>proc~dlsoibt~2</title>
+<g id="a_proc~~dstodi~~CalledByGraph_node7"><a xlink:href=".././proc/dlsoibt~2.html" xlink:title="dlsoibt">
 <polygon fill="#d9534f" stroke="#d9534f" points="54,-24 0,-24 0,0 54,0 54,-24"/>
 <text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsoibt</text>
 </a>
 </g>
 </g>
-<!-- proc~dlsoibt&#45;&gt;proc~dstodi -->
+<!-- proc~dlsoibt~2&#45;&gt;proc~dstodi -->
 <g id="proc~~dstodi~~CalledByGraph_edge6" class="edge">
-<title>proc~dlsoibt&#45;&gt;proc~dstodi</title>
+<title>proc~dlsoibt~2&#45;&gt;proc~dstodi</title>
 <path fill="none" stroke="#000000" d="M44.24,-24.05C47.61,-26.84 51.03,-29.9 54,-33 73,-52.85 91.24,-78.64 102.95,-96.38"/>
 <polygon fill="#000000" stroke="#000000" points="100.07,-98.37 108.45,-104.85 105.94,-94.56 100.07,-98.37"/>
 </g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -812,56 +1033,81 @@ METH/MITER = the method flags.  See description in driver.</p>
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a procedure to one which it calls. Dashed 
-    arrows point from an interface to procedures which implement that interface.
-    This could include the module procedures in a generic interface or the
-    implementation in a submodule of an interface in a parent module.
-    </p>
-    </div></div></div></div>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <br>
 
     <section class="visible-xs visible-sm hidden-md">
-      <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
-  <div id="vars-1" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/dstodi.html#variable-dcon">dcon</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-ddn">ddn</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-del">del</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-delp">delp</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-dp~4">dp</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-dsm">dsm</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-dup">dup</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-el1h">el1h</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-eljh">eljh</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-exdn">exdn</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-exsm">exsm</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-exup">exup</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-i~4">i</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-i1">i1</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-iredo">iredo</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-ires">ires</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-iret">iret</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-j~4">j</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-jb">jb</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-kgo">kgo</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-m">m</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-ncf">ncf</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-newq">newq</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-r">r</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-rh">rh</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-rhdn">rhdn</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-rhsm">rhsm</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-rhup">rhup</a>
-      <a class="list-group-item" href="../proc/dstodi.html#variable-told">told</a>
+        <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-1">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dstodi.html#variable-dcon">dcon</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-ddn">ddn</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-del">del</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-delp">delp</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-dp~4">dp</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-dsm">dsm</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-dup">dup</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-el1h">el1h</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-eljh">eljh</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-exdn">exdn</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-exsm">exsm</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-exup">exup</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-i~4">i</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-i1">i1</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-iredo">iredo</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-ires">ires</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-iret">iret</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-j~4">j</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-jb">jb</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-kgo">kgo</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-m">m</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-ncf">ncf</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-newq">newq</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-r">r</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-rh">rh</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-rhdn">rhdn</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-rhsm">rhsm</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-rhup">rhup</a>
+            <a class="list-group-item" href="../proc/dstodi.html#variable-told">told</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
@@ -869,156 +1115,511 @@ METH/MITER = the method flags.  See description in driver.</p>
 
     <section>    
       <h2>Variables</h2>
-    <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-dcon"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>dcon</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ddn"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ddn</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-del"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>del</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-delp"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>delp</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-dp~4"></span>integer,</td>
-<td>public,</td>  <td>parameter</td><td>::</td>
-  <td><strong>dp</strong></td><td> =</td><td>kind(0.0d0)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-dsm"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>dsm</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-dup"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>dup</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-el1h"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>el1h</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-eljh"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>eljh</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-exdn"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>exdn</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-exsm"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>exsm</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-exup"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>exup</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-i~4"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>i</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-i1"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>i1</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iredo"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>iredo</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ires"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ires</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iret"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>iret</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-j~4"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>j</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-jb"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>jb</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-kgo"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>kgo</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-m"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>m</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ncf"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ncf</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-newq"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>newq</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-r"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>r</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rh"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>rh</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rhdn"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>rhdn</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rhsm"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>rhsm</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rhup"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>rhup</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-told"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>told</strong></td><td></td><td></td><td></td>
-</tr>
-</tbody>
-</table>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Visibility</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+<th></th><th>Initial</th>        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dcon"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dcon</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ddn"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ddn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-del"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>del</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delp"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>delp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dp~4"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>dp</strong></td>
+<td> =</td>
+                <td>kind(0.0d0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dsm"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dsm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dup"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dup</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-el1h"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>el1h</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-eljh"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>eljh</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exdn"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>exdn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exsm"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>exsm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exup"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>exup</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i1"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iredo"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iredo</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ires"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ires</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iret"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iret</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jb"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jb</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kgo"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kgo</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ncf"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ncf</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-newq"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>newq</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rh"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rh</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhdn"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhdn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhsm"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhsm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhup"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhup</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-told"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>told</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     </section>
     <br>
@@ -1034,50 +1635,50 @@ METH/MITER = the method flags.  See description in driver.</p>
     </div>
   </div>
 
-    <hr>    
+      <hr>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2022 
+        <div class="row">
+          <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2023 
 </p>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <p class="text-right">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2023-04-17 10:19              </p>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-          <p class="text-right">
-            Documentation generated by 
-            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-16 16:30            </p>
-        </div>
-      </div>
-      <br>
-      </div> <!-- /container -->    
+        <br>
+      </div> <!-- /container -->
     </footer>
 
     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-<!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
--->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+         ================================================== -->
+         <!-- Placed at the end of the document so the pages load faster -->
+    <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- MathJax JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
+        <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
   </body>
 </html>

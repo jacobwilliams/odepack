@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
+      <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
     <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
     <link rel="icon" href="../favicon.png">
 
@@ -14,17 +14,17 @@
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    <link href="../css/user.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="../js/jquery-2.1.3.min.js"></script>
-    <script src="../js/svg-pan-zoom.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+         <script src="../js/jquery-2.1.3.min.js"></script>
+         <script src="../js/svg-pan-zoom.min.js"></script>
 
   </head>
 
@@ -46,29 +46,35 @@
           <ul class="nav navbar-nav">
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
-              data-toggle="dropdown" role="button"
-              aria-haspopup="true"
-     aria-expanded="false">Contents <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="../lists/files.html">Source Files</a></li>
-            <li><a href="../lists/modules.html">Modules</a></li>
-            <li><a href="../lists/procedures.html">Procedures</a></li>
-              
-            </ul>
-        
+                 data-toggle="dropdown" role="button"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                 Contents <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                    <li><a href="../lists/files.html">Source Files</a></li>
+                  <li><a href="../lists/modules.html">Modules</a></li>
+                  <li><a href="../lists/procedures.html">Procedures</a></li>
+              </ul>
             </li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-                                       </ul>
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
-        </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
+                <li class="visible-xs hidden-sm visible-lg">
+                  <a href="../lists/files.html">Source Files</a>
+                </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/modules.html">Modules</a>
+              </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/procedures.html">Procedures</a>
+              </li>
+          </ul>
+            <form action="../search.html" class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+              </div>
+              <!--
+                  <button type="submit" class="btn btn-default">Submit</button>
+                  -->
+            </form>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -77,107 +83,137 @@
   <div class="row">
     <h1>dlsodes
       <small>Subroutine</small>
+      
     </h1>
-    <div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title=" 2.9% of total for procedures.">673 statements</a>
-     </li> 
-    <li><i class="fa fa-code"></i><a href="../src/dlsodes.inc"> Source File</a></li>
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-     <li><a href='../sourcefile/dlsodes.inc.html'>dlsodes.inc</a></li>
-     <li class="active">dlsodes</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="row" id="info-bar">
+    <div class="col-lg-12">
+      <div class="well well-sm">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+          <li id="statements"><i class="fa fa-list-ol"></i>
+            <a data-toggle="tooltip"
+               data-placement="bottom" data-html="true"
+               title=" 2.9% of total for procedures.">673 statements</a>
+          </li>
+
+            <li id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dlsodes.inc"> Source File</a>
+            </li>
+        </ul>
+        <ol class="breadcrumb in-well text-right">
+              <li><a href='../sourcefile/dlsodes.inc.html'>dlsodes.inc</a></li>
+          <li class="active">dlsodes</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 
   </div>
   
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    <div id="sidebar">
-  <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
-  <div id="vars-0" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-atoli~5">atoli</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ayi~4">ayi</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-big~4">big</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-dp~11">dp</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ewti~4">ewti</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-h0~4">h0</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-hmax~4">hmax</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-hmx~4">hmx</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-i~67">i</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-i1~17">i1</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-i2~9">i2</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-iflag~6">iflag</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ihit~4">ihit</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-imax~3">imax</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-imul~5">imul</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-imxer~4">imxer</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ipflag">ipflag</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ipgo">ipgo</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-irem">irem</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-j~40">j</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-kgo~6">kgo</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-leniw~4">leniw</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lenrat">lenrat</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lenrw~4">lenrw</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lenyht">lenyht</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lf0~3">lf0</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lia">lia</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lja">lja</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lrtem">lrtem</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lwtem">lwtem</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lyhd~3">lyhd</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lyhn~3">lyhn</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mf1">mf1</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mord~4">mord</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-msg~5">msg</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mxhnl0~4">mxhnl0</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mxstp0~4">mxstp0</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ncolm">ncolm</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-rh~11">rh</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-rtoli~4">rtoli</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-size~4">size</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-sum~10">sum</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tcrit~4">tcrit</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tdist~5">tdist</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tnext~4">tnext</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tol~4">tol</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tolsf~4">tolsf</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tp~5">tp</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-w0~4">w0</a>
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-0">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-atoli~10">atoli</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ayi~8">ayi</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-big~9">big</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-dp~11">dp</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ewti~9">ewti</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-h0~9">h0</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-hmax~9">hmax</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-hmx~9">hmx</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-i~65">i</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-i1~22">i1</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-i2~14">i2</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-iflag~11">iflag</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ihit~9">ihit</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-imax~4">imax</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-imul~6">imul</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-imxer~9">imxer</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ipflag~2">ipflag</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ipgo~2">ipgo</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-irem~2">irem</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-j~39">j</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-kgo~11">kgo</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-leniw~9">leniw</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lenrat~2">lenrat</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lenrw~9">lenrw</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lenyht~2">lenyht</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lf0~6">lf0</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lia~2">lia</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lja~2">lja</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lrtem~2">lrtem</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lwtem~2">lwtem</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lyhd~4">lyhd</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lyhn~4">lyhn</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mf1~2">mf1</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mord~9">mord</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-msg~10">msg</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mxhnl0~9">mxhnl0</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mxstp0~9">mxstp0</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ncolm~2">ncolm</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-rh~16">rh</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-rtoli~9">rtoli</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-size~9">size</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-sum~14">sum</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tcrit~9">tcrit</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tdist~9">tdist</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tnext~9">tnext</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tol~8">tol</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tolsf~9">tolsf</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tp~10">tp</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-w0~8">w0</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../proc/dlsodes~2.html#src">dlsodes</a>
-  </div>
-</div>
 
-</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dlsodes~2.html#src">dlsodes</a>
+      </div>
+    </div>
+
+
+  </div>
 
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>subroutine dlsodes(f, Neq, Y, T, Tout, Itol, Rtol, Atol, Itask, Istate, Iopt, Rwork, Lrw, Iwork, Liw, jac, Mf)</h2>
+    <h2> subroutine dlsodes(f, Neq, Y, T, Tout, Itol, Rtol, Atol, Itask, Istate, Iopt, Rwork, Lrw, Iwork, Liw, jac, Mf)  
+</h2>
     
 
     <h3 id="synopsis">Synopsis</h3>
@@ -2667,113 +2703,273 @@
 <hr>
 
     <h3>Arguments</h3>
-      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-f~24"></span>real</td>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f~27"></span>
+              real
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>f</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-neq~39"></span>integer,</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>f</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-neq~44"></span>
+              integer,
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Neq</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-y~40"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Neq</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y~45"></span>
+              real(kind=dp),
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Y</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-t~9"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Y</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-t~14"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>T</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-tout~5"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>T</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tout~10"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Tout</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-itol~6"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Tout</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-itol~11"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Itol</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rtol~5"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Itol</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rtol~10"></span>
+              real(kind=dp),
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Rtol</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-atol~6"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Rtol</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-atol~11"></span>
+              real(kind=dp),
+            </td>
 <td></td>
-  <td></td>  <td>dimension(*)</td><td>::</td>
-  <td><strong>Atol</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-itask~4"></span>integer</td>
+              <td></td>            <td>
+              dimension(*)
+            </td>
+            <td>::</td>
+            <td><strong>Atol</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-itask~9"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Itask</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-istate~4"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Itask</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-istate~9"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Istate</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iopt~4"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Istate</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iopt~9"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Iopt</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rwork~6"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iopt</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rwork~11"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout),</td>
-  <td></td>  <td>dimension(Lrw)</td><td>::</td>
-  <td><strong>Rwork</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lrw~4"></span>integer</td>
+              <td></td>            <td>
+              dimension(Lrw)
+            </td>
+            <td>::</td>
+            <td><strong>Rwork</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lrw~9"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Lrw</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iwork~4"></span>integer,</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lrw</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwork~9"></span>
+              integer,
+            </td>
 <td>intent(inout),</td>
-  <td></td>  <td>dimension(Liw)</td><td>::</td>
-  <td><strong>Iwork</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-liw~4"></span>integer</td>
+              <td></td>            <td>
+              dimension(Liw)
+            </td>
+            <td>::</td>
+            <td><strong>Iwork</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-liw~9"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Liw</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-jac~25"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Liw</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jac~30"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>jac</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-mf~3"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jac</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mf~7"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Mf</strong></td><td></td>
-</tr>
-</tbody>
-</table>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Mf</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     <br>
     <div class="panel panel-default">
@@ -2795,194 +2991,179 @@
 <!-- proc~dlsodes~2 -->
 <g id="proc~~dlsodes~2~~CallsGraph_node1" class="node">
 <title>proc~dlsodes~2</title>
-<polygon fill="none" stroke="black" points="54,-168 0,-168 0,-144 54,-144 54,-168"/>
-<text text-anchor="middle" x="27" y="-153.6" font-family="Helvetica,sans-Serif" font-size="10.50">dlsodes</text>
-</g>
-<!-- proc~dvnorm~2 -->
-<g id="proc~~dlsodes~2~~CallsGraph_node2" class="node">
-<title>proc~dvnorm~2</title>
-<g id="a_proc~~dlsodes~2~~CallsGraph_node2"><a xlink:href=".././proc/dvnorm~2.html" xlink:title="dvnorm">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="144,-272 90,-272 90,-248 144,-248 144,-272"/>
-<text text-anchor="middle" x="117" y="-257.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodes~2&#45;&gt;proc~dvnorm~2 -->
-<g id="proc~~dlsodes~2~~CallsGraph_edge1" class="edge">
-<title>proc~dlsodes~2&#45;&gt;proc~dvnorm~2</title>
-<path fill="none" stroke="#000000" d="M35.76,-168.28C46.73,-185.17 67.92,-216.07 90,-239 90.65,-239.68 91.32,-240.35 92.01,-241.02"/>
-<polygon fill="#000000" stroke="#000000" points="89.98,-243.9 99.78,-247.94 94.64,-238.67 89.98,-243.9"/>
-</g>
-<!-- proc~diprep~2 -->
-<g id="proc~~dlsodes~2~~CallsGraph_node3" class="node">
-<title>proc~diprep~2</title>
-<g id="a_proc~~dlsodes~2~~CallsGraph_node3"><a xlink:href=".././proc/diprep~2.html" xlink:title="diprep">
-<polygon fill="#d9534f" stroke="#d9534f" points="144,-230 90,-230 90,-206 144,-206 144,-230"/>
-<text text-anchor="middle" x="117" y="-215.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">diprep</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodes~2&#45;&gt;proc~diprep~2 -->
-<g id="proc~~dlsodes~2~~CallsGraph_edge2" class="edge">
-<title>proc~dlsodes~2&#45;&gt;proc~diprep~2</title>
-<path fill="none" stroke="#000000" d="M45.39,-168.25C58.24,-177.31 75.96,-189.79 90.43,-199.99"/>
-<polygon fill="#000000" stroke="#000000" points="88.76,-203.09 98.95,-205.99 92.79,-197.37 88.76,-203.09"/>
+<polygon fill="none" stroke="black" points="54,-148 0,-148 0,-124 54,-124 54,-148"/>
+<text text-anchor="middle" x="27" y="-133.6" font-family="Helvetica,sans-Serif" font-size="10.50">dlsodes</text>
 </g>
 <!-- proc~dewset~2 -->
-<g id="proc~~dlsodes~2~~CallsGraph_node4" class="node">
+<g id="proc~~dlsodes~2~~CallsGraph_node2" class="node">
 <title>proc~dewset~2</title>
-<g id="a_proc~~dlsodes~2~~CallsGraph_node4"><a xlink:href=".././proc/dewset~2.html" xlink:title="dewset">
-<polygon fill="#d9534f" stroke="#d9534f" points="144,-188 90,-188 90,-164 144,-164 144,-188"/>
-<text text-anchor="middle" x="117" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
+<g id="a_proc~~dlsodes~2~~CallsGraph_node2"><a xlink:href=".././proc/dewset~2.html" xlink:title="dewset">
+<polygon fill="#d9534f" stroke="#d9534f" points="144,-252 90,-252 90,-228 144,-228 144,-252"/>
+<text text-anchor="middle" x="117" y="-237.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodes~2&#45;&gt;proc~dewset~2 -->
-<g id="proc~~dlsodes~2~~CallsGraph_edge4" class="edge">
+<g id="proc~~dlsodes~2~~CallsGraph_edge1" class="edge">
 <title>proc~dlsodes~2&#45;&gt;proc~dewset~2</title>
-<path fill="none" stroke="#000000" d="M54.4,-162C62.48,-163.84 71.51,-165.89 80.1,-167.84"/>
-<polygon fill="#000000" stroke="#000000" points="79.39,-171.27 89.92,-170.07 80.94,-164.44 79.39,-171.27"/>
-</g>
-<!-- proc~xerrwd~2 -->
-<g id="proc~~dlsodes~2~~CallsGraph_node5" class="node">
-<title>proc~xerrwd~2</title>
-<g id="a_proc~~dlsodes~2~~CallsGraph_node5"><a xlink:href=".././proc/xerrwd~2.html" xlink:title="xerrwd">
-<polygon fill="#d9534f" stroke="#d9534f" points="234,-108 180,-108 180,-84 234,-84 234,-108"/>
-<text text-anchor="middle" x="207" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodes~2&#45;&gt;proc~xerrwd~2 -->
-<g id="proc~~dlsodes~2~~CallsGraph_edge3" class="edge">
-<title>proc~dlsodes~2&#45;&gt;proc~xerrwd~2</title>
-<path fill="none" stroke="#000000" d="M54.27,-147.19C77.78,-139.29 113.2,-127.39 144,-117 152.44,-114.15 161.52,-111.08 170.05,-108.19"/>
-<polygon fill="#000000" stroke="#000000" points="171.41,-111.43 179.76,-104.9 169.16,-104.8 171.41,-111.43"/>
+<path fill="none" stroke="#000000" d="M35.76,-148.28C46.73,-165.17 67.92,-196.07 90,-219 90.65,-219.68 91.32,-220.35 92.01,-221.02"/>
+<polygon fill="#000000" stroke="#000000" points="89.98,-223.9 99.78,-227.94 94.64,-218.67 89.98,-223.9"/>
 </g>
 <!-- proc~dintdy~2 -->
-<g id="proc~~dlsodes~2~~CallsGraph_node6" class="node">
+<g id="proc~~dlsodes~2~~CallsGraph_node3" class="node">
 <title>proc~dintdy~2</title>
-<g id="a_proc~~dlsodes~2~~CallsGraph_node6"><a xlink:href=".././proc/dintdy~2.html" xlink:title="dintdy">
-<polygon fill="#d9534f" stroke="#d9534f" points="144,-108 90,-108 90,-84 144,-84 144,-108"/>
-<text text-anchor="middle" x="117" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
+<g id="a_proc~~dlsodes~2~~CallsGraph_node3"><a xlink:href=".././proc/dintdy~2.html" xlink:title="dintdy">
+<polygon fill="#d9534f" stroke="#d9534f" points="144,-168 90,-168 90,-144 144,-144 144,-168"/>
+<text text-anchor="middle" x="117" y="-153.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodes~2&#45;&gt;proc~dintdy~2 -->
-<g id="proc~~dlsodes~2~~CallsGraph_edge5" class="edge">
+<g id="proc~~dlsodes~2~~CallsGraph_edge2" class="edge">
 <title>proc~dlsodes~2&#45;&gt;proc~dintdy~2</title>
-<path fill="none" stroke="#000000" d="M45.81,-143.86C58.45,-135.24 75.63,-123.52 89.83,-113.84"/>
-<polygon fill="#000000" stroke="#000000" points="91.93,-116.65 98.22,-108.12 87.98,-110.87 91.93,-116.65"/>
+<path fill="none" stroke="#000000" d="M54.4,-142C62.48,-143.84 71.51,-145.89 80.1,-147.84"/>
+<polygon fill="#000000" stroke="#000000" points="79.39,-151.27 89.92,-150.07 80.94,-144.44 79.39,-151.27"/>
+</g>
+<!-- proc~diprep~2 -->
+<g id="proc~~dlsodes~2~~CallsGraph_node4" class="node">
+<title>proc~diprep~2</title>
+<g id="a_proc~~dlsodes~2~~CallsGraph_node4"><a xlink:href=".././proc/diprep~2.html" xlink:title="diprep">
+<polygon fill="#d9534f" stroke="#d9534f" points="144,-210 90,-210 90,-186 144,-186 144,-210"/>
+<text text-anchor="middle" x="117" y="-195.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">diprep</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodes~2&#45;&gt;proc~diprep~2 -->
+<g id="proc~~dlsodes~2~~CallsGraph_edge3" class="edge">
+<title>proc~dlsodes~2&#45;&gt;proc~diprep~2</title>
+<path fill="none" stroke="#000000" d="M45.39,-148.25C58.24,-157.31 75.96,-169.79 90.43,-179.99"/>
+<polygon fill="#000000" stroke="#000000" points="88.76,-183.09 98.95,-185.99 92.79,-177.37 88.76,-183.09"/>
 </g>
 <!-- proc~dstode -->
-<g id="proc~~dlsodes~2~~CallsGraph_node7" class="node">
+<g id="proc~~dlsodes~2~~CallsGraph_node5" class="node">
 <title>proc~dstode</title>
-<g id="a_proc~~dlsodes~2~~CallsGraph_node7"><a xlink:href=".././proc/dstode.html" xlink:title="dstode">
-<polygon fill="#d9534f" stroke="#d9534f" points="144,-66 90,-66 90,-42 144,-42 144,-66"/>
-<text text-anchor="middle" x="117" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstode</text>
+<g id="a_proc~~dlsodes~2~~CallsGraph_node5"><a xlink:href=".././proc/dstode.html" xlink:title="dstode">
+<polygon fill="#d9534f" stroke="#d9534f" points="144,-46 90,-46 90,-22 144,-22 144,-46"/>
+<text text-anchor="middle" x="117" y="-31.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstode</text>
 </a>
 </g>
 </g>
 <!-- proc~dlsodes~2&#45;&gt;proc~dstode -->
-<g id="proc~~dlsodes~2~~CallsGraph_edge6" class="edge">
+<g id="proc~~dlsodes~2~~CallsGraph_edge4" class="edge">
 <title>proc~dlsodes~2&#45;&gt;proc~dstode</title>
-<path fill="none" stroke="#000000" d="M36.01,-143.75C47.1,-127.24 68.25,-97.33 90,-75 90.66,-74.33 91.33,-73.66 92.02,-72.99"/>
-<polygon fill="#000000" stroke="#000000" points="94.65,-75.34 99.8,-66.09 90,-70.1 94.65,-75.34"/>
+<path fill="none" stroke="#000000" d="M36.01,-123.75C47.1,-107.24 68.25,-77.33 90,-55 90.66,-54.33 91.33,-53.66 92.02,-52.99"/>
+<polygon fill="#000000" stroke="#000000" points="94.65,-55.34 99.8,-46.09 90,-50.1 94.65,-55.34"/>
+</g>
+<!-- proc~dvnorm~2 -->
+<g id="proc~~dlsodes~2~~CallsGraph_node6" class="node">
+<title>proc~dvnorm~2</title>
+<g id="a_proc~~dlsodes~2~~CallsGraph_node6"><a xlink:href=".././proc/dvnorm~2.html" xlink:title="dvnorm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="144,-88 90,-88 90,-64 144,-64 144,-88"/>
+<text text-anchor="middle" x="117" y="-73.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodes~2&#45;&gt;proc~dvnorm~2 -->
+<g id="proc~~dlsodes~2~~CallsGraph_edge5" class="edge">
+<title>proc~dlsodes~2&#45;&gt;proc~dvnorm~2</title>
+<path fill="none" stroke="#000000" d="M45.81,-123.86C58.45,-115.24 75.63,-103.52 89.83,-93.84"/>
+<polygon fill="#000000" stroke="#000000" points="91.93,-96.65 98.22,-88.12 87.98,-90.87 91.93,-96.65"/>
+</g>
+<!-- proc~xerrwd~2 -->
+<g id="proc~~dlsodes~2~~CallsGraph_node7" class="node">
+<title>proc~xerrwd~2</title>
+<g id="a_proc~~dlsodes~2~~CallsGraph_node7"><a xlink:href=".././proc/xerrwd~2.html" xlink:title="xerrwd">
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-128 180,-128 180,-104 234,-104 234,-128"/>
+<text text-anchor="middle" x="207" y="-113.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodes~2&#45;&gt;proc~xerrwd~2 -->
+<g id="proc~~dlsodes~2~~CallsGraph_edge6" class="edge">
+<title>proc~dlsodes~2&#45;&gt;proc~xerrwd~2</title>
+<path fill="none" stroke="#000000" d="M54.26,-133.05C84.85,-129.61 135.55,-123.92 169.84,-120.06"/>
+<polygon fill="#000000" stroke="#000000" points="170.37,-123.53 179.92,-118.93 169.59,-116.57 170.37,-123.53"/>
+</g>
+<!-- proc~dintdy~2&#45;&gt;proc~xerrwd~2 -->
+<g id="proc~~dlsodes~2~~CallsGraph_edge7" class="edge">
+<title>proc~dintdy~2&#45;&gt;proc~xerrwd~2</title>
+<path fill="none" stroke="#000000" d="M144.4,-144C152.66,-140.25 161.9,-136.05 170.66,-132.06"/>
+<polygon fill="#000000" stroke="#000000" points="172.26,-135.18 179.92,-127.86 169.37,-128.81 172.26,-135.18"/>
 </g>
 <!-- proc~dprep -->
-<g id="proc~~dlsodes~2~~CallsGraph_node8" class="node">
+<g id="proc~~dlsodes~2~~CallsGraph_node9" class="node">
 <title>proc~dprep</title>
-<g id="a_proc~~dlsodes~2~~CallsGraph_node8"><a xlink:href=".././proc/dprep.html" xlink:title="dprep">
+<g id="a_proc~~dlsodes~2~~CallsGraph_node9"><a xlink:href=".././proc/dprep.html" xlink:title="dprep">
 <polygon fill="#d9534f" stroke="#d9534f" points="234,-253 180,-253 180,-229 234,-229 234,-253"/>
 <text text-anchor="middle" x="207" y="-238.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprep</text>
 </a>
 </g>
 </g>
 <!-- proc~diprep~2&#45;&gt;proc~dprep -->
-<g id="proc~~dlsodes~2~~CallsGraph_edge7" class="edge">
-<title>proc~diprep~2&#45;&gt;proc~dprep</title>
-<path fill="none" stroke="#000000" d="M144.4,-224.9C152.48,-227.01 161.51,-229.37 170.1,-231.62"/>
-<polygon fill="#000000" stroke="#000000" points="169.36,-235.04 179.92,-234.18 171.13,-228.27 169.36,-235.04"/>
-</g>
-<!-- proc~ixsav~2 -->
-<g id="proc~~dlsodes~2~~CallsGraph_node10" class="node">
-<title>proc~ixsav~2</title>
-<g id="a_proc~~dlsodes~2~~CallsGraph_node10"><a xlink:href=".././proc/ixsav~2.html" xlink:title="ixsav">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="333.5,-85 279.5,-85 279.5,-61 333.5,-61 333.5,-85"/>
-<text text-anchor="middle" x="306.5" y="-70.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ixsav</text>
-</a>
-</g>
-</g>
-<!-- proc~xerrwd~2&#45;&gt;proc~ixsav~2 -->
 <g id="proc~~dlsodes~2~~CallsGraph_edge8" class="edge">
-<title>proc~xerrwd~2&#45;&gt;proc~ixsav~2</title>
-<path fill="none" stroke="#000000" d="M234.13,-89.84C244.95,-87.28 257.68,-84.28 269.37,-81.52"/>
-<polygon fill="#000000" stroke="#000000" points="270.37,-84.88 279.3,-79.18 268.76,-78.07 270.37,-84.88"/>
-</g>
-<!-- proc~dintdy~2&#45;&gt;proc~xerrwd~2 -->
-<g id="proc~~dlsodes~2~~CallsGraph_edge9" class="edge">
-<title>proc~dintdy~2&#45;&gt;proc~xerrwd~2</title>
-<path fill="none" stroke="#000000" d="M144.4,-96C152.39,-96 161.31,-96 169.82,-96"/>
-<polygon fill="#000000" stroke="#000000" points="169.92,-99.5 179.92,-96 169.92,-92.5 169.92,-99.5"/>
-</g>
-<!-- proc~dvnorm -->
-<g id="proc~~dlsodes~2~~CallsGraph_node9" class="node">
-<title>proc~dvnorm</title>
-<g id="a_proc~~dlsodes~2~~CallsGraph_node9"><a xlink:href=".././proc/dvnorm.html" xlink:title="dvnorm">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="234,-66 180,-66 180,-42 234,-42 234,-66"/>
-<text text-anchor="middle" x="207" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
-</a>
-</g>
-</g>
-<!-- proc~dstode&#45;&gt;proc~dvnorm -->
-<g id="proc~~dlsodes~2~~CallsGraph_edge11" class="edge">
-<title>proc~dstode&#45;&gt;proc~dvnorm</title>
-<path fill="none" stroke="#000000" d="M144.4,-54C152.39,-54 161.31,-54 169.82,-54"/>
-<polygon fill="#000000" stroke="#000000" points="169.92,-57.5 179.92,-54 169.92,-50.5 169.92,-57.5"/>
+<title>proc~diprep~2&#45;&gt;proc~dprep</title>
+<path fill="none" stroke="#000000" d="M142.98,-210.21C152.07,-214.65 162.5,-219.74 172.22,-224.49"/>
+<polygon fill="#000000" stroke="#000000" points="170.74,-227.67 181.26,-228.91 173.81,-221.38 170.74,-227.67"/>
 </g>
 <!-- proc~dcfode -->
-<g id="proc~~dlsodes~2~~CallsGraph_node11" class="node">
+<g id="proc~~dlsodes~2~~CallsGraph_node8" class="node">
 <title>proc~dcfode</title>
-<g id="a_proc~~dlsodes~2~~CallsGraph_node11"><a xlink:href=".././proc/dcfode.html" xlink:title="dcfode">
+<g id="a_proc~~dlsodes~2~~CallsGraph_node8"><a xlink:href=".././proc/dcfode.html" xlink:title="dcfode">
 <polygon fill="#d9534f" stroke="#d9534f" points="234,-24 180,-24 180,0 234,0 234,-24"/>
 <text text-anchor="middle" x="207" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
 </a>
 </g>
 </g>
 <!-- proc~dstode&#45;&gt;proc~dcfode -->
-<g id="proc~~dlsodes~2~~CallsGraph_edge10" class="edge">
+<g id="proc~~dlsodes~2~~CallsGraph_edge9" class="edge">
 <title>proc~dstode&#45;&gt;proc~dcfode</title>
-<path fill="none" stroke="#000000" d="M143.45,-41.85C152.21,-37.67 162.17,-32.92 171.52,-28.46"/>
-<polygon fill="#000000" stroke="#000000" points="173.09,-31.59 180.6,-24.12 170.07,-25.27 173.09,-31.59"/>
+<path fill="none" stroke="#000000" d="M144.4,-27.4C152.48,-25.38 161.51,-23.12 170.1,-20.97"/>
+<polygon fill="#000000" stroke="#000000" points="171.07,-24.34 179.92,-18.52 169.37,-17.55 171.07,-24.34"/>
+</g>
+<!-- proc~dvnorm -->
+<g id="proc~~dlsodes~2~~CallsGraph_node10" class="node">
+<title>proc~dvnorm</title>
+<g id="a_proc~~dlsodes~2~~CallsGraph_node10"><a xlink:href=".././proc/dvnorm.html" xlink:title="dvnorm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="234,-66 180,-66 180,-42 234,-42 234,-66"/>
+<text text-anchor="middle" x="207" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
+</a>
+</g>
+</g>
+<!-- proc~dstode&#45;&gt;proc~dvnorm -->
+<g id="proc~~dlsodes~2~~CallsGraph_edge10" class="edge">
+<title>proc~dstode&#45;&gt;proc~dvnorm</title>
+<path fill="none" stroke="#000000" d="M144.4,-40C152.48,-41.84 161.51,-43.89 170.1,-45.84"/>
+<polygon fill="#000000" stroke="#000000" points="169.39,-49.27 179.92,-48.07 170.94,-42.44 169.39,-49.27"/>
+</g>
+<!-- proc~ixsav~2 -->
+<g id="proc~~dlsodes~2~~CallsGraph_node11" class="node">
+<title>proc~ixsav~2</title>
+<g id="a_proc~~dlsodes~2~~CallsGraph_node11"><a xlink:href=".././proc/ixsav~2.html" xlink:title="ixsav">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="333.5,-85 279.5,-85 279.5,-61 333.5,-61 333.5,-85"/>
+<text text-anchor="middle" x="306.5" y="-70.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ixsav</text>
+</a>
+</g>
+</g>
+<!-- proc~xerrwd~2&#45;&gt;proc~ixsav~2 -->
+<g id="proc~~dlsodes~2~~CallsGraph_edge11" class="edge">
+<title>proc~xerrwd~2&#45;&gt;proc~ixsav~2</title>
+<path fill="none" stroke="#000000" d="M234.13,-104.48C245.17,-99.61 258.19,-93.86 270.08,-88.62"/>
+<polygon fill="#000000" stroke="#000000" points="271.56,-91.79 279.3,-84.56 268.74,-85.39 271.56,-91.79"/>
 </g>
 <!-- none~wrapup400 -->
 <g id="proc~~dlsodes~2~~CallsGraph_node12" class="node">
 <title>none~wrapup400</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="343,-421 270,-421 270,-397 343,-397 343,-421"/>
-<text text-anchor="middle" x="306.5" y="-406.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wrapup400</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="343,-379 270,-379 270,-355 343,-355 343,-379"/>
+<text text-anchor="middle" x="306.5" y="-364.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wrapup400</text>
 </g>
 <!-- proc~dprep&#45;&gt;none~wrapup400 -->
 <g id="proc~~dlsodes~2~~CallsGraph_edge12" class="edge">
 <title>proc~dprep&#45;&gt;none~wrapup400</title>
-<path fill="none" stroke="#000000" d="M210.37,-253.04C216.22,-280.02 233.56,-346.28 270,-388 270.73,-388.84 271.5,-389.65 272.31,-390.44"/>
-<polygon fill="#000000" stroke="#000000" points="270.29,-393.3 280.27,-396.86 274.69,-387.86 270.29,-393.3"/>
-</g>
-<!-- proc~adjlr -->
-<g id="proc~~dlsodes~2~~CallsGraph_node13" class="node">
-<title>proc~adjlr</title>
-<g id="a_proc~~dlsodes~2~~CallsGraph_node13"><a xlink:href=".././proc/adjlr.html" xlink:title="adjlr">
-<polygon fill="#d9534f" stroke="#d9534f" points="333.5,-379 279.5,-379 279.5,-355 333.5,-355 333.5,-379"/>
-<text text-anchor="middle" x="306.5" y="-364.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">adjlr</text>
-</a>
-</g>
-</g>
-<!-- proc~dprep&#45;&gt;proc~adjlr -->
-<g id="proc~~dlsodes~2~~CallsGraph_edge16" class="edge">
-<title>proc~dprep&#45;&gt;proc~adjlr</title>
 <path fill="none" stroke="#000000" d="M212.85,-253.33C221.62,-274.42 241.87,-317.85 270,-346 271.04,-347.04 272.15,-348.06 273.3,-349.04"/>
 <polygon fill="#000000" stroke="#000000" points="271.26,-351.88 281.38,-354.99 275.41,-346.24 271.26,-351.88"/>
 </g>
 <!-- none~wrapup500 -->
-<g id="proc~~dlsodes~2~~CallsGraph_node14" class="node">
+<g id="proc~~dlsodes~2~~CallsGraph_node13" class="node">
 <title>none~wrapup500</title>
 <polygon fill="#d9534f" stroke="#d9534f" points="343,-337 270,-337 270,-313 343,-313 343,-337"/>
 <text text-anchor="middle" x="306.5" y="-322.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wrapup500</text>
@@ -2993,107 +3174,132 @@
 <path fill="none" stroke="#000000" d="M218.16,-253.07C229.82,-266.48 249.94,-288.31 270,-304 271.52,-305.19 273.12,-306.36 274.76,-307.51"/>
 <polygon fill="#000000" stroke="#000000" points="272.85,-310.45 283.14,-312.97 276.67,-304.58 272.85,-310.45"/>
 </g>
-<!-- none~wrapup700 -->
-<g id="proc~~dlsodes~2~~CallsGraph_node15" class="node">
-<title>none~wrapup700</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="343,-295 270,-295 270,-271 343,-271 343,-295"/>
-<text text-anchor="middle" x="306.5" y="-280.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wrapup700</text>
-</g>
-<!-- proc~dprep&#45;&gt;none~wrapup700 -->
-<g id="proc~~dlsodes~2~~CallsGraph_edge15" class="edge">
-<title>proc~dprep&#45;&gt;none~wrapup700</title>
-<path fill="none" stroke="#000000" d="M234.13,-252.26C244.62,-256.77 256.9,-262.06 268.29,-266.97"/>
-<polygon fill="#000000" stroke="#000000" points="267.02,-270.24 277.59,-270.98 269.79,-263.81 267.02,-270.24"/>
-</g>
 <!-- none~wrapup600 -->
-<g id="proc~~dlsodes~2~~CallsGraph_node16" class="node">
+<g id="proc~~dlsodes~2~~CallsGraph_node14" class="node">
 <title>none~wrapup600</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="343,-253 270,-253 270,-229 343,-229 343,-253"/>
-<text text-anchor="middle" x="306.5" y="-238.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wrapup600</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="343,-295 270,-295 270,-271 343,-271 343,-295"/>
+<text text-anchor="middle" x="306.5" y="-280.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wrapup600</text>
 </g>
 <!-- proc~dprep&#45;&gt;none~wrapup600 -->
 <g id="proc~~dlsodes~2~~CallsGraph_edge14" class="edge">
 <title>proc~dprep&#45;&gt;none~wrapup600</title>
+<path fill="none" stroke="#000000" d="M234.13,-252.26C244.62,-256.77 256.9,-262.06 268.29,-266.97"/>
+<polygon fill="#000000" stroke="#000000" points="267.02,-270.24 277.59,-270.98 269.79,-263.81 267.02,-270.24"/>
+</g>
+<!-- none~wrapup700 -->
+<g id="proc~~dlsodes~2~~CallsGraph_node15" class="node">
+<title>none~wrapup700</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="343,-253 270,-253 270,-229 343,-229 343,-253"/>
+<text text-anchor="middle" x="306.5" y="-238.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wrapup700</text>
+</g>
+<!-- proc~dprep&#45;&gt;none~wrapup700 -->
+<g id="proc~~dlsodes~2~~CallsGraph_edge15" class="edge">
+<title>proc~dprep&#45;&gt;none~wrapup700</title>
 <path fill="none" stroke="#000000" d="M234.13,-241C241.99,-241 250.87,-241 259.62,-241"/>
 <polygon fill="#000000" stroke="#000000" points="259.77,-244.5 269.77,-241 259.77,-237.5 259.77,-244.5"/>
 </g>
-<!-- proc~jgroup -->
-<g id="proc~~dlsodes~2~~CallsGraph_node17" class="node">
-<title>proc~jgroup</title>
-<g id="a_proc~~dlsodes~2~~CallsGraph_node17"><a xlink:href=".././proc/jgroup.html" xlink:title="jgroup">
+<!-- proc~adjlr -->
+<g id="proc~~dlsodes~2~~CallsGraph_node16" class="node">
+<title>proc~adjlr</title>
+<g id="a_proc~~dlsodes~2~~CallsGraph_node16"><a xlink:href=".././proc/adjlr.html" xlink:title="adjlr">
 <polygon fill="#d9534f" stroke="#d9534f" points="333.5,-211 279.5,-211 279.5,-187 333.5,-187 333.5,-211"/>
-<text text-anchor="middle" x="306.5" y="-196.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">jgroup</text>
+<text text-anchor="middle" x="306.5" y="-196.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">adjlr</text>
 </a>
 </g>
 </g>
-<!-- proc~dprep&#45;&gt;proc~jgroup -->
-<g id="proc~~dlsodes~2~~CallsGraph_edge17" class="edge">
-<title>proc~dprep&#45;&gt;proc~jgroup</title>
+<!-- proc~dprep&#45;&gt;proc~adjlr -->
+<g id="proc~~dlsodes~2~~CallsGraph_edge16" class="edge">
+<title>proc~dprep&#45;&gt;proc~adjlr</title>
 <path fill="none" stroke="#000000" d="M234.13,-229.74C245.17,-224.99 258.19,-219.38 270.08,-214.26"/>
 <polygon fill="#000000" stroke="#000000" points="271.5,-217.46 279.3,-210.29 268.73,-211.03 271.5,-217.46"/>
 </g>
-<!-- proc~odrv -->
-<g id="proc~~dlsodes~2~~CallsGraph_node18" class="node">
-<title>proc~odrv</title>
-<g id="a_proc~~dlsodes~2~~CallsGraph_node18"><a xlink:href=".././proc/odrv.html" xlink:title="odrv">
-<polygon fill="#d9534f" stroke="#d9534f" points="333.5,-169 279.5,-169 279.5,-145 333.5,-145 333.5,-169"/>
-<text text-anchor="middle" x="306.5" y="-154.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">odrv</text>
-</a>
-</g>
-</g>
-<!-- proc~dprep&#45;&gt;proc~odrv -->
-<g id="proc~~dlsodes~2~~CallsGraph_edge18" class="edge">
-<title>proc~dprep&#45;&gt;proc~odrv</title>
-<path fill="none" stroke="#000000" d="M218.16,-228.93C229.82,-215.52 249.94,-193.69 270,-178 271.52,-176.81 273.12,-175.64 274.76,-174.49"/>
-<polygon fill="#000000" stroke="#000000" points="276.67,-177.42 283.14,-169.03 272.85,-171.55 276.67,-177.42"/>
-</g>
 <!-- proc~cdrv -->
-<g id="proc~~dlsodes~2~~CallsGraph_node19" class="node">
+<g id="proc~~dlsodes~2~~CallsGraph_node17" class="node">
 <title>proc~cdrv</title>
-<g id="a_proc~~dlsodes~2~~CallsGraph_node19"><a xlink:href=".././proc/cdrv.html" xlink:title="cdrv">
-<polygon fill="#d9534f" stroke="#d9534f" points="333.5,-127 279.5,-127 279.5,-103 333.5,-103 333.5,-127"/>
-<text text-anchor="middle" x="306.5" y="-112.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">cdrv</text>
+<g id="a_proc~~dlsodes~2~~CallsGraph_node17"><a xlink:href=".././proc/cdrv.html" xlink:title="cdrv">
+<polygon fill="#d9534f" stroke="#d9534f" points="333.5,-169 279.5,-169 279.5,-145 333.5,-145 333.5,-169"/>
+<text text-anchor="middle" x="306.5" y="-154.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">cdrv</text>
 </a>
 </g>
 </g>
 <!-- proc~dprep&#45;&gt;proc~cdrv -->
-<g id="proc~~dlsodes~2~~CallsGraph_edge19" class="edge">
+<g id="proc~~dlsodes~2~~CallsGraph_edge17" class="edge">
 <title>proc~dprep&#45;&gt;proc~cdrv</title>
+<path fill="none" stroke="#000000" d="M218.16,-228.93C229.82,-215.52 249.94,-193.69 270,-178 271.52,-176.81 273.12,-175.64 274.76,-174.49"/>
+<polygon fill="#000000" stroke="#000000" points="276.67,-177.42 283.14,-169.03 272.85,-171.55 276.67,-177.42"/>
+</g>
+<!-- proc~jgroup -->
+<g id="proc~~dlsodes~2~~CallsGraph_node18" class="node">
+<title>proc~jgroup</title>
+<g id="a_proc~~dlsodes~2~~CallsGraph_node18"><a xlink:href=".././proc/jgroup.html" xlink:title="jgroup">
+<polygon fill="#d9534f" stroke="#d9534f" points="333.5,-127 279.5,-127 279.5,-103 333.5,-103 333.5,-127"/>
+<text text-anchor="middle" x="306.5" y="-112.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">jgroup</text>
+</a>
+</g>
+</g>
+<!-- proc~dprep&#45;&gt;proc~jgroup -->
+<g id="proc~~dlsodes~2~~CallsGraph_edge18" class="edge">
+<title>proc~dprep&#45;&gt;proc~jgroup</title>
 <path fill="none" stroke="#000000" d="M212.85,-228.67C221.62,-207.58 241.87,-164.15 270,-136 271.04,-134.96 272.15,-133.94 273.3,-132.96"/>
 <polygon fill="#000000" stroke="#000000" points="275.41,-135.76 281.38,-127.01 271.26,-130.12 275.41,-135.76"/>
+</g>
+<!-- proc~odrv -->
+<g id="proc~~dlsodes~2~~CallsGraph_node19" class="node">
+<title>proc~odrv</title>
+<g id="a_proc~~dlsodes~2~~CallsGraph_node19"><a xlink:href=".././proc/odrv.html" xlink:title="odrv">
+<polygon fill="#d9534f" stroke="#d9534f" points="333.5,-421 279.5,-421 279.5,-397 333.5,-397 333.5,-421"/>
+<text text-anchor="middle" x="306.5" y="-406.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">odrv</text>
+</a>
+</g>
+</g>
+<!-- proc~dprep&#45;&gt;proc~odrv -->
+<g id="proc~~dlsodes~2~~CallsGraph_edge19" class="edge">
+<title>proc~dprep&#45;&gt;proc~odrv</title>
+<path fill="none" stroke="#000000" d="M210.37,-253.04C216.22,-280.02 233.56,-346.28 270,-388 270.73,-388.84 271.5,-389.65 272.31,-390.44"/>
+<polygon fill="#000000" stroke="#000000" points="270.29,-393.3 280.27,-396.86 274.69,-387.86 270.29,-393.3"/>
 </g>
 <!-- iwk -->
 <g id="proc~~dlsodes~2~~CallsGraph_node20" class="node">
 <title>iwk</title>
-<polygon fill="#777777" stroke="#777777" points="433,-274 379,-274 379,-250 433,-250 433,-274"/>
-<text text-anchor="middle" x="406" y="-259.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iwk</text>
+<polygon fill="#777777" stroke="#777777" points="433,-316 379,-316 379,-292 433,-292 433,-316"/>
+<text text-anchor="middle" x="406" y="-301.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iwk</text>
 </g>
 <!-- none~wrapup600&#45;&gt;iwk -->
 <g id="proc~~dlsodes~2~~CallsGraph_edge20" class="edge">
 <title>none~wrapup600&#45;&gt;iwk</title>
-<path fill="none" stroke="#000000" d="M343.25,-248.7C351.6,-250.5 360.49,-252.41 368.85,-254.21"/>
-<polygon fill="#000000" stroke="#000000" points="368.21,-257.66 378.72,-256.34 369.68,-250.81 368.21,-257.66"/>
+<path fill="none" stroke="#000000" d="M343.25,-290.7C351.6,-292.5 360.49,-294.41 368.85,-296.21"/>
+<polygon fill="#000000" stroke="#000000" points="368.21,-299.66 378.72,-298.34 369.68,-292.81 368.21,-299.66"/>
 </g>
 <!-- proc~cntnzu -->
 <g id="proc~~dlsodes~2~~CallsGraph_node21" class="node">
 <title>proc~cntnzu</title>
 <g id="a_proc~~dlsodes~2~~CallsGraph_node21"><a xlink:href=".././proc/cntnzu.html" xlink:title="cntnzu">
-<polygon fill="#d9534f" stroke="#d9534f" points="433,-232 379,-232 379,-208 433,-208 433,-232"/>
-<text text-anchor="middle" x="406" y="-217.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">cntnzu</text>
+<polygon fill="#d9534f" stroke="#d9534f" points="433,-274 379,-274 379,-250 433,-250 433,-274"/>
+<text text-anchor="middle" x="406" y="-259.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">cntnzu</text>
 </a>
 </g>
 </g>
 <!-- none~wrapup600&#45;&gt;proc~cntnzu -->
 <g id="proc~~dlsodes~2~~CallsGraph_edge21" class="edge">
 <title>none~wrapup600&#45;&gt;proc~cntnzu</title>
-<path fill="none" stroke="#000000" d="M343.25,-233.3C351.6,-231.5 360.49,-229.59 368.85,-227.79"/>
-<polygon fill="#000000" stroke="#000000" points="369.68,-231.19 378.72,-225.66 368.21,-224.34 369.68,-231.19"/>
+<path fill="none" stroke="#000000" d="M343.25,-275.3C351.6,-273.5 360.49,-271.59 368.85,-269.79"/>
+<polygon fill="#000000" stroke="#000000" points="369.68,-273.19 378.72,-267.66 368.21,-266.34 369.68,-273.19"/>
 </g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -3143,82 +3349,107 @@
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a procedure to one which it calls. Dashed 
-    arrows point from an interface to procedures which implement that interface.
-    This could include the module procedures in a generic interface or the
-    implementation in a submodule of an interface in a parent module.
-    </p>
-    </div></div></div></div>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <br>
 
     <section class="visible-xs visible-sm hidden-md">
-      <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
-  <div id="vars-1" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-atoli~5">atoli</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ayi~4">ayi</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-big~4">big</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-dp~11">dp</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ewti~4">ewti</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-h0~4">h0</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-hmax~4">hmax</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-hmx~4">hmx</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-i~67">i</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-i1~17">i1</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-i2~9">i2</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-iflag~6">iflag</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ihit~4">ihit</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-imax~3">imax</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-imul~5">imul</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-imxer~4">imxer</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ipflag">ipflag</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ipgo">ipgo</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-irem">irem</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-j~40">j</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-kgo~6">kgo</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-leniw~4">leniw</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lenrat">lenrat</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lenrw~4">lenrw</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lenyht">lenyht</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lf0~3">lf0</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lia">lia</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lja">lja</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lrtem">lrtem</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lwtem">lwtem</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lyhd~3">lyhd</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lyhn~3">lyhn</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mf1">mf1</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mord~4">mord</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-msg~5">msg</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mxhnl0~4">mxhnl0</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mxstp0~4">mxstp0</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ncolm">ncolm</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-rh~11">rh</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-rtoli~4">rtoli</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-size~4">size</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-sum~10">sum</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tcrit~4">tcrit</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tdist~5">tdist</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tnext~4">tnext</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tol~4">tol</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tolsf~4">tolsf</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tp~5">tp</a>
-      <a class="list-group-item" href="../proc/dlsodes~2.html#variable-w0~4">w0</a>
+        <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-1">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-atoli~10">atoli</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ayi~8">ayi</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-big~9">big</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-dp~11">dp</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ewti~9">ewti</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-h0~9">h0</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-hmax~9">hmax</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-hmx~9">hmx</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-i~65">i</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-i1~22">i1</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-i2~14">i2</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-iflag~11">iflag</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ihit~9">ihit</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-imax~4">imax</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-imul~6">imul</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-imxer~9">imxer</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ipflag~2">ipflag</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ipgo~2">ipgo</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-irem~2">irem</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-j~39">j</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-kgo~11">kgo</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-leniw~9">leniw</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lenrat~2">lenrat</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lenrw~9">lenrw</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lenyht~2">lenyht</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lf0~6">lf0</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lia~2">lia</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lja~2">lja</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lrtem~2">lrtem</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lwtem~2">lwtem</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lyhd~4">lyhd</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-lyhn~4">lyhn</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mf1~2">mf1</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mord~9">mord</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-msg~10">msg</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mxhnl0~9">mxhnl0</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-mxstp0~9">mxstp0</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-ncolm~2">ncolm</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-rh~16">rh</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-rtoli~9">rtoli</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-size~9">size</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-sum~14">sum</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tcrit~9">tcrit</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tdist~9">tdist</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tnext~9">tnext</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tol~8">tol</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tolsf~9">tolsf</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-tp~10">tp</a>
+            <a class="list-group-item" href="../proc/dlsodes~2.html#variable-w0~8">w0</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../proc/dlsodes~2.html#src">dlsodes</a>
-  </div>
-</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dlsodes~2.html#src">dlsodes</a>
+      </div>
+    </div>
+
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
@@ -3226,256 +3457,851 @@
 
     <section>    
       <h2>Variables</h2>
-    <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-atoli~5"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>atoli</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ayi~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ayi</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-big~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>big</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-dp~11"></span>integer,</td>
-<td>public,</td>  <td>parameter</td><td>::</td>
-  <td><strong>dp</strong></td><td> =</td><td>kind(0.0d0)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ewti~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ewti</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-h0~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>h0</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-hmax~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>hmax</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-hmx~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>hmx</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-i~67"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>i</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-i1~17"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>i1</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-i2~9"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>i2</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iflag~6"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>iflag</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ihit~4"></span>logical,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ihit</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-imax~3"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>imax</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-imul~5"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>imul</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-imxer~4"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>imxer</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ipflag"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ipflag</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ipgo"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ipgo</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-irem"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>irem</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-j~40"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>j</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-kgo~6"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>kgo</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-leniw~4"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>leniw</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lenrat"></span>integer,</td>
-<td>public,</td>  <td>save</td><td>::</td>
-  <td><strong>lenrat</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lenrw~4"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>lenrw</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lenyht"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>lenyht</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lf0~3"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>lf0</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lia"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>lia</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lja"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>lja</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lrtem"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>lrtem</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lwtem"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>lwtem</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lyhd~3"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>lyhd</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lyhn~3"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>lyhn</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-mf1"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>mf1</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-mord~4"></span>integer,</td>
-<td>public,</td>  <td>dimension(2), save</td><td>::</td>
-  <td><strong>mord</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-msg~5"></span>character(len=60),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>msg</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-mxhnl0~4"></span>integer,</td>
-<td>public,</td>  <td>save</td><td>::</td>
-  <td><strong>mxhnl0</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-mxstp0~4"></span>integer,</td>
-<td>public,</td>  <td>save</td><td>::</td>
-  <td><strong>mxstp0</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ncolm"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ncolm</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rh~11"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>rh</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rtoli~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>rtoli</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-size~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>size</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-sum~10"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>sum</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-tcrit~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>tcrit</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-tdist~5"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>tdist</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-tnext~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>tnext</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-tol~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>tol</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-tolsf~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>tolsf</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-tp~5"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>tp</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-w0~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>w0</strong></td><td></td><td></td><td></td>
-</tr>
-</tbody>
-</table>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Visibility</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+<th></th><th>Initial</th>        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-atoli~10"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>atoli</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ayi~8"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ayi</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-big~9"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>big</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dp~11"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>dp</strong></td>
+<td> =</td>
+                <td>kind(0.0d0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ewti~9"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ewti</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-h0~9"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>h0</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hmax~9"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>hmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hmx~9"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>hmx</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~65"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i1~22"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i2~14"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iflag~11"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iflag</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ihit~9"></span>
+              logical,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ihit</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-imax~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>imax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-imul~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>imul</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-imxer~9"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>imxer</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ipflag~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ipflag</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ipgo~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ipgo</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-irem~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>irem</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~39"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kgo~11"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>kgo</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-leniw~9"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>leniw</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lenrat~2"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>lenrat</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lenrw~9"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lenrw</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lenyht~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lenyht</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lf0~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lf0</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lia~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lia</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lja~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lja</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lrtem~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lrtem</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lwtem~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lwtem</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lyhd~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lyhd</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lyhn~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lyhn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mf1~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mf1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mord~9"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              dimension(2), save
+            </td>
+            <td>::</td>
+            <td><strong>mord</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-msg~10"></span>
+              character(len=60),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>msg</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mxhnl0~9"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>mxhnl0</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mxstp0~9"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>mxstp0</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ncolm~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ncolm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rh~16"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rh</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rtoli~9"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rtoli</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-size~9"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>size</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-sum~14"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>sum</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tcrit~9"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tcrit</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tdist~9"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tdist</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tnext~9"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tnext</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tol~8"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tol</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tolsf~9"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tolsf</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tp~10"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-w0~8"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>w0</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     </section>
     <br>
@@ -4341,50 +5167,50 @@
     </div>
   </div>
 
-    <hr>    
+      <hr>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2022 
+        <div class="row">
+          <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2023 
 </p>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <p class="text-right">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2023-04-17 10:19              </p>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-          <p class="text-right">
-            Documentation generated by 
-            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-16 16:30            </p>
-        </div>
-      </div>
-      <br>
-      </div> <!-- /container -->    
+        <br>
+      </div> <!-- /container -->
     </footer>
 
     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-<!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
--->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+         ================================================== -->
+         <!-- Placed at the end of the document so the pages load faster -->
+    <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- MathJax JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
+        <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
   </body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
+      <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
     <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
     <link rel="icon" href="../favicon.png">
 
@@ -14,17 +14,17 @@
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    <link href="../css/user.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="../js/jquery-2.1.3.min.js"></script>
-    <script src="../js/svg-pan-zoom.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+         <script src="../js/jquery-2.1.3.min.js"></script>
+         <script src="../js/svg-pan-zoom.min.js"></script>
 
   </head>
 
@@ -46,29 +46,35 @@
           <ul class="nav navbar-nav">
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
-              data-toggle="dropdown" role="button"
-              aria-haspopup="true"
-     aria-expanded="false">Contents <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="../lists/files.html">Source Files</a></li>
-            <li><a href="../lists/modules.html">Modules</a></li>
-            <li><a href="../lists/procedures.html">Procedures</a></li>
-              
-            </ul>
-        
+                 data-toggle="dropdown" role="button"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                 Contents <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                    <li><a href="../lists/files.html">Source Files</a></li>
+                  <li><a href="../lists/modules.html">Modules</a></li>
+                  <li><a href="../lists/procedures.html">Procedures</a></li>
+              </ul>
             </li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-                                       </ul>
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
-        </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
+                <li class="visible-xs hidden-sm visible-lg">
+                  <a href="../lists/files.html">Source Files</a>
+                </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/modules.html">Modules</a>
+              </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/procedures.html">Procedures</a>
+              </li>
+          </ul>
+            <form action="../search.html" class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+              </div>
+              <!--
+                  <button type="submit" class="btn btn-default">Submit</button>
+                  -->
+            </form>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -77,84 +83,118 @@
   <div class="row">
     <h1>dspigmr
       <small>Subroutine</small>
+      
     </h1>
-    <div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title=" 0.7% of total for procedures.">157 statements</a>
-     </li> 
-    <li><i class="fa fa-code"></i><a href="../src/dspigmr.inc"> Source File</a></li>
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-     <li><a href='../sourcefile/dspigmr.inc.html'>dspigmr.inc</a></li>
-     <li class="active">dspigmr</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="row" id="info-bar">
+    <div class="col-lg-12">
+      <div class="well well-sm">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+          <li id="statements"><i class="fa fa-list-ol"></i>
+            <a data-toggle="tooltip"
+               data-placement="bottom" data-html="true"
+               title=" 0.7% of total for procedures.">157 statements</a>
+          </li>
+
+            <li id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dspigmr.inc"> Source File</a>
+            </li>
+        </ul>
+        <ol class="breadcrumb in-well text-right">
+              <li><a href='../sourcefile/dspigmr.inc.html'>dspigmr.inc</a></li>
+          <li class="active">dspigmr</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 
   </div>
   
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    <div id="sidebar">
-  <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
-  <div id="vars-0" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-bnrm~4">bnrm</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-bnrm0~2">bnrm0</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-c~4">c</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-dlnrm">dlnrm</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-i~50">i</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-i2~5">i2</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-ier~14">ier</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-info~2">info</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-ip1">ip1</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-j~34">j</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-k~25">k</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-ll~2">ll</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-llp1">llp1</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-prod~2">prod</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-rho~2">rho</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-s~6">s</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-snormw~2">snormw</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-tem~3">tem</a>
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-0">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-bnrm~5">bnrm</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-bnrm0~2">bnrm0</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-c~3">c</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-dlnrm">dlnrm</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-i~46">i</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-i2~3">i2</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-ier~14">ier</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-info~2">info</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-ip1">ip1</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-j~29">j</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-k~21">k</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-ll~2">ll</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-llp1">llp1</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-prod~2">prod</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-rho~2">rho</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-s~6">s</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-snormw~2">snormw</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-tem~3">tem</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
-  <div class="list-group">
-    <div id="subs-0" class="panel-collapse collapse">
-      <a class="list-group-item" href="../proc/dspigmr~2.html#proc-approximate">approximate</a>
-    </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../proc/dspigmr~2.html#src">dspigmr</a>
-  </div>
-</div>
 
-</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#subs-0">Subroutines</a>
+        </h3>
+      </div>
+      <div id="subs-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dspigmr~2.html#proc-approximate">approximate</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dspigmr~2.html#src">dspigmr</a>
+      </div>
+    </div>
+
+
+  </div>
 
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>subroutine dspigmr(Neq, Tn, Y, Savf, B, Wght, N, Maxl, Maxlp1, Kmp, Delta, Hl0, Jpre, Mnewt, f, psol, Npsl, X, V, Hes, Q, Lgmr, Wp, Iwp, Wk, Dl, Iflag)</h2>
+    <h2> subroutine dspigmr(Neq, Tn, Y, Savf, B, Wght, N, Maxl, Maxlp1, Kmp, Delta, Hl0, Jpre, Mnewt, f, psol, Npsl, X, V, Hes, Q, Lgmr, Wp, Iwp, Wk, Dl, Iflag)  
+</h2>
     
 
     <p>This routine solves the linear system A * x = b using a scaled
@@ -333,173 +373,423 @@
 </table>
 
     <h3>Arguments</h3>
-      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-neq~31"></span>integer</td>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-neq~30"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Neq</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-tn~4"></span>real(kind=dp)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Neq</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tn~5"></span>
+              real(kind=dp)
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Tn</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-y~32"></span>real(kind=dp)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Tn</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y~31"></span>
+              real(kind=dp)
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Y</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-savf~20"></span>real(kind=dp)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Y</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-savf~18"></span>
+              real(kind=dp)
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Savf</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-b~11"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Savf</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~10"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>B</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-wght~6"></span>real(kind=dp)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wght~5"></span>
+              real(kind=dp)
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Wght</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-n~24"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Wght</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~22"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>N</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-maxl~3"></span>integer,</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-maxl~4"></span>
+              integer,
+            </td>
 <td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Maxl</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-maxlp1"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Maxl</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-maxlp1"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Maxlp1</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-kmp~3"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Maxlp1</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kmp~3"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Kmp</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-delta~4"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Kmp</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delta~5"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Delta</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-hl0~6"></span>real(kind=dp)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Delta</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hl0~5"></span>
+              real(kind=dp)
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Hl0</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-jpre~4"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Hl0</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jpre~4"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Jpre</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-mnewt~4"></span>integer,</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jpre</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mnewt~5"></span>
+              integer,
+            </td>
 <td>intent(in)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Mnewt</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-f~18"></span>real</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Mnewt</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f~17"></span>
+              real
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>f</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-psol~7"></span>real</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>f</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-psol~7"></span>
+              real
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>psol</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-npsl~5"></span>integer,</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>psol</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-npsl~5"></span>
+              integer,
+            </td>
 <td>intent(out)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Npsl</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-x~7"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Npsl</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~7"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>X</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-v~8"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>X</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~8"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>V</strong>(N,*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-hes~3"></span>real(kind=dp)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>V</strong>(N,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hes~3"></span>
+              real(kind=dp)
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Hes</strong>(Maxlp1,*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-q~5"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Hes</strong>(Maxlp1,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-q~4"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Q</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lgmr"></span>integer,</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Q</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lgmr"></span>
+              integer,
+            </td>
 <td>intent(out)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Lgmr</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-wp~5"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lgmr</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wp~5"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Wp</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iwp~5"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Wp</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwp~5"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Iwp</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-wk~12"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iwp</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wk~12"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Wk</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-dl"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Wk</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dl"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Dl</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iflag~5"></span>integer,</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Dl</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iflag~6"></span>
+              integer,
+            </td>
 <td>intent(out)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Iflag</strong></td><td></td>
-</tr>
-</tbody>
-</table>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iflag</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     <br>
     <div class="panel panel-default">
@@ -513,238 +803,248 @@
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~dspigmr~2~~CallsGraph Pages: 1 -->
-<svg id="procdspigmr2CallsGraph" width="359pt" height="421pt"
- viewBox="0.00 0.00 359.00 421.10" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~dspigmr~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 417.1)">
+<svg id="procdspigmr2CallsGraph" width="359pt" height="404pt"
+ viewBox="0.00 0.00 359.00 404.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dspigmr~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 400)">
 <title>proc~~dspigmr~2~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-417.1 355,-417.1 355,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-400 355,-400 355,4 -4,4"/>
 <!-- proc~dspigmr~2 -->
 <g id="proc~~dspigmr~2~~CallsGraph_node1" class="node">
 <title>proc~dspigmr~2</title>
-<polygon fill="none" stroke="black" points="56,-332 0,-332 0,-308 56,-308 56,-332"/>
-<text text-anchor="middle" x="28" y="-317.6" font-family="Helvetica,sans-Serif" font-size="10.50">dspigmr</text>
+<polygon fill="none" stroke="black" points="56,-126 0,-126 0,-102 56,-102 56,-126"/>
+<text text-anchor="middle" x="28" y="-111.6" font-family="Helvetica,sans-Serif" font-size="10.50">dspigmr</text>
 </g>
-<!-- proc~dnrm2~2 -->
+<!-- none~approximate -->
 <g id="proc~~dspigmr~2~~CallsGraph_node2" class="node">
-<title>proc~dnrm2~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node2"><a xlink:href=".././proc/dnrm2~2.html" xlink:title="DNRM2">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="261,-395 207,-395 207,-371 261,-371 261,-395"/>
-<text text-anchor="middle" x="234" y="-380.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DNRM2</text>
-</a>
+<title>none~approximate</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="171,-253 92,-253 92,-229 171,-229 171,-253"/>
+<text text-anchor="middle" x="131.5" y="-238.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">approximate</text>
 </g>
-</g>
-<!-- proc~dspigmr~2&#45;&gt;proc~dnrm2~2 -->
+<!-- proc~dspigmr~2&#45;&gt;none~approximate -->
 <g id="proc~~dspigmr~2~~CallsGraph_edge1" class="edge">
-<title>proc~dspigmr~2&#45;&gt;proc~dnrm2~2</title>
-<path fill="none" stroke="#000000" d="M33.75,-332.01C42.16,-351.36 61.67,-388.84 92,-404 125.61,-420.81 168.95,-410.29 198.66,-398.95"/>
-<polygon fill="#000000" stroke="#000000" points="200.21,-402.1 208.18,-395.11 197.59,-395.6 200.21,-402.1"/>
-</g>
-<!-- proc~dorthog~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node3" class="node">
-<title>proc~dorthog~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node3"><a xlink:href=".././proc/dorthog~2.html" xlink:title="dorthog">
-<polygon fill="#d9534f" stroke="#d9534f" points="159,-311 104,-311 104,-287 159,-287 159,-311"/>
-<text text-anchor="middle" x="131.5" y="-296.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dorthog</text>
-</a>
-</g>
-</g>
-<!-- proc~dspigmr~2&#45;&gt;proc~dorthog~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge4" class="edge">
-<title>proc~dspigmr~2&#45;&gt;proc~dorthog~2</title>
-<path fill="none" stroke="#000000" d="M56.2,-314.37C67.76,-311.98 81.42,-309.16 93.85,-306.58"/>
-<polygon fill="#000000" stroke="#000000" points="94.84,-309.95 103.93,-304.5 93.43,-303.1 94.84,-309.95"/>
-</g>
-<!-- proc~dscal~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node4" class="node">
-<title>proc~dscal~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node4"><a xlink:href=".././proc/dscal~2.html" xlink:title="dscal">
-<polygon fill="#d9534f" stroke="#d9534f" points="158.5,-353 104.5,-353 104.5,-329 158.5,-329 158.5,-353"/>
-<text text-anchor="middle" x="131.5" y="-338.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscal</text>
-</a>
-</g>
-</g>
-<!-- proc~dspigmr~2&#45;&gt;proc~dscal~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge3" class="edge">
-<title>proc~dspigmr~2&#45;&gt;proc~dscal~2</title>
-<path fill="none" stroke="#000000" d="M56.2,-325.63C67.85,-328.04 81.63,-330.89 94.14,-333.48"/>
-<polygon fill="#000000" stroke="#000000" points="93.77,-336.98 104.28,-335.57 95.19,-330.12 93.77,-336.98"/>
+<title>proc~dspigmr~2&#45;&gt;none~approximate</title>
+<path fill="none" stroke="#000000" d="M37.72,-126.02C49.65,-142.35 71.88,-172.32 92,-197 98.59,-205.09 106.1,-213.78 112.73,-221.28"/>
+<polygon fill="#000000" stroke="#000000" points="110.22,-223.73 119.48,-228.87 115.45,-219.07 110.22,-223.73"/>
 </g>
 <!-- proc~datv~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node5" class="node">
+<g id="proc~~dspigmr~2~~CallsGraph_node3" class="node">
 <title>proc~datv~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node5"><a xlink:href=".././proc/datv~2.html" xlink:title="datv">
-<polygon fill="#d9534f" stroke="#d9534f" points="158.5,-395 104.5,-395 104.5,-371 158.5,-371 158.5,-395"/>
-<text text-anchor="middle" x="131.5" y="-380.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">datv</text>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node3"><a xlink:href=".././proc/datv~2.html" xlink:title="datv">
+<polygon fill="#d9534f" stroke="#d9534f" points="158.5,-188 104.5,-188 104.5,-164 158.5,-164 158.5,-188"/>
+<text text-anchor="middle" x="131.5" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">datv</text>
 </a>
 </g>
 </g>
 <!-- proc~dspigmr~2&#45;&gt;proc~datv~2 -->
 <g id="proc~~dspigmr~2~~CallsGraph_edge2" class="edge">
 <title>proc~dspigmr~2&#45;&gt;proc~datv~2</title>
-<path fill="none" stroke="#000000" d="M46.11,-332.01C58.64,-340.64 76.14,-352.41 92,-362 94.17,-363.31 96.42,-364.63 98.7,-365.95"/>
-<polygon fill="#000000" stroke="#000000" points="97.08,-369.05 107.51,-370.89 100.5,-362.94 97.08,-369.05"/>
-</g>
-<!-- none~approximate -->
-<g id="proc~~dspigmr~2~~CallsGraph_node6" class="node">
-<title>none~approximate</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="171,-192 92,-192 92,-168 171,-168 171,-192"/>
-<text text-anchor="middle" x="131.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">approximate</text>
-</g>
-<!-- proc~dspigmr~2&#45;&gt;none~approximate -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge5" class="edge">
-<title>proc~dspigmr~2&#45;&gt;none~approximate</title>
-<path fill="none" stroke="#000000" d="M38.01,-307.58C55.51,-283.44 94.25,-230 115.63,-200.52"/>
-<polygon fill="#000000" stroke="#000000" points="118.62,-202.35 121.66,-192.2 112.95,-198.24 118.62,-202.35"/>
+<path fill="none" stroke="#000000" d="M46.69,-126.04C59.19,-134.41 76.42,-145.7 92,-155 94.17,-156.3 96.43,-157.61 98.72,-158.92"/>
+<polygon fill="#000000" stroke="#000000" points="97.1,-162.02 107.53,-163.85 100.52,-155.91 97.1,-162.02"/>
 </g>
 <!-- proc~dheqr~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node7" class="node">
+<g id="proc~~dspigmr~2~~CallsGraph_node4" class="node">
 <title>proc~dheqr~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node7"><a xlink:href=".././proc/dheqr~2.html" xlink:title="dheqr">
-<polygon fill="#d9534f" stroke="#d9534f" points="158.5,-150 104.5,-150 104.5,-126 158.5,-126 158.5,-150"/>
-<text text-anchor="middle" x="131.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dheqr</text>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node4"><a xlink:href=".././proc/dheqr~2.html" xlink:title="dheqr">
+<polygon fill="#d9534f" stroke="#d9534f" points="158.5,-146 104.5,-146 104.5,-122 158.5,-122 158.5,-146"/>
+<text text-anchor="middle" x="131.5" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dheqr</text>
 </a>
 </g>
 </g>
 <!-- proc~dspigmr~2&#45;&gt;proc~dheqr~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge6" class="edge">
+<g id="proc~~dspigmr~2~~CallsGraph_edge3" class="edge">
 <title>proc~dspigmr~2&#45;&gt;proc~dheqr~2</title>
-<path fill="none" stroke="#000000" d="M30.88,-307.6C35.87,-278.43 51.92,-204.49 92,-159 93.18,-157.66 94.46,-156.4 95.82,-155.2"/>
-<polygon fill="#000000" stroke="#000000" points="98.22,-157.78 104.24,-149.06 94.1,-152.12 98.22,-157.78"/>
+<path fill="none" stroke="#000000" d="M56.2,-119.36C67.85,-121.66 81.63,-124.37 94.14,-126.84"/>
+<polygon fill="#000000" stroke="#000000" points="93.79,-130.33 104.28,-128.83 95.14,-123.47 93.79,-130.33"/>
 </g>
-<!-- proc~dorthog~2&#45;&gt;proc~dnrm2~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge7" class="edge">
-<title>proc~dorthog~2&#45;&gt;proc~dnrm2~2</title>
-<path fill="none" stroke="#000000" d="M157.75,-311.11C162.35,-313.77 166.96,-316.77 171,-320 189.94,-335.15 189.7,-344.01 207,-361 208.05,-362.04 209.15,-363.08 210.27,-364.12"/>
-<polygon fill="#000000" stroke="#000000" points="208.01,-366.79 217.82,-370.8 212.65,-361.55 208.01,-366.79"/>
-</g>
-<!-- proc~ddot~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node11" class="node">
-<title>proc~ddot~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node11"><a xlink:href=".././proc/ddot~2.html" xlink:title="ddot">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="261,-352 207,-352 207,-328 261,-328 261,-352"/>
-<text text-anchor="middle" x="234" y="-337.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddot</text>
+<!-- proc~dnrm2~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_node5" class="node">
+<title>proc~dnrm2~2</title>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node5"><a xlink:href=".././proc/dnrm2~2.html" xlink:title="DNRM2">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="261,-106 207,-106 207,-82 261,-82 261,-106"/>
+<text text-anchor="middle" x="234" y="-91.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">DNRM2</text>
 </a>
 </g>
 </g>
-<!-- proc~dorthog~2&#45;&gt;proc~ddot~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge8" class="edge">
-<title>proc~dorthog~2&#45;&gt;proc~ddot~2</title>
-<path fill="none" stroke="#000000" d="M159.17,-309.88C170.94,-314.68 184.94,-320.39 197.57,-325.55"/>
-<polygon fill="#000000" stroke="#000000" points="196.32,-328.82 206.9,-329.35 198.97,-322.34 196.32,-328.82"/>
+<!-- proc~dspigmr~2&#45;&gt;proc~dnrm2~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge4" class="edge">
+<title>proc~dspigmr~2&#45;&gt;proc~dnrm2~2</title>
+<path fill="none" stroke="#000000" d="M56.09,-111.34C92.21,-107.8 156.25,-101.52 196.56,-97.57"/>
+<polygon fill="#000000" stroke="#000000" points="197.16,-101.03 206.77,-96.57 196.47,-94.06 197.16,-101.03"/>
 </g>
-<!-- proc~daxpy~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node12" class="node">
-<title>proc~daxpy~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node12"><a xlink:href=".././proc/daxpy~2.html" xlink:title="daxpy">
-<polygon fill="#d9534f" stroke="#d9534f" points="351,-274 297,-274 297,-250 351,-250 351,-274"/>
-<text text-anchor="middle" x="324" y="-259.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daxpy</text>
+<!-- proc~dorthog~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_node6" class="node">
+<title>proc~dorthog~2</title>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node6"><a xlink:href=".././proc/dorthog~2.html" xlink:title="dorthog">
+<polygon fill="#d9534f" stroke="#d9534f" points="159,-66 104,-66 104,-42 159,-42 159,-66"/>
+<text text-anchor="middle" x="131.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dorthog</text>
 </a>
 </g>
 </g>
-<!-- proc~dorthog~2&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge9" class="edge">
-<title>proc~dorthog~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M159.15,-294.59C185.18,-290.2 225.9,-283.1 261,-276 269.38,-274.3 278.37,-272.35 286.83,-270.46"/>
-<polygon fill="#000000" stroke="#000000" points="287.83,-273.82 296.81,-268.19 286.28,-266.99 287.83,-273.82"/>
+<!-- proc~dspigmr~2&#45;&gt;proc~dorthog~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge5" class="edge">
+<title>proc~dspigmr~2&#45;&gt;proc~dorthog~2</title>
+<path fill="none" stroke="#000000" d="M49.54,-101.86C64.4,-93.07 84.69,-81.08 101.24,-71.3"/>
+<polygon fill="#000000" stroke="#000000" points="103.16,-74.23 109.99,-66.12 99.6,-68.2 103.16,-74.23"/>
 </g>
-<!-- proc~datv~2&#45;&gt;proc~dnrm2~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge10" class="edge">
-<title>proc~datv~2&#45;&gt;proc~dnrm2~2</title>
-<path fill="none" stroke="#000000" d="M158.64,-383C170.27,-383 184.17,-383 196.77,-383"/>
-<polygon fill="#000000" stroke="#000000" points="196.99,-386.5 206.99,-383 196.99,-379.5 196.99,-386.5"/>
+<!-- proc~dscal~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_node7" class="node">
+<title>proc~dscal~2</title>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node7"><a xlink:href=".././proc/dscal~2.html" xlink:title="dscal">
+<polygon fill="#d9534f" stroke="#d9534f" points="158.5,-24 104.5,-24 104.5,0 158.5,0 158.5,-24"/>
+<text text-anchor="middle" x="131.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscal</text>
+</a>
+</g>
+</g>
+<!-- proc~dspigmr~2&#45;&gt;proc~dscal~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge6" class="edge">
+<title>proc~dspigmr~2&#45;&gt;proc~dscal~2</title>
+<path fill="none" stroke="#000000" d="M36.25,-101.74C46.82,-84.68 67.84,-53.54 92,-33 93.32,-31.88 94.7,-30.8 96.13,-29.75"/>
+<polygon fill="#000000" stroke="#000000" points="98.23,-32.56 104.68,-24.15 94.4,-26.7 98.23,-32.56"/>
 </g>
 <!-- b -->
 <g id="proc~~dspigmr~2~~CallsGraph_node8" class="node">
 <title>b</title>
-<polygon fill="#777777" stroke="#777777" points="261,-108 207,-108 207,-84 261,-84 261,-108"/>
-<text text-anchor="middle" x="234" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">b</text>
+<polygon fill="#777777" stroke="#777777" points="261,-396 207,-396 207,-372 261,-372 261,-396"/>
+<text text-anchor="middle" x="234" y="-381.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">b</text>
 </g>
 <!-- none~approximate&#45;&gt;b -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge11" class="edge">
+<g id="proc~~dspigmr~2~~CallsGraph_edge7" class="edge">
 <title>none~approximate&#45;&gt;b</title>
-<path fill="none" stroke="#000000" d="M157.78,-167.93C162.37,-165.27 166.98,-162.26 171,-159 190.11,-143.53 189.36,-134.13 207,-117 207.67,-116.35 208.37,-115.69 209.07,-115.04"/>
-<polygon fill="#000000" stroke="#000000" points="211.67,-117.41 216.93,-108.21 207.09,-112.13 211.67,-117.41"/>
+<path fill="none" stroke="#000000" d="M139.09,-253.2C151.2,-275.15 178.37,-322.31 207,-358 208.68,-360.09 210.51,-362.2 212.39,-364.25"/>
+<polygon fill="#000000" stroke="#000000" points="210.25,-367.08 219.72,-371.83 215.28,-362.21 210.25,-367.08"/>
 </g>
-<!-- wght -->
+<!-- proc~daxpy~2 -->
 <g id="proc~~dspigmr~2~~CallsGraph_node9" class="node">
-<title>wght</title>
-<polygon fill="#777777" stroke="#777777" points="261,-66 207,-66 207,-42 261,-42 261,-66"/>
-<text text-anchor="middle" x="234" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wght</text>
+<title>proc~daxpy~2</title>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node9"><a xlink:href=".././proc/daxpy~2.html" xlink:title="daxpy">
+<polygon fill="#d9534f" stroke="#d9534f" points="351,-316 297,-316 297,-292 351,-292 351,-316"/>
+<text text-anchor="middle" x="324" y="-301.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daxpy</text>
+</a>
 </g>
-<!-- none~approximate&#45;&gt;wght -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge13" class="edge">
-<title>none~approximate&#45;&gt;wght</title>
-<path fill="none" stroke="#000000" d="M160.24,-167.86C164.18,-165.33 167.93,-162.38 171,-159 198.33,-128.96 182.48,-107.38 207,-75 207.46,-74.39 207.94,-73.79 208.44,-73.2"/>
-<polygon fill="#000000" stroke="#000000" points="211.03,-75.56 215.65,-66.02 206.1,-70.6 211.03,-75.56"/>
+</g>
+<!-- none~approximate&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge8" class="edge">
+<title>none~approximate&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M138.75,-253.07C149.59,-272.52 173.93,-310.13 207,-325 233.41,-336.88 266.07,-329.21 289.99,-319.97"/>
+<polygon fill="#000000" stroke="#000000" points="291.44,-323.16 299.35,-316.11 288.77,-316.69 291.44,-323.16"/>
 </g>
 <!-- proc~dhels~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_node10" class="node">
+<g id="proc~~dspigmr~2~~CallsGraph_node11" class="node">
 <title>proc~dhels~2</title>
-<g id="a_proc~~dspigmr~2~~CallsGraph_node10"><a xlink:href=".././proc/dhels~2.html" xlink:title="dhels">
-<polygon fill="#d9534f" stroke="#d9534f" points="261,-24 207,-24 207,0 261,0 261,-24"/>
-<text text-anchor="middle" x="234" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhels</text>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node11"><a xlink:href=".././proc/dhels~2.html" xlink:title="dhels">
+<polygon fill="#d9534f" stroke="#d9534f" points="261,-316 207,-316 207,-292 261,-292 261,-316"/>
+<text text-anchor="middle" x="234" y="-301.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhels</text>
 </a>
 </g>
 </g>
 <!-- none~approximate&#45;&gt;proc~dhels~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge12" class="edge">
+<g id="proc~~dspigmr~2~~CallsGraph_edge9" class="edge">
 <title>none~approximate&#45;&gt;proc~dhels~2</title>
-<path fill="none" stroke="#000000" d="M161.02,-167.93C164.76,-165.41 168.24,-162.45 171,-159 207.39,-113.53 174.85,-81.56 207,-33 207.34,-32.49 207.7,-31.98 208.07,-31.48"/>
-<polygon fill="#000000" stroke="#000000" points="210.77,-33.71 215.05,-24.02 205.66,-28.93 210.77,-33.71"/>
-</g>
-<!-- none~approximate&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge16" class="edge">
-<title>none~approximate&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M142.99,-192.21C156.29,-206.83 180.7,-230.87 207,-243 232.07,-254.56 263.04,-259.21 286.67,-261.02"/>
-<polygon fill="#000000" stroke="#000000" points="286.76,-264.54 296.96,-261.67 287.2,-257.55 286.76,-264.54"/>
-</g>
-<!-- x -->
-<g id="proc~~dspigmr~2~~CallsGraph_node13" class="node">
-<title>x</title>
-<polygon fill="#777777" stroke="#777777" points="261,-234 207,-234 207,-210 261,-210 261,-234"/>
-<text text-anchor="middle" x="234" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">x</text>
-</g>
-<!-- none~approximate&#45;&gt;x -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge14" class="edge">
-<title>none~approximate&#45;&gt;x</title>
-<path fill="none" stroke="#000000" d="M161.3,-192.04C172.65,-196.78 185.8,-202.27 197.71,-207.25"/>
-<polygon fill="#000000" stroke="#000000" points="196.37,-210.48 206.94,-211.11 199.07,-204.03 196.37,-210.48"/>
-</g>
-<!-- v -->
-<g id="proc~~dspigmr~2~~CallsGraph_node14" class="node">
-<title>v</title>
-<polygon fill="#777777" stroke="#777777" points="261,-192 207,-192 207,-168 261,-168 261,-192"/>
-<text text-anchor="middle" x="234" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">v</text>
-</g>
-<!-- none~approximate&#45;&gt;v -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge15" class="edge">
-<title>none~approximate&#45;&gt;v</title>
-<path fill="none" stroke="#000000" d="M171.07,-180C179.48,-180 188.34,-180 196.66,-180"/>
-<polygon fill="#000000" stroke="#000000" points="196.82,-183.5 206.82,-180 196.82,-176.5 196.82,-183.5"/>
+<path fill="none" stroke="#000000" d="M151.88,-253.15C166.89,-262.56 187.91,-275.74 204.79,-286.32"/>
+<polygon fill="#000000" stroke="#000000" points="203.35,-289.54 213.68,-291.89 207.07,-283.61 203.35,-289.54"/>
 </g>
 <!-- psol -->
-<g id="proc~~dspigmr~2~~CallsGraph_node15" class="node">
+<g id="proc~~dspigmr~2~~CallsGraph_node12" class="node">
 <title>psol</title>
-<polygon fill="#777777" stroke="#777777" points="261,-150 207,-150 207,-126 261,-126 261,-150"/>
-<text text-anchor="middle" x="234" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">psol</text>
+<polygon fill="#777777" stroke="#777777" points="261,-274 207,-274 207,-250 261,-250 261,-274"/>
+<text text-anchor="middle" x="234" y="-259.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">psol</text>
 </g>
 <!-- none~approximate&#45;&gt;psol -->
-<g id="proc~~dspigmr~2~~CallsGraph_edge17" class="edge">
+<g id="proc~~dspigmr~2~~CallsGraph_edge10" class="edge">
 <title>none~approximate&#45;&gt;psol</title>
-<path fill="none" stroke="#000000" d="M161.3,-167.96C172.65,-163.22 185.8,-157.73 197.71,-152.75"/>
-<polygon fill="#000000" stroke="#000000" points="199.07,-155.97 206.94,-148.89 196.37,-149.52 199.07,-155.97"/>
+<path fill="none" stroke="#000000" d="M171.07,-249.06C179.57,-250.84 188.54,-252.71 196.94,-254.46"/>
+<polygon fill="#000000" stroke="#000000" points="196.32,-257.91 206.82,-256.53 197.75,-251.06 196.32,-257.91"/>
+</g>
+<!-- v -->
+<g id="proc~~dspigmr~2~~CallsGraph_node13" class="node">
+<title>v</title>
+<polygon fill="#777777" stroke="#777777" points="261,-232 207,-232 207,-208 261,-208 261,-232"/>
+<text text-anchor="middle" x="234" y="-217.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">v</text>
+</g>
+<!-- none~approximate&#45;&gt;v -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge11" class="edge">
+<title>none~approximate&#45;&gt;v</title>
+<path fill="none" stroke="#000000" d="M171.07,-232.94C179.57,-231.16 188.54,-229.29 196.94,-227.54"/>
+<polygon fill="#000000" stroke="#000000" points="197.75,-230.94 206.82,-225.47 196.32,-224.09 197.75,-230.94"/>
+</g>
+<!-- wght -->
+<g id="proc~~dspigmr~2~~CallsGraph_node14" class="node">
+<title>wght</title>
+<polygon fill="#777777" stroke="#777777" points="261,-190 207,-190 207,-166 261,-166 261,-190"/>
+<text text-anchor="middle" x="234" y="-175.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">wght</text>
+</g>
+<!-- none~approximate&#45;&gt;wght -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge12" class="edge">
+<title>none~approximate&#45;&gt;wght</title>
+<path fill="none" stroke="#000000" d="M151.88,-228.85C166.89,-219.44 187.91,-206.26 204.79,-195.68"/>
+<polygon fill="#000000" stroke="#000000" points="207.07,-198.39 213.68,-190.11 203.35,-192.46 207.07,-198.39"/>
+</g>
+<!-- x -->
+<g id="proc~~dspigmr~2~~CallsGraph_node15" class="node">
+<title>x</title>
+<polygon fill="#777777" stroke="#777777" points="261,-148 207,-148 207,-124 261,-124 261,-148"/>
+<text text-anchor="middle" x="234" y="-133.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">x</text>
+</g>
+<!-- none~approximate&#45;&gt;x -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge13" class="edge">
+<title>none~approximate&#45;&gt;x</title>
+<path fill="none" stroke="#000000" d="M143.2,-228.83C162.98,-206.34 203.6,-160.25 207,-157 207.8,-156.24 208.62,-155.47 209.46,-154.71"/>
+<polygon fill="#000000" stroke="#000000" points="211.94,-157.2 217.24,-148.03 207.38,-151.89 211.94,-157.2"/>
+</g>
+<!-- proc~datv~2&#45;&gt;proc~dnrm2~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge14" class="edge">
+<title>proc~datv~2&#45;&gt;proc~dnrm2~2</title>
+<path fill="none" stroke="#000000" d="M157.72,-163.85C162.32,-161.2 166.94,-158.21 171,-155 189.77,-140.17 189.64,-131.45 207,-115 207.8,-114.24 208.62,-113.48 209.47,-112.72"/>
+<polygon fill="#000000" stroke="#000000" points="211.94,-115.21 217.26,-106.05 207.39,-109.89 211.94,-115.21"/>
+</g>
+<!-- proc~dorthog~2&#45;&gt;proc~dnrm2~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge17" class="edge">
+<title>proc~dorthog~2&#45;&gt;proc~dnrm2~2</title>
+<path fill="none" stroke="#000000" d="M159.17,-64.61C170.94,-69.3 184.94,-74.87 197.57,-79.9"/>
+<polygon fill="#000000" stroke="#000000" points="196.32,-83.17 206.9,-83.61 198.91,-76.66 196.32,-83.17"/>
+</g>
+<!-- proc~dorthog~2&#45;&gt;proc~daxpy~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge15" class="edge">
+<title>proc~dorthog~2&#45;&gt;proc~daxpy~2</title>
+<path fill="none" stroke="#000000" d="M159.13,-50.11C187.86,-47.51 233.21,-48.25 261,-73 292.41,-100.98 312.94,-229.39 320.14,-281.72"/>
+<polygon fill="#000000" stroke="#000000" points="316.71,-282.49 321.5,-291.94 323.65,-281.56 316.71,-282.49"/>
+</g>
+<!-- proc~ddot~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_node10" class="node">
+<title>proc~ddot~2</title>
+<g id="a_proc~~dspigmr~2~~CallsGraph_node10"><a xlink:href=".././proc/ddot~2.html" xlink:title="ddot">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="261,-26 207,-26 207,-2 261,-2 261,-26"/>
+<text text-anchor="middle" x="234" y="-11.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddot</text>
+</a>
+</g>
+</g>
+<!-- proc~dorthog~2&#45;&gt;proc~ddot~2 -->
+<g id="proc~~dspigmr~2~~CallsGraph_edge16" class="edge">
+<title>proc~dorthog~2&#45;&gt;proc~ddot~2</title>
+<path fill="none" stroke="#000000" d="M159.17,-43.39C170.94,-38.7 184.94,-33.13 197.57,-28.1"/>
+<polygon fill="#000000" stroke="#000000" points="198.91,-31.34 206.9,-24.39 196.32,-24.83 198.91,-31.34"/>
 </g>
 <!-- proc~dhels~2&#45;&gt;proc~daxpy~2 -->
 <g id="proc~~dspigmr~2~~CallsGraph_edge18" class="edge">
 <title>proc~dhels~2&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M253.25,-24.23C256.17,-26.84 258.91,-29.79 261,-33 304.57,-99.81 317.7,-196.57 321.51,-239.75"/>
-<polygon fill="#000000" stroke="#000000" points="318.03,-240.06 322.31,-249.75 325,-239.51 318.03,-240.06"/>
+<path fill="none" stroke="#000000" d="M261.4,-304C269.39,-304 278.31,-304 286.82,-304"/>
+<polygon fill="#000000" stroke="#000000" points="286.92,-307.5 296.92,-304 286.92,-300.5 286.92,-307.5"/>
 </g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -794,13 +1094,15 @@
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a procedure to one which it calls. Dashed 
-    arrows point from an interface to procedures which implement that interface.
-    This could include the module procedures in a generic interface or the
-    implementation in a submodule of an interface in a parent module.
-    </p>
-    </div></div></div></div>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -870,25 +1172,10 @@
 <path fill="none" stroke="#000000" d="M144.57,-18.19C152.87,-20.16 162.2,-22.37 171.07,-24.47"/>
 <polygon fill="#000000" stroke="#000000" points="170.27,-27.88 180.81,-26.78 171.88,-21.07 170.27,-27.88"/>
 </g>
-<!-- proc~dlsodpk~2 -->
-<g id="proc~~dspigmr~2~~CalledByGraph_node5" class="node">
-<title>proc~dlsodpk~2</title>
-<g id="a_proc~~dspigmr~2~~CalledByGraph_node5"><a xlink:href=".././proc/dlsodpk~2.html" xlink:title="dlsodpk">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-66 0,-66 0,-42 54,-42 54,-66"/>
-<text text-anchor="middle" x="27" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodpk</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodpk~2&#45;&gt;proc~dstodpk~2 -->
-<g id="proc~~dspigmr~2~~CalledByGraph_edge4" class="edge">
-<title>proc~dlsodpk~2&#45;&gt;proc~dstodpk~2</title>
-<path fill="none" stroke="#000000" d="M54.07,-54C62.12,-54 71.14,-54 79.76,-54"/>
-<polygon fill="#000000" stroke="#000000" points="80,-57.5 90,-54 80,-50.5 80,-57.5"/>
-</g>
 <!-- proc~dlsodkr~2 -->
-<g id="proc~~dspigmr~2~~CalledByGraph_node6" class="node">
+<g id="proc~~dspigmr~2~~CalledByGraph_node5" class="node">
 <title>proc~dlsodkr~2</title>
-<g id="a_proc~~dspigmr~2~~CalledByGraph_node6"><a xlink:href=".././proc/dlsodkr~2.html" xlink:title="dlsodkr">
+<g id="a_proc~~dspigmr~2~~CalledByGraph_node5"><a xlink:href=".././proc/dlsodkr~2.html" xlink:title="dlsodkr">
 <polygon fill="#d9534f" stroke="#d9534f" points="54,-24 0,-24 0,0 54,0 54,-24"/>
 <text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodkr</text>
 </a>
@@ -900,11 +1187,36 @@
 <path fill="none" stroke="#000000" d="M54.07,-12C62.28,-12 71.5,-12 80.28,-12"/>
 <polygon fill="#000000" stroke="#000000" points="80.31,-15.5 90.31,-12 80.31,-8.5 80.31,-15.5"/>
 </g>
+<!-- proc~dlsodpk~2 -->
+<g id="proc~~dspigmr~2~~CalledByGraph_node6" class="node">
+<title>proc~dlsodpk~2</title>
+<g id="a_proc~~dspigmr~2~~CalledByGraph_node6"><a xlink:href=".././proc/dlsodpk~2.html" xlink:title="dlsodpk">
+<polygon fill="#d9534f" stroke="#d9534f" points="54,-66 0,-66 0,-42 54,-42 54,-66"/>
+<text text-anchor="middle" x="27" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodpk</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodpk~2&#45;&gt;proc~dstodpk~2 -->
+<g id="proc~~dspigmr~2~~CalledByGraph_edge4" class="edge">
+<title>proc~dlsodpk~2&#45;&gt;proc~dstodpk~2</title>
+<path fill="none" stroke="#000000" d="M54.07,-54C62.12,-54 71.14,-54 79.76,-54"/>
+<polygon fill="#000000" stroke="#000000" points="80,-57.5 90,-54 80,-50.5 80,-57.5"/>
+</g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -954,59 +1266,88 @@
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a procedure to one which it calls. Dashed 
-    arrows point from an interface to procedures which implement that interface.
-    This could include the module procedures in a generic interface or the
-    implementation in a submodule of an interface in a parent module.
-    </p>
-    </div></div></div></div>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <br>
 
     <section class="visible-xs visible-sm hidden-md">
-      <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
-  <div id="vars-1" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-bnrm~4">bnrm</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-bnrm0~2">bnrm0</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-c~4">c</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-dlnrm">dlnrm</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-i~50">i</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-i2~5">i2</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-ier~14">ier</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-info~2">info</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-ip1">ip1</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-j~34">j</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-k~25">k</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-ll~2">ll</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-llp1">llp1</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-prod~2">prod</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-rho~2">rho</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-s~6">s</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-snormw~2">snormw</a>
-      <a class="list-group-item" href="../proc/dspigmr~2.html#variable-tem~3">tem</a>
+        <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-1">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-bnrm~5">bnrm</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-bnrm0~2">bnrm0</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-c~3">c</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-dlnrm">dlnrm</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-i~46">i</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-i2~3">i2</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-ier~14">ier</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-info~2">info</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-ip1">ip1</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-j~29">j</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-k~21">k</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-ll~2">ll</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-llp1">llp1</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-prod~2">prod</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-rho~2">rho</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-s~6">s</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-snormw~2">snormw</a>
+            <a class="list-group-item" href="../proc/dspigmr~2.html#variable-tem~3">tem</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
-  <div class="list-group">
-    <div id="subs-1" class="panel-collapse collapse">
-      <a class="list-group-item" href="../proc/dspigmr~2.html#proc-approximate">approximate</a>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#subs-1">Subroutines</a>
+        </h3>
+      </div>
+      <div id="subs-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dspigmr~2.html#proc-approximate">approximate</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../proc/dspigmr~2.html#src">dspigmr</a>
-  </div>
-</div>
+
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dspigmr~2.html#src">dspigmr</a>
+      </div>
+    </div>
+
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
@@ -1014,101 +1355,324 @@
 
     <section>    
       <h2>Variables</h2>
-    <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-bnrm~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>bnrm</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-bnrm0~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>bnrm0</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-c~4"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>c</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-dlnrm"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>dlnrm</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-i~50"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>i</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-i2~5"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>i2</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ier~14"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ier</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-info~2"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>info</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ip1"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ip1</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-j~34"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>j</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-k~25"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>k</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ll~2"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ll</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-llp1"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>llp1</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-prod~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>prod</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rho~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>rho</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-s~6"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>s</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-snormw~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>snormw</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-tem~3"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>tem</strong></td><td></td><td></td><td></td>
-</tr>
-</tbody>
-</table>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Visibility</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+<th></th><th>Initial</th>        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bnrm~5"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>bnrm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bnrm0~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>bnrm0</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>c</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dlnrm"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dlnrm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~46"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i2~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ier~14"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ier</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>info</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ip1"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ip1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~29"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~21"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ll~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ll</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-llp1"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>llp1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-prod~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>prod</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rho~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rho</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-s~6"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>s</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-snormw~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>snormw</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tem~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tem</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     </section>
     <br>
@@ -1122,12 +1686,16 @@
     <section>
     <h2>Subroutines</h2>
       <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-approximate"></span><h3>subroutine approximate()</h3></div>
-  <div class="panel-body">
-           
-<h4>Arguments</h4>      <em>None</em>
+    <div class="panel-heading codesum"><span class="anchor" id="proc-approximate"></span><h3> subroutine approximate()  
+</h3></div>
+    <div class="panel-body">
+          
+  
 
-  </div>
+  <h4>Arguments</h4>
+    <em>None</em>
+
+    </div>
   </div>
 
     </section>    
@@ -1250,7 +1818,7 @@
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">ll</span><span class="o">&gt;</span><span class="n">Kmp</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">Kmp</span><span class="o">&lt;</span><span class="n">Maxl</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="k">         if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ll</span><span class="o">==</span><span class="n">Kmp</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span><span class="w"></span>
 <span class="w">            </span><span class="c">!X!call dcopy(N,V(1,1),1,Dl,1)</span>
-<span class="w">            </span><span class="n">Dl</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span><span class="o">=</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="w">            </span><span class="n">Dl</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span><span class="o">=</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="c">!X!</span>
 <span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Kmp</span><span class="w"></span>
 <span class="w">               </span><span class="n">ip1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"></span>
 <span class="w">               </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">*</span><span class="mi">2</span><span class="w"></span>
@@ -1301,7 +1869,7 @@
 <span class="k">   return</span>
 <span class="k">else</span><span class="w"></span>
 <span class="w">   </span><span class="c">!X!call dcopy(N,B,1,X,1)</span>
-<span class="w">   </span><span class="n">X</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="n">X</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span><span class="c">!X!</span>
 <span class="w">   </span><span class="k">return</span>
 <span class="k">endif</span>
 
@@ -1354,50 +1922,50 @@
     </div>
   </div>
 
-    <hr>    
+      <hr>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2022 
+        <div class="row">
+          <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2023 
 </p>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <p class="text-right">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2023-04-17 10:19              </p>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-          <p class="text-right">
-            Documentation generated by 
-            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-16 16:30            </p>
-        </div>
-      </div>
-      <br>
-      </div> <!-- /container -->    
+        <br>
+      </div> <!-- /container -->
     </footer>
 
     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-<!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
--->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+         ================================================== -->
+         <!-- Placed at the end of the document so the pages load faster -->
+    <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- MathJax JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
+        <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
   </body>
 </html>

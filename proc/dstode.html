@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
+      <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
     <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
     <link rel="icon" href="../favicon.png">
 
@@ -14,17 +14,17 @@
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    <link href="../css/user.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="../js/jquery-2.1.3.min.js"></script>
-    <script src="../js/svg-pan-zoom.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+         <script src="../js/jquery-2.1.3.min.js"></script>
+         <script src="../js/svg-pan-zoom.min.js"></script>
 
   </head>
 
@@ -46,29 +46,35 @@
           <ul class="nav navbar-nav">
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
-              data-toggle="dropdown" role="button"
-              aria-haspopup="true"
-     aria-expanded="false">Contents <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="../lists/files.html">Source Files</a></li>
-            <li><a href="../lists/modules.html">Modules</a></li>
-            <li><a href="../lists/procedures.html">Procedures</a></li>
-              
-            </ul>
-        
+                 data-toggle="dropdown" role="button"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                 Contents <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                    <li><a href="../lists/files.html">Source Files</a></li>
+                  <li><a href="../lists/modules.html">Modules</a></li>
+                  <li><a href="../lists/procedures.html">Procedures</a></li>
+              </ul>
             </li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-                                       </ul>
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
-        </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
+                <li class="visible-xs hidden-sm visible-lg">
+                  <a href="../lists/files.html">Source Files</a>
+                </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/modules.html">Modules</a>
+              </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/procedures.html">Procedures</a>
+              </li>
+          </ul>
+            <form action="../search.html" class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+              </div>
+              <!--
+                  <button type="submit" class="btn btn-default">Submit</button>
+                  -->
+            </form>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -77,89 +83,119 @@
   <div class="row">
     <h1>dstode
       <small>Subroutine</small>
+      
     </h1>
-    <div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title=" 1.5% of total for procedures.">358 statements</a>
-     </li> 
-    <li><i class="fa fa-code"></i><a href="../src/M_odepack.f90"> Source File</a></li>
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-     <li><a href='../sourcefile/m_odepack.f90.html'>M_odepack.f90</a></li>
-     <li class="active">dstode</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="row" id="info-bar">
+    <div class="col-lg-12">
+      <div class="well well-sm">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+          <li id="statements"><i class="fa fa-list-ol"></i>
+            <a data-toggle="tooltip"
+               data-placement="bottom" data-html="true"
+               title=" 1.5% of total for procedures.">358 statements</a>
+          </li>
+
+            <li id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/M_odepack.f90"> Source File</a>
+            </li>
+        </ul>
+        <ol class="breadcrumb in-well text-right">
+              <li><a href='../sourcefile/m_odepack.f90.html'>M_odepack.f90</a></li>
+          <li class="active">dstode</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 
   </div>
   
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    <div id="sidebar">
-  <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
-  <div id="vars-0" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/dstode.html#variable-dcon~2">dcon</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-ddn~2">ddn</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-del~2">del</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-delp~2">delp</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-dp~5">dp</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-dsm~2">dsm</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-dup~2">dup</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-exdn~2">exdn</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-exsm~2">exsm</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-exup~2">exup</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-i~5">i</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-i1~2">i1</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-iredo~2">iredo</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-iret~2">iret</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-j~5">j</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-jb~2">jb</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-m~2">m</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-ncf~2">ncf</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-newq~2">newq</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-r~2">r</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-rh~2">rh</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-rhdn~2">rhdn</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-rhsm~2">rhsm</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-rhup~2">rhup</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-told~2">told</a>
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-0">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dstode.html#variable-dcon~2">dcon</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-ddn~2">ddn</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-del~2">del</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-delp~2">delp</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-dp~5">dp</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-dsm~2">dsm</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-dup~2">dup</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-exdn~2">exdn</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-exsm~2">exsm</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-exup~2">exup</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-i~5">i</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-i1~2">i1</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-iredo~2">iredo</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-iret~2">iret</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-j~5">j</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-jb~2">jb</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-m~2">m</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-ncf~2">ncf</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-newq~2">newq</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-r~2">r</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-rh~2">rh</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-rhdn~2">rhdn</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-rhsm~2">rhsm</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-rhup~2">rhup</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-told~2">told</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
 
-</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  </div>
 
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>subroutine dstode(Neq, Y, Yh, Nyh, Yh1, Ewt, Savf, Acor, Wm, Iwm, f, jac, pjac, slvs)</h2>
+    <h2> subroutine dstode(Neq, Y, Yh, Nyh, Yh1, Ewt, Savf, Acor, Wm, Iwm, f, jac, pjac, slvs)  
+</h2>
         <div class="panel panel-default">
       <div class="panel-heading">
-  <h3 class="panel-title">Uses</h3>
+        <h3 class="panel-title">Uses</h3>
       </div>
       <ul class="list-group">
-      <li class="list-group-item">
-  <ul class="list-inline">
-    <li><a href='../module/m_odepack.html'>M_odepack</a></li>
-  </ul>
-      </li>
-      <li class="list-group-item">
-  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+          <li class="list-group-item">
+            <ul class="list-inline">
+                <li><a href='../module/m_odepack.html'>M_odepack</a></li>
+            </ul>
+          </li>
+          <li class="list-group-item">
+            <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -193,9 +229,19 @@
 </g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -245,24 +291,46 @@
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a submodule to the (sub)module which it is
-    descended from. Dashed arrows point from a module or program unit to 
-    modules which it uses.
-    </p>
-    </div></div></div></div>
-      </li>
+<p>Solid arrows point from a submodule to the (sub)module which it is
+descended from. Dashed arrows point from a module or program unit to 
+modules which it uses.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+          </li>
       </ul>
     </div>
 
 
     <h3 id="name">NAME</h3>
 <p>dstode(3f) - [M_odepack] Performs one step of an ODEPACK integration.</p>
+<h3 id="synopsis">SYNOPSIS</h3>
+<div class="codehilite"><pre><span></span><code>subroutine dstode(Neq,Y,Yh,Nyh,Yh1,Ewt,Savf,Acor,Wm,Iwm,f,jac,pjac,slvs)
+
+ integer,parameter :: dp=kind(0.0d0)
+ integer                     :: Neq(*)
+ real(kind=dp),intent(inout) :: Y(*)
+ integer                     :: Nyh
+ real(kind=dp),intent(inout) :: Yh(Nyh,*)
+ real(kind=dp),intent(inout) :: Yh1(*)
+ real(kind=dp)               :: Ewt(*)
+ real(kind=dp),intent(inout) :: Savf(*)
+ real(kind=dp),intent(inout) :: Acor(*)
+ real(kind=dp)               :: Wm(*)
+ integer                     :: Iwm(*)
+ external f
+ external jac
+ external pjac
+ external slvs
+</code></pre></div>
+
 <h3 id="description">DESCRIPTION</h3>
 <p>DSTODE performs one step of the integration of an initial value
   problem for a system of ordinary differential equations.</p>
 <p>Note:  DSTODE is independent of the value of the iteration method
-  indicator MITER, when this is .ne. 0, and hence is independent
+  indicator dls1%MITER, when this is .ne. 0, and hence is independent
   of the type of chord method used, or the Jacobian structure.</p>
 <p>Communication with DSTODE is done with the following variables:</p>
 <dl>
@@ -273,21 +341,21 @@
 </dd>
 <dt>Y</dt>
 <dd>
-<p>an array of length .ge. N used as the Y argument in
+<p>an array of length .ge. dls1%N used as the Y argument in
   all calls to F and JAC.</p>
 </dd>
 <dt>YH</dt>
 <dd>
 <p>an NYH by LMAX array containing the dependent variables
   and their approximate scaled derivatives, where
-  LMAX = MAXORD + 1.  YH(i,j+1) contains the approximate
-  j-th derivative of y(i), scaled by h**j/factorial(j)
+  LMAX = dls1%MAXORD + 1.  YH(i,j+1) contains the approximate
+  j-th derivative of y(i), scaled by dls1%h**j/factorial(j)
   (j = 0,1,&hellip;,NQ).  on entry for the first step, the first
   two columns of YH must be set from the initial values.</p>
 </dd>
 <dt>NYH</dt>
 <dd>
-<p>a constant integer .ge. N, the first dimension of YH.</p>
+<p>a constant integer .ge. dls1%N, the first dimension of YH.</p>
 </dd>
 <dt>YH1</dt>
 <dd>
@@ -295,75 +363,78 @@
 </dd>
 <dt>EWT</dt>
 <dd>
-<p>an array of length N containing multiplicative weights
+<p>an array of length dls1%N containing multiplicative weights
   for local error measurements.  Local errors in Y(i) are
   compared to 1.0/EWT(i) in various error tests.</p>
 </dd>
 <dt>SAVF</dt>
 <dd>
-<p>an array of working storage, of length N.
-  Also used for input of YH(*,MAXORD+2) when JSTART = -1
-  and MAXORD .lt. the current order NQ.</p>
+<p>an array of working storage, of length dls1%N.
+  Also used for input of YH(*,dls1%MAXORD+2) when dls1%JSTART = -1
+  and dls1%MAXORD .lt. the current order NQ.</p>
 </dd>
 <dt>ACOR</dt>
 <dd>
-<p>a work array of length N, used for the accumulated
+<p>a work array of length dls1%N, used for the accumulated
   corrections.  On a successful return, ACOR(i) contains
   the estimated one-step local error in Y(i).</p>
 </dd>
 <dt>WM,IWM</dt>
 <dd>
 <p>real and integer work arrays associated with matrix
-  operations in chord iteration (MITER .ne. 0).</p>
+  operations in chord iteration (dls1%MITER .ne. 0).</p>
 </dd>
 <dt>PJAC</dt>
 <dd>
 <p>name of routine to evaluate and preprocess Jacobian matrix
-  and P = I - h<em>el0</em>JAC, if a chord method is being used.</p>
+  and P = I - dls1%h<em>el0</em>JAC, if a chord method is being used.</p>
 </dd>
 <dt>SLVS</dt>
 <dd>
 <p>name of routine to solve linear system in chord iteration.</p>
 </dd>
-<dt>CCMAX</dt>
+</dl>
+<h3 id="global-variables">GLOBAL VARIABLES</h3>
+<dl>
+<dt>dls1%CCMAX</dt>
 <dd>
-<p>maximum relative change in h*el0 before PJAC is called.</p>
+<p>maximum relative change in dls1%h*el0 before PJAC is called.</p>
 </dd>
-<dt>H</dt>
+<dt>dls1%H</dt>
 <dd>
 <p>the step size to be attempted on the next step.
-  H is altered by the error control algorithm during the
-  problem.  H can be either positive or negative, but its
+  dls1%H is altered by the error control algorithm during the
+  problem.  dls1%H can be either positive or negative, but its
   sign must remain constant throughout the problem.</p>
 </dd>
-<dt>HMIN</dt>
+<dt>dls1%HMIN</dt>
 <dd>
-<p>the minimum absolute value of the step size h to be used.</p>
+<p>the minimum absolute value of the step size dls1%h to be used.</p>
 </dd>
-<dt>HMXI</dt>
+<dt>dls1%HMXI</dt>
 <dd>
-<p>inverse of the maximum absolute value of h to be used.
-  HMXI = 0.0 is allowed and corresponds to an infinite hmax.
-  HMIN and HMXI may be changed at any time, but will not
-  take effect until the next change of h is considered.</p>
+<p>inverse of the maximum absolute value of dls1%h to be used.
+  dls1%HMXI = 0.0 is allowed and corresponds to an infinite hmax.
+  dls1%HMIN and dls1%HMXI may be changed at any time, but will not
+  take effect until the next change of dls1%h is considered.</p>
 </dd>
-<dt>TN</dt>
+<dt>dls1%TN</dt>
 <dd>
-<p>the independent variable. TN is updated on each step taken.</p>
+<p>the independent variable. dls1%TN is updated on each step taken.</p>
 </dd>
-<dt>JSTART</dt>
+<dt>dls1%JSTART</dt>
 <dd>
 <p>an integer used for input only, with the following
   values and meanings:
             0  perform the first step.
         .gt.0  take a new step continuing from the last.
-           -1  take the next step with a new value of H, MAXORD,
-               N, METH, MITER, and/or matrix parameters.
-           -2  take the next step with a new value of H,
+           -1  take the next step with a new value of dls1%H, dls1%MAXORD,
+               dls1%N, dls1%METH, dls1%MITER, and/or matrix parameters.
+           -2  take the next step with a new value of dls1%H,
                but with other inputs unchanged.
-  On return, JSTART is set to 1 to facilitate continuation.</p>
+  On return, dls1%JSTART is set to 1 to facilitate continuation.</p>
 </dd>
-<dt>KFLAG</dt>
+<dt>dls1%KFLAG</dt>
 <dd>
 <p>a completion code with the following meanings:
         0  the step was succesful.
@@ -372,130 +443,263 @@
        -3  fatal error in PJAC or SLVS.</p>
 </dd>
 </dl>
-<p>A return with KFLAG = -1 or -2 means either
-  abs(H) = HMIN or 10 consecutive failures occurred.
-  On a return with KFLAG negative, the values of TN and
+<p>A return with dls1%KFLAG = -1 or -2 means either
+  abs(dls1%H) = dls1%HMIN or 10 consecutive failures occurred.
+  On a return with dls1%KFLAG negative, the values of dls1%TN and
   the YH array are as of the beginning of the last
-  step, and H is the last step size attempted.</p>
+  step, and dls1%H is the last step size attempted.</p>
 <dl>
-<dt>MAXORD</dt>
+<dt>dls1%MAXORD</dt>
 <dd>
 <p>the maximum order of integration method to be allowed.</p>
 </dd>
-<dt>MAXCOR</dt>
+<dt>dls1%MAXCOR</dt>
 <dd>
 <p>the maximum number of corrector iterations allowed.</p>
 </dd>
-<dt>MSBP</dt>
+<dt>dls1%MSBP</dt>
 <dd>
-<p>maximum number of steps between PJAC calls (MITER .gt. 0).</p>
+<p>maximum number of steps between PJAC calls (dls1%MITER .gt. 0).</p>
 </dd>
-<dt>MXNCF</dt>
+<dt>dls1%MXNCF</dt>
 <dd>
 <p>maximum number of convergence failures allowed.</p>
 </dd>
-<dt>METH/MITER</dt>
+<dt>dls1%METH/dls1%MITER</dt>
 <dd>
 <p>the method flags.  See description in driver.</p>
 </dd>
-<dt>N</dt>
+<dt>dls1%N</dt>
 <dd>
 <p>the number of first-order differential equations.</p>
 </dd>
 </dl>
-<p>The values of CCMAX, H, HMIN, HMXI, TN, JSTART, KFLAG, MAXORD,
-  MAXCOR, MSBP, MXNCF, METH, MITER, and N are communicated via COMMON.</p>
+<p>The values of dls1%CCMAX, dls1%H, dls1%HMIN, dls1%HMXI, dls1%TN, dls1%JSTART, dls1%KFLAG, dls1%MAXORD,
+  dls1%MAXCOR, dls1%MSBP, dls1%MXNCF, dls1%METH, dls1%MITER, and dls1%N are communicated via a global compound variable (DLS1)</p>
 
     <h3>Arguments</h3>
-      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-neq~5"></span>integer</td>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-neq~5"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Neq</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-y~5"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Neq</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y~5"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Y</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-yh~4"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Y</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-yh~4"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Yh</strong>(Nyh,*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-nyh~2"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Yh</strong>(Nyh,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nyh~2"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Nyh</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-yh1~2"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Nyh</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-yh1~2"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Yh1</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ewt~4"></span>real(kind=dp)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Yh1</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ewt~4"></span>
+              real(kind=dp)
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Ewt</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-savf~3"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ewt</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-savf~3"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Savf</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-acor~2"></span>real(kind=dp),</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Savf</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-acor~2"></span>
+              real(kind=dp),
+            </td>
 <td>intent(inout)</td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Acor</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-wm~2"></span>real(kind=dp)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Acor</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wm~2"></span>
+              real(kind=dp)
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Wm</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iwm~2"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Wm</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwm~2"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Iwm</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-f~2"></span>real</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iwm</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f~2"></span>
+              real
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>f</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-jac~4"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>f</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jac~4"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>jac</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-pjac~2"></span>real</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jac</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-pjac~2"></span>
+              real
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>pjac</strong></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-slvs~2"></span>real</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>pjac</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-slvs~2"></span>
+              real
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>slvs</strong></td><td></td>
-</tr>
-</tbody>
-</table>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>slvs</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     <br>
     <div class="panel panel-default">
@@ -552,9 +756,19 @@
 </g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -604,13 +818,15 @@
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a procedure to one which it calls. Dashed 
-    arrows point from an interface to procedures which implement that interface.
-    This could include the module procedures in a generic interface or the
-    implementation in a submodule of an interface in a parent module.
-    </p>
-    </div></div></div></div>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <div class="panel panel-default">
@@ -635,18 +851,18 @@
 <polygon fill="none" stroke="black" points="144,-87 90,-87 90,-63 144,-63 144,-87"/>
 <text text-anchor="middle" x="117" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50">dstode</text>
 </g>
-<!-- proc~dlsode~2 -->
+<!-- proc~dlsode -->
 <g id="proc~~dstode~~CalledByGraph_node2" class="node">
-<title>proc~dlsode~2</title>
-<g id="a_proc~~dstode~~CalledByGraph_node2"><a xlink:href=".././proc/dlsode~2.html" xlink:title="dlsode">
+<title>proc~dlsode</title>
+<g id="a_proc~~dstode~~CalledByGraph_node2"><a xlink:href=".././proc/dlsode.html" xlink:title="dlsode">
 <polygon fill="#d9534f" stroke="#d9534f" points="54,-150 0,-150 0,-126 54,-126 54,-150"/>
 <text text-anchor="middle" x="27" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsode</text>
 </a>
 </g>
 </g>
-<!-- proc~dlsode~2&#45;&gt;proc~dstode -->
+<!-- proc~dlsode&#45;&gt;proc~dstode -->
 <g id="proc~~dstode~~CalledByGraph_edge1" class="edge">
-<title>proc~dlsode~2&#45;&gt;proc~dstode</title>
+<title>proc~dlsode&#45;&gt;proc~dstode</title>
 <path fill="none" stroke="#000000" d="M44.97,-125.85C57.99,-116.53 76.18,-103.51 90.89,-92.98"/>
 <polygon fill="#000000" stroke="#000000" points="92.99,-95.78 99.08,-87.11 88.92,-90.09 92.99,-95.78"/>
 </g>
@@ -680,26 +896,36 @@
 <path fill="none" stroke="#000000" d="M54.4,-60.3C62.48,-62.23 71.51,-64.38 80.1,-66.43"/>
 <polygon fill="#000000" stroke="#000000" points="79.38,-69.86 89.92,-68.78 81,-63.05 79.38,-69.86"/>
 </g>
-<!-- proc~dlsode -->
+<!-- proc~dlsode~2 -->
 <g id="proc~~dstode~~CalledByGraph_node5" class="node">
-<title>proc~dlsode</title>
-<g id="a_proc~~dstode~~CalledByGraph_node5"><a xlink:href=".././proc/dlsode.html" xlink:title="dlsode">
+<title>proc~dlsode~2</title>
+<g id="a_proc~~dstode~~CalledByGraph_node5"><a xlink:href=".././proc/dlsode~2.html" xlink:title="dlsode">
 <polygon fill="#d9534f" stroke="#d9534f" points="54,-24 0,-24 0,0 54,0 54,-24"/>
 <text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsode</text>
 </a>
 </g>
 </g>
-<!-- proc~dlsode&#45;&gt;proc~dstode -->
+<!-- proc~dlsode~2&#45;&gt;proc~dstode -->
 <g id="proc~~dstode~~CalledByGraph_edge4" class="edge">
-<title>proc~dlsode&#45;&gt;proc~dstode</title>
+<title>proc~dlsode~2&#45;&gt;proc~dstode</title>
 <path fill="none" stroke="#000000" d="M44.97,-24.15C57.99,-33.47 76.18,-46.49 90.89,-57.02"/>
 <polygon fill="#000000" stroke="#000000" points="88.92,-59.91 99.08,-62.89 92.99,-54.22 88.92,-59.91"/>
 </g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -749,52 +975,77 @@
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a procedure to one which it calls. Dashed 
-    arrows point from an interface to procedures which implement that interface.
-    This could include the module procedures in a generic interface or the
-    implementation in a submodule of an interface in a parent module.
-    </p>
-    </div></div></div></div>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <br>
 
     <section class="visible-xs visible-sm hidden-md">
-      <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
-  <div id="vars-1" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/dstode.html#variable-dcon~2">dcon</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-ddn~2">ddn</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-del~2">del</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-delp~2">delp</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-dp~5">dp</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-dsm~2">dsm</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-dup~2">dup</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-exdn~2">exdn</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-exsm~2">exsm</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-exup~2">exup</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-i~5">i</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-i1~2">i1</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-iredo~2">iredo</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-iret~2">iret</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-j~5">j</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-jb~2">jb</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-m~2">m</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-ncf~2">ncf</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-newq~2">newq</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-r~2">r</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-rh~2">rh</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-rhdn~2">rhdn</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-rhsm~2">rhsm</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-rhup~2">rhup</a>
-      <a class="list-group-item" href="../proc/dstode.html#variable-told~2">told</a>
+        <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-1">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dstode.html#variable-dcon~2">dcon</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-ddn~2">ddn</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-del~2">del</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-delp~2">delp</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-dp~5">dp</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-dsm~2">dsm</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-dup~2">dup</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-exdn~2">exdn</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-exsm~2">exsm</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-exup~2">exup</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-i~5">i</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-i1~2">i1</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-iredo~2">iredo</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-iret~2">iret</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-j~5">j</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-jb~2">jb</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-m~2">m</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-ncf~2">ncf</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-newq~2">newq</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-r~2">r</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-rh~2">rh</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-rhdn~2">rhdn</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-rhsm~2">rhsm</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-rhup~2">rhup</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-told~2">told</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
@@ -802,136 +1053,443 @@
 
     <section>    
       <h2>Variables</h2>
-    <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-dcon~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>dcon</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ddn~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ddn</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-del~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>del</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-delp~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>delp</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-dp~5"></span>integer,</td>
-<td>public,</td>  <td>parameter</td><td>::</td>
-  <td><strong>dp</strong></td><td> =</td><td>kind(0.0d0)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-dsm~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>dsm</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-dup~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>dup</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-exdn~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>exdn</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-exsm~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>exsm</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-exup~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>exup</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-i~5"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>i</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-i1~2"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>i1</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iredo~2"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>iredo</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iret~2"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>iret</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-j~5"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>j</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-jb~2"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>jb</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-m~2"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>m</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-ncf~2"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>ncf</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-newq~2"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>newq</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-r~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>r</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rh~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>rh</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rhdn~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>rhdn</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rhsm~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>rhsm</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-rhup~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>rhup</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-told~2"></span>real(kind=dp),</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>told</strong></td><td></td><td></td><td></td>
-</tr>
-</tbody>
-</table>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Visibility</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+<th></th><th>Initial</th>        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dcon~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dcon</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ddn~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ddn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-del~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>del</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delp~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>delp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dp~5"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+parameter               
+            </td>
+            <td>::</td>
+            <td><strong>dp</strong></td>
+<td> =</td>
+                <td>kind(0.0d0)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dsm~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dsm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dup~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dup</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exdn~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>exdn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exsm~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>exsm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exup~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>exup</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~5"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i1~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iredo~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iredo</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iret~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iret</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~5"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jb~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jb</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ncf~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ncf</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-newq~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>newq</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rh~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rh</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhdn~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhdn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhsm~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhsm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhup~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhup</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-told~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>told</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     </section>
     <br>
@@ -947,50 +1505,50 @@
     </div>
   </div>
 
-    <hr>    
+      <hr>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2022 
+        <div class="row">
+          <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2023 
 </p>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <p class="text-right">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2023-04-17 10:19              </p>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-          <p class="text-right">
-            Documentation generated by 
-            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-16 16:30            </p>
-        </div>
-      </div>
-      <br>
-      </div> <!-- /container -->    
+        <br>
+      </div> <!-- /container -->
     </footer>
 
     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-<!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
--->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+         ================================================== -->
+         <!-- Placed at the end of the document so the pages load faster -->
+    <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- MathJax JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
+        <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
   </body>
 </html>

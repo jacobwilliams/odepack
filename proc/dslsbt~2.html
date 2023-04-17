@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-   <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
+      <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
     <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
     <link rel="icon" href="../favicon.png">
 
@@ -14,17 +14,17 @@
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    <link href="../css/user.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <script src="../js/jquery-2.1.3.min.js"></script>
-    <script src="../js/svg-pan-zoom.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+         <script src="../js/jquery-2.1.3.min.js"></script>
+         <script src="../js/svg-pan-zoom.min.js"></script>
 
   </head>
 
@@ -46,29 +46,35 @@
           <ul class="nav navbar-nav">
             <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
               <a href="#" class="dropdown-toggle"
-              data-toggle="dropdown" role="button"
-              aria-haspopup="true"
-     aria-expanded="false">Contents <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="../lists/files.html">Source Files</a></li>
-            <li><a href="../lists/modules.html">Modules</a></li>
-            <li><a href="../lists/procedures.html">Procedures</a></li>
-              
-            </ul>
-        
+                 data-toggle="dropdown" role="button"
+                 aria-haspopup="true"
+                 aria-expanded="false">
+                 Contents <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu">
+                    <li><a href="../lists/files.html">Source Files</a></li>
+                  <li><a href="../lists/modules.html">Modules</a></li>
+                  <li><a href="../lists/procedures.html">Procedures</a></li>
+              </ul>
             </li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
-<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
-                                       </ul>
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
-        </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
+                <li class="visible-xs hidden-sm visible-lg">
+                  <a href="../lists/files.html">Source Files</a>
+                </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/modules.html">Modules</a>
+              </li>
+              <li class="visible-xs hidden-sm visible-lg">
+                <a href="../lists/procedures.html">Procedures</a>
+              </li>
+          </ul>
+            <form action="../search.html" class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+              </div>
+              <!--
+                  <button type="submit" class="btn btn-default">Submit</button>
+                  -->
+            </form>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -77,63 +83,93 @@
   <div class="row">
     <h1>dslsbt
       <small>Subroutine</small>
+      
     </h1>
-    <div class="row">
-  <div class="col-lg-12">
-<div class="well well-sm">
-  <ul class="list-inline" style="margin-bottom:0px;display:inline">
-     <li><i class="fa fa-list-ol"></i>
-       <a data-toggle="tooltip"
-    data-placement="bottom" data-html="true"
-    title=" 0.1% of total for procedures.">13 statements</a>
-     </li> 
-    <li><i class="fa fa-code"></i><a href="../src/dslsbt.inc"> Source File</a></li>
-  </ul>
-  <ol class="breadcrumb in-well text-right">
-     <li><a href='../sourcefile/dslsbt.inc.html'>dslsbt.inc</a></li>
-     <li class="active">dslsbt</li>
-  </ol>
-</div>
-</div>
-</div>
-<script>
-  $(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-  })
-</script>
+      <div class="row" id="info-bar">
+    <div class="col-lg-12">
+      <div class="well well-sm">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+          <li id="statements"><i class="fa fa-list-ol"></i>
+            <a data-toggle="tooltip"
+               data-placement="bottom" data-html="true"
+               title=" 0.1% of total for procedures.">13 statements</a>
+          </li>
+
+            <li id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dslsbt.inc"> Source File</a>
+            </li>
+        </ul>
+        <ol class="breadcrumb in-well text-right">
+              <li><a href='../sourcefile/dslsbt.inc.html'>dslsbt.inc</a></li>
+          <li class="active">dslsbt</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+  </script>
 
   </div>
   
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    <div id="sidebar">
-  <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
-  <div id="vars-0" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/dslsbt~2.html#variable-lblox">lblox</a>
-      <a class="list-group-item" href="../proc/dslsbt~2.html#variable-lpb">lpb</a>
-      <a class="list-group-item" href="../proc/dslsbt~2.html#variable-lpc">lpc</a>
-      <a class="list-group-item" href="../proc/dslsbt~2.html#variable-mb">mb</a>
-      <a class="list-group-item" href="../proc/dslsbt~2.html#variable-nb">nb</a>
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-0">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-0" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dslsbt~2.html#variable-lblox">lblox</a>
+            <a class="list-group-item" href="../proc/dslsbt~2.html#variable-lpb">lpb</a>
+            <a class="list-group-item" href="../proc/dslsbt~2.html#variable-lpc">lpc</a>
+            <a class="list-group-item" href="../proc/dslsbt~2.html#variable-mb">mb</a>
+            <a class="list-group-item" href="../proc/dslsbt~2.html#variable-nb">nb</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../proc/dslsbt~2.html#src">dslsbt</a>
-  </div>
-</div>
 
-</div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dslsbt~2.html#src">dslsbt</a>
+      </div>
+    </div>
+
+
+  </div>
 
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>subroutine dslsbt(Wm, Iwm, X, Tem)</h2>
+    <h2> subroutine dslsbt(Wm, Iwm, X, Tem)  
+</h2>
     
 
     <p>This routine acts as an interface between the core integrator
@@ -164,35 +200,78 @@ on output, of length N.</p>
 </dl>
 
     <h3>Arguments</h3>
-      <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Intent</th><th>Optional</th><th>Attributes</th><th></th><th>Name</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-wm~10"></span>real(kind=dp)</td>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Intent</th><th>Optional</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wm~9"></span>
+              real(kind=dp)
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Wm</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-iwm~10"></span>integer</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Wm</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwm~9"></span>
+              integer
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Iwm</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-x~5"></span>real(kind=dp)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iwm</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~5"></span>
+              real(kind=dp)
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>X</strong>(*)</td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-tem~2"></span>real(kind=dp)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>X</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tem~2"></span>
+              real(kind=dp)
+            </td>
 <td></td>
-  <td></td>  <td></td><td>::</td>
-  <td><strong>Tem</strong>(*)</td><td></td>
-</tr>
-</tbody>
-</table>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Tem</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     <br>
     <div class="panel panel-default">
@@ -232,35 +311,35 @@ on output, of length N.</p>
 <path fill="none" stroke="#000000" d="M54.4,-34C62.39,-34 71.31,-34 79.82,-34"/>
 <polygon fill="#000000" stroke="#000000" points="79.92,-37.5 89.92,-34 79.92,-30.5 79.92,-37.5"/>
 </g>
-<!-- proc~dgesl~2 -->
-<g id="proc~~dslsbt~2~~CallsGraph_node3" class="node">
-<title>proc~dgesl~2</title>
-<g id="a_proc~~dslsbt~2~~CallsGraph_node3"><a xlink:href=".././proc/dgesl~2.html" xlink:title="dgesl">
-<polygon fill="#d9534f" stroke="#d9534f" points="234,-26 180,-26 180,-2 234,-2 234,-26"/>
-<text text-anchor="middle" x="207" y="-11.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgesl</text>
-</a>
-</g>
-</g>
-<!-- proc~dsolbt~2&#45;&gt;proc~dgesl~2 -->
-<g id="proc~~dslsbt~2~~CallsGraph_edge2" class="edge">
-<title>proc~dsolbt~2&#45;&gt;proc~dgesl~2</title>
-<path fill="none" stroke="#000000" d="M144.4,-28C152.48,-26.16 161.51,-24.11 170.1,-22.16"/>
-<polygon fill="#000000" stroke="#000000" points="170.94,-25.56 179.92,-19.93 169.39,-18.73 170.94,-25.56"/>
-</g>
 <!-- proc~ddot~2 -->
-<g id="proc~~dslsbt~2~~CallsGraph_node4" class="node">
+<g id="proc~~dslsbt~2~~CallsGraph_node3" class="node">
 <title>proc~ddot~2</title>
-<g id="a_proc~~dslsbt~2~~CallsGraph_node4"><a xlink:href=".././proc/ddot~2.html" xlink:title="ddot">
+<g id="a_proc~~dslsbt~2~~CallsGraph_node3"><a xlink:href=".././proc/ddot~2.html" xlink:title="ddot">
 <polygon fill="#d94e8f" stroke="#d94e8f" points="324,-66 270,-66 270,-42 324,-42 324,-66"/>
 <text text-anchor="middle" x="297" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">ddot</text>
 </a>
 </g>
 </g>
 <!-- proc~dsolbt~2&#45;&gt;proc~ddot~2 -->
-<g id="proc~~dslsbt~2~~CallsGraph_edge3" class="edge">
+<g id="proc~~dslsbt~2~~CallsGraph_edge2" class="edge">
 <title>proc~dsolbt~2&#45;&gt;proc~ddot~2</title>
 <path fill="none" stroke="#000000" d="M144.26,-36.95C174.85,-40.39 225.55,-46.08 259.84,-49.94"/>
 <polygon fill="#000000" stroke="#000000" points="259.59,-53.43 269.92,-51.07 260.37,-46.47 259.59,-53.43"/>
+</g>
+<!-- proc~dgesl~2 -->
+<g id="proc~~dslsbt~2~~CallsGraph_node4" class="node">
+<title>proc~dgesl~2</title>
+<g id="a_proc~~dslsbt~2~~CallsGraph_node4"><a xlink:href=".././proc/dgesl~2.html" xlink:title="dgesl">
+<polygon fill="#d9534f" stroke="#d9534f" points="234,-26 180,-26 180,-2 234,-2 234,-26"/>
+<text text-anchor="middle" x="207" y="-11.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgesl</text>
+</a>
+</g>
+</g>
+<!-- proc~dsolbt~2&#45;&gt;proc~dgesl~2 -->
+<g id="proc~~dslsbt~2~~CallsGraph_edge3" class="edge">
+<title>proc~dsolbt~2&#45;&gt;proc~dgesl~2</title>
+<path fill="none" stroke="#000000" d="M144.4,-28C152.48,-26.16 161.51,-24.11 170.1,-22.16"/>
+<polygon fill="#000000" stroke="#000000" points="170.94,-25.56 179.92,-19.93 169.39,-18.73 170.94,-25.56"/>
 </g>
 <!-- proc~dgesl~2&#45;&gt;proc~ddot~2 -->
 <g id="proc~~dslsbt~2~~CallsGraph_edge5" class="edge">
@@ -285,9 +364,19 @@ on output, of length N.</p>
 </g>
 </g>
 </svg>
-</div><div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div><div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog"><div class="modal-dialog modal-lg" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button><h4 class="modal-title" id="-graph-help-label">Graph Key</h4></div><div class="modal-body">
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                </div>
+              <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
@@ -337,38 +426,63 @@ on output, of length N.</p>
 </g>
 </svg>
 
-    
-    <p>Solid arrows point from a procedure to one which it calls. Dashed 
-    arrows point from an interface to procedures which implement that interface.
-    This could include the module procedures in a generic interface or the
-    implementation in a submodule of an interface in a parent module.
-    </p>
-    </div></div></div></div>
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <br>
 
     <section class="visible-xs visible-sm hidden-md">
-      <h3>Contents</h3>
- 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
-  <div id="vars-1" class="panel-collapse collapse">
-    <div class="list-group">
-      <a class="list-group-item" href="../proc/dslsbt~2.html#variable-lblox">lblox</a>
-      <a class="list-group-item" href="../proc/dslsbt~2.html#variable-lpb">lpb</a>
-      <a class="list-group-item" href="../proc/dslsbt~2.html#variable-lpc">lpc</a>
-      <a class="list-group-item" href="../proc/dslsbt~2.html#variable-mb">mb</a>
-      <a class="list-group-item" href="../proc/dslsbt~2.html#variable-nb">nb</a>
+        <h3>Contents</h3>
+  
+      <div class="panel panel-primary">
+      <div class="panel-heading text-left">
+        <h3 class="panel-title">
+          <a data-toggle="collapse" href="#vars-1">Variables</a>
+        </h3>
+      </div>
+      <div id="vars-1" class="panel-collapse collapse">
+        <div class="list-group">
+            <a class="list-group-item" href="../proc/dslsbt~2.html#variable-lblox">lblox</a>
+            <a class="list-group-item" href="../proc/dslsbt~2.html#variable-lpb">lpb</a>
+            <a class="list-group-item" href="../proc/dslsbt~2.html#variable-lpc">lpc</a>
+            <a class="list-group-item" href="../proc/dslsbt~2.html#variable-mb">mb</a>
+            <a class="list-group-item" href="../proc/dslsbt~2.html#variable-nb">nb</a>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
-  <div class="list-group">
-    <a class="list-group-item" href="../proc/dslsbt~2.html#src">dslsbt</a>
-  </div>
-</div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="panel panel-primary">
+      <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dslsbt~2.html#src">dslsbt</a>
+      </div>
+    </div>
+
 
     </section>
     <br class="visible-xs visible-sm hidden-md">
@@ -376,36 +490,103 @@ on output, of length N.</p>
 
     <section>    
       <h2>Variables</h2>
-    <table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th><th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
-<tbody>
-<tr>
-  <td><span class="anchor" id="variable-lblox"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>lblox</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lpb"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>lpb</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-lpc"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>lpc</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-mb"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>mb</strong></td><td></td><td></td><td></td>
-</tr>
-<tr>
-  <td><span class="anchor" id="variable-nb"></span>integer,</td>
-<td>public</td>  <td></td><td>::</td>
-  <td><strong>nb</strong></td><td></td><td></td><td></td>
-</tr>
-</tbody>
-</table>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th>Type</th>
+<th>Visibility</th>        <th>Attributes</th>
+        <th></th>
+        <th>Name</th>
+<th></th><th>Initial</th>        <th></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lblox"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lblox</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lpb"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lpb</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lpc"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lpc</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mb"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mb</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nb"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nb</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     </section>
     <br>
@@ -444,50 +625,50 @@ on output, of length N.</p>
     </div>
   </div>
 
-    <hr>    
+      <hr>
     </div> <!-- /container -->
     <footer>
       <div class="container">
-      <div class="row">
-        <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2022 
+        <div class="row">
+          <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2023 
 </p>
+          </div>
+          <div class="col-xs-6 col-md-6">
+            <p class="text-right">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2023-04-17 10:19              </p>
+          </div>
         </div>
-        <div class="col-xs-6 col-md-6">
-          <p class="text-right">
-            Documentation generated by 
-            <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2022-10-16 16:30            </p>
-        </div>
-      </div>
-      <br>
-      </div> <!-- /container -->    
+        <br>
+      </div> <!-- /container -->
     </footer>
 
     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-<!--
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
--->
-    <script src="../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+         ================================================== -->
+         <!-- Placed at the end of the document so the pages load faster -->
+    <!--
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        -->
+        <script src="../js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="../js/ie10-viewport-bug-workaround.js"></script>
 
-    <!-- MathJax JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
-        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
-      });
-    </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
+        <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
   </body>
 </html>
