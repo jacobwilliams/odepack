@@ -1690,9 +1690,10 @@
 !            DLSODIS also uses CDRV to solve the linear system
 !              A(t,y)*dy/dt = g(t,y)  for dy/dt when ISTATE = 0.
 !            (For this, CDRV works with A-transpose, not A.)
+!   DUMACH   computes the unit roundoff in a machine-independent manner.
 !   XERRWD, XSETUN, XSETF, IXSAV, and handle the printing of all
 !            error messages and warnings.  XERRWD is machine-dependent.
-!  Note:  DVNORM, IXSAV, and are function routines.
+!  Note:  DVNORM, DUMACH, IXSAV, and are function routines.
 !  All the others are subroutines.
 !
 !==================================================================================================================================!
@@ -1742,6 +1743,7 @@ character(60) :: msg
 !  Groups of variables are replaced by dummy arrays in the Common
 !  declarations in routines where those variables are not used.
 ! -----------------------------------------------------------------------
+!
 data mord(1), mord(2)/12, 5/, mxstp0/500/, mxhnl0/10/
 ! -----------------------------------------------------------------------
 !  In the Data statement below, set LENRAT equal to the ratio of
@@ -2072,7 +2074,7 @@ else
                      if ( h0/=0.0D0 .and. (T+h0-tcrit)*h0>0.0D0 ) h0 = tcrit - T
                   endif
 !  Initialize all remaining parameters. ---------------------------------
-                  dls1%uround = epsilon(0.0d0)
+                  dls1%uround = dumach()
                   dls1%jstart = 0
                   Rwork(dls1%lwm) = sqrt(dls1%uround)
                   dls1%nhnil = 0

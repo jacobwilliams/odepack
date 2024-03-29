@@ -146,7 +146,6 @@ external psol
    else
       if ( Mnewt>0 ) return
       !X!call dcopy(N,R,1,X,1)
-      X(1:N) = R(1:N) !X!
       X(1:N) = R(1:N)
       return
    endif
@@ -154,7 +153,7 @@ external psol
    INFINITE: do
       Lpcg = Lpcg + 1
       !X!call dcopy(N,R,1,Z,1)
-      Z(1:N) = R(1:N) !X!
+      Z(1:N) = R(1:N)
       ier = 0
       if ( Jpre/=0 ) then
          call psol(Neq,Tn,Y,Savf,Wk,Hl0,Wp,Iwp,Z,3,ier)
@@ -187,7 +186,7 @@ external psol
          enddo
       else
          !X!call dcopy(N,Z,1,P,1)
-         P(1:N) = Z(1:N) !X!
+         P(1:N) = Z(1:N)
       endif
       !-----------------------------------------------------------------------
       !   Call DATP to compute A*p and return the answer in W.

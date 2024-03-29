@@ -4,33 +4,13 @@
 !>
 !!### NAME
 !!   dstode(3f) - [M_odepack] Performs one step of an ODEPACK integration.
-!!### SYNOPSIS
-!!
-!!    subroutine dstode(Neq,Y,Yh,Nyh,Yh1,Ewt,Savf,Acor,Wm,Iwm,f,jac,pjac,slvs)
-!!
-!!     integer,parameter :: dp=kind(0.0d0)
-!!     integer                     :: Neq(*)
-!!     real(kind=dp),intent(inout) :: Y(*)
-!!     integer                     :: Nyh
-!!     real(kind=dp),intent(inout) :: Yh(Nyh,*)
-!!     real(kind=dp),intent(inout) :: Yh1(*)
-!!     real(kind=dp)               :: Ewt(*)
-!!     real(kind=dp),intent(inout) :: Savf(*)
-!!     real(kind=dp),intent(inout) :: Acor(*)
-!!     real(kind=dp)               :: Wm(*)
-!!     integer                     :: Iwm(*)
-!!     external f
-!!     external jac
-!!     external pjac
-!!     external slvs
-
 !!### DESCRIPTION
 !!
 !!  DSTODE performs one step of the integration of an initial value
 !!  problem for a system of ordinary differential equations.
 !!
 !!  Note:  DSTODE is independent of the value of the iteration method
-!!  indicator dls1%MITER, when this is .ne. 0, and hence is independent
+!!  indicator MITER, when this is .ne. 0, and hence is independent
 !!  of the type of chord method used, or the Jacobian structure.
 !!
 !!  Communication with DSTODE is done with the following variables:
@@ -42,21 +22,21 @@
 !!
 !!  Y
 !!
-!!  : an array of length .ge. dls1%N used as the Y argument in
+!!  : an array of length .ge. N used as the Y argument in
 !!  all calls to F and JAC.
 !!
 !!  YH
 !!
 !!  : an NYH by LMAX array containing the dependent variables
 !!  and their approximate scaled derivatives, where
-!!  LMAX = dls1%MAXORD + 1.  YH(i,j+1) contains the approximate
-!!  j-th derivative of y(i), scaled by dls1%h**j/factorial(j)
+!!  LMAX = MAXORD + 1.  YH(i,j+1) contains the approximate
+!!  j-th derivative of y(i), scaled by h**j/factorial(j)
 !!  (j = 0,1,...,NQ).  on entry for the first step, the first
 !!  two columns of YH must be set from the initial values.
 !!
 !!  NYH
 !!
-!!  : a constant integer .ge. dls1%N, the first dimension of YH.
+!!  : a constant integer .ge. N, the first dimension of YH.
 !!
 !!  YH1
 !!
@@ -64,115 +44,113 @@
 !!
 !!  EWT
 !!
-!!  : an array of length dls1%N containing multiplicative weights
+!!  : an array of length N containing multiplicative weights
 !!  for local error measurements.  Local errors in Y(i) are
 !!  compared to 1.0/EWT(i) in various error tests.
 !!
 !!  SAVF
 !!
-!!  : an array of working storage, of length dls1%N.
-!!  Also used for input of YH(*,dls1%MAXORD+2) when dls1%JSTART = -1
-!!  and dls1%MAXORD .lt. the current order NQ.
+!!  : an array of working storage, of length N.
+!!  Also used for input of YH(*,MAXORD+2) when JSTART = -1
+!!  and MAXORD .lt. the current order NQ.
 !!
 !!  ACOR
 !!
-!!  : a work array of length dls1%N, used for the accumulated
+!!  : a work array of length N, used for the accumulated
 !!  corrections.  On a successful return, ACOR(i) contains
 !!  the estimated one-step local error in Y(i).
 !!
 !!  WM,IWM
 !!
 !!  : real and integer work arrays associated with matrix
-!!  operations in chord iteration (dls1%MITER .ne. 0).
+!!  operations in chord iteration (MITER .ne. 0).
 !!
 !!  PJAC
 !!
 !!  : name of routine to evaluate and preprocess Jacobian matrix
-!!  and P = I - dls1%h*el0*JAC, if a chord method is being used.
+!!  and P = I - h*el0*JAC, if a chord method is being used.
 !!
 !!  SLVS
 !!
 !!  : name of routine to solve linear system in chord iteration.
 !!
-!!### GLOBAL VARIABLES
+!!  CCMAX
 !!
-!!  dls1%CCMAX
+!!  : maximum relative change in h*el0 before PJAC is called.
 !!
-!!  : maximum relative change in dls1%h*el0 before PJAC is called.
-!!
-!!  dls1%H
+!!  H
 !!
 !!  : the step size to be attempted on the next step.
-!!  dls1%H is altered by the error control algorithm during the
-!!  problem.  dls1%H can be either positive or negative, but its
+!!  H is altered by the error control algorithm during the
+!!  problem.  H can be either positive or negative, but its
 !!  sign must remain constant throughout the problem.
 !!
-!!  dls1%HMIN
+!!  HMIN
 !!
-!!  : the minimum absolute value of the step size dls1%h to be used.
+!!  : the minimum absolute value of the step size h to be used.
 !!
-!!  dls1%HMXI
+!!  HMXI
 !!
-!!  : inverse of the maximum absolute value of dls1%h to be used.
-!!  dls1%HMXI = 0.0 is allowed and corresponds to an infinite hmax.
-!!  dls1%HMIN and dls1%HMXI may be changed at any time, but will not
-!!  take effect until the next change of dls1%h is considered.
+!!  : inverse of the maximum absolute value of h to be used.
+!!  HMXI = 0.0 is allowed and corresponds to an infinite hmax.
+!!  HMIN and HMXI may be changed at any time, but will not
+!!  take effect until the next change of h is considered.
 !!
-!!  dls1%TN
+!!  TN
 !!
-!!  : the independent variable. dls1%TN is updated on each step taken.
+!!  : the independent variable. TN is updated on each step taken.
 !!
-!!  dls1%JSTART
+!!  JSTART
 !!
 !!  : an integer used for input only, with the following
 !!  values and meanings:
 !!            0  perform the first step.
 !!        .gt.0  take a new step continuing from the last.
-!!           -1  take the next step with a new value of dls1%H, dls1%MAXORD,
-!!               dls1%N, dls1%METH, dls1%MITER, and/or matrix parameters.
-!!           -2  take the next step with a new value of dls1%H,
+!!           -1  take the next step with a new value of H, MAXORD,
+!!               N, METH, MITER, and/or matrix parameters.
+!!           -2  take the next step with a new value of H,
 !!               but with other inputs unchanged.
-!!  On return, dls1%JSTART is set to 1 to facilitate continuation.
+!!  On return, JSTART is set to 1 to facilitate continuation.
 !!
-!!  dls1%KFLAG
+!!  KFLAG
 !!
 !!  : a completion code with the following meanings:
 !!            0  the step was succesful.
 !!           -1  the requested error could not be achieved.
 !!           -2  corrector convergence could not be achieved.
 !!           -3  fatal error in PJAC or SLVS.
-!!  A return with dls1%KFLAG = -1 or -2 means either
-!!  abs(dls1%H) = dls1%HMIN or 10 consecutive failures occurred.
-!!  On a return with dls1%KFLAG negative, the values of dls1%TN and
+!!  A return with KFLAG = -1 or -2 means either
+!!  abs(H) = HMIN or 10 consecutive failures occurred.
+!!  On a return with KFLAG negative, the values of TN and
 !!  the YH array are as of the beginning of the last
-!!  step, and dls1%H is the last step size attempted.
+!!  step, and H is the last step size attempted.
 !!
-!!  dls1%MAXORD
+!!  MAXORD
 !!
 !!  : the maximum order of integration method to be allowed.
 !!
-!!  dls1%MAXCOR
+!!  MAXCOR
 !!
 !!  : the maximum number of corrector iterations allowed.
 !!
-!!  dls1%MSBP
+!!  MSBP
 !!
-!!  : maximum number of steps between PJAC calls (dls1%MITER .gt. 0).
+!!  : maximum number of steps between PJAC calls (MITER .gt. 0).
 !!
-!!  dls1%MXNCF
+!!  MXNCF
 !!
 !!  : maximum number of convergence failures allowed.
 !!
-!!  dls1%METH/dls1%MITER
+!!  METH/MITER
 !!
 !!  : the method flags.  See description in driver.
 !!
-!!  dls1%N
+!!  N
 !!
 !!  : the number of first-order differential equations.
 !!
-!!  The values of dls1%CCMAX, dls1%H, dls1%HMIN, dls1%HMXI, dls1%TN, dls1%JSTART, dls1%KFLAG, dls1%MAXORD,
-!!  dls1%MAXCOR, dls1%MSBP, dls1%MXNCF, dls1%METH, dls1%MITER, and dls1%N are communicated via a global compound variable (DLS1)
+!!  The values of CCMAX, H, HMIN, HMXI, TN, JSTART, KFLAG, MAXORD,
+!!  MAXCOR, MSBP, MXNCF, METH, MITER, and N are communicated via COMMON.
 !!
 !-----------------------------------------------------------------------
 ! ### BEGIN PROLOGUE  DSTODE
@@ -228,17 +206,17 @@ delp = 0.0D0
 if ( dls1%jstart>0 ) goto 400
 if ( dls1%jstart==-1 ) then
 !-----------------------------------------------------------------------
-!  The following block handles preliminaries needed when dls1%JSTART = -1.
-!  IPUP is set to dls1%MITER to force a matrix update.
+!  The following block handles preliminaries needed when JSTART = -1.
+!  IPUP is set to MITER to force a matrix update.
 !  If an order increase is about to be considered (IALTH = 1),
 !  IALTH is reset to 2 to postpone consideration one more step.
-!  If the caller has changed dls1%METH, DCFODE is called to reset
+!  If the caller has changed METH, DCFODE is called to reset
 !  the coefficients of the method.
-!  If the caller has changed dls1%MAXORD to a value less than the current
-!  order NQ, NQ is reduced to dls1%MAXORD, and a new dls1%H chosen accordingly.
-!  If dls1%H is to be changed, YH must be rescaled.
-!  If dls1%H or dls1%METH is being changed, IALTH is reset to L = NQ + 1
-!  to prevent further changes in dls1%H for that many steps.
+!  If the caller has changed MAXORD to a value less than the current
+!  order NQ, NQ is reduced to MAXORD, and a new H chosen accordingly.
+!  If H is to be changed, YH must be rescaled.
+!  If H or METH is being changed, IALTH is reset to L = NQ + 1
+!  to prevent further changes in H for that many steps.
 !-----------------------------------------------------------------------
    dls1%ipup = dls1%miter
    dls1%lmax = dls1%maxord + 1
@@ -279,9 +257,9 @@ else
    if ( dls1%jstart==-2 ) goto 200
 !-----------------------------------------------------------------------
 !  On the first call, the order is set to 1, and other variables are
-!  initialized.  RMAX is the maximum ratio by which dls1%H can be increased
+!  initialized.  RMAX is the maximum ratio by which H can be increased
 !  in a single step.  It is initially 1.E4 to compensate for the small
-!  initial dls1%H, but then is normally equal to 10.  If a failure
+!  initial H, but then is normally equal to 10.  If a failure
 !  occurs (in corrector convergence or error test), RMAX is set to 2
 !  for the next increase.
 !-----------------------------------------------------------------------
@@ -300,7 +278,7 @@ else
    iret = 3
 !-----------------------------------------------------------------------
 !  DCFODE is called to get all the integration coefficients for the
-!  current dls1%METH.  Then the EL vector and related constants are reset
+!  current METH.  Then the EL vector and related constants are reset
 !  whenever the order NQ is changed, or at the start of the problem.
 !-----------------------------------------------------------------------
    call dcfode(dls1%meth,dls1%elco,dls1%tesco)
@@ -322,9 +300,9 @@ case (3)
 case default
 endselect
 !-----------------------------------------------------------------------
-!  If dls1%H is being changed, the dls1%H ratio RH is checked against
-!  RMAX, dls1%HMIN, and dls1%HMXI, and the YH array rescaled.  IALTH is set to
-!  L = NQ + 1 to prevent a change of dls1%H for that many steps, unless
+!  If H is being changed, the H ratio RH is checked against
+!  RMAX, HMIN, and HMXI, and the YH array rescaled.  IALTH is set to
+!  L = NQ + 1 to prevent a change of H for that many steps, unless
 !  forced by a convergence or error test failure.
 !-----------------------------------------------------------------------
  200  continue
@@ -352,10 +330,10 @@ endif
 !-----------------------------------------------------------------------
 !  This section computes the predicted values by effectively
 !  multiplying the YH array by the Pascal Triangle matrix.
-!  RC is the ratio of new to old values of the coefficient  dls1%H*EL(1).
-!  When RC differs from 1 by more than dls1%CCMAX, IPUP is set to dls1%MITER
+!  RC is the ratio of new to old values of the coefficient  H*EL(1).
+!  When RC differs from 1 by more than CCMAX, IPUP is set to MITER
 !  to force PJAC to be called, if a Jacobian is involved.
-!  In any case, PJAC is called at least every dls1%MSBP steps.
+!  In any case, PJAC is called at least every MSBP steps.
 !-----------------------------------------------------------------------
  400  continue
 if ( abs(dls1%rc-1.0D0)>dls1%ccmax ) dls1%ipup = dls1%miter
@@ -370,7 +348,7 @@ do jb = 1, dls1%nq
    enddo
 enddo
 !-----------------------------------------------------------------------
-!  Up to dls1%MAXCOR corrector iterations are taken.  A convergence test is
+!  Up to MAXCOR corrector iterations are taken.  A convergence test is
 !  made on the R.M.S. norm of each correction, weighted by the error
 !  weight vector EWT.  The sum of the corrections is accumulated in the
 !  vector ACOR(i).  The YH array is not altered in the corrector loop.
@@ -449,10 +427,10 @@ if ( dcon<=1.0D0 ) then
    if ( m>0 ) dsm = dvnorm(dls1%n,Acor,Ewt)/dls1%tesco(2,dls1%nq)
    if ( dsm>1.0D0 ) then
 !-----------------------------------------------------------------------
-!  The error test failed.  dls1%KFLAG keeps track of multiple failures.
-!  Restore dls1%TN and the YH array to their previous values, and prepare
+!  The error test failed.  KFLAG keeps track of multiple failures.
+!  Restore TN and the YH array to their previous values, and prepare
 !  to try the step again.  Compute the optimum step size for this or
-!  one lower order.  After 2 or more failures, dls1%H is forced to decrease
+!  one lower order.  After 2 or more failures, H is forced to decrease
 !  by a factor of 0.2 or less.
 !-----------------------------------------------------------------------
       dls1%kflag = dls1%kflag - 1
@@ -468,20 +446,20 @@ if ( dcon<=1.0D0 ) then
       dls1%rmax = 2.0D0
       if ( abs(dls1%h)<=dls1%hmin*1.00001D0 ) then
 !-----------------------------------------------------------------------
-!  All returns are made through this section.  dls1%H is saved in HOLD
-!  to allow the caller to change dls1%H on the next step.
+!  All returns are made through this section.  H is saved in HOLD
+!  to allow the caller to change H on the next step.
 !-----------------------------------------------------------------------
          dls1%kflag = -1
          goto 1300
       elseif ( dls1%kflag<=-3 ) then
 !-----------------------------------------------------------------------
 !  Control reaches this section if 3 or more failures have occured.
-!  If 10 failures have occurred, exit with dls1%KFLAG = -1.
+!  If 10 failures have occurred, exit with KFLAG = -1.
 !  It is assumed that the derivatives that have accumulated in the
 !  YH array have errors of the wrong order.  Hence the first
 !  derivative is recomputed, and the order is set to 1.  Then
-!  dls1%H is reduced by a factor of 10, and the step is retried,
-!  until it succeeds or dls1%H reaches dls1%HMIN.
+!  H is reduced by a factor of 10, and the step is retried,
+!  until it succeeds or H reaches HMIN.
 !-----------------------------------------------------------------------
          if ( dls1%kflag==-10 ) then
             dls1%kflag = -1
@@ -514,11 +492,11 @@ if ( dcon<=1.0D0 ) then
    else
 !-----------------------------------------------------------------------
 !  After a successful step, update the YH array.
-!  Consider changing dls1%H if IALTH = 1.  Otherwise decrease IALTH by 1.
-!  If IALTH is then 1 and NQ .lt. dls1%MAXORD, then ACOR is saved for
+!  Consider changing H if IALTH = 1.  Otherwise decrease IALTH by 1.
+!  If IALTH is then 1 and NQ .lt. MAXORD, then ACOR is saved for
 !  use in a possible order increase on the next step.
-!  If a change in dls1%H is considered, an increase or decrease in order
-!  by one is considered also.  A change in dls1%H is made only if it is by a
+!  If a change in H is considered, an increase or decrease in order
+!  by one is considered also.  A change in H is made only if it is by a
 !  factor of at least 1.1.  If not, IALTH is set to 3 to prevent
 !  testing for that many steps.
 !-----------------------------------------------------------------------
@@ -536,7 +514,7 @@ if ( dcon<=1.0D0 ) then
       if ( dls1%ialth==0 ) then
 !-----------------------------------------------------------------------
 !  Regardless of the success or failure of the step, factors
-!  RHDN, RHSM, and RHUP are computed, by which dls1%H could be multiplied
+!  RHDN, RHSM, and RHUP are computed, by which H could be multiplied
 !  at order NQ - 1, order NQ, or order NQ + 1, respectively.
 !  In the case of failure, RHUP = 0.0 to avoid an order increase.
 !  The largest of these is determined and the new order chosen
@@ -577,10 +555,10 @@ else
 endif
 !-----------------------------------------------------------------------
 !  The corrector iteration failed to converge.
-!  If dls1%MITER .ne. 0 and the Jacobian is out of date, PJAC is called for
+!  If MITER .ne. 0 and the Jacobian is out of date, PJAC is called for
 !  the next try.  Otherwise the YH array is retracted to its values
-!  before prediction, and dls1%H is reduced, if possible.  If dls1%H cannot be
-!  reduced or dls1%MXNCF failures have occurred, exit with dls1%KFLAG = -2.
+!  before prediction, and H is reduced, if possible.  If H cannot be
+!  reduced or MXNCF failures have occurred, exit with KFLAG = -2.
 !-----------------------------------------------------------------------
  700  continue
 if ( dls1%miter/=0 .and. dls1%jcur/=1 ) then
@@ -657,7 +635,7 @@ else
    if ( dls1%kflag<=-2 ) rh = min(rh,0.2D0)
 !-----------------------------------------------------------------------
 !  If there is a change of order, reset NQ, dls1%l, and the coefficients.
-!  In any case dls1%H is reset according to RH and the YH array is rescaled.
+!  In any case H is reset according to RH and the YH array is rescaled.
 !  Then exit from 690 if the step was OK, or redo the step otherwise.
 !-----------------------------------------------------------------------
    if ( newq==dls1%nq ) then

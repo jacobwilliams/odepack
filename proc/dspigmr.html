@@ -1,0 +1,1594 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
+    <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>dspigmr &ndash; odepack</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">odepack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>dspigmr
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 0.7% of total for procedures.">157 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/dspigmr.inc"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dspigmr.inc.html'>dspigmr.inc</a></li>
+            <li class="breadcrumb-item active" aria-current="page">dspigmr</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-bnrm~3">bnrm</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-bnrm0">bnrm0</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-c~3">c</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-dlnrm">dlnrm</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-i~27">i</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-i2~5">i2</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-ier~5">ier</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-info">info</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-ip1">ip1</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-j~17">j</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-k~12">k</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-ll">ll</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-llp1">llp1</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-prod">prod</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-rho">rho</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-s~5">s</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-snormw">snormw</a>
+            <a class="list-group-item" href="../proc/dspigmr.html#variable-tem">tem</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dspigmr.html#proc-approximate">approximate</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dspigmr.html#src">dspigmr</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine dspigmr(Neq, Tn, Y, Savf, B, Wght, N, Maxl, Maxlp1, Kmp, Delta, Hl0, Jpre, Mnewt, f, psol, Npsl, X, V, Hes, Q, Lgmr, Wp, Iwp, Wk, Dl, Iflag)  
+</h2>
+    
+
+    <p>This routine solves the linear system A * x = b using a scaled
+ preconditioned version of the Generalized Minimal Residual method.
+ An initial guess of x = 0 is assumed.</p>
+<h3 id="on-entry">On entry</h3>
+<dl>
+<dt>NEQ</dt>
+<dd>
+<p>problem size, passed to F and PSOL (NEQ(1) = N).</p>
+</dd>
+<dt>TN</dt>
+<dd>
+<p>current value of t.</p>
+</dd>
+<dt>Y</dt>
+<dd>
+<p>array containing current dependent variable vector.</p>
+</dd>
+<dt>SAVF</dt>
+<dd>
+<p>array containing current value of f(t,y).</p>
+</dd>
+<dt>B</dt>
+<dd>
+<p>the right hand side of the system A*x = b.</p>
+</dd>
+</dl>
+<p>B is also used as work space when computing</p>
+<p>the final approximation.
+ (B is the same as V(*,MAXL+1) in the call to DSPIGMR.)</p>
+<dl>
+<dt>WGHT</dt>
+<dd>
+<p>the vector of length N containing the nonzero
+ elements of the diagonal scaling matrix.</p>
+</dd>
+<dt>N</dt>
+<dd>
+<p>the order of the matrix A, and the lengths
+ of the vectors WGHT, B and X.</p>
+</dd>
+<dt>MAXL</dt>
+<dd>
+<p>the maximum allowable order of the matrix HES.</p>
+</dd>
+<dt>MAXLP1</dt>
+<dd>
+<p>MAXLP1 = MAXL + 1, used for dynamic dimensioning of HES.</p>
+</dd>
+<dt>KMP</dt>
+<dd>
+<p>the number of previous vectors the new vector VNEW
+ must be made orthogonal to.  KMP .le. MAXL.</p>
+</dd>
+<dt>DELTA</dt>
+<dd>
+<p>tolerance on residuals b - A*x in weighted RMS-norm.</p>
+</dd>
+<dt>HL0</dt>
+<dd>
+<p>current value of (step size h) * (coefficient l0).</p>
+</dd>
+<dt>JPRE</dt>
+<dd>
+<p>preconditioner type flag.</p>
+</dd>
+<dt>MNEWT</dt>
+<dd>
+<p>Newton iteration counter (.ge. 0).</p>
+</dd>
+<dt>WK</dt>
+<dd>
+<p>real work array used by routine DATV and PSOL.</p>
+</dd>
+<dt>DL</dt>
+<dd>
+<p>real work array used for calculation of the residual
+ norm RHO when the method is incomplete (KMP .lt. MAXL).
+ Not needed or referenced in complete case (KMP = MAXL).</p>
+</dd>
+<dt>WP</dt>
+<dd>
+<p>real work array used by preconditioner PSOL.</p>
+</dd>
+<dt>IWP</dt>
+<dd>
+<p>integer work array used by preconditioner PSOL.</p>
+</dd>
+</dl>
+<h3 id="on-return">On return</h3>
+<dl>
+<dt>X</dt>
+<dd>
+<p>the final computed approximation to the solution
+ of the system A*x = b.</p>
+</dd>
+<dt>LGMR</dt>
+<dd>
+<p>the number of iterations performed and
+ the current order of the upper Hessenberg
+ matrix HES.</p>
+</dd>
+<dt>NPSL</dt>
+<dd>
+<p>the number of calls to PSOL.</p>
+</dd>
+<dt>V</dt>
+<dd>
+<p>the N by (LGMR+1) array containing the LGMR
+ orthogonal vectors V(<em>,1) to V(</em>,LGMR).</p>
+</dd>
+<dt>HES</dt>
+<dd>
+<p>the upper triangular factor of the QR decomposition
+ of the (LGMR+1) by lgmr upper Hessenberg matrix whose
+ entries are the scaled inner-products of A<em>V(</em>,i)
+ and V(*,k).</p>
+</dd>
+<dt>Q</dt>
+<dd>
+<p>real array of length 2*MAXL containing the components
+ of the Givens rotations used in the QR decomposition
+ of HES.  It is loaded in DHEQR and used in DHELS.</p>
+</dd>
+<dt>IFLAG</dt>
+<dd>
+<p>integer error flag:</p>
+</dd>
+</dl>
+<table>
+<thead>
+<tr>
+<th>value</th>
+<th>description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>means convergence in LGMR iterations, LGMR .le. MAXL.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>means the convergence test did not pass in MAXL</td>
+</tr>
+<tr>
+<td></td>
+<td>iterations, but the residual norm is .lt. 1,</td>
+</tr>
+<tr>
+<td></td>
+<td>or .lt. norm(b) if MNEWT = 0, and so x is computed.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>means the convergence test did not pass in MAXL</td>
+</tr>
+<tr>
+<td></td>
+<td>iterations, residual .gt. 1, and X is undefined.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>means there was a recoverable error in PSOL</td>
+</tr>
+<tr>
+<td></td>
+<td>caused by the preconditioner being out of date.</td>
+</tr>
+<tr>
+<td>-1</td>
+<td>means there was a nonrecoverable error in PSOL.</td>
+</tr>
+</tbody>
+</table>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-neq~14"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Neq</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tn~3"></span>
+              real(kind=dp)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Tn</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-y~14"></span>
+              real(kind=dp)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Y</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-savf~8"></span>
+              real(kind=dp)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Savf</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-b~6"></span>
+              real(kind=dp),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>B</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wght~3"></span>
+              real(kind=dp)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Wght</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~14"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-maxl~2"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Maxl</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-maxlp1"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Maxlp1</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-kmp"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Kmp</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delta~3"></span>
+              real(kind=dp),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Delta</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hl0~3"></span>
+              real(kind=dp)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Hl0</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jpre~2"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jpre</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mnewt~3"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Mnewt</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-f~11"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>f</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-psol~6"></span>
+              real
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>psol</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-npsl~3"></span>
+              integer,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Npsl</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-x~6"></span>
+              real(kind=dp),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>X</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-v~3"></span>
+              real(kind=dp),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>V</strong>(N,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hes"></span>
+              real(kind=dp)
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Hes</strong>(Maxlp1,*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-q~4"></span>
+              real(kind=dp),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Q</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lgmr"></span>
+              integer,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Lgmr</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wp~3"></span>
+              real(kind=dp),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Wp</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iwp~3"></span>
+              integer
+            </td>
+<td></td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iwp</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-wk~6"></span>
+              real(kind=dp),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Wk</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dl"></span>
+              real(kind=dp),
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Dl</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iflag~3"></span>
+              integer,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iflag</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~dspigmr~~CallsGraph Pages: 1 -->
+<svg id="procdspigmrCallsGraph" width="388pt" height="263pt"
+ viewBox="0.00 0.00 388.00 263.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dspigmr~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 259)">
+<title>proc~~dspigmr~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-259 384,-259 384,4 -4,4"/>
+<!-- proc~dspigmr -->
+<g id="proc~~dspigmr~~CallsGraph_node1" class="node">
+<title>proc~dspigmr</title>
+<polygon fill="none" stroke="black" points="124,-150 0,-150 0,-126 124,-126 124,-150"/>
+<text text-anchor="middle" x="62" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50">dspigmr.inc::dspigmr</text>
+</g>
+<!-- datv -->
+<g id="proc~~dspigmr~~CallsGraph_node2" class="node">
+<title>datv</title>
+<polygon fill="#777777" stroke="#777777" points="252,-255 198,-255 198,-231 252,-231 252,-255"/>
+<text text-anchor="middle" x="225" y="-240.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">datv</text>
+</g>
+<!-- proc~dspigmr&#45;&gt;datv -->
+<g id="proc~~dspigmr~~CallsGraph_edge1" class="edge">
+<title>proc~dspigmr&#45;&gt;datv</title>
+<path fill="none" stroke="#000000" d="M74.06,-150.29C90.95,-168.36 124.92,-202.13 160,-222 168.68,-226.92 178.69,-230.89 188.18,-234"/>
+<polygon fill="#000000" stroke="#000000" points="187.2,-237.37 197.79,-236.94 189.25,-230.67 187.2,-237.37"/>
+</g>
+<!-- dheqr -->
+<g id="proc~~dspigmr~~CallsGraph_node3" class="node">
+<title>dheqr</title>
+<polygon fill="#777777" stroke="#777777" points="252,-213 198,-213 198,-189 252,-189 252,-213"/>
+<text text-anchor="middle" x="225" y="-198.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dheqr</text>
+</g>
+<!-- proc~dspigmr&#45;&gt;dheqr -->
+<g id="proc~~dspigmr~~CallsGraph_edge2" class="edge">
+<title>proc~dspigmr&#45;&gt;dheqr</title>
+<path fill="none" stroke="#000000" d="M89.08,-150.07C108.46,-158.84 135.64,-170.75 160,-180 169.07,-183.44 178.99,-186.86 188.25,-189.91"/>
+<polygon fill="#000000" stroke="#000000" points="187.37,-193.3 197.96,-193.05 189.53,-186.64 187.37,-193.3"/>
+</g>
+<!-- dnrm2 -->
+<g id="proc~~dspigmr~~CallsGraph_node4" class="node">
+<title>dnrm2</title>
+<polygon fill="#777777" stroke="#777777" points="252,-171 198,-171 198,-147 252,-147 252,-171"/>
+<text text-anchor="middle" x="225" y="-156.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dnrm2</text>
+</g>
+<!-- proc~dspigmr&#45;&gt;dnrm2 -->
+<g id="proc~~dspigmr~~CallsGraph_edge3" class="edge">
+<title>proc~dspigmr&#45;&gt;dnrm2</title>
+<path fill="none" stroke="#000000" d="M124.33,-146C145.67,-148.78 168.93,-151.82 187.6,-154.25"/>
+<polygon fill="#000000" stroke="#000000" points="187.37,-157.75 197.74,-155.57 188.28,-150.81 187.37,-157.75"/>
+</g>
+<!-- dorthog -->
+<g id="proc~~dspigmr~~CallsGraph_node5" class="node">
+<title>dorthog</title>
+<polygon fill="#777777" stroke="#777777" points="252.5,-129 197.5,-129 197.5,-105 252.5,-105 252.5,-129"/>
+<text text-anchor="middle" x="225" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dorthog</text>
+</g>
+<!-- proc~dspigmr&#45;&gt;dorthog -->
+<g id="proc~~dspigmr~~CallsGraph_edge4" class="edge">
+<title>proc~dspigmr&#45;&gt;dorthog</title>
+<path fill="none" stroke="#000000" d="M124.33,-130C145.52,-127.24 168.6,-124.23 187.21,-121.8"/>
+<polygon fill="#000000" stroke="#000000" points="187.86,-125.24 197.32,-120.48 186.95,-118.3 187.86,-125.24"/>
+</g>
+<!-- dscal -->
+<g id="proc~~dspigmr~~CallsGraph_node6" class="node">
+<title>dscal</title>
+<polygon fill="#777777" stroke="#777777" points="252,-87 198,-87 198,-63 252,-63 252,-87"/>
+<text text-anchor="middle" x="225" y="-72.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dscal</text>
+</g>
+<!-- proc~dspigmr&#45;&gt;dscal -->
+<g id="proc~~dspigmr~~CallsGraph_edge5" class="edge">
+<title>proc~dspigmr&#45;&gt;dscal</title>
+<path fill="none" stroke="#000000" d="M89.08,-125.93C108.46,-117.16 135.64,-105.25 160,-96 169.07,-92.56 178.99,-89.14 188.25,-86.09"/>
+<polygon fill="#000000" stroke="#000000" points="189.53,-89.36 197.96,-82.95 187.37,-82.7 189.53,-89.36"/>
+</g>
+<!-- none~approximate -->
+<g id="proc~~dspigmr~~CallsGraph_node7" class="node">
+<title>none~approximate</title>
+<g id="a_proc~~dspigmr~~CallsGraph_node7"><a xlink:href="../proc/dspigmr.html#proc-approximate" xlink:title="dspigmr::approximate">
+<polygon fill="#d9534f" stroke="#d9534f" points="290,-45 160,-45 160,-21 290,-21 290,-45"/>
+<text text-anchor="middle" x="225" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dspigmr::approximate</text>
+</a>
+</g>
+</g>
+<!-- proc~dspigmr&#45;&gt;none~approximate -->
+<g id="proc~~dspigmr~~CallsGraph_edge6" class="edge">
+<title>proc~dspigmr&#45;&gt;none~approximate</title>
+<path fill="none" stroke="#000000" d="M74.06,-125.71C90.95,-107.64 124.92,-73.87 160,-54 163.19,-52.19 166.56,-50.51 170.01,-48.96"/>
+<polygon fill="#000000" stroke="#000000" points="171.39,-52.18 179.3,-45.13 168.72,-45.71 171.39,-52.18"/>
+</g>
+<!-- daxpy -->
+<g id="proc~~dspigmr~~CallsGraph_node8" class="node">
+<title>daxpy</title>
+<polygon fill="#777777" stroke="#777777" points="380,-66 326,-66 326,-42 380,-42 380,-66"/>
+<text text-anchor="middle" x="353" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">daxpy</text>
+</g>
+<!-- none~approximate&#45;&gt;daxpy -->
+<g id="proc~~dspigmr~~CallsGraph_edge7" class="edge">
+<title>none~approximate&#45;&gt;daxpy</title>
+<path fill="none" stroke="#000000" d="M290.11,-43.68C298.9,-45.15 307.66,-46.61 315.71,-47.95"/>
+<polygon fill="#000000" stroke="#000000" points="315.39,-51.45 325.83,-49.64 316.54,-44.54 315.39,-51.45"/>
+</g>
+<!-- dhels -->
+<g id="proc~~dspigmr~~CallsGraph_node9" class="node">
+<title>dhels</title>
+<polygon fill="#777777" stroke="#777777" points="380,-24 326,-24 326,0 380,0 380,-24"/>
+<text text-anchor="middle" x="353" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dhels</text>
+</g>
+<!-- none~approximate&#45;&gt;dhels -->
+<g id="proc~~dspigmr~~CallsGraph_edge8" class="edge">
+<title>none~approximate&#45;&gt;dhels</title>
+<path fill="none" stroke="#000000" d="M290.11,-22.32C298.9,-20.85 307.66,-19.39 315.71,-18.05"/>
+<polygon fill="#000000" stroke="#000000" points="316.54,-21.46 325.83,-16.36 315.39,-14.55 316.54,-21.46"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bnrm~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>bnrm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-bnrm0"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>bnrm0</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-c~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>c</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dlnrm"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dlnrm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~27"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i2~5"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ier~5"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ier</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-info"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>info</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ip1"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ip1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~17"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~12"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ll"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ll</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-llp1"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>llp1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-prod"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>prod</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rho"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rho</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-s~5"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>s</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-snormw"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>snormw</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tem"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tem</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-approximate"></span> <h3> subroutine <a href='dspigmr.html#proc-approximate'>approximate</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+    <em>None</em>
+
+    </div>
+  </div>
+
+    </section>    
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">subroutine </span><span class="n">dspigmr</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">Tn</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Savf</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Wght</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">Maxl</span><span class="p">,</span><span class="n">Maxlp1</span><span class="p">,</span><span class="n">Kmp</span><span class="p">,</span><span class="n">Delta</span><span class="p">,</span><span class="n">Hl0</span><span class="p">,</span><span class="n">Jpre</span><span class="p">,</span><span class="n">Mnewt</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">psol</span><span class="p">,</span><span class="n">Npsl</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">Hes</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">Lgmr</span><span class="p">,</span><span class="n">Wp</span><span class="p">,</span><span class="n">Iwp</span><span class="p">,</span><span class="n">Wk</span><span class="p">,</span><span class="n">Dl</span><span class="p">,</span><span class="n">Iflag</span><span class="p">)</span>
+<span class="c">!</span>
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">Neq</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Tn</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Savf</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Wght</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">N</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">Maxl</span>
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">Maxlp1</span>
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">Kmp</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Delta</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Hl0</span>
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">Jpre</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">          </span><span class="kd">::</span><span class="w"> </span><span class="n">Mnewt</span>
+<span class="k">external</span><span class="w">                    </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span>
+<span class="k">external</span><span class="w">                    </span><span class="kd">::</span><span class="w"> </span><span class="n">psol</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">Npsl</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">V</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Hes</span><span class="p">(</span><span class="n">Maxlp1</span><span class="p">,</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">Lgmr</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Wp</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">Iwp</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Wk</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Dl</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">Iflag</span>
+<span class="c">!</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">bnrm</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">bnrm0</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">c</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dlnrm</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">prod</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">rho</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">s</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">snormw</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">tem</span>
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">i2</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ier</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">info</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ip1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">llp1</span>
+<span class="c">!</span>
+<span class="n">Iflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">Lgmr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">Npsl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  The initial residual is the vector b.  Apply scaling to b, and test</span>
+<span class="c">!  for an immediate return with X = 0 or X = b.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span>
+<span class="w">   </span><span class="n">V</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">Wght</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="k">enddo</span>
+
+<span class="n">bnrm0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dnrm2</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">bnrm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bnrm0</span>
+
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">bnrm0</span><span class="o">&gt;</span><span class="n">Delta</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">   </span><span class="c">!  Apply inverse of left preconditioner to vector b. --------------------</span>
+<span class="w">   </span><span class="n">ier</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Jpre</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">Jpre</span><span class="o">/=</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      call </span><span class="n">psol</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">Tn</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Savf</span><span class="p">,</span><span class="n">Wk</span><span class="p">,</span><span class="n">Hl0</span><span class="p">,</span><span class="n">Wp</span><span class="p">,</span><span class="n">Iwp</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">ier</span><span class="p">)</span>
+<span class="w">      </span><span class="n">Npsl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ier</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">         </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">         </span><span class="c">!  This block handles error returns forced by routine PSOL.</span>
+<span class="w">         </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ier</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Iflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ier</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Iflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">         </span><span class="k">return</span>
+<span class="k">      endif</span>
+<span class="w">      </span><span class="c">!  Calculate norm of scaled vector V(*,1) and normalize it. -------------</span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span>
+<span class="w">         </span><span class="n">V</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">Wght</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">      </span><span class="k">enddo</span>
+<span class="k">      </span><span class="n">bnrm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dnrm2</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="n">Delta</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Delta</span><span class="o">*</span><span class="p">(</span><span class="n">bnrm</span><span class="o">/</span><span class="n">bnrm0</span><span class="p">)</span>
+<span class="w">   </span><span class="k">endif</span>
+<span class="k">   </span><span class="n">tem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="n">bnrm</span>
+<span class="w">   </span><span class="k">call </span><span class="n">dscal</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">tem</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">   </span><span class="c">!  Zero out the HES array. ----------------------------------------------</span>
+<span class="w">   </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Maxl</span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Maxlp1</span>
+<span class="w">         </span><span class="n">Hes</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="w">      </span><span class="k">enddo</span>
+<span class="k">   enddo</span>
+<span class="w">   </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">   </span><span class="c">!  Main loop to compute the vectors V(*,2) to V(*,MAXL).</span>
+<span class="w">   </span><span class="c">!  The running product PROD is needed for the convergence test.</span>
+<span class="w">   </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">   </span><span class="n">prod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span>
+<span class="w">   </span><span class="k">do </span><span class="n">ll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Maxl</span>
+<span class="w">      </span><span class="n">Lgmr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ll</span>
+<span class="w">      </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">      </span><span class="c">!  Call routine DATV to compute VNEW = Abar*v(ll), where Abar is</span>
+<span class="w">      </span><span class="c">!  the matrix A with scaling and inverse preconditioner factors applied.</span>
+<span class="w">      </span><span class="c">!  Call routine DORTHOG to orthogonalize the new vector VNEW = V(*,LL+1).</span>
+<span class="w">      </span><span class="c">!  Call routine DHEQR to update the factors of HES.</span>
+<span class="w">      </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">      </span><span class="k">call </span><span class="n">datv</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Savf</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ll</span><span class="p">),</span><span class="n">Wght</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">psol</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ll</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">Wk</span><span class="p">,</span><span class="n">Wp</span><span class="p">,</span><span class="n">Iwp</span><span class="p">,</span><span class="n">Hl0</span><span class="p">,</span><span class="n">Jpre</span><span class="p">,</span><span class="n">ier</span><span class="p">,</span><span class="n">Npsl</span><span class="p">)</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ier</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">            </span><span class="c">!  This block handles error returns forced by routine PSOL.</span>
+<span class="w">            </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ier</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Iflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ier</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Iflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">         </span><span class="k">return</span>
+<span class="k">      endif</span>
+<span class="k">      call </span><span class="n">dorthog</span><span class="p">(</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ll</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="n">V</span><span class="p">,</span><span class="n">Hes</span><span class="p">,</span><span class="n">N</span><span class="p">,</span><span class="n">ll</span><span class="p">,</span><span class="n">Maxlp1</span><span class="p">,</span><span class="n">Kmp</span><span class="p">,</span><span class="n">snormw</span><span class="p">)</span>
+<span class="w">      </span><span class="n">Hes</span><span class="p">(</span><span class="n">ll</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">ll</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">snormw</span>
+<span class="w">      </span><span class="k">call </span><span class="n">dheqr</span><span class="p">(</span><span class="n">Hes</span><span class="p">,</span><span class="n">Maxlp1</span><span class="p">,</span><span class="n">ll</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">info</span><span class="p">,</span><span class="n">ll</span><span class="p">)</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">info</span><span class="o">==</span><span class="n">ll</span><span class="w"> </span><span class="p">)</span><span class="k">then</span>
+<span class="k">         </span><span class="n">Iflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">         </span><span class="k">return</span>
+<span class="k">      endif</span>
+<span class="w">      </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">      </span><span class="c">!  Update RHO, the estimate of the norm of the residual b - A*xl.</span>
+<span class="w">      </span><span class="c">!  If KMP .lt. MAXL, then the vectors V(*,1),...,V(*,LL+1) are not</span>
+<span class="w">      </span><span class="c">!  necessarily orthogonal for LL .gt. KMP.  The vector DL must then</span>
+<span class="w">      </span><span class="c">!  be computed, and its norm used in the calculation of RHO.</span>
+<span class="w">      </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">      </span><span class="n">prod</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">prod</span><span class="o">*</span><span class="n">Q</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">ll</span><span class="p">)</span>
+<span class="w">      </span><span class="n">rho</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">prod</span><span class="o">*</span><span class="n">bnrm</span><span class="p">)</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">ll</span><span class="o">&gt;</span><span class="n">Kmp</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">Kmp</span><span class="o">&lt;</span><span class="n">Maxl</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">         if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ll</span><span class="o">==</span><span class="n">Kmp</span><span class="o">+</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="c">!X!call dcopy(N,V(1,1),1,Dl,1)</span>
+<span class="w">            </span><span class="n">Dl</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span><span class="o">=</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Kmp</span>
+<span class="w">               </span><span class="n">ip1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">               </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="o">*</span><span class="mi">2</span>
+<span class="w">               </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">i2</span><span class="p">)</span>
+<span class="w">               </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">i2</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">               </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span>
+<span class="w">                  </span><span class="n">Dl</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="o">*</span><span class="n">Dl</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="o">*</span><span class="n">V</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">ip1</span><span class="p">)</span>
+<span class="w">               </span><span class="k">enddo</span>
+<span class="k">            enddo</span>
+<span class="k">         endif</span>
+<span class="k">         </span><span class="n">s</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">ll</span><span class="p">)</span>
+<span class="w">         </span><span class="n">c</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">ll</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">snormw</span>
+<span class="w">         </span><span class="n">llp1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">         </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span>
+<span class="w">            </span><span class="n">Dl</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">s</span><span class="o">*</span><span class="n">Dl</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">c</span><span class="o">*</span><span class="n">V</span><span class="p">(</span><span class="n">k</span><span class="p">,</span><span class="n">llp1</span><span class="p">)</span>
+<span class="w">         </span><span class="k">enddo</span>
+<span class="k">         </span><span class="n">dlnrm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dnrm2</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Dl</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">         </span><span class="n">rho</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rho</span><span class="o">*</span><span class="n">dlnrm</span>
+<span class="w">      </span><span class="k">endif</span>
+<span class="w">      </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">      </span><span class="c">!  Test for convergence.  If passed, compute approximation xl.</span>
+<span class="w">      </span><span class="c">!  if failed and LL .lt. MAXL, then continue iterating.</span>
+<span class="w">      </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rho</span><span class="o">&lt;=</span><span class="n">Delta</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">         call </span><span class="n">approximate</span><span class="p">()</span>
+<span class="w">         </span><span class="k">return</span>
+<span class="k">      endif</span>
+<span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ll</span><span class="o">==</span><span class="n">Maxl</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">exit</span>
+<span class="w">      </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">      </span><span class="c">!  Rescale so that the norm of V(1,LL+1) is one.</span>
+<span class="w">      </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">      </span><span class="n">tem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="n">snormw</span>
+<span class="w">      </span><span class="k">call </span><span class="n">dscal</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">tem</span><span class="p">,</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">ll</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rho</span><span class="o">&lt;=</span><span class="mf">1.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      </span><span class="n">Iflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="k">call </span><span class="n">approximate</span><span class="p">()</span>
+<span class="w">      </span><span class="k">return</span>
+<span class="k">   elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rho</span><span class="o">&lt;=</span><span class="n">bnrm</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">Mnewt</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      </span><span class="n">Iflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="k">call </span><span class="n">approximate</span><span class="p">()</span>
+<span class="w">      </span><span class="k">return</span>
+<span class="k">   endif</span>
+<span class="k">elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Mnewt</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">   do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span>
+<span class="w">      </span><span class="n">X</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   return</span>
+<span class="k">else</span>
+<span class="w">   </span><span class="c">!X!call dcopy(N,B,1,X,1)</span>
+<span class="w">   </span><span class="n">X</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">N</span><span class="p">)</span>
+<span class="w">   </span><span class="k">return</span>
+<span class="k">endif</span>
+
+<span class="n">Iflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+
+<span class="k">contains</span>
+
+<span class="k">subroutine </span><span class="n">approximate</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  Compute the approximation xl to the solution.</span>
+<span class="c">!  Since the vector X was used as work space, and the initial guess</span>
+<span class="c">!  of the Newton correction is zero, X must be reset to zero.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">   </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ll</span>
+<span class="w">   </span><span class="n">ll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Lgmr</span>
+<span class="w">   </span><span class="n">llp1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ll</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">llp1</span>
+<span class="w">      </span><span class="n">B</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   </span><span class="n">B</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bnrm</span>
+<span class="w">   </span><span class="k">call </span><span class="n">dhels</span><span class="p">(</span><span class="n">Hes</span><span class="p">,</span><span class="n">Maxlp1</span><span class="p">,</span><span class="n">ll</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">B</span><span class="p">)</span>
+<span class="w">   </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span>
+<span class="w">      </span><span class="n">X</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">ll</span>
+<span class="w">      </span><span class="k">call </span><span class="n">daxpy</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">B</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="n">V</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span>
+<span class="w">      </span><span class="n">X</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">/</span><span class="n">Wght</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Jpre</span><span class="o">&lt;=</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
+<span class="k">   call </span><span class="n">psol</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">Tn</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Savf</span><span class="p">,</span><span class="n">Wk</span><span class="p">,</span><span class="n">Hl0</span><span class="p">,</span><span class="n">Wp</span><span class="p">,</span><span class="n">Iwp</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">ier</span><span class="p">)</span>
+<span class="w">   </span><span class="n">Npsl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Npsl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ier</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">            </span><span class="c">!  This block handles error returns forced by routine PSOL.</span>
+<span class="w">            </span><span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ier</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Iflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ier</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Iflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">      </span><span class="k">return</span>
+<span class="k">   endif</span>
+<span class="k">end subroutine </span><span class="n">approximate</span>
+
+<span class="k">end subroutine </span><span class="n">dspigmr</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-03-29 08:21              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

@@ -203,7 +203,7 @@ logical             :: zroot
       if ( jflag>1 ) then
          dlsr%t0 = x
          !X!call dcopy(dlsr%ngc,Gx,1,G0,1)
-         G0(1:dlsr%ngc) = Gx(1:dlsr%ngc)!X!
+         G0(1:dlsr%ngc) = Gx(1:dlsr%ngc)
          if ( jflag/=4 ) exit
          return
       else

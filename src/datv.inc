@@ -125,7 +125,7 @@ integer :: i
 
       !  Save Y in Z and increment Y by VTEM/norm.
       !X!call dcopy(dls1%n,Y,1,Z,1)
-      Z(1:dls1%n)=Y(1:dls1%n)!X!
+      Z(1:dls1%n)=Y(1:dls1%n)
 
       do i = 1, dls1%n
          Y(i) = Z(i) + Vtem(i)*rnorm
@@ -136,7 +136,7 @@ integer :: i
 
       !  JPRE = 0 or 1.  Save Y in Z and increment Y by VTEM.
       !X!call dcopy(dls1%n,Y,1,Z,1)
-      Z(1:dls1%n)=Y(1:dls1%n)!X!
+      Z(1:dls1%n)=Y(1:dls1%n)
 
       do i = 1, dls1%n
          Y(i) = Z(i) + Vtem(i)
@@ -149,7 +149,7 @@ integer :: i
    call f(Neq,dls1%tn,Y,Ftem)
    dls1%nfe = dls1%nfe + 1
    !X!call dcopy(dls1%n,Z,1,Y,1)
-   Y(1:dls1%n)=Z(1:dls1%n)!X!
+   Y(1:dls1%n)=Z(1:dls1%n)
 
    !  Set Z = (identity - hl0*Jacobian) * VTEM, using difference quotient.
    do i = 1, dls1%n

@@ -150,14 +150,14 @@ integer :: i , ier
    else
       if ( Mnewt>0 ) return
       !X!call dcopy(N,R,1,X,1)
-      X(1:N) = R(1:N)!X!
+      X(1:N) = R(1:N)
       return
    endif
    !  Loop point for PCG iterations. ---------------------------------------
    INFINITE: do
       Lpcg = Lpcg + 1
       !X!call dcopy(N,R,1,Z,1)
-      Z(1:N) = R(1:N)!X!
+      Z(1:N) = R(1:N)
       ier = 0
       if ( Jpre/=0 ) then
          call psol(Neq,Tn,Y,Savf,Wk,Hl0,Wp,Iwp,Z,3,ier)
@@ -175,7 +175,7 @@ integer :: i , ier
       ztr = ddot(N,Z,1,R,1)
       if ( Lpcg==1 ) then
          !X!call dcopy(N,Z,1,P,1)
-         P(1:N) = Z(1:N)!X!
+         P(1:N) = Z(1:N)
       elseif ( ztr0==0.0D0 ) then
       !-----------------------------------------------------------------------
       !  This block handles division by zero errors.

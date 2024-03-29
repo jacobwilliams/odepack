@@ -27,6 +27,7 @@ PUBLIC  :: DSRCMA
 PUBLIC  :: DSRCMS
 PUBLIC  :: DSRCOM
 PUBLIC  :: DSRCPK
+PUBLIC  :: DUMACH ! COMPUTE THE UNIT ROUNDOFF OF THE MACHINE.
 PUBLIC  :: DVNORM
 !-PUBLIC  :: DSTODE
 
@@ -259,6 +260,7 @@ end subroutine set_dls1_int
 !()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()()!
 !----------------------------------------------------------------------------------------------------------------------------------!
 ! da1 routines
+include "M_da1/dumach.inc"
 include "M_da1/dcfode.inc"
 include "M_da1/dmnorm.inc"
 include "M_da1/dfnorm.inc"

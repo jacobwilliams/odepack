@@ -1262,7 +1262,7 @@
 ! ### TYPE      DOUBLE PRECISION (SLSODE-S, DLSODE-D)
 ! ### KEYWORDS  ORDINARY DIFFERENTIAL EQUATIONS, INITIAL VALUE PROBLEM,
 !              STIFF, NONSTIFF
-! ### ROUTINES CALLED  DEWSET, DINTDY, DSTODE, DVNORM, XERRWD
+! ### ROUTINES CALLED  DEWSET, DINTDY, DUMACH, DSTODE, DVNORM, XERRWD
 ! ### COMMON BLOCKS    DLS001
 ! ### REVISION HISTORY  (YYYYMMDD)
 !  19791129  DATE WRITTEN
@@ -1341,9 +1341,10 @@
 !            systems of linear algebraic equations.
 !   DGBFA and DGBSL   are routines from LINPACK for solving banded
 !            linear systems.
+!   DUMACH   computes the unit roundoff in a machine-independent manner.
 !   XERRWD, XSETUN, XSETF, IXSAV handle the printing of all
 !            error messages and warnings.  XERRWD is machine-dependent.
-!  Note: DVNORM, and IXSAV are function routines.
+!  Note: DVNORM, DUMACH, and IXSAV are function routines.
 !  All the others are subroutines.
 !
 ! **End
@@ -1583,7 +1584,7 @@ else
 !  and the calculation of the initial step size.
 !  The error weights in EWT are inverted after being loaded.
 ! -----------------------------------------------------------------------
-                  dls1%uround = epsilon(0.0d0)
+                  dls1%uround = dumach()
                   dls1%tn = T
                   if ( Itask==4 .or. Itask==5 ) then
                      tcrit = Rwork(1)

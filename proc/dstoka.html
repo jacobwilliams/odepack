@@ -1,3 +1,5 @@
+<!-- -*- mode: jinja2 -*- -->
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,74 +12,51 @@
 
     <title>dstoka &ndash; odepack</title>
 
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="../css/pygments.css" rel="stylesheet">
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
       <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
       <link href="../css/user.css" rel="stylesheet">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-
-         <script src="../js/jquery-2.1.3.min.js"></script>
-         <script src="../js/svg-pan-zoom.min.js"></script>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
   </head>
 
   <body>
 
     <!-- Fixed navbar -->
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
           <a class="navbar-brand" href="../index.html">odepack </a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-          <ul class="nav navbar-nav">
-            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
-              <a href="#" class="dropdown-toggle"
-                 data-toggle="dropdown" role="button"
-                 aria-haspopup="true"
-                 aria-expanded="false">
-                 Contents <span class="caret"></span>
-              </a>
-              <ul class="dropdown-menu">
-                    <li><a href="../lists/files.html">Source Files</a></li>
-                  <li><a href="../lists/modules.html">Modules</a></li>
-                  <li><a href="../lists/procedures.html">Procedures</a></li>
-              </ul>
-            </li>
-                <li class="visible-xs hidden-sm visible-lg">
-                  <a href="../lists/files.html">Source Files</a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
                 </li>
-              <li class="visible-xs hidden-sm visible-lg">
-                <a href="../lists/modules.html">Modules</a>
-              </li>
-              <li class="visible-xs hidden-sm visible-lg">
-                <a href="../lists/procedures.html">Procedures</a>
-              </li>
-          </ul>
-            <form action="../search.html" class="navbar-form navbar-right" role="search">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
               </div>
-              <!--
-                  <button type="submit" class="btn btn-default">Submit</button>
-                  -->
-            </form>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
 
     <div class="container">
   <div class="row">
@@ -85,33 +64,36 @@
       <small>Subroutine</small>
       
     </h1>
-      <div class="row" id="info-bar">
-    <div class="col-lg-12">
-      <div class="well well-sm">
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
         <ul class="list-inline" style="margin-bottom:0px;display:inline">
 
-          <li id="statements"><i class="fa fa-list-ol"></i>
-            <a data-toggle="tooltip"
-               data-placement="bottom" data-html="true"
-               title=" 1.7% of total for procedures.">404 statements</a>
-          </li>
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 1.7% of total for procedures.">404 statements</a>
+            </li>
 
-            <li id="source-file">
+            <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/M_odepack.f90"> Source File</a>
+              <a href="../src/dstoka.inc"> Source File</a>
             </li>
         </ul>
-        <ol class="breadcrumb in-well text-right">
-              <li><a href='../sourcefile/m_odepack.f90.html'>M_odepack.f90</a></li>
-              <li><a href='../module/m_odepack.html'>M_odepack</a></li>
-          <li class="active">dstoka</li>
-        </ol>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/dstoka.inc.html'>dstoka.inc</a></li>
+            <li class="breadcrumb-item active" aria-current="page">dstoka</li>
+          </ol>
+        </nav>
       </div>
     </div>
   </div>
   <script>
     $(function () {
-    $('[data-toggle="tooltip"]').tooltip()
+    $('[data-bs-toggle="tooltip"]').tooltip()
     })
   </script>
 
@@ -122,6 +104,47 @@
       <div id="sidebar">
       <h3>Contents</h3>
   
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dstoka.html#variable-dcon~2">dcon</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-ddn~2">ddn</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-del~2">del</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-delp~2">delp</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-dfnrm">dfnrm</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-drc">drc</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-dsm~2">dsm</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-dup~2">dup</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-exdn~2">exdn</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-exsm~2">exsm</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-exup~2">exup</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-i~20">i</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-i1~8">i1</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-iredo~2">iredo</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-iret~2">iret</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-j~13">j</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-jb~2">jb</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-jok~2">jok</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-m~4">m</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-ncf~2">ncf</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-newq~2">newq</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-nslow">nslow</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-r~4">r</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-rh~5">rh</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-rhdn~2">rhdn</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-rhsm~2">rhsm</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-rhup~2">rhup</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-roc">roc</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-stiff">stiff</a>
+            <a class="list-group-item" href="../proc/dstoka.html#variable-told~2">told</a>
+        </div>
+      </div>
+    </div>
+
   
   
   
@@ -140,6 +163,12 @@
   
   
   
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dstoka.html#src">dstoka</a>
+      </div>
+    </div>
 
 
   </div>
@@ -147,7 +176,7 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>public  subroutine dstoka(Neq, Y, Yh, Nyh, Yh1, Ewt, Savf, Savx, Acor, Wm, Iwm, f, jac, psol)  
+    <h2> subroutine dstoka(Neq, Y, Yh, Nyh, Yh1, Ewt, Savf, Savx, Acor, Wm, Iwm, f, jac, psol)  
 </h2>
     
 
@@ -247,12 +276,12 @@ take effect until the next change of H is considered.</p>
 <dd>
 <p>an integer used for input only, with the following
 values and meanings:</p>
-<div class="codehilite"><pre><span></span><code>      <span class="mi">0</span>  <span class="nv">perform</span> <span class="nv">the</span> <span class="nv">first</span> <span class="nv">step</span>.
-  .<span class="nv">gt</span>.<span class="mi">0</span>  <span class="nv">take</span> <span class="nv">a</span> <span class="nv">new</span> <span class="nv">step</span> <span class="nv">continuing</span> <span class="nv">from</span> <span class="nv">the</span> <span class="nv">last</span>.
-     <span class="o">-</span><span class="mi">1</span>  <span class="nv">take</span> <span class="nv">the</span> <span class="k">next</span> <span class="nv">step</span> <span class="nv">with</span> <span class="nv">a</span> <span class="nv">new</span> <span class="nv">value</span> <span class="nv">of</span> <span class="nv">H</span>, <span class="nv">MAXORD</span>,
-         <span class="nv">N</span>, <span class="nv">METH</span>, <span class="nv">MITER</span>, <span class="nv">and</span><span class="o">/</span><span class="nv">or</span> <span class="nv">matrix</span> <span class="nv">parameters</span>.
-     <span class="o">-</span><span class="mi">2</span>  <span class="nv">take</span> <span class="nv">the</span> <span class="k">next</span> <span class="nv">step</span> <span class="nv">with</span> <span class="nv">a</span> <span class="nv">new</span> <span class="nv">value</span> <span class="nv">of</span> <span class="nv">H</span>,
-         <span class="nv">but</span> <span class="nv">with</span> <span class="nv">other</span> <span class="nv">inputs</span> <span class="nv">unchanged</span>.
+<div class="codehilite"><pre><span></span><code><span class="w">      </span><span class="mi">0</span><span class="w">  </span><span class="nv">perform</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">first</span><span class="w"> </span><span class="nv">step</span>.
+<span class="w">  </span>.<span class="nv">gt</span>.<span class="mi">0</span><span class="w">  </span><span class="nv">take</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="nv">step</span><span class="w"> </span><span class="nv">continuing</span><span class="w"> </span><span class="nv">from</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">last</span>.
+<span class="w">     </span><span class="o">-</span><span class="mi">1</span><span class="w">  </span><span class="nv">take</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="k">next</span><span class="w"> </span><span class="nv">step</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">H</span>,<span class="w"> </span><span class="nv">MAXORD</span>,
+<span class="w">         </span><span class="nv">N</span>,<span class="w"> </span><span class="nv">METH</span>,<span class="w"> </span><span class="nv">MITER</span>,<span class="w"> </span><span class="nv">and</span><span class="o">/</span><span class="nv">or</span><span class="w"> </span><span class="nv">matrix</span><span class="w"> </span><span class="nv">parameters</span>.
+<span class="w">     </span><span class="o">-</span><span class="mi">2</span><span class="w">  </span><span class="nv">take</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="k">next</span><span class="w"> </span><span class="nv">step</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">new</span><span class="w"> </span><span class="nv">value</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">H</span>,
+<span class="w">         </span><span class="nv">but</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">other</span><span class="w"> </span><span class="nv">inputs</span><span class="w"> </span><span class="nv">unchanged</span>.
 </code></pre></div>
 
 </dd>
@@ -299,20 +328,21 @@ METH/MITER = the method flags.  See description in driver.</p>
 </dd>
 </dl>
 
+
     <h3>Arguments</h3>
         <table class="table table-striped varlist">
     <thead>
       <tr>
-        <th>Type</th>
-<th>Intent</th><th>Optional</th>        <th>Attributes</th>
-        <th></th>
-        <th>Name</th>
-        <th></th>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
     </thead>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-neq~68"></span>
+              <span class="anchor" id="variable-neq~12"></span>
               integer,
             </td>
 <td></td>
@@ -327,7 +357,7 @@ METH/MITER = the method flags.  See description in driver.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-y~69"></span>
+              <span class="anchor" id="variable-y~12"></span>
               real(kind=dp),
             </td>
 <td></td>
@@ -342,7 +372,7 @@ METH/MITER = the method flags.  See description in driver.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-yh~30"></span>
+              <span class="anchor" id="variable-yh~5"></span>
               real(kind=dp),
             </td>
 <td>intent(inout),</td>
@@ -357,7 +387,7 @@ METH/MITER = the method flags.  See description in driver.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nyh~26"></span>
+              <span class="anchor" id="variable-nyh~4"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -372,7 +402,7 @@ METH/MITER = the method flags.  See description in driver.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-yh1~10"></span>
+              <span class="anchor" id="variable-yh1~2"></span>
               real(kind=dp),
             </td>
 <td>intent(inout),</td>
@@ -387,7 +417,7 @@ METH/MITER = the method flags.  See description in driver.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ewt~33"></span>
+              <span class="anchor" id="variable-ewt~6"></span>
               real(kind=dp),
             </td>
 <td></td>
@@ -402,7 +432,7 @@ METH/MITER = the method flags.  See description in driver.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-savf~28"></span>
+              <span class="anchor" id="variable-savf~7"></span>
               real(kind=dp),
             </td>
 <td>intent(inout),</td>
@@ -417,7 +447,7 @@ METH/MITER = the method flags.  See description in driver.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-savx~4"></span>
+              <span class="anchor" id="variable-savx"></span>
               real(kind=dp),
             </td>
 <td>intent(inout),</td>
@@ -432,7 +462,7 @@ METH/MITER = the method flags.  See description in driver.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-acor~10"></span>
+              <span class="anchor" id="variable-acor~2"></span>
               real(kind=dp),
             </td>
 <td>intent(inout),</td>
@@ -447,7 +477,7 @@ METH/MITER = the method flags.  See description in driver.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-wm~25"></span>
+              <span class="anchor" id="variable-wm~4"></span>
               real(kind=dp),
             </td>
 <td></td>
@@ -462,7 +492,7 @@ METH/MITER = the method flags.  See description in driver.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-iwm~25"></span>
+              <span class="anchor" id="variable-iwm~4"></span>
               integer,
             </td>
 <td></td>
@@ -477,7 +507,7 @@ METH/MITER = the method flags.  See description in driver.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~41"></span>
+              <span class="anchor" id="variable-f~9"></span>
               real
             </td>
 <td></td>
@@ -492,7 +522,7 @@ METH/MITER = the method flags.  See description in driver.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-jac~50"></span>
+              <span class="anchor" id="variable-jac~8"></span>
               integer
             </td>
 <td></td>
@@ -507,7 +537,7 @@ METH/MITER = the method flags.  See description in driver.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-psol~15"></span>
+              <span class="anchor" id="variable-psol~5"></span>
               real
             </td>
 <td></td>
@@ -524,183 +554,125 @@ METH/MITER = the method flags.  See description in driver.</p>
   </table>
 
     <br>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-  <h3 class="panel-title">Calls</h3>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Calls</h3>
       </div>
-      <div class="panel-body">
+      <div class="card-body">
   <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~dstoka~~CallsGraph Pages: 1 -->
-<svg id="procdstokaCallsGraph" width="152pt" height="74pt"
- viewBox="0.00 0.00 152.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~dstoka~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
+<svg id="procdstokaCallsGraph" width="207pt" height="284pt"
+ viewBox="0.00 0.00 207.00 284.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dstoka~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 280)">
 <title>proc~~dstoka~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 148,-70 148,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-280 203,-280 203,4 -4,4"/>
 <!-- proc~dstoka -->
 <g id="proc~~dstoka~~CallsGraph_node1" class="node">
 <title>proc~dstoka</title>
-<polygon fill="none" stroke="black" points="54,-45 0,-45 0,-21 54,-21 54,-45"/>
-<text text-anchor="middle" x="27" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">dstoka</text>
+<polygon fill="none" stroke="black" points="109,-150 0,-150 0,-126 109,-126 109,-150"/>
+<text text-anchor="middle" x="54.5" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50">dstoka.inc::dstoka</text>
 </g>
-<!-- proc~dcfode -->
+<!-- dcfode -->
 <g id="proc~~dstoka~~CallsGraph_node2" class="node">
-<title>proc~dcfode</title>
-<g id="a_proc~~dstoka~~CallsGraph_node2"><a xlink:href=".././proc/dcfode.html" xlink:title="dcfode">
-<polygon fill="#d9534f" stroke="#d9534f" points="144,-66 90,-66 90,-42 144,-42 144,-66"/>
-<text text-anchor="middle" x="117" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
-</a>
+<title>dcfode</title>
+<polygon fill="#777777" stroke="#777777" points="199,-276 145,-276 145,-252 199,-252 199,-276"/>
+<text text-anchor="middle" x="172" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dcfode</text>
 </g>
-</g>
-<!-- proc~dstoka&#45;&gt;proc~dcfode -->
+<!-- proc~dstoka&#45;&gt;dcfode -->
 <g id="proc~~dstoka~~CallsGraph_edge1" class="edge">
-<title>proc~dstoka&#45;&gt;proc~dcfode</title>
-<path fill="none" stroke="#000000" d="M54.4,-39.3C62.48,-41.23 71.51,-43.38 80.1,-45.43"/>
-<polygon fill="#000000" stroke="#000000" points="79.38,-48.86 89.92,-47.78 81,-42.05 79.38,-48.86"/>
+<title>proc~dstoka&#45;&gt;dcfode</title>
+<path fill="none" stroke="#000000" d="M64.76,-150.29C80.3,-170.57 113.08,-211.92 145,-243 145.67,-243.66 146.36,-244.31 147.07,-244.97"/>
+<polygon fill="#000000" stroke="#000000" points="145.08,-247.88 154.93,-251.79 149.67,-242.59 145.08,-247.88"/>
 </g>
-<!-- proc~dvnorm -->
+<!-- dsetpk -->
 <g id="proc~~dstoka~~CallsGraph_node3" class="node">
-<title>proc~dvnorm</title>
-<g id="a_proc~~dstoka~~CallsGraph_node3"><a xlink:href=".././proc/dvnorm.html" xlink:title="dvnorm">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="144,-24 90,-24 90,0 144,0 144,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
-</a>
+<title>dsetpk</title>
+<polygon fill="#777777" stroke="#777777" points="199,-234 145,-234 145,-210 199,-210 199,-234"/>
+<text text-anchor="middle" x="172" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsetpk</text>
 </g>
-</g>
-<!-- proc~dstoka&#45;&gt;proc~dvnorm -->
+<!-- proc~dstoka&#45;&gt;dsetpk -->
 <g id="proc~~dstoka~~CallsGraph_edge2" class="edge">
-<title>proc~dstoka&#45;&gt;proc~dvnorm</title>
-<path fill="none" stroke="#000000" d="M54.4,-26.7C62.48,-24.77 71.51,-22.62 80.1,-20.57"/>
-<polygon fill="#000000" stroke="#000000" points="81,-23.95 89.92,-18.22 79.38,-17.14 81,-23.95"/>
+<title>proc~dstoka&#45;&gt;dsetpk</title>
+<path fill="none" stroke="#000000" d="M72.05,-150.04C91.43,-164.13 123.74,-187.63 146.14,-203.92"/>
+<polygon fill="#000000" stroke="#000000" points="144.34,-206.94 154.48,-209.99 148.45,-201.27 144.34,-206.94"/>
+</g>
+<!-- dsolpk -->
+<g id="proc~~dstoka~~CallsGraph_node4" class="node">
+<title>dsolpk</title>
+<polygon fill="#777777" stroke="#777777" points="199,-192 145,-192 145,-168 199,-168 199,-192"/>
+<text text-anchor="middle" x="172" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dsolpk</text>
+</g>
+<!-- proc~dstoka&#45;&gt;dsolpk -->
+<g id="proc~~dstoka~~CallsGraph_edge3" class="edge">
+<title>proc~dstoka&#45;&gt;dsolpk</title>
+<path fill="none" stroke="#000000" d="M88.6,-150.04C103.25,-155.36 120.51,-161.64 135.44,-167.07"/>
+<polygon fill="#000000" stroke="#000000" points="134.27,-170.37 144.87,-170.5 136.66,-163.79 134.27,-170.37"/>
+</g>
+<!-- dvnorm -->
+<g id="proc~~dstoka~~CallsGraph_node5" class="node">
+<title>dvnorm</title>
+<polygon fill="#777777" stroke="#777777" points="199,-150 145,-150 145,-126 199,-126 199,-150"/>
+<text text-anchor="middle" x="172" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
+</g>
+<!-- proc~dstoka&#45;&gt;dvnorm -->
+<g id="proc~~dstoka~~CallsGraph_edge4" class="edge">
+<title>proc~dstoka&#45;&gt;dvnorm</title>
+<path fill="none" stroke="#000000" d="M109.19,-138C117.79,-138 126.52,-138 134.59,-138"/>
+<polygon fill="#000000" stroke="#000000" points="134.77,-141.5 144.77,-138 134.77,-134.5 134.77,-141.5"/>
+</g>
+<!-- el -->
+<g id="proc~~dstoka~~CallsGraph_node6" class="node">
+<title>el</title>
+<polygon fill="#777777" stroke="#777777" points="199,-108 145,-108 145,-84 199,-84 199,-108"/>
+<text text-anchor="middle" x="172" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">el</text>
+</g>
+<!-- proc~dstoka&#45;&gt;el -->
+<g id="proc~~dstoka~~CallsGraph_edge5" class="edge">
+<title>proc~dstoka&#45;&gt;el</title>
+<path fill="none" stroke="#000000" d="M88.6,-125.96C103.25,-120.64 120.51,-114.36 135.44,-108.93"/>
+<polygon fill="#000000" stroke="#000000" points="136.66,-112.21 144.87,-105.5 134.27,-105.63 136.66,-112.21"/>
+</g>
+<!-- elco -->
+<g id="proc~~dstoka~~CallsGraph_node7" class="node">
+<title>elco</title>
+<polygon fill="#777777" stroke="#777777" points="199,-66 145,-66 145,-42 199,-42 199,-66"/>
+<text text-anchor="middle" x="172" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">elco</text>
+</g>
+<!-- proc~dstoka&#45;&gt;elco -->
+<g id="proc~~dstoka~~CallsGraph_edge6" class="edge">
+<title>proc~dstoka&#45;&gt;elco</title>
+<path fill="none" stroke="#000000" d="M72.05,-125.96C91.43,-111.87 123.74,-88.37 146.14,-72.08"/>
+<polygon fill="#000000" stroke="#000000" points="148.45,-74.73 154.48,-66.01 144.34,-69.06 148.45,-74.73"/>
+</g>
+<!-- tesco -->
+<g id="proc~~dstoka~~CallsGraph_node8" class="node">
+<title>tesco</title>
+<polygon fill="#777777" stroke="#777777" points="199,-24 145,-24 145,0 199,0 199,-24"/>
+<text text-anchor="middle" x="172" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">tesco</text>
+</g>
+<!-- proc~dstoka&#45;&gt;tesco -->
+<g id="proc~~dstoka~~CallsGraph_edge7" class="edge">
+<title>proc~dstoka&#45;&gt;tesco</title>
+<path fill="none" stroke="#000000" d="M64.76,-125.71C80.3,-105.43 113.08,-64.08 145,-33 145.67,-32.34 146.36,-31.69 147.07,-31.03"/>
+<polygon fill="#000000" stroke="#000000" points="149.67,-33.41 154.93,-24.21 145.08,-28.12 149.67,-33.41"/>
 </g>
 </g>
 </svg>
-</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
-          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-lg" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
-                </div>
-              <div class="modal-body">
-<p>Nodes of different colours represent the following: </p>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
- "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
- -->
-<!-- Title: Graph Key Pages: 1 -->
-<svg width="597pt" height="32pt"
- viewBox="0.00 0.00 596.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
-<title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 592.5,-28 592.5,4 -4,4"/>
-<!-- Subroutine -->
-<g id="node1" class="node">
-<title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
-<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
-</g>
-<!-- Function -->
-<g id="node2" class="node">
-<title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
-</g>
-<!-- Interface -->
-<g id="node3" class="node">
-<title>Interface</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
-<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
-</g>
-<!-- Unknown Procedure Type -->
-<g id="node4" class="node">
-<title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="388.5,-24 243.5,-24 243.5,0 388.5,0 388.5,-24"/>
-<text text-anchor="middle" x="316" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
-</g>
-<!-- Program -->
-<g id="node5" class="node">
-<title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="465,-24 407,-24 407,0 465,0 465,-24"/>
-<text text-anchor="middle" x="436" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
-</g>
-<!-- This Page&#39;s Entity -->
-<g id="node6" class="node">
-<title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="588.5,-24 483.5,-24 483.5,0 588.5,0 588.5,-24"/>
-<text text-anchor="middle" x="536" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
-</g>
-</g>
-</svg>
-
-<p>Solid arrows point from a procedure to one which it calls. Dashed 
-arrows point from an interface to procedures which implement that interface.
-This could include the module procedures in a generic interface or the
-implementation in a submodule of an interface in a parent module.
-</p>
- </div>
-            </div>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
           </div>
-        </div>
-      </div>
-    </div>
-    <div class="panel panel-default">
-      <div class="panel-heading">
-  <h3 class="panel-title">Called by</h3>
-      </div>
-      <div class="panel-body">
-  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
- "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
- -->
-<!-- Title: proc~~dstoka~~CalledByGraph Pages: 1 -->
-<svg id="procdstokaCalledByGraph" width="152pt" height="32pt"
- viewBox="0.00 0.00 152.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~dstoka~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
-<title>proc~~dstoka~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 148,-28 148,4 -4,4"/>
-<!-- proc~dstoka -->
-<g id="proc~~dstoka~~CalledByGraph_node1" class="node">
-<title>proc~dstoka</title>
-<polygon fill="none" stroke="black" points="144,-24 90,-24 90,0 144,0 144,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">dstoka</text>
-</g>
-<!-- proc~dlsodkr -->
-<g id="proc~~dstoka~~CalledByGraph_node2" class="node">
-<title>proc~dlsodkr</title>
-<g id="a_proc~~dstoka~~CalledByGraph_node2"><a xlink:href=".././proc/dlsodkr.html" xlink:title="dlsodkr">
-<polygon fill="#d9534f" stroke="#d9534f" points="54,-24 0,-24 0,0 54,0 54,-24"/>
-<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dlsodkr</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodkr&#45;&gt;proc~dstoka -->
-<g id="proc~~dstoka~~CalledByGraph_edge1" class="edge">
-<title>proc~dlsodkr&#45;&gt;proc~dstoka</title>
-<path fill="none" stroke="#000000" d="M54.4,-12C62.39,-12 71.31,-12 79.82,-12"/>
-<polygon fill="#000000" stroke="#000000" points="79.92,-15.5 89.92,-12 79.92,-8.5 79.92,-15.5"/>
-</g>
-</g>
-</svg>
-</div>        <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
-          <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
                   <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-              <div class="modal-body">
+                <div class="modal-body">
 <p>Nodes of different colours represent the following: </p>
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
@@ -708,11 +680,11 @@ implementation in a submodule of an interface in a parent module.
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: Graph Key Pages: 1 -->
-<svg width="597pt" height="32pt"
- viewBox="0.00 0.00 596.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 592.5,-28 592.5,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
 <!-- Subroutine -->
 <g id="node1" class="node">
 <title>Subroutine</title>
@@ -731,23 +703,29 @@ implementation in a submodule of an interface in a parent module.
 <polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
 <text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
 </g>
-<!-- Unknown Procedure Type -->
+<!-- Type Bound Procedure -->
 <g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
 <title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="388.5,-24 243.5,-24 243.5,0 388.5,0 388.5,-24"/>
-<text text-anchor="middle" x="316" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
 </g>
 <!-- Program -->
-<g id="node5" class="node">
+<g id="node6" class="node">
 <title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="465,-24 407,-24 407,0 465,0 465,-24"/>
-<text text-anchor="middle" x="436" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
-<g id="node6" class="node">
+<g id="node7" class="node">
 <title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="588.5,-24 483.5,-24 483.5,0 588.5,0 588.5,-24"/>
-<text text-anchor="middle" x="536" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -765,33 +743,534 @@ implementation in a submodule of an interface in a parent module.
     </div>
     <br>
 
-    <section class="visible-xs visible-sm hidden-md">
-        <h3>Contents</h3>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
 
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dcon~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dcon</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ddn~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ddn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-del~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>del</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-delp~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>delp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dfnrm"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dfnrm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-drc"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>drc</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dsm~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dsm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-dup~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>dup</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exdn~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>exdn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exsm~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>exsm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-exup~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>exup</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~20"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i1~8"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iredo~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iredo</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iret~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iret</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~13"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jb~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jb</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jok~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jok</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ncf~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ncf</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-newq~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>newq</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-nslow"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>nslow</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r~4"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rh~5"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rh</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhdn~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhdn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhsm~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhsm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rhup~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rhup</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-roc"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>roc</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-stiff"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>stiff</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-told~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>told</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
 
     </section>
-    <br class="visible-xs visible-sm hidden-md">
-
-
+    <br>
     
     
 
@@ -799,7 +1278,562 @@ implementation in a submodule of an interface in a parent module.
     
 
 
+
     
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">subroutine </span><span class="n">dstoka</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Yh</span><span class="p">,</span><span class="n">Nyh</span><span class="p">,</span><span class="n">Yh1</span><span class="p">,</span><span class="n">Ewt</span><span class="p">,</span><span class="n">Savf</span><span class="p">,</span><span class="n">Savx</span><span class="p">,</span><span class="n">Acor</span><span class="p">,</span><span class="n">Wm</span><span class="p">,</span><span class="n">Iwm</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">jac</span><span class="p">,</span><span class="n">psol</span><span class="p">)</span>
+
+<span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Neq</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Y</span>
+<span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Nyh</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="n">Nyh</span><span class="p">,</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Yh</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Yh1</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ewt</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Savf</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Savx</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Acor</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Wm</span>
+<span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Iwm</span>
+<span class="k">external </span><span class="n">f</span>
+<span class="k">external </span><span class="n">jac</span>
+<span class="k">external </span><span class="n">psol</span>
+
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dcon</span><span class="p">,</span><span class="w"> </span><span class="n">ddn</span><span class="p">,</span><span class="w"> </span><span class="n">del</span><span class="p">,</span><span class="w"> </span><span class="n">delp</span><span class="p">,</span><span class="w"> </span><span class="n">dfnrm</span><span class="p">,</span><span class="w"> </span><span class="n">drc</span><span class="p">,</span><span class="w"> </span><span class="n">dsm</span><span class="p">,</span><span class="w"> </span><span class="n">dup</span><span class="p">,</span><span class="w"> </span><span class="n">exdn</span><span class="p">,</span><span class="w"> </span><span class="n">exsm</span><span class="p">,</span><span class="w"> </span><span class="n">exup</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">rh</span><span class="p">,</span><span class="w"> </span><span class="n">rhdn</span><span class="p">,</span><span class="w"> </span><span class="n">rhsm</span><span class="p">,</span><span class="w"> </span><span class="n">rhup</span><span class="p">,</span><span class="w"> </span><span class="n">roc</span><span class="p">,</span><span class="w"> </span><span class="n">stiff</span><span class="p">,</span><span class="w"> </span><span class="n">told</span>
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">,</span><span class="w"> </span><span class="n">iredo</span><span class="p">,</span><span class="w"> </span><span class="n">iret</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">jb</span><span class="p">,</span><span class="w"> </span><span class="n">jok</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">ncf</span><span class="p">,</span><span class="w"> </span><span class="n">newq</span><span class="p">,</span><span class="w"> </span><span class="n">nslow</span>
+
+<span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">told</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span>
+<span class="n">ncf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">ierpj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">iersl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">jcur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">icf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">delp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">jstart</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">400</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">jstart</span><span class="o">==-</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  The following block handles preliminaries needed when JSTART = -1.</span>
+<span class="c">!  IPUP is set to MITER to force a matrix update.</span>
+<span class="c">!  If an order increase is about to be considered (IALTH = 1),</span>
+<span class="c">!  IALTH is reset to 2 to postpone consideration one more step.</span>
+<span class="c">!  If the caller has changed METH, DCFODE is called to reset</span>
+<span class="c">!  the coefficients of the method.</span>
+<span class="c">!  If the caller has changed MAXORD to a value less than the current</span>
+<span class="c">!  order NQ, NQ is reduced to MAXORD, and a new H chosen accordingly.</span>
+<span class="c">!  If H is to be changed, YH must be rescaled.</span>
+<span class="c">!  If H or METH is being changed, IALTH is reset to L = NQ + 1</span>
+<span class="c">!  to prevent further changes in H for that many steps.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">ipup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">lmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">ialth</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">ialth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">meth</span><span class="o">/=</span><span class="n">dls1</span><span class="p">%</span><span class="n">meo</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      call </span><span class="n">dcfode</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">meth</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">elco</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tesco</span><span class="p">)</span>
+<span class="w">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">meo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">meth</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="o">&lt;=</span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">         </span><span class="n">dls1</span><span class="p">%</span><span class="n">ialth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span>
+<span class="w">         </span><span class="n">iret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">         </span><span class="k">goto</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">      </span><span class="k">endif</span>
+<span class="k">   elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="o">&lt;=</span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      goto</span><span class="w"> </span><span class="mi">200</span>
+<span class="w">   </span><span class="k">endif</span>
+<span class="k">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">lmax</span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span>
+<span class="w">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">el</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">elco</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="p">)</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">nqnyh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="o">*</span><span class="n">Nyh</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">rc</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">el</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">el0</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">el0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">el</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">conit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5D0</span><span class="o">/</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">   </span><span class="n">dlpk</span><span class="p">%</span><span class="n">epcon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">conit</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">tesco</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="p">)</span>
+<span class="w">   </span><span class="n">ddn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dvnorm</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Savf</span><span class="p">,</span><span class="n">Ewt</span><span class="p">)</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">tesco</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span><span class="p">)</span>
+<span class="w">   </span><span class="n">exdn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span>
+<span class="w">   </span><span class="n">rhdn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="p">(</span><span class="mf">1.3D0</span><span class="o">*</span><span class="n">ddn</span><span class="o">**</span><span class="n">exdn</span><span class="o">+</span><span class="mf">0.0000013D0</span><span class="p">)</span>
+<span class="w">   </span><span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">rhdn</span><span class="p">,</span><span class="mf">1.0D0</span><span class="p">)</span>
+<span class="w">   </span><span class="n">iredo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">==</span><span class="n">dls1</span><span class="p">%</span><span class="n">hold</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      </span><span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">rh</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">hmin</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">))</span>
+<span class="w">   </span><span class="k">else</span>
+<span class="k">      </span><span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">rh</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">hold</span><span class="p">))</span>
+<span class="w">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">hold</span>
+<span class="w">   </span><span class="k">endif</span>
+<span class="k">   goto</span><span class="w"> </span><span class="mi">300</span>
+<span class="k">else</span>
+<span class="k">   if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">jstart</span><span class="o">==-</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">200</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  On the first call, the order is set to 1, and other variables are</span>
+<span class="c">!  initialized.  RMAX is the maximum ratio by which H can be increased</span>
+<span class="c">!  in a single step.  It is initially 1.E4 to compensate for the small</span>
+<span class="c">!  initial H, but then is normally equal to 10.  If a failure</span>
+<span class="c">!  occurs (in corrector convergence or error test), RMAX is set at 2</span>
+<span class="c">!  for the next increase.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">lmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">ialth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">rmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1000</span><span class="mf">0.0D0</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">el0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">crate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.7D0</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">hold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">meo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">meth</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">nslp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">   </span><span class="n">dls</span><span class="p">%</span><span class="n">nslj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">ipup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">   </span><span class="n">iret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">   </span><span class="n">dls</span><span class="p">%</span><span class="n">newt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">   </span><span class="n">dls</span><span class="p">%</span><span class="n">stifr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  DCFODE is called to get all the integration coefficients for the</span>
+<span class="c">!  current METH.  Then the EL vector and related constants are reset</span>
+<span class="c">!  whenever the order NQ is changed, or at the start of the problem.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">   </span><span class="k">call </span><span class="n">dcfode</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">meth</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">elco</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tesco</span><span class="p">)</span>
+<span class="k">endif</span>
+<span class="k"> </span><span class="mi">100</span><span class="w">  </span><span class="k">continue</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">el</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">elco</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="p">)</span>
+<span class="k">enddo</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">nqnyh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="o">*</span><span class="n">Nyh</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">rc</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">el</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">el0</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">el0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">el</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">conit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5D0</span><span class="o">/</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">dlpk</span><span class="p">%</span><span class="n">epcon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">conit</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">tesco</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="p">)</span>
+<span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">iret</span><span class="p">)</span>
+<span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">   </span><span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">rh</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">hmin</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">))</span>
+<span class="w">   </span><span class="k">goto</span><span class="w"> </span><span class="mi">300</span>
+<span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">   </span><span class="k">goto</span><span class="w"> </span><span class="mi">400</span>
+<span class="k">case </span><span class="n">default</span>
+<span class="k">endselect</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  If H is being changed, the H ratio RH is checked against</span>
+<span class="c">!  RMAX, HMIN, and HMXI, and the YH array rescaled.  IALTH is set to</span>
+<span class="c">!  L = NQ + 1 to prevent a change of H for that many steps, unless</span>
+<span class="c">!  forced by a convergence or error test failure.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w"> </span><span class="mi">200</span><span class="w">  </span><span class="k">continue</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">==</span><span class="n">dls1</span><span class="p">%</span><span class="n">hold</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">400</span>
+<span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">hold</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">hold</span>
+<span class="n">iredo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w"> </span><span class="mi">300</span><span class="w">  </span><span class="k">continue</span>
+<span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">rh</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">rmax</span><span class="p">)</span>
+<span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rh</span><span class="o">/</span><span class="nb">max</span><span class="p">(</span><span class="mf">1.0D0</span><span class="p">,</span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">hmxi</span><span class="o">*</span><span class="n">rh</span><span class="p">)</span>
+<span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span>
+<span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span>
+<span class="w">   </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">r</span><span class="o">*</span><span class="n">rh</span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">      </span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">r</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">enddo</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">*</span><span class="n">rh</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">rc</span><span class="o">*</span><span class="n">rh</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">ialth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">iredo</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">rmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="mf">0.0D0</span>
+<span class="w">   </span><span class="k">goto</span><span class="w"> </span><span class="mi">1200</span>
+<span class="k">endif</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  This section computes the predicted values by effectively</span>
+<span class="c">!  multiplying the YH array by the Pascal triangle matrix.</span>
+<span class="c">!  The flag IPUP is set according to whether matrix data is involved</span>
+<span class="c">!  (NEWT .gt. 0 .and. JACFLG .ne. 0) or not, to trigger a call to DSETPK.</span>
+<span class="c">!  IPUP is set to MITER when RC differs from 1 by more than CCMAX,</span>
+<span class="c">!  and at least every MSBP steps, when JACFLG = 1.</span>
+<span class="c">!  RC is the ratio of new to old values of the coefficient  H*EL(1).</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w"> </span><span class="mi">400</span><span class="w">  </span><span class="k">continue</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls</span><span class="p">%</span><span class="n">newt</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">dlpk</span><span class="p">%</span><span class="n">jacflg</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">   </span><span class="n">drc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">ipup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">crate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.7D0</span>
+<span class="k">else</span>
+<span class="k">   </span><span class="n">drc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">rc</span><span class="o">-</span><span class="mf">1.0D0</span><span class="p">)</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">drc</span><span class="o">&gt;</span><span class="n">dls1</span><span class="p">%</span><span class="n">ccmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">ipup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nst</span><span class="o">&gt;=</span><span class="n">dls1</span><span class="p">%</span><span class="n">nslp</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">msbp</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">ipup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span>
+<span class="k">endif</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span>
+<span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nqnyh</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">do </span><span class="n">jb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span>
+<span class="w">   </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Nyh</span>
+<span class="c">! DIR$ IVDEP</span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nqnyh</span>
+<span class="w">      </span><span class="n">Yh1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Yh1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Yh1</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">Nyh</span><span class="p">)</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">enddo</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  Up to MAXCOR corrector iterations are taken.  A convergence test is</span>
+<span class="c">!  made on the RMS-norm of each correction, weighted by the error</span>
+<span class="c">!  weight vector EWT.  The sum of the corrections is accumulated in the</span>
+<span class="c">!  vector ACOR(i).  The YH array is not altered in the corrector loop.</span>
+<span class="c">!  Within the corrector loop, an estimated rate of convergence (ROC)</span>
+<span class="c">!  and a stiffness ratio estimate (STIFF) are kept.  Corresponding</span>
+<span class="c">!  global estimates are kept as CRATE and dls%stifr.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w"> </span><span class="mi">500</span><span class="w">  </span><span class="k">continue</span>
+<span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">dlpk</span><span class="p">%</span><span class="n">mnewt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="n">stiff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="n">roc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.05D0</span>
+<span class="n">nslow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">   </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">enddo</span>
+<span class="k">call </span><span class="n">f</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Savf</span><span class="p">)</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">nfe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nfe</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls</span><span class="p">%</span><span class="n">newt</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">ipup</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  If indicated, DSETPK is called to update any matrix data needed,</span>
+<span class="c">!  before starting the corrector iteration.</span>
+<span class="c">!  JOK is set to indicate if the matrix data need not be recomputed.</span>
+<span class="c">!  IPUP is set to 0 as an indicator that the matrix data is up to date.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">   </span><span class="n">jok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nst</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nst</span><span class="o">&gt;</span><span class="n">dls</span><span class="p">%</span><span class="n">nslj</span><span class="o">+</span><span class="mi">50</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">jok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">icf</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">drc</span><span class="o">&lt;</span><span class="mf">0.2D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">jok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">icf</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">jok</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jok</span><span class="o">==-</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      </span><span class="n">dls</span><span class="p">%</span><span class="n">nslj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nst</span>
+<span class="w">      </span><span class="n">dls</span><span class="p">%</span><span class="n">njev</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls</span><span class="p">%</span><span class="n">njev</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="k">endif</span>
+<span class="k">   call </span><span class="n">dsetpk</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Yh1</span><span class="p">,</span><span class="n">Ewt</span><span class="p">,</span><span class="n">Acor</span><span class="p">,</span><span class="n">Savf</span><span class="p">,</span><span class="n">jok</span><span class="p">,</span><span class="n">Wm</span><span class="p">,</span><span class="n">Iwm</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">jac</span><span class="p">)</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">ipup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">rc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span>
+<span class="w">   </span><span class="n">drc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">nslp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nst</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">crate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.7D0</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">ierpj</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">800</span>
+<span class="k">endif</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">   </span><span class="n">Acor</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="k">enddo</span>
+<span class="k"> </span><span class="mi">600</span><span class="w">  </span><span class="k">continue</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls</span><span class="p">%</span><span class="n">newt</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  In the case of the chord method, compute the corrector error,</span>
+<span class="c">!  and solve the linear system with that as right-hand side and</span>
+<span class="c">!  P as coefficient matrix.  STIFF is set to the ratio of the norms</span>
+<span class="c">!  of the residual and the correction vector.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">      </span><span class="n">Savx</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">*</span><span class="n">Savf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="o">+</span><span class="n">Acor</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   </span><span class="n">dfnrm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dvnorm</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Savx</span><span class="p">,</span><span class="n">Ewt</span><span class="p">)</span>
+<span class="w">   </span><span class="k">call </span><span class="n">dsolpk</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Savf</span><span class="p">,</span><span class="n">Savx</span><span class="p">,</span><span class="n">Ewt</span><span class="p">,</span><span class="n">Wm</span><span class="p">,</span><span class="n">Iwm</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">psol</span><span class="p">)</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">iersl</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">800</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">iersl</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">700</span>
+<span class="w">   </span><span class="n">del</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dvnorm</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Savx</span><span class="p">,</span><span class="n">Ewt</span><span class="p">)</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">del</span><span class="o">&gt;</span><span class="mf">1.0D-8</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">stiff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">stiff</span><span class="p">,</span><span class="n">dfnrm</span><span class="o">/</span><span class="n">del</span><span class="p">)</span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">      </span><span class="n">Acor</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Acor</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Savx</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">      </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">el</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Acor</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">else</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  In the case of functional iteration, update Y directly from</span>
+<span class="c">!  the result of the last function evaluation, and STIFF is set to 1.0.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">      </span><span class="n">Savf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">*</span><span class="n">Savf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">      </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Savf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Acor</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   </span><span class="n">del</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dvnorm</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Ewt</span><span class="p">)</span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">      </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">el</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Savf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">      </span><span class="n">Acor</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Savf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">   </span><span class="n">stiff</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span>
+<span class="k">endif</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  Test for convergence.  If M .gt. 0, an estimate of the convergence</span>
+<span class="c">!  rate constant is made for the iteration switch, and is also used</span>
+<span class="c">!  in the convergence test.   If the iteration seems to be diverging or</span>
+<span class="c">!  converging at a slow rate (.gt. 0.8 more than once), it is stopped.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">   </span><span class="n">roc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="mf">0.05D0</span><span class="p">,</span><span class="n">del</span><span class="o">/</span><span class="n">delp</span><span class="p">)</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">crate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="mf">0.2D0</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">crate</span><span class="p">,</span><span class="n">roc</span><span class="p">)</span>
+<span class="k">endif</span>
+<span class="n">dcon</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">del</span><span class="o">*</span><span class="nb">min</span><span class="p">(</span><span class="mf">1.0D0</span><span class="p">,</span><span class="mf">1.5D0</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">crate</span><span class="p">)</span><span class="o">/</span><span class="n">dlpk</span><span class="p">%</span><span class="n">epcon</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dcon</span><span class="o">&lt;=</span><span class="mf">1.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  The corrector has converged.  JCUR is set to 0 to signal that the</span>
+<span class="c">!  preconditioner involved may need updating later.</span>
+<span class="c">!  The stiffness ratio STIFR is updated using the latest STIFF value.</span>
+<span class="c">!  The local error test is made and control passes to statement 500</span>
+<span class="c">!  if it fails.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">jcur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls</span><span class="p">%</span><span class="n">newt</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dls</span><span class="p">%</span><span class="n">stifr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5D0</span><span class="o">*</span><span class="p">(</span><span class="n">dls</span><span class="p">%</span><span class="n">stifr</span><span class="o">+</span><span class="n">stiff</span><span class="p">)</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dsm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">del</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">tesco</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="p">)</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dsm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dvnorm</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Acor</span><span class="p">,</span><span class="n">Ewt</span><span class="p">)</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">tesco</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="p">)</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dsm</span><span class="o">&gt;</span><span class="mf">1.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  The error test failed.  KFLAG keeps track of multiple failures.</span>
+<span class="c">!  Restore TN and the YH array to their previous values, and prepare</span>
+<span class="c">!  to try the step again.  Compute the optimum step size for this or</span>
+<span class="c">!  one lower order.  After 2 or more failures, H is forced to decrease</span>
+<span class="c">!  by a factor of 0.2 or less.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">told</span>
+<span class="w">      </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nqnyh</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="k">do </span><span class="n">jb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span>
+<span class="w">         </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Nyh</span>
+<span class="c">! DIR$ IVDEP</span>
+<span class="w">         </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nqnyh</span>
+<span class="w">            </span><span class="n">Yh1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Yh1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Yh1</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">Nyh</span><span class="p">)</span>
+<span class="w">         </span><span class="k">enddo</span>
+<span class="k">      enddo</span>
+<span class="k">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">rmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0D0</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">)</span><span class="o">&lt;=</span><span class="n">dls1</span><span class="p">%</span><span class="n">hmin</span><span class="o">*</span><span class="mf">1.00001D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  All returns are made through this section.  H is saved in HOLD</span>
+<span class="c">!  to allow the caller to change H on the next step.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">         </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">         </span><span class="k">goto</span><span class="w"> </span><span class="mi">1300</span>
+<span class="w">      </span><span class="k">elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="o">&lt;=-</span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  Control reaches this section if 3 or more failures have occured.</span>
+<span class="c">!  If 10 failures have occurred, exit with KFLAG = -1.</span>
+<span class="c">!  It is assumed that the derivatives that have accumulated in the</span>
+<span class="c">!  YH array have errors of the wrong order.  Hence the first</span>
+<span class="c">!  derivative is recomputed, and the order is set to 1.  Then</span>
+<span class="c">!  H is reduced by a factor of 10, and the step is retried,</span>
+<span class="c">!  until it succeeds or H reaches HMIN.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="o">==-</span><span class="mi">10</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">            </span><span class="k">goto</span><span class="w"> </span><span class="mi">1300</span>
+<span class="w">         </span><span class="k">else</span>
+<span class="k">            </span><span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1D0</span>
+<span class="w">            </span><span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">hmin</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">),</span><span class="n">rh</span><span class="p">)</span>
+<span class="w">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">*</span><span class="n">rh</span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">               </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="k">enddo</span>
+<span class="k">            call </span><span class="n">f</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Savf</span><span class="p">)</span>
+<span class="w">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">nfe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nfe</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">               </span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">*</span><span class="n">Savf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">            </span><span class="k">enddo</span>
+<span class="k">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">ipup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span>
+<span class="w">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">ialth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">400</span>
+<span class="w">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">            </span><span class="n">iret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">            </span><span class="k">goto</span><span class="w"> </span><span class="mi">100</span>
+<span class="w">         </span><span class="k">endif</span>
+<span class="k">      else</span>
+<span class="k">         </span><span class="n">iredo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">         </span><span class="n">rhup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="w">         </span><span class="k">goto</span><span class="w"> </span><span class="mi">900</span>
+<span class="w">      </span><span class="k">endif</span>
+<span class="k">   else</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  After a successful step, update the YH array.</span>
+<span class="c">!  If Newton iteration is being done and STIFR is less than 1.5,</span>
+<span class="c">!  then switch to functional iteration.</span>
+<span class="c">!  Consider changing H if IALTH = 1.  Otherwise decrease IALTH by 1.</span>
+<span class="c">!  If IALTH is then 1 and NQ .lt. MAXORD, then ACOR is saved for</span>
+<span class="c">!  use in a possible order increase on the next step.</span>
+<span class="c">!  If a change in H is considered, an increase or decrease in order</span>
+<span class="c">!  by one is considered also.  A change in H is made only if it is by a</span>
+<span class="c">!  factor of at least 1.1.  If not, IALTH is set to 3 to prevent</span>
+<span class="c">!  testing for that many steps.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="n">iredo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">nst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nst</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls</span><span class="p">%</span><span class="n">newt</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dls</span><span class="p">%</span><span class="n">nsfi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls</span><span class="p">%</span><span class="n">nsfi</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls</span><span class="p">%</span><span class="n">newt</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">dls</span><span class="p">%</span><span class="n">stifr</span><span class="o">&lt;</span><span class="mf">1.5D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dls</span><span class="p">%</span><span class="n">newt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">hu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span>
+<span class="w">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">nqu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span>
+<span class="w">      </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span>
+<span class="w">         </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">            </span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">el</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">Acor</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">         </span><span class="k">enddo</span>
+<span class="k">      enddo</span>
+<span class="k">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">ialth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">ialth</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">ialth</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  Regardless of the success or failure of the step, factors</span>
+<span class="c">!  RHDN, RHSM, and RHUP are computed, by which H could be multiplied</span>
+<span class="c">!  at order NQ - 1, order NQ, or order NQ + 1, respectively.</span>
+<span class="c">!  in the case of failure, RHUP = 0.0 to avoid an order increase.</span>
+<span class="c">!  the largest of these is determined and the new order chosen</span>
+<span class="c">!  accordingly.  If the order is to be increased, we compute one</span>
+<span class="c">!  additional scaled derivative.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">         </span><span class="n">rhup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span><span class="o">/=</span><span class="n">dls1</span><span class="p">%</span><span class="n">lmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">               </span><span class="n">Savf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Acor</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">lmax</span><span class="p">)</span>
+<span class="w">            </span><span class="k">enddo</span>
+<span class="k">            </span><span class="n">dup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dvnorm</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Savf</span><span class="p">,</span><span class="n">Ewt</span><span class="p">)</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">tesco</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="p">)</span>
+<span class="w">            </span><span class="n">exup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="n">rhup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="p">(</span><span class="mf">1.4D0</span><span class="o">*</span><span class="n">dup</span><span class="o">**</span><span class="n">exup</span><span class="o">+</span><span class="mf">0.0000014D0</span><span class="p">)</span>
+<span class="w">         </span><span class="k">endif</span>
+<span class="k">         goto</span><span class="w"> </span><span class="mi">900</span>
+<span class="w">      </span><span class="k">else</span>
+<span class="k">         if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">ialth</span><span class="o">&lt;=</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span><span class="o">/=</span><span class="n">dls1</span><span class="p">%</span><span class="n">lmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">               do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">                  </span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">lmax</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Acor</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">               </span><span class="k">enddo</span>
+<span class="k">            endif</span>
+<span class="k">         endif</span>
+<span class="k">         goto</span><span class="w"> </span><span class="mi">1200</span>
+<span class="w">      </span><span class="k">endif</span>
+<span class="k">   endif</span>
+<span class="k">else</span>
+<span class="k">   </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="o">/=</span><span class="n">dls1</span><span class="p">%</span><span class="n">maxcor</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="o">&lt;</span><span class="mi">2</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">del</span><span class="o">&lt;=</span><span class="mf">2.0D0</span><span class="o">*</span><span class="n">delp</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">         if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">roc</span><span class="o">&lt;=</span><span class="mi">1</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">roc</span><span class="o">&gt;</span><span class="mf">0.8D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">nslow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">nslow</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">nslow</span><span class="o">&lt;</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">               </span><span class="n">dlpk</span><span class="p">%</span><span class="n">mnewt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">m</span>
+<span class="w">               </span><span class="n">delp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">del</span>
+<span class="w">               </span><span class="k">call </span><span class="n">f</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Savf</span><span class="p">)</span>
+<span class="w">               </span><span class="n">dls1</span><span class="p">%</span><span class="n">nfe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nfe</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">               </span><span class="k">goto</span><span class="w"> </span><span class="mi">600</span>
+<span class="w">            </span><span class="k">endif</span>
+<span class="k">         endif</span>
+<span class="k">      endif</span>
+<span class="k">   endif</span>
+<span class="k">endif</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  The corrector iteration failed to converge.</span>
+<span class="c">!  If functional iteration is being done (NEWT = 0) and MITER .gt. 0</span>
+<span class="c">!  (and this is not the first step), then switch to Newton</span>
+<span class="c">!  (NEWT = MITER), and retry the step.  (Setting STIFR = 1023 insures</span>
+<span class="c">!  that a switch back will not occur for 10 step attempts.)</span>
+<span class="c">!  If Newton iteration is being done, but using a preconditioner that</span>
+<span class="c">!  is out of date (JACFLG .ne. 0 .and. JCUR = 0), then signal for a</span>
+<span class="c">!  re-evalutation of the preconditioner, and retry the step.</span>
+<span class="c">!  In all other cases, the YH array is retracted to its values</span>
+<span class="c">!  before prediction, and H is reduced, if possible.  If H cannot be</span>
+<span class="c">!  reduced or MXNCF failures have occurred, exit with KFLAG = -2.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w"> </span><span class="mi">700</span><span class="w">  </span><span class="k">continue</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">icf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls</span><span class="p">%</span><span class="n">newt</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">   if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nst</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">800</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">800</span>
+<span class="w">   </span><span class="n">dls</span><span class="p">%</span><span class="n">newt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span>
+<span class="w">   </span><span class="n">dls</span><span class="p">%</span><span class="n">stifr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">102</span><span class="mf">3.0D0</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">ipup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span>
+<span class="w">   </span><span class="k">goto</span><span class="w"> </span><span class="mi">500</span>
+<span class="k">endif</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">jcur</span><span class="o">/=</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">dlpk</span><span class="p">%</span><span class="n">jacflg</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">ipup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span>
+<span class="w">   </span><span class="k">goto</span><span class="w"> </span><span class="mi">500</span>
+<span class="k">endif</span>
+<span class="k"> </span><span class="mi">800</span><span class="w">  </span><span class="k">continue</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">icf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="n">ncf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ncf</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="n">dlpk</span><span class="p">%</span><span class="n">ncfn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlpk</span><span class="p">%</span><span class="n">ncfn</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">rmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0D0</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">told</span>
+<span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nqnyh</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">do </span><span class="n">jb</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span>
+<span class="w">   </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Nyh</span>
+<span class="c">! DIR$ IVDEP</span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nqnyh</span>
+<span class="w">      </span><span class="n">Yh1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Yh1</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Yh1</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">Nyh</span><span class="p">)</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="k">enddo</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">ierpj</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">iersl</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span>
+<span class="w">   </span><span class="k">goto</span><span class="w"> </span><span class="mi">1300</span>
+<span class="k">elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">)</span><span class="o">&lt;=</span><span class="n">dls1</span><span class="p">%</span><span class="n">hmin</span><span class="o">*</span><span class="mf">1.00001D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span>
+<span class="w">   </span><span class="k">goto</span><span class="w"> </span><span class="mi">1300</span>
+<span class="k">elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ncf</span><span class="o">==</span><span class="n">dls1</span><span class="p">%</span><span class="n">mxncf</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span>
+<span class="w">   </span><span class="k">goto</span><span class="w"> </span><span class="mi">1300</span>
+<span class="k">else</span>
+<span class="k">   </span><span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.5D0</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">ipup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span>
+<span class="w">   </span><span class="n">iredo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">rh</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">hmin</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">))</span>
+<span class="w">   </span><span class="k">goto</span><span class="w"> </span><span class="mi">300</span>
+<span class="k">endif</span>
+<span class="k"> </span><span class="mi">900</span><span class="w">  </span><span class="k">continue</span>
+<span class="n">exsm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span>
+<span class="n">rhsm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="p">(</span><span class="mf">1.2D0</span><span class="o">*</span><span class="n">dsm</span><span class="o">**</span><span class="n">exsm</span><span class="o">+</span><span class="mf">0.0000012D0</span><span class="p">)</span>
+<span class="n">rhdn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="o">/=</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">   </span><span class="n">ddn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dvnorm</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Yh</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span><span class="p">),</span><span class="n">Ewt</span><span class="p">)</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">tesco</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="p">)</span>
+<span class="w">   </span><span class="n">exdn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span>
+<span class="w">   </span><span class="n">rhdn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="p">(</span><span class="mf">1.3D0</span><span class="o">*</span><span class="n">ddn</span><span class="o">**</span><span class="n">exdn</span><span class="o">+</span><span class="mf">0.0000013D0</span><span class="p">)</span>
+<span class="k">endif</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rhsm</span><span class="o">&gt;=</span><span class="n">rhup</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">   if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rhsm</span><span class="o">&gt;=</span><span class="n">rhdn</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      </span><span class="n">newq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span>
+<span class="w">      </span><span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rhsm</span>
+<span class="w">      </span><span class="k">goto</span><span class="w"> </span><span class="mi">1000</span>
+<span class="w">   </span><span class="k">endif</span>
+<span class="k">elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rhup</span><span class="o">&gt;</span><span class="n">rhdn</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">   </span><span class="n">newq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span>
+<span class="w">   </span><span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rhup</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rh</span><span class="o">&lt;</span><span class="mf">1.1D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">ialth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">      </span><span class="k">goto</span><span class="w"> </span><span class="mi">1200</span>
+<span class="w">   </span><span class="k">else</span>
+<span class="k">      </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">el</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span><span class="p">)</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">         </span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">newq</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Acor</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">r</span>
+<span class="w">      </span><span class="k">enddo</span>
+<span class="k">      goto</span><span class="w"> </span><span class="mi">1100</span>
+<span class="w">   </span><span class="k">endif</span>
+<span class="k">endif</span>
+<span class="n">newq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rhdn</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">rh</span><span class="o">&gt;</span><span class="mf">1.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span>
+<span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="k">continue</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">rh</span><span class="o">&lt;</span><span class="mf">1.1D0</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">ialth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">   </span><span class="k">goto</span><span class="w"> </span><span class="mi">1200</span>
+<span class="k">else</span>
+<span class="k">   if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="o">&lt;=-</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">rh</span><span class="p">,</span><span class="mf">0.2D0</span><span class="p">)</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="c">!  If there is a change of order, reset NQ, L, and the coefficients.</span>
+<span class="c">!  In any case H is reset according to RH and the YH array is rescaled.</span>
+<span class="c">!  Then exit from 690 if the step was OK, or redo the step otherwise.</span>
+<span class="c">!-----------------------------------------------------------------------</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">newq</span><span class="o">==</span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      </span><span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">rh</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">hmin</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">))</span>
+<span class="w">      </span><span class="k">goto</span><span class="w"> </span><span class="mi">300</span>
+<span class="w">   </span><span class="k">endif</span>
+<span class="k">endif</span>
+<span class="k"> </span><span class="mi">1100</span><span class="w"> </span><span class="k">continue</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">newq</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="n">iret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="k">goto</span><span class="w"> </span><span class="mi">100</span>
+<span class="w"> </span><span class="mi">1200</span><span class="w"> </span><span class="k">continue</span>
+<span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">tesco</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">nqu</span><span class="p">)</span>
+<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">   </span><span class="n">Acor</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Acor</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">*</span><span class="n">r</span>
+<span class="k">enddo</span>
+<span class="k"> </span><span class="mi">1300</span><span class="w"> </span><span class="k">continue</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">hold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span>
+<span class="n">dls1</span><span class="p">%</span><span class="n">jstart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">end subroutine </span><span class="n">dstoka</span>
+</pre></div>
+
+    </section>
+    <br>
     
     </div>
   </div>
@@ -808,32 +1842,27 @@ implementation in a submodule of an interface in a parent module.
     </div> <!-- /container -->
     <footer>
       <div class="container">
-        <div class="row">
-          <div class="col-xs-6 col-md-6"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2023 
+        <div class="row justify-content-between">
+          <div class="col"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2024 
 </p>
           </div>
-          <div class="col-xs-6 col-md-6">
-            <p class="text-right">
+          <div class="col">
+            <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2023-04-17 10:19              </p>
+ on 2024-03-29 08:21              </p>
           </div>
         </div>
         <br>
       </div> <!-- /container -->
     </footer>
 
-    <!-- Bootstrap core JavaScript
-         ================================================== -->
-         <!-- Placed at the end of the document so the pages load faster -->
-    <!--
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-        -->
-        <script src="../js/bootstrap.min.js"></script>
-        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-        <script src="../js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
 
-        <!-- MathJax JavaScript
+    <!-- MathJax JavaScript
              ================================================== -->
              <!-- Placed at the end of the document so the pages load faster -->
         <script type="text/x-mathjax-config">

@@ -68,7 +68,7 @@ integer :: iflag, lb, ldl, lgmr, lhes, liom, lp, lpcg, lq, lr, lv, lw, lwk, lz, 
       lwk = lq + 2*dlpk%maxl
       ldl = lwk + min(1,dlpk%maxl-dlpk%kmp)*dls1%n
       !X!call dcopy(dls1%n,X,1,Wm(lb),1)
-      Wm(lb:lb+dls1%n-1) = X(1:dls1%n)!X!
+      Wm(lb:lb+dls1%n-1) = X(1:dls1%n)
       call dscal(dls1%n,dlpk%rsqrtn,Ewt,1)
       call dspigmr(Neq,dls1%tn,Y,Savf,Wm(lb),Ewt,dls1%n,dlpk%maxl,maxlp1, &
        & dlpk%kmp,delta,hl0,dlpk%jpre,dlpk%mnewt,f,psol,npsl,X,   &
@@ -90,7 +90,7 @@ integer :: iflag, lb, ldl, lgmr, lhes, liom, lp, lpcg, lq, lr, lv, lw, lwk, lz, 
       lz = lw + dls1%n
       lwk = lz + dls1%n
       !X!call dcopy(dls1%n,X,1,Wm(lr),1)
-      Wm(lr:lr+dls1%n-1) = X(1:dls1%n)!X!
+      Wm(lr:lr+dls1%n-1) = X(1:dls1%n)
       call dpcg(Neq,dls1%tn,Y,Savf,Wm(lr),Ewt,dls1%n,dlpk%maxl,delta,hl0, &
        & dlpk%jpre,dlpk%mnewt,f,psol,npsl,X,Wm(lp),Wm(lw),Wm(lz), &
        & lpcg,Wm(dlpk%locwp),Iwm(dlpk%lociwp),Wm(lwk),iflag)
@@ -110,7 +110,7 @@ integer :: iflag, lb, ldl, lgmr, lhes, liom, lp, lpcg, lq, lr, lv, lw, lwk, lz, 
       lz = lw + dls1%n
       lwk = lz + dls1%n
       !X!call dcopy(dls1%n,X,1,Wm(lr),1)
-      Wm(lr:lr+dls1%n-1) = X(1:dls1%n)!X!
+      Wm(lr:lr+dls1%n-1) = X(1:dls1%n)
       call dpcgs(Neq,dls1%tn,Y,Savf,Wm(lr),Ewt,dls1%n,dlpk%maxl,delta,hl0, &
        & dlpk%jpre,dlpk%mnewt,f,psol,npsl,X,Wm(lp),Wm(lw),Wm(lz),&
        & lpcg,Wm(dlpk%locwp),Iwm(dlpk%lociwp),Wm(lwk),iflag)
@@ -128,7 +128,7 @@ integer :: iflag, lb, ldl, lgmr, lhes, liom, lp, lpcg, lq, lr, lv, lw, lwk, lz, 
       lb = 1
       lwk = lb + dls1%n
       !X!call dcopy(dls1%n,X,1,Wm(lb),1)
-      Wm(lb:lb+dls1%n-1) = X(1:dls1%n)!X!
+      Wm(lb:lb+dls1%n-1) = X(1:dls1%n)
       call dusol(Neq,dls1%tn,Y,Savf,Wm(lb),Ewt,dls1%n,delta,hl0,dlpk%mnewt, &
        &psol,npsl,X,Wm(dlpk%locwp),Iwm(dlpk%lociwp),Wm(lwk),iflag)
       dlpk%nni = dlpk%nni + 1
@@ -145,7 +145,7 @@ integer :: iflag, lb, ldl, lgmr, lhes, liom, lp, lpcg, lq, lr, lv, lw, lwk, lz, 
       lhes = lb + dls1%n
       lwk = lhes + dlpk%maxl*dlpk%maxl
       !X!call dcopy(dls1%n,X,1,Wm(lb),1)
-      Wm(lb:lb+dls1%n-1) = X(1:dls1%n)!X!
+      Wm(lb:lb+dls1%n-1) = X(1:dls1%n)
       call dscal(dls1%n,dlpk%rsqrtn,Ewt,1)
       call dspiom(Neq,dls1%tn,Y,Savf,Wm(lb),Ewt,dls1%n,dlpk%maxl,dlpk%kmp, &
        & delta,hl0,dlpk%jpre,dlpk%mnewt,f,psol,npsl,X,Wm(lv),       &

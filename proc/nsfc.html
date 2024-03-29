@@ -1,0 +1,1512 @@
+<!-- -*- mode: jinja2 -*- -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="description" content="ODEPACK - A Systematized Collection of ODE Solvers">
+    <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>nsfc &ndash; odepack</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+      <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+      <link href="../css/user.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container-fluid mb-sm-4 mb-xl-2">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="../index.html">odepack </a>
+          <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar"
+                  aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon">
+          </button>
+
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="navbar-nav">
+                  <li class="nav-item">
+                    <a class="nav-link" href="../lists/files.html">Source Files</a>
+                  </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/modules.html">Modules</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="../lists/procedures.html">Procedures</a>
+                </li>
+            </ul>
+              <div class="d-flex align-items-end flex-grow-1">
+                <form action="../search.html" role="search" class="ms-auto">
+                  <input type="text" class="form-control" aria-label="Search" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+                </form>
+              </div>
+          </div><!--/.nav-collapse -->
+        </div>
+      </nav>
+    </div>
+
+    <div class="container">
+  <div class="row">
+    <h1>nsfc
+      <small>Subroutine</small>
+      
+    </h1>
+      <div class="container p-2 mb-4 bg-light border rounded-3">
+    <div class="row align-items-center justify-content-between" id="info-bar">
+      <div class="col">
+        <ul class="list-inline" style="margin-bottom:0px;display:inline">
+
+            <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
+              <a data-bs-toggle="tooltip"
+                 data-bs-placement="bottom" data-html="true"
+                 title=" 1.4% of total for procedures.">330 statements</a>
+            </li>
+
+            <li class="list-inline-item" id="source-file">
+              <i class="fa fa-code"></i>
+              <a href="../src/nsfc.inc"> Source File</a>
+            </li>
+        </ul>
+      </div>
+      <div class="col">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-end mb-0">
+                <li class="breadcrumb-item"><a href='../sourcefile/nsfc.inc.html'>nsfc.inc</a></li>
+            <li class="breadcrumb-item active" aria-current="page">nsfc</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+    $('[data-bs-toggle="tooltip"]').tooltip()
+    })
+  </script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      <div id="sidebar">
+      <h3>Contents</h3>
+  
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/nsfc.html#variable-cend">cend</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-i~7">i</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-i1~3">i1</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-iak">iak</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-irai">irai</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-irll">irll</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-irul">irul</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-j~3">j</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-jaiak">jaiak</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-jairai">jairai</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-jlmin">jlmin</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-jlptr">jlptr</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-jmax">jmax</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-jmin">jmin</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-jtmp">jtmp</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-jumin">jumin</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-juptr">juptr</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-k~3">k</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-lasti">lasti</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-lastid">lastid</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-long">long</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-luk">luk</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-m~2">m</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-np1">np1</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-qm">qm</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-rend">rend</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-rk">rk</a>
+            <a class="list-group-item" href="../proc/nsfc.html#variable-vj">vj</a>
+        </div>
+      </div>
+    </div>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/nsfc.html#src">nsfc</a>
+      </div>
+    </div>
+
+
+  </div>
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2> subroutine nsfc(N, R, Ic, Ia, Ja, Jlmax, Il, Jl, Ijl, Jumax, Iu, Ju, Iju, Q, Ira, Jra, Irac, Irl, Jrl, Iru, Jru, Flag)  
+</h2>
+    
+
+    <h3 id="subroutine-nsfc">subroutine nsfc</h3>
+<h3 id="symbolic-ldu-factorization-of-nonsymmetric-sparse-matrix">symbolic ldu-factorization of nonsymmetric sparse matrix</h3>
+<div class="codehilite"><pre><span></span><code><span class="w">  </span><span class="p">(</span><span class="n">compressed</span><span class="w"> </span><span class="n">pointer</span><span class="w"> </span><span class="n">storage</span><span class="p">)</span>
+
+
+<span class="w">   </span><span class="n">input</span><span class="w"> </span><span class="n">variables</span><span class="o">..</span><span class="w"> </span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">ic</span><span class="p">,</span><span class="w"> </span><span class="n">ia</span><span class="p">,</span><span class="w"> </span><span class="n">ja</span><span class="p">,</span><span class="w"> </span><span class="n">jlmax</span><span class="p">,</span><span class="w"> </span><span class="n">jumax</span><span class="o">.</span>
+<span class="w">   </span><span class="n">output</span><span class="w"> </span><span class="n">variables</span><span class="o">..</span><span class="w"> </span><span class="n">il</span><span class="p">,</span><span class="w"> </span><span class="n">jl</span><span class="p">,</span><span class="w"> </span><span class="n">ijl</span><span class="p">,</span><span class="w"> </span><span class="n">iu</span><span class="p">,</span><span class="w"> </span><span class="n">ju</span><span class="p">,</span><span class="w"> </span><span class="n">iju</span><span class="p">,</span><span class="w"> </span><span class="n">flag</span><span class="o">.</span>
+
+<span class="w">   </span><span class="n">parameters</span><span class="w"> </span><span class="n">used</span><span class="w"> </span><span class="n">internally</span><span class="o">..</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code> nia   - q     - suppose  m*  is the result of reordering  m.  if
+       -           processing of the ith row of  m*  (hence the ith
+       -           row of  u) is being done,  q(j)  is initially
+       -           nonzero if  m*(i,j) is nonzero (j.ge.i).  since
+       -           values need not be stored, each entry points to the
+       -           next nonzero and  q(n+1)  points to the first.  n+1
+       -           indicates the end of the list.  for example, if n=9
+       -           and the 5th row of  m*  is
+       -              0 x x 0 x 0 0 x 0
+       -           then  q  will initially be
+       -              a a a a 8 a a 10 5           (a - arbitrary).
+       -           as the algorithm proceeds, other elements of  q
+       -           are inserted in the list because of fillin.
+       -           q  is used in an analogous manner to compute the
+       -           ith column of  l.
+       -           size = n+1.
+ nia   - ira,  - vectors used to find the columns of  m.  at the kth
+ nia   - jra,      step of the factorization,  irac(k)  points to the
+ nia   - irac      head of a linked list in  jra  of row indices i
+       -           such that i .ge. k and  m(i,k)  is nonzero.  zero
+       -           indicates the end of the list.  ira(i)  (i.ge.k)
+       -           points to the smallest j such that j .ge. k and
+       -           m(i,j)  is nonzero.
+       -           size of each = n.
+ nia   - irl,  - vectors used to find the rows of  l.  at the kth step
+ nia   - jrl       of the factorization,  jrl(k)  points to the head
+       -           of a linked list in  jrl  of column indices j
+       -           such j .lt. k and  l(k,j)  is nonzero.  zero
+       -           indicates the end of the list.  irl(j)  (j.lt.k)
+       -           points to the smallest i such that i .ge. k and
+       -           l(i,j)  is nonzero.
+       -           size of each = n.
+ nia   - iru,  - vectors used in a manner analogous to  irl and jrl
+ nia   - jru       to find the columns of  u.
+       -           size of each = n.
+</code></pre></div>
+
+<h3 id="internal-variables">internal variables..</h3>
+<div class="codehilite"><pre><span></span><code>    jlptr - points to the last position used in  jl.
+    juptr - points to the last position used in  ju.
+    jmin,jmax - are the indices in  a or u  of the first and last
+                elements to be examined in a given row.
+                for example,  jmin=ia(k), jmax=ia(k+1)-1.
+</code></pre></div>
+
+
+    <h3>Arguments</h3>
+        <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Intent</th><th scope="col">Optional</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-n~4"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>N</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>R</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ic"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ic</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ia"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ia</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ja"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ja</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jlmax"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jlmax</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-il"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Il</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jl"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jl</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ijl"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ijl</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jumax"></span>
+              integer,
+            </td>
+<td>intent(in)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jumax</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iu"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iu</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ju"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ju</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iju"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iju</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-q~2"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Q</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ira"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Ira</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jra"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jra</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-irac"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Irac</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-irl"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Irl</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jrl"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jrl</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iru"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Iru</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jru"></span>
+              integer,
+            </td>
+<td>intent(inout)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Jru</strong>(*)</td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-flag"></span>
+              integer,
+            </td>
+<td>intent(out)</td>
+              <td></td>            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>Flag</strong></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    <br>
+
+
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-cend"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>cend</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~7"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i1~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iak"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iak</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-irai"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>irai</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-irll"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>irll</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-irul"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>irul</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jaiak"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jaiak</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jairai"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jairai</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jlmin"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jlmin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jlptr"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jlptr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jmax"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jmin"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jmin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jtmp"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jtmp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jumin"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jumin</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-juptr"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>juptr</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-k~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>k</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lasti"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lasti</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lastid"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lastid</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-long"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>long</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-luk"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>luk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-m~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>m</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-np1"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>np1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-qm"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>qm</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rend"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rend</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-rk"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>rk</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-vj"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>vj</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
+    
+    
+
+    
+    
+
+
+
+    
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">subroutine </span><span class="n">nsfc</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">Ic</span><span class="p">,</span><span class="n">Ia</span><span class="p">,</span><span class="n">Ja</span><span class="p">,</span><span class="n">Jlmax</span><span class="p">,</span><span class="n">Il</span><span class="p">,</span><span class="n">Jl</span><span class="p">,</span><span class="n">Ijl</span><span class="p">,</span><span class="n">Jumax</span><span class="p">,</span><span class="n">Iu</span><span class="p">,</span><span class="n">Ju</span><span class="p">,</span><span class="n">Iju</span><span class="p">,</span><span class="n">Q</span><span class="p">,</span><span class="n">Ira</span><span class="p">,</span><span class="n">Jra</span><span class="p">,</span><span class="n">Irac</span><span class="p">,</span><span class="n">Irl</span><span class="p">,</span><span class="n">Jrl</span><span class="p">,</span><span class="n">Iru</span><span class="p">,</span><span class="n">Jru</span><span class="p">,</span><span class="n">Flag</span><span class="p">)</span>
+<span class="c">!</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">N</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">R</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">Ic</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">Ia</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">Ja</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">Jlmax</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Il</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Jl</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ijl</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">Jumax</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Iu</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ju</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Iju</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Ira</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Jra</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Irac</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Irl</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Jrl</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Iru</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Jru</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">Flag</span>
+<span class="c">!</span>
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">cend</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">,</span><span class="w"> </span><span class="n">iak</span><span class="p">,</span><span class="w"> </span><span class="n">irai</span><span class="p">,</span><span class="w"> </span><span class="n">irll</span><span class="p">,</span><span class="w"> </span><span class="n">irul</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">jaiak</span><span class="p">,</span><span class="w"> </span><span class="n">jairai</span><span class="p">,</span><span class="w"> </span><span class="n">jlmin</span><span class="p">,</span><span class="w"> </span><span class="n">jlptr</span><span class="p">,</span><span class="w"> </span><span class="n">jmax</span><span class="p">,</span><span class="w"> </span><span class="n">jmin</span><span class="p">,</span><span class="w"> </span><span class="n">jtmp</span><span class="p">,</span><span class="w"> </span><span class="n">jumin</span><span class="p">,</span><span class="w"> </span><span class="n">juptr</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">         </span><span class="p">&amp;</span><span class="w"> </span><span class="n">lasti</span><span class="p">,</span><span class="w"> </span><span class="n">lastid</span><span class="p">,</span><span class="w"> </span><span class="nb">long</span><span class="p">,</span><span class="w"> </span><span class="n">luk</span><span class="p">,</span><span class="w"> </span><span class="n">m</span><span class="p">,</span><span class="w"> </span><span class="n">np1</span><span class="p">,</span><span class="w"> </span><span class="n">qm</span><span class="p">,</span><span class="w"> </span><span class="n">rend</span><span class="p">,</span><span class="w"> </span><span class="n">rk</span><span class="p">,</span><span class="w"> </span><span class="n">vj</span>
+<span class="w">   </span><span class="c">!</span>
+<span class="w">   </span><span class="c">!   ******  initialize pointers  ****************************************</span>
+<span class="w">   </span><span class="n">np1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="n">jlmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="n">jlptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">   </span><span class="n">Il</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="n">jumin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="n">juptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">   </span><span class="n">Iu</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">N</span>
+<span class="w">      </span><span class="n">Irac</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="n">Jra</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="n">Jrl</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="n">Jru</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="w">   </span><span class="c">!   ******  initialize column pointers for a  ***************************</span>
+<span class="w">   </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">N</span>
+<span class="w">      </span><span class="n">rk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">R</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="w">      </span><span class="n">iak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ia</span><span class="p">(</span><span class="n">rk</span><span class="p">)</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">iak</span><span class="o">&gt;=</span><span class="n">Ia</span><span class="p">(</span><span class="n">rk</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">   </span><span class="c">!</span>
+<span class="w">   </span><span class="c">!  ** error.. null row in a</span>
+<span class="w">         </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rk</span>
+<span class="w">         </span><span class="k">return</span>
+<span class="k">      else</span>
+<span class="k">         </span><span class="n">jaiak</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ic</span><span class="p">(</span><span class="n">Ja</span><span class="p">(</span><span class="n">iak</span><span class="p">))</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jaiak</span><span class="o">&gt;</span><span class="n">k</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">            </span><span class="c">!  ** error.. null pivot</span>
+<span class="w">            </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span>
+<span class="w">            </span><span class="k">return</span>
+<span class="k">         endif</span>
+<span class="k">         </span><span class="n">Jra</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Irac</span><span class="p">(</span><span class="n">jaiak</span><span class="p">)</span>
+<span class="w">         </span><span class="n">Irac</span><span class="p">(</span><span class="n">jaiak</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span>
+<span class="w">         </span><span class="n">Ira</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iak</span>
+<span class="w">      </span><span class="k">endif</span>
+<span class="k">   enddo</span>
+<span class="w">   </span><span class="c">!</span>
+<span class="w">   </span><span class="c">!   ******  for each column of l and row of u  **************************</span>
+<span class="w">   </span><span class="k">ALL</span><span class="p">:</span><span class="w"> </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">N</span>
+<span class="w">   </span><span class="c">!</span>
+<span class="w">   </span><span class="c">!   ******  initialize q for computing kth column of l  *****************</span>
+<span class="w">      </span><span class="n">Q</span><span class="p">(</span><span class="n">np1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np1</span>
+<span class="w">      </span><span class="n">luk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">      </span><span class="c">!   ******  by filling in kth column of a  ******************************</span>
+<span class="w">      </span><span class="n">vj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Irac</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">vj</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">         </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np1</span>
+<span class="w">         </span><span class="k">do</span>
+<span class="k">            </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qm</span>
+<span class="w">            </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">qm</span><span class="o">&gt;=</span><span class="n">vj</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">               if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">qm</span><span class="o">==</span><span class="n">vj</span><span class="w"> </span><span class="p">)</span><span class="k">then</span>
+<span class="w">                  </span><span class="c">!  ** error.. duplicate entry in a</span>
+<span class="w">                  </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rk</span>
+<span class="w">                  </span><span class="k">return</span>
+<span class="k">            endif</span>
+<span class="k">               </span><span class="n">luk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">luk</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">               </span><span class="n">Q</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vj</span>
+<span class="w">               </span><span class="n">Q</span><span class="p">(</span><span class="n">vj</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qm</span>
+<span class="w">               </span><span class="n">vj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jra</span><span class="p">(</span><span class="n">vj</span><span class="p">)</span>
+<span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">vj</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">exit</span>
+<span class="k">               </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np1</span>
+<span class="w">            </span><span class="k">endif</span>
+<span class="k">         enddo</span>
+<span class="k">      endif</span>
+<span class="w">      </span><span class="c">!   ******  link through jru  *******************************************</span>
+<span class="w">      </span><span class="n">lastid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="n">lasti</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">      </span><span class="n">Ijl</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jlptr</span>
+<span class="w">      </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span>
+<span class="w">      </span><span class="n">LOOP</span><span class="p">:</span><span class="w"> </span><span class="k">do</span>
+<span class="k">         </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jru</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">         </span><span class="c">!   ******  lasti is the longest column merged into the kth  ************</span>
+<span class="w">         </span><span class="c">!   ******  see if it equals the entire kth column  *********************</span>
+<span class="w">            </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">np1</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">qm</span><span class="o">/=</span><span class="n">k</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">               </span><span class="c">!  ** error.. null pivot</span>
+<span class="w">               </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span>
+<span class="w">               </span><span class="k">return</span>
+<span class="k">         endif</span>
+<span class="k">            </span><span class="n">LUKZ</span><span class="p">:</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">luk</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">               if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lastid</span><span class="o">/=</span><span class="n">luk</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">               </span><span class="c">!   ******  if not, see if kth column can overlap the previous one  *****</span>
+<span class="w">                  </span><span class="n">KTHCOL</span><span class="p">:</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jlmin</span><span class="o">&lt;=</span><span class="n">jlptr</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                     </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
+<span class="w">                     </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jlmin</span><span class="p">,</span><span class="w"> </span><span class="n">jlptr</span>
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Jl</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">&lt;</span><span class="n">qm</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">cycle</span>
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Jl</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">==</span><span class="n">qm</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                           </span><span class="n">Ijl</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span>
+<span class="w">                           </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">jlptr</span>
+<span class="w">                              </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Jl</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">/=</span><span class="n">qm</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">exit </span><span class="n">KTHCOL</span>
+<span class="w">                              </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
+<span class="w">                              </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">qm</span><span class="o">&gt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">exit </span><span class="n">LUKZ</span>
+<span class="w">                           </span><span class="k">enddo</span>
+<span class="k">                           </span><span class="n">jlptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                        </span><span class="k">endif</span>
+<span class="k">                        exit</span>
+<span class="k">                     enddo</span>
+<span class="k">                  endif </span><span class="n">KTHCOL</span>
+<span class="w">                  </span><span class="c">!   ******  move column indices from q to jl, update vectors  ***********</span>
+<span class="w">                  </span><span class="n">jlmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jlptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                  </span><span class="n">Ijl</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jlmin</span>
+<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">luk</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                     </span><span class="n">jlptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jlptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">luk</span>
+<span class="w">                     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jlptr</span><span class="o">&gt;</span><span class="n">Jlmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                        </span><span class="c">!  ** error.. insufficient storage for jl</span>
+<span class="w">                        </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span>
+<span class="w">                        </span><span class="k">return</span>
+<span class="k">                     else</span>
+<span class="k">                        </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">np1</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jlmin</span><span class="p">,</span><span class="w"> </span><span class="n">jlptr</span>
+<span class="w">                           </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
+<span class="w">                           </span><span class="n">Jl</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qm</span>
+<span class="w">                        </span><span class="k">enddo</span>
+<span class="k">                     endif</span>
+<span class="k">                  endif</span>
+<span class="k">               else</span>
+<span class="w">               </span><span class="c">!   ******  if so, jl can be compressed  ********************************</span>
+<span class="w">                  </span><span class="n">irll</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Irl</span><span class="p">(</span><span class="n">lasti</span><span class="p">)</span>
+<span class="w">                  </span><span class="n">Ijl</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irll</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Jl</span><span class="p">(</span><span class="n">irll</span><span class="p">)</span><span class="o">/=</span><span class="n">k</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Ijl</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ijl</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">               </span><span class="k">endif</span>
+<span class="k">            endif </span><span class="n">LUKZ</span>
+<span class="w">            </span><span class="n">Irl</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ijl</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="w">            </span><span class="n">Il</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Il</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">luk</span>
+<span class="w">            </span><span class="c">!</span>
+<span class="w">            </span><span class="c">!   ******  initialize q for computing kth row of u  ********************</span>
+<span class="w">            </span><span class="n">Q</span><span class="p">(</span><span class="n">np1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np1</span>
+<span class="w">            </span><span class="n">luk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
+<span class="w">            </span><span class="c">!   ******  by filling in kth row of reordered a  ***********************</span>
+<span class="w">            </span><span class="n">rk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">R</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="w">            </span><span class="n">jmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ira</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="w">            </span><span class="n">jmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ia</span><span class="p">(</span><span class="n">rk</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jmin</span><span class="o">&lt;=</span><span class="n">jmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">               do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jmin</span><span class="p">,</span><span class="w"> </span><span class="n">jmax</span>
+<span class="w">                  </span><span class="n">vj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ic</span><span class="p">(</span><span class="n">Ja</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
+<span class="w">                  </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np1</span>
+<span class="w">                  </span><span class="k">do</span>
+<span class="k">                     </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qm</span>
+<span class="w">                     </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="w">                     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">qm</span><span class="o">&gt;=</span><span class="n">vj</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">qm</span><span class="o">==</span><span class="n">vj</span><span class="w"> </span><span class="p">)</span><span class="k">then</span>
+<span class="w">                           </span><span class="c">!  ** error.. duplicate entry in a</span>
+<span class="w">                           </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">rk</span>
+<span class="w">                           </span><span class="k">return</span>
+<span class="k">                     endif</span>
+<span class="k">                        </span><span class="n">luk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">luk</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                        </span><span class="n">Q</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vj</span>
+<span class="w">                        </span><span class="n">Q</span><span class="p">(</span><span class="n">vj</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qm</span>
+<span class="w">                        </span><span class="k">exit</span>
+<span class="k">                     endif</span>
+<span class="k">                  enddo</span>
+<span class="k">               enddo</span>
+<span class="k">            endif</span>
+<span class="w">            </span><span class="c">!   ******  link through jrl,  ******************************************</span>
+<span class="w">            </span><span class="n">lastid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="n">lasti</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">            </span><span class="n">Iju</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">juptr</span>
+<span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span>
+<span class="w">            </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jrl</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="w">            </span><span class="k">do</span>
+<span class="k">               </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span>
+<span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">               </span><span class="c">!   ******  update jrl(k) and irl(k)  ***********************************</span>
+<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Il</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span><span class="n">Il</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                     </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jl</span><span class="p">(</span><span class="n">Irl</span><span class="p">(</span><span class="n">k</span><span class="p">))</span>
+<span class="w">                     </span><span class="n">Jrl</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jrl</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="w">                     </span><span class="n">Jrl</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span>
+<span class="w">                  </span><span class="k">endif</span>
+<span class="w">                  </span><span class="c">!   ******  lasti is the longest row merged into the kth  ***************</span>
+<span class="w">                  </span><span class="c">!   ******  see if it equals the entire kth row  ************************</span>
+<span class="w">                  </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">np1</span><span class="p">)</span>
+<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">qm</span><span class="o">/=</span><span class="n">k</span><span class="w"> </span><span class="p">)</span><span class="k">then</span>
+<span class="w">                     </span><span class="c">!  ** error.. null pivot</span>
+<span class="w">                     </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span>
+<span class="w">                     </span><span class="k">return</span>
+<span class="k">               endif</span>
+<span class="k">                  </span><span class="n">LUKY</span><span class="p">:</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">luk</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                     if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lastid</span><span class="o">/=</span><span class="n">luk</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                     </span><span class="c">!   ******  if not, see if kth row can overlap the previous one  ********</span>
+<span class="w">                        </span><span class="n">KTHROW</span><span class="p">:</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jumin</span><span class="o">&lt;=</span><span class="n">juptr</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                           </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
+<span class="w">                           </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jumin</span><span class="p">,</span><span class="w"> </span><span class="n">juptr</span>
+<span class="w">                              </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ju</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">&lt;</span><span class="n">qm</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">cycle</span>
+<span class="k">                              if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ju</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">==</span><span class="n">qm</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                                 </span><span class="n">Iju</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span>
+<span class="w">                                 </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">juptr</span>
+<span class="w">                                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ju</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">/=</span><span class="n">qm</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">exit </span><span class="n">KTHROW</span>
+<span class="w">                                    </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
+<span class="w">                                    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">qm</span><span class="o">&gt;</span><span class="n">N</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">exit </span><span class="n">LUKY</span>
+<span class="w">                                 </span><span class="k">enddo</span>
+<span class="k">                                 </span><span class="n">juptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                              </span><span class="k">endif</span>
+<span class="k">                              exit</span>
+<span class="k">                           enddo</span>
+<span class="k">                        endif </span><span class="n">KTHROW</span>
+<span class="w">                        </span><span class="c">!   ******  move row indices from q to ju, update vectors  **************</span>
+<span class="w">                        </span><span class="n">jumin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">juptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                        </span><span class="n">Iju</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jumin</span>
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">luk</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                           </span><span class="n">juptr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">juptr</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">luk</span>
+<span class="w">                           </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">juptr</span><span class="o">&gt;</span><span class="n">Jumax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                           </span><span class="c">!  ** error.. insufficient storage for ju</span>
+<span class="w">                              </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">k</span>
+<span class="w">                              </span><span class="k">return</span>
+<span class="k">                           else</span>
+<span class="k">                              </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">np1</span><span class="p">)</span>
+<span class="w">                              </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jumin</span><span class="p">,</span><span class="w"> </span><span class="n">juptr</span>
+<span class="w">                                 </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">qm</span><span class="p">)</span>
+<span class="w">                                 </span><span class="n">Ju</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qm</span>
+<span class="w">                              </span><span class="k">enddo</span>
+<span class="k">                           endif</span>
+<span class="k">                        endif</span>
+<span class="k">                     else</span>
+<span class="w">                        </span><span class="c">!   ******  if so, ju can be compressed  ********************************</span>
+<span class="w">                        </span><span class="n">irul</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iru</span><span class="p">(</span><span class="n">lasti</span><span class="p">)</span>
+<span class="w">                        </span><span class="n">Iju</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irul</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ju</span><span class="p">(</span><span class="n">irul</span><span class="p">)</span><span class="o">/=</span><span class="n">k</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Iju</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iju</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                     </span><span class="k">endif</span>
+<span class="k">                  endif </span><span class="n">LUKY</span>
+<span class="w">                  </span><span class="n">Iru</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iju</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="w">                  </span><span class="n">Iu</span><span class="p">(</span><span class="n">k</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iu</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">luk</span>
+<span class="w">               </span><span class="c">!</span>
+<span class="w">                  </span><span class="c">!   ******  update iru, jru  ********************************************</span>
+<span class="w">                  </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">k</span>
+<span class="w">                  </span><span class="k">exit </span><span class="n">LOOP</span>
+<span class="w">               </span><span class="k">else</span>
+<span class="k">                  </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jrl</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">                  </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np1</span>
+<span class="w">                  </span><span class="n">jmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iru</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">                  </span><span class="n">jmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iju</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Iu</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Iu</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                  </span><span class="nb">long</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jmax</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">jmin</span>
+<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">long</span><span class="o">&gt;=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                     </span><span class="n">jtmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ju</span><span class="p">(</span><span class="n">jmin</span><span class="p">)</span>
+<span class="w">                     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jtmp</span><span class="o">/=</span><span class="n">k</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">                     </span><span class="c">!   ******  update irl and jrl, *****************************************</span>
+<span class="w">                        </span><span class="nb">long</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">long</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                        </span><span class="n">cend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ijl</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Il</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Il</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">                        </span><span class="n">Irl</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Irl</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Irl</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">&lt;</span><span class="n">cend</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                           </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jl</span><span class="p">(</span><span class="n">Irl</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">                           </span><span class="n">Jrl</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jrl</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="w">                           </span><span class="n">Jrl</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span>
+<span class="w">                        </span><span class="k">endif</span>
+<span class="k">                     endif</span>
+<span class="k">                     if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lastid</span><span class="o">&lt;</span><span class="nb">long</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                        </span><span class="n">lasti</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span>
+<span class="w">                        </span><span class="n">lastid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">long</span>
+<span class="nb">                     </span><span class="k">endif</span>
+<span class="w">                     </span><span class="c">!   ******  and merge the corresponding rows into the kth row  **********</span>
+<span class="w">                     </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jmin</span><span class="p">,</span><span class="w"> </span><span class="n">jmax</span>
+<span class="w">                        </span><span class="n">vj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ju</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="w">                        </span><span class="k">do</span>
+<span class="k">                           </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qm</span>
+<span class="w">                           </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="w">                           </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">qm</span><span class="o">&gt;=</span><span class="n">vj</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                              if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">qm</span><span class="o">/=</span><span class="n">vj</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                                 </span><span class="n">luk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">luk</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                                 </span><span class="n">Q</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vj</span>
+<span class="w">                                 </span><span class="n">Q</span><span class="p">(</span><span class="n">vj</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qm</span>
+<span class="w">                                 </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vj</span>
+<span class="w">                              </span><span class="k">endif</span>
+<span class="k">                              exit</span>
+<span class="k">                           endif</span>
+<span class="k">                        enddo</span>
+<span class="k">                     enddo</span>
+<span class="k">                  endif</span>
+<span class="k">               endif</span>
+<span class="k">            enddo</span>
+<span class="k">         else</span>
+<span class="k">            </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">np1</span>
+<span class="w">            </span><span class="n">jmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Irl</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">            </span><span class="n">jmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ijl</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Il</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Il</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">            </span><span class="nb">long</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jmax</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">jmin</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">long</span><span class="o">&gt;=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">               </span><span class="n">jtmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jl</span><span class="p">(</span><span class="n">jmin</span><span class="p">)</span>
+<span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jtmp</span><span class="o">/=</span><span class="n">k</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="nb">long</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">long</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jtmp</span><span class="o">==</span><span class="n">k</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">R</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">R</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lastid</span><span class="o">&lt;</span><span class="nb">long</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                  </span><span class="n">lasti</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span>
+<span class="w">                  </span><span class="n">lastid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">long</span>
+<span class="nb">               </span><span class="k">endif</span>
+<span class="w">               </span><span class="c">!   ******  and merge the corresponding columns into the kth column  ****</span>
+<span class="w">               </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jmin</span><span class="p">,</span><span class="w"> </span><span class="n">jmax</span>
+<span class="w">                  </span><span class="n">vj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jl</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="w">                  </span><span class="k">do</span>
+<span class="k">                     </span><span class="n">m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qm</span>
+<span class="w">                     </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Q</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="w">                     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">qm</span><span class="o">&gt;=</span><span class="n">vj</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">qm</span><span class="o">/=</span><span class="n">vj</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">                           </span><span class="n">luk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">luk</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">                           </span><span class="n">Q</span><span class="p">(</span><span class="n">m</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vj</span>
+<span class="w">                           </span><span class="n">Q</span><span class="p">(</span><span class="n">vj</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">qm</span>
+<span class="w">                           </span><span class="n">qm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">vj</span>
+<span class="w">                        </span><span class="k">endif</span>
+<span class="k">                        exit</span>
+<span class="k">                     endif</span>
+<span class="k">                  enddo</span>
+<span class="k">               enddo</span>
+<span class="k">            endif</span>
+<span class="k">         endif</span>
+<span class="k">      enddo </span><span class="n">LOOP</span>
+<span class="w">      </span><span class="n">BACK</span><span class="p">:</span><span class="w"> </span><span class="k">do</span>
+<span class="k">         </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jru</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">R</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            </span><span class="n">R</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">R</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">         </span><span class="k">else</span>
+<span class="k">            </span><span class="n">rend</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iju</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">Iu</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Iu</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Iru</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">&lt;</span><span class="n">rend</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">               </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ju</span><span class="p">(</span><span class="n">Iru</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">               </span><span class="n">Jru</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jru</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="w">               </span><span class="n">Jru</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span>
+<span class="w">            </span><span class="k">endif</span>
+<span class="k">         endif</span>
+<span class="k">         </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">         </span><span class="c">!</span>
+<span class="w">         </span><span class="c">!   ******  update ira, jra, irac  **************************************</span>
+<span class="w">            </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Irac</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">cycle ALL</span>
+<span class="k">         else</span>
+<span class="k">            </span><span class="n">Iru</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iru</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">         </span><span class="k">cycle </span><span class="n">BACK</span>
+<span class="w">         </span><span class="k">endif</span>
+<span class="k">         exit </span><span class="n">BACK</span>
+<span class="w">      </span><span class="k">enddo </span><span class="n">BACK</span>
+<span class="w">      </span><span class="n">INFINITE</span><span class="p">:</span><span class="w"> </span><span class="k">do</span>
+<span class="k">         </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Jra</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">         </span><span class="n">Ira</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ira</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ira</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">&lt;</span><span class="n">Ia</span><span class="p">(</span><span class="n">R</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            </span><span class="n">irai</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ira</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">            </span><span class="n">jairai</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Ic</span><span class="p">(</span><span class="n">Ja</span><span class="p">(</span><span class="n">irai</span><span class="p">))</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jairai</span><span class="o">&lt;=</span><span class="n">i</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">               </span><span class="n">Jra</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Irac</span><span class="p">(</span><span class="n">jairai</span><span class="p">)</span>
+<span class="w">               </span><span class="n">Irac</span><span class="p">(</span><span class="n">jairai</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span>
+<span class="w">            </span><span class="k">endif</span>
+<span class="k">         endif</span>
+<span class="k">         </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">exit </span><span class="n">INFINITE</span>
+<span class="w">      </span><span class="k">enddo </span><span class="n">INFINITE</span>
+<span class="w">   </span><span class="k">enddo ALL</span>
+<span class="w">   </span><span class="c">!</span>
+<span class="w">   </span><span class="n">Ijl</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jlptr</span>
+<span class="w">   </span><span class="n">Iju</span><span class="p">(</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">juptr</span>
+<span class="w">   </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="k">end subroutine </span><span class="n">nsfc</span>
+</pre></div>
+
+    </section>
+    <br>
+    
+    </div>
+  </div>
+
+      <hr>
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+        <div class="row justify-content-between">
+          <div class="col"><p>odepack was developed by Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams<br>&copy; 2024 
+</p>
+          </div>
+          <div class="col">
+            <p class="text-end">
+              Documentation generated by
+              <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
+ on 2024-03-29 08:21              </p>
+          </div>
+        </div>
+        <br>
+      </div> <!-- /container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>    
+
+    <!-- MathJax JavaScript
+             ================================================== -->
+             <!-- Placed at the end of the document so the pages load faster -->
+        <script type="text/x-mathjax-config">
+          MathJax.Hub.Config({
+          TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+          jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+          extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
+          });
+        </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+          <script src="../tipuesearch/tipuesearch_content.js"></script>
+          <script src="../tipuesearch/tipuesearch_set.js"></script>
+          <script src="../tipuesearch/tipuesearch.js"></script>
+
+  </body>
+</html>

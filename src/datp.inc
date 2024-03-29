@@ -63,7 +63,7 @@ integer :: i
    pnrm = dvnorm(dls1%n,P,Wght)
    rpnrm = 1.0D0/pnrm
    !X!call dcopy(dls1%n,Y,1,W,1)
-   W(1:dls1%n) = Y(1:dls1%n)!X!
+   W(1:dls1%n) = Y(1:dls1%n)
 
    do i = 1, dls1%n
       Y(i) = W(i) + P(i)*rpnrm
@@ -73,7 +73,7 @@ integer :: i
 
    dls1%nfe = dls1%nfe + 1
    !X!call dcopy(dls1%n,W,1,Y,1)
-   Y(1:dls1%n) = W(1:dls1%n)!X!
+   Y(1:dls1%n) = W(1:dls1%n)
    fac = Hl0*pnrm
 
    do i = 1, dls1%n
