@@ -72,20 +72,19 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title=" 0.1% of total for procedures.">35 statements</a>
+                 title=" 0.2% of total for procedures.">35 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/M_odepack.f90"> Source File</a>
+              <a href="../src/diprep.inc"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/m_odepack.f90.html'>M_odepack.f90</a></li>
-                <li class="breadcrumb-item"><a href='../module/m_odepack.html'>M_odepack</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/diprep.inc.html'>diprep.inc</a></li>
             <li class="breadcrumb-item active" aria-current="page">diprep</li>
           </ol>
         </nav>
@@ -105,6 +104,22 @@
       <div id="sidebar">
       <h3>Contents</h3>
   
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/diprep~2.html#variable-i~106">i</a>
+            <a class="list-group-item" href="../proc/diprep~2.html#variable-imax~8">imax</a>
+            <a class="list-group-item" href="../proc/diprep~2.html#variable-lewtn~4">lewtn</a>
+            <a class="list-group-item" href="../proc/diprep~2.html#variable-lyhd~7">lyhd</a>
+            <a class="list-group-item" href="../proc/diprep~2.html#variable-lyhn~7">lyhn</a>
+        </div>
+      </div>
+    </div>
+
   
   
   
@@ -123,7 +138,12 @@
   
   
   
-  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/diprep~2.html#src">diprep</a>
+      </div>
+    </div>
 
 
   </div>
@@ -131,7 +151,7 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>public  subroutine diprep(Neq, Y, Rwork, Ia, Ja, Ipflag, f, jac)  
+    <h2> subroutine diprep(Neq, Y, Rwork, Ia, Ja, Ipflag, f, jac)  
 </h2>
     
 
@@ -163,7 +183,7 @@ if there was trouble in Subroutine DPREP.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-neq~30"></span>
+              <span class="anchor" id="variable-neq~63"></span>
               integer
             </td>
 <td></td>
@@ -178,7 +198,7 @@ if there was trouble in Subroutine DPREP.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-y~31"></span>
+              <span class="anchor" id="variable-y~64"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -193,7 +213,7 @@ if there was trouble in Subroutine DPREP.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-rwork~7"></span>
+              <span class="anchor" id="variable-rwork~17"></span>
               real(kind=dp),
             </td>
 <td>intent(inout)</td>
@@ -208,7 +228,7 @@ if there was trouble in Subroutine DPREP.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ia~17"></span>
+              <span class="anchor" id="variable-ia~21"></span>
               integer
             </td>
 <td></td>
@@ -223,7 +243,7 @@ if there was trouble in Subroutine DPREP.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ja~17"></span>
+              <span class="anchor" id="variable-ja~21"></span>
               integer
             </td>
 <td></td>
@@ -238,7 +258,7 @@ if there was trouble in Subroutine DPREP.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ipflag~2"></span>
+              <span class="anchor" id="variable-ipflag~4"></span>
               integer,
             </td>
 <td>intent(inout)</td>
@@ -253,7 +273,7 @@ if there was trouble in Subroutine DPREP.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~21"></span>
+              <span class="anchor" id="variable-f~43"></span>
               real
             </td>
 <td></td>
@@ -268,7 +288,7 @@ if there was trouble in Subroutine DPREP.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-jac~17"></span>
+              <span class="anchor" id="variable-jac~39"></span>
               integer
             </td>
 <td></td>
@@ -296,28 +316,28 @@ if there was trouble in Subroutine DPREP.</p>
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~diprep~2~~CallsGraph Pages: 1 -->
-<svg id="procdiprep2CallsGraph" width="212pt" height="32pt"
- viewBox="0.00 0.00 212.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg id="procdiprep2CallsGraph" width="204pt" height="32pt"
+ viewBox="0.00 0.00 204.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <g id="proc~~diprep~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
 <title>proc~~diprep~2~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 208,-28 208,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 200,-28 200,4 -4,4"/>
 <!-- proc~diprep~2 -->
 <g id="proc~~diprep~2~~CallsGraph_node1" class="node">
 <title>proc~diprep~2</title>
-<polygon fill="none" stroke="black" points="114,-24 0,-24 0,0 114,0 114,-24"/>
-<text text-anchor="middle" x="57" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">M_odepack::diprep</text>
+<polygon fill="none" stroke="black" points="106,-24 0,-24 0,0 106,0 106,-24"/>
+<text text-anchor="middle" x="53" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">diprep.inc::diprep</text>
 </g>
 <!-- dprep -->
 <g id="proc~~diprep~2~~CallsGraph_node2" class="node">
 <title>dprep</title>
-<polygon fill="#777777" stroke="#777777" points="204,-24 150,-24 150,0 204,0 204,-24"/>
-<text text-anchor="middle" x="177" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprep</text>
+<polygon fill="#777777" stroke="#777777" points="196,-24 142,-24 142,0 196,0 196,-24"/>
+<text text-anchor="middle" x="169" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprep</text>
 </g>
 <!-- proc~diprep~2&#45;&gt;dprep -->
 <g id="proc~~diprep~2~~CallsGraph_edge1" class="edge">
 <title>proc~diprep~2&#45;&gt;dprep</title>
-<path fill="none" stroke="#000000" d="M114.24,-12C122.9,-12 131.65,-12 139.73,-12"/>
-<polygon fill="#000000" stroke="#000000" points="139.89,-15.5 149.89,-12 139.89,-8.5 139.89,-15.5"/>
+<path fill="none" stroke="#000000" d="M106.33,-12C114.88,-12 123.56,-12 131.62,-12"/>
+<polygon fill="#000000" stroke="#000000" points="131.77,-15.5 141.77,-12 131.77,-8.5 131.77,-15.5"/>
 </g>
 </g>
 </svg>
@@ -400,127 +420,111 @@ implementation in a submodule of an interface in a parent module.
         </div>
       </div>
     </div>
-    <div class="card">
-      <div class="card-header">
-  <h3 class="card-title">Called by</h3>
-      </div>
-      <div class="card-body">
-  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
- "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
- -->
-<!-- Title: proc~~diprep~2~~CalledByGraph Pages: 1 -->
-<svg id="procdiprep2CalledByGraph" width="279pt" height="32pt"
- viewBox="0.00 0.00 279.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~diprep~2~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
-<title>proc~~diprep~2~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 275,-28 275,4 -4,4"/>
-<!-- proc~diprep~2 -->
-<g id="proc~~diprep~2~~CalledByGraph_node1" class="node">
-<title>proc~diprep~2</title>
-<polygon fill="none" stroke="black" points="271,-24 157,-24 157,0 271,0 271,-24"/>
-<text text-anchor="middle" x="214" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">M_odepack::diprep</text>
-</g>
-<!-- proc~dlsodes~2 -->
-<g id="proc~~diprep~2~~CalledByGraph_node2" class="node">
-<title>proc~dlsodes~2</title>
-<g id="a_proc~~diprep~2~~CalledByGraph_node2"><a xlink:href="../proc/dlsodes~2.html" xlink:title="M_odepack::dlsodes">
-<polygon fill="#d9534f" stroke="#d9534f" points="121,-24 0,-24 0,0 121,0 121,-24"/>
-<text text-anchor="middle" x="60.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::dlsodes</text>
-</a>
-</g>
-</g>
-<!-- proc~dlsodes~2&#45;&gt;proc~diprep~2 -->
-<g id="proc~~diprep~2~~CalledByGraph_edge1" class="edge">
-<title>proc~dlsodes~2&#45;&gt;proc~diprep~2</title>
-<path fill="none" stroke="#000000" d="M121.38,-12C129.61,-12 138.1,-12 146.45,-12"/>
-<polygon fill="#000000" stroke="#000000" points="146.52,-15.5 156.52,-12 146.52,-8.5 146.52,-15.5"/>
-</g>
-</g>
-</svg>
-</div>          <div>
-            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
-          </div>
-          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
-            <div class="modal-dialog modal-lg" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-<p>Nodes of different colours represent the following: </p>
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
- "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.43.0 (0)
- -->
-<!-- Title: Graph Key Pages: 1 -->
-<svg width="641pt" height="28pt"
- viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
-<title>Graph Key</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
-<!-- Subroutine -->
-<g id="node1" class="node">
-<title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
-<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
-</g>
-<!-- Function -->
-<g id="node2" class="node">
-<title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
-<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
-</g>
-<!-- Interface -->
-<g id="node3" class="node">
-<title>Interface</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
-<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
-</g>
-<!-- Type Bound Procedure -->
-<g id="node4" class="node">
-<title>Type Bound Procedure</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
-<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
-</g>
-<!-- Unknown Procedure Type -->
-<g id="node5" class="node">
-<title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
-<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
-</g>
-<!-- Program -->
-<g id="node6" class="node">
-<title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
-<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
-</g>
-<!-- This Page&#39;s Entity -->
-<g id="node7" class="node">
-<title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
-<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
-</g>
-</g>
-</svg>
-
-<p>Solid arrows point from a procedure to one which it calls. Dashed 
-arrows point from an interface to procedures which implement that interface.
-This could include the module procedures in a generic interface or the
-implementation in a submodule of an interface in a parent module.
-</p>
- </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <br>
 
 
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~106"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-imax~8"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>imax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lewtn~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lewtn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lyhd~7"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lyhd</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lyhn~7"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lyhn</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
     
     
 
@@ -530,6 +534,79 @@ implementation in a submodule of an interface in a parent module.
 
 
     
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">subroutine </span><span class="n">diprep</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Rwork</span><span class="p">,</span><span class="n">Ia</span><span class="p">,</span><span class="n">Ja</span><span class="p">,</span><span class="n">Ipflag</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">jac</span><span class="p">)</span>
+
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">Neq</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">Ia</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">Ja</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">Ipflag</span>
+<span class="k">external</span><span class="w">                    </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span>
+<span class="k">external</span><span class="w">                    </span><span class="kd">::</span><span class="w"> </span><span class="n">jac</span>
+
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">imax</span><span class="p">,</span><span class="w"> </span><span class="n">lewtn</span><span class="p">,</span><span class="w"> </span><span class="n">lyhd</span><span class="p">,</span><span class="w"> </span><span class="n">lyhn</span>
+
+<span class="c">!integer :: Iwork2(size(Rwork)*2) !SCRATCH SPACE</span>
+
+<span class="w">   </span><span class="n">Ipflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">   </span><span class="c">! ===============================================</span>
+<span class="w">   </span><span class="c">! subroutine dprep (neq, y, yh, savf, ewt, ftem, ia, ja, wk, iwk, ipper, f, jac)</span>
+<span class="w">   </span><span class="c">! integer          :: neq(*)</span>
+<span class="w">   </span><span class="c">! double precision :: y(*)</span>
+<span class="w">   </span><span class="c">! double precision :: yh(*)</span>
+<span class="w">   </span><span class="c">! double precision :: savf(*)</span>
+<span class="w">   </span><span class="c">! double precision :: ewt(*)</span>
+<span class="w">   </span><span class="c">! double precision :: ftem(*)</span>
+<span class="w">   </span><span class="c">! integer          :: ia(*)</span>
+<span class="w">   </span><span class="c">! integer          :: ja(*)</span>
+<span class="w">   </span><span class="c">! double precision :: wk(*)</span>
+<span class="w">   </span><span class="c">! integer          :: iwk(*)</span>
+<span class="w">   </span><span class="c">! integer          :: ipper</span>
+<span class="w">   </span><span class="c">! external         :: f</span>
+<span class="w">   </span><span class="c">! external         :: jac</span>
+<span class="w">   </span><span class="c">! ===============================================</span>
+<span class="w">   </span><span class="c">!  Call DPREP to do matrix preprocessing operations. --------------------</span>
+<span class="w">   </span><span class="k">call </span><span class="n">dprep</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">   </span><span class="p">&amp;</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lsavf</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="p">),</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lacor</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">   </span><span class="p">&amp;</span><span class="w"> </span><span class="n">Ia</span><span class="p">,</span><span class="n">Ja</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">   </span><span class="p">&amp;</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lwm</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">   </span><span class="p">&amp;</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lwm</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">   </span><span class="p">&amp;</span><span class="w"> </span><span class="n">Ipflag</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">   </span><span class="p">&amp;</span><span class="w"> </span><span class="n">f</span><span class="p">,</span><span class="n">jac</span><span class="p">)</span>
+
+<span class="w">   </span><span class="n">dlss</span><span class="p">%</span><span class="n">lenwk</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">dlss</span><span class="p">%</span><span class="n">lreq</span><span class="p">,</span><span class="n">dlss</span><span class="p">%</span><span class="n">lwmin</span><span class="p">)</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Ipflag</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
+<span class="w">   </span><span class="c">!  If DPREP was successful, move YH to end of required space for WM. ----</span>
+<span class="w">   </span><span class="n">lyhn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">lwm</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">lenwk</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lyhn</span><span class="o">&gt;</span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
+<span class="k">   </span><span class="n">lyhd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">lyhn</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lyhd</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      </span><span class="n">imax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lyhn</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">lenyhm</span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lyhn</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">imax</span>
+<span class="w">         </span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">lyhd</span><span class="p">)</span>
+<span class="w">      </span><span class="k">enddo</span>
+<span class="k">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lyhn</span>
+<span class="w">   </span><span class="k">endif</span>
+<span class="w">   </span><span class="c">!  Reset pointers for SAVF, EWT, and ACOR. ------------------------------</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">lsavf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">lenyh</span>
+<span class="w">   </span><span class="n">lewtn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">lsavf</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">lacor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lewtn</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dlss</span><span class="p">%</span><span class="n">istatc</span><span class="o">/=</span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">   </span><span class="c">!  If ISTATE = 1, move EWT (left) to its new position. ------------------</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lewtn</span><span class="o">&gt;</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
+<span class="k">      do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">         </span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">lewtn</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="k">enddo</span>
+<span class="k">   endif</span>
+<span class="k">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lewtn</span>
+<span class="k">end subroutine </span><span class="n">diprep</span>
+</pre></div>
+
+    </section>
+    <br>
     
     </div>
   </div>

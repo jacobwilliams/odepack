@@ -77,14 +77,15 @@
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/dlsode.inc"> Source File</a>
+              <a href="../src/M_odepack.f90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/dlsode.inc.html'>dlsode.inc</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/m_odepack.f90.html'>M_odepack.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/m_odepack.html'>M_odepack</a></li>
             <li class="breadcrumb-item active" aria-current="page">dlsode</li>
           </ol>
         </nav>
@@ -104,52 +105,6 @@
       <div id="sidebar">
       <h3>Contents</h3>
   
-      <div class="card mb-4">
-      <a data-bs-toggle="collapse" href="#vars-0"
-         aria-expanded="false" aria-controls="vars-0">
-         <h4 class="card-header bg-primary text-white">Variables</h4>
-      </a>
-      <div id="vars-0" class="collapse">
-        <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-atoli~17">atoli</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-ayi~14">ayi</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-big~16">big</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-ewti~16">ewti</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-h0~16">h0</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-hmax~16">hmax</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-hmx~16">hmx</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-i~114">i</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-i1~35">i1</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-i2~24">i2</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-iflag~19">iflag</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-ihit~16">ihit</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-imxer~16">imxer</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-kgo~17">kgo</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-leniw~16">leniw</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-lenrw~16">lenrw</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-lenwm~13">lenwm</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-lf0~12">lf0</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-ml~20">ml</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-mord~16">mord</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-msg~17">msg</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-mu~21">mu</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-mxhnl0~16">mxhnl0</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-mxstp0~16">mxstp0</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-rh~25">rh</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-rtoli~16">rtoli</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-size~16">size</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-sum~24">sum</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-tcrit~16">tcrit</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-tdist~15">tdist</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-tnext~16">tnext</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-tol~14">tol</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-tolsf~16">tolsf</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-tp~17">tp</a>
-            <a class="list-group-item" href="../proc/dlsode~2.html#variable-w0~14">w0</a>
-        </div>
-      </div>
-    </div>
-
   
   
   
@@ -168,12 +123,7 @@
   
   
   
-    <div class="card card-primary">
-      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
-      <div class="list-group">
-        <a class="list-group-item" href="../proc/dlsode~2.html#src">dlsode</a>
-      </div>
-    </div>
+  
 
 
   </div>
@@ -181,7 +131,7 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2> subroutine dlsode(f, Neq, Y, T, Tout, Itol, Rtol, Atol, Itask, Istate, Iopt, Rwork, Lrw, Iwork, Liw, jac, Mf)  
+    <h2>public  subroutine dlsode(f, Neq, Y, T, Tout, Itol, Rtol, Atol, Itask, Istate, Iopt, Rwork, Lrw, Iwork, Liw, jac, Mf)  
 </h2>
     
 
@@ -2375,7 +2325,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~46"></span>
+              <span class="anchor" id="variable-f~37"></span>
               real
             </td>
 <td></td>
@@ -2390,7 +2340,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-neq~67"></span>
+              <span class="anchor" id="variable-neq~54"></span>
               integer,
             </td>
 <td></td>
@@ -2405,7 +2355,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-y~69"></span>
+              <span class="anchor" id="variable-y~55"></span>
               real(kind=dp),
             </td>
 <td></td>
@@ -2420,7 +2370,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t~21"></span>
+              <span class="anchor" id="variable-t~15"></span>
               real(kind=dp),
             </td>
 <td>intent(inout)</td>
@@ -2435,7 +2385,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-tout~17"></span>
+              <span class="anchor" id="variable-tout~12"></span>
               real(kind=dp),
             </td>
 <td>intent(inout)</td>
@@ -2450,7 +2400,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-itol~18"></span>
+              <span class="anchor" id="variable-itol~13"></span>
               integer
             </td>
 <td></td>
@@ -2465,7 +2415,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-rtol~17"></span>
+              <span class="anchor" id="variable-rtol~11"></span>
               real(kind=dp),
             </td>
 <td></td>
@@ -2480,7 +2430,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-atol~18"></span>
+              <span class="anchor" id="variable-atol~13"></span>
               real(kind=dp),
             </td>
 <td></td>
@@ -2495,7 +2445,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-itask~16"></span>
+              <span class="anchor" id="variable-itask~10"></span>
               integer
             </td>
 <td></td>
@@ -2510,7 +2460,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-istate~16"></span>
+              <span class="anchor" id="variable-istate~10"></span>
               integer
             </td>
 <td></td>
@@ -2525,7 +2475,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-iopt~16"></span>
+              <span class="anchor" id="variable-iopt~10"></span>
               integer
             </td>
 <td></td>
@@ -2540,7 +2490,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-rwork~19"></span>
+              <span class="anchor" id="variable-rwork~13"></span>
               real(kind=dp),
             </td>
 <td>intent(inout),</td>
@@ -2555,7 +2505,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-lrw~16"></span>
+              <span class="anchor" id="variable-lrw~10"></span>
               integer
             </td>
 <td></td>
@@ -2570,7 +2520,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-iwork~16"></span>
+              <span class="anchor" id="variable-iwork~10"></span>
               integer,
             </td>
 <td>intent(inout),</td>
@@ -2585,7 +2535,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-liw~16"></span>
+              <span class="anchor" id="variable-liw~10"></span>
               integer
             </td>
 <td></td>
@@ -2600,7 +2550,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-jac~47"></span>
+              <span class="anchor" id="variable-jac~31"></span>
               integer
             </td>
 <td></td>
@@ -2615,7 +2565,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-mf~12"></span>
+              <span class="anchor" id="variable-mf~10"></span>
               integer
             </td>
 <td></td>
@@ -2643,88 +2593,94 @@
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~dlsode~2~~CallsGraph Pages: 1 -->
-<svg id="procdlsode2CallsGraph" width="209pt" height="242pt"
- viewBox="0.00 0.00 209.00 242.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~dlsode~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 238)">
+<svg id="procdlsode2CallsGraph" width="433pt" height="176pt"
+ viewBox="0.00 0.00 433.00 176.03" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dlsode~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 172.03)">
 <title>proc~~dlsode~2~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-238 205,-238 205,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-172.03 429,-172.03 429,4 -4,4"/>
 <!-- proc~dlsode~2 -->
 <g id="proc~~dlsode~2~~CallsGraph_node1" class="node">
 <title>proc~dlsode~2</title>
-<polygon fill="none" stroke="black" points="109,-129 0,-129 0,-105 109,-105 109,-129"/>
-<text text-anchor="middle" x="54.5" y="-114.6" font-family="Helvetica,sans-Serif" font-size="10.50">dlsode.inc::dlsode</text>
-</g>
-<!-- dewset -->
-<g id="proc~~dlsode~2~~CallsGraph_node2" class="node">
-<title>dewset</title>
-<polygon fill="#777777" stroke="#777777" points="200,-234 146,-234 146,-210 200,-210 200,-234"/>
-<text text-anchor="middle" x="173" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dewset</text>
-</g>
-<!-- proc~dlsode~2&#45;&gt;dewset -->
-<g id="proc~~dlsode~2~~CallsGraph_edge1" class="edge">
-<title>proc~dlsode~2&#45;&gt;dewset</title>
-<path fill="none" stroke="#000000" d="M67.62,-129.06C84.52,-145.72 116.33,-176.49 145,-201 145.96,-201.82 146.96,-202.66 147.96,-203.49"/>
-<polygon fill="#000000" stroke="#000000" points="145.83,-206.27 155.81,-209.8 150.21,-200.81 145.83,-206.27"/>
-</g>
-<!-- dintdy -->
-<g id="proc~~dlsode~2~~CallsGraph_node3" class="node">
-<title>dintdy</title>
-<polygon fill="#777777" stroke="#777777" points="200,-192 146,-192 146,-168 200,-168 200,-192"/>
-<text text-anchor="middle" x="173" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
-</g>
-<!-- proc~dlsode~2&#45;&gt;dintdy -->
-<g id="proc~~dlsode~2~~CallsGraph_edge2" class="edge">
-<title>proc~dlsode~2&#45;&gt;dintdy</title>
-<path fill="none" stroke="#000000" d="M77.96,-129.15C95.77,-138.78 120.87,-152.35 140.65,-163.05"/>
-<polygon fill="#000000" stroke="#000000" points="139.15,-166.21 149.61,-167.89 142.48,-160.05 139.15,-166.21"/>
+<polygon fill="none" stroke="black" points="115,-84.03 0,-84.03 0,-60.03 115,-60.03 115,-84.03"/>
+<text text-anchor="middle" x="57.5" y="-69.63" font-family="Helvetica,sans-Serif" font-size="10.50">M_odepack::dlsode</text>
 </g>
 <!-- dstode -->
-<g id="proc~~dlsode~2~~CallsGraph_node4" class="node">
+<g id="proc~~dlsode~2~~CallsGraph_node2" class="node">
 <title>dstode</title>
-<polygon fill="#777777" stroke="#777777" points="200,-150 146,-150 146,-126 200,-126 200,-150"/>
-<text text-anchor="middle" x="173" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstode</text>
+<polygon fill="#777777" stroke="#777777" points="238.5,-168.03 184.5,-168.03 184.5,-144.03 238.5,-144.03 238.5,-168.03"/>
+<text text-anchor="middle" x="211.5" y="-153.63" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dstode</text>
 </g>
 <!-- proc~dlsode~2&#45;&gt;dstode -->
-<g id="proc~~dlsode~2~~CallsGraph_edge3" class="edge">
+<g id="proc~~dlsode~2~~CallsGraph_edge1" class="edge">
 <title>proc~dlsode~2&#45;&gt;dstode</title>
-<path fill="none" stroke="#000000" d="M109.32,-126.7C118.39,-128.34 127.6,-130 136.07,-131.52"/>
-<polygon fill="#000000" stroke="#000000" points="135.52,-134.98 145.98,-133.31 136.76,-128.09 135.52,-134.98"/>
+<path fill="none" stroke="#000000" d="M73.77,-84.26C91.51,-98.03 122.05,-120.37 151,-135.03 158.5,-138.83 166.86,-142.24 174.88,-145.15"/>
+<polygon fill="#000000" stroke="#000000" points="173.82,-148.49 184.42,-148.45 176.11,-141.87 173.82,-148.49"/>
 </g>
-<!-- dumach -->
+<!-- proc~dewset -->
+<g id="proc~~dlsode~2~~CallsGraph_node3" class="node">
+<title>proc~dewset</title>
+<g id="a_proc~~dlsode~2~~CallsGraph_node3"><a xlink:href="../proc/dewset.html" xlink:title="M_odepack::dewset">
+<polygon fill="#d9534f" stroke="#d9534f" points="270.5,-126.03 152.5,-126.03 152.5,-102.03 270.5,-102.03 270.5,-126.03"/>
+<text text-anchor="middle" x="211.5" y="-111.63" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::dewset</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsode~2&#45;&gt;proc~dewset -->
+<g id="proc~~dlsode~2~~CallsGraph_edge2" class="edge">
+<title>proc~dlsode~2&#45;&gt;proc~dewset</title>
+<path fill="none" stroke="#000000" d="M102.06,-84.06C119.23,-88.81 139.12,-94.31 157.15,-99.29"/>
+<polygon fill="#000000" stroke="#000000" points="156.37,-102.7 166.94,-101.99 158.23,-95.95 156.37,-102.7"/>
+</g>
+<!-- proc~dintdy -->
+<g id="proc~~dlsode~2~~CallsGraph_node4" class="node">
+<title>proc~dintdy</title>
+<g id="a_proc~~dlsode~2~~CallsGraph_node4"><a xlink:href="../proc/dintdy.html" xlink:title="M_odepack::dintdy">
+<polygon fill="#d9534f" stroke="#d9534f" points="268,-84.03 155,-84.03 155,-60.03 268,-60.03 268,-84.03"/>
+<text text-anchor="middle" x="211.5" y="-69.63" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::dintdy</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsode~2&#45;&gt;proc~dintdy -->
+<g id="proc~~dlsode~2~~CallsGraph_edge3" class="edge">
+<title>proc~dlsode~2&#45;&gt;proc~dintdy</title>
+<path fill="none" stroke="#000000" d="M115.1,-72.03C124.75,-72.03 134.84,-72.03 144.7,-72.03"/>
+<polygon fill="#000000" stroke="#000000" points="144.86,-75.53 154.86,-72.03 144.86,-68.53 144.86,-75.53"/>
+</g>
+<!-- proc~dvnorm~2 -->
 <g id="proc~~dlsode~2~~CallsGraph_node5" class="node">
-<title>dumach</title>
-<polygon fill="#777777" stroke="#777777" points="201,-108 145,-108 145,-84 201,-84 201,-108"/>
-<text text-anchor="middle" x="173" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dumach</text>
+<title>proc~dvnorm~2</title>
+<g id="a_proc~~dlsode~2~~CallsGraph_node5"><a xlink:href="../proc/dvnorm~2.html" xlink:title="M_odepack::dvnorm">
+<polygon fill="#d94e8f" stroke="#d94e8f" points="272,-42.03 151,-42.03 151,-18.03 272,-18.03 272,-42.03"/>
+<text text-anchor="middle" x="211.5" y="-27.63" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::dvnorm</text>
+</a>
 </g>
-<!-- proc~dlsode~2&#45;&gt;dumach -->
+</g>
+<!-- proc~dlsode~2&#45;&gt;proc~dvnorm~2 -->
 <g id="proc~~dlsode~2~~CallsGraph_edge4" class="edge">
-<title>proc~dlsode~2&#45;&gt;dumach</title>
-<path fill="none" stroke="#000000" d="M109.32,-107.3C117.95,-105.74 126.72,-104.16 134.85,-102.7"/>
-<polygon fill="#000000" stroke="#000000" points="135.53,-106.13 144.75,-100.91 134.29,-99.24 135.53,-106.13"/>
+<title>proc~dlsode~2&#45;&gt;proc~dvnorm~2</title>
+<path fill="none" stroke="#000000" d="M102.06,-59.99C119.23,-55.25 139.12,-49.75 157.15,-44.77"/>
+<polygon fill="#000000" stroke="#000000" points="158.23,-48.1 166.94,-42.07 156.37,-41.36 158.23,-48.1"/>
 </g>
-<!-- dvnorm -->
+<!-- proc~xerrwd~2 -->
 <g id="proc~~dlsode~2~~CallsGraph_node6" class="node">
-<title>dvnorm</title>
-<polygon fill="#777777" stroke="#777777" points="200,-66 146,-66 146,-42 200,-42 200,-66"/>
-<text text-anchor="middle" x="173" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
+<title>proc~xerrwd~2</title>
+<g id="a_proc~~dlsode~2~~CallsGraph_node6"><a xlink:href="../proc/xerrwd~2.html" xlink:title="M_odepack::xerrwd">
+<polygon fill="#d9534f" stroke="#d9534f" points="425,-43.03 308,-43.03 308,-19.03 425,-19.03 425,-43.03"/>
+<text text-anchor="middle" x="366.5" y="-28.63" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::xerrwd</text>
+</a>
 </g>
-<!-- proc~dlsode~2&#45;&gt;dvnorm -->
+</g>
+<!-- proc~dlsode~2&#45;&gt;proc~xerrwd~2 -->
 <g id="proc~~dlsode~2~~CallsGraph_edge5" class="edge">
-<title>proc~dlsode~2&#45;&gt;dvnorm</title>
-<path fill="none" stroke="#000000" d="M77.96,-104.85C95.77,-95.22 120.87,-81.65 140.65,-70.95"/>
-<polygon fill="#000000" stroke="#000000" points="142.48,-73.95 149.61,-66.11 139.15,-67.79 142.48,-73.95"/>
+<title>proc~dlsode~2&#45;&gt;proc~xerrwd~2</title>
+<path fill="none" stroke="#000000" d="M70.95,-59.84C87.57,-44.51 118.69,-18.99 151,-9.03 207.59,8.41 276.14,-4.1 320.26,-16.21"/>
+<polygon fill="#000000" stroke="#000000" points="319.54,-19.64 330.11,-19.02 321.46,-12.91 319.54,-19.64"/>
 </g>
-<!-- xerrwd -->
-<g id="proc~~dlsode~2~~CallsGraph_node7" class="node">
-<title>xerrwd</title>
-<polygon fill="#777777" stroke="#777777" points="200,-24 146,-24 146,0 200,0 200,-24"/>
-<text text-anchor="middle" x="173" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">xerrwd</text>
-</g>
-<!-- proc~dlsode~2&#45;&gt;xerrwd -->
+<!-- proc~dintdy&#45;&gt;proc~xerrwd~2 -->
 <g id="proc~~dlsode~2~~CallsGraph_edge6" class="edge">
-<title>proc~dlsode~2&#45;&gt;xerrwd</title>
-<path fill="none" stroke="#000000" d="M67.62,-104.94C84.52,-88.28 116.33,-57.51 145,-33 145.96,-32.18 146.96,-31.34 147.96,-30.51"/>
-<polygon fill="#000000" stroke="#000000" points="150.21,-33.19 155.81,-24.2 145.83,-27.73 150.21,-33.19"/>
+<title>proc~dintdy&#45;&gt;proc~xerrwd~2</title>
+<path fill="none" stroke="#000000" d="M257.58,-59.95C274.16,-55.51 293.12,-50.43 310.48,-45.77"/>
+<polygon fill="#000000" stroke="#000000" points="311.73,-49.06 320.48,-43.09 309.92,-42.3 311.73,-49.06"/>
 </g>
 </g>
 </svg>
@@ -2810,618 +2766,6 @@ implementation in a submodule of an interface in a parent module.
     <br>
 
 
-    <section>    
-      <h2>Variables</h2>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-<th></th><th scope="col">Initial</th>        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-atoli~17"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>atoli</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-ayi~14"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>ayi</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-big~16"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>big</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-ewti~16"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>ewti</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-h0~16"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>h0</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-hmax~16"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>hmax</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-hmx~16"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>hmx</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-i~114"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>i</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-i1~35"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>i1</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-i2~24"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>i2</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-iflag~19"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>iflag</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-ihit~16"></span>
-              logical,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>ihit</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-imxer~16"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>imxer</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-kgo~17"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>kgo</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-leniw~16"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>leniw</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-lenrw~16"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>lenrw</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-lenwm~13"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>lenwm</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-lf0~12"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>lf0</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-ml~20"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>ml</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-mord~16"></span>
-              integer,
-            </td>
-              <td>public,</td>
-            <td>
-              dimension(2), save
-            </td>
-            <td>::</td>
-            <td><strong>mord</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-msg~17"></span>
-              character(len=80),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>msg</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-mu~21"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>mu</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-mxhnl0~16"></span>
-              integer,
-            </td>
-              <td>public,</td>
-            <td>
-              save
-            </td>
-            <td>::</td>
-            <td><strong>mxhnl0</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-mxstp0~16"></span>
-              integer,
-            </td>
-              <td>public,</td>
-            <td>
-              save
-            </td>
-            <td>::</td>
-            <td><strong>mxstp0</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-rh~25"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>rh</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-rtoli~16"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>rtoli</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-size~16"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>size</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-sum~24"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>sum</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-tcrit~16"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>tcrit</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-tdist~15"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>tdist</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-tnext~16"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>tnext</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-tol~14"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>tol</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-tolsf~16"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>tolsf</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-tp~17"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>tp</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-w0~14"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>w0</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-    </section>
-    <br>
     
     
 
@@ -3431,644 +2775,6 @@ implementation in a submodule of an interface in a parent module.
 
 
     
-    <section>
-    <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="k">subroutine </span><span class="n">dlsode</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">Neq</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Tout</span><span class="p">,</span><span class="n">Itol</span><span class="p">,</span><span class="n">Rtol</span><span class="p">,</span><span class="n">Atol</span><span class="p">,</span><span class="n">Itask</span><span class="p">,</span><span class="n">Istate</span><span class="p">,</span><span class="n">Iopt</span><span class="p">,</span><span class="n">Rwork</span><span class="p">,</span><span class="n">Lrw</span><span class="p">,</span><span class="n">Iwork</span><span class="p">,</span><span class="n">Liw</span><span class="p">,</span><span class="n">jac</span><span class="p">,</span><span class="n">Mf</span><span class="p">)</span>
-<span class="c">!</span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Atol</span><span class="p">,</span><span class="w"> </span><span class="n">Rtol</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span>
-<span class="k">external </span><span class="n">f</span>
-<span class="k">external </span><span class="n">jac</span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">atoli</span><span class="p">,</span><span class="w"> </span><span class="n">ayi</span><span class="p">,</span><span class="w"> </span><span class="n">big</span><span class="p">,</span><span class="w"> </span><span class="n">ewti</span><span class="p">,</span><span class="w"> </span><span class="n">h0</span><span class="p">,</span><span class="w"> </span><span class="n">hmax</span><span class="p">,</span><span class="w"> </span><span class="n">hmx</span><span class="p">,</span><span class="w"> </span><span class="n">rh</span><span class="p">,</span><span class="w"> </span><span class="n">rtoli</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">,</span><span class="w"> </span><span class="nb">sum</span><span class="p">,</span><span class="w"> </span><span class="n">tcrit</span><span class="p">,</span><span class="w"> </span><span class="n">tdist</span><span class="p">,</span><span class="w"> </span><span class="n">tnext</span><span class="p">,</span><span class="w"> </span><span class="n">tol</span><span class="p">,</span><span class="w"> </span><span class="n">tolsf</span><span class="p">,</span><span class="w"> </span><span class="n">tp</span><span class="p">,</span><span class="w"> </span><span class="n">w0</span>
-<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">,</span><span class="w"> </span><span class="n">i2</span><span class="p">,</span><span class="w"> </span><span class="n">iflag</span><span class="p">,</span><span class="w"> </span><span class="n">imxer</span><span class="p">,</span><span class="w"> </span><span class="n">kgo</span><span class="p">,</span><span class="w"> </span><span class="n">leniw</span><span class="p">,</span><span class="w"> </span><span class="n">lenrw</span><span class="p">,</span><span class="w"> </span><span class="n">lenwm</span><span class="p">,</span><span class="w"> </span><span class="n">lf0</span><span class="p">,</span><span class="w"> </span><span class="n">ml</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span>
-<span class="kt">logical</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ihit</span>
-<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Iopt</span><span class="p">,</span><span class="w"> </span><span class="n">Istate</span><span class="p">,</span><span class="w"> </span><span class="n">Itask</span><span class="p">,</span><span class="w"> </span><span class="n">Itol</span><span class="p">,</span><span class="w"> </span><span class="n">Liw</span><span class="p">,</span><span class="w"> </span><span class="n">Lrw</span><span class="p">,</span><span class="w"> </span><span class="n">Mf</span>
-<span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="n">Liw</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Iwork</span>
-<span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span><span class="w"> </span><span class="k">save</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mord</span>
-<span class="kt">character</span><span class="p">(</span><span class="mi">80</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">msg</span>
-<span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">save</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">mxhnl0</span><span class="p">,</span><span class="w"> </span><span class="n">mxstp0</span>
-<span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Neq</span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">),</span><span class="w"> </span><span class="k">dimension</span><span class="p">(</span><span class="n">Lrw</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Rwork</span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">T</span><span class="p">,</span><span class="w"> </span><span class="n">Tout</span>
-<span class="c">!</span>
-<span class="c">!   Declare all other variables.</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="c">!  The following internal Common block contains</span>
-<span class="c">!  (a) variables which are local to any subroutine but whose values must</span>
-<span class="c">!      be preserved between calls to the routine (&quot;own&quot; variables), and</span>
-<span class="c">!  (b) variables which are communicated between subroutines.</span>
-<span class="c">!  The block DLS001 is declared in subroutines DLSODE, DINTDY, DSTODE,</span>
-<span class="c">!  DPREPJ, and DSOLSY.</span>
-<span class="c">!  Groups of variables are replaced by dummy arrays in the Common</span>
-<span class="c">!  declarations in routines where those variables are not used.</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="c">!</span>
-<span class="k">data </span><span class="n">mord</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"> </span><span class="n">mord</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="o">/</span><span class="p">,</span><span class="w"> </span><span class="n">mxstp0</span><span class="o">/</span><span class="mi">500</span><span class="o">/</span><span class="p">,</span><span class="w"> </span><span class="n">mxhnl0</span><span class="o">/</span><span class="mi">10</span><span class="o">/</span>
-<span class="n">ihit</span><span class="o">=</span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="c">!  Block A.</span>
-<span class="c">!  This code block is executed on every call.</span>
-<span class="c">!  It tests ISTATE and ITASK for legality and branches appropriately.</span>
-<span class="c">!  If ISTATE .GT. 1 but the flag INIT shows that initialization has</span>
-<span class="c">!  not yet been done, an error return occurs.</span>
-<span class="c">!  If ISTATE = 1 and TOUT = T, return immediately.</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="c">!</span>
-<span class="c">! ### FIRST EXECUTABLE STATEMENT  DLSODE</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Istate</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">Istate</span><span class="o">&gt;</span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="w">   </span><span class="c">! -----------------------------------------------------------------------</span>
-<span class="w">   </span><span class="c">!  Block I.</span>
-<span class="w">   </span><span class="c">!  The following block handles all error returns due to illegal input</span>
-<span class="w">   </span><span class="c">!  (ISTATE = -3), as detected before calling the core integrator.</span>
-<span class="w">   </span><span class="c">!  First the error message routine is called.  If the illegal input</span>
-<span class="w">   </span><span class="c">!  is a negative ISTATE, the run is aborted (apparent infinite loop).</span>
-<span class="w">   </span><span class="c">! -----------------------------------------------------------------------</span>
-<span class="w">   </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  ISTATE (=I1) illegal &#39;</span>
-<span class="w">   </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Istate</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Istate</span><span class="o">&gt;=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-
-<span class="w">   </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  Run aborted.. apparent infinite loop     &#39;</span>
-<span class="w">   </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">303</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">   </span><span class="k">goto</span><span class="w"> </span><span class="mi">99999</span>
-<span class="k">else</span>
-<span class="k">   if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Itask</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">Itask</span><span class="o">&gt;</span><span class="mi">5</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">      </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  ITASK (=I1) illegal  &#39;</span>
-<span class="w">      </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Itask</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">      </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">   </span><span class="k">else</span>
-<span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Istate</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">         </span><span class="n">dls1</span><span class="p">%</span><span class="n">init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Tout</span><span class="o">==</span><span class="n">T</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">return</span>
-<span class="k">      elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">init</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">         </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  ISTATE .GT. 1 but DLSODE not initialized &#39;</span>
-<span class="w">         </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">         </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">      </span><span class="k">elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Istate</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">         goto</span><span class="w"> </span><span class="mi">50</span>
-<span class="w">      </span><span class="k">endif</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="c">!  Block B.</span>
-<span class="c">!  The next code block is executed for the initial call (ISTATE = 1),</span>
-<span class="c">!  or for a continuation call with parameter changes (ISTATE = 3).</span>
-<span class="c">!  It contains checking of all inputs and various initializations.</span>
-<span class="c">!</span>
-<span class="c">!  First check legality of the non-optional inputs NEQ, ITOL, IOPT,</span>
-<span class="c">!  MF, ML, and MU.</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Neq</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">         </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  NEQ (=I1) .LT. 1     &#39;</span>
-<span class="w">         </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Neq</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">         </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">      </span><span class="k">else</span>
-<span class="k">         if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Istate</span><span class="o">/=</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Neq</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">&gt;</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">               </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  ISTATE = 3 and NEQ increased (I1 to I2)  &#39;</span>
-<span class="w">               </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Neq</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">               </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">            </span><span class="k">endif</span>
-<span class="k">         endif</span>
-<span class="k">         </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Neq</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Itol</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">Itol</span><span class="o">&gt;</span><span class="mi">4</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  ITOL (=I1) illegal   &#39;</span>
-<span class="w">            </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Itol</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">            </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">         </span><span class="k">elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Iopt</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">Iopt</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  IOPT (=I1) illegal   &#39;</span>
-<span class="w">            </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Iopt</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">            </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">         </span><span class="k">else</span>
-<span class="k">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">meth</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mf</span><span class="o">/</span><span class="mi">10</span>
-<span class="w">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Mf</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">10</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">meth</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">meth</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">meth</span><span class="o">&gt;</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">700</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="o">&gt;</span><span class="mi">5</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">700</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="o">&gt;</span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">               </span><span class="n">ml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iwork</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">               </span><span class="n">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iwork</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ml</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">ml</span><span class="o">&gt;=</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                  </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  ML (=I1) illegal.. .LT.0 or .GE.NEQ (=I2)&#39;</span>
-<span class="w">                  </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">ml</span><span class="p">,</span><span class="n">Neq</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">                  </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">               </span><span class="k">elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">mu</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">mu</span><span class="o">&gt;=</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                  </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  MU (=I1) illegal.. .LT.0 or .GE.NEQ (=I2)&#39;</span>
-<span class="w">                  </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">Neq</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">                  </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">               </span><span class="k">endif</span>
-<span class="k">            endif</span>
-<span class="c">!  Next process and check the optional inputs. --------------------------</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Iopt</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">               </span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iwork</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                  </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  MAXORD (=I1) .LT. 0  &#39;</span>
-<span class="w">                  </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">                  </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">               </span><span class="k">else</span>
-<span class="k">                  if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="p">,</span><span class="n">mord</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">meth</span><span class="p">))</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">mxstep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iwork</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">mxstep</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                     </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  MXSTEP (=I1) .LT. 0  &#39;</span>
-<span class="w">                     </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">mxstep</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">                     </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">                  </span><span class="k">else</span>
-<span class="k">                     if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">mxstep</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">mxstep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mxstp0</span>
-<span class="w">                     </span><span class="n">dls1</span><span class="p">%</span><span class="n">mxhnil</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iwork</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-<span class="w">                     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">mxhnil</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                        </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  MXHNIL (=I1) .LT. 0  &#39;</span>
-<span class="w">                        </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">mxhnil</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">                        </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">                     </span><span class="k">else</span>
-<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">mxhnil</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">mxhnil</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mxhnl0</span>
-<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Istate</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                           </span><span class="n">h0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="w">                           </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">Tout</span><span class="o">-</span><span class="n">T</span><span class="p">)</span><span class="o">*</span><span class="n">h0</span><span class="o">&lt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                              </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  TOUT (=R1) behind T (=R2)      &#39;</span>
-<span class="w">                              </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">Tout</span><span class="p">,</span><span class="n">T</span><span class="p">)</span>
-<span class="w">                              </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;      Integration direction is given by H0 (=R1)  &#39;</span>
-<span class="w">                              </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">h0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">                              </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">                           </span><span class="k">endif</span>
-<span class="k">                        endif</span>
-<span class="k">                        </span><span class="n">hmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">hmax</span><span class="o">&lt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                           </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  HMAX (=R1) .LT. 0.0  &#39;</span>
-<span class="w">                           </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">hmax</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">                           </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">                        </span><span class="k">else</span>
-<span class="k">                           </span><span class="n">dls1</span><span class="p">%</span><span class="n">hmxi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
-<span class="w">                           </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">hmax</span><span class="o">&gt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">hmxi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="n">hmax</span>
-<span class="w">                           </span><span class="n">dls1</span><span class="p">%</span><span class="n">hmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
-<span class="w">                           </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">hmin</span><span class="o">&lt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                              </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  HMIN (=R1) .LT. 0.0  &#39;</span>
-<span class="w">                              </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">hmin</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">                              </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">                           </span><span class="k">endif</span>
-<span class="k">                        endif</span>
-<span class="k">                     endif</span>
-<span class="k">                  endif</span>
-<span class="k">               endif</span>
-<span class="k">            else</span>
-<span class="k">               </span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mord</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">meth</span><span class="p">)</span>
-<span class="w">               </span><span class="n">dls1</span><span class="p">%</span><span class="n">mxstep</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mxstp0</span>
-<span class="w">               </span><span class="n">dls1</span><span class="p">%</span><span class="n">mxhnil</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mxhnl0</span>
-<span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Istate</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">h0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
-<span class="w">               </span><span class="n">dls1</span><span class="p">%</span><span class="n">hmxi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
-<span class="w">               </span><span class="n">dls1</span><span class="p">%</span><span class="n">hmin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
-<span class="w">            </span><span class="k">endif</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="c">!  Set work array pointers and check lengths LRW and LIW.</span>
-<span class="c">!  Pointers to segments of RWORK and IWORK are named by prefixing L to</span>
-<span class="c">!  the name of the segment.  E.g., the segment YH starts at RWORK(LYH).</span>
-<span class="c">!  Segments of RWORK (in order) are denoted  YH, WM, EWT, SAVF, ACOR.</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="w">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">21</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Istate</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nyh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">lwm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">nyh</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">lenwm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">lenwm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="o">==</span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">lenwm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="o">&gt;=</span><span class="mi">4</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">lenwm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">ml</span><span class="o">+</span><span class="n">mu</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span>
-<span class="w">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">lwm</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lenwm</span>
-<span class="w">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">lsavf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">lacor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">lsavf</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">            </span><span class="n">lenrw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">lacor</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">            </span><span class="n">Iwork</span><span class="p">(</span><span class="mi">17</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lenrw</span>
-<span class="w">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">liwm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">            </span><span class="n">leniw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="o">==</span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">leniw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
-<span class="w">            </span><span class="n">Iwork</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">leniw</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">lenrw</span><span class="o">&gt;</span><span class="n">Lrw</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">               </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  RWORK length needed, LENRW (=I1), exceeds LRW (=I2)&#39;</span>
-<span class="w">               </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">lenrw</span><span class="p">,</span><span class="n">Lrw</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">               </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">            </span><span class="k">elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">leniw</span><span class="o">&gt;</span><span class="n">Liw</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">               </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  IWORK length needed, LENIW (=I1), exceeds LIW (=I2)&#39;</span>
-<span class="w">               </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">18</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">leniw</span><span class="p">,</span><span class="n">Liw</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">               </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">            </span><span class="k">else</span>
-<span class="c">!  Check RTOL and ATOL for legality. ------------------------------------</span>
-<span class="w">               </span><span class="n">rtoli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rtol</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">               </span><span class="n">atoli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Atol</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">               </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Itol</span><span class="o">&gt;=</span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">rtoli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rtol</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Itol</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">Itol</span><span class="o">==</span><span class="mi">4</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">atoli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Atol</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rtoli</span><span class="o">&lt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                     </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  RTOL(I1) is R1 .LT. 0.0        &#39;</span>
-<span class="w">                     </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">rtoli</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">                     </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">                  </span><span class="k">elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">atoli</span><span class="o">&lt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                     </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  ATOL(I1) is R1 .LT. 0.0        &#39;</span>
-<span class="w">                     </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">atoli</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">                     </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">                  </span><span class="k">endif</span>
-<span class="k">               enddo</span>
-<span class="k">               if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Istate</span><span class="o">==</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="c">!  Block C.</span>
-<span class="c">!  The next block is for the initial call only (ISTATE = 1).</span>
-<span class="c">!  It contains all remaining initializations, the initial call to F,</span>
-<span class="c">!  and the calculation of the initial step size.</span>
-<span class="c">!  The error weights in EWT are inverted after being loaded.</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dumach</span><span class="p">()</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">T</span>
-<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Itask</span><span class="o">==</span><span class="mi">4</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">Itask</span><span class="o">==</span><span class="mi">5</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                     </span><span class="n">tcrit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">                     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">tcrit</span><span class="o">-</span><span class="n">Tout</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Tout</span><span class="o">-</span><span class="n">T</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">900</span>
-<span class="w">                     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">h0</span><span class="o">/=</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="p">(</span><span class="n">T</span><span class="o">+</span><span class="n">h0</span><span class="o">-</span><span class="n">tcrit</span><span class="p">)</span><span class="o">*</span><span class="n">h0</span><span class="o">&gt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">h0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tcrit</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">T</span>
-<span class="w">                  </span><span class="k">endif</span>
-<span class="k">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">jstart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lwm</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="p">)</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">nhnil</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">nst</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">nje</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">nslast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">hu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">nqu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">ccmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.3D0</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">maxcor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">msbp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">20</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">mxncf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span>
-<span class="c">!  Initial call to F.  (LF0 points to YH(*,2).) -------------------------</span>
-<span class="w">                  </span><span class="n">lf0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nyh</span>
-<span class="w">                  </span><span class="k">call </span><span class="n">f</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">T</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">lf0</span><span class="p">))</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">nfe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="c">!  Load the initial value vector in YH. ---------------------------------</span>
-<span class="w">                  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">                     </span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="w">                  </span><span class="k">enddo</span>
-<span class="c">!  Load and invert the EWT array.  (H is temporarily set to 1.0.) -------</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span>
-<span class="w">                  </span><span class="k">call </span><span class="n">dewset</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Itol</span><span class="p">,</span><span class="n">Rtol</span><span class="p">,</span><span class="n">Atol</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="p">))</span>
-<span class="w">                  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">                     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">&lt;=</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                        </span><span class="n">ewti</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="o">+</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">                        </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  EWT(I1) is R1 .LE. 0.0         &#39;</span>
-<span class="w">                        </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">ewti</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">                        </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">                     </span><span class="k">else</span>
-<span class="k">                        </span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">                     </span><span class="k">endif</span>
-<span class="k">                  enddo</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="c">!  The coding below computes the step size, H0, to be attempted on the</span>
-<span class="c">!  first step, unless the user has supplied a value for this.</span>
-<span class="c">!  First check that TOUT - T differs significantly from zero.</span>
-<span class="c">!  A scalar tolerance quantity TOL is computed, as MAX(RTOL(I))</span>
-<span class="c">!  if this is positive, or MAX(ATOL(I)/ABS(Y(I))) otherwise, adjusted</span>
-<span class="c">!  so as to be between 100*UROUND and 1.0E-3.</span>
-<span class="c">!  Then the computed value H0 is given by..</span>
-<span class="c">!                                       NEQ</span>
-<span class="c">!    H0**2 = TOL / ( w0**-2 + (1/NEQ) * SUM ( f(i)/ywt(i) )**2  )</span>
-<span class="c">!                                        1</span>
-<span class="c">!  where   w0     = MAX ( ABS(T), ABS(TOUT) ),</span>
-<span class="c">!          f(i)   = i-th component of initial value of f,</span>
-<span class="c">!          ywt(i) = EWT(i)/TOL  (a weight for y(i)).</span>
-<span class="c">!  The sign of H0 is inferred from the initial values of TOUT and T.</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">h0</span><span class="o">==</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                     </span><span class="n">tdist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">Tout</span><span class="o">-</span><span class="n">T</span><span class="p">)</span>
-<span class="w">                     </span><span class="n">w0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">T</span><span class="p">),</span><span class="nb">abs</span><span class="p">(</span><span class="n">Tout</span><span class="p">))</span>
-<span class="w">                     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tdist</span><span class="o">&lt;</span><span class="mf">2.0D0</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="o">*</span><span class="n">w0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                        </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  TOUT (=R1) too close to T(=R2) to start integration&#39;</span>
-<span class="w">                        </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">22</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">Tout</span><span class="p">,</span><span class="n">T</span><span class="p">)</span>
-<span class="w">                        </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">                     </span><span class="k">else</span>
-<span class="k">                        </span><span class="n">tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rtol</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">                        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Itol</span><span class="o">&gt;</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                           do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">                              </span><span class="n">tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">tol</span><span class="p">,</span><span class="n">Rtol</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-<span class="w">                           </span><span class="k">enddo</span>
-<span class="k">                        endif</span>
-<span class="k">                        if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tol</span><span class="o">&lt;=</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                           </span><span class="n">atoli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Atol</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">                           </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">                              </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Itol</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">Itol</span><span class="o">==</span><span class="mi">4</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">atoli</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Atol</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="w">                              </span><span class="n">ayi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-<span class="w">                              </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ayi</span><span class="o">/=</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">tol</span><span class="p">,</span><span class="n">atoli</span><span class="o">/</span><span class="n">ayi</span><span class="p">)</span>
-<span class="w">                           </span><span class="k">enddo</span>
-<span class="k">                        endif</span>
-<span class="k">                        </span><span class="n">tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">tol</span><span class="p">,</span><span class="mi">10</span><span class="mf">0.0D0</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="p">)</span>
-<span class="w">                        </span><span class="n">tol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">tol</span><span class="p">,</span><span class="mf">0.001D0</span><span class="p">)</span>
-<span class="w">                        </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dvnorm</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">lf0</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="p">))</span>
-<span class="w">                        </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="p">(</span><span class="n">tol</span><span class="o">*</span><span class="n">w0</span><span class="o">*</span><span class="n">w0</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">tol</span><span class="o">*</span><span class="nb">sum</span><span class="o">**</span><span class="mi">2</span>
-<span class="w">                        </span><span class="n">h0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="nb">sqrt</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
-<span class="w">                        </span><span class="n">h0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">h0</span><span class="p">,</span><span class="n">tdist</span><span class="p">)</span>
-<span class="w">                        </span><span class="n">h0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sign</span><span class="p">(</span><span class="n">h0</span><span class="p">,</span><span class="n">Tout</span><span class="o">-</span><span class="n">T</span><span class="p">)</span>
-<span class="w">                     </span><span class="k">endif</span>
-<span class="k">                  endif</span>
-<span class="c">!  Adjust H0 if necessary to meet HMAX bound. ---------------------------</span>
-<span class="w">                  </span><span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">h0</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">hmxi</span>
-<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">rh</span><span class="o">&gt;</span><span class="mf">1.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">h0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h0</span><span class="o">/</span><span class="n">rh</span>
-<span class="c">!  Load H with H0 and scale YH(*,2) by H0. ------------------------------</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h0</span>
-<span class="w">                  </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">                     </span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">lf0</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">h0</span><span class="o">*</span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">lf0</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">                  </span><span class="k">enddo</span>
-<span class="k">                  goto</span><span class="w"> </span><span class="mi">200</span>
-<span class="w">               </span><span class="k">else</span>
-<span class="c">!  If ISTATE = 3, set flag to signal parameter changes to DSTODE. -------</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">jstart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
-<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="o">&gt;</span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="c">!  MAXORD was reduced below NQ.  Copy YH(*,MAXORD+2) into SAVF. ---------</span>
-<span class="w">                     </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">                        </span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">lsavf</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">lwm</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">                     </span><span class="k">enddo</span>
-<span class="k">                  endif</span>
-<span class="c">!  Reload WM(1) = RWORK(LWM), since LWM may have changed. ---------------</span>
-<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lwm</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sqrt</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="p">)</span>
-<span class="w">                  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="o">/=</span><span class="n">dls1</span><span class="p">%</span><span class="n">nyh</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="c">!  NEQ was reduced.  Zero part of YH to avoid undefined references. -----</span>
-<span class="w">                     </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">l</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">nyh</span>
-<span class="w">                     </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">nyh</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">                     </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i1</span><span class="o">&lt;=</span><span class="n">i2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                        do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span><span class="p">,</span><span class="w"> </span><span class="n">i2</span>
-<span class="w">                           </span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
-<span class="w">                        </span><span class="k">enddo</span>
-<span class="k">                     endif</span>
-<span class="k">                  endif</span>
-<span class="k">               endif</span>
-<span class="k">            endif</span>
-<span class="k">         endif</span>
-<span class="k">      endif</span>
-<span class="k">   endif</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="c">!  Block D.</span>
-<span class="c">!  The next code block is for continuation calls only (ISTATE = 2 or 3)</span>
-<span class="c">!  and is to check stop conditions before taking a step.</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="w"> </span><span class="mi">50</span><span class="w">   </span><span class="k">continue</span>
-<span class="k">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">nslast</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nst</span>
-<span class="w">   </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">Itask</span><span class="p">)</span>
-<span class="w">   </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">      </span><span class="k">goto</span><span class="w"> </span><span class="mi">100</span>
-<span class="w">   </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="w">      </span><span class="n">tp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">hu</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0D0</span><span class="o">+</span><span class="mi">10</span><span class="mf">0.0D0</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="p">)</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">tp</span><span class="o">-</span><span class="n">Tout</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">&gt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">         </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  ITASK = I1 and TOUT (=R1) behind TCUR - HU (= R2)  &#39;</span>
-<span class="w">         </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Itask</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">Tout</span><span class="p">,</span><span class="n">tp</span><span class="p">)</span>
-<span class="w">         </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">      </span><span class="k">else</span>
-<span class="k">         if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="o">-</span><span class="n">Tout</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">&gt;=</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">300</span>
-<span class="w">         </span><span class="k">goto</span><span class="w"> </span><span class="mi">100</span>
-<span class="w">      </span><span class="k">endif</span>
-<span class="k">   case</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="w">      </span><span class="n">tcrit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="o">-</span><span class="n">tcrit</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">&gt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">800</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">tcrit</span><span class="o">-</span><span class="n">Tout</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">&lt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">900</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="o">-</span><span class="n">Tout</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">&gt;=</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">         call </span><span class="n">dintdy</span><span class="p">(</span><span class="n">Tout</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="p">),</span><span class="n">dls1</span><span class="p">%</span><span class="n">nyh</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">iflag</span><span class="p">)</span>
-<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">iflag</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">1000</span>
-<span class="w">         </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tout</span>
-<span class="w">         </span><span class="k">goto</span><span class="w"> </span><span class="mi">400</span>
-<span class="w">      </span><span class="k">endif</span>
-<span class="k">   case</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="w">      </span><span class="n">tcrit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="o">-</span><span class="n">tcrit</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">&gt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">800</span>
-<span class="w">   </span><span class="k">case </span><span class="n">default</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="o">-</span><span class="n">Tout</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">&lt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">100</span>
-<span class="w">      </span><span class="k">call </span><span class="n">dintdy</span><span class="p">(</span><span class="n">Tout</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="p">),</span><span class="n">dls1</span><span class="p">%</span><span class="n">nyh</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">iflag</span><span class="p">)</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">iflag</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">1000</span>
-<span class="w">      </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tout</span>
-<span class="w">      </span><span class="k">goto</span><span class="w"> </span><span class="mi">400</span>
-<span class="w">   </span><span class="k">endselect</span>
-<span class="k">   </span><span class="n">hmx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">)</span>
-<span class="w">   </span><span class="n">ihit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="o">-</span><span class="n">tcrit</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">10</span><span class="mf">0.0D0</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="o">*</span><span class="n">hmx</span>
-<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ihit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">300</span>
-<span class="w">   </span><span class="n">tnext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0D0</span><span class="o">+</span><span class="mf">4.0D0</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="p">)</span>
-<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">tnext</span><span class="o">-</span><span class="n">tcrit</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">&gt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">tcrit</span><span class="o">-</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0D0</span><span class="o">-</span><span class="mf">4.0D0</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="p">)</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Istate</span><span class="o">==</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">jstart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span>
-<span class="w">   </span><span class="k">endif</span>
-<span class="k">endif</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="c">!  Block E.</span>
-<span class="c">!  The next block is normally executed for all calls and contains</span>
-<span class="c">!  the call to the one-step core integrator DSTODE.</span>
-<span class="c">!</span>
-<span class="c">!  This is a looping point for the integration steps.</span>
-<span class="c">!</span>
-<span class="c">!  First check for too many steps being taken, update EWT (if not at</span>
-<span class="c">!  start of problem), check for too much accuracy being requested, and</span>
-<span class="c">!  check for H below the roundoff level in T.</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="w"> </span><span class="mi">100</span><span class="w">  </span><span class="k">continue</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">nst</span><span class="o">-</span><span class="n">dls1</span><span class="p">%</span><span class="n">nslast</span><span class="p">)</span><span class="o">&gt;=</span><span class="n">dls1</span><span class="p">%</span><span class="n">mxstep</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="c">!  Block H.</span>
-<span class="c">!  The following block handles all unsuccessful returns other than</span>
-<span class="c">!  those for illegal input.  First the error message routine is called.</span>
-<span class="c">!  If there was an error test or convergence test failure, IMXER is set.</span>
-<span class="c">!  Then Y is loaded from YH and T is set to TN.  The optional outputs</span>
-<span class="c">!  are loaded into the work arrays before returning.</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="c">!  The maximum number of steps was taken before reaching TOUT. ----------</span>
-<span class="w">   </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  At current T (=R1), MXSTEP (=I1) steps   &#39;</span>
-<span class="w">   </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">201</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">   </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;      taken on this call before reaching TOUT     &#39;</span>
-<span class="w">   </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">201</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">mxstep</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">   </span><span class="n">Istate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
-<span class="w">   </span><span class="k">goto</span><span class="w"> </span><span class="mi">600</span>
-<span class="k">else</span>
-<span class="k">   call </span><span class="n">dewset</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Itol</span><span class="p">,</span><span class="n">Rtol</span><span class="p">,</span><span class="n">Atol</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="p">))</span>
-<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">&lt;=</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="c">!  EWT(I) .LE. 0.0 for some I (not at start of problem). ----------------</span>
-<span class="w">         </span><span class="n">ewti</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="o">+</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">         </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  At T (=R1), EWT(I1) has become R2 .LE. 0.&#39;</span>
-<span class="w">         </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">202</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">i</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">,</span><span class="n">ewti</span><span class="p">)</span>
-<span class="w">         </span><span class="n">Istate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">6</span>
-<span class="w">         </span><span class="k">goto</span><span class="w"> </span><span class="mi">600</span>
-<span class="w">      </span><span class="k">else</span>
-<span class="k">         </span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span><span class="o">/</span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">      </span><span class="k">endif</span>
-<span class="k">   enddo</span>
-<span class="k">endif</span>
-<span class="k"> </span><span class="mi">200</span><span class="w">  </span><span class="k">continue</span>
-<span class="n">tolsf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="o">*</span><span class="n">dvnorm</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="p">))</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">tolsf</span><span class="o">&lt;=</span><span class="mf">1.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">   if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">)</span><span class="o">==</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">nhnil</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nhnil</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nhnil</span><span class="o">&lt;=</span><span class="n">dls1</span><span class="p">%</span><span class="n">mxhnil</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">         </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  Warning..internal T (=R1) and H (=R2) are&#39;</span>
-<span class="w">         </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">         </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;      such that in the machine, T + H = T on the next step  &#39;</span>
-<span class="w">         </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">         </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;      (H = step size). Solver will continue anyway&#39;</span>
-<span class="w">         </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">101</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">)</span>
-<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nhnil</span><span class="o">&gt;=</span><span class="n">dls1</span><span class="p">%</span><span class="n">mxhnil</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  Above warning has been issued I1 times.  &#39;</span>
-<span class="w">            </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">102</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">            </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;      It will not be issued again for this problem&#39;</span>
-<span class="w">            </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">102</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">mxhnil</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">         </span><span class="k">endif</span>
-<span class="k">      endif</span>
-<span class="k">   endif</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="c">!   CALL DSTODE(NEQ,Y,YH,NYH,YH,EWT,SAVF,ACOR,WM,IWM,f,JAC,DPREPJ,DSOLSY)</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="w">   </span><span class="k">call </span><span class="n">dstode</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="p">),</span><span class="n">dls1</span><span class="p">%</span><span class="n">nyh</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">    </span><span class="p">&amp;</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lsavf</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lacor</span><span class="p">),</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lwm</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span>
-<span class="w">             </span><span class="p">&amp;</span><span class="w"> </span><span class="n">Iwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">liwm</span><span class="p">),</span><span class="n">f</span><span class="p">,</span><span class="n">jac</span><span class="p">,</span><span class="n">dprepj</span><span class="p">,</span><span class="n">dsolsy</span><span class="p">)</span>
-<span class="w">   </span><span class="n">kgo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span>
-<span class="w">   </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">kgo</span><span class="p">)</span>
-<span class="w">   </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="c">!  KFLAG = -1.  Error test failed repeatedly or with ABS(H) = HMIN. -----</span>
-<span class="w">      </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  At T(=R1) and step size H(=R2), the error&#39;</span>
-<span class="w">      </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">204</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">      </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;      test failed repeatedly or with ABS(H) = HMIN&#39;</span>
-<span class="w">      </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">204</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">)</span>
-<span class="w">      </span><span class="n">Istate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">4</span>
-<span class="w">      </span><span class="k">goto</span><span class="w"> </span><span class="mi">500</span>
-<span class="w">   </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="c">!  KFLAG = -2.  Convergence failed repeatedly or with ABS(H) = HMIN. ----</span>
-<span class="w">      </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  At T (=R1) and step size H (=R2), the    &#39;</span>
-<span class="w">      </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">205</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">      </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;      corrector convergence failed repeatedly     &#39;</span>
-<span class="w">      </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">205</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">      </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;      or with ABS(H) = HMIN   &#39;</span>
-<span class="w">      </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">205</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">)</span>
-<span class="w">      </span><span class="n">Istate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">5</span>
-<span class="w">      </span><span class="k">goto</span><span class="w"> </span><span class="mi">500</span>
-<span class="w">   </span><span class="k">case </span><span class="n">default</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="c">!  Block F.</span>
-<span class="c">!  The following block handles the case of a successful return from the</span>
-<span class="c">!  core integrator (KFLAG = 0).  Test for stop conditions.</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="w">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">init</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">      </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">Itask</span><span class="p">)</span>
-<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="c">!  ITASK = 3.  Jump to exit if TOUT was reached. ------------------------</span>
-<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="o">-</span><span class="n">Tout</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">&lt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">100</span>
-<span class="w">      </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="c">!  ITASK = 4.  See if TOUT or TCRIT was reached.  Adjust H if necessary.</span>
-<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="o">-</span><span class="n">Tout</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">&lt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            </span><span class="n">hmx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">)</span>
-<span class="w">            </span><span class="n">ihit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="o">-</span><span class="n">tcrit</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">10</span><span class="mf">0.0D0</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="o">*</span><span class="n">hmx</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">not</span><span class="p">.(</span><span class="n">ihit</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">               </span><span class="n">tnext</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0D0</span><span class="o">+</span><span class="mf">4.0D0</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="p">)</span>
-<span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">tnext</span><span class="o">-</span><span class="n">tcrit</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">&gt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">tcrit</span><span class="o">-</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="mf">1.0D0</span><span class="o">-</span><span class="mf">4.0D0</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="p">)</span>
-<span class="w">                  </span><span class="n">dls1</span><span class="p">%</span><span class="n">jstart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span>
-<span class="w">               </span><span class="k">endif</span>
-<span class="k">               goto</span><span class="w"> </span><span class="mi">100</span>
-<span class="w">            </span><span class="k">endif</span>
-<span class="k">         else</span>
-<span class="k">            call </span><span class="n">dintdy</span><span class="p">(</span><span class="n">Tout</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="p">),</span><span class="n">dls1</span><span class="p">%</span><span class="n">nyh</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">iflag</span><span class="p">)</span>
-<span class="w">            </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tout</span>
-<span class="w">            </span><span class="k">goto</span><span class="w"> </span><span class="mi">400</span>
-<span class="w">         </span><span class="k">endif</span>
-<span class="k">      case</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="c">!  ITASK = 5.  See if TCRIT was reached and jump to exit. ---------------</span>
-<span class="w">         </span><span class="n">hmx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">)</span>
-<span class="w">         </span><span class="n">ihit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="o">-</span><span class="n">tcrit</span><span class="p">)</span><span class="o">&lt;=</span><span class="mi">10</span><span class="mf">0.0D0</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="o">*</span><span class="n">hmx</span>
-<span class="w">      </span><span class="k">case </span><span class="n">default</span>
-<span class="c">!  ITASK = 1.  If TOUT has been reached, interpolate. -------------------</span>
-<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="o">-</span><span class="n">Tout</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">&lt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">100</span>
-<span class="w">         </span><span class="k">call </span><span class="n">dintdy</span><span class="p">(</span><span class="n">Tout</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Rwork</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="p">),</span><span class="n">dls1</span><span class="p">%</span><span class="n">nyh</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">iflag</span><span class="p">)</span>
-<span class="w">         </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Tout</span>
-<span class="w">         </span><span class="k">goto</span><span class="w"> </span><span class="mi">400</span>
-<span class="w">      </span><span class="k">endselect</span>
-<span class="k">   endselect</span>
-<span class="k">else</span>
-<span class="k">   </span><span class="n">tolsf</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tolsf</span><span class="o">*</span><span class="mf">2.0D0</span>
-<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nst</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">      </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  At start of problem, too much accuracy   &#39;</span>
-<span class="w">      </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">      </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;      requested for precision of machine..  See TOLSF (=R1) &#39;</span>
-<span class="w">      </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">26</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">tolsf</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">      </span><span class="n">Rwork</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tolsf</span>
-<span class="w">      </span><span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w">   </span><span class="k">else</span>
-<span class="c">!  Too much accuracy requested for machine precision. -------------------</span>
-<span class="w">      </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  At T (=R1), too much accuracy requested  &#39;</span>
-<span class="w">      </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">203</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="w">      </span><span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;      for precision of machine..  see TOLSF (=R2) &#39;</span>
-<span class="w">      </span><span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">203</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">,</span><span class="n">tolsf</span><span class="p">)</span>
-<span class="w">      </span><span class="n">Rwork</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tolsf</span>
-<span class="w">      </span><span class="n">Istate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">2</span>
-<span class="w">      </span><span class="k">goto</span><span class="w"> </span><span class="mi">600</span>
-<span class="w">   </span><span class="k">endif</span>
-<span class="k">endif</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="c">!  Block G.</span>
-<span class="c">!  The following block handles all successful returns from DLSODE.</span>
-<span class="c">!  If ITASK .NE. 1, Y is loaded from YH and T is set accordingly.</span>
-<span class="c">!  ISTATE is set to 2, and the optional outputs are loaded into the</span>
-<span class="c">!  work arrays before returning.</span>
-<span class="c">! -----------------------------------------------------------------------</span>
-<span class="w"> </span><span class="mi">300</span><span class="w">  </span><span class="k">continue</span>
-<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">   </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">enddo</span>
-<span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span>
-<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Itask</span><span class="o">==</span><span class="mi">4</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">Itask</span><span class="o">==</span><span class="mi">5</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">   if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ihit</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tcrit</span>
-<span class="k">endif</span>
-<span class="k"> </span><span class="mi">400</span><span class="w">  </span><span class="k">continue</span>
-<span class="n">Istate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
-<span class="n">Rwork</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">hu</span>
-<span class="n">Rwork</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span>
-<span class="n">Rwork</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span>
-<span class="n">Iwork</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nst</span>
-<span class="n">Iwork</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nfe</span>
-<span class="n">Iwork</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nje</span>
-<span class="n">Iwork</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nqu</span>
-<span class="n">Iwork</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span>
-<span class="k">return</span>
-<span class="c">!  Compute IMXER if relevant. -------------------------------------------</span>
-<span class="w"> </span><span class="mi">500</span><span class="w">  </span><span class="k">continue</span>
-<span class="n">big</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
-<span class="n">imxer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">   </span><span class="n">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">lacor</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">lewt</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">big</span><span class="o">&lt;</span><span class="n">size</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">      </span><span class="n">big</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">size</span>
-<span class="w">      </span><span class="n">imxer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span>
-<span class="w">   </span><span class="k">endif</span>
-<span class="k">enddo</span>
-<span class="n">Iwork</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">imxer</span>
-<span class="c">!  Set Y vector, T, and optional outputs. -------------------------------</span>
-<span class="w"> </span><span class="mi">600</span><span class="w">  </span><span class="k">continue</span>
-<span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">   </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Rwork</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">dls1</span><span class="p">%</span><span class="n">lyh</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="k">enddo</span>
-<span class="n">T</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span>
-<span class="n">Rwork</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">hu</span>
-<span class="n">Rwork</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span>
-<span class="n">Rwork</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span>
-<span class="n">Iwork</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nst</span>
-<span class="n">Iwork</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nfe</span>
-<span class="n">Iwork</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nje</span>
-<span class="n">Iwork</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nqu</span>
-<span class="n">Iwork</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span>
-<span class="k">return</span>
-<span class="k"> </span><span class="mi">700</span><span class="w">  </span><span class="k">continue</span>
-<span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  MF (=I1) illegal     &#39;</span>
-<span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Mf</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w"> </span><span class="mi">800</span><span class="w">  </span><span class="k">continue</span>
-<span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  ITASK = 4 OR 5 and TCRIT (=R1) behind TCUR (=R2)   &#39;</span>
-<span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">24</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">tcrit</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">)</span>
-<span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w"> </span><span class="mi">900</span><span class="w">  </span><span class="k">continue</span>
-<span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  ITASK = 4 or 5 and TCRIT (=R1) behind TOUT (=R2)   &#39;</span>
-<span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">tcrit</span><span class="p">,</span><span class="n">Tout</span><span class="p">)</span>
-<span class="k">goto</span><span class="w"> </span><span class="mi">1100</span>
-<span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="k">continue</span>
-<span class="n">msg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;DLSODE-  Trouble in DINTDY.  ITASK = I1, TOUT = R1&#39;</span>
-<span class="k">call </span><span class="n">xerrwd</span><span class="p">(</span><span class="n">msg</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">27</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Itask</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">Tout</span><span class="p">,</span><span class="mf">0.0D0</span><span class="p">)</span>
-<span class="c">!</span>
-<span class="w"> </span><span class="mi">1100</span><span class="w"> </span><span class="k">continue</span>
-<span class="n">Istate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">3</span>
-<span class="k">return</span>
-<span class="mi">99999</span><span class="w"> </span><span class="k">continue</span>
-<span class="k">end subroutine </span><span class="n">dlsode</span>
-</pre></div>
-
-    </section>
-    <br>
     
     </div>
   </div>

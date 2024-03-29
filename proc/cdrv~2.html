@@ -77,15 +77,14 @@
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/M_odepack.f90"> Source File</a>
+              <a href="../src/cdrv.inc"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/m_odepack.f90.html'>M_odepack.f90</a></li>
-                <li class="breadcrumb-item"><a href='../module/m_odepack.html'>M_odepack</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/cdrv.inc.html'>cdrv.inc</a></li>
             <li class="breadcrumb-item active" aria-current="page">cdrv</li>
           </ol>
         </nav>
@@ -105,6 +104,46 @@
       <div id="sidebar">
       <h3>Contents</h3>
   
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-ar~2">ar</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-d~2">d</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-i~123">i</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-ijl~2">ijl</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-iju~2">iju</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-il~2">il</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-ira~2">ira</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-irac~2">irac</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-irl~2">irl</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-iru~2">iru</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-iu~2">iu</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-j~65">j</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-jl~2">jl</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-jlmax~4">jlmax</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-jra~2">jra</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-jrl~2">jrl</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-jru~2">jru</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-ju~4">ju</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-jumax~4">jumax</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-jutmp~2">jutmp</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-l~17">l</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-lmax~3">lmax</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-lratio~2">lratio</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-max~4">max</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-q~4">q</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-row~2">row</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-tmp~4">tmp</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-u~2">u</a>
+            <a class="list-group-item" href="../proc/cdrv~2.html#variable-umax~2">umax</a>
+        </div>
+      </div>
+    </div>
+
   
   
   
@@ -123,7 +162,12 @@
   
   
   
-  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/cdrv~2.html#src">cdrv</a>
+      </div>
+    </div>
 
 
   </div>
@@ -131,7 +175,7 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>public  subroutine cdrv(N, R, C, Ic, Ia, Ja, A, B, Z, Nsp, Isp, Rsp, Esp, Path, Flag)  
+    <h2> subroutine cdrv(N, R, C, Ic, Ia, Ja, A, B, Z, Nsp, Isp, Rsp, Esp, Path, Flag)  
 </h2>
     
 
@@ -309,7 +353,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-n~30"></span>
+              <span class="anchor" id="variable-n~70"></span>
               integer
             </td>
 <td></td>
@@ -324,7 +368,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r~8"></span>
+              <span class="anchor" id="variable-r~16"></span>
               integer
             </td>
 <td></td>
@@ -339,7 +383,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-c~7"></span>
+              <span class="anchor" id="variable-c~12"></span>
               integer
             </td>
 <td></td>
@@ -354,7 +398,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ic~4"></span>
+              <span class="anchor" id="variable-ic~11"></span>
               integer
             </td>
 <td></td>
@@ -369,7 +413,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ia~13"></span>
+              <span class="anchor" id="variable-ia~26"></span>
               integer
             </td>
 <td></td>
@@ -384,7 +428,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ja~13"></span>
+              <span class="anchor" id="variable-ja~26"></span>
               integer
             </td>
 <td></td>
@@ -399,7 +443,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~11"></span>
+              <span class="anchor" id="variable-a~26"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -414,7 +458,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-b~12"></span>
+              <span class="anchor" id="variable-b~26"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -429,7 +473,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-z~6"></span>
+              <span class="anchor" id="variable-z~14"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -444,7 +488,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nsp~3"></span>
+              <span class="anchor" id="variable-nsp~4"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -459,7 +503,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-isp~4"></span>
+              <span class="anchor" id="variable-isp~6"></span>
               integer,
             </td>
 <td>intent(inout)</td>
@@ -504,7 +548,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-path~3"></span>
+              <span class="anchor" id="variable-path~4"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -519,7 +563,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-flag~6"></span>
+              <span class="anchor" id="variable-flag~14"></span>
               integer,
             </td>
 <td>intent(inout)</td>
@@ -538,7 +582,7 @@
     <br>
     <div class="card">
       <div class="card-header">
-  <h3 class="card-title">Called by</h3>
+  <h3 class="card-title">Calls</h3>
       </div>
       <div class="card-body">
   <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
@@ -546,159 +590,84 @@
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
-<!-- Title: proc~~cdrv~2~~CalledByGraph Pages: 1 -->
-<svg id="proccdrv2CalledByGraph" width="289pt" height="368pt"
- viewBox="0.00 0.00 289.00 368.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~cdrv~2~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 364)">
-<title>proc~~cdrv~2~~CalledByGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-364 285,-364 285,4 -4,4"/>
+<!-- Title: proc~~cdrv~2~~CallsGraph Pages: 1 -->
+<svg id="proccdrv2CallsGraph" width="183pt" height="200pt"
+ viewBox="0.00 0.00 183.00 200.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~cdrv~2~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 196)">
+<title>proc~~cdrv~2~~CallsGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-196 179,-196 179,4 -4,4"/>
 <!-- proc~cdrv~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_node1" class="node">
+<g id="proc~~cdrv~2~~CallsGraph_node1" class="node">
 <title>proc~cdrv~2</title>
-<polygon fill="none" stroke="black" points="281,-192 178,-192 178,-168 281,-168 281,-192"/>
-<text text-anchor="middle" x="229.5" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50">M_odepack::cdrv</text>
+<polygon fill="none" stroke="black" points="85,-108 0,-108 0,-84 85,-84 85,-108"/>
+<text text-anchor="middle" x="42.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50">cdrv.inc::cdrv</text>
 </g>
-<!-- proc~dainvgs -->
-<g id="proc~~cdrv~2~~CalledByGraph_node2" class="node">
-<title>proc~dainvgs</title>
-<g id="a_proc~~cdrv~2~~CalledByGraph_node2"><a xlink:href="../proc/dainvgs.html" xlink:title="dainvgs.inc::dainvgs">
-<polygon fill="#d9534f" stroke="#d9534f" points="131.5,-360 10.5,-360 10.5,-336 131.5,-336 131.5,-360"/>
-<text text-anchor="middle" x="71" y="-345.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dainvgs.inc::dainvgs</text>
-</a>
+<!-- nnfc -->
+<g id="proc~~cdrv~2~~CallsGraph_node2" class="node">
+<title>nnfc</title>
+<polygon fill="#777777" stroke="#777777" points="175,-192 121,-192 121,-168 175,-168 175,-192"/>
+<text text-anchor="middle" x="148" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nnfc</text>
 </g>
+<!-- proc~cdrv~2&#45;&gt;nnfc -->
+<g id="proc~~cdrv~2~~CallsGraph_edge1" class="edge">
+<title>proc~cdrv~2&#45;&gt;nnfc</title>
+<path fill="none" stroke="#000000" d="M58.35,-108.09C73.94,-120.78 99.18,-141.32 121,-159 121.99,-159.8 123,-160.62 124.02,-161.45"/>
+<polygon fill="#000000" stroke="#000000" points="121.89,-164.23 131.87,-167.79 126.29,-158.78 121.89,-164.23"/>
 </g>
-<!-- proc~dainvgs&#45;&gt;proc~cdrv~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_edge1" class="edge">
-<title>proc~dainvgs&#45;&gt;proc~cdrv~2</title>
-<path fill="none" stroke="#000000" d="M127.12,-335.9C132.43,-333.46 137.51,-330.52 142,-327 184.07,-294 209.83,-234.41 221.36,-202.16"/>
-<polygon fill="#000000" stroke="#000000" points="224.79,-202.95 224.72,-192.35 218.17,-200.68 224.79,-202.95"/>
+<!-- nnsc -->
+<g id="proc~~cdrv~2~~CallsGraph_node3" class="node">
+<title>nnsc</title>
+<polygon fill="#777777" stroke="#777777" points="175,-150 121,-150 121,-126 175,-126 175,-150"/>
+<text text-anchor="middle" x="148" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nnsc</text>
 </g>
-<!-- proc~dainvgs~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_node3" class="node">
-<title>proc~dainvgs~2</title>
-<g id="a_proc~~cdrv~2~~CalledByGraph_node3"><a xlink:href="../proc/dainvgs~2.html" xlink:title="M_odepack.f90::dainvgs">
-<polygon fill="#d9534f" stroke="#d9534f" points="142,-318 0,-318 0,-294 142,-294 142,-318"/>
-<text text-anchor="middle" x="71" y="-303.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack.f90::dainvgs</text>
-</a>
+<!-- proc~cdrv~2&#45;&gt;nnsc -->
+<g id="proc~~cdrv~2~~CallsGraph_edge2" class="edge">
+<title>proc~cdrv~2&#45;&gt;nnsc</title>
+<path fill="none" stroke="#000000" d="M73.16,-108.04C85.04,-112.86 98.83,-118.45 111.25,-123.49"/>
+<polygon fill="#000000" stroke="#000000" points="110.28,-126.88 120.86,-127.39 112.91,-120.39 110.28,-126.88"/>
 </g>
+<!-- nntc -->
+<g id="proc~~cdrv~2~~CallsGraph_node4" class="node">
+<title>nntc</title>
+<polygon fill="#777777" stroke="#777777" points="175,-108 121,-108 121,-84 175,-84 175,-108"/>
+<text text-anchor="middle" x="148" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nntc</text>
 </g>
-<!-- proc~dainvgs~2&#45;&gt;proc~cdrv~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_edge2" class="edge">
-<title>proc~dainvgs~2&#45;&gt;proc~cdrv~2</title>
-<path fill="none" stroke="#000000" d="M124.77,-293.91C130.83,-291.45 136.72,-288.51 142,-285 175.17,-262.96 202.17,-224.4 216.74,-200.64"/>
-<polygon fill="#000000" stroke="#000000" points="219.75,-202.42 221.87,-192.04 213.74,-198.84 219.75,-202.42"/>
+<!-- proc~cdrv~2&#45;&gt;nntc -->
+<g id="proc~~cdrv~2~~CallsGraph_edge3" class="edge">
+<title>proc~cdrv~2&#45;&gt;nntc</title>
+<path fill="none" stroke="#000000" d="M85,-96C93.54,-96 102.47,-96 110.81,-96"/>
+<polygon fill="#000000" stroke="#000000" points="110.97,-99.5 120.97,-96 110.97,-92.5 110.97,-99.5"/>
 </g>
-<!-- proc~dprep -->
-<g id="proc~~cdrv~2~~CalledByGraph_node4" class="node">
-<title>proc~dprep</title>
-<g id="a_proc~~cdrv~2~~CalledByGraph_node4"><a xlink:href="../proc/dprep.html" xlink:title="dprep.inc::dprep">
-<polygon fill="#d9534f" stroke="#d9534f" points="121,-276 21,-276 21,-252 121,-252 121,-276"/>
-<text text-anchor="middle" x="71" y="-261.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprep.inc::dprep</text>
-</a>
+<!-- nroc -->
+<g id="proc~~cdrv~2~~CallsGraph_node5" class="node">
+<title>nroc</title>
+<polygon fill="#777777" stroke="#777777" points="175,-66 121,-66 121,-42 175,-42 175,-66"/>
+<text text-anchor="middle" x="148" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nroc</text>
 </g>
+<!-- proc~cdrv~2&#45;&gt;nroc -->
+<g id="proc~~cdrv~2~~CallsGraph_edge4" class="edge">
+<title>proc~cdrv~2&#45;&gt;nroc</title>
+<path fill="none" stroke="#000000" d="M73.16,-83.96C85.04,-79.14 98.83,-73.55 111.25,-68.51"/>
+<polygon fill="#000000" stroke="#000000" points="112.91,-71.61 120.86,-64.61 110.28,-65.12 112.91,-71.61"/>
 </g>
-<!-- proc~dprep&#45;&gt;proc~cdrv~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_edge3" class="edge">
-<title>proc~dprep&#45;&gt;proc~cdrv~2</title>
-<path fill="none" stroke="#000000" d="M119.9,-252C127.46,-249.43 135.07,-246.44 142,-243 165.95,-231.12 190.31,-212.69 207.05,-198.82"/>
-<polygon fill="#000000" stroke="#000000" points="209.69,-201.18 215.07,-192.05 205.17,-195.83 209.69,-201.18"/>
+<!-- nsfc -->
+<g id="proc~~cdrv~2~~CallsGraph_node6" class="node">
+<title>nsfc</title>
+<polygon fill="#777777" stroke="#777777" points="175,-24 121,-24 121,0 175,0 175,-24"/>
+<text text-anchor="middle" x="148" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">nsfc</text>
 </g>
-<!-- proc~dprepi -->
-<g id="proc~~cdrv~2~~CalledByGraph_node5" class="node">
-<title>proc~dprepi</title>
-<g id="a_proc~~cdrv~2~~CalledByGraph_node5"><a xlink:href="../proc/dprepi.html" xlink:title="dprepi.inc::dprepi">
-<polygon fill="#d9534f" stroke="#d9534f" points="124,-234 18,-234 18,-210 124,-210 124,-234"/>
-<text text-anchor="middle" x="71" y="-219.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprepi.inc::dprepi</text>
-</a>
-</g>
-</g>
-<!-- proc~dprepi&#45;&gt;proc~cdrv~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_edge4" class="edge">
-<title>proc~dprepi&#45;&gt;proc~cdrv~2</title>
-<path fill="none" stroke="#000000" d="M116.85,-209.96C134.61,-205.2 155.2,-199.67 173.82,-194.67"/>
-<polygon fill="#000000" stroke="#000000" points="174.9,-198.01 183.65,-192.04 173.08,-191.25 174.9,-198.01"/>
-</g>
-<!-- proc~dprepi~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_node6" class="node">
-<title>proc~dprepi~2</title>
-<g id="a_proc~~cdrv~2~~CalledByGraph_node6"><a xlink:href="../proc/dprepi~2.html" xlink:title="M_odepack.f90::dprepi">
-<polygon fill="#d9534f" stroke="#d9534f" points="138,-192 4,-192 4,-168 138,-168 138,-192"/>
-<text text-anchor="middle" x="71" y="-177.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack.f90::dprepi</text>
-</a>
-</g>
-</g>
-<!-- proc~dprepi~2&#45;&gt;proc~cdrv~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_edge5" class="edge">
-<title>proc~dprepi~2&#45;&gt;proc~cdrv~2</title>
-<path fill="none" stroke="#000000" d="M138.37,-180C148.04,-180 157.95,-180 167.5,-180"/>
-<polygon fill="#000000" stroke="#000000" points="167.7,-183.5 177.7,-180 167.7,-176.5 167.7,-183.5"/>
-</g>
-<!-- proc~dprep~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_node7" class="node">
-<title>proc~dprep~2</title>
-<g id="a_proc~~cdrv~2~~CalledByGraph_node7"><a xlink:href="../proc/dprep~2.html" xlink:title="M_odepack.f90::dprep">
-<polygon fill="#d9534f" stroke="#d9534f" points="136.5,-150 5.5,-150 5.5,-126 136.5,-126 136.5,-150"/>
-<text text-anchor="middle" x="71" y="-135.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack.f90::dprep</text>
-</a>
-</g>
-</g>
-<!-- proc~dprep~2&#45;&gt;proc~cdrv~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_edge6" class="edge">
-<title>proc~dprep~2&#45;&gt;proc~cdrv~2</title>
-<path fill="none" stroke="#000000" d="M116.85,-150.04C134.61,-154.8 155.2,-160.33 173.82,-165.33"/>
-<polygon fill="#000000" stroke="#000000" points="173.08,-168.75 183.65,-167.96 174.9,-161.99 173.08,-168.75"/>
-</g>
-<!-- proc~dprjis~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_node8" class="node">
-<title>proc~dprjis~2</title>
-<g id="a_proc~~cdrv~2~~CalledByGraph_node8"><a xlink:href="../proc/dprjis~2.html" xlink:title="M_odepack::dprjis">
-<polygon fill="#d9534f" stroke="#d9534f" points="125.5,-108 16.5,-108 16.5,-84 125.5,-84 125.5,-108"/>
-<text text-anchor="middle" x="71" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::dprjis</text>
-</a>
-</g>
-</g>
-<!-- proc~dprjis~2&#45;&gt;proc~cdrv~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_edge7" class="edge">
-<title>proc~dprjis~2&#45;&gt;proc~cdrv~2</title>
-<path fill="none" stroke="#000000" d="M119.9,-108C127.46,-110.57 135.07,-113.56 142,-117 165.95,-128.88 190.31,-147.31 207.05,-161.18"/>
-<polygon fill="#000000" stroke="#000000" points="205.17,-164.17 215.07,-167.95 209.69,-158.82 205.17,-164.17"/>
-</g>
-<!-- proc~dprjs~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_node9" class="node">
-<title>proc~dprjs~2</title>
-<g id="a_proc~~cdrv~2~~CalledByGraph_node9"><a xlink:href="../proc/dprjs~2.html" xlink:title="M_odepack::dprjs">
-<polygon fill="#d9534f" stroke="#d9534f" points="124,-66 18,-66 18,-42 124,-42 124,-66"/>
-<text text-anchor="middle" x="71" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::dprjs</text>
-</a>
-</g>
-</g>
-<!-- proc~dprjs~2&#45;&gt;proc~cdrv~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_edge8" class="edge">
-<title>proc~dprjs~2&#45;&gt;proc~cdrv~2</title>
-<path fill="none" stroke="#000000" d="M124.04,-65.8C130.35,-68.31 136.51,-71.35 142,-75 175.17,-97.04 202.17,-135.6 216.74,-159.36"/>
-<polygon fill="#000000" stroke="#000000" points="213.74,-161.16 221.87,-167.96 219.75,-157.58 213.74,-161.16"/>
-</g>
-<!-- proc~dsolss~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_node10" class="node">
-<title>proc~dsolss~2</title>
-<g id="a_proc~~cdrv~2~~CalledByGraph_node10"><a xlink:href="../proc/dsolss~2.html" xlink:title="M_odepack::dsolss">
-<polygon fill="#d9534f" stroke="#d9534f" points="127,-24 15,-24 15,0 127,0 127,-24"/>
-<text text-anchor="middle" x="71" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::dsolss</text>
-</a>
-</g>
-</g>
-<!-- proc~dsolss~2&#45;&gt;proc~cdrv~2 -->
-<g id="proc~~cdrv~2~~CalledByGraph_edge9" class="edge">
-<title>proc~dsolss~2&#45;&gt;proc~cdrv~2</title>
-<path fill="none" stroke="#000000" d="M127.12,-24.1C132.43,-26.54 137.51,-29.48 142,-33 184.07,-66 209.83,-125.59 221.36,-157.84"/>
-<polygon fill="#000000" stroke="#000000" points="218.17,-159.32 224.72,-167.65 224.79,-157.05 218.17,-159.32"/>
+<!-- proc~cdrv~2&#45;&gt;nsfc -->
+<g id="proc~~cdrv~2~~CallsGraph_edge5" class="edge">
+<title>proc~cdrv~2&#45;&gt;nsfc</title>
+<path fill="none" stroke="#000000" d="M58.35,-83.91C73.94,-71.22 99.18,-50.68 121,-33 121.99,-32.2 123,-31.38 124.02,-30.55"/>
+<polygon fill="#000000" stroke="#000000" points="126.29,-33.22 131.87,-24.21 121.89,-27.77 126.29,-33.22"/>
 </g>
 </g>
 </svg>
 </div>          <div>
-            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CallsGraph-help-text">Help</a>
           </div>
-          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+          <div class="modal fade" id="CallsGraph-help-text" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-lg" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -777,6 +746,516 @@ implementation in a submodule of an interface in a parent module.
     <br>
 
 
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ar~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ar</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-d~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>d</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~123"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ijl~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ijl</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iju~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iju</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-il~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>il</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ira~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ira</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-irac~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>irac</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-irl~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>irl</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iru~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iru</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-iu~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>iu</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~65"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jl~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jl</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jlmax~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jlmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jra~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jra</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jrl~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jrl</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jru~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jru</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ju~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ju</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jumax~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jumax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jutmp~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jutmp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-l~17"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>l</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lmax~3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lmax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lratio~2"></span>
+              integer,
+            </td>
+              <td>public,</td>
+            <td>
+              save
+            </td>
+            <td>::</td>
+            <td><strong>lratio</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-max~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>max</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-q~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>q</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-row~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>row</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-tmp~4"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>tmp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-u~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>u</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-umax~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>umax</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
     
     
 
@@ -786,6 +1265,134 @@ implementation in a submodule of an interface in a parent module.
 
 
     
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">subroutine </span><span class="n">cdrv</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">Ic</span><span class="p">,</span><span class="n">Ia</span><span class="p">,</span><span class="n">Ja</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">Nsp</span><span class="p">,</span><span class="n">Isp</span><span class="p">,</span><span class="n">Rsp</span><span class="p">,</span><span class="n">Esp</span><span class="p">,</span><span class="n">Path</span><span class="p">,</span><span class="n">Flag</span><span class="p">)</span>
+<span class="c">!</span>
+<span class="kt">integer</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">N</span>
+<span class="kt">integer</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">R</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Ic</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Ia</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Ja</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">A</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">B</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">Z</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Isp</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">Nsp</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">Rsp</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w">   </span><span class="kd">::</span><span class="w"> </span><span class="n">Esp</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">Path</span>
+<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Flag</span>
+<span class="c">!</span>
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ar</span><span class="p">,</span><span class="w"> </span><span class="n">d</span><span class="p">,</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">ijl</span><span class="p">,</span><span class="w"> </span><span class="n">iju</span><span class="p">,</span><span class="w"> </span><span class="n">il</span><span class="p">,</span><span class="w"> </span><span class="n">ira</span><span class="p">,</span><span class="w"> </span><span class="n">irac</span><span class="p">,</span><span class="w"> </span><span class="n">irl</span><span class="p">,</span><span class="w"> </span><span class="n">iru</span><span class="p">,</span><span class="w"> </span><span class="n">iu</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">jl</span><span class="p">,</span><span class="w"> </span><span class="n">jlmax</span><span class="p">,</span><span class="w"> </span><span class="n">jra</span><span class="p">,</span><span class="w"> </span><span class="n">jrl</span><span class="p">,</span><span class="w"> </span><span class="n">jru</span><span class="p">,</span><span class="w"> </span><span class="n">ju</span><span class="p">,</span><span class="w"> </span><span class="n">jumax</span><span class="p">,</span><span class="w"> </span><span class="n">jutmp</span><span class="p">,</span><span class="w"> </span><span class="n">l</span><span class="p">,</span><span class="w">  </span><span class="p">&amp;</span>
+<span class="w">         </span><span class="p">&amp;</span><span class="w"> </span><span class="n">lmax</span><span class="p">,</span><span class="w"> </span><span class="nb">max</span><span class="p">,</span><span class="w"> </span><span class="n">q</span><span class="p">,</span><span class="w"> </span><span class="n">row</span><span class="p">,</span><span class="w"> </span><span class="n">tmp</span><span class="p">,</span><span class="w"> </span><span class="n">u</span><span class="p">,</span><span class="w"> </span><span class="n">umax</span>
+<span class="kt">integer</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="k">save</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lratio</span>
+<span class="c">!</span>
+<span class="c">!   set lratio equal to the ratio between the length of floating point</span>
+<span class="c">!   and integer array data.  e. g., lratio = 1 for (real, integer),</span>
+<span class="c">!   lratio = 2 for (double precision, integer)</span>
+<span class="c">!</span>
+<span class="k">data </span><span class="n">lratio</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span>
+<span class="c">!</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Path</span><span class="o">&lt;</span><span class="mi">1</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="mi">5</span><span class="o">&lt;</span><span class="n">Path</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="c">!  ** error.. illegal path specification</span>
+<span class="w">   </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">11</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="k">return</span>
+<span class="k">else</span>
+<span class="c">! ### ***initialize and divide up temporary storage  *******************</span>
+<span class="w">   </span><span class="n">il</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="n">ijl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">il</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">   </span><span class="n">iu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ijl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">N</span>
+<span class="w">   </span><span class="n">iju</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iu</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">   </span><span class="n">irl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iju</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">N</span>
+<span class="w">   </span><span class="n">jrl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">N</span>
+<span class="w">   </span><span class="n">jl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jrl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">N</span>
+<span class="c">!</span>
+<span class="c">!   ******  reorder a if necessary, call nsfc if flag is set  ***********</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">Path</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Path</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      </span><span class="nb">max</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">lratio</span><span class="o">*</span><span class="n">Nsp</span><span class="o">+</span><span class="mi">1</span><span class="o">-</span><span class="n">jl</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">5</span><span class="o">*</span><span class="n">N</span>
+<span class="w">      </span><span class="n">jlmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="o">/</span><span class="mi">2</span>
+<span class="w">      </span><span class="n">q</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">jlmax</span>
+<span class="w">      </span><span class="n">ira</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">q</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="n">N</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="n">jra</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ira</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">N</span>
+<span class="w">      </span><span class="n">irac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jra</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">N</span>
+<span class="w">      </span><span class="n">iru</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">irac</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">N</span>
+<span class="w">      </span><span class="n">jru</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">iru</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">N</span>
+<span class="w">      </span><span class="n">jutmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jru</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">N</span>
+<span class="w">      </span><span class="n">jumax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">lratio</span><span class="o">*</span><span class="n">Nsp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">jutmp</span>
+<span class="w">      </span><span class="n">Esp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="o">/</span><span class="n">lratio</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jlmax</span><span class="o">&lt;=</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">or</span><span class="p">.</span><span class="w"> </span><span class="n">jumax</span><span class="o">&lt;=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="k">then</span>
+<span class="w">         </span><span class="c">!  ** error.. insufficient storage</span>
+<span class="w">         </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">         </span><span class="k">return</span>
+<span class="k">      endif</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">N</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">C</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">/=</span><span class="n">i</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            </span><span class="n">ar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Nsp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">N</span>
+<span class="w">            </span><span class="k">call </span><span class="n">nroc</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">Ic</span><span class="p">,</span><span class="n">Ia</span><span class="p">,</span><span class="n">Ja</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Isp</span><span class="p">(</span><span class="n">il</span><span class="p">),</span><span class="n">Rsp</span><span class="p">(</span><span class="n">ar</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">iu</span><span class="p">),</span><span class="n">Flag</span><span class="p">)</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Flag</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">exit</span>
+<span class="w">               </span><span class="c">!  ** error.. error detected in nroc, nsfc, nnfc, or nnsc</span>
+<span class="w">               </span><span class="k">return</span>
+<span class="k">         endif</span>
+<span class="k">      enddo</span>
+<span class="c">!</span>
+<span class="w">      </span><span class="k">call </span><span class="n">nsfc</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">Ic</span><span class="p">,</span><span class="n">Ia</span><span class="p">,</span><span class="n">Ja</span><span class="p">,</span><span class="n">jlmax</span><span class="p">,</span><span class="n">Isp</span><span class="p">(</span><span class="n">il</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">jl</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">ijl</span><span class="p">),</span><span class="n">jumax</span><span class="p">,</span><span class="n">Isp</span><span class="p">(</span><span class="n">iu</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">jutmp</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">iju</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">q</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">ira</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">jra</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">irac</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="w">       </span><span class="p">&amp;</span><span class="w"> </span><span class="n">Isp</span><span class="p">(</span><span class="n">irl</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">jrl</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">iru</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">jru</span><span class="p">),</span><span class="n">Flag</span><span class="p">)</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Flag</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="k">then</span>
+<span class="w">         </span><span class="c">!  ** error.. error detected in nroc, nsfc, nnfc, or nnsc</span>
+<span class="w">         </span><span class="k">return</span>
+<span class="k">      endif</span>
+<span class="c">!   ******  move ju next to jl  *****************************************</span>
+<span class="w">      </span><span class="n">jlmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isp</span><span class="p">(</span><span class="n">ijl</span><span class="o">+</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="n">ju</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">jlmax</span>
+<span class="w">      </span><span class="n">jumax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isp</span><span class="p">(</span><span class="n">iju</span><span class="o">+</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jumax</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">         do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">jumax</span>
+<span class="w">            </span><span class="n">Isp</span><span class="p">(</span><span class="n">ju</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isp</span><span class="p">(</span><span class="n">jutmp</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">         </span><span class="k">enddo</span>
+<span class="k">      endif</span>
+<span class="k">   endif</span>
+<span class="c">!</span>
+<span class="c">!   ******  call remaining subroutines  *********************************</span>
+<span class="w">   </span><span class="n">jlmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isp</span><span class="p">(</span><span class="n">ijl</span><span class="o">+</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">   </span><span class="n">ju</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">jlmax</span>
+<span class="w">   </span><span class="n">jumax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isp</span><span class="p">(</span><span class="n">iju</span><span class="o">+</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">   </span><span class="n">l</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">ju</span><span class="o">+</span><span class="n">jumax</span><span class="o">-</span><span class="mi">2</span><span class="o">+</span><span class="n">lratio</span><span class="p">)</span><span class="o">/</span><span class="n">lratio</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="n">lmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Isp</span><span class="p">(</span><span class="n">il</span><span class="o">+</span><span class="n">N</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="n">d</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">l</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">lmax</span>
+<span class="w">   </span><span class="n">u</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">d</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">N</span>
+<span class="w">   </span><span class="n">row</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Nsp</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">N</span>
+<span class="w">   </span><span class="n">tmp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">row</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">N</span>
+<span class="w">   </span><span class="n">umax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tmp</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">u</span>
+<span class="w">   </span><span class="n">Esp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">umax</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">Isp</span><span class="p">(</span><span class="n">iu</span><span class="o">+</span><span class="n">N</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="c">!</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">Path</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">Path</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">umax</span><span class="o">&lt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">         </span><span class="c">!  ** error.. insufficient storage</span>
+<span class="w">         </span><span class="n">Flag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="o">*</span><span class="n">N</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">         </span><span class="k">return</span>
+<span class="k">      endif</span>
+<span class="k">      call </span><span class="n">nnfc</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">Ic</span><span class="p">,</span><span class="n">Ia</span><span class="p">,</span><span class="n">Ja</span><span class="p">,</span><span class="n">A</span><span class="p">,</span><span class="n">Z</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">lmax</span><span class="p">,</span><span class="n">Isp</span><span class="p">(</span><span class="n">il</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">jl</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">ijl</span><span class="p">),</span><span class="n">Rsp</span><span class="p">(</span><span class="n">l</span><span class="p">),</span><span class="n">Rsp</span><span class="p">(</span><span class="n">d</span><span class="p">),</span><span class="n">umax</span><span class="p">,</span><span class="n">Isp</span><span class="p">(</span><span class="n">iu</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">ju</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">iju</span><span class="p">),</span><span class="n">Rsp</span><span class="p">(</span><span class="n">u</span><span class="p">),</span><span class="n">Rsp</span><span class="p">(</span><span class="n">row</span><span class="p">),&amp;</span>
+<span class="w">              </span><span class="p">&amp;</span><span class="w"> </span><span class="n">Rsp</span><span class="p">(</span><span class="n">tmp</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">irl</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">jrl</span><span class="p">),</span><span class="n">Flag</span><span class="p">)</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Flag</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="w">         </span><span class="c">!  ** error.. error detected in nroc, nsfc, nnfc, or nnsc</span>
+<span class="w">         </span><span class="k">return</span>
+<span class="k">      endif</span>
+<span class="k">   endif</span>
+<span class="c">!</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">Path</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">call </span><span class="n">nnsc</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">Isp</span><span class="p">(</span><span class="n">il</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">jl</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">ijl</span><span class="p">),</span><span class="n">Rsp</span><span class="p">(</span><span class="n">l</span><span class="p">),</span><span class="n">Rsp</span><span class="p">(</span><span class="n">d</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">iu</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">ju</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">iju</span><span class="p">),</span><span class="n">Rsp</span><span class="p">(</span><span class="n">u</span><span class="p">),</span><span class="n">Z</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Rsp</span><span class="p">(</span><span class="n">tmp</span><span class="p">))</span>
+<span class="c">!</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">Path</span><span class="o">-</span><span class="mi">4</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">call </span><span class="n">nntc</span><span class="p">(</span><span class="n">N</span><span class="p">,</span><span class="n">R</span><span class="p">,</span><span class="n">C</span><span class="p">,</span><span class="n">Isp</span><span class="p">(</span><span class="n">il</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">jl</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">ijl</span><span class="p">),</span><span class="n">Rsp</span><span class="p">(</span><span class="n">l</span><span class="p">),</span><span class="n">Rsp</span><span class="p">(</span><span class="n">d</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">iu</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">ju</span><span class="p">),</span><span class="n">Isp</span><span class="p">(</span><span class="n">iju</span><span class="p">),</span><span class="n">Rsp</span><span class="p">(</span><span class="n">u</span><span class="p">),</span><span class="n">Z</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">Rsp</span><span class="p">(</span><span class="n">tmp</span><span class="p">))</span>
+<span class="w">   </span><span class="k">return</span>
+<span class="k">endif</span>
+<span class="c">!</span>
+<span class="k">end subroutine </span><span class="n">cdrv</span>
+</pre></div>
+
+    </section>
+    <br>
     
     </div>
   </div>
