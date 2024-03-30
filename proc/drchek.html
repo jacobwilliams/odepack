@@ -77,14 +77,15 @@
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/drchek.inc"> Source File</a>
+              <a href="../src/M_odepack.f90"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/drchek.inc.html'>drchek.inc</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/m_odepack.f90.html'>M_odepack.f90</a></li>
+                <li class="breadcrumb-item"><a href='../module/m_odepack.html'>M_odepack</a></li>
             <li class="breadcrumb-item active" aria-current="page">drchek</li>
           </ol>
         </nav>
@@ -104,26 +105,6 @@
       <div id="sidebar">
       <h3>Contents</h3>
   
-      <div class="card mb-4">
-      <a data-bs-toggle="collapse" href="#vars-0"
-         aria-expanded="false" aria-controls="vars-0">
-         <h4 class="card-header bg-primary text-white">Variables</h4>
-      </a>
-      <div id="vars-0" class="collapse">
-        <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../proc/drchek.html#variable-hming">hming</a>
-            <a class="list-group-item" href="../proc/drchek.html#variable-i~9">i</a>
-            <a class="list-group-item" href="../proc/drchek.html#variable-iflag~2">iflag</a>
-            <a class="list-group-item" href="../proc/drchek.html#variable-jflag">jflag</a>
-            <a class="list-group-item" href="../proc/drchek.html#variable-t1">t1</a>
-            <a class="list-group-item" href="../proc/drchek.html#variable-temp1">temp1</a>
-            <a class="list-group-item" href="../proc/drchek.html#variable-temp2">temp2</a>
-            <a class="list-group-item" href="../proc/drchek.html#variable-x">x</a>
-            <a class="list-group-item" href="../proc/drchek.html#variable-zroot">zroot</a>
-        </div>
-      </div>
-    </div>
-
   
   
   
@@ -142,12 +123,7 @@
   
   
   
-    <div class="card card-primary">
-      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
-      <div class="list-group">
-        <a class="list-group-item" href="../proc/drchek.html#src">drchek</a>
-      </div>
-    </div>
+  
 
 
   </div>
@@ -155,7 +131,7 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2> subroutine drchek(Job, g_sub, Neq, Y, Yh, Nyh, G0, G1, Gx, Jroot, Irt)  
+    <h2>public  subroutine drchek(Job, g_sub, Neq, Y, Yh, Nyh, G0, G1, Gx, Jroot, Irt)  
 </h2>
     
 
@@ -302,7 +278,7 @@ IRFND = 1 if it did, = 0 if not.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-job"></span>
+              <span class="anchor" id="variable-job~13"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -332,7 +308,7 @@ IRFND = 1 if it did, = 0 if not.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-neq~6"></span>
+              <span class="anchor" id="variable-neq~46"></span>
               integer
             </td>
 <td></td>
@@ -347,7 +323,7 @@ IRFND = 1 if it did, = 0 if not.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-y~6"></span>
+              <span class="anchor" id="variable-y~47"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -362,7 +338,7 @@ IRFND = 1 if it did, = 0 if not.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-yh"></span>
+              <span class="anchor" id="variable-yh~14"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -377,7 +353,7 @@ IRFND = 1 if it did, = 0 if not.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nyh"></span>
+              <span class="anchor" id="variable-nyh~14"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -392,7 +368,7 @@ IRFND = 1 if it did, = 0 if not.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-g0"></span>
+              <span class="anchor" id="variable-g0~3"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -407,7 +383,7 @@ IRFND = 1 if it did, = 0 if not.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-g1"></span>
+              <span class="anchor" id="variable-g1~3"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -422,7 +398,7 @@ IRFND = 1 if it did, = 0 if not.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-gx"></span>
+              <span class="anchor" id="variable-gx~3"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -437,7 +413,7 @@ IRFND = 1 if it did, = 0 if not.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-jroot"></span>
+              <span class="anchor" id="variable-jroot~5"></span>
               integer
             </td>
 <td></td>
@@ -480,40 +456,46 @@ IRFND = 1 if it did, = 0 if not.</p>
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~drchek~~CallsGraph Pages: 1 -->
-<svg id="procdrchekCallsGraph" width="209pt" height="74pt"
- viewBox="0.00 0.00 209.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~drchek~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
+<svg id="procdrchekCallsGraph" width="426pt" height="32pt"
+ viewBox="0.00 0.00 426.00 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~drchek~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
 <title>proc~~drchek~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 205,-70 205,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 422,-28 422,4 -4,4"/>
 <!-- proc~drchek -->
 <g id="proc~~drchek~~CallsGraph_node1" class="node">
 <title>proc~drchek</title>
-<polygon fill="none" stroke="black" points="111,-45 0,-45 0,-21 111,-21 111,-45"/>
-<text text-anchor="middle" x="55.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">drchek.inc::drchek</text>
+<polygon fill="none" stroke="black" points="116,-24 0,-24 0,0 116,0 116,-24"/>
+<text text-anchor="middle" x="58" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">M_odepack::drchek</text>
 </g>
-<!-- dintdy -->
+<!-- proc~dintdy~2 -->
 <g id="proc~~drchek~~CallsGraph_node2" class="node">
-<title>dintdy</title>
-<polygon fill="#777777" stroke="#777777" points="201,-66 147,-66 147,-42 201,-42 201,-66"/>
-<text text-anchor="middle" x="174" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dintdy</text>
+<title>proc~dintdy~2</title>
+<g id="a_proc~~drchek~~CallsGraph_node2"><a xlink:href="../proc/dintdy~2.html" xlink:title="M_odepack::dintdy">
+<polygon fill="#d9534f" stroke="#d9534f" points="265,-24 152,-24 152,0 265,0 265,-24"/>
+<text text-anchor="middle" x="208.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::dintdy</text>
+</a>
 </g>
-<!-- proc~drchek&#45;&gt;dintdy -->
+</g>
+<!-- proc~drchek&#45;&gt;proc~dintdy~2 -->
 <g id="proc~~drchek~~CallsGraph_edge1" class="edge">
-<title>proc~drchek&#45;&gt;dintdy</title>
-<path fill="none" stroke="#000000" d="M111.34,-42.89C120.05,-44.46 128.87,-46.05 137,-47.51"/>
-<polygon fill="#000000" stroke="#000000" points="136.42,-50.96 146.88,-49.29 137.66,-44.07 136.42,-50.96"/>
+<title>proc~drchek&#45;&gt;proc~dintdy~2</title>
+<path fill="none" stroke="#000000" d="M116.41,-12C124.65,-12 133.18,-12 141.57,-12"/>
+<polygon fill="#000000" stroke="#000000" points="141.7,-15.5 151.7,-12 141.7,-8.5 141.7,-15.5"/>
 </g>
-<!-- droots -->
+<!-- proc~xerrwd~2 -->
 <g id="proc~~drchek~~CallsGraph_node3" class="node">
-<title>droots</title>
-<polygon fill="#777777" stroke="#777777" points="201,-24 147,-24 147,0 201,0 201,-24"/>
-<text text-anchor="middle" x="174" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">droots</text>
+<title>proc~xerrwd~2</title>
+<g id="a_proc~~drchek~~CallsGraph_node3"><a xlink:href="../proc/xerrwd~2.html" xlink:title="M_odepack::xerrwd">
+<polygon fill="#d9534f" stroke="#d9534f" points="418,-24 301,-24 301,0 418,0 418,-24"/>
+<text text-anchor="middle" x="359.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::xerrwd</text>
+</a>
 </g>
-<!-- proc~drchek&#45;&gt;droots -->
+</g>
+<!-- proc~dintdy~2&#45;&gt;proc~xerrwd~2 -->
 <g id="proc~~drchek~~CallsGraph_edge2" class="edge">
-<title>proc~drchek&#45;&gt;droots</title>
-<path fill="none" stroke="#000000" d="M111.34,-23.11C120.05,-21.54 128.87,-19.95 137,-18.49"/>
-<polygon fill="#000000" stroke="#000000" points="137.66,-21.93 146.88,-16.71 136.42,-15.04 137.66,-21.93"/>
+<title>proc~dintdy~2&#45;&gt;proc~xerrwd~2</title>
+<path fill="none" stroke="#000000" d="M265.41,-12C273.62,-12 282.17,-12 290.59,-12"/>
+<polygon fill="#000000" stroke="#000000" points="290.79,-15.5 300.79,-12 290.79,-8.5 290.79,-15.5"/>
 </g>
 </g>
 </svg>
@@ -596,179 +578,142 @@ implementation in a submodule of an interface in a parent module.
         </div>
       </div>
     </div>
+    <div class="card">
+      <div class="card-header">
+  <h3 class="card-title">Called by</h3>
+      </div>
+      <div class="card-body">
+  <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: proc~~drchek~~CalledByGraph Pages: 1 -->
+<svg id="procdrchekCalledByGraph" width="280pt" height="74pt"
+ viewBox="0.00 0.00 280.00 74.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~drchek~~CalledByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 70)">
+<title>proc~~drchek~~CalledByGraph</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-70 276,-70 276,4 -4,4"/>
+<!-- proc~drchek -->
+<g id="proc~~drchek~~CalledByGraph_node1" class="node">
+<title>proc~drchek</title>
+<polygon fill="none" stroke="black" points="272,-45 156,-45 156,-21 272,-21 272,-45"/>
+<text text-anchor="middle" x="214" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">M_odepack::drchek</text>
+</g>
+<!-- proc~dlsodar~2 -->
+<g id="proc~~drchek~~CalledByGraph_node2" class="node">
+<title>proc~dlsodar~2</title>
+<g id="a_proc~~drchek~~CalledByGraph_node2"><a xlink:href="../proc/dlsodar~2.html" xlink:title="M_odepack::dlsodar">
+<polygon fill="#d9534f" stroke="#d9534f" points="120,-66 0,-66 0,-42 120,-42 120,-66"/>
+<text text-anchor="middle" x="60" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::dlsodar</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodar~2&#45;&gt;proc~drchek -->
+<g id="proc~~drchek~~CalledByGraph_edge1" class="edge">
+<title>proc~dlsodar~2&#45;&gt;proc~drchek</title>
+<path fill="none" stroke="#000000" d="M120.2,-45.82C128.59,-44.66 137.27,-43.46 145.79,-42.29"/>
+<polygon fill="#000000" stroke="#000000" points="146.28,-45.75 155.7,-40.92 145.32,-38.82 146.28,-45.75"/>
+</g>
+<!-- proc~dlsodkr~2 -->
+<g id="proc~~drchek~~CalledByGraph_node3" class="node">
+<title>proc~dlsodkr~2</title>
+<g id="a_proc~~drchek~~CalledByGraph_node3"><a xlink:href="../proc/dlsodkr~2.html" xlink:title="M_odepack::dlsodkr">
+<polygon fill="#d9534f" stroke="#d9534f" points="119.5,-24 0.5,-24 0.5,0 119.5,0 119.5,-24"/>
+<text text-anchor="middle" x="60" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::dlsodkr</text>
+</a>
+</g>
+</g>
+<!-- proc~dlsodkr~2&#45;&gt;proc~drchek -->
+<g id="proc~~drchek~~CalledByGraph_edge2" class="edge">
+<title>proc~dlsodkr~2&#45;&gt;proc~drchek</title>
+<path fill="none" stroke="#000000" d="M119.77,-20.12C128.29,-21.3 137.13,-22.52 145.8,-23.72"/>
+<polygon fill="#000000" stroke="#000000" points="145.5,-27.21 155.89,-25.11 146.46,-20.27 145.5,-27.21"/>
+</g>
+</g>
+</svg>
+</div>          <div>
+            <a type="button" class="graph-help" data-bs-toggle="modal" href="#CalledByGraph-help-text">Help</a>
+          </div>
+          <div class="modal fade" id="CalledByGraph-help-text" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+<p>Nodes of different colours represent the following: </p>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.43.0 (0)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="641pt" height="28pt"
+ viewBox="0.00 0.00 641.00 27.51" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1.16 1.16) rotate(0) translate(4 28)">
+<title>Graph Key</title>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-28 741.5,-28 741.5,4 -4,4"/>
+<!-- Subroutine -->
+<g id="node1" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="70,-24 0,-24 0,0 70,0 70,-24"/>
+<text text-anchor="middle" x="35" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node2" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="146,-24 88,-24 88,0 146,0 146,-24"/>
+<text text-anchor="middle" x="117" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+</g>
+<!-- Interface -->
+<g id="node3" class="node">
+<title>Interface</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="225.5,-24 164.5,-24 164.5,0 225.5,0 225.5,-24"/>
+<text text-anchor="middle" x="195" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Interface</text>
+</g>
+<!-- Type Bound Procedure -->
+<g id="node4" class="node">
+<title>Type Bound Procedure</title>
+<polygon fill="#a7506f" stroke="#a7506f" points="374,-24 244,-24 244,0 374,0 374,-24"/>
+<text text-anchor="middle" x="309" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Type Bound Procedure</text>
+</g>
+<!-- Unknown Procedure Type -->
+<g id="node5" class="node">
+<title>Unknown Procedure Type</title>
+<polygon fill="#777777" stroke="#777777" points="537.5,-24 392.5,-24 392.5,0 537.5,0 537.5,-24"/>
+<text text-anchor="middle" x="465" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Unknown Procedure Type</text>
+</g>
+<!-- Program -->
+<g id="node6" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="614,-24 556,-24 556,0 614,0 614,-24"/>
+<text text-anchor="middle" x="585" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node7" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="black" points="737.5,-24 632.5,-24 632.5,0 737.5,0 737.5,-24"/>
+<text text-anchor="middle" x="685" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+<p>Solid arrows point from a procedure to one which it calls. Dashed 
+arrows point from an interface to procedures which implement that interface.
+This could include the module procedures in a generic interface or the
+implementation in a submodule of an interface in a parent module.
+</p>
+ </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <br>
 
 
-    <section>    
-      <h2>Variables</h2>
-      <table class="table table-striped varlist">
-    <thead>
-      <tr>
-        <th scope="col">Type</th>
-<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
-        <th scope="col"></th>
-        <th scope="col">Name</th>
-<th></th><th scope="col">Initial</th>        <th scope="col"></th>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-hming"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>hming</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-i~9"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>i</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-iflag~2"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>iflag</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-jflag"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>jflag</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-t1"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>t1</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-temp1"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>temp1</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-temp2"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>temp2</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-x"></span>
-              real(kind=dp),
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>x</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-zroot"></span>
-              logical,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>zroot</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-    </tbody>
-  </table>
-
-    </section>
-    <br>
     
     
 
@@ -778,152 +723,6 @@ implementation in a submodule of an interface in a parent module.
 
 
     
-    <section>
-    <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="k">subroutine </span><span class="n">drchek</span><span class="p">(</span><span class="n">Job</span><span class="p">,</span><span class="n">g_sub</span><span class="p">,</span><span class="n">Neq</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Yh</span><span class="p">,</span><span class="n">Nyh</span><span class="p">,</span><span class="n">G0</span><span class="p">,</span><span class="n">G1</span><span class="p">,</span><span class="n">Gx</span><span class="p">,</span><span class="n">Jroot</span><span class="p">,</span><span class="n">Irt</span><span class="p">)</span>
-<span class="c">!</span>
-<span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Job</span>
-<span class="k">external </span><span class="n">g_sub</span>
-<span class="kt">integer</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">Neq</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
-<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">  </span><span class="kd">::</span><span class="w"> </span><span class="n">Nyh</span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">Yh</span><span class="p">(</span><span class="n">Nyh</span><span class="p">,</span><span class="o">*</span><span class="p">)</span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">G0</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">G1</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">Gx</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
-<span class="kt">integer</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">Jroot</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
-<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Irt</span>
-
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">hming</span><span class="p">,</span><span class="w"> </span><span class="n">t1</span><span class="p">,</span><span class="w"> </span><span class="n">temp1</span><span class="p">,</span><span class="w"> </span><span class="n">temp2</span><span class="p">,</span><span class="w"> </span><span class="n">x</span>
-<span class="kt">integer</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">iflag</span><span class="p">,</span><span class="w"> </span><span class="n">jflag</span>
-<span class="kt">logical</span><span class="w">             </span><span class="kd">::</span><span class="w"> </span><span class="n">zroot</span>
-
-<span class="w">   </span><span class="n">Irt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">ngc</span>
-<span class="w">      </span><span class="n">Jroot</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">   </span><span class="k">enddo</span>
-<span class="k">   </span><span class="n">hming</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">)</span><span class="o">+</span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">))</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="o">*</span><span class="mi">10</span><span class="mf">0.0D0</span>
-
-<span class="w">   </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">Job</span><span class="p">)</span>
-<span class="w">   </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">irfnd</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="w">         </span><span class="c">!  If a root was found on the previous step, evaluate G0 = g(T0). -------</span>
-<span class="w">         </span><span class="k">call </span><span class="n">dintdy</span><span class="p">(</span><span class="n">dlsr</span><span class="p">%</span><span class="n">t0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Yh</span><span class="p">,</span><span class="n">Nyh</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">iflag</span><span class="p">)</span>
-<span class="w">         </span><span class="k">call </span><span class="n">g_sub</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">dlsr</span><span class="p">%</span><span class="n">t0</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">dlsr</span><span class="p">%</span><span class="n">ngc</span><span class="p">,</span><span class="n">G0</span><span class="p">)</span>
-<span class="w">         </span><span class="n">dlsr</span><span class="p">%</span><span class="n">nge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">nge</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">         </span><span class="n">zroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
-<span class="w">         </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">ngc</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">G0</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">&lt;=</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">zroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
-<span class="w">         </span><span class="k">enddo</span>
-<span class="k">         if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">zroot</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span><span class="c">!  g has a zero at T0.  Look at g at T + (small increment). -------------</span>
-<span class="w">            </span><span class="n">temp1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sign</span><span class="p">(</span><span class="n">hming</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">)</span>
-<span class="w">            </span><span class="n">dlsr</span><span class="p">%</span><span class="n">t0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">t0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">temp1</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">dlsr</span><span class="p">%</span><span class="n">t0</span><span class="o">-</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">&lt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">               call </span><span class="n">dintdy</span><span class="p">(</span><span class="n">dlsr</span><span class="p">%</span><span class="n">t0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Yh</span><span class="p">,</span><span class="n">Nyh</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">iflag</span><span class="p">)</span>
-<span class="w">            </span><span class="k">else</span>
-<span class="k">               </span><span class="n">temp2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp1</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span>
-<span class="w">               </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">                  </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">temp2</span><span class="o">*</span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">               </span><span class="k">enddo</span>
-<span class="k">            endif</span>
-<span class="k">            call </span><span class="n">g_sub</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">dlsr</span><span class="p">%</span><span class="n">t0</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">dlsr</span><span class="p">%</span><span class="n">ngc</span><span class="p">,</span><span class="n">G0</span><span class="p">)</span>
-<span class="w">            </span><span class="n">dlsr</span><span class="p">%</span><span class="n">nge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">nge</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">            </span><span class="n">zroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
-<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">ngc</span>
-<span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">G0</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">&lt;=</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">                  </span><span class="n">Jroot</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">                  </span><span class="n">zroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
-<span class="w">               </span><span class="k">endif</span>
-<span class="k">            enddo</span>
-<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">zroot</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="w">            </span><span class="c">!  g has a zero at T0 and also close to T0.  Return root. ---------------</span>
-<span class="w">               </span><span class="n">Irt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">               </span><span class="k">return</span>
-<span class="k">            endif</span>
-<span class="k">         endif</span>
-<span class="k">      endif</span>
-<span class="w">      </span><span class="c">!  G0 has no zero components.  Proceed to check relevant interval. ------</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="o">==</span><span class="n">dlsr</span><span class="p">%</span><span class="n">tlast</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">         return</span>
-<span class="k">      endif</span>
-<span class="k">   case</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="w">   </span><span class="k">case </span><span class="n">default</span>
-<span class="w">      </span><span class="c">!</span>
-<span class="w">      </span><span class="c">!  Evaluate g at initial T, and check for zero values. ------------------</span>
-<span class="w">      </span><span class="n">dlsr</span><span class="p">%</span><span class="n">t0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span>
-<span class="w">      </span><span class="k">call </span><span class="n">g_sub</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">dlsr</span><span class="p">%</span><span class="n">t0</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">dlsr</span><span class="p">%</span><span class="n">ngc</span><span class="p">,</span><span class="n">G0</span><span class="p">)</span>
-<span class="w">      </span><span class="n">dlsr</span><span class="p">%</span><span class="n">nge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">      </span><span class="n">zroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
-<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">ngc</span>
-<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">G0</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">&lt;=</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">zroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
-<span class="w">      </span><span class="k">enddo</span>
-<span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">zroot</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="w">         </span><span class="c">!  g has a zero at T.  Look at g at T + (small increment). --------------</span>
-<span class="w">         </span><span class="n">temp2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">hming</span><span class="o">/</span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">),</span><span class="mf">0.1D0</span><span class="p">)</span>
-<span class="w">         </span><span class="n">temp1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">temp2</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span>
-<span class="w">         </span><span class="n">dlsr</span><span class="p">%</span><span class="n">t0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">t0</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">temp1</span>
-<span class="w">         </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">            </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">temp2</span><span class="o">*</span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="w">         </span><span class="k">enddo</span>
-<span class="k">         call </span><span class="n">g_sub</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">dlsr</span><span class="p">%</span><span class="n">t0</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">dlsr</span><span class="p">%</span><span class="n">ngc</span><span class="p">,</span><span class="n">G0</span><span class="p">)</span>
-<span class="w">         </span><span class="n">dlsr</span><span class="p">%</span><span class="n">nge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">nge</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">         </span><span class="n">zroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
-<span class="w">         </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">ngc</span>
-<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">G0</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">&lt;=</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">zroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
-<span class="w">         </span><span class="k">enddo</span>
-<span class="k">         if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">zroot</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="w">         </span><span class="c">!  g has a zero at T and also close to T.  Take error return. -----------</span>
-<span class="w">            </span><span class="n">Irt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
-<span class="w">            </span><span class="k">return</span>
-<span class="k">         endif</span>
-<span class="k">      endif</span>
-
-<span class="k">      return</span>
-<span class="k">   endselect</span>
-<span class="w">   </span><span class="c">!</span>
-<span class="w">   </span><span class="c">!  Set T1 to TN or TOUTC, whichever comes first, and get g at T1. -------</span>
-<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">itaskc</span><span class="o">/=</span><span class="mi">2</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">itaskc</span><span class="o">/=</span><span class="mi">3</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">itaskc</span><span class="o">/=</span><span class="mi">5</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">dlsr</span><span class="p">%</span><span class="n">toutc</span><span class="o">-</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">&lt;</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">         </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">toutc</span>
-<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">t1</span><span class="o">-</span><span class="n">dlsr</span><span class="p">%</span><span class="n">t0</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">&lt;=</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">            return</span>
-<span class="k">         endif</span>
-<span class="k">         call </span><span class="n">dintdy</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Yh</span><span class="p">,</span><span class="n">Nyh</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">iflag</span><span class="p">)</span>
-<span class="w">      </span><span class="k">endif</span>
-<span class="k">      </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span>
-<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
-<span class="w">         </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">      </span><span class="k">enddo</span>
-<span class="k">   endif</span>
-<span class="k">   call </span><span class="n">g_sub</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">t1</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">dlsr</span><span class="p">%</span><span class="n">ngc</span><span class="p">,</span><span class="n">G1</span><span class="p">)</span>
-<span class="w">   </span><span class="n">dlsr</span><span class="p">%</span><span class="n">nge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">nge</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">   </span><span class="c">!  Call DROOTS to search for root in interval from T0 to T1. ------------</span>
-<span class="w">   </span><span class="n">jflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
-<span class="w">   </span><span class="k">do</span>
-<span class="k">      call </span><span class="n">droots</span><span class="p">(</span><span class="n">dlsr</span><span class="p">%</span><span class="n">ngc</span><span class="p">,</span><span class="n">hming</span><span class="p">,</span><span class="n">jflag</span><span class="p">,</span><span class="n">dlsr</span><span class="p">%</span><span class="n">t0</span><span class="p">,</span><span class="n">t1</span><span class="p">,</span><span class="n">G0</span><span class="p">,</span><span class="n">G1</span><span class="p">,</span><span class="n">Gx</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">Jroot</span><span class="p">)</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jflag</span><span class="o">&gt;</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
-<span class="k">         </span><span class="n">dlsr</span><span class="p">%</span><span class="n">t0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span>
-<span class="w">         </span><span class="c">!X!call dcopy(dlsr%ngc,Gx,1,G0,1)</span>
-<span class="w">         </span><span class="n">G0</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">dlsr</span><span class="p">%</span><span class="n">ngc</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">dlsr</span><span class="p">%</span><span class="n">ngc</span><span class="p">)</span>
-<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">jflag</span><span class="o">/=</span><span class="mi">4</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">exit</span>
-<span class="k">         return</span>
-<span class="k">      else</span>
-<span class="k">         call </span><span class="n">dintdy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Yh</span><span class="p">,</span><span class="n">Nyh</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">iflag</span><span class="p">)</span>
-<span class="w">         </span><span class="k">call </span><span class="n">g_sub</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">dlsr</span><span class="p">%</span><span class="n">ngc</span><span class="p">,</span><span class="n">Gx</span><span class="p">)</span>
-<span class="w">         </span><span class="n">dlsr</span><span class="p">%</span><span class="n">nge</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">nge</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">      </span><span class="k">endif</span>
-<span class="k">   enddo</span>
-<span class="w">   </span><span class="c">!  Found a root.  Interpolate to X and return. --------------------------</span>
-<span class="w">   </span><span class="k">call </span><span class="n">dintdy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Yh</span><span class="p">,</span><span class="n">Nyh</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">iflag</span><span class="p">)</span>
-<span class="w">   </span><span class="n">Irt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
-
-<span class="k">end subroutine </span><span class="n">drchek</span>
-</pre></div>
-
-    </section>
-    <br>
     
     </div>
   </div>
@@ -940,7 +739,7 @@ implementation in a submodule of an interface in a parent module.
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-03-29 08:21              </p>
+ on 2024-03-30 00:11              </p>
           </div>
         </div>
         <br>

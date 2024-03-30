@@ -1742,7 +1742,6 @@ character(60) :: msg
 !  Groups of variables are replaced by dummy arrays in the Common
 !  declarations in routines where those variables are not used.
 ! -----------------------------------------------------------------------
-!
 data mord(1), mord(2)/12, 5/, mxstp0/500/, mxhnl0/10/
 ! -----------------------------------------------------------------------
 !  In the Data statement below, set LENRAT equal to the ratio of

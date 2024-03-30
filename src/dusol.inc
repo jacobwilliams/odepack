@@ -131,9 +131,9 @@ real(kind=dp) , dimension(*) :: Wk , Wp , X
       return
    else
       !X!call dcopy(N,B,1,X,1)
-      X(1:N) = B(1:N)
+      X(1:N) = B(1:N)!X!
       return
    endif
    !X!call dcopy(N,B,1,X,1)
-   X(1:N) = B(1:N)
+   X(1:N) = B(1:N)!X!
 end subroutine dusol

@@ -115,16 +115,16 @@
             <a class="list-group-item" href="../proc/droots.html#variable-fracint">fracint</a>
             <a class="list-group-item" href="../proc/droots.html#variable-fracsub">fracsub</a>
             <a class="list-group-item" href="../proc/droots.html#variable-half">half</a>
-            <a class="list-group-item" href="../proc/droots.html#variable-i~18">i</a>
+            <a class="list-group-item" href="../proc/droots.html#variable-i~44">i</a>
             <a class="list-group-item" href="../proc/droots.html#variable-imxold">imxold</a>
             <a class="list-group-item" href="../proc/droots.html#variable-nxlast">nxlast</a>
             <a class="list-group-item" href="../proc/droots.html#variable-sgnchg">sgnchg</a>
-            <a class="list-group-item" href="../proc/droots.html#variable-t2">t2</a>
+            <a class="list-group-item" href="../proc/droots.html#variable-t2~2">t2</a>
             <a class="list-group-item" href="../proc/droots.html#variable-tenth">tenth</a>
             <a class="list-group-item" href="../proc/droots.html#variable-tmax">tmax</a>
             <a class="list-group-item" href="../proc/droots.html#variable-xroot">xroot</a>
-            <a class="list-group-item" href="../proc/droots.html#variable-zero~2">zero</a>
-            <a class="list-group-item" href="../proc/droots.html#variable-zroot~2">zroot</a>
+            <a class="list-group-item" href="../proc/droots.html#variable-zero">zero</a>
+            <a class="list-group-item" href="../proc/droots.html#variable-zroot">zroot</a>
         </div>
       </div>
     </div>
@@ -273,7 +273,7 @@
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-ng"></span>
+              <span class="anchor" id="variable-ng~2"></span>
               integer
             </td>
 <td></td>
@@ -348,7 +348,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-g0~2"></span>
+              <span class="anchor" id="variable-g0"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -363,7 +363,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-g1~2"></span>
+              <span class="anchor" id="variable-g1"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -378,7 +378,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-gx~2"></span>
+              <span class="anchor" id="variable-gx"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -393,7 +393,7 @@
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-x~4"></span>
+              <span class="anchor" id="variable-x~7"></span>
               real(kind=dp),
             </td>
 <td>intent(out)</td>
@@ -509,7 +509,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~18"></span>
+              <span class="anchor" id="variable-i~44"></span>
               integer,
             </td>
               <td>public</td>
@@ -577,7 +577,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-t2"></span>
+              <span class="anchor" id="variable-t2~2"></span>
               real(kind=dp),
             </td>
               <td>public</td>
@@ -645,7 +645,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-zero~2"></span>
+              <span class="anchor" id="variable-zero"></span>
               real(kind=dp),
             </td>
               <td>public,</td>
@@ -662,7 +662,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-zroot~2"></span>
+              <span class="anchor" id="variable-zroot"></span>
               logical,
             </td>
               <td>public</td>
@@ -741,13 +741,13 @@ parameter
 <span class="w">   </span><span class="c">!  Sign change between X0 and X2, so replace X1 with X2. ----------------</span>
 <span class="w">         </span><span class="n">X1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">x2</span>
 <span class="w">         </span><span class="c">!X!call dcopy(Ng,Gx,1,G1,1)</span>
-<span class="w">         </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span>
+<span class="w">         </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="c">!X!</span>
 <span class="w">         </span><span class="n">dlsr</span><span class="p">%</span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
 <span class="w">         </span><span class="n">xroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
 <span class="w">      </span><span class="k">elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="p">.</span><span class="nb">not</span><span class="p">.</span><span class="n">zroot</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="w">   </span><span class="c">!  No sign change between X0 and X2.  Replace X0 with X2. ---------------</span>
 <span class="w">         </span><span class="c">!X!call dcopy(Ng,Gx,1,G0,1)</span>
-<span class="w">         </span><span class="n">G0</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span>
+<span class="w">         </span><span class="n">G0</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="c">!X!</span>
 <span class="w">         </span><span class="n">X0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">x2</span>
 <span class="w">         </span><span class="n">dlsr</span><span class="p">%</span><span class="n">last</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">         </span><span class="n">xroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">false</span><span class="p">.</span>
@@ -755,7 +755,7 @@ parameter
 <span class="w">   </span><span class="c">!  Zero value at X2 and no sign change in (X0,X2), so X2 is a root. -----</span>
 <span class="w">         </span><span class="n">X1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dlsr</span><span class="p">%</span><span class="n">x2</span>
 <span class="w">         </span><span class="c">!X!call dcopy(Ng,Gx,1,G1,1)</span>
-<span class="w">         </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span>
+<span class="w">         </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="c">!X!</span>
 <span class="w">         </span><span class="n">xroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
 <span class="w">      </span><span class="k">endif</span>
 <span class="k">      if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">X1</span><span class="o">-</span><span class="n">X0</span><span class="p">)</span><span class="o">&lt;=</span><span class="n">Hmin</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">xroot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">.</span><span class="n">true</span><span class="p">.</span>
@@ -789,7 +789,7 @@ parameter
 <span class="w">            </span><span class="c">!  Zero value at X1 and no sign change in (X0,X1).  Return JFLAG = 3. ---</span>
 <span class="w">            </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X1</span>
 <span class="w">            </span><span class="c">!X!call dcopy(Ng,G1,1,Gx,1)</span>
-<span class="w">            </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span>
+<span class="w">            </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="c">!X!</span>
 <span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ng</span>
 <span class="w">               </span><span class="n">Jroot</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">               </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">G1</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">&lt;=</span><span class="n">zero</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">Jroot</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
@@ -800,7 +800,7 @@ parameter
 <span class="w">   </span><span class="c">!</span>
 <span class="w">   </span><span class="c">!  No sign changes in this interval.  Set X = X1, return JFLAG = 4. -----</span>
 <span class="w">         </span><span class="c">!X!call dcopy(Ng,G1,1,Gx,1)</span>
-<span class="w">         </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span>
+<span class="w">         </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="c">!X!</span>
 <span class="w">         </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X1</span>
 <span class="w">         </span><span class="n">Jflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">4</span>
 <span class="w">         </span><span class="k">return</span>
@@ -819,7 +819,7 @@ parameter
 <span class="w">      </span><span class="n">Jflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
 <span class="w">      </span><span class="n">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">X1</span>
 <span class="w">      </span><span class="c">!X!call dcopy(Ng,G1,1,Gx,1)</span>
-<span class="w">      </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span>
+<span class="w">      </span><span class="n">Gx</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">G1</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">Ng</span><span class="p">)</span><span class="c">!X!</span>
 <span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">Ng</span>
 <span class="w">         </span><span class="n">Jroot</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
 <span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">G1</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">&gt;</span><span class="n">zero</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
@@ -876,7 +876,7 @@ parameter
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-03-29 08:21              </p>
+ on 2024-03-30 00:11              </p>
           </div>
         </div>
         <br>

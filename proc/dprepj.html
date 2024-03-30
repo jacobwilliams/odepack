@@ -77,15 +77,14 @@
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/M_odepack.f90"> Source File</a>
+              <a href="../src/dprepj.inc"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/m_odepack.f90.html'>M_odepack.f90</a></li>
-                <li class="breadcrumb-item"><a href='../module/m_odepack.html'>M_odepack</a></li>
+                <li class="breadcrumb-item"><a href='../sourcefile/dprepj.inc.html'>dprepj.inc</a></li>
             <li class="breadcrumb-item active" aria-current="page">dprepj</li>
           </ol>
         </nav>
@@ -105,6 +104,44 @@
       <div id="sidebar">
       <h3>Contents</h3>
   
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#vars-0"
+         aria-expanded="false" aria-controls="vars-0">
+         <h4 class="card-header bg-primary text-white">Variables</h4>
+      </a>
+      <div id="vars-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dprepj.html#variable-con">con</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-di~2">di</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-fac~2">fac</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-hl0~3">hl0</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-i~22">i</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-i1~8">i1</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-i2~6">i2</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-ier~5">ier</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-ii~2">ii</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-j~10">j</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-j1~2">j1</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-jj~2">jj</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-lenp">lenp</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-mba">mba</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-mband">mband</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-meb1">meb1</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-meband~2">meband</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-ml~5">ml</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-ml3">ml3</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-mu~5">mu</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-np1">np1</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-r~4">r</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-r0">r0</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-srur">srur</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-yi">yi</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-yj">yj</a>
+            <a class="list-group-item" href="../proc/dprepj.html#variable-yjj">yjj</a>
+        </div>
+      </div>
+    </div>
+
   
   
   
@@ -115,6 +152,18 @@
   
   
   
+      <div class="card mb-4">
+      <a data-bs-toggle="collapse" href="#subs-0"
+         aria-expanded="false" aria-controls="subs-0">
+         <h4 class="card-header bg-primary text-white">Subroutines</h4>
+      </a>
+      <div id="subs-0" class="collapse">
+        <div class="list-group list-group-flush">
+            <a class="list-group-item" href="../proc/dprepj.html#proc-wrapup">wrapup</a>
+        </div>
+      </div>
+    </div>
+
   
   
   
@@ -122,8 +171,12 @@
   
   
   
-  
-  
+    <div class="card card-primary">
+      <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
+      <div class="list-group">
+        <a class="list-group-item" href="../proc/dprepj.html#src">dprepj</a>
+      </div>
+    </div>
 
 
   </div>
@@ -131,7 +184,7 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>public  subroutine dprepj(Neq, Y, Yh, Nyh, Ewt, Ftem, Savf, Wm, Iwm, f, jac)  
+    <h2> subroutine dprepj(Neq, Y, Yh, Nyh, Ewt, Ftem, Savf, Wm, Iwm, f, jac)  
 </h2>
     
 
@@ -212,7 +265,7 @@ P matrix found to be singular.</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-neq~45"></span>
+              <span class="anchor" id="variable-neq~13"></span>
               integer
             </td>
 <td></td>
@@ -227,7 +280,7 @@ P matrix found to be singular.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-y~46"></span>
+              <span class="anchor" id="variable-y~13"></span>
               real(kind=dp),
             </td>
 <td>intent(inout)</td>
@@ -242,7 +295,7 @@ P matrix found to be singular.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-yh~15"></span>
+              <span class="anchor" id="variable-yh~3"></span>
               real(kind=dp),
             </td>
 <td>intent(in)</td>
@@ -257,7 +310,7 @@ P matrix found to be singular.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nyh~15"></span>
+              <span class="anchor" id="variable-nyh~3"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -272,7 +325,7 @@ P matrix found to be singular.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ewt~20"></span>
+              <span class="anchor" id="variable-ewt~4"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -287,7 +340,7 @@ P matrix found to be singular.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ftem~10"></span>
+              <span class="anchor" id="variable-ftem"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -302,7 +355,7 @@ P matrix found to be singular.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-savf~27"></span>
+              <span class="anchor" id="variable-savf~6"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -317,7 +370,7 @@ P matrix found to be singular.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-wm~18"></span>
+              <span class="anchor" id="variable-wm~6"></span>
               real(kind=dp),
             </td>
 <td>intent(inout)</td>
@@ -332,7 +385,7 @@ P matrix found to be singular.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-iwm~18"></span>
+              <span class="anchor" id="variable-iwm~6"></span>
               integer
             </td>
 <td></td>
@@ -347,7 +400,7 @@ P matrix found to be singular.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~31"></span>
+              <span class="anchor" id="variable-f~7"></span>
               real
             </td>
 <td></td>
@@ -362,7 +415,7 @@ P matrix found to be singular.</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-jac~22"></span>
+              <span class="anchor" id="variable-jac~9"></span>
               integer
             </td>
 <td></td>
@@ -390,88 +443,67 @@ P matrix found to be singular.</p>
 <!-- Generated by graphviz version 2.43.0 (0)
  -->
 <!-- Title: proc~~dprepj~~CallsGraph Pages: 1 -->
-<svg id="procdprepjCallsGraph" width="427pt" height="142pt"
- viewBox="0.00 0.00 427.00 142.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="proc~~dprepj~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 138)">
+<svg id="procdprepjCallsGraph" width="334pt" height="116pt"
+ viewBox="0.00 0.00 334.00 116.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="proc~~dprepj~~CallsGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 112)">
 <title>proc~~dprepj~~CallsGraph</title>
-<polygon fill="white" stroke="transparent" points="-4,4 -4,-138 423,-138 423,4 -4,4"/>
+<polygon fill="white" stroke="transparent" points="-4,4 -4,-112 330,-112 330,4 -4,4"/>
 <!-- proc~dprepj -->
 <g id="proc~~dprepj~~CallsGraph_node1" class="node">
 <title>proc~dprepj</title>
-<polygon fill="none" stroke="black" points="114,-84 0,-84 0,-60 114,-60 114,-84"/>
-<text text-anchor="middle" x="57" y="-69.6" font-family="Helvetica,sans-Serif" font-size="10.50">M_odepack::dprepj</text>
+<polygon fill="none" stroke="black" points="106,-66 0,-66 0,-42 106,-42 106,-66"/>
+<text text-anchor="middle" x="53" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50">dprepj.inc::dprepj</text>
 </g>
-<!-- proc~daxpy~2 -->
+<!-- dgefa -->
 <g id="proc~~dprepj~~CallsGraph_node2" class="node">
-<title>proc~daxpy~2</title>
-<g id="a_proc~~dprepj~~CallsGraph_node2"><a xlink:href="../proc/daxpy~2.html" xlink:title="M_odepack::daxpy">
-<polygon fill="#d9534f" stroke="#d9534f" points="419,-134 307,-134 307,-110 419,-110 419,-134"/>
-<text text-anchor="middle" x="363" y="-119.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::daxpy</text>
-</a>
+<title>dgefa</title>
+<polygon fill="#777777" stroke="#777777" points="216,-108 162,-108 162,-84 216,-84 216,-108"/>
+<text text-anchor="middle" x="189" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgefa</text>
 </g>
-</g>
-<!-- proc~dprepj&#45;&gt;proc~daxpy~2 -->
+<!-- proc~dprepj&#45;&gt;dgefa -->
 <g id="proc~~dprepj~~CallsGraph_edge1" class="edge">
-<title>proc~dprepj&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M79.12,-84.18C97.27,-93.95 124.47,-107 150,-113 198.2,-124.33 254.23,-126.24 296.58,-125.5"/>
-<polygon fill="#000000" stroke="#000000" points="296.85,-129 306.77,-125.27 296.69,-122 296.85,-129"/>
+<title>proc~dprepj&#45;&gt;dgefa</title>
+<path fill="none" stroke="#000000" d="M92.4,-66.04C111.19,-71.93 133.68,-78.97 152.12,-84.76"/>
+<polygon fill="#000000" stroke="#000000" points="151.32,-88.17 161.91,-87.82 153.41,-81.49 151.32,-88.17"/>
 </g>
-<!-- proc~dgefa -->
+<!-- dvnorm -->
 <g id="proc~~dprepj~~CallsGraph_node3" class="node">
-<title>proc~dgefa</title>
-<g id="a_proc~~dprepj~~CallsGraph_node3"><a xlink:href="../proc/dgefa.html" xlink:title="M_odepack::dgefa">
-<polygon fill="#d9534f" stroke="#d9534f" points="266,-104 155,-104 155,-80 266,-80 266,-104"/>
-<text text-anchor="middle" x="210.5" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::dgefa</text>
-</a>
+<title>dvnorm</title>
+<polygon fill="#777777" stroke="#777777" points="216,-66 162,-66 162,-42 216,-42 216,-66"/>
+<text text-anchor="middle" x="189" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dvnorm</text>
 </g>
-</g>
-<!-- proc~dprepj&#45;&gt;proc~dgefa -->
+<!-- proc~dprepj&#45;&gt;dvnorm -->
 <g id="proc~~dprepj~~CallsGraph_edge2" class="edge">
-<title>proc~dprepj&#45;&gt;proc~dgefa</title>
-<path fill="none" stroke="#000000" d="M114.41,-79.45C124.32,-80.75 134.7,-82.13 144.81,-83.46"/>
-<polygon fill="#000000" stroke="#000000" points="144.43,-86.94 154.8,-84.78 145.35,-80 144.43,-86.94"/>
+<title>proc~dprepj&#45;&gt;dvnorm</title>
+<path fill="none" stroke="#000000" d="M106.19,-54C121.42,-54 137.72,-54 151.73,-54"/>
+<polygon fill="#000000" stroke="#000000" points="151.94,-57.5 161.94,-54 151.94,-50.5 151.94,-57.5"/>
 </g>
-<!-- proc~dscal~2 -->
+<!-- none~wrapup -->
 <g id="proc~~dprepj~~CallsGraph_node4" class="node">
-<title>proc~dscal~2</title>
-<g id="a_proc~~dprepj~~CallsGraph_node4"><a xlink:href="../proc/dscal~2.html" xlink:title="M_odepack::dscal">
-<polygon fill="#d9534f" stroke="#d9534f" points="417,-83 309,-83 309,-59 417,-59 417,-83"/>
-<text text-anchor="middle" x="363" y="-68.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::dscal</text>
+<title>none~wrapup</title>
+<g id="a_proc~~dprepj~~CallsGraph_node4"><a xlink:href="../proc/dprepj.html#proc-wrapup" xlink:title="dprepj::wrapup">
+<polygon fill="#d9534f" stroke="#d9534f" points="236,-24 142,-24 142,0 236,0 236,-24"/>
+<text text-anchor="middle" x="189" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dprepj::wrapup</text>
 </a>
 </g>
 </g>
-<!-- proc~dprepj&#45;&gt;proc~dscal~2 -->
+<!-- proc~dprepj&#45;&gt;none~wrapup -->
 <g id="proc~~dprepj~~CallsGraph_edge3" class="edge">
-<title>proc~dprepj&#45;&gt;proc~dscal~2</title>
-<path fill="none" stroke="#000000" d="M114.44,-71.29C126.19,-71.17 138.5,-71.06 150,-71 199.98,-70.73 256.59,-70.74 298.74,-70.82"/>
-<polygon fill="#000000" stroke="#000000" points="298.85,-74.32 308.85,-70.84 298.86,-67.32 298.85,-74.32"/>
+<title>proc~dprepj&#45;&gt;none~wrapup</title>
+<path fill="none" stroke="#000000" d="M92.4,-41.96C107.12,-37.35 124.1,-32.03 139.64,-27.16"/>
+<polygon fill="#000000" stroke="#000000" points="141.1,-30.37 149.6,-24.04 139.01,-23.69 141.1,-30.37"/>
 </g>
-<!-- proc~dvnorm~2 -->
+<!-- dgbfa -->
 <g id="proc~~dprepj~~CallsGraph_node5" class="node">
-<title>proc~dvnorm~2</title>
-<g id="a_proc~~dprepj~~CallsGraph_node5"><a xlink:href="../proc/dvnorm~2.html" xlink:title="M_odepack::dvnorm">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="271,-24 150,-24 150,0 271,0 271,-24"/>
-<text text-anchor="middle" x="210.5" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::dvnorm</text>
-</a>
+<title>dgbfa</title>
+<polygon fill="#777777" stroke="#777777" points="326,-24 272,-24 272,0 326,0 326,-24"/>
+<text text-anchor="middle" x="299" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">dgbfa</text>
 </g>
-</g>
-<!-- proc~dprepj&#45;&gt;proc~dvnorm~2 -->
+<!-- none~wrapup&#45;&gt;dgbfa -->
 <g id="proc~~dprepj~~CallsGraph_edge4" class="edge">
-<title>proc~dprepj&#45;&gt;proc~dvnorm~2</title>
-<path fill="none" stroke="#000000" d="M88.66,-59.86C112.04,-50.6 144.44,-37.77 169.8,-27.72"/>
-<polygon fill="#000000" stroke="#000000" points="171.14,-30.96 179.15,-24.02 168.56,-24.45 171.14,-30.96"/>
-</g>
-<!-- proc~dgefa&#45;&gt;proc~daxpy~2 -->
-<g id="proc~~dprepj~~CallsGraph_edge5" class="edge">
-<title>proc~dgefa&#45;&gt;proc~daxpy~2</title>
-<path fill="none" stroke="#000000" d="M266.26,-102.92C276.16,-104.89 286.56,-106.96 296.73,-108.99"/>
-<polygon fill="#000000" stroke="#000000" points="296.29,-112.47 306.78,-110.99 297.65,-105.6 296.29,-112.47"/>
-</g>
-<!-- proc~dgefa&#45;&gt;proc~dscal~2 -->
-<g id="proc~~dprepj~~CallsGraph_edge6" class="edge">
-<title>proc~dgefa&#45;&gt;proc~dscal~2</title>
-<path fill="none" stroke="#000000" d="M266.26,-84.36C276.77,-82.89 287.85,-81.35 298.61,-79.85"/>
-<polygon fill="#000000" stroke="#000000" points="299.37,-83.27 308.79,-78.42 298.4,-76.34 299.37,-83.27"/>
+<title>none~wrapup&#45;&gt;dgbfa</title>
+<path fill="none" stroke="#000000" d="M236.11,-12C244.74,-12 253.64,-12 261.91,-12"/>
+<polygon fill="#000000" stroke="#000000" points="261.98,-15.5 271.98,-12 261.98,-8.5 261.98,-15.5"/>
 </g>
 </g>
 </svg>
@@ -557,6 +589,482 @@ implementation in a submodule of an interface in a parent module.
     <br>
 
 
+    <section>    
+      <h2>Variables</h2>
+      <table class="table table-striped varlist">
+    <thead>
+      <tr>
+        <th scope="col">Type</th>
+<th scope="col">Visibility</th>        <th scope="col">Attributes</th>
+        <th scope="col"></th>
+        <th scope="col">Name</th>
+<th></th><th scope="col">Initial</th>        <th scope="col"></th>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-con"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>con</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-di~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>di</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-fac~2"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>fac</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-hl0~3"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>hl0</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i~22"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i1~8"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-i2~6"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>i2</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ier~5"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ier</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ii~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ii</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j~10"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-j1~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>j1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-jj~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>jj</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-lenp"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>lenp</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mba"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mba</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mband"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mband</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-meb1"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>meb1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-meband~2"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>meband</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ml~5"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ml</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-ml3"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>ml3</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-mu~5"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>mu</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-np1"></span>
+              integer,
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>np1</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r~4"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-r0"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>r0</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-srur"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>srur</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-yi"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>yi</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-yj"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>yj</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+              <span class="anchor" id="variable-yjj"></span>
+              real(kind=dp),
+            </td>
+              <td>public</td>
+            <td>
+              
+            </td>
+            <td>::</td>
+            <td><strong>yjj</strong></td>
+                <td></td>
+                <td></td>
+            <td>
+                
+            </td>
+        </tr>
+    </tbody>
+  </table>
+
+    </section>
+    <br>
     
     
 
@@ -564,8 +1072,186 @@ implementation in a submodule of an interface in a parent module.
     
 
 
+    <section>
+    <h2>Subroutines</h2>
+      <div class="card">
+    <div class="card-header codesum"><span class="anchor" id="proc-wrapup"></span> <h3> subroutine <a href='dprepj.html#proc-wrapup'>wrapup</a>()  
+</h3></div>
+    <div class="card-body">
+          
+  
+
+  <h4>Arguments</h4>
+    <em>None</em>
+
+    </div>
+  </div>
+
+    </section>    
 
     
+    <section>
+    <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl codehilite"><pre><span></span><span class="k">subroutine </span><span class="n">dprepj</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Yh</span><span class="p">,</span><span class="n">Nyh</span><span class="p">,</span><span class="n">Ewt</span><span class="p">,</span><span class="n">Ftem</span><span class="p">,</span><span class="n">Savf</span><span class="p">,</span><span class="n">Wm</span><span class="p">,</span><span class="n">Iwm</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">jac</span><span class="p">)</span>
+<span class="c">!</span>
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">Neq</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">,</span><span class="w"> </span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">         </span><span class="kd">::</span><span class="w"> </span><span class="n">Nyh</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">    </span><span class="kd">::</span><span class="w"> </span><span class="n">Yh</span><span class="p">(</span><span class="n">Nyh</span><span class="p">,</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Ewt</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Ftem</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">               </span><span class="kd">::</span><span class="w"> </span><span class="n">Savf</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">inout</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">Wm</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="kt">integer</span><span class="w">                     </span><span class="kd">::</span><span class="w"> </span><span class="n">Iwm</span><span class="p">(</span><span class="o">*</span><span class="p">)</span>
+<span class="k">external</span><span class="w">                    </span><span class="kd">::</span><span class="w"> </span><span class="n">f</span>
+<span class="k">external</span><span class="w">                    </span><span class="kd">::</span><span class="w"> </span><span class="n">jac</span>
+<span class="c">!</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">con</span><span class="p">,</span><span class="w"> </span><span class="n">di</span><span class="p">,</span><span class="w"> </span><span class="n">fac</span><span class="p">,</span><span class="w"> </span><span class="n">hl0</span><span class="p">,</span><span class="w"> </span><span class="n">r</span><span class="p">,</span><span class="w"> </span><span class="n">r0</span><span class="p">,</span><span class="w"> </span><span class="n">srur</span><span class="p">,</span><span class="w"> </span><span class="n">yi</span><span class="p">,</span><span class="w"> </span><span class="n">yj</span><span class="p">,</span><span class="w"> </span><span class="n">yjj</span>
+<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">,</span><span class="w"> </span><span class="n">i2</span><span class="p">,</span><span class="w"> </span><span class="n">ier</span><span class="p">,</span><span class="w"> </span><span class="n">ii</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">j1</span><span class="p">,</span><span class="w"> </span><span class="n">jj</span><span class="p">,</span><span class="w"> </span><span class="n">lenp</span><span class="p">,</span><span class="w"> </span><span class="n">mba</span><span class="p">,</span><span class="w"> </span><span class="n">mband</span><span class="p">,</span><span class="w"> </span><span class="n">meb1</span><span class="p">,</span><span class="w"> </span><span class="n">meband</span><span class="p">,</span><span class="w"> </span><span class="n">ml</span><span class="p">,</span><span class="w"> </span><span class="n">ml3</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="p">,</span><span class="w"> </span><span class="n">np1</span>
+<span class="c">!</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">nje</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nje</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">ierpj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span>
+<span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">jcur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="n">hl0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">el0</span>
+<span class="w">   </span><span class="k">select case</span><span class="w"> </span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="p">)</span>
+<span class="w">   </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">   </span><span class="c">!  If MITER = 2, make N calls to F to approximate J. --------------------</span>
+<span class="w">      </span><span class="n">fac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dvnorm</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Savf</span><span class="p">,</span><span class="n">Ewt</span><span class="p">)</span>
+<span class="w">      </span><span class="n">r0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="mf">0.0D0</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="o">*</span><span class="n">fac</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">r0</span><span class="o">==</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">r0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span>
+<span class="w">      </span><span class="n">srur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Wm</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="n">j1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">      </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">         </span><span class="n">yj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="w">         </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">srur</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">yj</span><span class="p">),</span><span class="n">r0</span><span class="o">/</span><span class="n">Ewt</span><span class="p">(</span><span class="n">j</span><span class="p">))</span>
+<span class="w">         </span><span class="n">Y</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span>
+<span class="w">         </span><span class="n">fac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">hl0</span><span class="o">/</span><span class="n">r</span>
+<span class="w">         </span><span class="k">call </span><span class="n">f</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Ftem</span><span class="p">)</span>
+<span class="w">         </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">            </span><span class="n">Wm</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">j1</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Ftem</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="n">Savf</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">*</span><span class="n">fac</span>
+<span class="w">         </span><span class="k">enddo</span>
+<span class="k">         </span><span class="n">Y</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">yj</span>
+<span class="w">         </span><span class="n">j1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">      </span><span class="k">enddo</span>
+<span class="k">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">nfe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nfe</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">   </span><span class="k">case</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="w">   </span><span class="c">!  If MITER = 3, construct a diagonal approximation to J and P. ---------</span>
+<span class="w">      </span><span class="n">Wm</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">hl0</span>
+<span class="w">      </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">el0</span><span class="o">*</span><span class="mf">0.1D0</span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">         </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span><span class="o">*</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">*</span><span class="n">Savf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="w">      </span><span class="k">enddo</span>
+<span class="k">      call </span><span class="n">f</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Wm</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="w">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">nfe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nfe</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">         </span><span class="n">r0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">*</span><span class="n">Savf</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">Yh</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">         </span><span class="n">di</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1D0</span><span class="o">*</span><span class="n">r0</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="o">*</span><span class="p">(</span><span class="n">Wm</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">-</span><span class="n">Savf</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">         </span><span class="n">Wm</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">r0</span><span class="p">)</span><span class="o">&gt;=</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="o">/</span><span class="n">Ewt</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">            if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">di</span><span class="p">)</span><span class="o">==</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
+<span class="k">               </span><span class="n">dls1</span><span class="p">%</span><span class="n">ierpj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">               </span><span class="k">return</span>
+<span class="k">            else</span>
+<span class="k">               </span><span class="n">Wm</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.1D0</span><span class="o">*</span><span class="n">r0</span><span class="o">/</span><span class="n">di</span>
+<span class="w">            </span><span class="k">endif</span>
+<span class="k">         endif</span>
+<span class="k">      enddo</span>
+<span class="k">      return</span>
+<span class="k">   case</span><span class="w"> </span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="w">   </span><span class="c">!  If MITER = 4, call JAC and multiply by scalar. -----------------------</span>
+<span class="w">      </span><span class="n">ml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iwm</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="n">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iwm</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">      </span><span class="n">ml3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ml</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">      </span><span class="n">mband</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ml</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="n">meband</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mband</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ml</span>
+<span class="w">      </span><span class="n">lenp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">meband</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lenp</span>
+<span class="w">         </span><span class="n">Wm</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="w">      </span><span class="k">enddo</span>
+<span class="k">      call </span><span class="n">jac</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">ml</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">Wm</span><span class="p">(</span><span class="n">ml3</span><span class="p">),</span><span class="n">meband</span><span class="p">)</span>
+<span class="w">      </span><span class="n">con</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">hl0</span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lenp</span>
+<span class="w">         </span><span class="n">Wm</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Wm</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">con</span>
+<span class="w">      </span><span class="k">enddo</span>
+<span class="k">      call </span><span class="n">wrapup</span><span class="p">()</span>
+<span class="w">      </span><span class="k">return</span>
+<span class="k">   case</span><span class="w"> </span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="w">   </span><span class="c">!  If MITER = 5, make MBAND calls to F to approximate J. ----------------</span>
+<span class="w">      </span><span class="n">ml</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iwm</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="n">mu</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Iwm</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="w">      </span><span class="n">mband</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ml</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="n">mba</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">mband</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">)</span>
+<span class="w">      </span><span class="n">meband</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mband</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">ml</span>
+<span class="w">      </span><span class="n">meb1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">meband</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">      </span><span class="n">srur</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Wm</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">      </span><span class="n">fac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dvnorm</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Savf</span><span class="p">,</span><span class="n">Ewt</span><span class="p">)</span>
+<span class="w">      </span><span class="n">r0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="mf">0.0D0</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">)</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">uround</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="o">*</span><span class="n">fac</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">r0</span><span class="o">==</span><span class="mf">0.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">r0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.0D0</span>
+<span class="w">      </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">mba</span>
+<span class="w">         </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">mband</span>
+<span class="w">            </span><span class="n">yi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<span class="w">            </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">srur</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">yi</span><span class="p">),</span><span class="n">r0</span><span class="o">/</span><span class="n">Ewt</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span class="w">            </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">r</span>
+<span class="w">         </span><span class="k">enddo</span>
+<span class="k">         call </span><span class="n">f</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="n">Ftem</span><span class="p">)</span>
+<span class="w">         </span><span class="k">do </span><span class="n">jj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">mband</span>
+<span class="w">            </span><span class="n">Y</span><span class="p">(</span><span class="n">jj</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Yh</span><span class="p">(</span><span class="n">jj</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="n">yjj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Y</span><span class="p">(</span><span class="n">jj</span><span class="p">)</span>
+<span class="w">            </span><span class="n">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">srur</span><span class="o">*</span><span class="nb">abs</span><span class="p">(</span><span class="n">yjj</span><span class="p">),</span><span class="n">r0</span><span class="o">/</span><span class="n">Ewt</span><span class="p">(</span><span class="n">jj</span><span class="p">))</span>
+<span class="w">            </span><span class="n">fac</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">hl0</span><span class="o">/</span><span class="n">r</span>
+<span class="w">            </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">jj</span><span class="o">-</span><span class="n">mu</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="w">            </span><span class="n">i2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">jj</span><span class="o">+</span><span class="n">ml</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">)</span>
+<span class="w">            </span><span class="n">ii</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jj</span><span class="o">*</span><span class="n">meb1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">ml</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">            </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">i2</span>
+<span class="w">               </span><span class="n">Wm</span><span class="p">(</span><span class="n">ii</span><span class="o">+</span><span class="n">i</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="n">Ftem</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="n">Savf</span><span class="p">(</span><span class="n">i</span><span class="p">))</span><span class="o">*</span><span class="n">fac</span>
+<span class="w">            </span><span class="k">enddo</span>
+<span class="k">         enddo</span>
+<span class="k">      enddo</span>
+<span class="k">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">nfe</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">nfe</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mba</span>
+<span class="w">      </span><span class="k">call </span><span class="n">wrapup</span><span class="p">()</span>
+<span class="w">      </span><span class="k">return</span>
+<span class="k">   case </span><span class="n">default</span>
+<span class="w">   </span><span class="c">!  If MITER = 1, call JAC and multiply by scalar. -----------------------</span>
+<span class="w">      </span><span class="n">lenp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="o">*</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lenp</span>
+<span class="w">         </span><span class="n">Wm</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0D0</span>
+<span class="w">      </span><span class="k">enddo</span>
+<span class="k">      call </span><span class="n">jac</span><span class="p">(</span><span class="n">Neq</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tn</span><span class="p">,</span><span class="n">Y</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">Wm</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">)</span>
+<span class="w">      </span><span class="n">con</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="n">hl0</span>
+<span class="w">      </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">lenp</span>
+<span class="w">         </span><span class="n">Wm</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Wm</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">con</span>
+<span class="w">      </span><span class="k">enddo</span>
+<span class="k">   endselect</span>
+<span class="w">   </span><span class="c">!  Add identity matrix. -------------------------------------------------</span>
+<span class="w">   </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">   </span><span class="n">np1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">      </span><span class="n">Wm</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Wm</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1.0D0</span>
+<span class="w">      </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">j</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">np1</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="w">   </span><span class="c">!  Do LU decomposition on P. --------------------------------------------</span>
+<span class="w">   </span><span class="k">call </span><span class="n">dgefa</span><span class="p">(</span><span class="n">Wm</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Iwm</span><span class="p">(</span><span class="mi">21</span><span class="p">),</span><span class="n">ier</span><span class="p">)</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ier</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">ierpj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+
+<span class="k">contains</span>
+
+<span class="k">subroutine </span><span class="n">wrapup</span><span class="p">()</span>
+<span class="w">   </span><span class="c">!  Add identity matrix. -------------------------------------------------</span>
+<span class="w">   </span><span class="n">ii</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mband</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">2</span>
+<span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span>
+<span class="w">      </span><span class="n">Wm</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Wm</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mf">1.0D0</span>
+<span class="w">      </span><span class="n">ii</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ii</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">meband</span>
+<span class="w">   </span><span class="k">enddo</span>
+<span class="w">   </span><span class="c">!  Do LU decomposition of P. --------------------------------------------</span>
+<span class="w">   </span><span class="k">call </span><span class="n">dgbfa</span><span class="p">(</span><span class="n">Wm</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span><span class="n">meband</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">ml</span><span class="p">,</span><span class="n">mu</span><span class="p">,</span><span class="n">Iwm</span><span class="p">(</span><span class="mi">21</span><span class="p">),</span><span class="n">ier</span><span class="p">)</span>
+<span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">ier</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">ierpj</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span>
+<span class="k">end subroutine </span><span class="n">wrapup</span>
+
+<span class="k">end subroutine </span><span class="n">dprepj</span>
+</pre></div>
+
+    </section>
+    <br>
     
     </div>
   </div>
@@ -582,7 +1268,7 @@ implementation in a submodule of an interface in a parent module.
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-03-29 08:21              </p>
+ on 2024-03-30 00:11              </p>
           </div>
         </div>
         <br>

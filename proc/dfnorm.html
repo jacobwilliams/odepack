@@ -10,7 +10,7 @@
     <meta name="author" content="Alan C. Hindmarsh as modified by John S. Urban, Jacob Williams" >
     <link rel="icon" href="../favicon.png">
 
-    <title>dbnorm &ndash; odepack</title>
+    <title>dfnorm &ndash; odepack</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -60,7 +60,7 @@
 
     <div class="container">
   <div class="row">
-    <h1>dbnorm
+    <h1>dfnorm
       <small>Function</small>
       
     </h1>
@@ -72,20 +72,20 @@
             <li class="list-inline-item" id="statements"><i class="fa fa-list-ol"></i>
               <a data-bs-toggle="tooltip"
                  data-bs-placement="bottom" data-html="true"
-                 title=" 0.1% of total for procedures.">23 statements</a>
+                 title=" 0.1% of total for procedures.">17 statements</a>
             </li>
 
             <li class="list-inline-item" id="source-file">
               <i class="fa fa-code"></i>
-              <a href="../src/dbnorm.inc"> Source File</a>
+              <a href="../src/dfnorm.inc"> Source File</a>
             </li>
         </ul>
       </div>
       <div class="col">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb justify-content-end mb-0">
-                <li class="breadcrumb-item"><a href='../sourcefile/dbnorm.inc.html'>dbnorm.inc</a></li>
-            <li class="breadcrumb-item active" aria-current="page">dbnorm</li>
+                <li class="breadcrumb-item"><a href='../sourcefile/dfnorm.inc.html'>dfnorm.inc</a></li>
+            <li class="breadcrumb-item active" aria-current="page">dfnorm</li>
           </ol>
         </nav>
       </div>
@@ -111,13 +111,10 @@
       </a>
       <div id="vars-0" class="collapse">
         <div class="list-group list-group-flush">
-            <a class="list-group-item" href="../proc/dbnorm~2.html#variable-an~4">an</a>
-            <a class="list-group-item" href="../proc/dbnorm~2.html#variable-i~126">i</a>
-            <a class="list-group-item" href="../proc/dbnorm~2.html#variable-i1~36">i1</a>
-            <a class="list-group-item" href="../proc/dbnorm~2.html#variable-j~67">j</a>
-            <a class="list-group-item" href="../proc/dbnorm~2.html#variable-jhi~2">jhi</a>
-            <a class="list-group-item" href="../proc/dbnorm~2.html#variable-jlo~2">jlo</a>
-            <a class="list-group-item" href="../proc/dbnorm~2.html#variable-sum~26">sum</a>
+            <a class="list-group-item" href="../proc/dfnorm.html#variable-an">an</a>
+            <a class="list-group-item" href="../proc/dfnorm.html#variable-i~7">i</a>
+            <a class="list-group-item" href="../proc/dfnorm.html#variable-j~4">j</a>
+            <a class="list-group-item" href="../proc/dfnorm.html#variable-sum">sum</a>
         </div>
       </div>
     </div>
@@ -143,7 +140,7 @@
     <div class="card card-primary">
       <div class="card-header text-left"><h3 class="card-title">Source Code</h3></div>
       <div class="list-group">
-        <a class="list-group-item" href="../proc/dbnorm~2.html#src">dbnorm</a>
+        <a class="list-group-item" href="../proc/dfnorm.html#src">dfnorm</a>
       </div>
     </div>
 
@@ -153,17 +150,14 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>pure function dbnorm(n, a, nra, ml, mu, w)  
+    <h2>pure function dfnorm(n, a, w)  
 </h2>
     
 
-    <p>This function computes the norm of a banded N by N matrix,
+    <p>This function computes the norm of a full N by N matrix,
 stored in the array A, that is consistent with the weighted max-norm
-on vectors, with weights stored in the array W.
-ML and MU are the lower and upper half-bandwidths of the matrix.
-NRA is the first dimension of the A array, NRA .ge. ML+MU+1.
-In terms of the matrix elements a(i,j), the norm is given by:</p>
-<div class="codehilite"><pre><span></span><code>DBNORM = MAX(i=1,...,N) ( W(i) * Sum(j=1,...,N) ABS(a(i,j))/W(j) )
+on vectors, with weights stored in the array W:</p>
+<div class="codehilite"><pre><span></span><code>DFNORM = MAX(i=1,...,N) ( W(i) * Sum(j=1,...,N) ABS(a(i,j))/W(j) )
 </code></pre></div>
 
 
@@ -180,7 +174,7 @@ In terms of the matrix elements a(i,j), the norm is given by:</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-n~11"></span>
+              <span class="anchor" id="variable-n"></span>
               integer,
             </td>
 <td>intent(in)</td>
@@ -195,7 +189,7 @@ In terms of the matrix elements a(i,j), the norm is given by:</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-a~4"></span>
+              <span class="anchor" id="variable-a"></span>
               real(kind=dp),
             </td>
 <td>intent(in)</td>
@@ -203,59 +197,14 @@ In terms of the matrix elements a(i,j), the norm is given by:</p>
               
             </td>
             <td>::</td>
-            <td><strong>a</strong>(nra,n)</td>
+            <td><strong>a</strong>(n,n)</td>
             <td>
                 
             </td>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nra~2"></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>nra</strong></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-ml~20"></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>ml</strong></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-mu~22"></span>
-              integer,
-            </td>
-<td>intent(in)</td>
-              <td></td>            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>mu</strong></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-w~8"></span>
+              <span class="anchor" id="variable-w"></span>
               real(kind=dp),
             </td>
 <td>intent(in)</td>
@@ -273,7 +222,7 @@ In terms of the matrix elements a(i,j), the norm is given by:</p>
 
       <h3>Return Value
         <small>
-          <span class="anchor" id="variable-dbnorm~2"></span>
+          <span class="anchor" id="variable-dfnorm"></span>
           real(kind=dp)
         </small>
       </h3>
@@ -295,7 +244,7 @@ In terms of the matrix elements a(i,j), the norm is given by:</p>
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-an~4"></span>
+              <span class="anchor" id="variable-an"></span>
               real(kind=dp),
             </td>
               <td>public</td>
@@ -312,7 +261,7 @@ In terms of the matrix elements a(i,j), the norm is given by:</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~126"></span>
+              <span class="anchor" id="variable-i~7"></span>
               integer,
             </td>
               <td>public</td>
@@ -329,24 +278,7 @@ In terms of the matrix elements a(i,j), the norm is given by:</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i1~36"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>i1</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-j~67"></span>
+              <span class="anchor" id="variable-j~4"></span>
               integer,
             </td>
               <td>public</td>
@@ -363,41 +295,7 @@ In terms of the matrix elements a(i,j), the norm is given by:</p>
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-jhi~2"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>jhi</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-jlo~2"></span>
-              integer,
-            </td>
-              <td>public</td>
-            <td>
-              
-            </td>
-            <td>::</td>
-            <td><strong>jlo</strong></td>
-                <td></td>
-                <td></td>
-            <td>
-                
-            </td>
-        </tr>
-        <tr>
-            <td>
-              <span class="anchor" id="variable-sum~26"></span>
+              <span class="anchor" id="variable-sum"></span>
               real(kind=dp),
             </td>
               <td>public</td>
@@ -428,36 +326,25 @@ In terms of the matrix elements a(i,j), the norm is given by:</p>
     
     <section>
     <h2><span class="anchor" id="src"></span>Source Code</h2>
-    <div class="hl codehilite"><pre><span></span><span class="k">pure function </span><span class="n">dbnorm</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">nra</span><span class="p">,</span><span class="w"> </span><span class="n">ml</span><span class="p">,</span><span class="w"> </span><span class="n">mu</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">)</span>
+    <div class="hl codehilite"><pre><span></span><span class="k">pure function </span><span class="n">dfnorm</span><span class="w"> </span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="w"> </span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">w</span><span class="p">)</span>
 <span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">n</span>
-<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">nra</span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">nra</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
-<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">ml</span>
-<span class="kt">integer</span><span class="p">,</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w">       </span><span class="kd">::</span><span class="w"> </span><span class="n">mu</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">a</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
 <span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">),</span><span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">w</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">dbnorm</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w">            </span><span class="kd">::</span><span class="w"> </span><span class="n">dfnorm</span>
 
-<span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">i1</span><span class="p">,</span><span class="w"> </span><span class="n">jlo</span><span class="p">,</span><span class="w"> </span><span class="n">jhi</span><span class="p">,</span><span class="w"> </span><span class="n">j</span>
-<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">an</span><span class="p">,</span><span class="w"> </span><span class="nb">sum</span>
+<span class="kt">real</span><span class="p">(</span><span class="nb">kind</span><span class="o">=</span><span class="n">dp</span><span class="p">)</span><span class="w"> </span><span class="n">an</span><span class="p">,</span><span class="w"> </span><span class="nb">sum</span>
+<span class="kt">integer </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span>
 
-<span class="nb">   </span><span class="n">an</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0d0</span>
-
+<span class="w">   </span><span class="n">an</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0d0</span>
 <span class="w">   </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">n</span>
 <span class="w">      </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0d0</span>
-<span class="w">      </span><span class="n">i1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">mu</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
-<span class="w">      </span><span class="n">jlo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="n">ml</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="w">      </span><span class="n">jhi</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">mu</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
-
-<span class="w">      </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jlo</span><span class="p">,</span><span class="n">jhi</span>
-<span class="w">         </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">i1</span><span class="o">-</span><span class="n">j</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="o">/</span><span class="n">w</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+<span class="w">      </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="n">n</span>
+<span class="w">         </span><span class="nb">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">sum</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">))</span><span class="o">/</span><span class="n">w</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
 <span class="w">      </span><span class="k">enddo</span>
-
 <span class="k">      </span><span class="n">an</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">max</span><span class="p">(</span><span class="n">an</span><span class="p">,</span><span class="nb">sum</span><span class="o">*</span><span class="n">w</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
 <span class="w">   </span><span class="k">enddo</span>
-
-<span class="k">   </span><span class="n">dbnorm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">an</span>
-
-<span class="k">end function </span><span class="n">dbnorm</span>
+<span class="k">   </span><span class="n">dfnorm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">an</span>
+<span class="k">end function </span><span class="n">dfnorm</span>
 </pre></div>
 
     </section>
@@ -478,7 +365,7 @@ In terms of the matrix elements a(i,j), the norm is given by:</p>
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-03-29 08:21              </p>
+ on 2024-03-30 00:11              </p>
           </div>
         </div>
         <br>

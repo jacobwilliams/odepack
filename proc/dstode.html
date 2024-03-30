@@ -115,23 +115,23 @@
             <a class="list-group-item" href="../proc/dstode.html#variable-ddn~2">ddn</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-del~2">del</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-delp~2">delp</a>
-            <a class="list-group-item" href="../proc/dstode.html#variable-dp~3">dp</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-dp">dp</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-dsm~2">dsm</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-dup~2">dup</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-exdn~2">exdn</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-exsm~2">exsm</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-exup~2">exup</a>
-            <a class="list-group-item" href="../proc/dstode.html#variable-i~13">i</a>
-            <a class="list-group-item" href="../proc/dstode.html#variable-i1~5">i1</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-i~9">i</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-i1~3">i1</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-iredo~2">iredo</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-iret~2">iret</a>
-            <a class="list-group-item" href="../proc/dstode.html#variable-j~5">j</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-j~6">j</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-jb~2">jb</a>
-            <a class="list-group-item" href="../proc/dstode.html#variable-m~2">m</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-m~4">m</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-ncf~2">ncf</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-newq~2">newq</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-r~2">r</a>
-            <a class="list-group-item" href="../proc/dstode.html#variable-rh~4">rh</a>
+            <a class="list-group-item" href="../proc/dstode.html#variable-rh~3">rh</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-rhdn~2">rhdn</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-rhsm~2">rhsm</a>
             <a class="list-group-item" href="../proc/dstode.html#variable-rhup~2">rhup</a>
@@ -295,11 +295,31 @@ modules which it uses.
 
     <h3 id="name">NAME</h3>
 <p>dstode(3f) - [M_odepack] Performs one step of an ODEPACK integration.</p>
+<h3 id="synopsis">SYNOPSIS</h3>
+<div class="codehilite"><pre><span></span><code>subroutine dstode(Neq,Y,Yh,Nyh,Yh1,Ewt,Savf,Acor,Wm,Iwm,f,jac,pjac,slvs)
+
+ integer,parameter :: dp=kind(0.0d0)
+ integer                     :: Neq(*)
+ real(kind=dp),intent(inout) :: Y(*)
+ integer                     :: Nyh
+ real(kind=dp),intent(inout) :: Yh(Nyh,*)
+ real(kind=dp),intent(inout) :: Yh1(*)
+ real(kind=dp)               :: Ewt(*)
+ real(kind=dp),intent(inout) :: Savf(*)
+ real(kind=dp),intent(inout) :: Acor(*)
+ real(kind=dp)               :: Wm(*)
+ integer                     :: Iwm(*)
+ external f
+ external jac
+ external pjac
+ external slvs
+</code></pre></div>
+
 <h3 id="description">DESCRIPTION</h3>
 <p>DSTODE performs one step of the integration of an initial value
   problem for a system of ordinary differential equations.</p>
 <p>Note:  DSTODE is independent of the value of the iteration method
-  indicator MITER, when this is .ne. 0, and hence is independent
+  indicator dls1%MITER, when this is .ne. 0, and hence is independent
   of the type of chord method used, or the Jacobian structure.</p>
 <p>Communication with DSTODE is done with the following variables:</p>
 <dl>
@@ -310,21 +330,21 @@ modules which it uses.
 </dd>
 <dt>Y</dt>
 <dd>
-<p>an array of length .ge. N used as the Y argument in
+<p>an array of length .ge. dls1%N used as the Y argument in
   all calls to F and JAC.</p>
 </dd>
 <dt>YH</dt>
 <dd>
 <p>an NYH by LMAX array containing the dependent variables
   and their approximate scaled derivatives, where
-  LMAX = MAXORD + 1.  YH(i,j+1) contains the approximate
-  j-th derivative of y(i), scaled by h**j/factorial(j)
+  LMAX = dls1%MAXORD + 1.  YH(i,j+1) contains the approximate
+  j-th derivative of y(i), scaled by dls1%h**j/factorial(j)
   (j = 0,1,&hellip;,NQ).  on entry for the first step, the first
   two columns of YH must be set from the initial values.</p>
 </dd>
 <dt>NYH</dt>
 <dd>
-<p>a constant integer .ge. N, the first dimension of YH.</p>
+<p>a constant integer .ge. dls1%N, the first dimension of YH.</p>
 </dd>
 <dt>YH1</dt>
 <dd>
@@ -332,75 +352,78 @@ modules which it uses.
 </dd>
 <dt>EWT</dt>
 <dd>
-<p>an array of length N containing multiplicative weights
+<p>an array of length dls1%N containing multiplicative weights
   for local error measurements.  Local errors in Y(i) are
   compared to 1.0/EWT(i) in various error tests.</p>
 </dd>
 <dt>SAVF</dt>
 <dd>
-<p>an array of working storage, of length N.
-  Also used for input of YH(*,MAXORD+2) when JSTART = -1
-  and MAXORD .lt. the current order NQ.</p>
+<p>an array of working storage, of length dls1%N.
+  Also used for input of YH(*,dls1%MAXORD+2) when dls1%JSTART = -1
+  and dls1%MAXORD .lt. the current order NQ.</p>
 </dd>
 <dt>ACOR</dt>
 <dd>
-<p>a work array of length N, used for the accumulated
+<p>a work array of length dls1%N, used for the accumulated
   corrections.  On a successful return, ACOR(i) contains
   the estimated one-step local error in Y(i).</p>
 </dd>
 <dt>WM,IWM</dt>
 <dd>
 <p>real and integer work arrays associated with matrix
-  operations in chord iteration (MITER .ne. 0).</p>
+  operations in chord iteration (dls1%MITER .ne. 0).</p>
 </dd>
 <dt>PJAC</dt>
 <dd>
 <p>name of routine to evaluate and preprocess Jacobian matrix
-  and P = I - h<em>el0</em>JAC, if a chord method is being used.</p>
+  and P = I - dls1%h<em>el0</em>JAC, if a chord method is being used.</p>
 </dd>
 <dt>SLVS</dt>
 <dd>
 <p>name of routine to solve linear system in chord iteration.</p>
 </dd>
-<dt>CCMAX</dt>
+</dl>
+<h3 id="global-variables">GLOBAL VARIABLES</h3>
+<dl>
+<dt>dls1%CCMAX</dt>
 <dd>
-<p>maximum relative change in h*el0 before PJAC is called.</p>
+<p>maximum relative change in dls1%h*el0 before PJAC is called.</p>
 </dd>
-<dt>H</dt>
+<dt>dls1%H</dt>
 <dd>
 <p>the step size to be attempted on the next step.
-  H is altered by the error control algorithm during the
-  problem.  H can be either positive or negative, but its
+  dls1%H is altered by the error control algorithm during the
+  problem.  dls1%H can be either positive or negative, but its
   sign must remain constant throughout the problem.</p>
 </dd>
-<dt>HMIN</dt>
+<dt>dls1%HMIN</dt>
 <dd>
-<p>the minimum absolute value of the step size h to be used.</p>
+<p>the minimum absolute value of the step size dls1%h to be used.</p>
 </dd>
-<dt>HMXI</dt>
+<dt>dls1%HMXI</dt>
 <dd>
-<p>inverse of the maximum absolute value of h to be used.
-  HMXI = 0.0 is allowed and corresponds to an infinite hmax.
-  HMIN and HMXI may be changed at any time, but will not
-  take effect until the next change of h is considered.</p>
+<p>inverse of the maximum absolute value of dls1%h to be used.
+  dls1%HMXI = 0.0 is allowed and corresponds to an infinite hmax.
+  dls1%HMIN and dls1%HMXI may be changed at any time, but will not
+  take effect until the next change of dls1%h is considered.</p>
 </dd>
-<dt>TN</dt>
+<dt>dls1%TN</dt>
 <dd>
-<p>the independent variable. TN is updated on each step taken.</p>
+<p>the independent variable. dls1%TN is updated on each step taken.</p>
 </dd>
-<dt>JSTART</dt>
+<dt>dls1%JSTART</dt>
 <dd>
 <p>an integer used for input only, with the following
   values and meanings:
             0  perform the first step.
         .gt.0  take a new step continuing from the last.
-           -1  take the next step with a new value of H, MAXORD,
-               N, METH, MITER, and/or matrix parameters.
-           -2  take the next step with a new value of H,
+           -1  take the next step with a new value of dls1%H, dls1%MAXORD,
+               dls1%N, dls1%METH, dls1%MITER, and/or matrix parameters.
+           -2  take the next step with a new value of dls1%H,
                but with other inputs unchanged.
-  On return, JSTART is set to 1 to facilitate continuation.</p>
+  On return, dls1%JSTART is set to 1 to facilitate continuation.</p>
 </dd>
-<dt>KFLAG</dt>
+<dt>dls1%KFLAG</dt>
 <dd>
 <p>a completion code with the following meanings:
         0  the step was succesful.
@@ -409,39 +432,39 @@ modules which it uses.
        -3  fatal error in PJAC or SLVS.</p>
 </dd>
 </dl>
-<p>A return with KFLAG = -1 or -2 means either
-  abs(H) = HMIN or 10 consecutive failures occurred.
-  On a return with KFLAG negative, the values of TN and
+<p>A return with dls1%KFLAG = -1 or -2 means either
+  abs(dls1%H) = dls1%HMIN or 10 consecutive failures occurred.
+  On a return with dls1%KFLAG negative, the values of dls1%TN and
   the YH array are as of the beginning of the last
-  step, and H is the last step size attempted.</p>
+  step, and dls1%H is the last step size attempted.</p>
 <dl>
-<dt>MAXORD</dt>
+<dt>dls1%MAXORD</dt>
 <dd>
 <p>the maximum order of integration method to be allowed.</p>
 </dd>
-<dt>MAXCOR</dt>
+<dt>dls1%MAXCOR</dt>
 <dd>
 <p>the maximum number of corrector iterations allowed.</p>
 </dd>
-<dt>MSBP</dt>
+<dt>dls1%MSBP</dt>
 <dd>
-<p>maximum number of steps between PJAC calls (MITER .gt. 0).</p>
+<p>maximum number of steps between PJAC calls (dls1%MITER .gt. 0).</p>
 </dd>
-<dt>MXNCF</dt>
+<dt>dls1%MXNCF</dt>
 <dd>
 <p>maximum number of convergence failures allowed.</p>
 </dd>
-<dt>METH/MITER</dt>
+<dt>dls1%METH/dls1%MITER</dt>
 <dd>
 <p>the method flags.  See description in driver.</p>
 </dd>
-<dt>N</dt>
+<dt>dls1%N</dt>
 <dd>
 <p>the number of first-order differential equations.</p>
 </dd>
 </dl>
-<p>The values of CCMAX, H, HMIN, HMXI, TN, JSTART, KFLAG, MAXORD,
-  MAXCOR, MSBP, MXNCF, METH, MITER, and N are communicated via COMMON.</p>
+<p>The values of dls1%CCMAX, dls1%H, dls1%HMIN, dls1%HMXI, dls1%TN, dls1%JSTART, dls1%KFLAG, dls1%MAXORD,
+  dls1%MAXCOR, dls1%MSBP, dls1%MXNCF, dls1%METH, dls1%MITER, and dls1%N are communicated via a global compound variable (DLS1)</p>
 
 
     <h3>Arguments</h3>
@@ -457,7 +480,7 @@ modules which it uses.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-neq~9"></span>
+              <span class="anchor" id="variable-neq~4"></span>
               integer
             </td>
 <td></td>
@@ -472,7 +495,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-y~9"></span>
+              <span class="anchor" id="variable-y~4"></span>
               real(kind=dp),
             </td>
 <td>intent(inout)</td>
@@ -487,7 +510,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-yh~3"></span>
+              <span class="anchor" id="variable-yh~2"></span>
               real(kind=dp),
             </td>
 <td>intent(inout)</td>
@@ -502,7 +525,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nyh~3"></span>
+              <span class="anchor" id="variable-nyh~2"></span>
               integer
             </td>
 <td></td>
@@ -547,7 +570,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-savf~5"></span>
+              <span class="anchor" id="variable-savf~3"></span>
               real(kind=dp),
             </td>
 <td>intent(inout)</td>
@@ -577,7 +600,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-wm~3"></span>
+              <span class="anchor" id="variable-wm~2"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -592,7 +615,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-iwm~3"></span>
+              <span class="anchor" id="variable-iwm~2"></span>
               integer
             </td>
 <td></td>
@@ -607,7 +630,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~5"></span>
+              <span class="anchor" id="variable-f~3"></span>
               real
             </td>
 <td></td>
@@ -622,7 +645,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-jac~4"></span>
+              <span class="anchor" id="variable-jac~3"></span>
               integer
             </td>
 <td></td>
@@ -637,7 +660,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-pjac~2"></span>
+              <span class="anchor" id="variable-pjac"></span>
               real
             </td>
 <td></td>
@@ -652,7 +675,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-slvs~2"></span>
+              <span class="anchor" id="variable-slvs"></span>
               real
             </td>
 <td></td>
@@ -691,18 +714,18 @@ modules which it uses.
 <polygon fill="none" stroke="black" points="111,-45 0,-45 0,-21 111,-21 111,-45"/>
 <text text-anchor="middle" x="55.5" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">dstode.inc::dstode</text>
 </g>
-<!-- proc~dcfode -->
+<!-- proc~dcfode~2 -->
 <g id="proc~~dstode~~CallsGraph_node2" class="node">
-<title>proc~dcfode</title>
-<g id="a_proc~~dstode~~CallsGraph_node2"><a xlink:href="../proc/dcfode.html" xlink:title="M_odepack::dcfode">
+<title>proc~dcfode~2</title>
+<g id="a_proc~~dstode~~CallsGraph_node2"><a xlink:href="../proc/dcfode~2.html" xlink:title="M_odepack::dcfode">
 <polygon fill="#d9534f" stroke="#d9534f" points="266,-66 149,-66 149,-42 266,-42 266,-66"/>
 <text text-anchor="middle" x="207.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::dcfode</text>
 </a>
 </g>
 </g>
-<!-- proc~dstode&#45;&gt;proc~dcfode -->
+<!-- proc~dstode&#45;&gt;proc~dcfode~2 -->
 <g id="proc~~dstode~~CallsGraph_edge1" class="edge">
-<title>proc~dstode&#45;&gt;proc~dcfode</title>
+<title>proc~dstode&#45;&gt;proc~dcfode~2</title>
 <path fill="none" stroke="#000000" d="M111.08,-40.64C120.12,-41.91 129.59,-43.23 138.91,-44.54"/>
 <polygon fill="#000000" stroke="#000000" points="138.54,-48.02 148.93,-45.94 139.51,-41.09 138.54,-48.02"/>
 </g>
@@ -887,7 +910,7 @@ implementation in a submodule of an interface in a parent module.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-dp~3"></span>
+              <span class="anchor" id="variable-dp"></span>
               integer,
             </td>
               <td>public,</td>
@@ -989,7 +1012,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~13"></span>
+              <span class="anchor" id="variable-i~9"></span>
               integer,
             </td>
               <td>public</td>
@@ -1006,7 +1029,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i1~5"></span>
+              <span class="anchor" id="variable-i1~3"></span>
               integer,
             </td>
               <td>public</td>
@@ -1057,7 +1080,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-j~5"></span>
+              <span class="anchor" id="variable-j~6"></span>
               integer,
             </td>
               <td>public</td>
@@ -1091,7 +1114,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-m~2"></span>
+              <span class="anchor" id="variable-m~4"></span>
               integer,
             </td>
               <td>public</td>
@@ -1159,7 +1182,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-rh~4"></span>
+              <span class="anchor" id="variable-rh~3"></span>
               real(kind=dp),
             </td>
               <td>public</td>
@@ -1292,17 +1315,17 @@ parameter
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">jstart</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">400</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">jstart</span><span class="o">==-</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="c">!-----------------------------------------------------------------------</span>
-<span class="c">!  The following block handles preliminaries needed when JSTART = -1.</span>
-<span class="c">!  IPUP is set to MITER to force a matrix update.</span>
+<span class="c">!  The following block handles preliminaries needed when dls1%JSTART = -1.</span>
+<span class="c">!  IPUP is set to dls1%MITER to force a matrix update.</span>
 <span class="c">!  If an order increase is about to be considered (IALTH = 1),</span>
 <span class="c">!  IALTH is reset to 2 to postpone consideration one more step.</span>
-<span class="c">!  If the caller has changed METH, DCFODE is called to reset</span>
+<span class="c">!  If the caller has changed dls1%METH, DCFODE is called to reset</span>
 <span class="c">!  the coefficients of the method.</span>
-<span class="c">!  If the caller has changed MAXORD to a value less than the current</span>
-<span class="c">!  order NQ, NQ is reduced to MAXORD, and a new H chosen accordingly.</span>
-<span class="c">!  If H is to be changed, YH must be rescaled.</span>
-<span class="c">!  If H or METH is being changed, IALTH is reset to L = NQ + 1</span>
-<span class="c">!  to prevent further changes in H for that many steps.</span>
+<span class="c">!  If the caller has changed dls1%MAXORD to a value less than the current</span>
+<span class="c">!  order NQ, NQ is reduced to dls1%MAXORD, and a new dls1%H chosen accordingly.</span>
+<span class="c">!  If dls1%H is to be changed, YH must be rescaled.</span>
+<span class="c">!  If dls1%H or dls1%METH is being changed, IALTH is reset to L = NQ + 1</span>
+<span class="c">!  to prevent further changes in dls1%H for that many steps.</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">ipup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span>
 <span class="w">   </span><span class="n">dls1</span><span class="p">%</span><span class="n">lmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">maxord</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span>
@@ -1343,9 +1366,9 @@ parameter
 <span class="k">   if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">jstart</span><span class="o">==-</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">goto</span><span class="w"> </span><span class="mi">200</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="c">!  On the first call, the order is set to 1, and other variables are</span>
-<span class="c">!  initialized.  RMAX is the maximum ratio by which H can be increased</span>
+<span class="c">!  initialized.  RMAX is the maximum ratio by which dls1%H can be increased</span>
 <span class="c">!  in a single step.  It is initially 1.E4 to compensate for the small</span>
-<span class="c">!  initial H, but then is normally equal to 10.  If a failure</span>
+<span class="c">!  initial dls1%H, but then is normally equal to 10.  If a failure</span>
 <span class="c">!  occurs (in corrector convergence or error test), RMAX is set to 2</span>
 <span class="c">!  for the next increase.</span>
 <span class="c">!-----------------------------------------------------------------------</span>
@@ -1364,7 +1387,7 @@ parameter
 <span class="w">   </span><span class="n">iret</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="c">!  DCFODE is called to get all the integration coefficients for the</span>
-<span class="c">!  current METH.  Then the EL vector and related constants are reset</span>
+<span class="c">!  current dls1%METH.  Then the EL vector and related constants are reset</span>
 <span class="c">!  whenever the order NQ is changed, or at the start of the problem.</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="w">   </span><span class="k">call </span><span class="n">dcfode</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">meth</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">elco</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">tesco</span><span class="p">)</span>
@@ -1386,9 +1409,9 @@ parameter
 <span class="k">case </span><span class="n">default</span>
 <span class="k">endselect</span>
 <span class="c">!-----------------------------------------------------------------------</span>
-<span class="c">!  If H is being changed, the H ratio RH is checked against</span>
-<span class="c">!  RMAX, HMIN, and HMXI, and the YH array rescaled.  IALTH is set to</span>
-<span class="c">!  L = NQ + 1 to prevent a change of H for that many steps, unless</span>
+<span class="c">!  If dls1%H is being changed, the dls1%H ratio RH is checked against</span>
+<span class="c">!  RMAX, dls1%HMIN, and dls1%HMXI, and the YH array rescaled.  IALTH is set to</span>
+<span class="c">!  L = NQ + 1 to prevent a change of dls1%H for that many steps, unless</span>
 <span class="c">!  forced by a convergence or error test failure.</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="w"> </span><span class="mi">200</span><span class="w">  </span><span class="k">continue</span>
@@ -1416,10 +1439,10 @@ parameter
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="c">!  This section computes the predicted values by effectively</span>
 <span class="c">!  multiplying the YH array by the Pascal Triangle matrix.</span>
-<span class="c">!  RC is the ratio of new to old values of the coefficient  H*EL(1).</span>
-<span class="c">!  When RC differs from 1 by more than CCMAX, IPUP is set to MITER</span>
+<span class="c">!  RC is the ratio of new to old values of the coefficient  dls1%H*EL(1).</span>
+<span class="c">!  When RC differs from 1 by more than dls1%CCMAX, IPUP is set to dls1%MITER</span>
 <span class="c">!  to force PJAC to be called, if a Jacobian is involved.</span>
-<span class="c">!  In any case, PJAC is called at least every MSBP steps.</span>
+<span class="c">!  In any case, PJAC is called at least every dls1%MSBP steps.</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="w"> </span><span class="mi">400</span><span class="w">  </span><span class="k">continue</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">rc</span><span class="o">-</span><span class="mf">1.0D0</span><span class="p">)</span><span class="o">&gt;</span><span class="n">dls1</span><span class="p">%</span><span class="n">ccmax</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">ipup</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span>
@@ -1434,7 +1457,7 @@ parameter
 <span class="w">   </span><span class="k">enddo</span>
 <span class="k">enddo</span>
 <span class="c">!-----------------------------------------------------------------------</span>
-<span class="c">!  Up to MAXCOR corrector iterations are taken.  A convergence test is</span>
+<span class="c">!  Up to dls1%MAXCOR corrector iterations are taken.  A convergence test is</span>
 <span class="c">!  made on the R.M.S. norm of each correction, weighted by the error</span>
 <span class="c">!  weight vector EWT.  The sum of the corrections is accumulated in the</span>
 <span class="c">!  vector ACOR(i).  The YH array is not altered in the corrector loop.</span>
@@ -1513,10 +1536,10 @@ parameter
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">m</span><span class="o">&gt;</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">dsm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dvnorm</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">n</span><span class="p">,</span><span class="n">Acor</span><span class="p">,</span><span class="n">Ewt</span><span class="p">)</span><span class="o">/</span><span class="n">dls1</span><span class="p">%</span><span class="n">tesco</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="p">)</span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dsm</span><span class="o">&gt;</span><span class="mf">1.0D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="c">!-----------------------------------------------------------------------</span>
-<span class="c">!  The error test failed.  KFLAG keeps track of multiple failures.</span>
-<span class="c">!  Restore TN and the YH array to their previous values, and prepare</span>
+<span class="c">!  The error test failed.  dls1%KFLAG keeps track of multiple failures.</span>
+<span class="c">!  Restore dls1%TN and the YH array to their previous values, and prepare</span>
 <span class="c">!  to try the step again.  Compute the optimum step size for this or</span>
-<span class="c">!  one lower order.  After 2 or more failures, H is forced to decrease</span>
+<span class="c">!  one lower order.  After 2 or more failures, dls1%H is forced to decrease</span>
 <span class="c">!  by a factor of 0.2 or less.</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="w">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span>
@@ -1532,20 +1555,20 @@ parameter
 <span class="k">      </span><span class="n">dls1</span><span class="p">%</span><span class="n">rmax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2.0D0</span>
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="nb">abs</span><span class="p">(</span><span class="n">dls1</span><span class="p">%</span><span class="n">h</span><span class="p">)</span><span class="o">&lt;=</span><span class="n">dls1</span><span class="p">%</span><span class="n">hmin</span><span class="o">*</span><span class="mf">1.00001D0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="c">!-----------------------------------------------------------------------</span>
-<span class="c">!  All returns are made through this section.  H is saved in HOLD</span>
-<span class="c">!  to allow the caller to change H on the next step.</span>
+<span class="c">!  All returns are made through this section.  dls1%H is saved in HOLD</span>
+<span class="c">!  to allow the caller to change dls1%H on the next step.</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="w">         </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
 <span class="w">         </span><span class="k">goto</span><span class="w"> </span><span class="mi">1300</span>
 <span class="w">      </span><span class="k">elseif</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="o">&lt;=-</span><span class="mi">3</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="c">!  Control reaches this section if 3 or more failures have occured.</span>
-<span class="c">!  If 10 failures have occurred, exit with KFLAG = -1.</span>
+<span class="c">!  If 10 failures have occurred, exit with dls1%KFLAG = -1.</span>
 <span class="c">!  It is assumed that the derivatives that have accumulated in the</span>
 <span class="c">!  YH array have errors of the wrong order.  Hence the first</span>
 <span class="c">!  derivative is recomputed, and the order is set to 1.  Then</span>
-<span class="c">!  H is reduced by a factor of 10, and the step is retried,</span>
-<span class="c">!  until it succeeds or H reaches HMIN.</span>
+<span class="c">!  dls1%H is reduced by a factor of 10, and the step is retried,</span>
+<span class="c">!  until it succeeds or dls1%H reaches dls1%HMIN.</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="o">==-</span><span class="mi">10</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="k">            </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span>
@@ -1578,11 +1601,11 @@ parameter
 <span class="k">   else</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="c">!  After a successful step, update the YH array.</span>
-<span class="c">!  Consider changing H if IALTH = 1.  Otherwise decrease IALTH by 1.</span>
-<span class="c">!  If IALTH is then 1 and NQ .lt. MAXORD, then ACOR is saved for</span>
+<span class="c">!  Consider changing dls1%H if IALTH = 1.  Otherwise decrease IALTH by 1.</span>
+<span class="c">!  If IALTH is then 1 and NQ .lt. dls1%MAXORD, then ACOR is saved for</span>
 <span class="c">!  use in a possible order increase on the next step.</span>
-<span class="c">!  If a change in H is considered, an increase or decrease in order</span>
-<span class="c">!  by one is considered also.  A change in H is made only if it is by a</span>
+<span class="c">!  If a change in dls1%H is considered, an increase or decrease in order</span>
+<span class="c">!  by one is considered also.  A change in dls1%H is made only if it is by a</span>
 <span class="c">!  factor of at least 1.1.  If not, IALTH is set to 3 to prevent</span>
 <span class="c">!  testing for that many steps.</span>
 <span class="c">!-----------------------------------------------------------------------</span>
@@ -1600,7 +1623,7 @@ parameter
 <span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">ialth</span><span class="o">==</span><span class="mi">0</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="c">!  Regardless of the success or failure of the step, factors</span>
-<span class="c">!  RHDN, RHSM, and RHUP are computed, by which H could be multiplied</span>
+<span class="c">!  RHDN, RHSM, and RHUP are computed, by which dls1%H could be multiplied</span>
 <span class="c">!  at order NQ - 1, order NQ, or order NQ + 1, respectively.</span>
 <span class="c">!  In the case of failure, RHUP = 0.0 to avoid an order increase.</span>
 <span class="c">!  The largest of these is determined and the new order chosen</span>
@@ -1641,10 +1664,10 @@ parameter
 <span class="k">endif</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="c">!  The corrector iteration failed to converge.</span>
-<span class="c">!  If MITER .ne. 0 and the Jacobian is out of date, PJAC is called for</span>
+<span class="c">!  If dls1%MITER .ne. 0 and the Jacobian is out of date, PJAC is called for</span>
 <span class="c">!  the next try.  Otherwise the YH array is retracted to its values</span>
-<span class="c">!  before prediction, and H is reduced, if possible.  If H cannot be</span>
-<span class="c">!  reduced or MXNCF failures have occurred, exit with KFLAG = -2.</span>
+<span class="c">!  before prediction, and dls1%H is reduced, if possible.  If dls1%H cannot be</span>
+<span class="c">!  reduced or dls1%MXNCF failures have occurred, exit with dls1%KFLAG = -2.</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="w"> </span><span class="mi">700</span><span class="w">  </span><span class="k">continue</span>
 <span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">miter</span><span class="o">/=</span><span class="mi">0</span><span class="w"> </span><span class="p">.</span><span class="nb">and</span><span class="p">.</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">jcur</span><span class="o">/=</span><span class="mi">1</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
@@ -1721,7 +1744,7 @@ parameter
 <span class="k">   if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">dls1</span><span class="p">%</span><span class="n">kflag</span><span class="o">&lt;=-</span><span class="mi">2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="n">rh</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">min</span><span class="p">(</span><span class="n">rh</span><span class="p">,</span><span class="mf">0.2D0</span><span class="p">)</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="c">!  If there is a change of order, reset NQ, dls1%l, and the coefficients.</span>
-<span class="c">!  In any case H is reset according to RH and the YH array is rescaled.</span>
+<span class="c">!  In any case dls1%H is reset according to RH and the YH array is rescaled.</span>
 <span class="c">!  Then exit from 690 if the step was OK, or redo the step otherwise.</span>
 <span class="c">!-----------------------------------------------------------------------</span>
 <span class="w">   </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">newq</span><span class="o">==</span><span class="n">dls1</span><span class="p">%</span><span class="n">nq</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="k">then</span>
@@ -1763,7 +1786,7 @@ parameter
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-03-29 08:21              </p>
+ on 2024-03-30 00:11              </p>
           </div>
         </div>
         <br>

@@ -121,17 +121,17 @@
             <a class="list-group-item" href="../proc/dstode~2.html#variable-exdn~9">exdn</a>
             <a class="list-group-item" href="../proc/dstode~2.html#variable-exsm~9">exsm</a>
             <a class="list-group-item" href="../proc/dstode~2.html#variable-exup~9">exup</a>
-            <a class="list-group-item" href="../proc/dstode~2.html#variable-i~105">i</a>
-            <a class="list-group-item" href="../proc/dstode~2.html#variable-i1~31">i1</a>
+            <a class="list-group-item" href="../proc/dstode~2.html#variable-i~120">i</a>
+            <a class="list-group-item" href="../proc/dstode~2.html#variable-i1~38">i1</a>
             <a class="list-group-item" href="../proc/dstode~2.html#variable-iredo~9">iredo</a>
             <a class="list-group-item" href="../proc/dstode~2.html#variable-iret~9">iret</a>
-            <a class="list-group-item" href="../proc/dstode~2.html#variable-j~54">j</a>
-            <a class="list-group-item" href="../proc/dstode~2.html#variable-jb~10">jb</a>
-            <a class="list-group-item" href="../proc/dstode~2.html#variable-m~21">m</a>
+            <a class="list-group-item" href="../proc/dstode~2.html#variable-j~62">j</a>
+            <a class="list-group-item" href="../proc/dstode~2.html#variable-jb~11">jb</a>
+            <a class="list-group-item" href="../proc/dstode~2.html#variable-m~20">m</a>
             <a class="list-group-item" href="../proc/dstode~2.html#variable-ncf~9">ncf</a>
             <a class="list-group-item" href="../proc/dstode~2.html#variable-newq~9">newq</a>
-            <a class="list-group-item" href="../proc/dstode~2.html#variable-r~22">r</a>
-            <a class="list-group-item" href="../proc/dstode~2.html#variable-rh~22">rh</a>
+            <a class="list-group-item" href="../proc/dstode~2.html#variable-r~28">r</a>
+            <a class="list-group-item" href="../proc/dstode~2.html#variable-rh~27">rh</a>
             <a class="list-group-item" href="../proc/dstode~2.html#variable-rhdn~9">rhdn</a>
             <a class="list-group-item" href="../proc/dstode~2.html#variable-rhsm~9">rhsm</a>
             <a class="list-group-item" href="../proc/dstode~2.html#variable-rhup~9">rhup</a>
@@ -289,11 +289,31 @@ modules which it uses.
 
     <h3 id="name">NAME</h3>
 <p>dstode(3f) - [M_odepack] Performs one step of an ODEPACK integration.</p>
+<h3 id="synopsis">SYNOPSIS</h3>
+<div class="codehilite"><pre><span></span><code>subroutine dstode(Neq,Y,Yh,Nyh,Yh1,Ewt,Savf,Acor,Wm,Iwm,f,jac,pjac,slvs)
+
+ integer,parameter :: dp=kind(0.0d0)
+ integer                     :: Neq(*)
+ real(kind=dp),intent(inout) :: Y(*)
+ integer                     :: Nyh
+ real(kind=dp),intent(inout) :: Yh(Nyh,*)
+ real(kind=dp),intent(inout) :: Yh1(*)
+ real(kind=dp)               :: Ewt(*)
+ real(kind=dp),intent(inout) :: Savf(*)
+ real(kind=dp),intent(inout) :: Acor(*)
+ real(kind=dp)               :: Wm(*)
+ integer                     :: Iwm(*)
+ external f
+ external jac
+ external pjac
+ external slvs
+</code></pre></div>
+
 <h3 id="description">DESCRIPTION</h3>
 <p>DSTODE performs one step of the integration of an initial value
   problem for a system of ordinary differential equations.</p>
 <p>Note:  DSTODE is independent of the value of the iteration method
-  indicator MITER, when this is .ne. 0, and hence is independent
+  indicator dls1%MITER, when this is .ne. 0, and hence is independent
   of the type of chord method used, or the Jacobian structure.</p>
 <p>Communication with DSTODE is done with the following variables:</p>
 <dl>
@@ -304,21 +324,21 @@ modules which it uses.
 </dd>
 <dt>Y</dt>
 <dd>
-<p>an array of length .ge. N used as the Y argument in
+<p>an array of length .ge. dls1%N used as the Y argument in
   all calls to F and JAC.</p>
 </dd>
 <dt>YH</dt>
 <dd>
 <p>an NYH by LMAX array containing the dependent variables
   and their approximate scaled derivatives, where
-  LMAX = MAXORD + 1.  YH(i,j+1) contains the approximate
-  j-th derivative of y(i), scaled by h**j/factorial(j)
+  LMAX = dls1%MAXORD + 1.  YH(i,j+1) contains the approximate
+  j-th derivative of y(i), scaled by dls1%h**j/factorial(j)
   (j = 0,1,&hellip;,NQ).  on entry for the first step, the first
   two columns of YH must be set from the initial values.</p>
 </dd>
 <dt>NYH</dt>
 <dd>
-<p>a constant integer .ge. N, the first dimension of YH.</p>
+<p>a constant integer .ge. dls1%N, the first dimension of YH.</p>
 </dd>
 <dt>YH1</dt>
 <dd>
@@ -326,75 +346,78 @@ modules which it uses.
 </dd>
 <dt>EWT</dt>
 <dd>
-<p>an array of length N containing multiplicative weights
+<p>an array of length dls1%N containing multiplicative weights
   for local error measurements.  Local errors in Y(i) are
   compared to 1.0/EWT(i) in various error tests.</p>
 </dd>
 <dt>SAVF</dt>
 <dd>
-<p>an array of working storage, of length N.
-  Also used for input of YH(*,MAXORD+2) when JSTART = -1
-  and MAXORD .lt. the current order NQ.</p>
+<p>an array of working storage, of length dls1%N.
+  Also used for input of YH(*,dls1%MAXORD+2) when dls1%JSTART = -1
+  and dls1%MAXORD .lt. the current order NQ.</p>
 </dd>
 <dt>ACOR</dt>
 <dd>
-<p>a work array of length N, used for the accumulated
+<p>a work array of length dls1%N, used for the accumulated
   corrections.  On a successful return, ACOR(i) contains
   the estimated one-step local error in Y(i).</p>
 </dd>
 <dt>WM,IWM</dt>
 <dd>
 <p>real and integer work arrays associated with matrix
-  operations in chord iteration (MITER .ne. 0).</p>
+  operations in chord iteration (dls1%MITER .ne. 0).</p>
 </dd>
 <dt>PJAC</dt>
 <dd>
 <p>name of routine to evaluate and preprocess Jacobian matrix
-  and P = I - h<em>el0</em>JAC, if a chord method is being used.</p>
+  and P = I - dls1%h<em>el0</em>JAC, if a chord method is being used.</p>
 </dd>
 <dt>SLVS</dt>
 <dd>
 <p>name of routine to solve linear system in chord iteration.</p>
 </dd>
-<dt>CCMAX</dt>
+</dl>
+<h3 id="global-variables">GLOBAL VARIABLES</h3>
+<dl>
+<dt>dls1%CCMAX</dt>
 <dd>
-<p>maximum relative change in h*el0 before PJAC is called.</p>
+<p>maximum relative change in dls1%h*el0 before PJAC is called.</p>
 </dd>
-<dt>H</dt>
+<dt>dls1%H</dt>
 <dd>
 <p>the step size to be attempted on the next step.
-  H is altered by the error control algorithm during the
-  problem.  H can be either positive or negative, but its
+  dls1%H is altered by the error control algorithm during the
+  problem.  dls1%H can be either positive or negative, but its
   sign must remain constant throughout the problem.</p>
 </dd>
-<dt>HMIN</dt>
+<dt>dls1%HMIN</dt>
 <dd>
-<p>the minimum absolute value of the step size h to be used.</p>
+<p>the minimum absolute value of the step size dls1%h to be used.</p>
 </dd>
-<dt>HMXI</dt>
+<dt>dls1%HMXI</dt>
 <dd>
-<p>inverse of the maximum absolute value of h to be used.
-  HMXI = 0.0 is allowed and corresponds to an infinite hmax.
-  HMIN and HMXI may be changed at any time, but will not
-  take effect until the next change of h is considered.</p>
+<p>inverse of the maximum absolute value of dls1%h to be used.
+  dls1%HMXI = 0.0 is allowed and corresponds to an infinite hmax.
+  dls1%HMIN and dls1%HMXI may be changed at any time, but will not
+  take effect until the next change of dls1%h is considered.</p>
 </dd>
-<dt>TN</dt>
+<dt>dls1%TN</dt>
 <dd>
-<p>the independent variable. TN is updated on each step taken.</p>
+<p>the independent variable. dls1%TN is updated on each step taken.</p>
 </dd>
-<dt>JSTART</dt>
+<dt>dls1%JSTART</dt>
 <dd>
 <p>an integer used for input only, with the following
   values and meanings:
             0  perform the first step.
         .gt.0  take a new step continuing from the last.
-           -1  take the next step with a new value of H, MAXORD,
-               N, METH, MITER, and/or matrix parameters.
-           -2  take the next step with a new value of H,
+           -1  take the next step with a new value of dls1%H, dls1%MAXORD,
+               dls1%N, dls1%METH, dls1%MITER, and/or matrix parameters.
+           -2  take the next step with a new value of dls1%H,
                but with other inputs unchanged.
-  On return, JSTART is set to 1 to facilitate continuation.</p>
+  On return, dls1%JSTART is set to 1 to facilitate continuation.</p>
 </dd>
-<dt>KFLAG</dt>
+<dt>dls1%KFLAG</dt>
 <dd>
 <p>a completion code with the following meanings:
         0  the step was succesful.
@@ -403,39 +426,39 @@ modules which it uses.
        -3  fatal error in PJAC or SLVS.</p>
 </dd>
 </dl>
-<p>A return with KFLAG = -1 or -2 means either
-  abs(H) = HMIN or 10 consecutive failures occurred.
-  On a return with KFLAG negative, the values of TN and
+<p>A return with dls1%KFLAG = -1 or -2 means either
+  abs(dls1%H) = dls1%HMIN or 10 consecutive failures occurred.
+  On a return with dls1%KFLAG negative, the values of dls1%TN and
   the YH array are as of the beginning of the last
-  step, and H is the last step size attempted.</p>
+  step, and dls1%H is the last step size attempted.</p>
 <dl>
-<dt>MAXORD</dt>
+<dt>dls1%MAXORD</dt>
 <dd>
 <p>the maximum order of integration method to be allowed.</p>
 </dd>
-<dt>MAXCOR</dt>
+<dt>dls1%MAXCOR</dt>
 <dd>
 <p>the maximum number of corrector iterations allowed.</p>
 </dd>
-<dt>MSBP</dt>
+<dt>dls1%MSBP</dt>
 <dd>
-<p>maximum number of steps between PJAC calls (MITER .gt. 0).</p>
+<p>maximum number of steps between PJAC calls (dls1%MITER .gt. 0).</p>
 </dd>
-<dt>MXNCF</dt>
+<dt>dls1%MXNCF</dt>
 <dd>
 <p>maximum number of convergence failures allowed.</p>
 </dd>
-<dt>METH/MITER</dt>
+<dt>dls1%METH/dls1%MITER</dt>
 <dd>
 <p>the method flags.  See description in driver.</p>
 </dd>
-<dt>N</dt>
+<dt>dls1%N</dt>
 <dd>
 <p>the number of first-order differential equations.</p>
 </dd>
 </dl>
-<p>The values of CCMAX, H, HMIN, HMXI, TN, JSTART, KFLAG, MAXORD,
-  MAXCOR, MSBP, MXNCF, METH, MITER, and N are communicated via COMMON.</p>
+<p>The values of dls1%CCMAX, dls1%H, dls1%HMIN, dls1%HMXI, dls1%TN, dls1%JSTART, dls1%KFLAG, dls1%MAXORD,
+  dls1%MAXCOR, dls1%MSBP, dls1%MXNCF, dls1%METH, dls1%MITER, and dls1%N are communicated via a global compound variable (DLS1)</p>
 
 
     <h3>Arguments</h3>
@@ -451,7 +474,7 @@ modules which it uses.
     <tbody>
         <tr>
             <td>
-              <span class="anchor" id="variable-neq~62"></span>
+              <span class="anchor" id="variable-neq~73"></span>
               integer
             </td>
 <td></td>
@@ -466,7 +489,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-y~63"></span>
+              <span class="anchor" id="variable-y~74"></span>
               real(kind=dp),
             </td>
 <td>intent(inout)</td>
@@ -481,7 +504,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-yh~22"></span>
+              <span class="anchor" id="variable-yh~26"></span>
               real(kind=dp),
             </td>
 <td>intent(inout)</td>
@@ -496,7 +519,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-nyh~20"></span>
+              <span class="anchor" id="variable-nyh~24"></span>
               integer
             </td>
 <td></td>
@@ -526,7 +549,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-ewt~27"></span>
+              <span class="anchor" id="variable-ewt~32"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -541,7 +564,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-savf~33"></span>
+              <span class="anchor" id="variable-savf~36"></span>
               real(kind=dp),
             </td>
 <td>intent(inout)</td>
@@ -571,7 +594,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-wm~23"></span>
+              <span class="anchor" id="variable-wm~27"></span>
               real(kind=dp)
             </td>
 <td></td>
@@ -586,7 +609,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-iwm~23"></span>
+              <span class="anchor" id="variable-iwm~27"></span>
               integer
             </td>
 <td></td>
@@ -601,7 +624,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-f~42"></span>
+              <span class="anchor" id="variable-f~47"></span>
               real
             </td>
 <td></td>
@@ -616,7 +639,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-jac~38"></span>
+              <span class="anchor" id="variable-jac~49"></span>
               integer
             </td>
 <td></td>
@@ -631,7 +654,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-pjac~5"></span>
+              <span class="anchor" id="variable-pjac~6"></span>
               real
             </td>
 <td></td>
@@ -646,7 +669,7 @@ modules which it uses.
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-slvs~5"></span>
+              <span class="anchor" id="variable-slvs~6"></span>
               real
             </td>
 <td></td>
@@ -685,18 +708,18 @@ modules which it uses.
 <polygon fill="none" stroke="black" points="136,-45 0,-45 0,-21 136,-21 136,-45"/>
 <text text-anchor="middle" x="68" y="-30.6" font-family="Helvetica,sans-Serif" font-size="10.50">M_odepack.f90::dstode</text>
 </g>
-<!-- proc~dcfode -->
+<!-- proc~dcfode~2 -->
 <g id="proc~~dstode~2~~CallsGraph_node2" class="node">
-<title>proc~dcfode</title>
-<g id="a_proc~~dstode~2~~CallsGraph_node2"><a xlink:href="../proc/dcfode.html" xlink:title="M_odepack::dcfode">
+<title>proc~dcfode~2</title>
+<g id="a_proc~~dstode~2~~CallsGraph_node2"><a xlink:href="../proc/dcfode~2.html" xlink:title="M_odepack::dcfode">
 <polygon fill="#d9534f" stroke="#d9534f" points="291,-66 174,-66 174,-42 291,-42 291,-66"/>
 <text text-anchor="middle" x="232.5" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">M_odepack::dcfode</text>
 </a>
 </g>
 </g>
-<!-- proc~dstode~2&#45;&gt;proc~dcfode -->
+<!-- proc~dstode~2&#45;&gt;proc~dcfode~2 -->
 <g id="proc~~dstode~2~~CallsGraph_edge1" class="edge">
-<title>proc~dstode~2&#45;&gt;proc~dcfode</title>
+<title>proc~dstode~2&#45;&gt;proc~dcfode~2</title>
 <path fill="none" stroke="#000000" d="M136.03,-41.66C145.28,-42.86 154.78,-44.09 164.03,-45.28"/>
 <polygon fill="#000000" stroke="#000000" points="163.59,-48.75 173.95,-46.56 164.48,-41.81 163.59,-48.75"/>
 </g>
@@ -983,7 +1006,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i~105"></span>
+              <span class="anchor" id="variable-i~120"></span>
               integer,
             </td>
               <td>public</td>
@@ -1000,7 +1023,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-i1~31"></span>
+              <span class="anchor" id="variable-i1~38"></span>
               integer,
             </td>
               <td>public</td>
@@ -1051,7 +1074,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-j~54"></span>
+              <span class="anchor" id="variable-j~62"></span>
               integer,
             </td>
               <td>public</td>
@@ -1068,7 +1091,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-jb~10"></span>
+              <span class="anchor" id="variable-jb~11"></span>
               integer,
             </td>
               <td>public</td>
@@ -1085,7 +1108,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-m~21"></span>
+              <span class="anchor" id="variable-m~20"></span>
               integer,
             </td>
               <td>public</td>
@@ -1136,7 +1159,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-r~22"></span>
+              <span class="anchor" id="variable-r~28"></span>
               real(kind=dp),
             </td>
               <td>public</td>
@@ -1153,7 +1176,7 @@ parameter
         </tr>
         <tr>
             <td>
-              <span class="anchor" id="variable-rh~22"></span>
+              <span class="anchor" id="variable-rh~27"></span>
               real(kind=dp),
             </td>
               <td>public</td>
@@ -1266,7 +1289,7 @@ parameter
             <p class="text-end">
               Documentation generated by
               <a href="https://github.com/Fortran-FOSS-Programmers/ford">FORD</a>
- on 2024-03-29 08:21              </p>
+ on 2024-03-30 00:11              </p>
           </div>
         </div>
         <br>
